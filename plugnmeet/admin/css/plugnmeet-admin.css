@@ -1,0 +1,18 @@
+.plugnmeet-recordings .room-selector {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    color: green;
+}
+
+.plugnmeet-recordings .room-selector button {
+    margin-left: 20px;
+}
+
+#recordingListsFooter {
+    margin-top: 10px;
+}
+
+#recordingLists .filesize button:first-child {
+    margin-right: 10px;
+}

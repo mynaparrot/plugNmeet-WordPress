@@ -1,0 +1,253 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Plug-N-Meet web conference integration\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-24 09:12+0000\n"
+"PO-Revision-Date: 2022-02-24 09:18+0000\n"
+"Last-Translator: \n"
+"Language-Team: English (United States)\n"
+"Language: en_US\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.8; wp-5.9.1"
+
+#: admin/class-plugnmeet-settings-page.php:94
+msgid " can't be empty."
+msgstr ""
+
+#: helpers/helper.php:98
+#, fuzzy
+#| msgid "Admin only webcams"
+msgid "admin_only_webcams"
+msgstr "Admin only webcams"
+
+#: helpers/helper.php:99
+msgid "ADMIN_ONLY_WEBCAMS_DES"
+msgstr ""
+
+#: helpers/helper.php:117
+msgid "allow_chat"
+msgstr "Allow chat"
+
+#: helpers/helper.php:118
+msgid "ALLOW_CHAT_DES"
+msgstr ""
+
+#: helpers/helper.php:123
+msgid "allow_file_upload"
+msgstr "Allow upload file"
+
+#: helpers/helper.php:124
+msgid "ALLOW_FILE_UPLOAD_DES"
+msgstr ""
+
+#: helpers/helper.php:74
+msgid "allow_recording"
+msgstr "Allow recording"
+
+#: helpers/helper.php:75
+msgid "ALLOW_RECORDING_DES"
+msgstr ""
+
+#: helpers/helper.php:80
+msgid "allow_rtmp"
+msgstr "Allow RTMP"
+
+#: helpers/helper.php:81
+msgid "ALLOW_RTMP_DES"
+msgstr ""
+
+#: helpers/helper.php:68
+msgid "allow_screen_share"
+msgstr "Allow screen share"
+
+#: helpers/helper.php:69
+msgid "ALLOW_SCREEN_SHARING_DES"
+msgstr ""
+
+#: helpers/helper.php:93
+msgid "ALLOW_VIEW_OTHER_USERS_DES"
+msgstr ""
+
+#: helpers/helper.php:92
+msgid "allow_view_other_users_list"
+msgstr "Allow view other users' list"
+
+#: helpers/helper.php:86
+msgid "allow_view_other_webcams"
+msgstr "Allow view other webcams"
+
+#: helpers/helper.php:87
+msgid "ALLOW_VIEW_OTHER_WEBCAMS_DES"
+msgstr ""
+
+#: helpers/helper.php:56
+msgid "allow_webcams"
+msgstr "Allow webcams"
+
+#: helpers/helper.php:57
+msgid "allow_webcams_des"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:177
+msgid "Client download url"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:241
+msgid "Custom logo"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:196
+msgid "Enable Dynacast"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:205
+msgid "Enable Simulcast"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://plugin.com/plugnmeet-uri/"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.mynaparrot.com/"
+msgstr ""
+
+#. Author of the plugin
+msgid "Jibon Costa"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:168
+msgid "Livekit URL"
+msgstr ""
+
+#: helpers/helper.php:160
+msgid "lock_chat"
+msgstr "Lock chat"
+
+#: helpers/helper.php:161
+msgid "LOCK_CHAT_DES"
+msgstr ""
+
+#: helpers/helper.php:172
+msgid "lock_chat_file_share"
+msgstr "Lock chat file share"
+
+#: helpers/helper.php:173
+msgid "LOCK_CHAT_SEND_FILE_DES"
+msgstr ""
+
+#: helpers/helper.php:166
+msgid "lock_chat_send_message"
+msgstr "Lock chat send message"
+
+#: helpers/helper.php:167
+msgid "LOCK_CHAT_SEND_MESSAGE_DES"
+msgstr ""
+
+#: helpers/helper.php:142
+msgid "lock_microphone"
+msgstr "Lock Microphone"
+
+#: helpers/helper.php:143
+msgid "LOCK_MICROPHONE_DES"
+msgstr ""
+
+#: helpers/helper.php:154
+msgid "lock_screen_sharing"
+msgstr "Lock screen sharing"
+
+#: helpers/helper.php:155
+msgid "LOCK_SCREEN_SHARING_DES"
+msgstr ""
+
+#: helpers/helper.php:148
+msgid "lock_webcam"
+msgstr "Lock webcam"
+
+#: helpers/helper.php:149
+msgid "LOCK_WEBCAM_DES"
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:123
+msgid "Manage Rooms"
+msgstr ""
+
+#: helpers/helper.php:62
+msgid "mute_on_start"
+msgstr "Mute on start"
+
+#: helpers/helper.php:63
+msgid "MUTE_ON_START_DES"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:189
+msgid "Options"
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:112 admin/class-plugnmeet-admin.php:113
+msgid "Plug-N-Meet"
+msgstr ""
+
+#. Name of the plugin
+msgid "Plug-N-Meet web conference integration"
+msgstr ""
+
+#. Description of the plugin
+msgid "Plug-N-Meet web conference integration with WordPress"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:150
+msgid "plugNmeet API Key"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:159
+msgid "plugNmeet Secret"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:141
+msgid "plugNmeet Server URL"
+msgstr ""
+
+#: helpers/helper.php:201
+msgid "Room Status"
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:124
+msgid "Rooms"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:134
+msgid "Server Settings"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:105
+msgid "Setting saved"
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:133 admin/class-plugnmeet-admin.php:134
+msgid "Settings"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:214
+msgid "Stop mic track on mute"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:80
+msgid "Update"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:66
+msgid "Upload/Select image"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:232
+msgid "Webcams per page (mobile)"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:223
+msgid "Webcams per page (PC)"
+msgstr ""
