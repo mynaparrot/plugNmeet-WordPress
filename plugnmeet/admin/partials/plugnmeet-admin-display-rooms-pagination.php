@@ -1,4 +1,15 @@
 <?php
+/**
+ * Provide a admin area view for the plugin
+ *
+ * This file is used to markup the admin-facing aspects of the plugin.
+ *
+ * @link       https://www.mynaparrot.com
+ * @since      1.0.0
+ *
+ * @package    Plugnmeet
+ * @subpackage Plugnmeet/admin/partials
+ */
 
 if (!defined('PLUGNMEET_BASE_NAME')) {
     die;

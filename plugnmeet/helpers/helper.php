@@ -1,4 +1,11 @@
 <?php
+/**
+ *
+ * @since      1.0.0
+ * @package    Plugnmeet
+ * @subpackage Plugnmeet/helpers
+ * @author     Jibon Costa <jibon@mynaparrot.com>
+ */
 
 if (!defined('PLUGNMEET_BASE_NAME')) {
     die;

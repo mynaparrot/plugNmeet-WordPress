@@ -1,8 +1,4 @@
 <?php
-if (!defined('PLUGNMEET_BASE_NAME')) {
-    die;
-}
-
 /**
  * Provide a admin area view for the plugin
  *
@@ -14,6 +10,11 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
  * @package    Plugnmeet
  * @subpackage Plugnmeet/admin/partials
  */
+
+if (!defined('PLUGNMEET_BASE_NAME')) {
+    die;
+}
+
 ?>
 
 <div class="wrap">

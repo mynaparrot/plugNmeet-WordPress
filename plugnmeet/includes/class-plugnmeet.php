@@ -1,20 +1,4 @@
 <?php
-if (!defined('PLUGNMEET_BASE_NAME')) {
-    die;
-}
-/**
- * The file that defines the core plugin class
- *
- * A class definition that includes attributes and functions used across both the
- * public-facing side of the site and the admin area.
- *
- * @link       https://www.mynaparrot.com
- * @since      1.0.0
- *
- * @package    Plugnmeet
- * @subpackage Plugnmeet/includes
- */
-
 /**
  * The core plugin class.
  *
@@ -29,6 +13,11 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
  * @subpackage Plugnmeet/includes
  * @author     Jibon Costa <jibon@mynaparrot.com>
  */
+
+if (!defined('PLUGNMEET_BASE_NAME')) {
+    die;
+}
+
 class Plugnmeet
 {
 

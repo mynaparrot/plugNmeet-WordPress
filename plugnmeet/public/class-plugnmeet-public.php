@@ -2,19 +2,6 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       https://www.mynaparrot.com
- * @since      1.0.0
- *
- * @package    Plugnmeet
- * @subpackage Plugnmeet/public
- */
-if (!defined('PLUGNMEET_BASE_NAME')) {
-    die;
-}
-
-/**
- * The public-facing functionality of the plugin.
- *
  * Defines the plugin name, version, and two hooks to
  * enqueue the public-facing stylesheet and JavaScript.
  * As you add hooks and methods, update this description.
@@ -23,6 +10,10 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
  * @subpackage Plugnmeet/public
  * @author     Jibon Costa <jibon@mynaparrot.com>
  */
+if (!defined('PLUGNMEET_BASE_NAME')) {
+    die;
+}
+
 class Plugnmeet_Public
 {
 
@@ -121,7 +112,7 @@ class Plugnmeet_Public
         if (!get_query_var('Plug-N-Meet-Conference')) {
             return $template;
         }
-        
+
         require plugin_dir_path(dirname(__FILE__)) . 'public/partials/plugnmeet-public-display-client.php';
 
         exit();

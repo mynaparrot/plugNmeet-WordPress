@@ -1,9 +1,4 @@
 <?php
-
-if (!defined('PLUGNMEET_BASE_NAME')) {
-    die;
-}
-
 /**
  * Provide a admin area view for the plugin
  *
@@ -15,6 +10,11 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
  * @package    Plugnmeet
  * @subpackage Plugnmeet/admin/partials
  */
+
+if (!defined('PLUGNMEET_BASE_NAME')) {
+    die;
+}
+
 ?>
 <div class="wrap">
     <h1 class="wp-heading-inline"><?php echo __("Rooms", "plugnmeet") ?></h1>

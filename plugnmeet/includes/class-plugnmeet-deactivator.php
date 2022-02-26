@@ -1,17 +1,4 @@
 <?php
-if (!defined('PLUGNMEET_BASE_NAME')) {
-    die;
-}
-/**
- * Fired during plugin deactivation
- *
- * @link       https://www.mynaparrot.com
- * @since      1.0.0
- *
- * @package    Plugnmeet
- * @subpackage Plugnmeet/includes
- */
-
 /**
  * Fired during plugin deactivation.
  *
@@ -23,6 +10,11 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
  * @subpackage Plugnmeet/includes
  * @author     Jibon Costa <jibon@mynaparrot.com>
  */
+
+if (!defined('PLUGNMEET_BASE_NAME')) {
+    die;
+}
+
 class Plugnmeet_Deactivator
 {
 

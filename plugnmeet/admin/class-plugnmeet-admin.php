@@ -2,20 +2,6 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://www.mynaparrot.com
- * @since      1.0.0
- *
- * @package    Plugnmeet
- * @subpackage Plugnmeet/admin
- */
-
-if (!defined('PLUGNMEET_BASE_NAME')) {
-    die;
-}
-
-/**
- * The admin-specific functionality of the plugin.
- *
  * Defines the plugin name, version, and two hooks to
  * enqueue the admin-facing stylesheet and JavaScript.
  * As you add hooks and methods, update this description.
@@ -24,6 +10,11 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
  * @subpackage Plugnmeet/admin
  * @author     Jibon Costa <jibon@mynaparrot.com>
  */
+
+if (!defined('PLUGNMEET_BASE_NAME')) {
+    die;
+}
+
 class Plugnmeet_Admin
 {
 

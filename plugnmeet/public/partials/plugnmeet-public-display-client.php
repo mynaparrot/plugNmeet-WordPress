@@ -1,4 +1,13 @@
 <?php
+/**
+ *
+ * @link       https://www.mynaparrot.com
+ * @since      1.0.0
+ *
+ * @package    Plugnmeet
+ * @subpackage Plugnmeet/public/partials
+ */
+
 $params = (object)get_option("plugnmeet_settings");
 $clientPath = PLUGNMEET_ROOT_PATH . "/public/client/dist/assets";
 

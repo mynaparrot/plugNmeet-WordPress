@@ -1,19 +1,4 @@
 <?php
-
-if (!defined('PLUGNMEET_BASE_NAME')) {
-    die;
-}
-
-/**
- * Fired during plugin activation
- *
- * @link       https://www.mynaparrot.com
- * @since      1.0.0
- *
- * @package    Plugnmeet
- * @subpackage Plugnmeet/includes
- */
-
 /**
  * Fired during plugin activation.
  *
@@ -25,6 +10,11 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
  * @subpackage Plugnmeet/includes
  * @author     Jibon Costa <jibon@mynaparrot.com>
  */
+
+if (!defined('PLUGNMEET_BASE_NAME')) {
+    die;
+}
+
 class Plugnmeet_Activator
 {
 
@@ -96,7 +86,7 @@ class Plugnmeet_Activator
           UNIQUE KEY `room_id` (`room_id`),
           KEY `published` (`published`)
         ) {$charset_collate};";
-        
+
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
         dbDelta($sql);
     }

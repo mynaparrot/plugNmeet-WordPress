@@ -1,20 +1,4 @@
 <?php
-if (!defined('PLUGNMEET_BASE_NAME')) {
-    die;
-}
-/**
- * Define the internationalization functionality
- *
- * Loads and defines the internationalization files for this plugin
- * so that it is ready for translation.
- *
- * @link       https://www.mynaparrot.com
- * @since      1.0.0
- *
- * @package    Plugnmeet
- * @subpackage Plugnmeet/includes
- */
-
 /**
  * Define the internationalization functionality.
  *
@@ -29,6 +13,11 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
  * @subpackage Plugnmeet/includes
  * @author     Jibon Costa <jibon@mynaparrot.com>
  */
+
+if (!defined('PLUGNMEET_BASE_NAME')) {
+    die;
+}
+
 class Plugnmeet_I18n
 {
 
