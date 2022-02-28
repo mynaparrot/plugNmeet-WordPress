@@ -91,6 +91,15 @@ class Plugnmeet_Admin
         wp_localize_script($this->plugin_name, 'ajax_admin', $script);
     }
 
+    public function register_plugin_update()
+    {
+        if (!class_exists("Plugnmeet_Update")) {
+            require plugin_dir_path(dirname(__FILE__)) . 'admin/class-plugnmeet-update.php';
+        }
+        
+        new Plugnmeet_Update($this->version, $this->plugin_name);
+    }
+
     public function addMenuPages($hook_suffix)
     {
         if (!class_exists("Plugnmeet_MenusPages")) {
