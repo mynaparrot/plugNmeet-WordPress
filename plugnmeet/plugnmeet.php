@@ -17,7 +17,7 @@
  * Description:       Plug-N-Meet web conference integration with WordPress
  * Version:           1.0.0
  * Author:            Jibon Costa
- * Requires at least: 1.0.0
+ * Requires at least: 5.1
  * Requires PHP:      7.0.0
  * Tested up to:      5.9.1
  * Author URI:        https://www.mynaparrot.com/
