@@ -19,7 +19,7 @@
  * Author:            Jibon Costa
  * Requires at least: 1.0.0
  * Requires PHP:      7.0.0
- * Tested up to:      4.9.99
+ * Tested up to:      5.9.1
  * Author URI:        https://www.mynaparrot.com/
  * License:           GPL-2.0+
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.txt
