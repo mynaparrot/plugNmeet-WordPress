@@ -8,13 +8,17 @@
  * @subpackage Plugnmeet/public/partials
  */
 
+if (!defined('PLUGNMEET_BASE_NAME')) {
+    die;
+}
+
 $params = (object)get_option("plugnmeet_settings");
 $clientPath = PLUGNMEET_ROOT_PATH . "/public/client/dist/assets";
 
 $jsFiles = preg_grep('~\.(js)$~', scandir($clientPath . "/js", SCANDIR_SORT_DESCENDING));
 $cssFiles = preg_grep('~\.(css)$~', scandir($clientPath . "/css", SCANDIR_SORT_DESCENDING));
 
-$path = get_site_url() . "/wp-content/plugins/plugnmeet/public/client/dist/assets";
+$path = plugins_url('public/client/dist/assets', PLUGNMEET_BASE_NAME);
 $jsTag = "";
 foreach ($jsFiles as $file) {
     $jsTag .= '<script src="' . $path . '/js/' . $file . '" defer="defer"></script>' . "\n\t";
@@ -36,7 +40,7 @@ if ($params->logo) {
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title><?php echo $_GET['room_title']; ?></title>
+    <title><?php echo esc_html($_GET['room_title']); ?></title>
     <?php echo $cssTag . $jsTag; ?>
 
     <script type="text/javascript">

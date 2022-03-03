@@ -13,6 +13,26 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
 
 class PlugnmeetHelper
 {
+    private static $allowedHtml = array(
+        'select' => array(
+            'id' => array(),
+            'name' => array(),
+            'value' => array(),
+            'class' => array(),
+        ),
+        'option' => array(
+            'value' => array(),
+            'selected' => array(),
+        ),
+        'tr' => array(),
+        'th' => array(
+            'scope' => array()
+        ),
+        'td' => array(
+            'scope' => array()
+        )
+    );
+
     public static function secureRandomKey(int $length = 36): string
     {
         $keyspace = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -37,26 +57,22 @@ class PlugnmeetHelper
                 if (!empty($data)) {
                     if ($option == $data[$key]) {
                         $selected = "selected";
-                    } else {
-                        /*if($option == $item["selected"]){
-                            $selected = "selected";
-                        }*/
                     }
                 } else {
                     if ($option == $item["selected"]) {
                         $selected = "selected";
                     }
                 }
-                $html .= "<option value=\"{$option}\" {$selected}>{$option}</option>";
+                $html .= '<option value="' . esc_attr($option) . '" ' . $selected . '>' . esc_attr($option) . '</option>';
             }
 
             $html .= '</select></td></tr>';
         }
 
-        return $html;
+        return wp_kses($html, self::$allowedHtml);
     }
 
-    public static function getRoomFeatures($room_metadata)
+    public static function getRoomFeatures($room_features)
     {
         $roomFeatures = array(
             "allow_webcams" => array(
@@ -110,14 +126,14 @@ class PlugnmeetHelper
         );
 
         $data = [];
-        if (isset($room_metadata->room_features)) {
-            $data = (array)$room_metadata->room_metadata->room_features;
+        if (!empty($room_features)) {
+            $data = $room_features;
         }
 
         return self::formatHtml($roomFeatures, "room_features", $data);
     }
 
-    public static function getChatFeatures($room_metadata)
+    public static function getChatFeatures($chat_features)
     {
         $chatFeatures = array(
             "allow_chat" => array(
@@ -135,14 +151,14 @@ class PlugnmeetHelper
         );
 
         $data = [];
-        if (isset($room_metadata->chat_features)) {
-            $data = (array)$room_metadata->chat_features;
+        if (!empty($chat_features)) {
+            $data = $chat_features;
         }
 
         return self::formatHtml($chatFeatures, "chat_features", $data);
     }
 
-    public static function getDefaultLockSettings($room_metadata)
+    public static function getDefaultLockSettings($default_lock_settings)
     {
         $defaultLockSettings = array(
             "lock_microphone" => array(
@@ -184,8 +200,8 @@ class PlugnmeetHelper
         );
 
         $data = [];
-        if (isset($room_metadata->default_lock_settings)) {
-            $data = (array)$room_metadata->default_lock_settings;
+        if (!empty($default_lock_settings)) {
+            $data = (array)$default_lock_settings;
         }
 
         return self::formatHtml($defaultLockSettings, "default_lock_settings", $data);

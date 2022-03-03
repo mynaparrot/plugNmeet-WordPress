@@ -22,8 +22,11 @@
                 if (data.status) {
                     status.addClass("alert-success");
                     status.html("Redirecting...");
+
                     window.open(data.url, "_blank");
+
                     $("#room-password").val("")
+                    status.html("");
                 } else {
                     status.addClass("alert-danger");
                     status.html(data.msg);

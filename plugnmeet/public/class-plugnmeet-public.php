@@ -278,7 +278,7 @@ class Plugnmeet_Public
             if (!isset($_SESSION['PLUG_N_MEET_USER_ID'])) {
                 $_SESSION['PLUG_N_MEET_USER_ID'] = $connect->getUUID();
             }
-            $useId = $_SESSION['PLUG_N_MEET_USER_ID'];
+            $useId = esc_attr($_SESSION['PLUG_N_MEET_USER_ID']);
         }
 
         if ($isRoomActive) {
@@ -296,5 +296,4 @@ class Plugnmeet_Public
 
         wp_send_json($output);
     }
-
 }

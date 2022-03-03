@@ -4,7 +4,7 @@ Donate link: https://www.mynaparrot.com/
 Tags: mynaparrot, web conference, plugnmeet
 Requires at least: 5.1
 Tested up to: 5.9.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires PHP: 7.0
@@ -34,5 +34,9 @@ After create room save it. Now enter to re-edit. You'll get shortcode there.
 
 == Changelog ==
 
+= 1.0.1 =
+* But fixed & improvement
+
 = 1.0.0 =
 * Initial release
+

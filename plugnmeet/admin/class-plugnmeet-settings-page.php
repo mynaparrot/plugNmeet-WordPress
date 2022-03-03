@@ -15,6 +15,26 @@ class Plugnmeet_SettingsPage
 {
     private $hasError = false;
     private $show = false;
+    private $allowedHtml = array(
+        'input' => array(
+            'type' => array(),
+            'id' => array(),
+            'name' => array(),
+            'value' => array(),
+            'class' => array(),
+            'style' => array(),
+        ),
+        'select' => array(
+            'id' => array(),
+            'name' => array(),
+            'value' => array(),
+            'class' => array(),
+        ),
+        'option' => array(
+            'value' => array(),
+            'selected' => array(),
+        ),
+    );
 
     public function __construct()
     {
@@ -24,19 +44,19 @@ class Plugnmeet_SettingsPage
     {
         $options = get_option('plugnmeet_settings');
 
-        $id = isset($args['id']) ? $args['id'] : '';
-        $required = isset($args['required']) ? $args['required'] : '';
-        $value = isset($options[$id]) ? sanitize_text_field($options[$id]) : $args['default'];
+        $id = isset($args['id']) ? esc_attr($args['id']) : '';
+        $required = isset($args['required']) ? esc_attr($args['required']) : '';
+        $value = isset($options[$id]) ? esc_attr($options[$id]) : $args['default'];
 
-        echo '<input id="' . $args['id'] . '" required="' . $required . '" name="plugnmeet_settings[' . $id . ']" type="text" size="40" value="' . $value . '">';
+        echo '<input id="' . $id . '" required="' . $required . '" name="plugnmeet_settings[' . $id . ']" type="text" size="40" value="' . $value . '">';
     }
 
     public function selectCallBack($args)
     {
         $options = get_option('plugnmeet_settings');
 
-        $id = isset($args['id']) ? $args['id'] : '';
-        $value = isset($options[$id]) ? sanitize_text_field($options[$id]) : "true";
+        $id = isset($args['id']) ? esc_attr($args['id']) : '';
+        $value = isset($options[$id]) ? esc_attr($options[$id]) : "true";
         $selectOptions = array("true", "false");
 
         $html = '<select id="' . $args['id'] . '" name="plugnmeet_settings[' . $id . ']" value="' . $value . '">';
@@ -50,44 +70,47 @@ class Plugnmeet_SettingsPage
         }
 
         $html .= '</select>';
-        echo $html;
+
+        echo wp_kses($html, $this->allowedHtml);
     }
 
     public function numberCallBack($args)
     {
         $options = get_option('plugnmeet_settings');
 
-        $id = isset($args['id']) ? $args['id'] : '';
-        $required = isset($args['required']) ? $args['required'] : '';
-        $value = isset($options[$id]) ? sanitize_text_field($options[$id]) : $args['default'];
+        $id = isset($args['id']) ? esc_attr($args['id']) : '';
+        $required = isset($args['required']) ? esc_attr($args['required']) : '';
+        $value = isset($options[$id]) ? esc_attr($options[$id]) : $args['default'];
 
-        echo '<input id="' . $args['id'] . '" required="' . $required . '" name="plugnmeet_settings[' . $id . ']" type="number" size="10" value="' . $value . '">';
+        echo '<input id="' . $id . '" required="' . $required . '" name="plugnmeet_settings[' . $id . ']" type="number" size="10" value="' . $value . '">';
     }
 
     public function mediaCallBack()
     {
         $options = get_option('plugnmeet_settings');
         $id = 'logo';
-        $value = isset($options[$id]) ? sanitize_text_field($options[$id]) : "";
+        $value = isset($options[$id]) ? esc_attr($options[$id]) : "";
 
         $html = '<input style="margin-right: 20px;" id="upload_logo" type="text" size="36" name="plugnmeet_settings[' . $id . ']" value="' . $value . '" />';
         $html .= '<input id="upload_logo_button" class="button" type="button" value="' . __('Upload/Select image', 'plugnmeet') . '" />';
 
-        echo $html;
+
+        echo wp_kses($html, $this->allowedHtml);
     }
 
     public function clientUpdateCallBack($args)
     {
         $options = get_option('plugnmeet_settings');
 
-        $id = isset($args['id']) ? $args['id'] : '';
-        $required = isset($args['required']) ? $args['required'] : '';
-        $value = isset($options[$id]) ? sanitize_text_field($options[$id]) : $args['default'];
+        $id = isset($args['id']) ? esc_attr($args['id']) : '';
+        $required = isset($args['required']) ? esc_attr($args['required']) : '';
+        $value = isset($options[$id]) ? esc_attr($options[$id]) : $args['default'];
 
-        $html = '<input style="margin-right: 20px;" id="' . $args['id'] . '" required="' . $required . '" name="plugnmeet_settings[' . $id . ']" type="text" size="40" value="' . $value . '">';
+        $html = '<input style="margin-right: 20px;" id="' . $id . '" required="' . $required . '" name="plugnmeet_settings[' . $id . ']" type="text" size="40" value="' . $value . '">';
         $html .= '<input id="update_client_button" class="button" type="button" value="' . __('Update', 'plugnmeet') . '" />';
 
-        echo $html;
+
+        echo wp_kses($html, $this->allowedHtml);
     }
 
     public function validation($input)
@@ -124,7 +147,6 @@ class Plugnmeet_SettingsPage
 
     public function plugnmeet_register_settings()
     {
-
         register_setting(
             'plugnmeet_settings',
             'plugnmeet_settings',

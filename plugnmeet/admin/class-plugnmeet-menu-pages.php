@@ -29,7 +29,7 @@ class Plugnmeet_MenusPages
             }
         } else {
             $limit = $this->limitPerPage;
-            $rooms = $this->getRooms($limit);
+            $rooms = $this->getRooms(sanitize_text_field($limit));
             $totalNumRooms = $this->getTotalNumRooms();
             require plugin_dir_path(dirname(__FILE__)) . 'admin/partials/plugnmeet-admin-display-rooms.php';
         }
@@ -73,7 +73,7 @@ class Plugnmeet_MenusPages
     {
         $data = new stdClass();
         if (isset($_GET['id'])) {
-            $result = $this->getRoomById($_GET['id']);
+            $result = $this->getRoomById(sanitize_text_field($_GET['id']));
             if ($result) {
                 $data = $result;
             }
@@ -134,7 +134,7 @@ class Plugnmeet_MenusPages
         $from = 0;
         $paged = isset($_GET['paged']) ? sanitize_text_field($_GET['paged']) : 0;
         if ($paged > 1) {
-            $from = ($_GET['paged'] - 1) * $limit;
+            $from = ($paged - 1) * $limit;
         }
 
         $search_term = isset($_GET['search_term']) ? sanitize_text_field($_GET['search_term']) : "";

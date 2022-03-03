@@ -14,7 +14,6 @@
 if (!defined('PLUGNMEET_BASE_NAME')) {
     die;
 }
-
 ?>
 
 <div class="wrap">
@@ -57,7 +56,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
 
             </tbody>
         </table>
-        <input type="hidden" name="id" value="<?php echo $fields_values['id']; ?>">
+        <input type="hidden" name="id" value="<?php echo esc_attr($fields_values['id']); ?>">
         <input type="hidden" name="action" value="plugnmeet_save_room_data">
         <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('save_room_data') ?>">
         <button class="button button-primary" type="submit"><?php echo __("Submit", "plugnmeet") ?></button>

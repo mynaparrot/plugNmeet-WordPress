@@ -21,7 +21,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
         <select name="roomId" id="plugnmeet-selected-roomId">
             <option value=""><?php echo __("Select room", "plugnmeet") ?></option>
             <?php foreach ($rooms as $room): ?>
-                <option value="<?php echo $room->room_id; ?>"><?php echo $room->room_title; ?></option>
+                <option value="<?php echo esc_attr($room->room_id); ?>"><?php echo esc_html($room->room_title); ?></option>
             <?php endforeach; ?>
         </select>
         <button class="button button-primary"
@@ -48,7 +48,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
         </thead>
         <tbody id="recordingListsBody"></tbody>
     </table>
-    <div id="recordingListsFooter" class="alignright actions" style="display: none">Holla</div>
+    <div id="recordingListsFooter" class="alignright actions" style="display: none"></div>
 </div>
 
 <script type="text/javascript">

@@ -91,15 +91,6 @@ class Plugnmeet_Admin
         wp_localize_script($this->plugin_name, 'ajax_admin', $script);
     }
 
-    public function register_plugin_update()
-    {
-        if (!class_exists("Plugnmeet_Update")) {
-            require plugin_dir_path(dirname(__FILE__)) . 'admin/class-plugnmeet-update.php';
-        }
-        
-        new Plugnmeet_Update($this->version, $this->plugin_name);
-    }
-
     public function addMenuPages($hook_suffix)
     {
         if (!class_exists("Plugnmeet_MenusPages")) {
@@ -156,7 +147,6 @@ class Plugnmeet_Admin
 
         $settingPage = new Plugnmeet_SettingsPage();
         $settingPage->plugnmeet_register_settings();
-
     }
 
     public function update_client()
@@ -170,26 +160,20 @@ class Plugnmeet_Admin
         }
 
         $params = (object)get_option("plugnmeet_settings");
+        $response = wp_remote_get($params->client_download_url);
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $params->client_download_url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-        $data = curl_exec($ch);
-        $error = curl_error($ch);
-        $errno = curl_errno($ch);
-        curl_close($ch);
-
-        if (0 !== $errno) {
-            $output->msg = $errno . ": " . $error;
-            return $output;
+        if (is_wp_error($response)) {
+            $output->msg = $response->errors;
+            wp_send_json($output);
         }
 
+        $data = wp_remote_retrieve_body($response);
         $clientZipFile = get_temp_dir() . "client.zip";
         $file = fopen($clientZipFile, "w+");
+
         if (!$file) {
             $output->msg = __("Can't write file", "plugnmeet");
-            return $output;
+            wp_send_json($output);
         }
         fputs($file, $data);
         fclose($file);
@@ -208,7 +192,7 @@ class Plugnmeet_Admin
             $output->status = true;
             $output->msg = __("Updated client successfully", "plugnmeet");
         } else {
-            $output->msg = __("Uzip failed", "plugnmeet");
+            $output->msg = __("Unzip failed", "plugnmeet");
         }
 
         wp_send_json($output);
@@ -251,7 +235,7 @@ class Plugnmeet_Admin
             require plugin_dir_path(dirname(__FILE__)) . 'helpers/helper.php';
         }
 
-        // for preventing display error. Room id should be unique always
+        // for preventing display error. Room id should be always unique
         $room_id = "";
 
         $id = isset($_POST['id']) ? sanitize_text_field($_POST['id']) : 0;
@@ -261,10 +245,12 @@ class Plugnmeet_Admin
         $attendee_pass = isset($_POST['attendee_pass']) ? sanitize_text_field($_POST['attendee_pass']) : "";
         $welcome_message = isset($_POST['welcome_message']) ? sanitize_textarea_field($_POST['welcome_message']) : "";
         $max_participants = isset($_POST['max_participants']) ? sanitize_text_field($_POST['max_participants']) : 0;
+        $published = isset($_POST['published']) ? sanitize_text_field($_POST['published']) : 1;
+
         $room_features = isset($_POST['room_features']) ? $_POST['room_features'] : array();
         $chat_features = isset($_POST['chat_features']) ? $_POST['chat_features'] : array();
         $default_lock_settings = isset($_POST['default_lock_settings']) ? $_POST['default_lock_settings'] : array();
-        $published = isset($_POST['published']) ? sanitize_text_field($_POST['published']) : 1;
+
         if (empty($moderator_pass)) {
             $moderator_pass = PlugnmeetHelper::secureRandomKey(10);
         }
@@ -276,15 +262,14 @@ class Plugnmeet_Admin
         if ($attendee_pass === $moderator_pass) {
             $output->msg = __("attendee & moderator password can't be same", 'plugnmeet');
             wp_send_json($output);
-            exit();
         }
 
         if (!$id) {
             if (!class_exists('plugNmeetConnect')) {
                 require plugin_dir_path(dirname(__FILE__)) . 'helpers/plugNmeetConnect.php';
             }
-            $options = get_option("plugnmeet_settings");
-            $connect = new plugNmeetConnect((object)$options);
+            $options = (object)get_option("plugnmeet_settings");
+            $connect = new plugNmeetConnect($options);
             $room_id = $connect->getUUID();
         }
 
@@ -363,7 +348,7 @@ class Plugnmeet_Admin
         $id = isset($_POST['id']) ? sanitize_text_field($_POST['id']) : 0;
 
         if (!$id) {
-            $output->msg = __("no id was sent", 'plugnmeet');
+            $output->msg = __("No id was sent", 'plugnmeet');
             wp_send_json($output);
         }
 
@@ -400,6 +385,7 @@ class Plugnmeet_Admin
         $from = isset($_POST['from']) ? sanitize_text_field($_POST['from']) : 0;
         $limit = isset($_POST['limit']) ? sanitize_text_field($_POST['limit']) : 20;
         $orderBy = isset($_POST['order_by']) ? sanitize_text_field($_POST['order_by']) : "DESC";
+        
         if (empty($roomId)) {
             $output->msg = __("room id required", 'plugnmeet');
             wp_send_json($output);

@@ -16,7 +16,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
 }
 
 $totalPages = ceil($totalNumRooms / $limit);
-$currentPage = isset($_GET['paged']) ? $_GET['paged'] : 1;
+$currentPage = isset($_GET['paged']) ? sanitize_text_field($_GET['paged']) : 1;
 
 $showNext = false;
 if ($totalPages > 1 && $currentPage < $totalPages) {
@@ -29,7 +29,7 @@ if ($currentPage > 1) {
 }
 $url = "admin.php?page=plugnmeet";
 if (isset($_GET['search_term'])) {
-    $url .= "&search_term=" . $_GET['search_term'];
+    $url .= "&search_term=" . sanitize_text_field($_GET['search_term']);
 }
 ?>
 
