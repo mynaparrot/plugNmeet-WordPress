@@ -12,6 +12,17 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
     die;
 }
 
+$allowedHtml = array(
+    'link' => array(
+        'href' => array(),
+        'rel' => array(),
+    ),
+    'script' => array(
+        'src' => array(),
+        'defer' => array(),
+    ),
+);
+
 $params = (object)get_option("plugnmeet_settings");
 $clientPath = PLUGNMEET_ROOT_PATH . "/public/client/dist/assets";
 
@@ -30,10 +41,9 @@ foreach ($cssFiles as $file) {
 }
 $customLogo = "";
 if ($params->logo) {
-    $customLogo = 'window.CUSTOM_LOGO = "' . $params->logo . '";';
+    $customLogo = 'window.CUSTOM_LOGO = "' . esc_url_raw($params->logo) . '";';
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,12 +51,12 @@ if ($params->logo) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title><?php echo esc_html($_GET['room_title']); ?></title>
-    <?php echo $cssTag . $jsTag; ?>
+    <?php echo wp_kses($cssTag, $allowedHtml) . wp_kses($jsTag, $allowedHtml); ?>
 
     <script type="text/javascript">
-        window.PLUG_N_MEET_SERVER_URL = "<?php echo $params->plugnmeet_server_url; ?>";
-        window.LIVEKIT_SERVER_URL = "<?php echo $params->livekit_server_url; ?>";
-        window.STATIC_ASSETS_PATH = "<?php echo $path; ?>";
+        window.PLUG_N_MEET_SERVER_URL = "<?php echo esc_url_raw($params->plugnmeet_server_url); ?>";
+        window.LIVEKIT_SERVER_URL = "<?php echo esc_url_raw($params->livekit_server_url); ?>";
+        window.STATIC_ASSETS_PATH = "<?php echo esc_url_raw($path); ?>";
         <?php echo $customLogo; ?>
 
         Window.ENABLE_DYNACAST = <?php echo filter_var($params->enable_dynacast, FILTER_VALIDATE_BOOLEAN); ?>;
@@ -60,4 +70,3 @@ if ($params->logo) {
 <div id="plugNmeet-app"></div>
 </body>
 </html>
-

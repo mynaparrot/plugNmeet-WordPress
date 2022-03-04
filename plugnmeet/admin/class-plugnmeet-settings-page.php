@@ -48,7 +48,8 @@ class Plugnmeet_SettingsPage
         $required = isset($args['required']) ? esc_attr($args['required']) : '';
         $value = isset($options[$id]) ? esc_attr($options[$id]) : $args['default'];
 
-        echo '<input id="' . $id . '" required="' . $required . '" name="plugnmeet_settings[' . $id . ']" type="text" size="40" value="' . $value . '">';
+        $html = '<input id="' . $id . '" required="' . $required . '" name="plugnmeet_settings[' . $id . ']" type="text" size="40" value="' . $value . '">';
+        echo wp_kses($html, $this->allowedHtml);
     }
 
     public function selectCallBack($args)
@@ -82,7 +83,8 @@ class Plugnmeet_SettingsPage
         $required = isset($args['required']) ? esc_attr($args['required']) : '';
         $value = isset($options[$id]) ? esc_attr($options[$id]) : $args['default'];
 
-        echo '<input id="' . $id . '" required="' . $required . '" name="plugnmeet_settings[' . $id . ']" type="number" size="10" value="' . $value . '">';
+        $html = '<input id="' . $id . '" required="' . $required . '" name="plugnmeet_settings[' . $id . ']" type="number" size="10" value="' . $value . '">';
+        echo wp_kses($html, $this->allowedHtml);
     }
 
     public function mediaCallBack()
@@ -93,7 +95,6 @@ class Plugnmeet_SettingsPage
 
         $html = '<input style="margin-right: 20px;" id="upload_logo" type="text" size="36" name="plugnmeet_settings[' . $id . ']" value="' . $value . '" />';
         $html .= '<input id="upload_logo_button" class="button" type="button" value="' . __('Upload/Select image', 'plugnmeet') . '" />';
-
 
         echo wp_kses($html, $this->allowedHtml);
     }
@@ -108,8 +109,7 @@ class Plugnmeet_SettingsPage
 
         $html = '<input style="margin-right: 20px;" id="' . $id . '" required="' . $required . '" name="plugnmeet_settings[' . $id . ']" type="text" size="40" value="' . $value . '">';
         $html .= '<input id="update_client_button" class="button" type="button" value="' . __('Update', 'plugnmeet') . '" />';
-
-
+        
         echo wp_kses($html, $this->allowedHtml);
     }
 
