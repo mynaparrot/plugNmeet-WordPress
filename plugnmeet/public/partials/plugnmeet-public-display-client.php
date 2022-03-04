@@ -62,8 +62,8 @@ if ($params->logo) {
         Window.ENABLE_DYNACAST = <?php echo filter_var($params->enable_dynacast, FILTER_VALIDATE_BOOLEAN); ?>;
         window.ENABLE_SIMULCAST = <?php echo filter_var($params->enable_simulcast, FILTER_VALIDATE_BOOLEAN); ?>;
         window.STOP_MIC_TRACK_ON_MUTE = <?php echo filter_var($params->stop_mic_track_on_mute, FILTER_VALIDATE_BOOLEAN); ?>;
-        window.NUMBER_OF_WEBCAMS_PER_PAGE_PC = <?php echo (int)$params->number_of_webcams_per_page_pc; ?>;
-        window.NUMBER_OF_WEBCAMS_PER_PAGE_MOBILE = <?php echo (int)$params->number_of_webcams_per_page_mobile; ?>;
+        window.NUMBER_OF_WEBCAMS_PER_PAGE_PC = <?php echo (int)esc_attr($params->number_of_webcams_per_page_pc); ?>;
+        window.NUMBER_OF_WEBCAMS_PER_PAGE_MOBILE = <?php echo (int)esc_attr($params->number_of_webcams_per_page_mobile); ?>;
     </script>
 </head>
 <body>
