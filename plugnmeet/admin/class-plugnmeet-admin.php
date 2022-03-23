@@ -160,7 +160,9 @@ class Plugnmeet_Admin
         }
 
         $params = (object)get_option("plugnmeet_settings");
-        $response = wp_remote_get($params->client_download_url);
+        $response = wp_remote_get($params->client_download_url, array(
+            "timeout" => 60
+        ));
 
         if (is_wp_error($response)) {
             $output->msg = $response->errors;
@@ -249,6 +251,8 @@ class Plugnmeet_Admin
 
         $room_features = isset($_POST['room_features']) ? $_POST['room_features'] : array();
         $chat_features = isset($_POST['chat_features']) ? $_POST['chat_features'] : array();
+        $sharedNotePad_features = isset($_POST['shared_note_pad_features']) ? $_POST['shared_note_pad_features'] : array();
+        $whiteboard_features = isset($_POST['whiteboard_features']) ? $_POST['whiteboard_features'] : array();
         $default_lock_settings = isset($_POST['default_lock_settings']) ? $_POST['default_lock_settings'] : array();
 
         if (empty($moderator_pass)) {
@@ -276,6 +280,8 @@ class Plugnmeet_Admin
         $room_metadata = array(
             'room_features' => $room_features,
             'chat_features' => $chat_features,
+            'shared_note_pad_features' => $sharedNotePad_features,
+            'whiteboard_features' => $whiteboard_features,
             'default_lock_settings' => $default_lock_settings
         );
 
@@ -385,7 +391,7 @@ class Plugnmeet_Admin
         $from = isset($_POST['from']) ? sanitize_text_field($_POST['from']) : 0;
         $limit = isset($_POST['limit']) ? sanitize_text_field($_POST['limit']) : 20;
         $orderBy = isset($_POST['order_by']) ? sanitize_text_field($_POST['order_by']) : "DESC";
-        
+
         if (empty($roomId)) {
             $output->msg = __("room id required", 'plugnmeet');
             wp_send_json($output);

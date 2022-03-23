@@ -42,6 +42,24 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
             </tbody>
         </table>
 
+        <h2><?php echo __("Shared notepad features", "plugnmeet") ?></h2>
+
+        <table class="form-table" role="presentation">
+            <tbody>
+            <?php echo PlugnmeetHelper::getSharedNotePadFeatures($fields_values['shared_note_pad_features']); ?>
+
+            </tbody>
+        </table>
+
+        <h2><?php echo __("Whiteboard features", "plugnmeet") ?></h2>
+
+        <table class="form-table" role="presentation">
+            <tbody>
+            <?php echo PlugnmeetHelper::getWhiteboardFeatures($fields_values['whiteboard_features']); ?>
+
+            </tbody>
+        </table>
+
         <h2><?php echo __("Default lock settings", "plugnmeet") ?></h2>
 
         <table class="form-table" role="presentation">

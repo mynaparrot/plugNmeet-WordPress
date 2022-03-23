@@ -105,10 +105,14 @@ class Plugnmeet_MenusPages
             $room_metadata = json_decode($data->room_metadata, true);
             $fields_values['room_features'] = $room_metadata['room_features'];
             $fields_values['chat_features'] = $room_metadata['chat_features'];
+            $fields_values['shared_note_pad_features'] = $room_metadata['shared_note_pad_features'];
+            $fields_values['whiteboard_features'] = $room_metadata['whiteboard_features'];
             $fields_values['default_lock_settings'] = $room_metadata['default_lock_settings'];
         } else {
             $fields_values['room_features'] = [];
             $fields_values['chat_features'] = [];
+            $fields_values['shared_note_pad_features'] = [];
+            $fields_values['whiteboard_features'] = [];
             $fields_values['default_lock_settings'] = [];
         }
 

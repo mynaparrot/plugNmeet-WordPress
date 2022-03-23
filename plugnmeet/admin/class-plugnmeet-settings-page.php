@@ -109,7 +109,7 @@ class Plugnmeet_SettingsPage
 
         $html = '<input style="margin-right: 20px;" id="' . $id . '" required="' . $required . '" name="plugnmeet_settings[' . $id . ']" type="text" size="40" value="' . $value . '">';
         $html .= '<input id="update_client_button" class="button" type="button" value="' . __('Update', 'plugnmeet') . '" />';
-        
+
         echo wp_kses($html, $this->allowedHtml);
     }
 
@@ -172,7 +172,7 @@ class Plugnmeet_SettingsPage
             [$this, 'textCallBack'],
             'plugnmeet-settings',
             'plugnmeet_settings_config_section',
-            ['id' => 'plugnmeet_server_url', 'required' => "required"]
+            ['id' => 'plugnmeet_server_url', 'required' => "required", 'default' => "https://demo.plugnmeet.com"]
         );
 
         add_settings_field(
@@ -181,7 +181,7 @@ class Plugnmeet_SettingsPage
             [$this, 'textCallBack'],
             'plugnmeet-settings',
             'plugnmeet_settings_config_section',
-            ['id' => 'plugnmeet_api_key', 'required' => "required"]
+            ['id' => 'plugnmeet_api_key', 'required' => "required", 'default' => "plugnmeet"]
         );
 
         add_settings_field(
@@ -190,7 +190,7 @@ class Plugnmeet_SettingsPage
             [$this, 'textCallBack'],
             'plugnmeet-settings',
             'plugnmeet_settings_config_section',
-            ['id' => 'plugnmeet_secret', 'required' => "required"]
+            ['id' => 'plugnmeet_secret', 'required' => "required", 'default' => "zumyyYWqv7KR2kUqvYdq4z4sXg7XTBD2ljT6"]
         );
 
         add_settings_field(
@@ -199,7 +199,7 @@ class Plugnmeet_SettingsPage
             [$this, 'textCallBack'],
             'plugnmeet-settings',
             'plugnmeet_settings_config_section',
-            ['id' => 'livekit_server_url', 'required' => "required"]
+            ['id' => 'livekit_server_url', 'required' => "required", 'default' => "https://lk.plugnmeet.com"]
         );
 
         add_settings_field(

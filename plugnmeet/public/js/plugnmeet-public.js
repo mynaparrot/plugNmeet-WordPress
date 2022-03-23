@@ -23,10 +23,15 @@
                     status.addClass("alert-success");
                     status.html("Redirecting...");
 
-                    window.open(data.url, "_blank");
+                    const windowOpen = window.open(data.url, "_blank");
+                    if (!windowOpen) {
+                        setTimeout(() => {
+                            window.location.href = url
+                        }, 2000)
+                    }
 
                     $("#room-password").val("")
-                    status.html("");
+                    status.hide();
                 } else {
                     status.addClass("alert-danger");
                     status.html(data.msg);
