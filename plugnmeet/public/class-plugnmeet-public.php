@@ -45,6 +45,11 @@ class Plugnmeet_Public
     private $version;
 
     /**
+     * @var object
+     */
+    private $setting_params;
+
+    /**
      * Initialize the class and set its properties.
      *
      * @param string $plugin_name The name of the plugin.
@@ -58,6 +63,7 @@ class Plugnmeet_Public
         $this->plugin_name = $plugin_name;
         $this->plugin_prefix = $plugin_prefix;
         $this->version = $version;
+        $this->setting_params = (object)get_option("plugnmeet_settings");
 
     }
 
@@ -112,10 +118,112 @@ class Plugnmeet_Public
         if (!get_query_var('Plug-N-Meet-Conference')) {
             return $template;
         }
+        $id = isset($_GET['id']) ? sanitize_text_field($_GET['id']) : 0;
+        if (empty($id)) {
+            die(__("room Id is missing", 'plugnmeet'));
+        }
+
+        if (!class_exists('Plugnmeet_RoomPage')) {
+            require PLUGNMEET_ROOT_PATH . "/admin/class-plugnmeet-room-page.php";
+        }
+
+        $class = new Plugnmeet_RoomPage();
+        $roomInfo = $class->getRoomById($id);
+        $room_metadata = json_decode($roomInfo->room_metadata, true);
+
+        $custom_design_params = isset($room_metadata['custom_design']) ? $room_metadata['custom_design'] : [];
+        $jsOptions = $this->getJsOptions();
+        $customDesignCSS = $this->getCustomDesignCSS($custom_design_params);
 
         require plugin_dir_path(dirname(__FILE__)) . 'public/partials/plugnmeet-public-display-client.php';
 
         exit();
+    }
+
+    private function getJsOptions()
+    {
+        $params = $this->setting_params;
+        $assets_path = plugins_url('public/client/dist/assets', PLUGNMEET_BASE_NAME);
+
+        $customLogo = "";
+        if ($params->logo) {
+            $customLogo = 'window.CUSTOM_LOGO = "' . esc_url_raw($params->logo) . '";';
+        }
+
+        $js = 'window.PLUG_N_MEET_SERVER_URL = "' . esc_url_raw($params->plugnmeet_server_url) . '";';
+        $js .= 'window.LIVEKIT_SERVER_URL = "' . esc_url_raw($params->livekit_server_url) . '";';
+        $js .= 'window.STATIC_ASSETS_PATH = "' . esc_url_raw($assets_path) . '";';
+        $js .= $customLogo;
+        $js .= 'window.ENABLE_DYNACAST = "' . filter_var($params->enable_dynacast, FILTER_VALIDATE_BOOLEAN) . '";';
+        $js .= 'window.ENABLE_SIMULCAST = "' . filter_var($params->enable_simulcast, FILTER_VALIDATE_BOOLEAN) . '";';
+
+        $js .= 'window.STOP_MIC_TRACK_ON_MUTE = "' . filter_var($params->stop_mic_track_on_mute, FILTER_VALIDATE_BOOLEAN) . '";';
+        $js .= 'window.NUMBER_OF_WEBCAMS_PER_PAGE_PC = "' . filter_var($params->number_of_webcams_per_page_pc, FILTER_VALIDATE_INT) . '";';
+        $js .= 'window.NUMBER_OF_WEBCAMS_PER_PAGE_MOBILE = "' . filter_var($params->number_of_webcams_per_page_mobile, FILTER_VALIDATE_INT) . '";';
+
+        return $js;
+    }
+
+    private function getCustomDesignCSS($custom_design_params)
+    {
+        $custom_designs = [];
+        $params = $this->setting_params;
+        foreach ($custom_design_params as $key => $val) {
+            if (empty($val)) {
+                $custom_designs[$key] = esc_attr($params->$key);
+            } else {
+                $custom_designs[$key] = esc_attr($val);
+            }
+        }
+        $css = "";
+        if (!empty($custom_designs['primary_color'])) {
+            $css .= '.brand-color1 { color: ' . $custom_designs['primary_color'] . ';}';
+            $css .= '.text-brandColor1 { color: ' . $custom_designs['primary_color'] . ';}';
+        }
+
+        if (!empty($custom_designs['secondary_color'])) {
+            $css .= '.brand-color2 { color: ' . $custom_designs['secondary_color'] . ';}';
+            $css .= '.text-brandColor2 { color: ' . $custom_designs['secondary_color'] . ';}';
+        }
+
+        if (!empty($custom_designs['background_color'])) {
+            $css .= '.main-app-bg { 
+            background-image: none !important; 
+            background-color: ' . $custom_designs['background_color'] . ';
+            }';
+        }
+
+        if (!empty($custom_designs['background_image'])) {
+            $css .= '.main-app-bg { 
+           background-image: url("' . $custom_designs['background_image'] . '") !important;
+            }';
+        }
+
+        if (!empty($custom_designs['header_color'])) {
+            $css .= 'header#main-header { 
+            background: ' . $custom_designs['header_color'] . ';
+            }';
+        }
+
+        if (!empty($custom_designs['footer_color'])) {
+            $css .= 'footer#main-footer { 
+            background: ' . $custom_designs['footer_color'] . ';
+            }';
+        }
+
+        if (!empty($custom_designs['left_color'])) {
+            $css .= '.participants-wrapper { 
+            background: ' . $custom_designs['left_color'] . ';
+            }';
+        }
+
+        if (!empty($custom_designs['right_color'])) {
+            $css .= '.MessageModule-wrapper { 
+            background: ' . $custom_designs['right_color'] . ';
+            }';
+        }
+
+        return $css;
     }
 
     /**
@@ -179,11 +287,11 @@ class Plugnmeet_Public
 
     private function formatRoomViewForShortCode($roomId)
     {
-        if (!class_exists('Plugnmeet_MenusPages')) {
-            require PLUGNMEET_ROOT_PATH . "/admin/class-plugnmeet-menu-pages.php";
+        if (!class_exists('Plugnmeet_RoomPage')) {
+            require PLUGNMEET_ROOT_PATH . "/admin/class-plugnmeet-room-page.php";
         }
 
-        $class = new Plugnmeet_MenusPages();
+        $class = new Plugnmeet_RoomPage();
         $roomInfo = $class->getRoomById($roomId);
 
         if (!$roomInfo) {
@@ -221,11 +329,11 @@ class Plugnmeet_Public
             wp_send_json($output);
         }
 
-        if (!class_exists('Plugnmeet_MenusPages')) {
-            require PLUGNMEET_ROOT_PATH . "/admin/class-plugnmeet-menu-pages.php";
+        if (!class_exists('Plugnmeet_RoomPage')) {
+            require PLUGNMEET_ROOT_PATH . "/admin/class-plugnmeet-room-page.php";
         }
 
-        $class = new Plugnmeet_MenusPages();
+        $class = new Plugnmeet_RoomPage();
         $roomInfo = $class->getRoomById($id);
 
         if (!$roomInfo) {
@@ -285,7 +393,7 @@ class Plugnmeet_Public
             try {
                 $join = $connect->getJoinToken($roomInfo->room_id, $name, $useId, $isAdmin);
 
-                $output->url = get_site_url() . "/index.php?Plug-N-Meet-Conference=1&access_token=" . $join->token . "&room_title=" . $roomInfo->room_title;
+                $output->url = get_site_url() . "/index.php?Plug-N-Meet-Conference=1&access_token=" . $join->token . "&id=" . $id;
                 $output->status = $join->status;
                 $output->msg = $join->msg;
             } catch (Exception $e) {

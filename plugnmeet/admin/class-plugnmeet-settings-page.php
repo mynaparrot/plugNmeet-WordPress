@@ -15,6 +15,8 @@ class Plugnmeet_SettingsPage
 {
     private $hasError = false;
     private $show = false;
+    private $isRegister = false;
+
     private $allowedHtml = array(
         'input' => array(
             'type' => array(),
@@ -23,6 +25,7 @@ class Plugnmeet_SettingsPage
             'value' => array(),
             'class' => array(),
             'style' => array(),
+            'data-attached-to' => array()
         ),
         'select' => array(
             'id' => array(),
@@ -46,9 +49,10 @@ class Plugnmeet_SettingsPage
 
         $id = isset($args['id']) ? esc_attr($args['id']) : '';
         $required = isset($args['required']) ? esc_attr($args['required']) : '';
+        $className = isset($args['className']) ? esc_attr($args['className']) : '';
         $value = isset($options[$id]) ? esc_attr($options[$id]) : $args['default'];
 
-        $html = '<input id="' . $id . '" required="' . $required . '" name="plugnmeet_settings[' . $id . ']" type="text" size="40" value="' . $value . '">';
+        $html = '<input id="' . $id . '" class="' . $className . '" ' . $required . ' name="plugnmeet_settings[' . $id . ']" type="text" size="40" value="' . $value . '">';
         echo wp_kses($html, $this->allowedHtml);
     }
 
@@ -58,7 +62,7 @@ class Plugnmeet_SettingsPage
 
         $id = isset($args['id']) ? esc_attr($args['id']) : '';
         $value = isset($options[$id]) ? esc_attr($options[$id]) : "true";
-        $selectOptions = array("true", "false");
+        $selectOptions = $args['options'];
 
         $html = '<select id="' . $args['id'] . '" name="plugnmeet_settings[' . $id . ']" value="' . $value . '">';
 
@@ -87,14 +91,14 @@ class Plugnmeet_SettingsPage
         echo wp_kses($html, $this->allowedHtml);
     }
 
-    public function mediaCallBack()
+    public function mediaCallBack($args)
     {
         $options = get_option('plugnmeet_settings');
-        $id = 'logo';
+        $id = isset($args['id']) ? esc_attr($args['id']) : '';
         $value = isset($options[$id]) ? esc_attr($options[$id]) : "";
 
-        $html = '<input style="margin-right: 20px;" id="upload_logo" type="text" size="36" name="plugnmeet_settings[' . $id . ']" value="' . $value . '" />';
-        $html .= '<input id="upload_logo_button" class="button" type="button" value="' . __('Upload/Select image', 'plugnmeet') . '" />';
+        $html = '<input style="margin-right: 20px;" id="' . $id . '" type="text" size="36" name="plugnmeet_settings[' . $id . ']" value="' . $value . '" />';
+        $html .= '<input data-attached-to="' . $id . '" class="button upload_logo_button" type="button" value="' . __('Upload/Select image', 'plugnmeet') . '" />';
 
         echo wp_kses($html, $this->allowedHtml);
     }
@@ -116,15 +120,18 @@ class Plugnmeet_SettingsPage
     public function validation($input)
     {
         $options = get_option('plugnmeet_settings');
+        $requiredFields = array("plugnmeet_server_url", "plugnmeet_api_key", "plugnmeet_secret", "livekit_server_url", "client_download_url");
         foreach ($input as $key => $val) {
-            if (!$val && $key !== "logo") {
-                $this->hasError = true;
-                add_settings_error(
-                    'plugnmeet_settings',
-                    'Missing value error',
-                    __($key . ' can\'t be empty.', 'plugnmeet'),
-                    'error'
-                );
+            if (!$val && in_array($key, $requiredFields)) {
+                if (!$this->hasError) {
+                    add_settings_error(
+                        'plugnmeet_settings',
+                        'Missing value error',
+                        __($key . ' can\'t be empty.', 'plugnmeet'),
+                        'error'
+                    );
+                    $this->hasError = true;
+                }
                 return $options;
             }
         }
@@ -137,12 +144,16 @@ class Plugnmeet_SettingsPage
                 'success'
             );
         }
+
         return $input;
     }
 
     public function checkError()
     {
-        settings_errors('plugnmeet_settings');
+        if (!$this->isRegister) {
+            $this->isRegister = true;
+            settings_errors('plugnmeet_settings');
+        }
     }
 
     public function plugnmeet_register_settings()
@@ -155,6 +166,7 @@ class Plugnmeet_SettingsPage
 
         $this->configSection();
         $this->optionsSection();
+        $this->designCustomization();
     }
 
     private function configSection()
@@ -227,7 +239,7 @@ class Plugnmeet_SettingsPage
             [$this, 'selectCallBack'],
             'plugnmeet-settings',
             'plugnmeet_settings_options_section',
-            ['id' => 'enable_dynacast']
+            ['id' => 'enable_dynacast', 'options' => array("true", "false")]
         );
 
         add_settings_field(
@@ -236,7 +248,16 @@ class Plugnmeet_SettingsPage
             [$this, 'selectCallBack'],
             'plugnmeet-settings',
             'plugnmeet_settings_options_section',
-            ['id' => 'enable_simulcast']
+            ['id' => 'enable_simulcast', 'options' => array("true", "false")]
+        );
+
+        add_settings_field(
+            'video_codec',
+            __('Video Codec', 'plugnmeet'),
+            [$this, 'selectCallBack'],
+            'plugnmeet-settings',
+            'plugnmeet_settings_options_section',
+            ['id' => 'video_codec', 'options' => array('vp8', 'h264', 'av1', 'vp9')]
         );
 
         add_settings_field(
@@ -245,7 +266,7 @@ class Plugnmeet_SettingsPage
             [$this, 'selectCallBack'],
             'plugnmeet-settings',
             'plugnmeet_settings_options_section',
-            ['id' => 'stop_mic_track_on_mute']
+            ['id' => 'stop_mic_track_on_mute', 'options' => array("true", "false")]
         );
 
         add_settings_field(
@@ -271,7 +292,99 @@ class Plugnmeet_SettingsPage
             __('Custom logo', 'plugnmeet'),
             [$this, 'mediaCallBack'],
             'plugnmeet-settings',
-            'plugnmeet_settings_options_section'
+            'plugnmeet_settings_options_section',
+            ['id' => 'logo']
+        );
+    }
+
+    private function designCustomization()
+    {
+        add_settings_section(
+            'plugnmeet_design_customization_section',
+            __('Design Customization', 'plugnmeet'),
+            [$this, 'checkError'],
+            'plugnmeet-settings'
+        );
+
+        add_settings_field(
+            'custom_css_url',
+            __('Custom CSS URL', 'plugnmeet'),
+            [$this, 'textCallBack'],
+            'plugnmeet-settings',
+            'plugnmeet_design_customization_section',
+            ['id' => 'custom_css_url']
+        );
+
+        add_settings_field(
+            'primary_color',
+            __('Primary Color', 'plugnmeet'),
+            [$this, 'textCallBack'],
+            'plugnmeet-settings',
+            'plugnmeet_design_customization_section',
+            ['id' => 'primary_color', 'className' => 'colorPickerItem']
+        );
+
+        add_settings_field(
+            'secondary_color',
+            __('Secondary Color', 'plugnmeet'),
+            [$this, 'textCallBack'],
+            'plugnmeet-settings',
+            'plugnmeet_design_customization_section',
+            ['id' => 'secondary_color', 'className' => 'colorPickerItem']
+        );
+
+        add_settings_field(
+            'background_color',
+            __('Background Color', 'plugnmeet'),
+            [$this, 'textCallBack'],
+            'plugnmeet-settings',
+            'plugnmeet_design_customization_section',
+            ['id' => 'background_color', 'className' => 'colorPickerItem']
+        );
+
+        add_settings_field(
+            'background_image',
+            __('Background Image', 'plugnmeet'),
+            [$this, 'mediaCallBack'],
+            'plugnmeet-settings',
+            'plugnmeet_design_customization_section',
+            ['id' => 'background_image']
+        );
+
+        add_settings_field(
+            'header_color',
+            __('Header Color', 'plugnmeet'),
+            [$this, 'textCallBack'],
+            'plugnmeet-settings',
+            'plugnmeet_design_customization_section',
+            ['id' => 'header_color', 'className' => 'colorPickerItem']
+        );
+
+        add_settings_field(
+            'footer_color',
+            __('Footer Color', 'plugnmeet'),
+            [$this, 'textCallBack'],
+            'plugnmeet-settings',
+            'plugnmeet_design_customization_section',
+            ['id' => 'footer_color', 'className' => 'colorPickerItem']
+        );
+
+        add_settings_field(
+            'left_color',
+            __('left Color', 'plugnmeet'),
+            [$this, 'textCallBack'],
+            'plugnmeet-settings',
+            'plugnmeet_design_customization_section',
+            ['id' => 'left_color', 'className' => 'colorPickerItem']
+        );
+
+        add_settings_field(
+            'right_color',
+            __('Right Color', 'plugnmeet'),
+            [$this, 'textCallBack'],
+            'plugnmeet-settings',
+            'plugnmeet_design_customization_section',
+            ['id' => 'right_color', 'className' => 'colorPickerItem']
         );
     }
 }

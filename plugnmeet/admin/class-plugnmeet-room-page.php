@@ -11,7 +11,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
     die;
 }
 
-class Plugnmeet_MenusPages
+class Plugnmeet_RoomPage
 {
     private $limitPerPage = 20;
 
@@ -108,12 +108,14 @@ class Plugnmeet_MenusPages
             $fields_values['shared_note_pad_features'] = $room_metadata['shared_note_pad_features'];
             $fields_values['whiteboard_features'] = $room_metadata['whiteboard_features'];
             $fields_values['default_lock_settings'] = $room_metadata['default_lock_settings'];
+            $fields_values['custom_design'] = $room_metadata['custom_design'];
         } else {
             $fields_values['room_features'] = [];
             $fields_values['chat_features'] = [];
             $fields_values['shared_note_pad_features'] = [];
             $fields_values['whiteboard_features'] = [];
             $fields_values['default_lock_settings'] = [];
+            $fields_values['custom_design'] = [];
         }
 
         return $fields_values;

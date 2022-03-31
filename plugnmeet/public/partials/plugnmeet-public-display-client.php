@@ -27,7 +27,7 @@ remove_action('wp_head', 'wp_resource_hints', 2);
 remove_action('wp_head', 'start_post_rel_link');
 remove_action('wp_head', 'index_rel_link');
 
-function insert_plnm_js_css()
+function insert_plnm_js_css($custom_design_params, $customDesignCSS)
 {
     global $wp_styles, $wp_scripts;
 
@@ -42,6 +42,13 @@ function insert_plnm_js_css()
     foreach ($cssFiles as $file) {
         wp_enqueue_style($file, $path . '/css/' . $file, array(), null);
     }
+    if (isset($custom_design_params['custom_css_url'])) {
+        if (!empty($custom_design_params['custom_css_url'])) {
+            $cssFiles[] = "custom-css-url";
+            wp_enqueue_style("custom-css-url", esc_url_raw($custom_design_params['custom_css_url']), array(), null);
+
+        }
+    }
 
     foreach ($wp_styles->queue as $style) {
         if (in_array($style, $cssFiles))
@@ -53,9 +60,13 @@ function insert_plnm_js_css()
             continue;
         $wp_scripts->remove($script);
     }
+
+    wp_add_inline_style(end($cssFiles), $customDesignCSS);
 }
 
-add_action('wp_print_styles', 'insert_plnm_js_css', 100);
+add_action('wp_print_styles', function () use ($custom_design_params, $customDesignCSS) {
+    insert_plnm_js_css($custom_design_params, $customDesignCSS);
+}, 100);
 
 function add_custom_attr($tag)
 {
@@ -64,27 +75,6 @@ function add_custom_attr($tag)
 }
 
 add_filter('script_loader_tag', 'add_custom_attr', 10, 3);
-
-
-$params = (object)get_option("plugnmeet_settings");
-$assets_path = plugins_url('public/client/dist/assets', PLUGNMEET_BASE_NAME);
-
-$customLogo = "";
-if ($params->logo) {
-    $customLogo = 'window.CUSTOM_LOGO = "' . esc_url_raw($params->logo) . '";';
-}
-
-$js = 'window.PLUG_N_MEET_SERVER_URL = "' . esc_url_raw($params->plugnmeet_server_url) . '";';
-$js .= 'window.LIVEKIT_SERVER_URL = "' . esc_url_raw($params->livekit_server_url) . '";';
-$js .= 'window.STATIC_ASSETS_PATH = "' . esc_url_raw($assets_path) . '";';
-$js .= $customLogo;
-$js .= 'window.ENABLE_DYNACAST = "' . filter_var($params->enable_dynacast, FILTER_VALIDATE_BOOLEAN) . '";';
-$js .= 'window.ENABLE_SIMULCAST = "' . filter_var($params->enable_simulcast, FILTER_VALIDATE_BOOLEAN) . '";';
-
-$js .= 'window.STOP_MIC_TRACK_ON_MUTE = "' . filter_var($params->stop_mic_track_on_mute, FILTER_VALIDATE_BOOLEAN) . '";';
-$js .= 'window.NUMBER_OF_WEBCAMS_PER_PAGE_PC = "' . filter_var($params->number_of_webcams_per_page_pc, FILTER_VALIDATE_INT) . '";';
-$js .= 'window.NUMBER_OF_WEBCAMS_PER_PAGE_MOBILE = "' . filter_var($params->number_of_webcams_per_page_mobile, FILTER_VALIDATE_INT) . '";';
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,7 +83,7 @@ $js .= 'window.NUMBER_OF_WEBCAMS_PER_PAGE_MOBILE = "' . filter_var($params->numb
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <?php wp_head(); ?>
-    <?php wp_print_inline_script_tag($js); ?>
+    <?php wp_print_inline_script_tag($jsOptions); ?>
 </head>
 <body>
 <div id="plugNmeet-app"></div>

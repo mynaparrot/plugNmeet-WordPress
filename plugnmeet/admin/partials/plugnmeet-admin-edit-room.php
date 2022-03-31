@@ -20,65 +20,110 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
     <h1 class="mb-6"><?php echo $_GET['task'] === "add" ? "Add room" : "Edit room" ?></h1>
     <hr/>
     <form name="plugnmeet-form" id="plugnmeet-form">
-        <?php
-        require plugin_dir_path(dirname(__FILE__)) . '/partials/form-parts/basic.php';
-        ?>
+        <div class="d-flex justify-content-end mb-3">
+            <button class="button button-primary me-3" type="submit"><?php echo __("Submit", "plugnmeet") ?></button>
+            <button class="button button-secondary" onclick="goBack()"><?php echo __("Cancel", "plugnmeet") ?></button>
+        </div>
 
-        <h2><?php echo __("Room features", "plugnmeet") ?></h2>
 
-        <table class="form-table" role="presentation">
-            <tbody>
-            <?php echo PlugnmeetHelper::getRoomFeatures($fields_values['room_features']); ?>
+        <ul class="nav nav-tabs" id="plugnmeet-room-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="basic-tab" data-bs-toggle="tab" data-bs-target="#basic"
+                        type="button"
+                        role="tab" aria-controls="basic" aria-selected="true">
+                    <?php echo __("Basic", "plugnmeet") ?>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="room-features-tab" data-bs-toggle="tab" data-bs-target="#room-features"
+                        type="button"
+                        role="tab" aria-controls="room-features" aria-selected="false">
+                    <?php echo __("Room features", "plugnmeet") ?>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="chat-tab" data-bs-toggle="tab" data-bs-target="#chat"
+                        type="button"
+                        role="tab" aria-controls="chat" aria-selected="false">
+                    <?php echo __("Chat features", "plugnmeet") ?>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="shared-notepad-tab" data-bs-toggle="tab"
+                        data-bs-target="#shared-notepad" type="button"
+                        role="tab" aria-controls="shared-notepad" aria-selected="false">
+                    <?php echo __("Whiteboard and Shared notepad", "plugnmeet") ?>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="lock-tab" data-bs-toggle="tab" data-bs-target="#lock" type="button"
+                        role="tab" aria-controls="lock" aria-selected="false">
+                    <?php echo __("Default lock settings", "plugnmeet") ?>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="design-tab" data-bs-toggle="tab" data-bs-target="#design" type="button"
+                        role="tab" aria-controls="design" aria-selected="false">
+                    <?php echo __("Design Customization", "plugnmeet") ?>
+                </button>
+            </li>
+        </ul>
 
-            </tbody>
-        </table>
+        <div class="tab-content" id="plugnmeet-room-tab-contents">
+            <div class="tab-pane fade show active" id="basic" role="tabpanel" aria-labelledby="basic-tab">
+                <?php require plugin_dir_path(dirname(__FILE__)) . '/partials/form-parts/basic.php'; ?>
+            </div>
 
-        <h2><?php echo __("Chat features", "plugnmeet") ?></h2>
+            <div class="tab-pane fade" id="room-features" role="tabpanel" aria-labelledby="room-features">
+                <table class="form-table" role="presentation">
+                    <tbody>
+                    <?php echo PlugnmeetHelper::getRoomFeatures($fields_values['room_features']); ?>
+                    </tbody>
+                </table>
+            </div>
 
-        <table class="form-table" role="presentation">
-            <tbody>
-            <?php echo PlugnmeetHelper::getChatFeatures($fields_values['chat_features']); ?>
+            <div class="tab-pane fade" id="chat" role="tabpanel" aria-labelledby="chat-tab">
+                <table class="form-table" role="presentation">
+                    <tbody>
+                    <?php echo PlugnmeetHelper::getChatFeatures($fields_values['chat_features']); ?>
 
-            </tbody>
-        </table>
+                    </tbody>
+                </table>
+            </div>
 
-        <h2><?php echo __("Shared notepad features", "plugnmeet") ?></h2>
+            <div class="tab-pane fade" id="shared-notepad" role="tabpanel" aria-labelledby="shared-notepad-tab">
+                <table class="form-table" role="presentation">
+                    <tbody>
+                    <?php echo PlugnmeetHelper::getSharedNotePadFeatures($fields_values['shared_note_pad_features']); ?>
+                    <?php echo PlugnmeetHelper::getWhiteboardFeatures($fields_values['whiteboard_features']); ?>
+                    </tbody>
+                </table>
+            </div>
 
-        <table class="form-table" role="presentation">
-            <tbody>
-            <?php echo PlugnmeetHelper::getSharedNotePadFeatures($fields_values['shared_note_pad_features']); ?>
+            <div class="tab-pane fade" id="lock" role="tabpanel" aria-labelledby="lock-tab">
+                <table class="form-table" role="presentation">
+                    <tbody>
+                    <?php echo PlugnmeetHelper::getDefaultLockSettings($fields_values['default_lock_settings']); ?>
 
-            </tbody>
-        </table>
+                    </tbody>
+                </table>
+            </div>
 
-        <h2><?php echo __("Whiteboard features", "plugnmeet") ?></h2>
+            <div class="tab-pane fade" id="design" role="tabpanel" aria-labelledby="design-tab">
+                <table class="form-table" role="presentation">
+                    <tbody>
+                    <?php require plugin_dir_path(dirname(__FILE__)) . '/partials/form-parts/design.php'; ?>
 
-        <table class="form-table" role="presentation">
-            <tbody>
-            <?php echo PlugnmeetHelper::getWhiteboardFeatures($fields_values['whiteboard_features']); ?>
+                    </tbody>
+                </table>
+            </div>
 
-            </tbody>
-        </table>
+        </div>
 
-        <h2><?php echo __("Default lock settings", "plugnmeet") ?></h2>
 
-        <table class="form-table" role="presentation">
-            <tbody>
-            <?php echo PlugnmeetHelper::getDefaultLockSettings($fields_values['default_lock_settings']); ?>
-
-            </tbody>
-        </table>
-        <table class="form-table" role="presentation">
-            <tbody>
-            <?php echo PlugnmeetHelper::getStatusSettings($fields_values['published']); ?>
-
-            </tbody>
-        </table>
         <input type="hidden" name="id" value="<?php echo esc_attr($fields_values['id']); ?>">
         <input type="hidden" name="action" value="plugnmeet_save_room_data">
         <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('save_room_data') ?>">
-        <button class="button button-primary" type="submit"><?php echo __("Submit", "plugnmeet") ?></button>
-        <button class="button button-secondary" onclick="goBack()"><?php echo __("Cancel", "plugnmeet") ?></button>
     </form>
 </div>
 
