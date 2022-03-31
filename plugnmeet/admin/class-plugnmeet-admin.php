@@ -45,6 +45,8 @@ class Plugnmeet_Admin
      */
     private $version;
 
+    private $setting_params;
+
     /**
      * Initialize the class and set its properties.
      *
@@ -59,6 +61,7 @@ class Plugnmeet_Admin
         $this->plugin_name = $plugin_name;
         $this->plugin_prefix = $plugin_prefix;
         $this->version = $version;
+        $this->setting_params = (object)get_option("plugnmeet_settings");
 
     }
 
@@ -71,6 +74,8 @@ class Plugnmeet_Admin
     public function enqueue_styles($hook_suffix)
     {
 
+        wp_enqueue_style('bootstrap-min', plugin_dir_url(__FILE__) . 'css/bootstrap.min.css');
+        wp_enqueue_style('bootstrap-colorpicker', plugin_dir_url(__FILE__) . 'css/bootstrap-colorpicker.min.css');
         wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/plugnmeet-admin.css');
 
     }
@@ -84,6 +89,9 @@ class Plugnmeet_Admin
     public function enqueue_scripts($hook_suffix)
     {
         wp_enqueue_media();
+        wp_enqueue_script("bootstrap-bundle", plugin_dir_url(__FILE__) . 'js/bootstrap.bundle.js', array(), $this->version);
+        wp_enqueue_script("bootstrap-colorpicker", plugin_dir_url(__FILE__) . 'js/bootstrap-colorpicker.min.js', array(), $this->version);
+
         wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/plugnmeet-admin.js', array('jquery'), $this->version, false);
 
         $nonce = wp_create_nonce('ajax_admin');
@@ -93,10 +101,10 @@ class Plugnmeet_Admin
 
     public function addMenuPages($hook_suffix)
     {
-        if (!class_exists("Plugnmeet_MenusPages")) {
-            require plugin_dir_path(dirname(__FILE__)) . 'admin/class-plugnmeet-menu-pages.php';
+        if (!class_exists("Plugnmeet_RoomPage")) {
+            require plugin_dir_path(dirname(__FILE__)) . 'admin/class-plugnmeet-room-page.php';
         }
-        $menusPage = new Plugnmeet_MenusPages();
+        $menusPage = new Plugnmeet_RoomPage();
 
         add_menu_page(
             __('Plug-N-Meet', 'plugnmeet'),
@@ -159,7 +167,7 @@ class Plugnmeet_Admin
             wp_send_json($output);
         }
 
-        $params = (object)get_option("plugnmeet_settings");
+        $params = $this->setting_params;
         $response = wp_remote_get($params->client_download_url, array(
             "timeout" => 60
         ));
@@ -254,6 +262,7 @@ class Plugnmeet_Admin
         $sharedNotePad_features = isset($_POST['shared_note_pad_features']) ? $_POST['shared_note_pad_features'] : array();
         $whiteboard_features = isset($_POST['whiteboard_features']) ? $_POST['whiteboard_features'] : array();
         $default_lock_settings = isset($_POST['default_lock_settings']) ? $_POST['default_lock_settings'] : array();
+        $custom_design = isset($_POST['custom_design']) ? $_POST['custom_design'] : array();
 
         if (empty($moderator_pass)) {
             $moderator_pass = PlugnmeetHelper::secureRandomKey(10);
@@ -272,7 +281,7 @@ class Plugnmeet_Admin
             if (!class_exists('plugNmeetConnect')) {
                 require plugin_dir_path(dirname(__FILE__)) . 'helpers/plugNmeetConnect.php';
             }
-            $options = (object)get_option("plugnmeet_settings");
+            $options = $this->setting_params;
             $connect = new plugNmeetConnect($options);
             $room_id = $connect->getUUID();
         }
@@ -282,7 +291,8 @@ class Plugnmeet_Admin
             'chat_features' => $chat_features,
             'shared_note_pad_features' => $sharedNotePad_features,
             'whiteboard_features' => $whiteboard_features,
-            'default_lock_settings' => $default_lock_settings
+            'default_lock_settings' => $default_lock_settings,
+            'custom_design' => $custom_design
         );
 
         if (!$id) {
@@ -397,7 +407,7 @@ class Plugnmeet_Admin
             wp_send_json($output);
         }
 
-        $options = (object)get_option("plugnmeet_settings");
+        $options = $this->setting_params;
         $connect = new plugNmeetConnect($options);
         $roomIds = array($roomId);
         $res = $connect->getRecordings($roomIds, $from, $limit, $orderBy);
@@ -430,7 +440,7 @@ class Plugnmeet_Admin
             wp_send_json($output);
         }
 
-        $params = (object)get_option("plugnmeet_settings");
+        $params = $this->setting_params;
         $connect = new plugNmeetConnect($params);
         $output = $connect->getRecordingDownloadLink($recordingId);
 
@@ -462,7 +472,7 @@ class Plugnmeet_Admin
             wp_send_json($output);
         }
 
-        $params = (object)get_option("plugnmeet_settings");
+        $params = $this->setting_params;
         $connect = new plugNmeetConnect($params);
         $output = $connect->deleteRecording($recordingId);
 

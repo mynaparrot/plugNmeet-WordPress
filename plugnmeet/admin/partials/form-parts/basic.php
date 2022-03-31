@@ -16,8 +16,6 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
 }
 ?>
 
-<h2><?php echo __("Basic", "plugnmeet") ?></h2>
-
 <table class="form-table" role="presentation">
     <tbody>
     <?php if (isset($_GET['id'])): ?>
@@ -62,5 +60,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                    value="<?php echo esc_attr($fields_values['max_participants']); ?>">
         </td>
     </tr>
+
+    <?php echo PlugnmeetHelper::getStatusSettings($fields_values['published']); ?>
     </tbody>
 </table>
