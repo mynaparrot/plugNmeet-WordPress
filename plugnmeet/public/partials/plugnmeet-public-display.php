@@ -52,7 +52,6 @@ $user = wp_get_current_user();
                                value="<?php echo wp_create_nonce('plugnmeet_login_to_room') ?>">
                         <div class="btns">
                             <button type="submit" class="submit"><?php echo __("Login", "plugnmeet") ?></button>
-                            <button type="reset" class="reset"><?php echo __("Reset", "plugnmeet") ?></button>
                         </div>
                     </form>
                 </div>

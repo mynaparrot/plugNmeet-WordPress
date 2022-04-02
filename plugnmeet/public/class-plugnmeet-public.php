@@ -75,7 +75,7 @@ class Plugnmeet_Public
     public function enqueue_styles()
     {
 
-        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/plugnmeet-public.css');
+        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/plugnmeet-public.css', [], $this->version);
 
     }
 
@@ -87,7 +87,7 @@ class Plugnmeet_Public
     public function enqueue_scripts()
     {
 
-        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/plugnmeet-public.js', array('jquery'), false, true);
+        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/plugnmeet-public.js', array('jquery'), $this->version, true);
 
         $nonce = wp_create_nonce('plugnmeet_frontend');
         $script = array('nonce' => $nonce, 'ajaxurl' => admin_url('admin-ajax.php'));

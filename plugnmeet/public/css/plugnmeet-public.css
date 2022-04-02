@@ -143,17 +143,12 @@
     min-height: 36px;
     width: 100px;
     border: none;
-    background-color: #24AEF7;
     color: #fff;
     font-size: 16px;
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s ease-in;
     outline: none;
-}
-
-.pnm-container form.login-form .btns button.submit:hover {
-    background-color: rgba(0, 69, 131);
 }
 
 .pnm-container form.login-form label.input input::placeholder {
@@ -174,7 +169,7 @@
     align-items: center;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    padding: 10px;
+    padding: 10px 10px;
 }
 
 .pnm-container .table-head div, .table-item div {
@@ -224,7 +219,7 @@
 
 .pnm-container .alert {
     position: relative;
-    padding: 1rem;
+    padding: 1rem 1rem;
     margin-bottom: 1rem;
     border: 1px solid transparent;
     border-radius: .25rem;

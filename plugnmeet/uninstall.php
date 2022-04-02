@@ -16,8 +16,6 @@
  * - Run a check_ajax_referer check to make sure it goes through authentication
  * - Run a current_user_can check to make sure current user can delete a plugin
  *
- * @todo Consider multisite. Once for a single site in the network, once sitewide.
- *
  * @link       https://www.mynaparrot.com
  * @since      1.0.0
  * @package    Plugnmeet
