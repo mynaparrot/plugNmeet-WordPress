@@ -42,17 +42,10 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="chat-tab" data-bs-toggle="tab" data-bs-target="#chat"
+                <button class="nav-link" id="other-features-tab" data-bs-toggle="tab" data-bs-target="#other-features"
                         type="button"
-                        role="tab" aria-controls="chat" aria-selected="false">
-                    <?php echo __("Chat features", "plugnmeet") ?>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="shared-notepad-tab" data-bs-toggle="tab"
-                        data-bs-target="#shared-notepad" type="button"
-                        role="tab" aria-controls="shared-notepad" aria-selected="false">
-                    <?php echo __("Whiteboard and Shared notepad", "plugnmeet") ?>
+                        role="tab" aria-controls="other-features" aria-selected="false">
+                    <?php echo __("Other features", "plugnmeet") ?>
                 </button>
             </li>
             <li class="nav-item" role="presentation">
@@ -82,19 +75,21 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                 </table>
             </div>
 
-            <div class="tab-pane fade" id="chat" role="tabpanel" aria-labelledby="chat-tab">
+            <div class="tab-pane fade" id="other-features" role="tabpanel" aria-labelledby="other-features">
                 <table class="form-table" role="presentation">
                     <tbody>
                     <?php echo PlugnmeetHelper::getChatFeatures($fields_values['chat_features']); ?>
-
                     </tbody>
                 </table>
-            </div>
-
-            <div class="tab-pane fade" id="shared-notepad" role="tabpanel" aria-labelledby="shared-notepad-tab">
+                <hr/>
                 <table class="form-table" role="presentation">
                     <tbody>
                     <?php echo PlugnmeetHelper::getSharedNotePadFeatures($fields_values['shared_note_pad_features']); ?>
+                    </tbody>
+                </table>
+                <hr/>
+                <table class="form-table" role="presentation">
+                    <tbody>
                     <?php echo PlugnmeetHelper::getWhiteboardFeatures($fields_values['whiteboard_features']); ?>
                     </tbody>
                 </table>

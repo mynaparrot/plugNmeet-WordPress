@@ -412,9 +412,9 @@ class Plugnmeet_Admin
         $roomIds = array($roomId);
         $res = $connect->getRecordings($roomIds, $from, $limit, $orderBy);
 
-        $output->status = $res->status;
-        $output->msg = $res->msg;
-        $output->result = $res->result;
+        $output->status = $res->getStatus();
+        $output->msg = $res->getResponseMsg();
+        $output->result = $res->getRawResponse()->result;
 
         wp_send_json($output);
     }
@@ -442,10 +442,12 @@ class Plugnmeet_Admin
 
         $params = $this->setting_params;
         $connect = new plugNmeetConnect($params);
-        $output = $connect->getRecordingDownloadLink($recordingId);
+        $res = $connect->getRecordingDownloadLink($recordingId);
+        $output->status = $res->getStatus();
+        $output->msg = $res->getResponseMsg();
 
-        if ($output->status && $output->token) {
-            $output->url = $params->plugnmeet_server_url . "/download/recording/" . $output->token;
+        if ($res->getStatus() && $res->getToken()) {
+            $output->url = $params->plugnmeet_server_url . "/download/recording/" . $res->getToken();
         }
 
         wp_send_json($output);
@@ -474,7 +476,9 @@ class Plugnmeet_Admin
 
         $params = $this->setting_params;
         $connect = new plugNmeetConnect($params);
-        $output = $connect->deleteRecording($recordingId);
+        $res = $connect->deleteRecording($recordingId);
+        $output->status = $res->getStatus();
+        $output->msg = $res->getResponseMsg();
 
         if ($output->status) {
             $output->msg = __("Recording was deleted successfully", 'plugnmeet');

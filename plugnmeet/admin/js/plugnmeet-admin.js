@@ -1,7 +1,7 @@
 (function ($) {
     'use strict';
 
-    $(document).on("click", ".upload_logo_button", (e) => {
+    $(document).on("click", ".upload_media_button", (e) => {
         e.preventDefault();
         const attachedTo = $(e.currentTarget).attr('data-attached-to');
 

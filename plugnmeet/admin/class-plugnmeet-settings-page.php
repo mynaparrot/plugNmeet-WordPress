@@ -61,7 +61,7 @@ class Plugnmeet_SettingsPage
         $options = get_option('plugnmeet_settings');
 
         $id = isset($args['id']) ? esc_attr($args['id']) : '';
-        $value = isset($options[$id]) ? esc_attr($options[$id]) : "true";
+        $value = isset($options[$id]) ? esc_attr($options[$id]) : $args['default'];
         $selectOptions = $args['options'];
 
         $html = '<select id="' . $args['id'] . '" name="plugnmeet_settings[' . $id . ']" value="' . $value . '">';
@@ -98,7 +98,7 @@ class Plugnmeet_SettingsPage
         $value = isset($options[$id]) ? esc_attr($options[$id]) : "";
 
         $html = '<input style="margin-right: 20px;" id="' . $id . '" type="text" size="36" name="plugnmeet_settings[' . $id . ']" value="' . $value . '" />';
-        $html .= '<input data-attached-to="' . $id . '" class="button upload_logo_button" type="button" value="' . __('Upload/Select image', 'plugnmeet') . '" />';
+        $html .= '<input data-attached-to="' . $id . '" class="button upload_media_button" type="button" value="' . __('Upload/Select image', 'plugnmeet') . '" />';
 
         echo wp_kses($html, $this->allowedHtml);
     }
@@ -239,7 +239,7 @@ class Plugnmeet_SettingsPage
             [$this, 'selectCallBack'],
             'plugnmeet-settings',
             'plugnmeet_settings_options_section',
-            ['id' => 'enable_dynacast', 'options' => array("true", "false")]
+            ['id' => 'enable_dynacast', 'options' => array("true", "false"), 'default' => "true"]
         );
 
         add_settings_field(
@@ -248,7 +248,7 @@ class Plugnmeet_SettingsPage
             [$this, 'selectCallBack'],
             'plugnmeet-settings',
             'plugnmeet_settings_options_section',
-            ['id' => 'enable_simulcast', 'options' => array("true", "false")]
+            ['id' => 'enable_simulcast', 'options' => array("true", "false"), 'default' => "true"]
         );
 
         add_settings_field(
@@ -257,7 +257,25 @@ class Plugnmeet_SettingsPage
             [$this, 'selectCallBack'],
             'plugnmeet-settings',
             'plugnmeet_settings_options_section',
-            ['id' => 'video_codec', 'options' => array('vp8', 'h264', 'av1', 'vp9')]
+            ['id' => 'video_codec', 'options' => array('vp8', 'h264', 'av1', 'vp9'), 'default' => "vp8"]
+        );
+
+        add_settings_field(
+            'default_webcam_resolution',
+            __('Webcam Resolution', 'plugnmeet'),
+            [$this, 'selectCallBack'],
+            'plugnmeet-settings',
+            'plugnmeet_settings_options_section',
+            ['id' => 'default_webcam_resolution', 'options' => array('h90', 'h180', 'h216', 'h360', 'h540', 'h720', 'h1080', 'h1440', 'h2160'), 'default' => "h720"]
+        );
+
+        add_settings_field(
+            'default_screen_share_resolution',
+            __('Screen Sharing Resolution', 'plugnmeet'),
+            [$this, 'selectCallBack'],
+            'plugnmeet-settings',
+            'plugnmeet_settings_options_section',
+            ['id' => 'default_screen_share_resolution', 'options' => array('h360fps3', 'h720fps5', 'h720fps15', 'h1080fps15', 'h1080fps30'), 'default' => "h1080fps15"]
         );
 
         add_settings_field(
@@ -266,7 +284,7 @@ class Plugnmeet_SettingsPage
             [$this, 'selectCallBack'],
             'plugnmeet-settings',
             'plugnmeet_settings_options_section',
-            ['id' => 'stop_mic_track_on_mute', 'options' => array("true", "false")]
+            ['id' => 'stop_mic_track_on_mute', 'options' => array("true", "false"), 'default' => "true"]
         );
 
         add_settings_field(

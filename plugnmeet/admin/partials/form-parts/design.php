@@ -46,7 +46,18 @@ $custom_design = $fields_values['custom_design'];
                    id="background_image"
                    name="custom_design[background_image]"
                    value="<?php echo esc_attr($custom_design['background_image']); ?>"/>
-            <input class="button upload_logo_button" data-attached-to="background_image" type="button"
+            <input class="button upload_media_button" data-attached-to="background_image" type="button"
+                   value="<?php echo __('Upload/Select image', 'plugnmeet'); ?>"/>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row"><?php echo __("Logo", "plugnmeet") ?></th>
+        <td>
+            <input style="margin-right: 20px;" size="36"
+                   id="logo"
+                   name="custom_design[logo]"
+                   value="<?php echo esc_attr($custom_design['logo']); ?>"/>
+            <input class="button upload_media_button" data-attached-to="logo" type="button"
                    value="<?php echo __('Upload/Select image', 'plugnmeet'); ?>"/>
         </td>
     </tr>
