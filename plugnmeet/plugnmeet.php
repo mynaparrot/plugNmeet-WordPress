@@ -15,11 +15,11 @@
  * Plugin Name:       Plug-N-Meet web conference integration
  * Plugin URI:        https://github.com/mynaparrot/plugNmeet-WordPress
  * Description:       Plug-N-Meet web conference integration with WordPress
- * Version:           1.0.3
+ * Version:           1.0.4
  * Author:            Jibon L. Costa <jibon@mynaparrot.com>
  * Requires at least: 5.1
  * Requires PHP:      7.0.0
- * Tested up to:      5.9.2
+ * Tested up to:      5.9.3
  * Author URI:        https://www.mynaparrot.com/
  * License:           GPL-2.0+
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.txt
@@ -37,7 +37,7 @@ if (!defined('WPINC')) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('PLUGNMEET_VERSION', '1.0.3');
+define('PLUGNMEET_VERSION', '1.0.4');
 
 /**
  * Define the Plugin basename

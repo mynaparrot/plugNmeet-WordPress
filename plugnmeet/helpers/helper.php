@@ -322,6 +322,32 @@ class PlugnmeetHelper
                     )),
                 "selected" => 1
             ),
+            "lock_whiteboard" => array(
+                "label" => __("lock_whiteboard", "plugnmeet"),
+                "des" => __("lock_whiteboard_des", "plugnmeet"),
+                "options" => array(
+                    array(
+                        "label" => __("Yes", "plugnmeet"),
+                        "value" => 1
+                    ), array(
+                        "label" => __("No", "plugnmeet"),
+                        "value" => 0
+                    )),
+                "selected" => 1
+            ),
+            "lock_shared_notepad" => array(
+                "label" => __("lock_shared_notepad", "plugnmeet"),
+                "des" => __("lock_shared_notepad_des", "plugnmeet"),
+                "options" => array(
+                    array(
+                        "label" => __("Yes", "plugnmeet"),
+                        "value" => 1
+                    ), array(
+                        "label" => __("No", "plugnmeet"),
+                        "value" => 0
+                    )),
+                "selected" => 1
+            ),
             "lock_chat" => array(
                 "label" => __("lock_chat", "plugnmeet"),
                 "des" => __("LOCK_CHAT_DES", "plugnmeet"),

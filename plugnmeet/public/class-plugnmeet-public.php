@@ -132,7 +132,7 @@ class Plugnmeet_Public
         $room_metadata = json_decode($roomInfo->room_metadata, true);
 
         $custom_design_params = isset($room_metadata['custom_design']) ? $room_metadata['custom_design'] : [];
-        $jsOptions = $this->getJsOptions();
+        $jsOptions = $this->getJsOptions($custom_design_params);
         $customDesignCSS = $this->getCustomDesignCSS($custom_design_params);
 
         require plugin_dir_path(dirname(__FILE__)) . 'public/partials/plugnmeet-public-display-client.php';
@@ -140,13 +140,15 @@ class Plugnmeet_Public
         exit();
     }
 
-    private function getJsOptions()
+    private function getJsOptions($custom_design_params)
     {
         $params = $this->setting_params;
         $assets_path = plugins_url('public/client/dist/assets', PLUGNMEET_BASE_NAME);
 
         $customLogo = "";
-        if ($params->logo) {
+        if (!empty($custom_design_params['logo'])) {
+            $customLogo = 'window.CUSTOM_LOGO = "' . esc_url_raw($custom_design_params['logo']) . '";';
+        } else if ($params->logo) {
             $customLogo = 'window.CUSTOM_LOGO = "' . esc_url_raw($params->logo) . '";';
         }
 
@@ -156,6 +158,10 @@ class Plugnmeet_Public
         $js .= $customLogo;
         $js .= 'window.ENABLE_DYNACAST = "' . filter_var($params->enable_dynacast, FILTER_VALIDATE_BOOLEAN) . '";';
         $js .= 'window.ENABLE_SIMULCAST = "' . filter_var($params->enable_simulcast, FILTER_VALIDATE_BOOLEAN) . '";';
+
+        $js .= 'window.VIDEO_CODEC = "' . esc_attr($params->video_codec) . '";';
+        $js .= 'window.DEFAULT_WEBCAM_RESOLUTION = "' . esc_attr($params->default_webcam_resolution) . '";';
+        $js .= 'window.DEFAULT_SCREEN_SHARE_RESOLUTION = "' . esc_attr($params->default_screen_share_resolution) . '";';
 
         $js .= 'window.STOP_MIC_TRACK_ON_MUTE = "' . filter_var($params->stop_mic_track_on_mute, FILTER_VALIDATE_BOOLEAN) . '";';
         $js .= 'window.NUMBER_OF_WEBCAMS_PER_PAGE_PC = "' . filter_var($params->number_of_webcams_per_page_pc, FILTER_VALIDATE_INT) . '";';
@@ -177,24 +183,26 @@ class Plugnmeet_Public
         }
         $css = "";
         if (!empty($custom_designs['primary_color'])) {
-            $css .= '.brand-color1 { color: ' . $custom_designs['primary_color'] . ';}';
-            $css .= '.text-brandColor1 { color: ' . $custom_designs['primary_color'] . ';}';
+            $css .= '.brand-color1, .text-brandColor1, .placeholder\:text-brandColor1\/70::placeholder { color: ' . $custom_designs['primary_color'] . ';}';
+            $css .= '.bg-brandColor1, .hover\:bg-brandColor1:hover { background: ' . $custom_designs['primary_color'] . ' !important;}';
+            $css .= '.border-brandColor1 { border-color: ' . $custom_designs['primary_color'] . ' !important;}';
         }
 
         if (!empty($custom_designs['secondary_color'])) {
-            $css .= '.brand-color2 { color: ' . $custom_designs['secondary_color'] . ';}';
-            $css .= '.text-brandColor2 { color: ' . $custom_designs['secondary_color'] . ';}';
+            $css .= '.brand-color2, .text-brandColor2, .hover\:text-brandColor2:hover, .group:hover .group-hover\:text-brandColor2 { color: ' . $custom_designs['secondary_color'] . ';}';
+            $css .= '.bg-brandColor2, .hover\:bg-brandColor2:hover { background: ' . $custom_designs['secondary_color'] . ' !important;}';
+            $css .= '.border-brandColor2 { border-color: ' . $custom_designs['primary_color'] . ' !important;}';
         }
 
         if (!empty($custom_designs['background_color'])) {
-            $css .= '.main-app-bg { 
+            $css .= '.main-app-bg, .error-app-bg { 
             background-image: none !important; 
             background-color: ' . $custom_designs['background_color'] . ';
             }';
         }
 
         if (!empty($custom_designs['background_image'])) {
-            $css .= '.main-app-bg { 
+            $css .= '.main-app-bg, .error-app-bg { 
            background-image: url("' . $custom_designs['background_image'] . '") !important;
             }';
         }
@@ -363,8 +371,8 @@ class Plugnmeet_Public
 
         try {
             $res = $connect->isRoomActive($roomInfo->room_id);
-            $isRoomActive = $res->status;
-            $output->msg = $res->msg;
+            $isRoomActive = $res->getStatus();
+            $output->msg = $res->getResponseMsg();
         } catch (Exception $e) {
             $output->msg = $e->getMessage();
             wp_send_json($output);
@@ -374,8 +382,8 @@ class Plugnmeet_Public
             try {
                 $create = $connect->createRoom($roomInfo->room_id, $roomInfo->room_title, $roomInfo->welcome_message, $roomInfo->max_participants, "", $room_metadata);
 
-                $isRoomActive = $create->status;
-                $output->msg = $create->msg;
+                $isRoomActive = $create->getStatus();
+                $output->msg = $create->getResponseMsg();
             } catch (Exception $e) {
                 $output->msg = $e->getMessage();
                 wp_send_json($output);
@@ -393,9 +401,9 @@ class Plugnmeet_Public
             try {
                 $join = $connect->getJoinToken($roomInfo->room_id, $name, $useId, $isAdmin);
 
-                $output->url = get_site_url() . "/index.php?Plug-N-Meet-Conference=1&access_token=" . $join->token . "&id=" . $id;
-                $output->status = $join->status;
-                $output->msg = $join->msg;
+                $output->url = get_site_url() . "/index.php?access_token=" . $join->getToken() . "&id=" . $id . "&Plug-N-Meet-Conference=1";
+                $output->status = $join->getStatus();
+                $output->msg = $join->getResponseMsg();
             } catch (Exception $e) {
                 $output->msg = $e->getMessage();
                 wp_send_json($output);

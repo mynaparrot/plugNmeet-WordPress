@@ -3,8 +3,8 @@ Contributors: mynaparrot
 Donate link: https://www.mynaparrot.com/
 Tags: mynaparrot, web conference, plugnmeet
 Requires at least: 5.1
-Tested up to: 5.9.2
-Stable tag: 1.0.3
+Tested up to: 5.9.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires PHP: 7.0
@@ -33,6 +33,12 @@ Plug-N-Meet conference integration with WordPress. You can download latest versi
 After create room save it. Now enter to re-edit. You'll get shortcode there.
 
 == Changelog ==
+
+= 1.0.4 =
+* impl: Lock settings for whiteboard & shared notepad
+* Can set video_codec
+* Can set resolution for webcam & share screen
+* Improvement in design customization
 
 = 1.0.3 =
 * Feat: Interface customization
