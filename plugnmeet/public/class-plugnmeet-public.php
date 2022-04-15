@@ -133,7 +133,6 @@ class Plugnmeet_Public
 
         $custom_design_params = isset($room_metadata['custom_design']) ? $room_metadata['custom_design'] : [];
         $jsOptions = $this->getJsOptions($custom_design_params);
-        $customDesignCSS = $this->getCustomDesignCSS($custom_design_params);
 
         require plugin_dir_path(dirname(__FILE__)) . 'public/partials/plugnmeet-public-display-client.php';
 
@@ -167,71 +166,49 @@ class Plugnmeet_Public
         $js .= 'window.NUMBER_OF_WEBCAMS_PER_PAGE_PC = "' . filter_var($params->number_of_webcams_per_page_pc, FILTER_VALIDATE_INT) . '";';
         $js .= 'window.NUMBER_OF_WEBCAMS_PER_PAGE_MOBILE = "' . filter_var($params->number_of_webcams_per_page_mobile, FILTER_VALIDATE_INT) . '";';
 
-        return $js;
-    }
-
-    private function getCustomDesignCSS($custom_design_params)
-    {
         $custom_designs = [];
-        $params = $this->setting_params;
         foreach ($custom_design_params as $key => $val) {
             if (empty($val)) {
-                $custom_designs[$key] = esc_attr($params->$key);
+                $custom_designs[$key] = $params->$key;
             } else {
-                $custom_designs[$key] = esc_attr($val);
+                $custom_designs[$key] = $val;
             }
         }
-        $css = "";
+
+        $custom_design_items = [];
         if (!empty($custom_designs['primary_color'])) {
-            $css .= '.brand-color1, .text-brandColor1, .placeholder\:text-brandColor1\/70::placeholder { color: ' . $custom_designs['primary_color'] . ';}';
-            $css .= '.bg-brandColor1, .hover\:bg-brandColor1:hover { background: ' . $custom_designs['primary_color'] . ' !important;}';
-            $css .= '.border-brandColor1 { border-color: ' . $custom_designs['primary_color'] . ' !important;}';
+            $custom_design_items['primary_color'] = esc_attr($custom_designs['primary_color']);
         }
-
         if (!empty($custom_designs['secondary_color'])) {
-            $css .= '.brand-color2, .text-brandColor2, .hover\:text-brandColor2:hover, .group:hover .group-hover\:text-brandColor2 { color: ' . $custom_designs['secondary_color'] . ';}';
-            $css .= '.bg-brandColor2, .hover\:bg-brandColor2:hover { background: ' . $custom_designs['secondary_color'] . ' !important;}';
-            $css .= '.border-brandColor2 { border-color: ' . $custom_designs['primary_color'] . ' !important;}';
+            $custom_design_items['secondary_color'] = esc_attr($custom_designs['secondary_color']);
         }
-
         if (!empty($custom_designs['background_color'])) {
-            $css .= '.main-app-bg, .error-app-bg { 
-            background-image: none !important; 
-            background-color: ' . $custom_designs['background_color'] . ';
-            }';
+            $custom_design_items['background_color'] = esc_attr($custom_designs['background_color']);
         }
-
         if (!empty($custom_designs['background_image'])) {
-            $css .= '.main-app-bg, .error-app-bg { 
-           background-image: url("' . $custom_designs['background_image'] . '") !important;
-            }';
+            $custom_design_items['background_image'] = esc_attr($custom_designs['background_image']);
         }
-
         if (!empty($custom_designs['header_color'])) {
-            $css .= 'header#main-header { 
-            background: ' . $custom_designs['header_color'] . ';
-            }';
+            $custom_design_items['header_bg_color'] = esc_attr($custom_designs['header_color']);
         }
-
         if (!empty($custom_designs['footer_color'])) {
-            $css .= 'footer#main-footer { 
-            background: ' . $custom_designs['footer_color'] . ';
-            }';
+            $custom_design_items['footer_bg_color'] = esc_attr($custom_designs['footer_color']);
         }
-
         if (!empty($custom_designs['left_color'])) {
-            $css .= '.participants-wrapper { 
-            background: ' . $custom_designs['left_color'] . ';
-            }';
+            $custom_design_items['left_side_bg_color'] = esc_attr($custom_designs['left_color']);
         }
-
         if (!empty($custom_designs['right_color'])) {
-            $css .= '.MessageModule-wrapper { 
-            background: ' . $custom_designs['right_color'] . ';
-            }';
+            $custom_design_items['right_side_bg_color'] = esc_attr($custom_designs['right_color']);
+        }
+        if (!empty($custom_designs['custom_css_url'])) {
+            $custom_design_items['custom_css_url'] = esc_attr($custom_designs['custom_css_url']);
         }
 
-        return $css;
+        if (count($custom_design_items) > 0) {
+            $js .= 'window.DESIGN_CUSTOMIZATION = `' . json_encode($custom_design_items) . '`;';
+        }
+        
+        return $js;
     }
 
     /**

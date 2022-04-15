@@ -27,7 +27,7 @@ remove_action('wp_head', 'wp_resource_hints', 2);
 remove_action('wp_head', 'start_post_rel_link');
 remove_action('wp_head', 'index_rel_link');
 
-function insert_plnm_js_css($custom_design_params, $customDesignCSS)
+function insert_plnm_js_css()
 {
     global $wp_styles, $wp_scripts;
 
@@ -42,13 +42,6 @@ function insert_plnm_js_css($custom_design_params, $customDesignCSS)
     foreach ($cssFiles as $file) {
         wp_enqueue_style($file, $path . '/css/' . $file, array(), null);
     }
-    if (isset($custom_design_params['custom_css_url'])) {
-        if (!empty($custom_design_params['custom_css_url'])) {
-            $cssFiles[] = "custom-css-url";
-            wp_enqueue_style("custom-css-url", esc_url_raw($custom_design_params['custom_css_url']), array(), null);
-
-        }
-    }
 
     foreach ($wp_styles->queue as $style) {
         if (in_array($style, $cssFiles))
@@ -60,13 +53,9 @@ function insert_plnm_js_css($custom_design_params, $customDesignCSS)
             continue;
         $wp_scripts->remove($script);
     }
-
-    wp_add_inline_style(end($cssFiles), $customDesignCSS);
 }
 
-add_action('wp_print_styles', function () use ($custom_design_params, $customDesignCSS) {
-    insert_plnm_js_css($custom_design_params, $customDesignCSS);
-}, 100);
+add_action('wp_print_styles', 'insert_plnm_js_css', 100);
 
 function add_custom_attr($tag)
 {
