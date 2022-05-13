@@ -261,6 +261,7 @@ class Plugnmeet_Admin
         $chat_features = isset($_POST['chat_features']) ? $_POST['chat_features'] : array();
         $sharedNotePad_features = isset($_POST['shared_note_pad_features']) ? $_POST['shared_note_pad_features'] : array();
         $whiteboard_features = isset($_POST['whiteboard_features']) ? $_POST['whiteboard_features'] : array();
+        $external_media_player_features = isset($_POST['external_media_player_features']) ? $_POST['external_media_player_features'] : array();
         $default_lock_settings = isset($_POST['default_lock_settings']) ? $_POST['default_lock_settings'] : array();
         $custom_design = isset($_POST['custom_design']) ? $_POST['custom_design'] : array();
 
@@ -291,6 +292,7 @@ class Plugnmeet_Admin
             'chat_features' => $chat_features,
             'shared_note_pad_features' => $sharedNotePad_features,
             'whiteboard_features' => $whiteboard_features,
+            'external_media_player_features' => $external_media_player_features,
             'default_lock_settings' => $default_lock_settings,
             'custom_design' => $custom_design
         );

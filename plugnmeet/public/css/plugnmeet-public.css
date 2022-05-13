@@ -116,12 +116,12 @@
 
 .pnm-container form.login-form label.input p {
     margin: 0;
-    width: 150px;
+    width: 180px;
     font-size: 18px;
 }
 
 .pnm-container form.login-form label.input input {
-    width: calc(100% - 150px);
+    width: calc(100% - 180px);
     height: 36px;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 5px;

@@ -24,26 +24,23 @@ $user = wp_get_current_user();
         <hr/>
         <div class="column-full ">
             <div class="flex">
-                <div class="w-6-4 description">
-                    <?php echo __("Instruction", "plugnmeet") ?>
-                </div>
                 <div class="w-6-2">
-                    <h1 class="headline"><?php echo __("Login", "plugnmeet") ?></h1>
-                    <div class="br">
-                        <div class="br-inner"></div>
-                    </div>
-                    <form class="login-form" id="plugnmeet-login-form">
-                        <div id="roomStatus" class="alert" role="alert" style="display: none"></div>
+                    <form class="login-form plugnmeet-login-form">
+                        <div class="alert roomStatus" role="alert" style="display: none"></div>
                         <label for="name" class="input">
                             <p><?php echo __("Name", "plugnmeet") ?></p>
                             <input type="text" name="name" class="form-control form-field" id="name" required
-                                   value="<?php echo esc_attr($user->display_name) ?>">
+                                   value="<?php echo esc_attr($user->display_name) ?>"
+                                   placeholder="<?php echo __("Your full name", "plugnmeet") ?>"
+                            >
                         </label>
 
                         <label for="password" class="input">
-                            <p><?php echo __("Room's Password", "plugnmeet") ?></p>
+                            <p><?php echo __("Password", "plugnmeet") ?></p>
                             <input type="password" name="password" class="form-control form-field" id="room-password"
-                                   required>
+                                   required
+                                   placeholder="<?php echo __("Room's Password", "plugnmeet") ?>"
+                            >
                         </label>
 
                         <input type="hidden" name="id" value="<?php echo esc_attr($roomInfo->id) ?>">

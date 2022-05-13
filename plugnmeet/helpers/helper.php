@@ -280,6 +280,32 @@ class PlugnmeetHelper
         return self::formatHtml($whiteboardFeatures, "whiteboard_features", $data);
     }
 
+    public static function getExternalMediaPlayerFeatures($external_media_player_features)
+    {
+        $externalMediaPlayerFeatures = array(
+            "allowed_external_media_player" => array(
+                "label" => __("allow_external_media_player", "plugnmeet"),
+                "des" => __("allow_external_media_player_des", "plugnmeet"),
+                "options" => array(
+                    array(
+                        "label" => __("Yes", "plugnmeet"),
+                        "value" => 1
+                    ), array(
+                        "label" => __("No", "plugnmeet"),
+                        "value" => 0
+                    )),
+                "selected" => 1
+            )
+        );
+
+        $data = [];
+        if (!empty($external_media_player_features)) {
+            $data = $external_media_player_features;
+        }
+
+        return self::formatHtml($externalMediaPlayerFeatures, "external_media_player_features", $data);
+    }
+
     public static function getDefaultLockSettings($default_lock_settings)
     {
         $defaultLockSettings = array(

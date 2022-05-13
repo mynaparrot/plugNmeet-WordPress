@@ -1,9 +1,9 @@
 (function ($) {
     'use strict';
-    $(document).on("submit", "#plugnmeet-login-form", (e) => {
+    $(document).on("submit", ".plugnmeet-login-form", (e) => {
         e.preventDefault();
-        const formData = $("#plugnmeet-login-form").serialize();
-        const status = $("#roomStatus");
+        const formData = $(e.currentTarget).serialize();
+        const status = $(e.currentTarget).find(".roomStatus");
 
         $.ajax({
             url: plugnmeet_frontend.ajaxurl,
@@ -26,8 +26,8 @@
                     const windowOpen = window.open(data.url, "_blank");
                     if (!windowOpen) {
                         setTimeout(() => {
-                            window.location.href = url
-                        }, 2000)
+                            window.location.href = data.url
+                        }, 2000);
                     }
 
                     $("#room-password").val("")
@@ -42,7 +42,6 @@
                 status.addClass("alert-danger");
                 status.html(textStatus);
             }
-        })
+        });
     });
-
 })(jQuery);

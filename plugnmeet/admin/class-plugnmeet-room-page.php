@@ -107,12 +107,14 @@ class Plugnmeet_RoomPage
             $fields_values['chat_features'] = $room_metadata['chat_features'];
             $fields_values['shared_note_pad_features'] = $room_metadata['shared_note_pad_features'];
             $fields_values['whiteboard_features'] = $room_metadata['whiteboard_features'];
+            $fields_values['external_media_player_features'] = $room_metadata['external_media_player_features'];
             $fields_values['default_lock_settings'] = $room_metadata['default_lock_settings'];
             $fields_values['custom_design'] = $room_metadata['custom_design'];
         } else {
             $fields_values['room_features'] = [];
             $fields_values['chat_features'] = [];
             $fields_values['shared_note_pad_features'] = [];
+            $fields_values['external_media_player_features'] = [];
             $fields_values['whiteboard_features'] = [];
             $fields_values['default_lock_settings'] = [];
             $fields_values['custom_design'] = [];

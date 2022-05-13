@@ -163,8 +163,6 @@ class Plugnmeet_Public
         $js .= 'window.DEFAULT_SCREEN_SHARE_RESOLUTION = "' . esc_attr($params->default_screen_share_resolution) . '";';
 
         $js .= 'window.STOP_MIC_TRACK_ON_MUTE = "' . filter_var($params->stop_mic_track_on_mute, FILTER_VALIDATE_BOOLEAN) . '";';
-        $js .= 'window.NUMBER_OF_WEBCAMS_PER_PAGE_PC = "' . filter_var($params->number_of_webcams_per_page_pc, FILTER_VALIDATE_INT) . '";';
-        $js .= 'window.NUMBER_OF_WEBCAMS_PER_PAGE_MOBILE = "' . filter_var($params->number_of_webcams_per_page_mobile, FILTER_VALIDATE_INT) . '";';
 
         $custom_designs = [];
         foreach ($custom_design_params as $key => $val) {
@@ -207,7 +205,7 @@ class Plugnmeet_Public
         if (count($custom_design_items) > 0) {
             $js .= 'window.DESIGN_CUSTOMIZATION = `' . json_encode($custom_design_items) . '`;';
         }
-        
+
         return $js;
     }
 

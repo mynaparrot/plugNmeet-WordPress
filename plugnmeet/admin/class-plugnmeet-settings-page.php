@@ -288,24 +288,6 @@ class Plugnmeet_SettingsPage
         );
 
         add_settings_field(
-            'number_of_webcams_per_page_pc',
-            __('Webcams per page (PC)', 'plugnmeet'),
-            [$this, 'numberCallBack'],
-            'plugnmeet-settings',
-            'plugnmeet_settings_options_section',
-            ['id' => 'number_of_webcams_per_page_pc', 'required' => "required", "default" => 25]
-        );
-
-        add_settings_field(
-            'number_of_webcams_per_page_mobile',
-            __('Webcams per page (mobile)', 'plugnmeet'),
-            [$this, 'numberCallBack'],
-            'plugnmeet-settings',
-            'plugnmeet_settings_options_section',
-            ['id' => 'number_of_webcams_per_page_mobile', 'required' => "required", "default" => 6]
-        );
-
-        add_settings_field(
             'logo',
             __('Custom logo', 'plugnmeet'),
             [$this, 'mediaCallBack'],

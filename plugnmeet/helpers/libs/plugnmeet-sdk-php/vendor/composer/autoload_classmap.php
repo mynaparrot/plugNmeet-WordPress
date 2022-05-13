@@ -32,6 +32,7 @@ return array(
     'Mynaparrot\\Plugnmeet\\Parameters\\CreateRoomParameters' => $baseDir . '/src/Parameters/CreateRoomParameters.php',
     'Mynaparrot\\Plugnmeet\\Parameters\\DeleteRecordingParameters' => $baseDir . '/src/Parameters/DeleteRecordingParameters.php',
     'Mynaparrot\\Plugnmeet\\Parameters\\EndRoomParameters' => $baseDir . '/src/Parameters/EndRoomParameters.php',
+    'Mynaparrot\\Plugnmeet\\Parameters\\ExternalMediaPlayerFeaturesParameters' => $baseDir . '/src/Parameters/ExternalMediaPlayerFeaturesParameters.php',
     'Mynaparrot\\Plugnmeet\\Parameters\\FetchRecordingsParameters' => $baseDir . '/src/Parameters/FetchRecordingsParameters.php',
     'Mynaparrot\\Plugnmeet\\Parameters\\GenerateJoinTokenParameters' => $baseDir . '/src/Parameters/GenerateJoinTokenParameters.php',
     'Mynaparrot\\Plugnmeet\\Parameters\\GetActiveRoomInfoParameters' => $baseDir . '/src/Parameters/GetActiveRoomInfoParameters.php',

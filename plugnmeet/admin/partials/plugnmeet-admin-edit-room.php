@@ -93,6 +93,12 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                     <?php echo PlugnmeetHelper::getWhiteboardFeatures($fields_values['whiteboard_features']); ?>
                     </tbody>
                 </table>
+                <hr/>
+                <table class="form-table" role="presentation">
+                    <tbody>
+                    <?php echo PlugnmeetHelper::getExternalMediaPlayerFeatures($fields_values['external_media_player_features']); ?>
+                    </tbody>
+                </table>
             </div>
 
             <div class="tab-pane fade" id="lock" role="tabpanel" aria-labelledby="lock-tab">
