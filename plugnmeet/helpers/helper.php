@@ -24,6 +24,20 @@ class PlugnmeetHelper
             'value' => array(),
             'selected' => array(),
         ),
+        'input' => array(
+            'type' => array(),
+            'id' => array(),
+            'name' => array(),
+            'value' => array(),
+            'class' => array(),
+            'style' => array(),
+            'autocomplete' => array()
+        ),
+        'textarea' => array(
+            'name' => array(),
+            'cols' => array(),
+            'rows' => array()
+        ),
         'tr' => array(),
         'th' => array(
             'scope' => array()
@@ -48,25 +62,47 @@ class PlugnmeetHelper
     {
         $html = "";
         foreach ($items as $key => $item) {
-            $html .= '<tr>';
-            $html .= '<th scope="row">' . $item['label'] . '</th>';
-            $html .= '<td>';
-            $html .= "<select name=\"{$fieldName}[{$key}]\" class=\"list_class\">";
-            foreach ($item["options"] as $option) {
-                $selected = "";
-                if (!empty($data)) {
-                    if ($option['value'] == $data[$key]) {
-                        $selected = "selected";
-                    }
-                } else {
-                    if ($option['value'] == $item["selected"]) {
-                        $selected = "selected";
-                    }
-                }
-                $html .= '<option value="' . esc_attr($option['value']) . '" ' . $selected . '>' . esc_attr($option['label']) . '</option>';
-            }
+            if ($item["type"] === "select") {
+                $html .= '<tr>';
+                $html .= '<th scope="row">' . $item['label'] . '</th>';
+                $html .= '<td>';
+                $html .= "<select name=\"{$fieldName}[{$key}]\" class=\"list_class\">";
 
-            $html .= '</select></td></tr>';
+                $value = $item["selected"];
+                if (isset($data[$key])) {
+                    $value = $data[$key];
+                }
+
+                foreach ($item["options"] as $option) {
+                    $selected = "";
+                    if ($option['value'] == $value) {
+                        $selected = "selected";
+                    }
+                    $html .= '<option value="' . esc_attr($option['value']) . '" ' . $selected . '>' . esc_attr($option['label']) . '</option>';
+                }
+
+                $html .= '</select></td></tr>';
+            } elseif ($item["type"] === "text" || $item["type"] === "number") {
+                $value = $item["default"];
+                if (isset($data[$key])) {
+                    $value = $data[$key];
+                }
+                $html .= '<tr>';
+                $html .= '<th scope="row">' . esc_attr($item['label']) . '</th>';
+                $html .= '<td>';
+                $html .= '<input type="' . esc_attr($item["type"]) . '" name="' . $fieldName . '[' . esc_attr($key) . ']" value="' . esc_attr($value) . '"   autocomplete="off">';
+                $html .= '</td></tr>';
+            } elseif ($item["type"] === "textarea") {
+                $value = $item["default"];
+                if (isset($data[$key])) {
+                    $value = $data[$key];
+                }
+                $html .= '<tr>';
+                $html .= '<th scope="row">' . esc_attr($item['label']) . '</th>';
+                $html .= '<td>';
+                $html .= '<textarea name="' . esc_attr($fieldName) . '[' . esc_attr($key) . ']">' . esc_attr($value) . '</textarea>';
+                $html .= '</td></tr>';
+            }
         }
 
         return wp_kses($html, self::$allowedHtml);
@@ -76,8 +112,7 @@ class PlugnmeetHelper
     {
         $roomFeatures = array(
             "allow_webcams" => array(
-                "label" => __("allow_webcams", "plugnmeet"),
-                "des" => __("allow_webcams_des", "plugnmeet"),
+                "label" => __("Allow webcams", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -86,11 +121,11 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 1
+                "selected" => 1,
+                "type" => "select"
             ),
             "mute_on_start" => array(
-                "label" => __("mute_on_start", "plugnmeet"),
-                "des" => __("MUTE_ON_START_DES", "plugnmeet"),
+                "label" => __("Mute on start", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -99,11 +134,11 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 0
+                "selected" => 0,
+                "type" => "select"
             ),
             "allow_screen_share" => array(
-                "label" => __("allow_screen_share", "plugnmeet"),
-                "des" => __("ALLOW_SCREEN_SHARING_DES", "plugnmeet"),
+                "label" => __("Allow screen share", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -112,11 +147,11 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 1
+                "selected" => 1,
+                "type" => "select"
             ),
             "allow_recording" => array(
-                "label" => __("allow_recording", "plugnmeet"),
-                "des" => __("ALLOW_RECORDING_DES", "plugnmeet"),
+                "label" => __("Allow recording", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -125,11 +160,11 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 1
+                "selected" => 1,
+                "type" => "select"
             ),
             "allow_rtmp" => array(
-                "label" => __("allow_rtmp", "plugnmeet"),
-                "des" => __("ALLOW_RTMP_DES", "plugnmeet"),
+                "label" => __("Allow rtmp", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -138,11 +173,11 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 1
+                "selected" => 1,
+                "type" => "select"
             ),
             "allow_view_other_webcams" => array(
-                "label" => __("allow_view_other_webcams", "plugnmeet"),
-                "des" => __("ALLOW_VIEW_OTHER_WEBCAMS_DES", "plugnmeet"),
+                "label" => __("Allow view other webcams", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -151,11 +186,11 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 1
+                "selected" => 1,
+                "type" => "select"
             ),
             "allow_view_other_users_list" => array(
-                "label" => __("allow_view_other_users_list", "plugnmeet"),
-                "des" => __("ALLOW_VIEW_OTHER_USERS_DES", "plugnmeet"),
+                "label" => __("Allow view other users list", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -164,11 +199,11 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 1
+                "selected" => 1,
+                "type" => "select"
             ),
             "admin_only_webcams" => array(
-                "label" => __("admin_only_webcams", "plugnmeet"),
-                "des" => __("ADMIN_ONLY_WEBCAMS_DES", "plugnmeet"),
+                "label" => __("Admin only webcams", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -177,8 +212,27 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 0
+                "selected" => 0,
+                "type" => "select"
             ),
+            "allow_polls" => array(
+                "label" => __("Allow polls", "plugnmeet"),
+                "options" => array(
+                    array(
+                        "label" => __("Yes", "plugnmeet"),
+                        "value" => 1
+                    ), array(
+                        "label" => __("No", "plugnmeet"),
+                        "value" => 0
+                    )),
+                "selected" => 1,
+                "type" => "select"
+            ),
+            "room_duration" => array(
+                "label" => __("Room duration (In minutes, 0 = unlimited)", "plugnmeet"),
+                "default" => 0,
+                "type" => "number"
+            )
         );
 
         $data = [];
@@ -193,8 +247,7 @@ class PlugnmeetHelper
     {
         $chatFeatures = array(
             "allow_chat" => array(
-                "label" => __("allow_chat", "plugnmeet"),
-                "des" => __("ALLOW_CHAT_DES", "plugnmeet"),
+                "label" => __("Allow chat", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -203,11 +256,11 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 1
+                "selected" => 1,
+                "type" => "select"
             ),
             "allow_file_upload" => array(
-                "label" => __("allow_file_upload", "plugnmeet"),
-                "des" => __("ALLOW_FILE_UPLOAD_DES", "plugnmeet"),
+                "label" => __("Allow file upload", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -216,7 +269,8 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 1
+                "selected" => 1,
+                "type" => "select"
             ),
         );
 
@@ -232,8 +286,7 @@ class PlugnmeetHelper
     {
         $sharedNotePadFeatures = array(
             "allowed_shared_note_pad" => array(
-                "label" => __("allow_shared_notepad", "plugnmeet"),
-                "des" => __("allow_shared_notepad_des", "plugnmeet"),
+                "label" => __("Allow shared notepad", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -242,7 +295,8 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 1
+                "selected" => 1,
+                "type" => "select"
             )
         );
 
@@ -258,8 +312,7 @@ class PlugnmeetHelper
     {
         $whiteboardFeatures = array(
             "allowed_whiteboard" => array(
-                "label" => __("allow_whiteboard", "plugnmeet"),
-                "des" => __("allow_whiteboard_des", "plugnmeet"),
+                "label" => __("Allow whiteboard", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -268,7 +321,8 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 1
+                "selected" => 1,
+                "type" => "select"
             )
         );
 
@@ -284,8 +338,7 @@ class PlugnmeetHelper
     {
         $externalMediaPlayerFeatures = array(
             "allowed_external_media_player" => array(
-                "label" => __("allow_external_media_player", "plugnmeet"),
-                "des" => __("allow_external_media_player_des", "plugnmeet"),
+                "label" => __("Allow external media player", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -294,7 +347,8 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 1
+                "selected" => 1,
+                "type" => "select"
             )
         );
 
@@ -306,12 +360,73 @@ class PlugnmeetHelper
         return self::formatHtml($externalMediaPlayerFeatures, "external_media_player_features", $data);
     }
 
+    public static function getWaitingRoomFeatures($waiting_room_features)
+    {
+        $waitingRoomFeatures = array(
+            "is_active" => array(
+                "label" => __("Activate waiting room", "plugnmeet"),
+                "options" => array(
+                    array(
+                        "label" => __("Yes", "plugnmeet"),
+                        "value" => 1
+                    ), array(
+                        "label" => __("No", "plugnmeet"),
+                        "value" => 0
+                    )),
+                "selected" => 0,
+                "type" => "select"
+            ),
+            "waiting_room_msg" => array(
+                "label" => __("Waiting room message", "plugnmeet"),
+                "default" => "",
+                "type" => "textarea"
+            )
+        );
+
+        $data = [];
+        if (!empty($waiting_room_features)) {
+            $data = $waiting_room_features;
+        }
+
+        return self::formatHtml($waitingRoomFeatures, "waiting_room_features", $data);
+    }
+
+    public static function getBreakoutRoomFeatures($breakout_room_features)
+    {
+        $breakoutRoomFeatures = array(
+            "is_allow" => array(
+                "label" => __("Allow breakout rooms", "plugnmeet"),
+                "options" => array(
+                    array(
+                        "label" => __("Yes", "plugnmeet"),
+                        "value" => 1
+                    ), array(
+                        "label" => __("No", "plugnmeet"),
+                        "value" => 0
+                    )),
+                "selected" => 1,
+                "type" => "select"
+            ),
+            "allowed_number_rooms" => array(
+                "label" => __("Number of rooms", "plugnmeet"),
+                "default" => 6,
+                "type" => "number"
+            )
+        );
+
+        $data = [];
+        if (!empty($breakout_room_features)) {
+            $data = $breakout_room_features;
+        }
+
+        return self::formatHtml($breakoutRoomFeatures, "breakout_room_features", $data);
+    }
+
     public static function getDefaultLockSettings($default_lock_settings)
     {
         $defaultLockSettings = array(
             "lock_microphone" => array(
-                "label" => __("lock_microphone", "plugnmeet"),
-                "des" => __("LOCK_MICROPHONE_DES", "plugnmeet"),
+                "label" => __("Lock microphone", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -320,11 +435,11 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 0
+                "selected" => 0,
+                "type" => "select"
             ),
             "lock_webcam" => array(
-                "label" => __("lock_webcam", "plugnmeet"),
-                "des" => __("LOCK_WEBCAM_DES", "plugnmeet"),
+                "label" => __("Lock webcam", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -333,11 +448,11 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 0
+                "selected" => 0,
+                "type" => "select"
             ),
             "lock_screen_sharing" => array(
-                "label" => __("lock_screen_sharing", "plugnmeet"),
-                "des" => __("LOCK_SCREEN_SHARING_DES", "plugnmeet"),
+                "label" => __("Lock screen sharing", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -346,11 +461,11 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 1
+                "selected" => 1,
+                "type" => "select"
             ),
             "lock_whiteboard" => array(
-                "label" => __("lock_whiteboard", "plugnmeet"),
-                "des" => __("lock_whiteboard_des", "plugnmeet"),
+                "label" => __("Lock whiteboard", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -359,11 +474,11 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 1
+                "selected" => 1,
+                "type" => "select"
             ),
             "lock_shared_notepad" => array(
-                "label" => __("lock_shared_notepad", "plugnmeet"),
-                "des" => __("lock_shared_notepad_des", "plugnmeet"),
+                "label" => __("Lock shared notepad", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -372,11 +487,11 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 1
+                "selected" => 1,
+                "type" => "select"
             ),
             "lock_chat" => array(
-                "label" => __("lock_chat", "plugnmeet"),
-                "des" => __("LOCK_CHAT_DES", "plugnmeet"),
+                "label" => __("Lock chat", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -385,11 +500,11 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 0
+                "selected" => 0,
+                "type" => "select"
             ),
             "lock_chat_send_message" => array(
-                "label" => __("lock_chat_send_message", "plugnmeet"),
-                "des" => __("LOCK_CHAT_SEND_MESSAGE_DES", "plugnmeet"),
+                "label" => __("Lock chat send message", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -398,11 +513,11 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 0
+                "selected" => 0,
+                "type" => "select"
             ),
             "lock_chat_file_share" => array(
-                "label" => __("lock_chat_file_share", "plugnmeet"),
-                "des" => __("LOCK_CHAT_SEND_FILE_DES", "plugnmeet"),
+                "label" => __("Lock chat file share", "plugnmeet"),
                 "options" => array(
                     array(
                         "label" => __("Yes", "plugnmeet"),
@@ -411,7 +526,21 @@ class PlugnmeetHelper
                         "label" => __("No", "plugnmeet"),
                         "value" => 0
                     )),
-                "selected" => 0
+                "selected" => 0,
+                "type" => "select"
+            ),
+            "lock_private_chat" => array(
+                "label" => __("Lock private chat", "plugnmeet"),
+                "options" => array(
+                    array(
+                        "label" => __("Yes", "plugnmeet"),
+                        "value" => 1
+                    ), array(
+                        "label" => __("No", "plugnmeet"),
+                        "value" => 0
+                    )),
+                "selected" => 0,
+                "type" => "select"
             ),
         );
 

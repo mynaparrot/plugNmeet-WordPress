@@ -99,6 +99,18 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                     <?php echo PlugnmeetHelper::getExternalMediaPlayerFeatures($fields_values['external_media_player_features']); ?>
                     </tbody>
                 </table>
+                <hr/>
+                <table class="form-table" role="presentation">
+                    <tbody>
+                    <?php echo PlugnmeetHelper::getWaitingRoomFeatures($fields_values['waiting_room_features']); ?>
+                    </tbody>
+                </table>
+                <hr/>
+                <table class="form-table" role="presentation">
+                    <tbody>
+                    <?php echo PlugnmeetHelper::getBreakoutRoomFeatures($fields_values['breakout_room_features']); ?>
+                    </tbody>
+                </table>
             </div>
 
             <div class="tab-pane fade" id="lock" role="tabpanel" aria-labelledby="lock-tab">

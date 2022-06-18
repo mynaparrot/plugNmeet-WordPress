@@ -39,7 +39,11 @@
             },
             success: function (data) {
                 $("#update_client_button").removeClass("disabled");
-                alert(data.msg);
+                let msg = data.msg;
+                if (typeof msg === "object") {
+                    msg = JSON.parse(msg);
+                }
+                alert(msg);
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 $("#update_client_button").removeClass("disabled");

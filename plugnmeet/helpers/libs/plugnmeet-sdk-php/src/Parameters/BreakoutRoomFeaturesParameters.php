@@ -21,63 +21,66 @@
  * SOFTWARE.
  */
 
-namespace Mynaparrot\Plugnmeet\Responses;
+namespace Mynaparrot\Plugnmeet\Parameters;
 
 /**
  *
  */
-abstract class BaseResponse
+class BreakoutRoomFeaturesParameters
 {
     /**
-     * @var object
+     * @var bool
      */
-    protected $rawResponse;
-
+    protected $isAllow = true;
     /**
-     * @param object $rawResponse
+     * @var int
      */
-    public function __construct($rawResponse)
-    {
-        $this->rawResponse = $rawResponse;
-        if ($rawResponse->status) {
-            $this->rawResponse = $rawResponse->response;
-        } else {
-            $this->rawResponse->msg = $rawResponse->response;
-        }
-    }
-
-    /**
-     * @return object
-     */
-    public function getRawResponse()
-    {
-        return $this->rawResponse;
-    }
+    protected $allowedNumberRooms = 6;
 
     /**
      * @return bool
      */
-    public function getStatus(): bool
+    public function isAllow(): bool
     {
-        return $this->rawResponse->status;
+        return $this->isAllow;
     }
 
+    /**
+     * @param bool $isAllow
+     */
+    public function setIsAllow(bool $isAllow): void
+    {
+        $this->isAllow = filter_var($isAllow, FILTER_VALIDATE_BOOLEAN);;
+    }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getResponseMsg(): string
+    public function getAllowedNumberRooms(): int
     {
-        if ($this->rawResponse->msg === null) {
-            return "something went wrong";
+        return $this->allowedNumberRooms;
+    }
+
+    /**
+     * @param int $allowedNumberRooms
+     */
+    public function setAllowedNumberRooms(int $allowedNumberRooms): void
+    {
+        if ($allowedNumberRooms > 0) {
+            $this->allowedNumberRooms = $allowedNumberRooms;
         }
+    }
 
-        $msg = $this->rawResponse->msg;
+    /**
+     * @return array
+     */
+    public function buildBody()
+    {
+        $body = array(
+            "is_allow" => $this->isAllow(),
+            "allowed_number_rooms" => $this->allowedNumberRooms
+        );
 
-        if (is_array($msg)) {
-            return json_encode($msg);
-        }
-
-        return $msg;
+        return $body;
     }
 }

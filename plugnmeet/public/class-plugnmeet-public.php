@@ -152,7 +152,6 @@ class Plugnmeet_Public
         }
 
         $js = 'window.PLUG_N_MEET_SERVER_URL = "' . esc_url_raw($params->plugnmeet_server_url) . '";';
-        $js .= 'window.LIVEKIT_SERVER_URL = "' . esc_url_raw($params->livekit_server_url) . '";';
         $js .= 'window.STATIC_ASSETS_PATH = "' . esc_url_raw($assets_path) . '";';
         $js .= $customLogo;
         $js .= 'window.ENABLE_DYNACAST = "' . filter_var($params->enable_dynacast, FILTER_VALIDATE_BOOLEAN) . '";';

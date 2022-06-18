@@ -15,11 +15,11 @@
  * Plugin Name:       Plug-N-Meet web conference integration
  * Plugin URI:        https://github.com/mynaparrot/plugNmeet-WordPress
  * Description:       Plug-N-Meet web conference integration with WordPress
- * Version:           1.0.6
+ * Version:           1.0.7
  * Author:            Jibon L. Costa <jibon@mynaparrot.com>
- * Requires at least: 5.1
- * Requires PHP:      7.0.0
- * Tested up to:      5.9.3
+ * Requires at least: 5.9
+ * Requires PHP:      7.4.0
+ * Tested up to:      6.0
  * Author URI:        https://www.mynaparrot.com/
  * License:           GPL-2.0+
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.txt
@@ -37,7 +37,7 @@ if (!defined('WPINC')) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('PLUGNMEET_VERSION', '1.0.6');
+define('PLUGNMEET_VERSION', '1.0.7');
 
 /**
  * Define the Plugin basename
@@ -86,7 +86,7 @@ require plugin_dir_path(__FILE__) . 'includes/class-plugnmeet.php';
  * kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * Generally you will want to hook this function, instead of callign it globally.
+ * Generally you will want to hook this function, instead of calling it globally.
  * However since the purpose of your plugin is not known until you write it, we include the function globally.
  *
  * @since    1.0.0

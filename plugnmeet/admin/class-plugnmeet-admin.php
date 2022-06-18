@@ -57,12 +57,10 @@ class Plugnmeet_Admin
      */
     public function __construct($plugin_name, $plugin_prefix, $version)
     {
-
         $this->plugin_name = $plugin_name;
         $this->plugin_prefix = $plugin_prefix;
         $this->version = $version;
         $this->setting_params = (object)get_option("plugnmeet_settings");
-
     }
 
     /**
@@ -73,11 +71,9 @@ class Plugnmeet_Admin
      */
     public function enqueue_styles($hook_suffix)
     {
-
         wp_enqueue_style('bootstrap-min', plugin_dir_url(__FILE__) . 'css/bootstrap.min.css');
         wp_enqueue_style('bootstrap-colorpicker', plugin_dir_url(__FILE__) . 'css/bootstrap-colorpicker.min.css');
         wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/plugnmeet-admin.css');
-
     }
 
     /**
@@ -168,7 +164,12 @@ class Plugnmeet_Admin
         }
 
         $params = $this->setting_params;
-        $response = wp_remote_get($params->client_download_url, array(
+        $client_download_url = $params->client_download_url;
+        if (empty($client_download_url)) {
+            $client_download_url = "https://github.com/mynaparrot/plugNmeet-client/releases/latest/download/client.zip";
+        }
+
+        $response = wp_remote_get($client_download_url, array(
             "timeout" => 60
         ));
 
@@ -259,10 +260,19 @@ class Plugnmeet_Admin
 
         $room_features = isset($_POST['room_features']) ? $_POST['room_features'] : array();
         $chat_features = isset($_POST['chat_features']) ? $_POST['chat_features'] : array();
+
         $sharedNotePad_features = isset($_POST['shared_note_pad_features']) ? $_POST['shared_note_pad_features'] : array();
+
         $whiteboard_features = isset($_POST['whiteboard_features']) ? $_POST['whiteboard_features'] : array();
+
         $external_media_player_features = isset($_POST['external_media_player_features']) ? $_POST['external_media_player_features'] : array();
+
+        $waiting_room_features = isset($_POST['waiting_room_features']) ? $_POST['waiting_room_features'] : array();
+
+        $breakout_room_features = isset($_POST['breakout_room_features']) ? $_POST['breakout_room_features'] : array();
+
         $default_lock_settings = isset($_POST['default_lock_settings']) ? $_POST['default_lock_settings'] : array();
+
         $custom_design = isset($_POST['custom_design']) ? $_POST['custom_design'] : array();
 
         if (empty($moderator_pass)) {
@@ -293,6 +303,8 @@ class Plugnmeet_Admin
             'shared_note_pad_features' => $sharedNotePad_features,
             'whiteboard_features' => $whiteboard_features,
             'external_media_player_features' => $external_media_player_features,
+            'waiting_room_features' => $waiting_room_features,
+            'breakout_room_features' => $breakout_room_features,
             'default_lock_settings' => $default_lock_settings,
             'custom_design' => $custom_design
         );

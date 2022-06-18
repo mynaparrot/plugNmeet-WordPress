@@ -21,6 +21,7 @@
  * SOFTWARE.
  */
 
+use Mynaparrot\Plugnmeet\Parameters\BreakoutRoomFeaturesParameters;
 use Mynaparrot\Plugnmeet\Parameters\ChatFeaturesParameters;
 use Mynaparrot\Plugnmeet\Parameters\CreateRoomParameters;
 use Mynaparrot\Plugnmeet\Parameters\DeleteRecordingParameters;
@@ -35,6 +36,7 @@ use Mynaparrot\Plugnmeet\Parameters\RecordingDownloadTokenParameters;
 use Mynaparrot\Plugnmeet\Parameters\RoomFeaturesParameters;
 use Mynaparrot\Plugnmeet\Parameters\RoomMetadataParameters;
 use Mynaparrot\Plugnmeet\Parameters\SharedNotePadFeaturesParameters;
+use Mynaparrot\Plugnmeet\Parameters\WaitingRoomFeaturesParameters;
 use Mynaparrot\Plugnmeet\Parameters\WhiteboardFeaturesParameters;
 use Mynaparrot\Plugnmeet\Responses\CreateRoomResponse;
 use Mynaparrot\Plugnmeet\Responses\DeleteRecordingResponse;
@@ -107,6 +109,9 @@ class plugNmeetConnect
         if (isset($roomFeatures['mute_on_start'])) {
             $features->setMuteOnStart($roomFeatures['mute_on_start']);
         }
+        if (isset($roomFeatures['allow_screen_share'])) {
+            $features->setAllowScreenShare($roomFeatures['allow_screen_share']);
+        }
         if (isset($roomFeatures['allow_recording'])) {
             $features->setAllowRecording($roomFeatures['allow_recording']);
         }
@@ -121,6 +126,14 @@ class plugNmeetConnect
         }
         if (isset($roomFeatures['admin_only_webcams'])) {
             $features->setAdminOnlyWebcams($roomFeatures['admin_only_webcams']);
+        }
+        if (isset($roomFeatures['allow_polls'])) {
+            $features->setAllowPolls($roomFeatures['allow_polls']);
+        }
+        if (isset($roomFeatures['room_duration'])) {
+            if ($roomFeatures['room_duration'] > 0) {
+                $features->setRoomDuration($roomFeatures['room_duration']);
+            }
         }
 
         if (isset($roomMetadata['chat_features'])) {
@@ -162,6 +175,34 @@ class plugNmeetConnect
             $features->setExternalMediaPlayerFeatures($externalMediaPlayerFeatures);
         }
 
+        if (isset($roomMetadata['waiting_room_features'])) {
+            $roomWaitingRoomFeatures = $roomMetadata['waiting_room_features'];
+            $waitingRoomFeatures = new WaitingRoomFeaturesParameters();
+            if (isset($roomWaitingRoomFeatures['is_active'])) {
+                $waitingRoomFeatures->setIsActive($roomWaitingRoomFeatures['is_active']);
+            }
+            if (isset($roomWaitingRoomFeatures['waiting_room_msg'])) {
+                if (!empty($roomWaitingRoomFeatures['waiting_room_msg'])) {
+                    $waitingRoomFeatures->setWaitingRoomMsg($roomWaitingRoomFeatures['waiting_room_msg']);
+                }
+            }
+            $features->setWaitingRoomFeatures($waitingRoomFeatures);
+        }
+
+        if (isset($roomMetadata['breakout_room_features'])) {
+            $roomBreakoutRoomFeatures = $roomMetadata['breakout_room_features'];
+            $breakoutRoomFeatures = new BreakoutRoomFeaturesParameters();
+            if (isset($roomBreakoutRoomFeatures['is_allow'])) {
+                $breakoutRoomFeatures->setIsAllow($roomBreakoutRoomFeatures['is_allow']);
+            }
+            if (isset($roomBreakoutRoomFeatures['allowed_number_rooms'])) {
+                if (!empty($roomBreakoutRoomFeatures['allowed_number_rooms'])) {
+                    $breakoutRoomFeatures->setAllowedNumberRooms($roomBreakoutRoomFeatures['allowed_number_rooms']);
+                }
+            }
+            $features->setBreakoutRoomFeatures($breakoutRoomFeatures);
+        }
+
         $metadata = new RoomMetadataParameters();
         $metadata->setRoomTitle($roomTitle);
         $metadata->setWelcomeMessage($welcomeMessage);
@@ -195,6 +236,9 @@ class plugNmeetConnect
             }
             if (isset($defaultLocks['lock_chat_file_share'])) {
                 $lockSettings->setLockChatFileShare($defaultLocks['lock_chat_file_share']);
+            }
+            if (isset($defaultLocks['lock_private_chat'])) {
+                $lockSettings->setLockPrivateChat($defaultLocks['lock_private_chat']);
             }
 
             $metadata->setDefaultLockSettings($lockSettings);

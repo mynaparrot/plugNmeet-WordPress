@@ -206,15 +206,6 @@ class Plugnmeet_SettingsPage
         );
 
         add_settings_field(
-            'livekit_server_url',
-            __('Livekit URL', 'plugnmeet'),
-            [$this, 'textCallBack'],
-            'plugnmeet-settings',
-            'plugnmeet_settings_config_section',
-            ['id' => 'livekit_server_url', 'required' => "required", 'default' => "https://lk.plugnmeet.com"]
-        );
-
-        add_settings_field(
             'client_download_url',
             __('Client download url', 'plugnmeet'),
             [$this, 'clientUpdateCallBack'],

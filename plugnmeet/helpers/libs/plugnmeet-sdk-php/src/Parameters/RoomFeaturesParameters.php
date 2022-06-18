@@ -61,6 +61,14 @@ class RoomFeaturesParameters
      */
     protected $allowViewOtherParticipants = true;
     /**
+     * @var bool
+     */
+    protected $allowPolls = true;
+    /**
+     * @var int
+     */
+    protected $roomDuration = 0;
+    /**
      * @var ChatFeaturesParameters
      */
     protected $chatFeatures;
@@ -77,6 +85,16 @@ class RoomFeaturesParameters
      * @var ExternalMediaPlayerFeaturesParameters
      */
     protected $externalMediaPlayerFeatures;
+
+    /**
+     * @var WaitingRoomFeaturesParameters
+     */
+    protected $waitingRoomFeatures;
+
+    /**
+     * @var BreakoutRoomFeaturesParameters
+     */
+    protected $breakoutRoomFeatures;
 
     /**
      *
@@ -214,6 +232,38 @@ class RoomFeaturesParameters
     }
 
     /**
+     * @return bool
+     */
+    public function isAllowPolls(): bool
+    {
+        return $this->allowPolls;
+    }
+
+    /**
+     * @param bool $allowPolls
+     */
+    public function setAllowPolls(bool $allowPolls): void
+    {
+        $this->allowPolls = filter_var($allowPolls, FILTER_VALIDATE_BOOLEAN);
+    }
+
+    /**
+     * @return int
+     */
+    public function getRoomDuration(): int
+    {
+        return $this->roomDuration;
+    }
+
+    /**
+     * @param int $roomDuration
+     */
+    public function setRoomDuration(int $roomDuration): void
+    {
+        $this->roomDuration = $roomDuration;
+    }
+
+    /**
      * @return ChatFeaturesParameters
      */
     public function getChatFeatures()
@@ -278,6 +328,38 @@ class RoomFeaturesParameters
     }
 
     /**
+     * @return WaitingRoomFeaturesParameters
+     */
+    public function getWaitingRoomFeatures(): WaitingRoomFeaturesParameters
+    {
+        return $this->waitingRoomFeatures;
+    }
+
+    /**
+     * @param WaitingRoomFeaturesParameters $waitingRoomFeatures
+     */
+    public function setWaitingRoomFeatures(WaitingRoomFeaturesParameters $waitingRoomFeatures): void
+    {
+        $this->waitingRoomFeatures = $waitingRoomFeatures;
+    }
+
+    /**
+     * @return BreakoutRoomFeaturesParameters
+     */
+    public function getBreakoutRoomFeatures(): BreakoutRoomFeaturesParameters
+    {
+        return $this->breakoutRoomFeatures;
+    }
+
+    /**
+     * @param BreakoutRoomFeaturesParameters $breakoutRoomFeatures
+     */
+    public function setBreakoutRoomFeatures(BreakoutRoomFeaturesParameters $breakoutRoomFeatures): void
+    {
+        $this->breakoutRoomFeatures = $breakoutRoomFeatures;
+    }
+
+    /**
      * @return array
      */
     public function buildBody()
@@ -291,6 +373,8 @@ class RoomFeaturesParameters
             "admin_only_webcams" => $this->adminOnlyWebcams,
             "allow_view_other_webcams" => $this->allowViewOtherWebcams,
             "allow_view_other_users_list" => $this->allowViewOtherParticipants,
+            "allow_polls" => $this->allowPolls,
+            "room_duration" => $this->roomDuration
         );
 
         if ($this->chatFeatures !== null) {
@@ -307,6 +391,14 @@ class RoomFeaturesParameters
 
         if ($this->externalMediaPlayerFeatures !== null) {
             $body['external_media_player_features'] = $this->externalMediaPlayerFeatures->buildBody();
+        }
+
+        if ($this->waitingRoomFeatures !== null) {
+            $body['waiting_room_features'] = $this->waitingRoomFeatures->buildBody();
+        }
+
+        if ($this->breakoutRoomFeatures !== null) {
+            $body['breakout_room_features'] = $this->breakoutRoomFeatures->buildBody();
         }
 
         return $body;
