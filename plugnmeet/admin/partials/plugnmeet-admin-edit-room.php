@@ -111,6 +111,12 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                     <?php echo PlugnmeetHelper::getBreakoutRoomFeatures($fields_values['breakout_room_features']); ?>
                     </tbody>
                 </table>
+                <hr/>
+                <table class="form-table" role="presentation">
+                    <tbody>
+                    <?php echo PlugnmeetHelper::getDisplayExternalLinkFeatures($fields_values['display_external_link_features']); ?>
+                    </tbody>
+                </table>
             </div>
 
             <div class="tab-pane fade" id="lock" role="tabpanel" aria-labelledby="lock-tab">

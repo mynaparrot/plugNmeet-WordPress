@@ -422,6 +422,32 @@ class PlugnmeetHelper
         return self::formatHtml($breakoutRoomFeatures, "breakout_room_features", $data);
     }
 
+    public static function getDisplayExternalLinkFeatures($display_external_link_features)
+    {
+        $displayExternalLinkFeatures = array(
+            "is_allow" => array(
+                "label" => __("Allow Display External Link", "plugnmeet"),
+                "options" => array(
+                    array(
+                        "label" => __("Yes", "plugnmeet"),
+                        "value" => 1
+                    ), array(
+                        "label" => __("No", "plugnmeet"),
+                        "value" => 0
+                    )),
+                "selected" => 1,
+                "type" => "select"
+            )
+        );
+
+        $data = [];
+        if (!empty($display_external_link_features)) {
+            $data = $display_external_link_features;
+        }
+
+        return self::formatHtml($displayExternalLinkFeatures, "display_external_link_features", $data);
+    }
+
     public static function getDefaultLockSettings($default_lock_settings)
     {
         $defaultLockSettings = array(

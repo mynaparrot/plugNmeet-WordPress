@@ -258,22 +258,16 @@ class Plugnmeet_Admin
         $max_participants = isset($_POST['max_participants']) ? sanitize_text_field($_POST['max_participants']) : 0;
         $published = isset($_POST['published']) ? sanitize_text_field($_POST['published']) : 1;
 
-        $room_features = isset($_POST['room_features']) ? $_POST['room_features'] : array();
-        $chat_features = isset($_POST['chat_features']) ? $_POST['chat_features'] : array();
+        $room_metadata_items = ['room_features', 'chat_features', 'shared_note_pad_features', 'whiteboard_features', 'external_media_player_features', 'waiting_room_features', 'breakout_room_features', 'display_external_link_features', 'default_lock_settings', 'custom_design'];
 
-        $sharedNotePad_features = isset($_POST['shared_note_pad_features']) ? $_POST['shared_note_pad_features'] : array();
-
-        $whiteboard_features = isset($_POST['whiteboard_features']) ? $_POST['whiteboard_features'] : array();
-
-        $external_media_player_features = isset($_POST['external_media_player_features']) ? $_POST['external_media_player_features'] : array();
-
-        $waiting_room_features = isset($_POST['waiting_room_features']) ? $_POST['waiting_room_features'] : array();
-
-        $breakout_room_features = isset($_POST['breakout_room_features']) ? $_POST['breakout_room_features'] : array();
-
-        $default_lock_settings = isset($_POST['default_lock_settings']) ? $_POST['default_lock_settings'] : array();
-
-        $custom_design = isset($_POST['custom_design']) ? $_POST['custom_design'] : array();
+        $room_metadata = [];
+        foreach ($room_metadata_items as $item) {
+            if (isset($_POST[$item])) {
+                $room_metadata[$item] = $_POST[$item];
+            } else {
+                $room_metadata[$item] = [];
+            }
+        }
 
         if (empty($moderator_pass)) {
             $moderator_pass = PlugnmeetHelper::secureRandomKey(10);
@@ -296,19 +290,7 @@ class Plugnmeet_Admin
             $connect = new plugNmeetConnect($options);
             $room_id = $connect->getUUID();
         }
-
-        $room_metadata = array(
-            'room_features' => $room_features,
-            'chat_features' => $chat_features,
-            'shared_note_pad_features' => $sharedNotePad_features,
-            'whiteboard_features' => $whiteboard_features,
-            'external_media_player_features' => $external_media_player_features,
-            'waiting_room_features' => $waiting_room_features,
-            'breakout_room_features' => $breakout_room_features,
-            'default_lock_settings' => $default_lock_settings,
-            'custom_design' => $custom_design
-        );
-
+        
         if (!$id) {
             $wpdb->insert(
                 $wpdb->prefix . "plugnmeet_rooms",

@@ -101,35 +101,21 @@ class Plugnmeet_RoomPage
             $fields_values['attendee_pass'] = PlugnmeetHelper::secureRandomKey(10);
         }
 
+        $room_metadata_items = ['room_features', 'chat_features', 'shared_note_pad_features', 'whiteboard_features', 'external_media_player_features', 'waiting_room_features', 'breakout_room_features', 'display_external_link_features', 'default_lock_settings', 'custom_design'];
+
         if (isset($data->room_metadata)) {
             $room_metadata = json_decode($data->room_metadata, true);
-            $fields_values['room_features'] = $room_metadata['room_features'];
-
-            $fields_values['chat_features'] = $room_metadata['chat_features'];
-
-            $fields_values['shared_note_pad_features'] = $room_metadata['shared_note_pad_features'];
-
-            $fields_values['whiteboard_features'] = $room_metadata['whiteboard_features'];
-
-            $fields_values['external_media_player_features'] = $room_metadata['external_media_player_features'];
-
-            $fields_values['waiting_room_features'] = $room_metadata['waiting_room_features'];
-
-            $fields_values['breakout_room_features'] = $room_metadata['breakout_room_features'];
-
-            $fields_values['default_lock_settings'] = $room_metadata['default_lock_settings'];
-
-            $fields_values['custom_design'] = $room_metadata['custom_design'];
+            foreach ($room_metadata_items as $item) {
+                if (isset($room_metadata[$item])) {
+                    $fields_values[$item] = $room_metadata[$item];
+                } else {
+                    $fields_values[$item] = [];
+                }
+            }
         } else {
-            $fields_values['room_features'] = [];
-            $fields_values['chat_features'] = [];
-            $fields_values['shared_note_pad_features'] = [];
-            $fields_values['external_media_player_features'] = [];
-            $fields_values['whiteboard_features'] = [];
-            $fields_values['waiting_room_features'] = [];
-            $fields_values['breakout_room_features'] = [];
-            $fields_values['default_lock_settings'] = [];
-            $fields_values['custom_design'] = [];
+            foreach ($room_metadata_items as $item) {
+                $fields_values[$item] = [];
+            }
         }
 
         return $fields_values;
