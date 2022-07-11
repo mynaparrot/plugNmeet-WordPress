@@ -41,7 +41,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
             <th class="manage-column column-categories">
                 <?php echo __("Meeting create", "plugnmeet"); ?>
             </th>
-            <th class="manage-column" style="width: 17%">
+            <th class="manage-column" style="width: 22%">
                 <?php echo __("File size (MB)", "plugnmeet"); ?>
             </th>
         </tr>
