@@ -13,6 +13,7 @@
  * @subpackage Plugnmeet/includes
  * @author     Jibon Costa <jibon@mynaparrot.com>
  */
+
 if (!defined('PLUGNMEET_BASE_NAME')) {
     die;
 }
