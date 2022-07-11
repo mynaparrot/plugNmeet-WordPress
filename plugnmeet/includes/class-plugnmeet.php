@@ -18,8 +18,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
     die;
 }
 
-class Plugnmeet
-{
+class Plugnmeet {
 
     /**
      * The loader that's responsible for maintaining and registering all hooks that power
@@ -67,8 +66,7 @@ class Plugnmeet
      *
      * @since    1.0.0
      */
-    public function __construct()
-    {
+    public function __construct() {
 
         if (defined('PLUGNMEET_VERSION')) {
 
@@ -106,8 +104,7 @@ class Plugnmeet
      * @since    1.0.0
      * @access   private
      */
-    private function load_dependencies()
-    {
+    private function load_dependencies() {
 
         /**
          * The class responsible for orchestrating the actions and filters of the
@@ -145,8 +142,7 @@ class Plugnmeet
      * @since    1.0.0
      * @access   private
      */
-    private function set_locale()
-    {
+    private function set_locale() {
 
         $plugin_i18n = new Plugnmeet_I18n();
 
@@ -161,8 +157,7 @@ class Plugnmeet
      * @since    1.0.0
      * @access   private
      */
-    private function define_admin_hooks()
-    {
+    private function define_admin_hooks() {
 
         $plugin_admin = new Plugnmeet_Admin($this->get_plugin_name(), $this->get_plugin_prefix(), $this->get_version());
 
@@ -188,8 +183,7 @@ class Plugnmeet
      * @since    1.0.0
      * @access   private
      */
-    private function define_public_hooks()
-    {
+    private function define_public_hooks() {
 
         $plugin_public = new Plugnmeet_Public($this->get_plugin_name(), $this->get_plugin_prefix(), $this->get_version());
 
@@ -216,8 +210,7 @@ class Plugnmeet
      *
      * @since    1.0.0
      */
-    public function run()
-    {
+    public function run() {
         $this->loader->run();
     }
 
@@ -228,8 +221,7 @@ class Plugnmeet
      * @return    string    The name of the plugin.
      * @since     1.0.0
      */
-    public function get_plugin_name()
-    {
+    public function get_plugin_name() {
         return $this->plugin_name;
     }
 
@@ -239,8 +231,7 @@ class Plugnmeet
      * @return    string    The prefix of the plugin.
      * @since     1.0.0
      */
-    public function get_plugin_prefix()
-    {
+    public function get_plugin_prefix() {
         return $this->plugin_prefix;
     }
 
@@ -250,8 +241,7 @@ class Plugnmeet
      * @return    Plugnmeet_Loader    Orchestrates the hooks of the plugin.
      * @since     1.0.0
      */
-    public function get_loader()
-    {
+    public function get_loader() {
         return $this->loader;
     }
 
@@ -261,8 +251,7 @@ class Plugnmeet
      * @return    string    The version number of the plugin.
      * @since     1.0.0
      */
-    public function get_version()
-    {
+    public function get_version() {
         return $this->version;
     }
 

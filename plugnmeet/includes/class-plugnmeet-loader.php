@@ -15,8 +15,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
     die;
 }
 
-class Plugnmeet_Loader
-{
+class Plugnmeet_Loader {
 
     /**
      * The array of actions registered with WordPress.
@@ -50,8 +49,7 @@ class Plugnmeet_Loader
      *
      * @since    1.0.0
      */
-    public function __construct()
-    {
+    public function __construct() {
 
         $this->actions = array();
         $this->filters = array();
@@ -69,8 +67,7 @@ class Plugnmeet_Loader
      * @param int $accepted_args Optional. The number of arguments that should be passed to the $callback. Default is 1.
      * @since    1.0.0
      */
-    public function add_action($hook, $component, $callback, $priority = 10, $accepted_args = 1)
-    {
+    public function add_action($hook, $component, $callback, $priority = 10, $accepted_args = 1) {
         $this->actions = $this->add($this->actions, $hook, $component, $callback, $priority, $accepted_args);
     }
 
@@ -84,8 +81,7 @@ class Plugnmeet_Loader
      * @param int $accepted_args Optional. The number of arguments that should be passed to the $callback. Default is 1.
      * @since    1.0.0
      */
-    public function add_filter($hook, $component, $callback, $priority = 10, $accepted_args = 1)
-    {
+    public function add_filter($hook, $component, $callback, $priority = 10, $accepted_args = 1) {
         $this->filters = $this->add($this->filters, $hook, $component, $callback, $priority, $accepted_args);
     }
 
@@ -100,8 +96,7 @@ class Plugnmeet_Loader
      * @return   $removed bool Whether the function is removed.
      * @since    1.0.0
      */
-    public function remove_filter($tag, $class_name = '', $method_to_remove = '', $priority = 10)
-    {
+    public function remove_filter($tag, $class_name = '', $method_to_remove = '', $priority = 10) {
 
         global $wp_filter;
         $removed = false;
@@ -136,8 +131,7 @@ class Plugnmeet_Loader
      * @return   $removed bool Whether the function is removed.
      * @since    1.0.0
      */
-    public function remove_action($tag, $class_name = '', $method_to_remove = '', $priority = 10)
-    {
+    public function remove_action($tag, $class_name = '', $method_to_remove = '', $priority = 10) {
         return $this->remove_filter($tag, $class_name, $method_to_remove, $priority);
     }
 
@@ -151,8 +145,7 @@ class Plugnmeet_Loader
      * @param int $accepted_args Optional. The number of arguments that should be passed to the $callback. Default is 1.
      * @since     1.0.0
      */
-    public function add_shortcode($tag, $component, $callback, $priority = 10, $accepted_args = 1)
-    {
+    public function add_shortcode($tag, $component, $callback, $priority = 10, $accepted_args = 1) {
         $this->shortcodes = $this->add($this->shortcodes, $tag, $component, $callback, $priority, $accepted_args);
     }
 
@@ -170,8 +163,7 @@ class Plugnmeet_Loader
      * @since    1.0.0
      * @access   private
      */
-    private function add($hooks, $hook, $component, $callback, $priority, $accepted_args)
-    {
+    private function add($hooks, $hook, $component, $callback, $priority, $accepted_args) {
 
         $hooks[] = array(
             'hook' => $hook,
@@ -190,8 +182,7 @@ class Plugnmeet_Loader
      *
      * @since    1.0.0
      */
-    public function run()
-    {
+    public function run() {
 
         foreach ($this->filters as $hook) {
             add_filter($hook['hook'], array($hook['component'], $hook['callback']), $hook['priority'], $hook['accepted_args']);

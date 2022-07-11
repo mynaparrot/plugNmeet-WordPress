@@ -52,8 +52,7 @@ define('PLUGNMEET_ROOT_PATH', dirname(__FILE__));
  * This action is documented in includes/class-plugnmeet-activator.php
  * Full security checks are performed inside the class.
  */
-function plugnmeet_activate()
-{
+function plugnmeet_activate() {
     require_once plugin_dir_path(__FILE__) . 'includes/class-plugnmeet-activator.php';
     Plugnmeet_Activator::activate();
 }
@@ -64,8 +63,7 @@ function plugnmeet_activate()
  * This action is documented in includes/class-plugnmeet-deactivator.php
  * Full security checks are performed inside the class.
  */
-function plugnmeet_deactivate()
-{
+function plugnmeet_deactivate() {
     require_once plugin_dir_path(__FILE__) . 'includes/class-plugnmeet-deactivator.php';
     Plugnmeet_Deactivator::deactivate();
 }
@@ -91,8 +89,7 @@ require plugin_dir_path(__FILE__) . 'includes/class-plugnmeet.php';
  *
  * @since    1.0.0
  */
-function plugnmeet_run()
-{
+function plugnmeet_run() {
 
     $plugin = new Plugnmeet();
     $plugin->run();

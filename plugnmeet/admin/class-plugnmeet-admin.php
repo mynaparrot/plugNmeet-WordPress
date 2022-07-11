@@ -15,8 +15,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
     die;
 }
 
-class Plugnmeet_Admin
-{
+class Plugnmeet_Admin {
 
     /**
      * The ID of this plugin.
@@ -55,8 +54,7 @@ class Plugnmeet_Admin
      * @param string $version The version of this plugin.
      * @since    1.0.0
      */
-    public function __construct($plugin_name, $plugin_prefix, $version)
-    {
+    public function __construct($plugin_name, $plugin_prefix, $version) {
         $this->plugin_name = $plugin_name;
         $this->plugin_prefix = $plugin_prefix;
         $this->version = $version;
@@ -69,8 +67,7 @@ class Plugnmeet_Admin
      * @param string $hook_suffix The current admin page.
      * @since    1.0.0
      */
-    public function enqueue_styles($hook_suffix)
-    {
+    public function enqueue_styles($hook_suffix) {
         wp_enqueue_style('bootstrap-min', plugin_dir_url(__FILE__) . 'css/bootstrap.min.css');
         wp_enqueue_style('bootstrap-colorpicker', plugin_dir_url(__FILE__) . 'css/bootstrap-colorpicker.min.css');
         wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/plugnmeet-admin.css');
@@ -82,8 +79,7 @@ class Plugnmeet_Admin
      * @param string $hook_suffix The current admin page.
      * @since    1.0.0
      */
-    public function enqueue_scripts($hook_suffix)
-    {
+    public function enqueue_scripts($hook_suffix) {
         wp_enqueue_media();
         wp_enqueue_script("bootstrap-bundle", plugin_dir_url(__FILE__) . 'js/bootstrap.bundle.js', array(), $this->version);
         wp_enqueue_script("bootstrap-colorpicker", plugin_dir_url(__FILE__) . 'js/bootstrap-colorpicker.min.js', array(), $this->version);
@@ -95,8 +91,7 @@ class Plugnmeet_Admin
         wp_localize_script($this->plugin_name, 'ajax_admin', $script);
     }
 
-    public function addMenuPages($hook_suffix)
-    {
+    public function addMenuPages($hook_suffix) {
         if (!class_exists("Plugnmeet_RoomPage")) {
             require plugin_dir_path(dirname(__FILE__)) . 'admin/class-plugnmeet-room-page.php';
         }
@@ -143,8 +138,7 @@ class Plugnmeet_Admin
         );
     }
 
-    public function register_settings()
-    {
+    public function register_settings() {
         if (!class_exists("Plugnmeet_SettingsPage")) {
             require plugin_dir_path(dirname(__FILE__)) . 'admin/class-plugnmeet-settings-page.php';
         }
@@ -153,8 +147,7 @@ class Plugnmeet_Admin
         $settingPage->plugnmeet_register_settings();
     }
 
-    public function update_client()
-    {
+    public function update_client() {
         $output = new stdClass();
         $output->status = false;
         $output->msg = __('Token mismatched', 'plugnmeet');
@@ -209,8 +202,7 @@ class Plugnmeet_Admin
         wp_send_json($output);
     }
 
-    private function deleteDir($dirPath)
-    {
+    private function deleteDir($dirPath) {
         if (!is_dir($dirPath)) {
             return;
         }
@@ -231,8 +223,7 @@ class Plugnmeet_Admin
         rmdir($dirPath);
     }
 
-    public function save_room_data()
-    {
+    public function save_room_data() {
         global $wpdb;
         $output = new stdClass();
         $output->status = false;
@@ -290,7 +281,7 @@ class Plugnmeet_Admin
             $connect = new plugNmeetConnect($options);
             $room_id = $connect->getUUID();
         }
-        
+
         if (!$id) {
             $wpdb->insert(
                 $wpdb->prefix . "plugnmeet_rooms",
@@ -347,8 +338,7 @@ class Plugnmeet_Admin
         wp_send_json($output);
     }
 
-    public function delete_room()
-    {
+    public function delete_room() {
         global $wpdb;
         $output = new stdClass();
         $output->status = false;
@@ -380,8 +370,7 @@ class Plugnmeet_Admin
         wp_send_json($output);
     }
 
-    public function get_recordings()
-    {
+    public function get_recordings() {
         $output = new stdClass();
         $output->status = false;
         $output->msg = __('Token mismatched', 'plugnmeet');
@@ -415,8 +404,7 @@ class Plugnmeet_Admin
         wp_send_json($output);
     }
 
-    public function download_recording()
-    {
+    public function download_recording() {
         $output = new stdClass();
         $output->status = false;
         $output->msg = __('Token mismatched', 'plugnmeet');
@@ -449,8 +437,7 @@ class Plugnmeet_Admin
         wp_send_json($output);
     }
 
-    public function delete_recording()
-    {
+    public function delete_recording() {
         $output = new stdClass();
         $output->status = false;
         $output->msg = __('Token mismatched', 'plugnmeet');

@@ -10,7 +10,6 @@
  * @package    Plugnmeet
  * @subpackage Plugnmeet/public/partials
  */
-
 if (!defined('PLUGNMEET_BASE_NAME')) {
     die;
 }

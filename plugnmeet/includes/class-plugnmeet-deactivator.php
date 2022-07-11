@@ -15,8 +15,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
     die;
 }
 
-class Plugnmeet_Deactivator
-{
+class Plugnmeet_Deactivator {
 
     /**
      * The $_REQUEST during plugin activation.
@@ -44,8 +43,7 @@ class Plugnmeet_Deactivator
      *
      * @since    1.0.0
      */
-    public static function deactivate()
-    {
+    public static function deactivate() {
 
         if (false === self::get_request()
             || false === self::validate_request(self::$plugin)
@@ -74,8 +72,7 @@ class Plugnmeet_Deactivator
      * @return bool|array false or self::$request array.
      * @since    1.0.0
      */
-    private static function get_request()
-    {
+    private static function get_request() {
 
         if (!empty($_REQUEST)
             && isset($_REQUEST['_wpnonce'])
@@ -100,11 +97,8 @@ class Plugnmeet_Deactivator
 
                 }
             }
-        } else {
-
-            return false;
         }
-
+        return false;
     }
 
     /**
@@ -116,8 +110,7 @@ class Plugnmeet_Deactivator
      * @return bool false if either plugin or action does not match, else true.
      * @since    1.0.0
      */
-    private static function validate_request($plugin)
-    {
+    private static function validate_request($plugin) {
 
         if (isset(self::$request['plugin'])
             && $plugin === self::$request['plugin']
@@ -145,8 +138,7 @@ class Plugnmeet_Deactivator
      * @return bool false if no caps, else true.
      * @since    1.0.0
      */
-    private static function check_caps()
-    {
+    private static function check_caps() {
 
         if (current_user_can('activate_plugins')) {
             return true;

@@ -11,8 +11,8 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
     die;
 }
 
-class PlugnmeetHelper
-{
+class PlugnmeetHelper {
+
     private static $allowedHtml = array(
         'select' => array(
             'id' => array(),
@@ -47,8 +47,7 @@ class PlugnmeetHelper
         )
     );
 
-    public static function secureRandomKey(int $length = 36): string
-    {
+    public static function secureRandomKey(int $length = 36): string {
         $keyspace = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         $pieces = [];
         $max = mb_strlen($keyspace, '8bit') - 1;
@@ -58,8 +57,7 @@ class PlugnmeetHelper
         return implode('', $pieces);
     }
 
-    private static function formatHtml($items, $fieldName, $data)
-    {
+    private static function formatHtml($items, $fieldName, $data) {
         $html = "";
         foreach ($items as $key => $item) {
             if ($item["type"] === "select") {
@@ -108,8 +106,7 @@ class PlugnmeetHelper
         return wp_kses($html, self::$allowedHtml);
     }
 
-    public static function getRoomFeatures($room_features)
-    {
+    public static function getRoomFeatures($room_features) {
         $roomFeatures = array(
             "allow_webcams" => array(
                 "label" => __("Allow webcams", "plugnmeet"),
@@ -243,8 +240,7 @@ class PlugnmeetHelper
         return self::formatHtml($roomFeatures, "room_features", $data);
     }
 
-    public static function getChatFeatures($chat_features)
-    {
+    public static function getChatFeatures($chat_features) {
         $chatFeatures = array(
             "allow_chat" => array(
                 "label" => __("Allow chat", "plugnmeet"),
@@ -282,8 +278,7 @@ class PlugnmeetHelper
         return self::formatHtml($chatFeatures, "chat_features", $data);
     }
 
-    public static function getSharedNotePadFeatures($sharedNotePad_features)
-    {
+    public static function getSharedNotePadFeatures($sharedNotePad_features) {
         $sharedNotePadFeatures = array(
             "allowed_shared_note_pad" => array(
                 "label" => __("Allow shared notepad", "plugnmeet"),
@@ -308,8 +303,7 @@ class PlugnmeetHelper
         return self::formatHtml($sharedNotePadFeatures, "shared_note_pad_features", $data);
     }
 
-    public static function getWhiteboardFeatures($whiteboard_features)
-    {
+    public static function getWhiteboardFeatures($whiteboard_features) {
         $whiteboardFeatures = array(
             "allowed_whiteboard" => array(
                 "label" => __("Allow whiteboard", "plugnmeet"),
@@ -334,8 +328,7 @@ class PlugnmeetHelper
         return self::formatHtml($whiteboardFeatures, "whiteboard_features", $data);
     }
 
-    public static function getExternalMediaPlayerFeatures($external_media_player_features)
-    {
+    public static function getExternalMediaPlayerFeatures($external_media_player_features) {
         $externalMediaPlayerFeatures = array(
             "allowed_external_media_player" => array(
                 "label" => __("Allow external media player", "plugnmeet"),
@@ -360,8 +353,7 @@ class PlugnmeetHelper
         return self::formatHtml($externalMediaPlayerFeatures, "external_media_player_features", $data);
     }
 
-    public static function getWaitingRoomFeatures($waiting_room_features)
-    {
+    public static function getWaitingRoomFeatures($waiting_room_features) {
         $waitingRoomFeatures = array(
             "is_active" => array(
                 "label" => __("Activate waiting room", "plugnmeet"),
@@ -391,8 +383,7 @@ class PlugnmeetHelper
         return self::formatHtml($waitingRoomFeatures, "waiting_room_features", $data);
     }
 
-    public static function getBreakoutRoomFeatures($breakout_room_features)
-    {
+    public static function getBreakoutRoomFeatures($breakout_room_features) {
         $breakoutRoomFeatures = array(
             "is_allow" => array(
                 "label" => __("Allow breakout rooms", "plugnmeet"),
@@ -422,8 +413,7 @@ class PlugnmeetHelper
         return self::formatHtml($breakoutRoomFeatures, "breakout_room_features", $data);
     }
 
-    public static function getDisplayExternalLinkFeatures($display_external_link_features)
-    {
+    public static function getDisplayExternalLinkFeatures($display_external_link_features) {
         $displayExternalLinkFeatures = array(
             "is_allow" => array(
                 "label" => __("Allow Display External Link", "plugnmeet"),
@@ -448,8 +438,7 @@ class PlugnmeetHelper
         return self::formatHtml($displayExternalLinkFeatures, "display_external_link_features", $data);
     }
 
-    public static function getDefaultLockSettings($default_lock_settings)
-    {
+    public static function getDefaultLockSettings($default_lock_settings) {
         $defaultLockSettings = array(
             "lock_microphone" => array(
                 "label" => __("Lock microphone", "plugnmeet"),
@@ -578,8 +567,7 @@ class PlugnmeetHelper
         return self::formatHtml($defaultLockSettings, "default_lock_settings", $data);
     }
 
-    public static function getStatusSettings($published = 1)
-    {
+    public static function getStatusSettings($published = 1) {
         $options = array(
             array(
                 "value" => 1,

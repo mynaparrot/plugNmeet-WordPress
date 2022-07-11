@@ -1,10 +1,6 @@
-*
-.DS_Store
-*.pot~
-*.po~
+/*
 
 !/.github/
 !README.md
 !LICENSE
 !/plugnmeet/
-

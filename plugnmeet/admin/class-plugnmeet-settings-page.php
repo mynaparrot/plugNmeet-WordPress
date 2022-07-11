@@ -11,8 +11,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
     die;
 }
 
-class Plugnmeet_SettingsPage
-{
+class Plugnmeet_SettingsPage {
     private $hasError = false;
     private $show = false;
     private $isRegister = false;
@@ -39,12 +38,10 @@ class Plugnmeet_SettingsPage
         ),
     );
 
-    public function __construct()
-    {
+    public function __construct() {
     }
 
-    public function textCallBack($args)
-    {
+    public function textCallBack($args) {
         $options = get_option('plugnmeet_settings');
 
         $id = isset($args['id']) ? esc_attr($args['id']) : '';
@@ -56,8 +53,7 @@ class Plugnmeet_SettingsPage
         echo wp_kses($html, $this->allowedHtml);
     }
 
-    public function selectCallBack($args)
-    {
+    public function selectCallBack($args) {
         $options = get_option('plugnmeet_settings');
 
         $id = isset($args['id']) ? esc_attr($args['id']) : '';
@@ -79,8 +75,7 @@ class Plugnmeet_SettingsPage
         echo wp_kses($html, $this->allowedHtml);
     }
 
-    public function numberCallBack($args)
-    {
+    public function numberCallBack($args) {
         $options = get_option('plugnmeet_settings');
 
         $id = isset($args['id']) ? esc_attr($args['id']) : '';
@@ -91,8 +86,7 @@ class Plugnmeet_SettingsPage
         echo wp_kses($html, $this->allowedHtml);
     }
 
-    public function mediaCallBack($args)
-    {
+    public function mediaCallBack($args) {
         $options = get_option('plugnmeet_settings');
         $id = isset($args['id']) ? esc_attr($args['id']) : '';
         $value = isset($options[$id]) ? esc_attr($options[$id]) : "";
@@ -103,8 +97,7 @@ class Plugnmeet_SettingsPage
         echo wp_kses($html, $this->allowedHtml);
     }
 
-    public function clientUpdateCallBack($args)
-    {
+    public function clientUpdateCallBack($args) {
         $options = get_option('plugnmeet_settings');
 
         $id = isset($args['id']) ? esc_attr($args['id']) : '';
@@ -117,8 +110,7 @@ class Plugnmeet_SettingsPage
         echo wp_kses($html, $this->allowedHtml);
     }
 
-    public function validation($input)
-    {
+    public function validation($input) {
         $options = get_option('plugnmeet_settings');
         $requiredFields = array("plugnmeet_server_url", "plugnmeet_api_key", "plugnmeet_secret", "livekit_server_url", "client_download_url");
         foreach ($input as $key => $val) {
@@ -148,16 +140,14 @@ class Plugnmeet_SettingsPage
         return $input;
     }
 
-    public function checkError()
-    {
+    public function checkError() {
         if (!$this->isRegister) {
             $this->isRegister = true;
             settings_errors('plugnmeet_settings');
         }
     }
 
-    public function plugnmeet_register_settings()
-    {
+    public function plugnmeet_register_settings() {
         register_setting(
             'plugnmeet_settings',
             'plugnmeet_settings',
@@ -169,8 +159,7 @@ class Plugnmeet_SettingsPage
         $this->designCustomization();
     }
 
-    private function configSection()
-    {
+    private function configSection() {
         add_settings_section(
             'plugnmeet_settings_config_section',
             __('Server Settings', 'plugnmeet'),
@@ -215,8 +204,7 @@ class Plugnmeet_SettingsPage
         );
     }
 
-    private function optionsSection()
-    {
+    private function optionsSection() {
         add_settings_section(
             'plugnmeet_settings_options_section',
             __('Options', 'plugnmeet'),
@@ -288,8 +276,7 @@ class Plugnmeet_SettingsPage
         );
     }
 
-    private function designCustomization()
-    {
+    private function designCustomization() {
         add_settings_section(
             'plugnmeet_design_customization_section',
             __('Design Customization', 'plugnmeet'),

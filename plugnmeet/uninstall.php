@@ -33,8 +33,7 @@
  * @since 1.0.0
  */
 
-function plugnmeet_uninstall()
-{
+function plugnmeet_uninstall() {
 
     if (!defined('WP_UNINSTALL_PLUGIN')
         || empty($_REQUEST)
