@@ -3,8 +3,8 @@
 *.pot~
 *.po~
 
-!.github
+!/.github/
 !README.md
 !LICENSE
-!plugnmeet
+!/plugnmeet/
 
