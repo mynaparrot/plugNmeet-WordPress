@@ -1,3 +1,9 @@
+*
 .DS_Store
 *.pot~
 *.po~
+
+!README.md
+!LICENSE
+!plugnmeet
+
