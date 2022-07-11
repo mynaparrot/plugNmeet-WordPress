@@ -102,7 +102,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     alert(textStatus + ": " + errorThrown);
-                    console.log(textStatus + ": " + errorThrown);
+                    console.error(textStatus + ": " + errorThrown);
                 }
             })
         });
@@ -136,7 +136,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     alert(textStatus + ": " + errorThrown);
-                    console.log(textStatus + ": " + errorThrown);
+                    console.error(textStatus + ": " + errorThrown);
                 }
             })
         });
@@ -151,7 +151,6 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                 },
                 success: (data) => {
                     if (!data.status) {
-                        console.log(data.msg);
                         showMessage(data.msg);
                         return;
                     }
@@ -209,7 +208,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
             const data =
                 '<tr>' +
                 '<td ' +
-                'colspan="6" ' +
+                'colspan="4" ' +
                 'class="center">' +
                 msg +
                 '</td>' +
