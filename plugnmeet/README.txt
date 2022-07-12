@@ -33,7 +33,7 @@ Plug-N-Meet conference integration with WordPress. You can download latest versi
 After create room save it. Now enter to re-edit. You'll get shortcode there.
 
 == Changelog ==
-= 1.0.7 =
+= 1.0.8 =
 * feat: Display external link features
 * Update client to v1.1.5
 
