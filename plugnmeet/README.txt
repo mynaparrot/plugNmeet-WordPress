@@ -34,6 +34,10 @@ After create room save it. Now enter to re-edit. You'll get shortcode there.
 
 == Changelog ==
 = 1.0.7 =
+* feat: Display external link features
+* Update client to v1.1.5
+
+= 1.0.7 =
 * new server's compatibility
 * Feat: Breakout rooms + room duration
 * Feat: Polls & private chat
