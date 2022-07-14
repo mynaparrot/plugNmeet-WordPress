@@ -4,7 +4,7 @@ Donate link: https://www.mynaparrot.com/
 Tags: mynaparrot, web conference, plugnmeet
 Requires at least: 5.9
 Tested up to: 6.0
-Stable tag: 1.0.8
+Stable tag: 1.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires PHP: 7.4
@@ -33,7 +33,7 @@ Plug-N-Meet conference integration with WordPress. You can download latest versi
 After create room save it. Now enter to re-edit. You'll get shortcode there.
 
 == Changelog ==
-= 1.0.8 =
+= 1.0.9 =
 * feat: Display external link features
 * Update client to v1.1.5
 
