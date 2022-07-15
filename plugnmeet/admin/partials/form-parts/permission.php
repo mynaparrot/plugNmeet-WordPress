@@ -115,8 +115,12 @@ foreach ($fields_values['roles'] as $key => $role) {
                         <?php echo $role['can_download'] === "on" ? "checked='checked'" : ""; ?>>
                 </td>
                 <td align="center">
-                    <input type="checkbox" name="roles[<?php echo $key; ?>][can_delete]"
-                        <?php echo $role['can_delete'] === "on" ? "checked='checked'" : ""; ?>>
+                    <?php if ($key === "guest"): ?>
+                        <div>n/a</div>
+                    <?php else: ?>
+                        <input type="checkbox" name="roles[<?php echo $key; ?>][can_delete]"
+                            <?php echo $role['can_delete'] === "on" ? "checked='checked'" : ""; ?>>
+                    <?php endif; ?>
                 </td>
             </tr>
         <?php endforeach; ?>

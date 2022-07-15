@@ -23,7 +23,7 @@ $role = array(
     'can_delete' => "off"
 );
 
-if (!empty($roomInfo->roles)) {
+if (!empty($roomInfo->roles) && $user) {
     $roles = json_decode($roomInfo->roles, true);
     $userRole = $user->roles[0]; // at present let's consider the first one only
 

@@ -227,7 +227,12 @@ class PlugNmeetAjaxHelper {
         if (!empty($roomInfo->roles)) {
             $user = wp_get_current_user();
             $roles = json_decode($roomInfo->roles, true);
-            $userRole = $user->roles[0]; // at present let's consider the first one only
+
+            if ($user) {
+                $userRole = $user->roles[0]; // at present let's consider the first one only
+            } else {
+                $userRole = 'guest';
+            }
 
             if (!isset($roles[$userRole])) {
                 return $output;
