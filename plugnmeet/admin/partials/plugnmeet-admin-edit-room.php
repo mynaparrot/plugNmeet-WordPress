@@ -22,7 +22,8 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
     <form name="plugnmeet-form" id="plugnmeet-form">
         <div class="d-flex justify-content-end mb-3">
             <button class="button button-primary me-3" type="submit"><?php echo __("Submit", "plugnmeet") ?></button>
-            <button class="button button-secondary" onclick="goBack()"><?php echo __("Cancel", "plugnmeet") ?></button>
+            <a class="button button-secondary"
+               href="admin.php?page=plugnmeet"><?php echo __("Cancel", "plugnmeet") ?></a>
         </div>
 
 
@@ -156,9 +157,3 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
         <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('save_room_data') ?>">
     </form>
 </div>
-
-<script type="text/javascript">
-    function goBack() {
-        window.location.href = "admin.php?page=plugnmeet";
-    }
-</script>
