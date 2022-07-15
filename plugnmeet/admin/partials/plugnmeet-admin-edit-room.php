@@ -26,7 +26,6 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                href="admin.php?page=plugnmeet"><?php echo __("Cancel", "plugnmeet") ?></a>
         </div>
 
-
         <ul class="nav nav-tabs" id="plugnmeet-room-tab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="basic-tab" data-bs-toggle="tab" data-bs-target="#basic"
@@ -131,7 +130,6 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                 <table class="form-table" role="presentation">
                     <tbody>
                     <?php echo PlugnmeetHelper::getDefaultLockSettings($fields_values['default_lock_settings']); ?>
-
                     </tbody>
                 </table>
             </div>
@@ -140,7 +138,6 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                 <table class="form-table" role="presentation">
                     <tbody>
                     <?php require plugin_dir_path(dirname(__FILE__)) . '/partials/form-parts/design.php'; ?>
-
                     </tbody>
                 </table>
             </div>
@@ -150,8 +147,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
             </div>
 
         </div>
-
-
+        
         <input type="hidden" name="id" value="<?php echo esc_attr($fields_values['id']); ?>">
         <input type="hidden" name="action" value="plugnmeet_save_room_data">
         <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('save_room_data') ?>">

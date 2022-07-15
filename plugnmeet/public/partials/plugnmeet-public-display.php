@@ -41,11 +41,7 @@ if (!empty($roomInfo->roles)) {
     <div class="column column-full">
         <div class="description"><?php echo wp_kses_post($roomInfo->description) ?></div>
         <hr/>
-        <?php if (isset($role['require_password']) && $role['require_password'] === "on"): ?>
-            <?php require plugin_dir_path(dirname(__FILE__)) . '/partials/parts/login-form.php'; ?>
-        <?php else: ?>
-            <?php require plugin_dir_path(dirname(__FILE__)) . '/partials/parts/direct-join.php'; ?>
-        <?php endif; ?>
+        <?php require plugin_dir_path(dirname(__FILE__)) . '/partials/parts/login-form.php'; ?>
 
         <?php if (isset($role['can_download']) && $role['can_download'] === "on"): ?>
             <?php require plugin_dir_path(dirname(__FILE__)) . '/partials/parts/recordings.php'; ?>

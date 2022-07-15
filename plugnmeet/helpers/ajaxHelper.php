@@ -1,4 +1,15 @@
 <?php
+/**
+ *
+ * @since      1.0.10
+ * @package    Plugnmeet
+ * @subpackage Plugnmeet/helpers
+ * @author     Jibon Costa <jibon@mynaparrot.com>
+ */
+
+if (!defined('PLUGNMEET_BASE_NAME')) {
+    die;
+}
 
 class PlugNmeetAjaxHelper {
     private $setting_params;
@@ -275,7 +286,7 @@ class PlugNmeetAjaxHelper {
         return $output;
     }
 
-    public function canAccess($roomId, $checkFor) {
+    private function canAccess($roomId, $checkFor) {
         global $wpdb;
         $output = new stdClass();
         $output->status = false;
