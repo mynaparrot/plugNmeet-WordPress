@@ -248,6 +248,7 @@ class Plugnmeet_Admin {
         $welcome_message = isset($_POST['welcome_message']) ? sanitize_textarea_field($_POST['welcome_message']) : "";
         $max_participants = isset($_POST['max_participants']) ? sanitize_text_field($_POST['max_participants']) : 0;
         $published = isset($_POST['published']) ? sanitize_text_field($_POST['published']) : 1;
+        $roles = isset($_POST['roles']) ? $_POST['roles'] : array();
 
         $room_metadata_items = ['room_features', 'chat_features', 'shared_note_pad_features', 'whiteboard_features', 'external_media_player_features', 'waiting_room_features', 'breakout_room_features', 'display_external_link_features', 'default_lock_settings', 'custom_design'];
 
@@ -294,10 +295,11 @@ class Plugnmeet_Admin {
                     'welcome_message' => $welcome_message,
                     'max_participants' => $max_participants,
                     'room_metadata' => json_encode($room_metadata),
+                    'roles' => json_encode($roles),
                     'published' => $published,
                     'created_by' => get_current_user_id()
                 ),
-                array('%s', '%s', '%s', '%s', '%s', '%s', '%d', '%s', '%d', '%d')
+                array('%s', '%s', '%s', '%s', '%s', '%s', '%d', '%s', '%s', '%d', '%d')
             );
 
             if ($wpdb->insert_id) {
@@ -317,13 +319,14 @@ class Plugnmeet_Admin {
                     'welcome_message' => $welcome_message,
                     'max_participants' => $max_participants,
                     'room_metadata' => json_encode($room_metadata),
+                    'roles' => json_encode($roles),
                     'published' => $published,
                     'modified_by' => get_current_user_id()
                 ),
                 array(
                     'id' => $id
                 ),
-                array('%s', '%s', '%s', '%s', '%s', '%d', '%s', '%d', '%d'),
+                array('%s', '%s', '%s', '%s', '%s', '%d', '%s', '%s', '%d', '%d'),
                 array('%d')
             );
 
@@ -365,106 +368,6 @@ class Plugnmeet_Admin {
         } else {
             $output->status = true;
             $output->msg = "success";
-        }
-
-        wp_send_json($output);
-    }
-
-    public function get_recordings() {
-        $output = new stdClass();
-        $output->status = false;
-        $output->msg = __('Token mismatched', 'plugnmeet');
-
-        if (!wp_verify_nonce($_REQUEST['nonce'], 'ajax_admin')) {
-            wp_send_json($output);
-        }
-
-        if (!class_exists("plugNmeetConnect")) {
-            require plugin_dir_path(dirname(__FILE__)) . 'helpers/plugNmeetConnect.php';
-        }
-        $roomId = isset($_POST['roomId']) ? sanitize_text_field($_POST['roomId']) : "";
-        $from = isset($_POST['from']) ? sanitize_text_field($_POST['from']) : 0;
-        $limit = isset($_POST['limit']) ? sanitize_text_field($_POST['limit']) : 20;
-        $orderBy = isset($_POST['order_by']) ? sanitize_text_field($_POST['order_by']) : "DESC";
-
-        if (empty($roomId)) {
-            $output->msg = __("room id required", 'plugnmeet');
-            wp_send_json($output);
-        }
-
-        $options = $this->setting_params;
-        $connect = new plugNmeetConnect($options);
-        $roomIds = array($roomId);
-        $res = $connect->getRecordings($roomIds, $from, $limit, $orderBy);
-
-        $output->status = $res->getStatus();
-        $output->msg = $res->getResponseMsg();
-        $output->result = $res->getRawResponse()->result;
-
-        wp_send_json($output);
-    }
-
-    public function download_recording() {
-        $output = new stdClass();
-        $output->status = false;
-        $output->msg = __('Token mismatched', 'plugnmeet');
-
-        if (!wp_verify_nonce($_REQUEST['nonce'], 'ajax_admin')) {
-            wp_send_json($output);
-        }
-
-        if (!class_exists("plugNmeetConnect")) {
-            require plugin_dir_path(dirname(__FILE__)) . 'helpers/plugNmeetConnect.php';
-        }
-
-        $recordingId = isset($_POST['recordingId']) ? sanitize_text_field($_POST['recordingId']) : "";
-
-        if (!$recordingId) {
-            $output->msg = __("record id required", 'plugnmeet');
-            wp_send_json($output);
-        }
-
-        $params = $this->setting_params;
-        $connect = new plugNmeetConnect($params);
-        $res = $connect->getRecordingDownloadLink($recordingId);
-        $output->status = $res->getStatus();
-        $output->msg = $res->getResponseMsg();
-
-        if ($res->getStatus() && $res->getToken()) {
-            $output->url = $params->plugnmeet_server_url . "/download/recording/" . $res->getToken();
-        }
-
-        wp_send_json($output);
-    }
-
-    public function delete_recording() {
-        $output = new stdClass();
-        $output->status = false;
-        $output->msg = __('Token mismatched', 'plugnmeet');
-
-        if (!wp_verify_nonce($_REQUEST['nonce'], 'ajax_admin')) {
-            wp_send_json($output);
-        }
-
-        if (!class_exists("plugNmeetConnect")) {
-            require plugin_dir_path(dirname(__FILE__)) . 'helpers/plugNmeetConnect.php';
-        }
-
-        $recordingId = isset($_POST['recordingId']) ? sanitize_text_field($_POST['recordingId']) : "";
-
-        if (!$recordingId) {
-            $output->msg = __("record id required", 'plugnmeet');
-            wp_send_json($output);
-        }
-
-        $params = $this->setting_params;
-        $connect = new plugNmeetConnect($params);
-        $res = $connect->deleteRecording($recordingId);
-        $output->status = $res->getStatus();
-        $output->msg = $res->getResponseMsg();
-
-        if ($output->status) {
-            $output->msg = __("Recording was deleted successfully", 'plugnmeet');
         }
 
         wp_send_json($output);

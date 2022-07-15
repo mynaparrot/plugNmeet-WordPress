@@ -11,12 +11,10 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
     die;
 }
 
-class Plugnmeet_RoomPage
-{
+class Plugnmeet_RoomPage {
     private $limitPerPage = 20;
 
-    public function roomsPage()
-    {
+    public function roomsPage() {
         // check if user is allowed access
         if (!current_user_can('manage_options')) {
             return;
@@ -35,8 +33,7 @@ class Plugnmeet_RoomPage
         }
     }
 
-    public function settingsPage()
-    {
+    public function settingsPage() {
         // check if user is allowed access
         if (!current_user_can('manage_options')) {
             return;
@@ -59,8 +56,7 @@ class Plugnmeet_RoomPage
         <?php
     }
 
-    public function recordingsPage()
-    {
+    public function recordingsPage() {
         global $wpdb;
 
         $rooms = $wpdb->get_results($wpdb->prepare(
@@ -69,8 +65,7 @@ class Plugnmeet_RoomPage
         require plugin_dir_path(dirname(__FILE__)) . 'admin/partials/plugnmeet-admin-display-recordings.php';
     }
 
-    private function getFormData()
-    {
+    private function getFormData() {
         $data = new stdClass();
         if (isset($_GET['id'])) {
             $result = $this->getRoomById(sanitize_text_field($_GET['id']));
@@ -87,6 +82,7 @@ class Plugnmeet_RoomPage
             'attendee_pass' => isset($data->attendee_pass) ? $data->attendee_pass : "",
             'welcome_message' => isset($data->welcome_message) ? $data->welcome_message : "",
             'max_participants' => isset($data->max_participants) ? $data->max_participants : 0,
+            'roles' => isset($data->roles) && $data->roles !== "" ? json_decode($data->roles, true) : array(),
             'published' => isset($data->published) ? $data->published : 1,
         );
 
@@ -121,8 +117,7 @@ class Plugnmeet_RoomPage
         return $fields_values;
     }
 
-    public function getRoomById($id)
-    {
+    public function getRoomById($id) {
         global $wpdb;
         if (!$id) {
             return null;
@@ -134,8 +129,7 @@ class Plugnmeet_RoomPage
         ));
     }
 
-    private function getRooms($limit)
-    {
+    private function getRooms($limit) {
         global $wpdb;
         $from = 0;
         $paged = isset($_GET['paged']) ? sanitize_text_field($_GET['paged']) : 0;
@@ -156,8 +150,7 @@ class Plugnmeet_RoomPage
         ));
     }
 
-    private function getTotalNumRooms()
-    {
+    private function getTotalNumRooms() {
         global $wpdb;
         return $wpdb->get_var($wpdb->prepare(
             "SELECT COUNT(*) FROM " . $wpdb->prefix . "plugnmeet_rooms"));
