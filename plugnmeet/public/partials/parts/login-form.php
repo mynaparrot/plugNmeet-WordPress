@@ -18,7 +18,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
 
 <div class="column-full ">
     <div class="flex">
-        <div class="w-6-2">
+        <div class="w-full">
             <form class="login-form plugnmeet-login-form">
                 <div class="alert roomStatus" role="alert" style="display: none"></div>
                 <label for="name" class="input">
