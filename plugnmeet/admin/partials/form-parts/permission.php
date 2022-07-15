@@ -51,6 +51,9 @@ $roles['guest'] = array(
 $dbRoles = $fields_values['roles'];
 if (!empty($dbRoles)) {
     foreach ($roles as $key => $role) {
+        if (!isset($dbRoles[$key])) {
+            continue;
+        }
         $keys = array_keys($role);
         foreach ($keys as $k) {
             if (isset($dbRoles[$key][$k])) {
