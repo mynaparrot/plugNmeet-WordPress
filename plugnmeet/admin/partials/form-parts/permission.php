@@ -34,7 +34,6 @@ foreach ($wp_roles->roles as $key => $role) {
     } elseif (isset($role['capabilities']['edit_posts']) && $role['capabilities']['edit_posts']) {
         $r['require_password'] = "off";
         $r['can_download'] = "on";
-        $r['can_delete'] = "on";
         $r['join_as'] = 'moderator';
     }
 
