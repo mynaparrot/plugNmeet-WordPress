@@ -10,48 +10,41 @@
  * @package    Plugnmeet
  * @subpackage Plugnmeet/public/partials
  */
+
 if (!defined('PLUGNMEET_BASE_NAME')) {
     die;
 }
-$user = wp_get_current_user();
 
+$user = wp_get_current_user();
+$role = array(
+    'require_password' => "on",
+    'join_as' => 'attendee',
+    'can_download' => "off",
+    'can_delete' => "off"
+);
+
+if (!empty($roomInfo->roles)) {
+    $roles = json_decode($roomInfo->roles, true);
+    $userRole = $user->roles[0]; // at present let's consider the first one only
+
+    if (isset($roles[$userRole])) {
+        $role = $roles[$userRole];
+    }
+}
 ?>
 
 <div class="pnm-container">
     <div class="column column-full">
         <div class="description"><?php echo wp_kses_post($roomInfo->description) ?></div>
         <hr/>
-        <div class="column-full ">
-            <div class="flex">
-                <div class="w-6-2">
-                    <form class="login-form plugnmeet-login-form">
-                        <div class="alert roomStatus" role="alert" style="display: none"></div>
-                        <label for="name" class="input">
-                            <p><?php echo __("Name", "plugnmeet") ?></p>
-                            <input type="text" name="name" class="form-control form-field" id="name" required
-                                   value="<?php echo esc_attr($user->display_name) ?>"
-                                   placeholder="<?php echo __("Your full name", "plugnmeet") ?>"
-                            >
-                        </label>
+        <?php if (isset($role['require_password']) && $role['require_password'] === "on"): ?>
+            <?php require plugin_dir_path(dirname(__FILE__)) . '/partials/parts/login-form.php'; ?>
+        <?php else: ?>
+            <?php require plugin_dir_path(dirname(__FILE__)) . '/partials/parts/direct-join.php'; ?>
+        <?php endif; ?>
 
-                        <label for="password" class="input">
-                            <p><?php echo __("Password", "plugnmeet") ?></p>
-                            <input type="password" name="password" class="form-control form-field" id="room-password"
-                                   required
-                                   placeholder="<?php echo __("Room's Password", "plugnmeet") ?>"
-                            >
-                        </label>
-
-                        <input type="hidden" name="id" value="<?php echo esc_attr($roomInfo->id) ?>">
-                        <input type="hidden" name="action" value="plugnmeet_login_to_room">
-                        <input type="hidden" name="nonce"
-                               value="<?php echo wp_create_nonce('plugnmeet_login_to_room') ?>">
-                        <div class="btns">
-                            <button type="submit" class="submit"><?php echo __("Login", "plugnmeet") ?></button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+        <?php if (isset($role['can_download']) && $role['can_download'] === "on"): ?>
+            <?php require plugin_dir_path(dirname(__FILE__)) . '/partials/parts/recordings.php'; ?>
+        <?php endif; ?>
     </div>
 </div>

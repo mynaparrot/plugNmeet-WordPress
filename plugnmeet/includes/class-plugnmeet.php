@@ -207,6 +207,9 @@ class Plugnmeet {
 
         $ajaxHelper = new PlugNmeetAjaxHelper();
         $this->loader->add_action('wp_ajax_nopriv_plugnmeet_login_to_room', $ajaxHelper, 'login_to_room');
+        $this->loader->add_action('wp_ajax_nopriv_plugnmeet_get_recordings', $ajaxHelper, 'get_recordings');
+        $this->loader->add_action('wp_ajax_nopriv_plugnmeet_download_recording', $ajaxHelper, 'download_recording');
+
         $this->loader->add_action('wp_ajax_plugnmeet_login_to_room', $ajaxHelper, 'login_to_room');
     }
 

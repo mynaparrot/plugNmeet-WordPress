@@ -12,7 +12,7 @@ class PlugNmeetAjaxHelper {
         $output->status = false;
         $output->msg = __('Token mismatched', 'plugnmeet');
 
-        if (!wp_verify_nonce($_REQUEST['nonce'], 'ajax_admin')) {
+        if (!wp_verify_nonce($_REQUEST['nonce'], 'plugnmeet_get_recordings')) {
             wp_send_json($output);
         }
 
@@ -46,7 +46,7 @@ class PlugNmeetAjaxHelper {
         $output->status = false;
         $output->msg = __('Token mismatched', 'plugnmeet');
 
-        if (!wp_verify_nonce($_REQUEST['nonce'], 'ajax_admin')) {
+        if (!wp_verify_nonce($_REQUEST['nonce'], 'plugnmeet_download_recording')) {
             wp_send_json($output);
         }
 
@@ -79,7 +79,7 @@ class PlugNmeetAjaxHelper {
         $output->status = false;
         $output->msg = __('Token mismatched', 'plugnmeet');
 
-        if (!wp_verify_nonce($_REQUEST['nonce'], 'ajax_admin')) {
+        if (!wp_verify_nonce($_REQUEST['nonce'], 'plugnmeet_delete_recording')) {
             wp_send_json($output);
         }
 
@@ -125,8 +125,8 @@ class PlugNmeetAjaxHelper {
             wp_send_json($output);
         }
 
-        if (empty($name) || empty($password)) {
-            $output->msg = __("both name & password are required", 'plugnmeet');
+        if (empty($name)) {
+            $output->msg = __("name is required", 'plugnmeet');
             wp_send_json($output);
         }
 
@@ -145,14 +145,12 @@ class PlugNmeetAjaxHelper {
             wp_send_json($output);
         }
 
-        if ($password === $roomInfo->moderator_pass) {
-            $isAdmin = true;
-        } elseif ($password === $roomInfo->attendee_pass) {
-            $isAdmin = false;
-        } else {
-            $output->msg = __("password didn't match", 'plugnmeet');
+        $roleDetermine = $this->determineUserType($roomInfo, $password);
+        if (!$roleDetermine->status) {
+            $output->msg = $roleDetermine->msg;
             wp_send_json($output);
         }
+        $isAdmin = $roleDetermine->isAdmin;
 
         if (!class_exists("plugNmeetConnect")) {
             include PLUGNMEET_ROOT_PATH . "/helpers/plugNmeetConnect.php";
@@ -204,5 +202,51 @@ class PlugNmeetAjaxHelper {
         }
 
         wp_send_json($output);
+    }
+
+    private function determineUserType($roomInfo, $password) {
+        $output = new stdClass();
+        $output->status = false;
+        $output->isAdmin = false;
+        $output->msg = __("you don't have permission", 'plugnmeet');
+
+        if (!empty($password)) {
+            if ($password === $roomInfo->moderator_pass) {
+                $output->status = true;
+                $output->isAdmin = true;
+            } elseif ($password === $roomInfo->attendee_pass) {
+                $output->status = true;
+                $output->isAdmin = false;
+            } else {
+                $output->msg = __("password didn't match", 'plugnmeet');
+            }
+
+            return $output;
+        }
+
+        if (!empty($roomInfo->roles)) {
+            $user = wp_get_current_user();
+            $roles = json_decode($roomInfo->roles, true);
+            $userRole = $user->roles[0]; // at present let's consider the first one only
+
+            if (!isset($roles[$userRole])) {
+                return $output;
+            }
+
+            $role = $roles[$userRole];
+            if (isset($role['require_password']) && $role['require_password'] === "on") {
+                return $output;
+            }
+
+            if ($role['join_as'] === "moderator") {
+                $output->status = true;
+                $output->isAdmin = true;
+            } else {
+                $output->status = true;
+                $output->isAdmin = false;
+            }
+        }
+
+        return $output;
     }
 }

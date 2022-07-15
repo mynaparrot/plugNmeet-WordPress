@@ -64,7 +64,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                 return;
             }
             const data = {
-                nonce: ajax_admin.nonce,
+                nonce: '<?php echo wp_create_nonce('plugnmeet_get_recordings') ?>',
                 action: "plugnmeet_get_recordings",
                 from: 0,
                 limit: limitPerPage,
@@ -84,7 +84,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                 return;
             }
             const data = {
-                nonce: ajax_admin.nonce,
+                nonce: '<?php echo wp_create_nonce('plugnmeet_download_recording') ?>',
                 action: "plugnmeet_download_recording",
                 recordingId
             }
@@ -117,7 +117,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                 return;
             }
             const data = {
-                nonce: ajax_admin.nonce,
+                nonce: '<?php echo wp_create_nonce('plugnmeet_delete_recording') ?>',
                 action: "plugnmeet_delete_recording",
                 recordingId
             }

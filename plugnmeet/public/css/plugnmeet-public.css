@@ -204,7 +204,7 @@
 }
 
 .pnm-container .table-item .action a.download {
-    background-color: #24AEF7;
+    background-color: #abb8c3;
     margin-right: 10px;
 }
 
@@ -213,7 +213,7 @@
 }
 
 .pnm-container .table-item .action a.download:hover {
-    background-color: rgba(0, 69, 131);
+    background-color: #c3d3e0;
 }
 
 .pnm-container .alert {
@@ -240,6 +240,54 @@
     color: #084298;
     background-color: #cfe2ff;
     border-color: #b6d4fe;
+}
+
+.pnm-container .recordings {
+    margin-top: 20px;
+}
+
+.pnm-container ul.pagination {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    list-style: none;
+    margin-right: 15px;
+    margin-bottom: 30px;
+}
+
+.pnm-container ul.pagination li,
+.pnm-container ul.pagination button {
+    display: inline-flex;
+    height: 28px;
+    width: 28px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #24AEF7;
+    margin-left: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+}
+
+.pnm-container ul.pagination button {
+    width: auto;
+    padding: 0 10px;
+    background-color: transparent;
+}
+
+.pnm-container ul.pagination li:hover,
+.pnm-container ul.pagination button:hover,
+.pnm-container ul.pagination li.active {
+    background-color: #24AEF7;
+    color: #fff;
+}
+
+.pnm-container .pagination button:disabled {
+    background-color: #c7ddf3;
+    color: #171616;
+    cursor: default;
+    border: none;
 }
 
 @media screen and (max-width: 1023px) {
