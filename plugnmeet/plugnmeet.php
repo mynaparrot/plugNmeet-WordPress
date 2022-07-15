@@ -68,26 +68,8 @@ function plugnmeet_deactivate() {
     Plugnmeet_Deactivator::deactivate();
 }
 
-function on_after_plugin_update($upgrader_object, $options) {
-    require_once plugin_dir_path(__FILE__) . 'includes/class-plugnmeet-on-after-update.php';
-    // The path to our plugin's main file
-    $our_plugin = plugin_basename(__FILE__);
-    // If an update has taken place and the updated type is plugins and the plugins element exists
-    if ($options['action'] == 'update' && $options['type'] == 'plugin' && isset($options['plugins'])) {
-        // Iterate through the plugins being updated and check if ours is there
-        foreach ($options['plugins'] as $plugin) {
-            if ($plugin == $our_plugin) {
-                // run other function
-                new PlugNmeetOnAfterUpdate();
-            }
-        }
-    }
-
-}
-
 register_activation_hook(__FILE__, 'plugnmeet_activate');
 register_deactivation_hook(__FILE__, 'plugnmeet_deactivate');
-add_action('upgrader_process_complete', 'on_after_plugin_update', 10, 2);
 
 /**
  * The core plugin class that is used to define internationalization,

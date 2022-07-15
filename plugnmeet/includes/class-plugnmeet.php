@@ -85,7 +85,7 @@ class Plugnmeet {
         $this->set_locale();
         $this->define_admin_hooks();
         $this->define_public_hooks();
-
+        $this->version_update_checker();
     }
 
     /**
@@ -131,6 +131,8 @@ class Plugnmeet {
 
         // ajax helper call to use in share
         require_once plugin_dir_path(dirname(__FILE__)) . 'helpers/ajaxHelper.php';
+
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-plugnmeet-on-after-update.php';
 
         $this->loader = new Plugnmeet_Loader();
 
@@ -261,6 +263,10 @@ class Plugnmeet {
      */
     public function get_version() {
         return $this->version;
+    }
+
+    private function version_update_checker() {
+        new PlugNmeetOnAfterUpdate();
     }
 
 }
