@@ -75,6 +75,7 @@ class Plugnmeet_Activator {
           `welcome_message` text NOT NULL,
           `max_participants` int(10) NOT NULL,
           `room_metadata` text NOT NULL,
+          `roles` text NOT NULL,
           `published` int(1) NOT NULL,
           `created_by` int(10) NOT NULL,
           `modified_by` int(10) DEFAULT NULL,
@@ -124,7 +125,7 @@ class Plugnmeet_Activator {
                 }
             }
         }
-        
+
         return false;
     }
 

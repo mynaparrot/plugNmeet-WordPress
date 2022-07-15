@@ -14,7 +14,6 @@
 if (!defined('PLUGNMEET_BASE_NAME')) {
     die;
 }
-// ALTER TABLE `wp_plugnmeet_rooms` ADD `roles` TEXT NOT NULL AFTER `room_metadata`;
 global $wp_roles;
 
 $roles = array();
