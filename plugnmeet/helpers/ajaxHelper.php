@@ -29,6 +29,12 @@ class PlugNmeetAjaxHelper {
             wp_send_json($output);
         }
 
+        $check = $this->canAccess($roomId, 'can_download');
+        if (!$check->status) {
+            $output->msg = $check->msg;
+            wp_send_json($output);
+        }
+
         $options = $this->setting_params;
         $connect = new plugNmeetConnect($options);
         $roomIds = array($roomId);
@@ -54,10 +60,17 @@ class PlugNmeetAjaxHelper {
             require plugin_dir_path(dirname(__FILE__)) . 'helpers/plugNmeetConnect.php';
         }
 
-        $recordingId = isset($_POST['recordingId']) ? sanitize_text_field($_POST['recordingId']) : "";
+        $recordingId = isset($_POST['recordingId']) ? sanitize_text_field($_POST['recordingId']) : null;
+        $roomId = isset($_POST['roomId']) ? sanitize_text_field($_POST['roomId']) : null;
 
-        if (!$recordingId) {
-            $output->msg = __("record id required", 'plugnmeet');
+        if (!$recordingId || !$roomId) {
+            $output->msg = __("both roomId & record id required", 'plugnmeet');
+            wp_send_json($output);
+        }
+
+        $check = $this->canAccess($roomId, 'can_download');
+        if (!$check->status) {
+            $output->msg = $check->msg;
             wp_send_json($output);
         }
 
@@ -87,10 +100,17 @@ class PlugNmeetAjaxHelper {
             require plugin_dir_path(dirname(__FILE__)) . 'helpers/plugNmeetConnect.php';
         }
 
-        $recordingId = isset($_POST['recordingId']) ? sanitize_text_field($_POST['recordingId']) : "";
+        $recordingId = isset($_POST['recordingId']) ? sanitize_text_field($_POST['recordingId']) : null;
+        $roomId = isset($_POST['roomId']) ? sanitize_text_field($_POST['roomId']) : null;
 
-        if (!$recordingId) {
-            $output->msg = __("record id required", 'plugnmeet');
+        if (!$recordingId || !$roomId) {
+            $output->msg = __("both roomId & record id required", 'plugnmeet');
+            wp_send_json($output);
+        }
+
+        $check = $this->canAccess($roomId, 'can_delete');
+        if (!$check->status) {
+            $output->msg = $check->msg;
             wp_send_json($output);
         }
 
@@ -228,7 +248,7 @@ class PlugNmeetAjaxHelper {
             $user = wp_get_current_user();
             $roles = json_decode($roomInfo->roles, true);
 
-            if ($user) {
+            if ($user->ID) {
                 $userRole = $user->roles[0]; // at present let's consider the first one only
             } else {
                 $userRole = 'guest';
@@ -249,6 +269,48 @@ class PlugNmeetAjaxHelper {
             } else {
                 $output->status = true;
                 $output->isAdmin = false;
+            }
+        }
+
+        return $output;
+    }
+
+    public function canAccess($roomId, $checkFor) {
+        global $wpdb;
+        $output = new stdClass();
+        $output->status = false;
+        $output->msg = __("you don't have permission", 'plugnmeet');
+
+        $roomInfo = $wpdb->get_row($wpdb->prepare(
+            "SELECT * FROM " . $wpdb->prefix . "plugnmeet_rooms WHERE room_id = %s",
+            $roomId
+        ));
+
+        if (!$roomInfo) {
+            $output->msg = __("no room found", 'plugnmeet');
+            return $output;
+        } elseif ($roomInfo->published !== "1") {
+            $output->msg = __("room not active", 'plugnmeet');
+            return $output;
+        }
+
+        if (!empty($roomInfo->roles)) {
+            $user = wp_get_current_user();
+            $roles = json_decode($roomInfo->roles, true);
+
+            if ($user->ID) {
+                $userRole = $user->roles[0]; // at present let's consider the first one only
+            } else {
+                $userRole = 'guest';
+            }
+
+            if (!isset($roles[$userRole])) {
+                return $output;
+            }
+
+            $role = $roles[$userRole];
+            if (isset($role[$checkFor]) && $role[$checkFor] === "on") {
+                $output->status = true;
             }
         }
 

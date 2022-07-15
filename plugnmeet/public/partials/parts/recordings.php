@@ -17,24 +17,24 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
 ?>
 
 <div class="column-full recordings">
-    <h1 class="headline">Recordings</h1>
+    <h1 class="headline"><?php echo __("Recordings", "plugnmeet"); ?></h1>
     <div class="br">
         <div class="br-inner"></div>
     </div>
     <div class="recording-table">
         <div class="table-inner">
             <div class="table-head">
-                <div class="recording-date"><strong>Recording date</strong></div>
-                <div class="meeting-date"><strong>Meeting date</strong></div>
-                <div class="file-size"><strong>File size (MB)</strong></div>
+                <div class="recording-date"><?php echo __("Recording created", "plugnmeet"); ?></div>
+                <div class="meeting-date"><?php echo __("Meeting create", "plugnmeet"); ?></div>
+                <div class="file-size"><?php echo __("File size (MB)", "plugnmeet"); ?></div>
                 <div class="action"></div>
             </div>
             <div id="recordingListsBody"></div>
         </div>
     </div>
     <ul class="pagination" style="display: none">
-        <button id="backward">Prev</button>
-        <button id="forward">Next</button>
+        <button id="backward"><?php echo __("Pre", "plugnmeet"); ?></button>
+        <button id="forward"><?php echo __("Next", "plugnmeet"); ?></button>
     </ul>
 </div>
 
@@ -55,6 +55,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
         const data = {
             nonce: '<?php echo wp_create_nonce('plugnmeet_download_recording') ?>',
             action: "plugnmeet_download_recording",
+            roomId,
             recordingId: recordId
         }
 
@@ -79,7 +80,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
     function deleteRecording(e) {
         e.preventDefault();
 
-        if (confirm('Are you sure to delete?') !== true) {
+        if (confirm('<?php echo __("Are you sure to delete?", "plugnmeet"); ?>') !== true) {
             return;
         }
 
@@ -87,6 +88,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
         const data = {
             nonce: '<?php echo wp_create_nonce('plugnmeet_delete_recording') ?>',
             action: "plugnmeet_delete_recording",
+            roomId,
             recordingId: recordId
         }
 

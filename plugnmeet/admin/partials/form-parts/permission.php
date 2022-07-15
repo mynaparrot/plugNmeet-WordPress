@@ -49,12 +49,21 @@ $roles['guest'] = array(
     'can_delete' => "off"
 );
 
-foreach ($fields_values['roles'] as $key => $role) {
-    $keys = array_keys($role);
-    foreach ($keys as $k) {
-        $roles[$key][$k] = $role[$k];
+
+$dbRoles = $fields_values['roles'];
+if (!empty($dbRoles)) {
+    foreach ($roles as $key => $role) {
+        $keys = array_keys($role);
+        foreach ($keys as $k) {
+            if (isset($dbRoles[$key][$k])) {
+                $roles[$key][$k] = $dbRoles[$key][$k];
+            } else if ($k !== "title") {
+                $roles[$key][$k] = "off";
+            }
+        }
     }
 }
+
 ?>
 <style>
     .permission-table {
@@ -86,24 +95,24 @@ foreach ($fields_values['roles'] as $key => $role) {
 <div class="permission-table">
     <table bgcolor="silver" width="100%">
         <tr bgcolor="#333">
-            <th>Role</th>
-            <th>Join as <br/>Moderator</th>
-            <th>Join as <br/>Attendee</th>
-            <th>Require <br/> Password</th>
-            <th>Allow Download <br/>Recordings</th>
-            <th>Allow Delete <br/>Recordings</th>
+            <th><?php echo __("Role", "plugnmeet"); ?></th>
+            <th><?php echo __("Join as <br/>Moderator", "plugnmeet"); ?></th>
+            <th><?php echo __("Join as <br/>Attendee", "plugnmeet"); ?></th>
+            <th><?php echo __("Require <br/> Password", "plugnmeet"); ?></th>
+            <th><?php echo __("Allow Download <br/>Recordings", "plugnmeet"); ?></th>
+            <th><?php echo __("Allow Delete <br/>Recordings", "plugnmeet"); ?></th>
         </tr>
         <?php foreach ($roles as $key => $role): ?>
             <tr id="<?php echo $key; ?>">
                 <td><?php echo $role['title']; ?></td>
                 <td align="center">
                     <input type="radio" name="roles[<?php echo $key; ?>][join_as]"
-                           value="<?php echo $role['join_as'] ?>"
+                           value="moderator"
                         <?php echo $role['join_as'] === "moderator" ? "checked='checked'" : ""; ?>>
                 </td>
                 <td align="center">
                     <input type="radio" name="roles[<?php echo $key; ?>][join_as]"
-                           value="<?php echo $role['join_as'] ?>"
+                           value="attendee"
                         <?php echo $role['join_as'] === "attendee" ? "checked='checked'" : ""; ?>>
                 </td>
                 <td align="center">

@@ -86,7 +86,8 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
             const data = {
                 nonce: '<?php echo wp_create_nonce('plugnmeet_download_recording') ?>',
                 action: "plugnmeet_download_recording",
-                recordingId
+                recordingId,
+                roomId
             }
 
             $.ajax({
@@ -119,7 +120,8 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
             const data = {
                 nonce: '<?php echo wp_create_nonce('plugnmeet_delete_recording') ?>',
                 action: "plugnmeet_delete_recording",
-                recordingId
+                recordingId,
+                roomId
             }
 
             $.ajax({

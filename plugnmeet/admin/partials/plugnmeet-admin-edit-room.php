@@ -28,9 +28,9 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
 
         <ul class="nav nav-tabs" id="plugnmeet-room-tab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="basic-tab" data-bs-toggle="tab" data-bs-target="#basic"
+                <button class="nav-link active" id="basic-tab" data-bs-toggle="tab" data-bs-target="#basic"
                         type="button"
-                        role="tab" aria-controls="basic" aria-selected="false">
+                        role="tab" aria-controls="basic" aria-selected="true">
                     <?php echo __("Basic", "plugnmeet") ?>
                 </button>
             </li>
@@ -61,16 +61,16 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="permission-tab" data-bs-toggle="tab" data-bs-target="#permission"
+                <button class="nav-link" id="permission-tab" data-bs-toggle="tab" data-bs-target="#permission"
                         type="button"
-                        role="tab" aria-controls="permission" aria-selected="true">
+                        role="tab" aria-controls="permission" aria-selected="false">
                     <?php echo __("Permission", "plugnmeet") ?>
                 </button>
             </li>
         </ul>
 
         <div class="tab-content" id="plugnmeet-room-tab-contents">
-            <div class="tab-pane fade" id="basic" role="tabpanel" aria-labelledby="basic-tab">
+            <div class="tab-pane fade show active" id="basic" role="tabpanel" aria-labelledby="basic-tab">
                 <?php require plugin_dir_path(dirname(__FILE__)) . '/partials/form-parts/basic.php'; ?>
             </div>
 
@@ -144,7 +144,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                 </table>
             </div>
 
-            <div class="tab-pane fade show active" id="permission" role="tabpanel" aria-labelledby="permission-tab">
+            <div class="tab-pane fade" id="permission" role="tabpanel" aria-labelledby="permission-tab">
                 <?php require plugin_dir_path(dirname(__FILE__)) . '/partials/form-parts/permission.php'; ?>
             </div>
 
