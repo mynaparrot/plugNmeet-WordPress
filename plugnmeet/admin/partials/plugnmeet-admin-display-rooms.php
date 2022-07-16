@@ -32,11 +32,13 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                     class="button button-primary"><?php echo __("Search", "plugnmeet") ?></button>
         </p>
     </form>
-
-
+    
     <table class="wp-list-table widefat fixed striped table-view-list posts">
         <thead>
         <tr>
+            <th scope="col" class="manage-column column-id"
+                style="width: 3em;"><?php echo __("Id", "plugnmeet") ?>
+            </th>
             <th scope="col"
                 class="manage-column column-title column-primary"><?php echo __("Room title", "plugnmeet") ?>
             </th>
@@ -47,9 +49,6 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
             </th>
             <th scope="col" class="manage-column column-categories"><?php echo __("Status", "plugnmeet") ?>
             </th>
-            <th scope="col" class="manage-column column-id"
-                style="width: 2.2em;"><?php echo __("Id", "plugnmeet") ?>
-            </th>
         </tr>
         </thead>
 
@@ -57,7 +56,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
         <?php foreach ($rooms as $room): ?>
             <tr id="post-<?php echo esc_attr($room->id) ?>"
                 class="iedit type-post format-standard">
-
+                <td class="id column-id"><?php echo esc_html($room->id) ?></td>
                 <td class="title column-title"><a
                             href="admin.php?page=plugnmeet&task=edit&id=<?php echo $room->id ?>"><?php echo esc_html($room->room_title) ?></a>
                 </td>
@@ -69,9 +68,6 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                                 id="<?php echo esc_attr($room->id) ?>"><?php echo __("Delete", "plugnmeet") ?></button>
                     </div>
                 </td>
-                <td class="id column-id" style="width: 2.2em;"><?php echo esc_html($room->id) ?></td>
-
-
             </tr>
         <?php endforeach; ?>
         </tbody>

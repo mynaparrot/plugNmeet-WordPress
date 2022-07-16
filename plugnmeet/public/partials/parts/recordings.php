@@ -242,6 +242,4 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
             document.getElementById('recordingListsBody').innerHTML = msg;
         }
     });
-
-
 </script>
