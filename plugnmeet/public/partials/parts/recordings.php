@@ -24,8 +24,8 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
     <div class="recording-table">
         <div class="table-inner">
             <div class="table-head">
-                <div class="recording-date"><?php echo __("Recording created", "plugnmeet"); ?></div>
-                <div class="meeting-date"><?php echo __("Meeting create", "plugnmeet"); ?></div>
+                <div class="recording-date"><?php echo __("Recording date", "plugnmeet"); ?></div>
+                <div class="meeting-date"><?php echo __("Meeting date", "plugnmeet"); ?></div>
                 <div class="file-size"><?php echo __("File size (MB)", "plugnmeet"); ?></div>
                 <div class="action"></div>
             </div>
@@ -157,11 +157,11 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                         showMessage('no recordings found');
                         return;
                     }
+                    totalRecordings = data.result.total_recordings;
                     if (
-                        data.result.total_recordings > recordings.length &&
+                        totalRecordings > limitPerPage &&
                         !isShowingPagination
                     ) {
-                        totalRecordings = data.result.total_recordings;
                         showPagination();
                         isShowingPagination = true;
                     }
@@ -194,12 +194,12 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                 html +=
                     '<a href="#" class="download" data-recording="' +
                     recording.record_id +
-                    '" onclick="downloadRecording(event)">Download</a>';
+                    '" onclick="downloadRecording(event)"><?php echo __("Download", "plugnmeet"); ?></a>';
                 if (CAN_DELETE) {
                     html +=
                         '<a href="#" class="delete" data-recording="' +
                         recording.record_id +
-                        '" onclick="deleteRecording(event)">Delete</a>';
+                        '" onclick="deleteRecording(event)"><?php echo __("Delete", "plugnmeet"); ?></a>';
                 }
                 html += '</div>';
 

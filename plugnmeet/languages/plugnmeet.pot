@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-15 10:13+0000\n"
+"POT-Creation-Date: 2022-07-16 05:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -38,7 +38,7 @@ msgstr ""
 msgid "Allow chat"
 msgstr ""
 
-#: admin/partials/form-parts/permission.php:102
+#: admin/partials/form-parts/permission.php:104
 msgid "Allow Delete <br/>Recordings"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Allow Display External Link"
 msgstr ""
 
-#: admin/partials/form-parts/permission.php:101
+#: admin/partials/form-parts/permission.php:103
 msgid "Allow Download <br/>Recordings"
 msgstr ""
 
@@ -103,7 +103,7 @@ msgstr ""
 msgid "attendee & moderator password can't be same"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms.php:46
+#: admin/partials/plugnmeet-admin-display-rooms.php:48
 #: admin/partials/form-parts/basic.php:48
 msgid "Attendee Password"
 msgstr ""
@@ -122,7 +122,7 @@ msgstr ""
 msgid "Basic"
 msgstr ""
 
-#: helpers/ajaxHelper.php:67 helpers/ajaxHelper.php:107
+#: helpers/ajaxHelper.php:78 helpers/ajaxHelper.php:118
 msgid "both roomId & record id required"
 msgstr ""
 
@@ -130,7 +130,7 @@ msgstr ""
 msgid "Can't write file"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-edit-room.php:25
+#: admin/partials/plugnmeet-admin-edit-room.php:26
 msgid "Cancel"
 msgstr ""
 
@@ -138,7 +138,7 @@ msgstr ""
 msgid "Client download url"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms-pagination.php:54
+#: admin/partials/plugnmeet-admin-display-rooms-pagination.php:52
 msgid "Current Page"
 msgstr ""
 
@@ -155,8 +155,9 @@ msgstr ""
 msgid "Default lock settings"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms.php:69
+#: admin/partials/plugnmeet-admin-display-rooms.php:68
 #: admin/partials/plugnmeet-admin-display-recordings.php:195
+#: public/partials/parts/recordings.php:202
 msgid "Delete"
 msgstr ""
 
@@ -166,6 +167,7 @@ msgid "Design Customization"
 msgstr ""
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:192
+#: public/partials/parts/recordings.php:197
 msgid "Download"
 msgstr ""
 
@@ -200,7 +202,7 @@ msgstr ""
 msgid "https://www.mynaparrot.com/"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms.php:51
+#: admin/partials/plugnmeet-admin-display-rooms.php:40
 msgid "Id"
 msgstr ""
 
@@ -208,16 +210,15 @@ msgstr ""
 msgid "Jibon L. Costa <jibon@mynaparrot.com>"
 msgstr ""
 
-#: public/partials/parts/direct-join.php:37
-#: public/partials/parts/login-form.php:45
+#: public/partials/parts/login-form.php:47
 msgid "Join"
 msgstr ""
 
-#: admin/partials/form-parts/permission.php:99
+#: admin/partials/form-parts/permission.php:101
 msgid "Join as <br/>Attendee"
 msgstr ""
 
-#: admin/partials/form-parts/permission.php:98
+#: admin/partials/form-parts/permission.php:100
 msgid "Join as <br/>Moderator"
 msgstr ""
 
@@ -283,10 +284,10 @@ msgstr ""
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:42
 #: public/partials/parts/recordings.php:28
-msgid "Meeting create"
+msgid "Meeting date"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms.php:43
+#: admin/partials/plugnmeet-admin-display-rooms.php:45
 #: admin/partials/form-parts/basic.php:43
 msgid "Moderator Password"
 msgstr ""
@@ -295,12 +296,11 @@ msgstr ""
 msgid "Mute on start"
 msgstr ""
 
-#: public/partials/parts/direct-join.php:25
 #: public/partials/parts/login-form.php:25
 msgid "Name"
 msgstr ""
 
-#: helpers/ajaxHelper.php:149
+#: helpers/ajaxHelper.php:160
 msgid "name is required"
 msgstr ""
 
@@ -308,7 +308,7 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms-pagination.php:66
+#: admin/partials/plugnmeet-admin-display-rooms-pagination.php:64
 msgid "Next page"
 msgstr ""
 
@@ -328,8 +328,8 @@ msgstr ""
 msgid "No id was sent"
 msgstr ""
 
-#: public/class-plugnmeet-public.php:269 helpers/ajaxHelper.php:161
-#: helpers/ajaxHelper.php:290
+#: public/class-plugnmeet-public.php:269 helpers/ajaxHelper.php:172
+#: helpers/ajaxHelper.php:301
 msgid "no room found"
 msgstr ""
 
@@ -345,11 +345,11 @@ msgstr ""
 msgid "Other features"
 msgstr ""
 
-#: public/partials/parts/login-form.php:33
+#: public/partials/parts/login-form.php:34
 msgid "Password"
 msgstr ""
 
-#: helpers/ajaxHelper.php:241
+#: helpers/ajaxHelper.php:252
 msgid "password didn't match"
 msgstr ""
 
@@ -385,7 +385,7 @@ msgstr ""
 msgid "Pre"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms-pagination.php:45
+#: admin/partials/plugnmeet-admin-display-rooms-pagination.php:44
 msgid "Previous page"
 msgstr ""
 
@@ -394,7 +394,7 @@ msgstr ""
 msgid "Primary Color"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms.php:66
+#: admin/partials/plugnmeet-admin-display-rooms.php:65
 msgid "Published"
 msgstr ""
 
@@ -404,10 +404,10 @@ msgstr ""
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:39
 #: public/partials/parts/recordings.php:27
-msgid "Recording created"
+msgid "Recording date"
 msgstr ""
 
-#: helpers/ajaxHelper.php:124
+#: helpers/ajaxHelper.php:135
 msgid "Recording was deleted successfully"
 msgstr ""
 
@@ -415,7 +415,7 @@ msgstr ""
 msgid "Recordings"
 msgstr ""
 
-#: admin/partials/form-parts/permission.php:100
+#: admin/partials/form-parts/permission.php:102
 msgid "Require <br/> Password"
 msgstr ""
 
@@ -427,7 +427,7 @@ msgstr ""
 msgid "Right Color"
 msgstr ""
 
-#: admin/partials/form-parts/permission.php:97
+#: admin/partials/form-parts/permission.php:99
 msgid "Role"
 msgstr ""
 
@@ -447,15 +447,15 @@ msgstr ""
 msgid "Room Id"
 msgstr ""
 
-#: public/class-plugnmeet-public.php:115 helpers/ajaxHelper.php:144
+#: public/class-plugnmeet-public.php:115 helpers/ajaxHelper.php:155
 msgid "room Id is missing"
 msgstr ""
 
-#: helpers/ajaxHelper.php:28
+#: helpers/ajaxHelper.php:39
 msgid "room id required"
 msgstr ""
 
-#: helpers/ajaxHelper.php:164 helpers/ajaxHelper.php:293
+#: helpers/ajaxHelper.php:175 helpers/ajaxHelper.php:304
 msgid "room not active"
 msgstr ""
 
@@ -463,12 +463,12 @@ msgstr ""
 msgid "Room Status"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms.php:41
+#: admin/partials/plugnmeet-admin-display-rooms.php:43
 #: admin/partials/form-parts/basic.php:34
 msgid "Room title"
 msgstr ""
 
-#: public/partials/parts/login-form.php:36
+#: public/partials/parts/login-form.php:37
 msgid "Room's Password"
 msgstr ""
 
@@ -511,7 +511,7 @@ msgstr ""
 msgid "Show recordings"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms.php:48
+#: admin/partials/plugnmeet-admin-display-rooms.php:50
 msgid "Status"
 msgstr ""
 
@@ -532,13 +532,13 @@ msgid "Successfully updated room data"
 msgstr ""
 
 #: admin/class-plugnmeet-admin.php:153 admin/class-plugnmeet-admin.php:230
-#: admin/class-plugnmeet-admin.php:348 helpers/ajaxHelper.php:13
-#: helpers/ajaxHelper.php:53 helpers/ajaxHelper.php:93
-#: helpers/ajaxHelper.php:133
+#: admin/class-plugnmeet-admin.php:348 helpers/ajaxHelper.php:24
+#: helpers/ajaxHelper.php:64 helpers/ajaxHelper.php:104
+#: helpers/ajaxHelper.php:144
 msgid "Token mismatched"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms.php:66
+#: admin/partials/plugnmeet-admin-display-rooms.php:65
 msgid "Unpublished"
 msgstr ""
 
@@ -588,11 +588,10 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: helpers/ajaxHelper.php:231 helpers/ajaxHelper.php:282
+#: helpers/ajaxHelper.php:242 helpers/ajaxHelper.php:293
 msgid "you don't have permission"
 msgstr ""
 
-#: public/partials/parts/direct-join.php:28
 #: public/partials/parts/login-form.php:28
 msgid "Your full name"
 msgstr ""
