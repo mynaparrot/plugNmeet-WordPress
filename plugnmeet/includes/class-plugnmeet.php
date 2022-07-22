@@ -85,7 +85,7 @@ class Plugnmeet {
         $this->set_locale();
         $this->define_admin_hooks();
         $this->define_public_hooks();
-
+        $this->version_update_checker();
     }
 
     /**
@@ -129,6 +129,11 @@ class Plugnmeet {
          */
         require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-plugnmeet-public.php';
 
+        // ajax helper call to use in share
+        require_once plugin_dir_path(dirname(__FILE__)) . 'helpers/ajaxHelper.php';
+
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-plugnmeet-on-after-update.php';
+
         $this->loader = new Plugnmeet_Loader();
 
     }
@@ -171,9 +176,11 @@ class Plugnmeet {
         $this->loader->add_action('wp_ajax_plugnmeet_save_room_data', $plugin_admin, 'save_room_data');
         $this->loader->add_action('wp_ajax_plugnmeet_delete_room', $plugin_admin, 'delete_room');
 
-        $this->loader->add_action('wp_ajax_plugnmeet_get_recordings', $plugin_admin, 'get_recordings');
-        $this->loader->add_action('wp_ajax_plugnmeet_download_recording', $plugin_admin, 'download_recording');
-        $this->loader->add_action('wp_ajax_plugnmeet_delete_recording', $plugin_admin, 'delete_recording');
+        $ajaxHelper = new PlugNmeetAjaxHelper();
+
+        $this->loader->add_action('wp_ajax_plugnmeet_get_recordings', $ajaxHelper, 'get_recordings');
+        $this->loader->add_action('wp_ajax_plugnmeet_download_recording', $ajaxHelper, 'download_recording');
+        $this->loader->add_action('wp_ajax_plugnmeet_delete_recording', $ajaxHelper, 'delete_recording');
     }
 
     /**
@@ -197,12 +204,15 @@ class Plugnmeet {
         // we need session to store user's info before login.
         $this->loader->add_action('init', $plugin_public, 'start_session');
 
-        $this->loader->add_action('wp_ajax_nopriv_plugnmeet_login_to_room', $plugin_public, 'login_to_room');
-        $this->loader->add_action('wp_ajax_plugnmeet_login_to_room', $plugin_public, 'login_to_room');
-
         // Shortcode name must be the same as in shortcode_atts() third parameter.
         $this->loader->add_shortcode($this->get_plugin_prefix() . 'room_view', $plugin_public, 'plugnmeet_shortcode_room_view');
 
+        $ajaxHelper = new PlugNmeetAjaxHelper();
+        $this->loader->add_action('wp_ajax_nopriv_plugnmeet_login_to_room', $ajaxHelper, 'login_to_room');
+        $this->loader->add_action('wp_ajax_nopriv_plugnmeet_get_recordings', $ajaxHelper, 'get_recordings');
+        $this->loader->add_action('wp_ajax_nopriv_plugnmeet_download_recording', $ajaxHelper, 'download_recording');
+
+        $this->loader->add_action('wp_ajax_plugnmeet_login_to_room', $ajaxHelper, 'login_to_room');
     }
 
     /**
@@ -253,6 +263,10 @@ class Plugnmeet {
      */
     public function get_version() {
         return $this->version;
+    }
+
+    private function version_update_checker() {
+        new PlugNmeetOnAfterUpdate();
     }
 
 }

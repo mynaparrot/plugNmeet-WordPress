@@ -34,7 +34,6 @@ if (isset($_GET['search_term'])) {
 ?>
 
 <div class="tablenav bottom">
-
     <div class="alignright actions">
         <div class="tablenav-pages">
             <span class="displaying-num"><?php echo $totalNumRooms ?> items</span>
@@ -49,7 +48,6 @@ if (isset($_GET['search_term'])) {
                 <span class="tablenav-pages-navspan button disabled" aria-hidden="true">‹</span>
             </span>
             <?php endif; ?>
-
 
             <span class="screen-reader-text"><?php echo __("Current Page", "plugnmeet") ?></span>
             <span id="table-paging" class="paging-input">
@@ -72,6 +70,5 @@ if (isset($_GET['search_term'])) {
             <?php endif; ?>
             <br class="clear">
         </div>
-
     </div>
 </div>

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-08 19:52+0000\n"
+"POT-Creation-Date: 2022-07-16 05:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,11 +14,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/"
 
-#: admin/class-plugnmeet-settings-page.php:130
+#: admin/class-plugnmeet-settings-page.php:122
 msgid " can't be empty."
 msgstr ""
 
-#: helpers/helper.php:367
+#: helpers/helper.php:359
 msgid "Activate waiting room"
 msgstr ""
 
@@ -26,85 +26,94 @@ msgstr ""
 msgid "Add New"
 msgstr ""
 
-#: helpers/helper.php:206
+#: helpers/helper.php:203
 msgid "Admin only webcams"
 msgstr ""
 
-#: helpers/helper.php:398
+#: helpers/helper.php:389
 msgid "Allow breakout rooms"
 msgstr ""
 
-#: helpers/helper.php:250
+#: helpers/helper.php:246
 msgid "Allow chat"
 msgstr ""
 
-#: helpers/helper.php:429
+#: admin/partials/form-parts/permission.php:104
+msgid "Allow Delete <br/>Recordings"
+msgstr ""
+
+#: helpers/helper.php:419
 msgid "Allow Display External Link"
 msgstr ""
 
-#: helpers/helper.php:341
+#: admin/partials/form-parts/permission.php:103
+msgid "Allow Download <br/>Recordings"
+msgstr ""
+
+#: helpers/helper.php:334
 msgid "Allow external media player"
 msgstr ""
 
-#: helpers/helper.php:263
+#: helpers/helper.php:259
 msgid "Allow file upload"
 msgstr ""
 
-#: helpers/helper.php:219
+#: helpers/helper.php:216
 msgid "Allow polls"
 msgstr ""
 
-#: helpers/helper.php:154
+#: helpers/helper.php:151
 msgid "Allow recording"
 msgstr ""
 
-#: helpers/helper.php:167
+#: helpers/helper.php:164
 msgid "Allow rtmp"
 msgstr ""
 
-#: helpers/helper.php:141
+#: helpers/helper.php:138
 msgid "Allow screen share"
 msgstr ""
 
-#: helpers/helper.php:289
+#: helpers/helper.php:284
 msgid "Allow shared notepad"
 msgstr ""
 
-#: helpers/helper.php:193
+#: helpers/helper.php:190
 msgid "Allow view other users list"
 msgstr ""
 
-#: helpers/helper.php:180
+#: helpers/helper.php:177
 msgid "Allow view other webcams"
 msgstr ""
 
-#: helpers/helper.php:115
+#: helpers/helper.php:112
 msgid "Allow webcams"
 msgstr ""
 
-#: helpers/helper.php:315
+#: helpers/helper.php:309
 msgid "Allow whiteboard"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-recordings.php:116
+#: admin/partials/plugnmeet-admin-display-recordings.php:117
+#: public/partials/parts/recordings.php:83
 msgid "Are you sure to delete?"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:281
+#: admin/class-plugnmeet-admin.php:273
 msgid "attendee & moderator password can't be same"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms.php:46
+#: admin/partials/plugnmeet-admin-display-rooms.php:48
 #: admin/partials/form-parts/basic.php:48
 msgid "Attendee Password"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:329
+#: admin/class-plugnmeet-settings-page.php:316
 #: admin/partials/form-parts/design.php:38
 msgid "Background Color"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:338
+#: admin/class-plugnmeet-settings-page.php:325
 #: admin/partials/form-parts/design.php:43
 msgid "Background Image"
 msgstr ""
@@ -113,32 +122,32 @@ msgstr ""
 msgid "Basic"
 msgstr ""
 
-#: public/class-plugnmeet-public.php:310
-msgid "both name & password are required"
+#: helpers/ajaxHelper.php:78 helpers/ajaxHelper.php:118
+msgid "both roomId & record id required"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:186
+#: admin/class-plugnmeet-admin.php:179
 msgid "Can't write file"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-edit-room.php:25
+#: admin/partials/plugnmeet-admin-edit-room.php:26
 msgid "Cancel"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:210
+#: admin/class-plugnmeet-settings-page.php:199
 msgid "Client download url"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms-pagination.php:54
+#: admin/partials/plugnmeet-admin-display-rooms-pagination.php:52
 msgid "Current Page"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:302
+#: admin/class-plugnmeet-settings-page.php:289
 #: admin/partials/form-parts/design.php:23
 msgid "Custom CSS URL"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:283
+#: admin/class-plugnmeet-settings-page.php:271
 msgid "Custom logo"
 msgstr ""
 
@@ -146,38 +155,41 @@ msgstr ""
 msgid "Default lock settings"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms.php:69
-#: admin/partials/plugnmeet-admin-display-recordings.php:194
+#: admin/partials/plugnmeet-admin-display-rooms.php:68
+#: admin/partials/plugnmeet-admin-display-recordings.php:195
+#: public/partials/parts/recordings.php:202
 msgid "Delete"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:295
+#: admin/class-plugnmeet-settings-page.php:282
 #: admin/partials/plugnmeet-admin-edit-room.php:60
 msgid "Design Customization"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-recordings.php:191
+#: admin/partials/plugnmeet-admin-display-recordings.php:192
+#: public/partials/parts/recordings.php:197
 msgid "Download"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:229
+#: admin/class-plugnmeet-settings-page.php:217
 msgid "Enable Dynacast"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:238
+#: admin/class-plugnmeet-settings-page.php:226
 msgid "Enable Simulcast"
 msgstr ""
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:45
+#: public/partials/parts/recordings.php:29
 msgid "File size (MB)"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:356
+#: admin/class-plugnmeet-settings-page.php:343
 #: admin/partials/form-parts/design.php:70
 msgid "Footer Color"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:347
+#: admin/class-plugnmeet-settings-page.php:334
 #: admin/partials/form-parts/design.php:65
 msgid "Header Color"
 msgstr ""
@@ -190,7 +202,7 @@ msgstr ""
 msgid "https://www.mynaparrot.com/"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms.php:51
+#: admin/partials/plugnmeet-admin-display-rooms.php:40
 msgid "Id"
 msgstr ""
 
@@ -198,63 +210,71 @@ msgstr ""
 msgid "Jibon L. Costa <jibon@mynaparrot.com>"
 msgstr ""
 
+#: public/partials/parts/login-form.php:47
+msgid "Join"
+msgstr ""
+
+#: admin/partials/form-parts/permission.php:101
+msgid "Join as <br/>Attendee"
+msgstr ""
+
+#: admin/partials/form-parts/permission.php:100
+msgid "Join as <br/>Moderator"
+msgstr ""
+
 #: admin/partials/form-parts/design.php:75
 msgid "Left Bar Color"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:365
+#: admin/class-plugnmeet-settings-page.php:352
 msgid "left Color"
 msgstr ""
 
-#: helpers/helper.php:520
+#: helpers/helper.php:509
 msgid "Lock chat"
 msgstr ""
 
-#: helpers/helper.php:546
+#: helpers/helper.php:535
 msgid "Lock chat file share"
 msgstr ""
 
-#: helpers/helper.php:533
+#: helpers/helper.php:522
 msgid "Lock chat send message"
 msgstr ""
 
-#: helpers/helper.php:455
+#: helpers/helper.php:444
 msgid "Lock microphone"
 msgstr ""
 
-#: helpers/helper.php:559
+#: helpers/helper.php:548
 msgid "Lock private chat"
 msgstr ""
 
-#: helpers/helper.php:481
+#: helpers/helper.php:470
 msgid "Lock screen sharing"
 msgstr ""
 
-#: helpers/helper.php:507
+#: helpers/helper.php:496
 msgid "Lock shared notepad"
 msgstr ""
 
-#: helpers/helper.php:468
+#: helpers/helper.php:457
 msgid "Lock webcam"
 msgstr ""
 
-#: helpers/helper.php:494
+#: helpers/helper.php:483
 msgid "Lock whiteboard"
-msgstr ""
-
-#: public/partials/plugnmeet-public-display.php:51
-msgid "Login"
 msgstr ""
 
 #: admin/partials/form-parts/design.php:54
 msgid "Logo"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:127
+#: admin/class-plugnmeet-admin.php:122
 msgid "Manage recordings"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:117
+#: admin/class-plugnmeet-admin.php:112
 msgid "Manage Rooms"
 msgstr ""
 
@@ -263,51 +283,61 @@ msgid "Maximum participants (0 = unlimited)"
 msgstr ""
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:42
-msgid "Meeting create"
+#: public/partials/parts/recordings.php:28
+msgid "Meeting date"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms.php:43
+#: admin/partials/plugnmeet-admin-display-rooms.php:45
 #: admin/partials/form-parts/basic.php:43
 msgid "Moderator Password"
 msgstr ""
 
-#: helpers/helper.php:128
+#: helpers/helper.php:125
 msgid "Mute on start"
 msgstr ""
 
-#: public/partials/plugnmeet-public-display.php:31
+#: public/partials/parts/login-form.php:25
 msgid "Name"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms-pagination.php:66
+#: helpers/ajaxHelper.php:160
+msgid "name is required"
+msgstr ""
+
+#: public/partials/parts/recordings.php:37
+msgid "Next"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-rooms-pagination.php:64
 msgid "Next page"
 msgstr ""
 
-#: helpers/helper.php:121 helpers/helper.php:134 helpers/helper.php:147
-#: helpers/helper.php:160 helpers/helper.php:173 helpers/helper.php:186
-#: helpers/helper.php:199 helpers/helper.php:212 helpers/helper.php:225
-#: helpers/helper.php:256 helpers/helper.php:269 helpers/helper.php:295
-#: helpers/helper.php:321 helpers/helper.php:347 helpers/helper.php:373
-#: helpers/helper.php:404 helpers/helper.php:435 helpers/helper.php:461
-#: helpers/helper.php:474 helpers/helper.php:487 helpers/helper.php:500
-#: helpers/helper.php:513 helpers/helper.php:526 helpers/helper.php:539
-#: helpers/helper.php:552 helpers/helper.php:565
+#: helpers/helper.php:118 helpers/helper.php:131 helpers/helper.php:144
+#: helpers/helper.php:157 helpers/helper.php:170 helpers/helper.php:183
+#: helpers/helper.php:196 helpers/helper.php:209 helpers/helper.php:222
+#: helpers/helper.php:252 helpers/helper.php:265 helpers/helper.php:290
+#: helpers/helper.php:315 helpers/helper.php:340 helpers/helper.php:365
+#: helpers/helper.php:395 helpers/helper.php:425 helpers/helper.php:450
+#: helpers/helper.php:463 helpers/helper.php:476 helpers/helper.php:489
+#: helpers/helper.php:502 helpers/helper.php:515 helpers/helper.php:528
+#: helpers/helper.php:541 helpers/helper.php:554
 msgid "No"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:363
+#: admin/class-plugnmeet-admin.php:356
 msgid "No id was sent"
 msgstr ""
 
-#: public/class-plugnmeet-public.php:280 public/class-plugnmeet-public.php:322
+#: public/class-plugnmeet-public.php:269 helpers/ajaxHelper.php:172
+#: helpers/ajaxHelper.php:301
 msgid "no room found"
 msgstr ""
 
-#: helpers/helper.php:411
+#: helpers/helper.php:402
 msgid "Number of rooms"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:222
+#: admin/class-plugnmeet-settings-page.php:210
 msgid "Options"
 msgstr ""
 
@@ -315,15 +345,19 @@ msgstr ""
 msgid "Other features"
 msgstr ""
 
-#: public/partials/plugnmeet-public-display.php:39
+#: public/partials/parts/login-form.php:34
 msgid "Password"
 msgstr ""
 
-#: public/class-plugnmeet-public.php:334
+#: helpers/ajaxHelper.php:252
 msgid "password didn't match"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:106 admin/class-plugnmeet-admin.php:107
+#: admin/partials/plugnmeet-admin-edit-room.php:67
+msgid "Permission"
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:101 admin/class-plugnmeet-admin.php:102
 msgid "Plug-N-Meet"
 msgstr ""
 
@@ -335,28 +369,32 @@ msgstr ""
 msgid "Plug-N-Meet web conference integration with WordPress"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:192
+#: admin/class-plugnmeet-settings-page.php:181
 msgid "plugNmeet API Key"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:201
+#: admin/class-plugnmeet-settings-page.php:190
 msgid "plugNmeet Secret"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:183
+#: admin/class-plugnmeet-settings-page.php:172
 msgid "plugNmeet Server URL"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms-pagination.php:45
+#: public/partials/parts/recordings.php:36
+msgid "Pre"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-rooms-pagination.php:44
 msgid "Previous page"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:311
+#: admin/class-plugnmeet-settings-page.php:298
 #: admin/partials/form-parts/design.php:28
 msgid "Primary Color"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms.php:66
+#: admin/partials/plugnmeet-admin-display-rooms.php:65
 msgid "Published"
 msgstr ""
 
@@ -364,35 +402,40 @@ msgstr ""
 msgid "Record Id"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:435 admin/class-plugnmeet-admin.php:469
-msgid "record id required"
-msgstr ""
-
 #: admin/partials/plugnmeet-admin-display-recordings.php:39
-msgid "Recording created"
+#: public/partials/parts/recordings.php:27
+msgid "Recording date"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:480
+#: helpers/ajaxHelper.php:135
 msgid "Recording was deleted successfully"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:128
+#: admin/class-plugnmeet-admin.php:123 public/partials/parts/recordings.php:20
 msgid "Recordings"
+msgstr ""
+
+#: admin/partials/form-parts/permission.php:102
+msgid "Require <br/> Password"
 msgstr ""
 
 #: admin/partials/form-parts/design.php:80
 msgid "Right Bar Color"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:374
+#: admin/class-plugnmeet-settings-page.php:361
 msgid "Right Color"
+msgstr ""
+
+#: admin/partials/form-parts/permission.php:99
+msgid "Role"
 msgstr ""
 
 #: admin/partials/form-parts/basic.php:39
 msgid "Room description"
 msgstr ""
 
-#: helpers/helper.php:232
+#: helpers/helper.php:229
 msgid "Room duration (In minutes, 0 = unlimited)"
 msgstr ""
 
@@ -404,37 +447,37 @@ msgstr ""
 msgid "Room Id"
 msgstr ""
 
-#: public/class-plugnmeet-public.php:123 public/class-plugnmeet-public.php:305
+#: public/class-plugnmeet-public.php:115 helpers/ajaxHelper.php:155
 msgid "room Id is missing"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:402
+#: helpers/ajaxHelper.php:39
 msgid "room id required"
 msgstr ""
 
-#: public/class-plugnmeet-public.php:325
+#: helpers/ajaxHelper.php:175 helpers/ajaxHelper.php:304
 msgid "room not active"
 msgstr ""
 
-#: helpers/helper.php:595
+#: helpers/helper.php:583
 msgid "Room Status"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms.php:41
+#: admin/partials/plugnmeet-admin-display-rooms.php:43
 #: admin/partials/form-parts/basic.php:34
 msgid "Room title"
 msgstr ""
 
-#: public/partials/plugnmeet-public-display.php:42
+#: public/partials/parts/login-form.php:37
 msgid "Room's Password"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:118
+#: admin/class-plugnmeet-admin.php:113
 #: admin/partials/plugnmeet-admin-display-rooms.php:20
 msgid "Rooms"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:265
+#: admin/class-plugnmeet-settings-page.php:253
 msgid "Screen Sharing Resolution"
 msgstr ""
 
@@ -443,7 +486,7 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:320
+#: admin/class-plugnmeet-settings-page.php:307
 #: admin/partials/form-parts/design.php:33
 msgid "Secondary Color"
 msgstr ""
@@ -452,15 +495,15 @@ msgstr ""
 msgid "Select room"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:176
+#: admin/class-plugnmeet-settings-page.php:165
 msgid "Server Settings"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:143
+#: admin/class-plugnmeet-settings-page.php:135
 msgid "Setting saved"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:137 admin/class-plugnmeet-admin.php:138
+#: admin/class-plugnmeet-admin.php:132 admin/class-plugnmeet-admin.php:133
 msgid "Settings"
 msgstr ""
 
@@ -468,11 +511,11 @@ msgstr ""
 msgid "Show recordings"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms.php:48
+#: admin/partials/plugnmeet-admin-display-rooms.php:50
 msgid "Status"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:274
+#: admin/class-plugnmeet-settings-page.php:262
 msgid "Stop mic track on mute"
 msgstr ""
 
@@ -480,52 +523,52 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:314
+#: admin/class-plugnmeet-admin.php:307
 msgid "Successfully saved room data"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:343
+#: admin/class-plugnmeet-admin.php:337
 msgid "Successfully updated room data"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:160 admin/class-plugnmeet-admin.php:239
-#: admin/class-plugnmeet-admin.php:355 admin/class-plugnmeet-admin.php:387
-#: admin/class-plugnmeet-admin.php:422 admin/class-plugnmeet-admin.php:456
-#: public/class-plugnmeet-public.php:294
+#: admin/class-plugnmeet-admin.php:153 admin/class-plugnmeet-admin.php:230
+#: admin/class-plugnmeet-admin.php:348 helpers/ajaxHelper.php:24
+#: helpers/ajaxHelper.php:64 helpers/ajaxHelper.php:104
+#: helpers/ajaxHelper.php:144
 msgid "Token mismatched"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-rooms.php:66
+#: admin/partials/plugnmeet-admin-display-rooms.php:65
 msgid "Unpublished"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:206
+#: admin/class-plugnmeet-admin.php:199
 msgid "Unzip failed"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:115
+#: admin/class-plugnmeet-settings-page.php:108
 msgid "Update"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:204
+#: admin/class-plugnmeet-admin.php:197
 msgid "Updated client successfully"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:101
+#: admin/class-plugnmeet-settings-page.php:95
 #: admin/partials/form-parts/design.php:50
 #: admin/partials/form-parts/design.php:61
 msgid "Upload/Select image"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:247
+#: admin/class-plugnmeet-settings-page.php:235
 msgid "Video Codec"
 msgstr ""
 
-#: helpers/helper.php:380
+#: helpers/helper.php:372
 msgid "Waiting room message"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:256
+#: admin/class-plugnmeet-settings-page.php:244
 msgid "Webcam Resolution"
 msgstr ""
 
@@ -533,18 +576,22 @@ msgstr ""
 msgid "Welcome Message"
 msgstr ""
 
-#: helpers/helper.php:118 helpers/helper.php:131 helpers/helper.php:144
-#: helpers/helper.php:157 helpers/helper.php:170 helpers/helper.php:183
-#: helpers/helper.php:196 helpers/helper.php:209 helpers/helper.php:222
-#: helpers/helper.php:253 helpers/helper.php:266 helpers/helper.php:292
-#: helpers/helper.php:318 helpers/helper.php:344 helpers/helper.php:370
-#: helpers/helper.php:401 helpers/helper.php:432 helpers/helper.php:458
-#: helpers/helper.php:471 helpers/helper.php:484 helpers/helper.php:497
-#: helpers/helper.php:510 helpers/helper.php:523 helpers/helper.php:536
-#: helpers/helper.php:549 helpers/helper.php:562
+#: helpers/helper.php:115 helpers/helper.php:128 helpers/helper.php:141
+#: helpers/helper.php:154 helpers/helper.php:167 helpers/helper.php:180
+#: helpers/helper.php:193 helpers/helper.php:206 helpers/helper.php:219
+#: helpers/helper.php:249 helpers/helper.php:262 helpers/helper.php:287
+#: helpers/helper.php:312 helpers/helper.php:337 helpers/helper.php:362
+#: helpers/helper.php:392 helpers/helper.php:422 helpers/helper.php:447
+#: helpers/helper.php:460 helpers/helper.php:473 helpers/helper.php:486
+#: helpers/helper.php:499 helpers/helper.php:512 helpers/helper.php:525
+#: helpers/helper.php:538 helpers/helper.php:551
 msgid "Yes"
 msgstr ""
 
-#: public/partials/plugnmeet-public-display.php:34
+#: helpers/ajaxHelper.php:242 helpers/ajaxHelper.php:293
+msgid "you don't have permission"
+msgstr ""
+
+#: public/partials/parts/login-form.php:28
 msgid "Your full name"
 msgstr ""

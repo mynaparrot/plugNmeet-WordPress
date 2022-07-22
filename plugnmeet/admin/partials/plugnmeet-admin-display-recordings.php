@@ -36,10 +36,10 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                 <?php echo __("Record Id", "plugnmeet"); ?>
             </th>
             <th class="manage-column column-categories">
-                <?php echo __("Recording created", "plugnmeet"); ?>
+                <?php echo __("Recording date", "plugnmeet"); ?>
             </th>
             <th class="manage-column column-categories">
-                <?php echo __("Meeting create", "plugnmeet"); ?>
+                <?php echo __("Meeting date", "plugnmeet"); ?>
             </th>
             <th class="manage-column" style="width: 22%">
                 <?php echo __("File size (MB)", "plugnmeet"); ?>
@@ -64,7 +64,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                 return;
             }
             const data = {
-                nonce: ajax_admin.nonce,
+                nonce: '<?php echo wp_create_nonce('plugnmeet_get_recordings') ?>',
                 action: "plugnmeet_get_recordings",
                 from: 0,
                 limit: limitPerPage,
@@ -84,9 +84,10 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                 return;
             }
             const data = {
-                nonce: ajax_admin.nonce,
+                nonce: '<?php echo wp_create_nonce('plugnmeet_download_recording') ?>',
                 action: "plugnmeet_download_recording",
-                recordingId
+                recordingId,
+                roomId
             }
 
             $.ajax({
@@ -117,9 +118,10 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                 return;
             }
             const data = {
-                nonce: ajax_admin.nonce,
+                nonce: '<?php echo wp_create_nonce('plugnmeet_delete_recording') ?>',
                 action: "plugnmeet_delete_recording",
-                recordingId
+                recordingId,
+                roomId
             }
 
             $.ajax({
@@ -159,13 +161,12 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                         showMessage('no recordings found');
                         return;
                     }
-
+                    totalRecordings = data.result.total_recordings;
                     // check if pagination require
                     if (
-                        data.result.total_recordings > recordings.length &&
+                        totalRecordings > limitPerPage &&
                         !isShowingPagination
                     ) {
-                        totalRecordings = data.result.total_recordings;
                         showPagination();
                         isShowingPagination = true;
                     }
@@ -275,7 +276,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
             }
 
             const data = {
-                nonce: ajax_admin.nonce,
+                nonce: '<?php echo wp_create_nonce('plugnmeet_get_recordings') ?>',
                 action: "plugnmeet_get_recordings",
                 from,
                 limit: limitPerPage,

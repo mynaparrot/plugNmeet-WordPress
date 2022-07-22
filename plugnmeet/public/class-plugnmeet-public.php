@@ -14,8 +14,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
     die;
 }
 
-class Plugnmeet_Public
-{
+class Plugnmeet_Public {
 
     /**
      * The ID of this plugin.
@@ -57,8 +56,7 @@ class Plugnmeet_Public
      * @param string $version The version of this plugin.
      * @since    1.0.0
      */
-    public function __construct($plugin_name, $plugin_prefix, $version)
-    {
+    public function __construct($plugin_name, $plugin_prefix, $version) {
 
         $this->plugin_name = $plugin_name;
         $this->plugin_prefix = $plugin_prefix;
@@ -72,8 +70,7 @@ class Plugnmeet_Public
      *
      * @since    1.0.0
      */
-    public function enqueue_styles()
-    {
+    public function enqueue_styles() {
 
         wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/plugnmeet-public.css', [], $this->version);
 
@@ -84,8 +81,7 @@ class Plugnmeet_Public
      *
      * @since    1.0.0
      */
-    public function enqueue_scripts()
-    {
+    public function enqueue_scripts() {
 
         wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/plugnmeet-public.js', array('jquery'), $this->version, true);
 
@@ -94,27 +90,23 @@ class Plugnmeet_Public
         wp_localize_script($this->plugin_name, 'plugnmeet_frontend', $script);
     }
 
-    public function start_session()
-    {
+    public function start_session() {
         if (!session_id()) {
             session_start();
         }
     }
 
-    public function setQueryVar($vars)
-    {
+    public function setQueryVar($vars) {
         $vars[] = 'Plug-N-Meet-Conference';
 
         return $vars;
     }
 
-    public function custom_add_rewrite_rule()
-    {
+    public function custom_add_rewrite_rule() {
         add_rewrite_rule('^Plug-N-Meet-conference$', 'index.php?Plug-N-Meet-Conference=1', 'top');
     }
 
-    public function on_display_plugnmeet_conference($template)
-    {
+    public function on_display_plugnmeet_conference($template) {
         if (!get_query_var('Plug-N-Meet-Conference')) {
             return $template;
         }
@@ -139,8 +131,7 @@ class Plugnmeet_Public
         exit();
     }
 
-    private function getJsOptions($custom_design_params)
-    {
+    private function getJsOptions($custom_design_params) {
         $params = $this->setting_params;
         $assets_path = plugins_url('public/client/dist/assets', PLUGNMEET_BASE_NAME);
 
@@ -221,8 +212,7 @@ class Plugnmeet_Public
      * @param mixed $content ShortCode enclosed content.
      * @param string $tag The Shortcode tag.
      */
-    public function plugnmeet_shortcode_room_view($atts, $content = null, $tag)
-    {
+    public function plugnmeet_shortcode_room_view($atts, $content = null, $tag) {
 
         /**
          * Combine user attributes with known attributes.
@@ -267,8 +257,7 @@ class Plugnmeet_Public
 
     }
 
-    private function formatRoomViewForShortCode($roomId)
-    {
+    private function formatRoomViewForShortCode($roomId) {
         if (!class_exists('Plugnmeet_RoomPage')) {
             require PLUGNMEET_ROOT_PATH . "/admin/class-plugnmeet-room-page.php";
         }
@@ -285,105 +274,5 @@ class Plugnmeet_Public
         $return_html = ob_get_clean();
 
         return $return_html;
-    }
-
-    public function login_to_room()
-    {
-        $output = new stdClass();
-        $output->status = false;
-        $output->msg = __("Token mismatched", 'plugnmeet');
-
-        if (!wp_verify_nonce($_REQUEST['nonce'], 'plugnmeet_login_to_room')) {
-            wp_send_json($output);
-        }
-
-        $id = isset($_POST['id']) ? sanitize_text_field($_POST['id']) : 0;
-        $name = isset($_POST['name']) ? sanitize_text_field($_POST['name']) : "";
-        $password = isset($_POST['password']) ? sanitize_text_field($_POST['password']) : "";
-
-        if (empty($id)) {
-            $output->msg = __("room Id is missing", 'plugnmeet');
-            wp_send_json($output);
-        }
-
-        if (empty($name) || empty($password)) {
-            $output->msg = __("both name & password are required", 'plugnmeet');
-            wp_send_json($output);
-        }
-
-        if (!class_exists('Plugnmeet_RoomPage')) {
-            require PLUGNMEET_ROOT_PATH . "/admin/class-plugnmeet-room-page.php";
-        }
-
-        $class = new Plugnmeet_RoomPage();
-        $roomInfo = $class->getRoomById($id);
-
-        if (!$roomInfo) {
-            $output->msg = __("no room found", 'plugnmeet');
-            wp_send_json($output);
-        } elseif ($roomInfo->published !== "1") {
-            $output->msg = __("room not active", 'plugnmeet');
-            wp_send_json($output);
-        }
-
-        if ($password === $roomInfo->moderator_pass) {
-            $isAdmin = true;
-        } elseif ($password === $roomInfo->attendee_pass) {
-            $isAdmin = false;
-        } else {
-            $output->msg = __("password didn't match", 'plugnmeet');
-            wp_send_json($output);
-        }
-
-        if (!class_exists("plugNmeetConnect")) {
-            include PLUGNMEET_ROOT_PATH . "/helpers/plugNmeetConnect.php";
-        }
-        $options = get_option("plugnmeet_settings");
-        $connect = new plugNmeetConnect((object)$options);
-        $isRoomActive = false;
-        $room_metadata = json_decode($roomInfo->room_metadata, true);
-
-        try {
-            $res = $connect->isRoomActive($roomInfo->room_id);
-            $isRoomActive = $res->getStatus();
-            $output->msg = $res->getResponseMsg();
-        } catch (Exception $e) {
-            $output->msg = $e->getMessage();
-            wp_send_json($output);
-        }
-
-        if (!$isRoomActive) {
-            try {
-                $create = $connect->createRoom($roomInfo->room_id, $roomInfo->room_title, $roomInfo->welcome_message, $roomInfo->max_participants, "", $room_metadata);
-
-                $isRoomActive = $create->getStatus();
-                $output->msg = $create->getResponseMsg();
-            } catch (Exception $e) {
-                $output->msg = $e->getMessage();
-                wp_send_json($output);
-            }
-        }
-        $useId = get_current_user_id();
-        if (!$useId) {
-            if (!isset($_SESSION['PLUG_N_MEET_USER_ID'])) {
-                $_SESSION['PLUG_N_MEET_USER_ID'] = $connect->getUUID();
-            }
-            $useId = esc_attr($_SESSION['PLUG_N_MEET_USER_ID']);
-        }
-
-        if ($isRoomActive) {
-            try {
-                $join = $connect->getJoinToken($roomInfo->room_id, $name, $useId, $isAdmin);
-
-                $output->url = get_site_url() . "/index.php?access_token=" . $join->getToken() . "&id=" . $id . "&Plug-N-Meet-Conference=1";
-                $output->status = $join->getStatus();
-                $output->msg = $join->getResponseMsg();
-            } catch (Exception $e) {
-                $output->msg = $e->getMessage();
-                wp_send_json($output);
-            }
-        }
-
-        wp_send_json($output);
     }
 }
