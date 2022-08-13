@@ -31,7 +31,7 @@ function insert_plnm_js_css() {
     global $wp_styles, $wp_scripts;
 
     $setting_params = (object)get_option("plugnmeet_settings");
-    if (isset($setting_params->client_load) && $setting_params->client_load === "remote") {
+    if (!isset($setting_params->client_load) || $setting_params->client_load === "remote") {
         if (!class_exists("plugNmeetConnect")) {
             require PLUGNMEET_ROOT_PATH . '/helpers/plugNmeetConnect.php';
         }

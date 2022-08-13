@@ -131,7 +131,7 @@ class Plugnmeet_Public {
 
     private function getJsOptions($custom_design_params) {
         $params = $this->setting_params;
-        if (isset($params->client_load) && $params->client_load === "remote") {
+        if (!isset($params->client_load) || $params->client_load === "remote") {
             $assets_path = $params->plugnmeet_server_url . "/assets";
         } else {
             $assets_path = plugins_url('public/client/dist/assets', PLUGNMEET_BASE_NAME);
