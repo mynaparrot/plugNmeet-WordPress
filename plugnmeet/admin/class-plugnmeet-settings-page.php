@@ -195,8 +195,17 @@ class Plugnmeet_SettingsPage {
         );
 
         add_settings_field(
+            'client_load',
+            __('Client load', 'plugnmeet'),
+            [$this, 'selectCallBack'],
+            'plugnmeet-settings',
+            'plugnmeet_settings_config_section',
+            ['id' => 'client_load', 'options' => array("remote", "local"), 'default' => "automatic"]
+        );
+
+        add_settings_field(
             'client_download_url',
-            __('Client download url', 'plugnmeet'),
+            __('Local client download url', 'plugnmeet'),
             [$this, 'clientUpdateCallBack'],
             'plugnmeet-settings',
             'plugnmeet_settings_config_section',

@@ -39,7 +39,7 @@ use Mynaparrot\Plugnmeet\Parameters\RoomMetadataParameters;
 use Mynaparrot\Plugnmeet\Parameters\SharedNotePadFeaturesParameters;
 use Mynaparrot\Plugnmeet\Parameters\WaitingRoomFeaturesParameters;
 use Mynaparrot\Plugnmeet\Parameters\WhiteboardFeaturesParameters;
-use Mynaparrot\Plugnmeet\PlugNmeet;
+use Mynaparrot\Plugnmeet\Responses\ClientFilesResponses;
 use Mynaparrot\Plugnmeet\Responses\CreateRoomResponse;
 use Mynaparrot\Plugnmeet\Responses\DeleteRecordingResponse;
 use Mynaparrot\Plugnmeet\Responses\EndRoomResponse;
@@ -49,6 +49,7 @@ use Mynaparrot\Plugnmeet\Responses\GetActiveRoomInfoResponse;
 use Mynaparrot\Plugnmeet\Responses\GetActiveRoomsInfoResponse;
 use Mynaparrot\Plugnmeet\Responses\IsRoomActiveResponse;
 use Mynaparrot\Plugnmeet\Responses\RecordingDownloadTokenResponse;
+use Mynaparrot\Plugnmeet\PlugNmeet;
 
 require __DIR__ . "/libs/plugnmeet-sdk-php/vendor/autoload.php";
 
@@ -343,5 +344,12 @@ class plugNmeetConnect {
         $deleteRecordingParameters->setRecordId($recordingId);
 
         return $this->plugnmeet->deleteRecordings($deleteRecordingParameters);
+    }
+
+    /**
+     * @return ClientFilesResponses
+     */
+    public function getClientFiles() {
+        return $this->plugnmeet->getClientFiles();
     }
 }

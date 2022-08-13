@@ -27,14 +27,25 @@ remove_action('wp_head', 'wp_resource_hints', 2);
 remove_action('wp_head', 'start_post_rel_link');
 remove_action('wp_head', 'index_rel_link');
 
-function insert_plnm_js_css()
-{
+function insert_plnm_js_css() {
     global $wp_styles, $wp_scripts;
 
-    $clientPath = PLUGNMEET_ROOT_PATH . "/public/client/dist/assets";
-    $jsFiles = preg_grep('~\.(js)$~', scandir($clientPath . "/js", SCANDIR_SORT_DESCENDING));
-    $cssFiles = preg_grep('~\.(css)$~', scandir($clientPath . "/css", SCANDIR_SORT_DESCENDING));
-    $path = plugins_url('public/client/dist/assets', PLUGNMEET_BASE_NAME);
+    $setting_params = (object)get_option("plugnmeet_settings");
+    if (isset($setting_params->client_load) && $setting_params->client_load === "remote") {
+        if (!class_exists("plugNmeetConnect")) {
+            require PLUGNMEET_ROOT_PATH . '/helpers/plugNmeetConnect.php';
+        }
+        $connect = new plugNmeetConnect($setting_params);
+        $files = $connect->getClientFiles();
+        $jsFiles = $files->getJSFiles() ?? [];
+        $cssFiles = $files->getCSSFiles() ?? [];
+        $path = $setting_params->plugnmeet_server_url . "/assets";
+    } else {
+        $clientPath = PLUGNMEET_ROOT_PATH . "/public/client/dist/assets";
+        $jsFiles = preg_grep('~\.(js)$~', scandir($clientPath . "/js", SCANDIR_SORT_DESCENDING));
+        $cssFiles = preg_grep('~\.(css)$~', scandir($clientPath . "/css", SCANDIR_SORT_DESCENDING));
+        $path = plugins_url('public/client/dist/assets', PLUGNMEET_BASE_NAME);
+    }
 
     foreach ($jsFiles as $file) {
         wp_enqueue_script($file, $path . '/js/' . $file, array(), null);
@@ -57,8 +68,7 @@ function insert_plnm_js_css()
 
 add_action('wp_print_styles', 'insert_plnm_js_css', 100);
 
-function add_custom_attr($tag)
-{
+function add_custom_attr($tag) {
     $tag = str_replace('src=', 'defer="defer" src=', $tag);
     return $tag;
 }

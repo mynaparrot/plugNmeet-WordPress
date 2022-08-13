@@ -71,7 +71,6 @@ class Plugnmeet_Public {
      * @since    1.0.0
      */
     public function enqueue_styles() {
-
         wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/plugnmeet-public.css', [], $this->version);
 
     }
@@ -82,7 +81,6 @@ class Plugnmeet_Public {
      * @since    1.0.0
      */
     public function enqueue_scripts() {
-
         wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/plugnmeet-public.js', array('jquery'), $this->version, true);
 
         $nonce = wp_create_nonce('plugnmeet_frontend');
@@ -133,7 +131,11 @@ class Plugnmeet_Public {
 
     private function getJsOptions($custom_design_params) {
         $params = $this->setting_params;
-        $assets_path = plugins_url('public/client/dist/assets', PLUGNMEET_BASE_NAME);
+        if (isset($params->client_load) && $params->client_load === "remote") {
+            $assets_path = $params->plugnmeet_server_url . "/assets";
+        } else {
+            $assets_path = plugins_url('public/client/dist/assets', PLUGNMEET_BASE_NAME);
+        }
 
         $customLogo = "";
         if (!empty($custom_design_params['logo'])) {
