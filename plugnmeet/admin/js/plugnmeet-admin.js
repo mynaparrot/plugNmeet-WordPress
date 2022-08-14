@@ -126,6 +126,17 @@
 
     $(document).ready(function () {
         $('.colorPickerItem').colorpicker();
+        if ($("#client_load").val() === "remote") {
+            $("#client_download_url").parent().parent().hide();
+        }
+    })
+
+    $(document).on("change", "#client_load", (e) => {
+        if ($(e.target).val() === "remote") {
+            $("#client_download_url").parent().parent().hide();
+        } else {
+            $("#client_download_url").parent().parent().show();
+        }
     })
 
 })(jQuery);
