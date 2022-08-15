@@ -68,9 +68,11 @@ class Plugnmeet_Admin {
      * @since    1.0.0
      */
     public function enqueue_styles($hook_suffix) {
-        wp_enqueue_style('bootstrap-min', plugin_dir_url(__FILE__) . 'css/bootstrap.min.css');
-        wp_enqueue_style('bootstrap-colorpicker', plugin_dir_url(__FILE__) . 'css/bootstrap-colorpicker.min.css');
-        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/plugnmeet-admin.css');
+        if (preg_match("/plugnmeet/", $hook_suffix) || preg_match("/plug-n-meet/", $hook_suffix)) {
+            wp_enqueue_style('bootstrap-min', plugin_dir_url(__FILE__) . 'css/bootstrap.min.css');
+            wp_enqueue_style('bootstrap-colorpicker', plugin_dir_url(__FILE__) . 'css/bootstrap-colorpicker.min.css');
+            wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/plugnmeet-admin.css');
+        }
     }
 
     /**
@@ -81,10 +83,11 @@ class Plugnmeet_Admin {
      */
     public function enqueue_scripts($hook_suffix) {
         wp_enqueue_media();
-        wp_enqueue_script("bootstrap-bundle", plugin_dir_url(__FILE__) . 'js/bootstrap.bundle.js', array(), $this->version);
-        wp_enqueue_script("bootstrap-colorpicker", plugin_dir_url(__FILE__) . 'js/bootstrap-colorpicker.min.js', array(), $this->version);
-
-        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/plugnmeet-admin.js', array('jquery'), $this->version, false);
+        if (preg_match("/plugnmeet/", $hook_suffix) || preg_match("/plug-n-meet/", $hook_suffix)) {
+            wp_enqueue_script("bootstrap-bundle", plugin_dir_url(__FILE__) . 'js/bootstrap.bundle.js', array(), $this->version);
+            wp_enqueue_script("bootstrap-colorpicker", plugin_dir_url(__FILE__) . 'js/bootstrap-colorpicker.min.js', array(), $this->version);
+            wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/plugnmeet-admin.js', array('jquery'), $this->version, false);
+        }
 
         $nonce = wp_create_nonce('ajax_admin');
         $script = array('nonce' => $nonce);
