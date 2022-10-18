@@ -245,7 +245,7 @@ class Plugnmeet_SettingsPage {
             [$this, 'selectCallBack'],
             'plugnmeet-settings',
             'plugnmeet_settings_options_section',
-            ['id' => 'video_codec', 'options' => array('vp8', 'h264', 'av1', 'vp9'), 'default' => "vp8"]
+            ['id' => 'video_codec', 'options' => array('vp8', 'h264', 'av1'), 'default' => "vp8"]
         );
 
         add_settings_field(

@@ -3,28 +3,40 @@ Contributors: mynaparrot
 Donate link: https://www.mynaparrot.com/
 Tags: mynaparrot, web conference, plugnmeet
 Requires at least: 5.9
-Tested up to: 6.1
-Stable tag: 1.1.1
+Tested up to: 6.0.3
+Stable tag: 1.1.2
+Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Requires PHP: 7.4
 
-Plug-N-Meet web conference integration
+WebRTC based Scalable, High Performance, Open source web conferencing system for Wordpress.
 
 == Description ==
 
-Plug-N-Meet conference integration with WordPress. You can download latest version from release page. This plugin was built using better-wp-plugin-boilerplate.
+WebRTC based Scalable, High Performance, Open source web conferencing system. Using this plugin, you will be able to load the [plugNmeet-client](https://github.com/mynaparrot/plugNmeet-client) interface **directly within your Wordpress site**. You will not be redirected to a third-party website. You will also be able to **easily customize** the conference room interface.
 
+**Features:**
+
+* Compatible with all devices. Browser recommendation: **Google Chrome, Firefox**. For **iOS**: Safari.
+* WebRTC based secured & encrypted communication.
+* Scalable and high performance system written in Go programming language which made it possible to distributed as a single binary file!
+* Simulcast and Dynacast features will allow you to continue online conferencing even if your internet connection is slow! Supported video codecs: H264, VP8 and AV1.
+* Easy integration with any existing website or system.
+* Easy customization with functionality, URL, logo, and branding colors.
+* HD audio, video call and Screen sharing. Virtual background for webcams.
+* Shared notepad and Whiteboard for live collaboration. Can upload, draw & share various office file (pdf, docx, pptx, xlsx, txt etc.) in whiteboard directly.
+* Easy to use Polls & voting.
+* Customizable waiting room.
+* Various Lock & control settings.
+* Easy to configurable Breakout rooms
+* Raise hand.
+* Public & private chatting with File sharing.
+* MP4 Recordings.
+* RTMP Broadcasting
 
 == Installation ==
 
-1. Log in to your WordPress site as an admin and upload downloaded zip file from Plugins > Add new.
-2. Activate the plugin & your'll see menu "Plug-N-Meet" from left side.
-3. Go to Settings from Plug-N-Meet > Settings. Add necessay server information.
-4. Add Room & use shortcode to add to anywhere of wordpress.
-
-***Note:*** You can update client by simple click on "Update" button from Plug-N-Meet > Settings > Client download url
-
+Please follow this article: https://www.plugnmeet.org/docs/user-guide/wordPress-integration
 
 == Frequently Asked Questions ==
 
@@ -32,7 +44,14 @@ Plug-N-Meet conference integration with WordPress. You can download latest versi
 
 After create room save it. Now enter to re-edit. You'll get shortcode there.
 
+
+== Screenshots ==
+
+1. Whiteboard
+2. Shared notepad
+
 == Changelog ==
+
 = 1.1.0 =
 * Bump Plug-N-Meet PHP SDK to v1.1.0
 
