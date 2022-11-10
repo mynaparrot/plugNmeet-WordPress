@@ -36,7 +36,8 @@ WebRTC based Scalable, High Performance, Open source web conferencing system. Us
 
 == Installation ==
 
-Please follow this article: https://www.plugnmeet.org/docs/user-guide/wordPress-integration
+1. Server setup: https://www.plugnmeet.org/docs/installation
+2. Plugin configuration: https://www.plugnmeet.org/docs/user-guide/wordPress-integration
 
 == Frequently Asked Questions ==
 
@@ -44,6 +45,9 @@ Please follow this article: https://www.plugnmeet.org/docs/user-guide/wordPress-
 
 After create room save it. Now enter to re-edit. You'll get shortcode there.
 
+= How to setup server? =
+
+Please follow this article: https://www.plugnmeet.org/docs/installation
 
 == Screenshots ==
 
