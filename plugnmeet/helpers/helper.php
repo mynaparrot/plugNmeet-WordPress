@@ -147,19 +147,6 @@ class PlugnmeetHelper {
                 "selected" => 1,
                 "type" => "select"
             ),
-            "allow_recording" => array(
-                "label" => __("Allow recording", "plugnmeet"),
-                "options" => array(
-                    array(
-                        "label" => __("Yes", "plugnmeet"),
-                        "value" => 1
-                    ), array(
-                        "label" => __("No", "plugnmeet"),
-                        "value" => 0
-                    )),
-                "selected" => 1,
-                "type" => "select"
-            ),
             "allow_rtmp" => array(
                 "label" => __("Allow rtmp", "plugnmeet"),
                 "options" => array(
@@ -239,6 +226,70 @@ class PlugnmeetHelper {
 
         return self::formatHtml($roomFeatures, "room_features", $data);
     }
+
+	public static function getRecordingFeatures($recording_features) {
+		$recordingFeatures = array(
+			"is_allow" => array(
+				"label" => __("Allow recording", "plugnmeet"),
+				"options" => array(
+					array(
+						"label" => __("Yes", "plugnmeet"),
+						"value" => 1
+					), array(
+						"label" => __("No", "plugnmeet"),
+						"value" => 0
+					)),
+				"selected" => 1,
+				"type" => "select"
+			),
+			"is_allow_cloud" => array(
+				"label" => __("Allow cloud recording", "plugnmeet"),
+				"options" => array(
+					array(
+						"label" => __("Yes", "plugnmeet"),
+						"value" => 1
+					), array(
+						"label" => __("No", "plugnmeet"),
+						"value" => 0
+					)),
+				"selected" => 1,
+				"type" => "select"
+			),
+			"enable_auto_cloud_recording" => array(
+				"label" => __("Enable auto cloud recording", "plugnmeet"),
+				"options" => array(
+					array(
+						"label" => __("Yes", "plugnmeet"),
+						"value" => 1
+					), array(
+						"label" => __("No", "plugnmeet"),
+						"value" => 0
+					)),
+				"selected" => 0,
+				"type" => "select"
+			),
+			"is_allow_local" => array(
+				"label" => __("Allow local recording", "plugnmeet"),
+				"options" => array(
+					array(
+						"label" => __("Yes", "plugnmeet"),
+						"value" => 1
+					), array(
+						"label" => __("No", "plugnmeet"),
+						"value" => 0
+					)),
+				"selected" => 1,
+				"type" => "select"
+			),
+		);
+
+		$data = [];
+		if (!empty($recording_features)) {
+			$data = $recording_features;
+		}
+
+		return self::formatHtml($recordingFeatures, "recording_features", $data);
+	}
 
     public static function getChatFeatures($chat_features) {
         $chatFeatures = array(
