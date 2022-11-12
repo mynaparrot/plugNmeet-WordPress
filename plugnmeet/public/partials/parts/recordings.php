@@ -11,35 +11,40 @@
  * @subpackage Plugnmeet/public/partials
  */
 
-if (!defined('PLUGNMEET_BASE_NAME')) {
-    die;
+if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
+	die;
 }
 ?>
 
 <div class="column-full recordings">
-    <h1 class="headline"><?php echo __("Recordings", "plugnmeet"); ?></h1>
+    <h1 class="headline"><?php echo __( "Recordings", "plugnmeet" ); ?></h1>
     <div class="br">
         <div class="br-inner"></div>
     </div>
     <div class="recording-table">
         <div class="table-inner">
             <div class="table-head">
-                <div class="recording-date"><?php echo __("Recording date", "plugnmeet"); ?></div>
-                <div class="meeting-date"><?php echo __("Meeting date", "plugnmeet"); ?></div>
-                <div class="file-size"><?php echo __("File size (MB)", "plugnmeet"); ?></div>
+                <div class="recording-date"><?php echo __( "Recording date", "plugnmeet" ); ?></div>
+                <div class="meeting-date"><?php echo __( "Meeting date", "plugnmeet" ); ?></div>
+                <div class="file-size"><?php echo __( "File size (MB)", "plugnmeet" ); ?></div>
                 <div class="action"></div>
             </div>
             <div id="recordingListsBody"></div>
         </div>
     </div>
     <ul class="pagination" style="display: none">
-        <button id="backward"><?php echo __("Pre", "plugnmeet"); ?></button>
-        <button id="forward"><?php echo __("Next", "plugnmeet"); ?></button>
+        <button id="backward"><?php echo __( "Pre", "plugnmeet" ); ?></button>
+        <button id="forward"><?php echo __( "Next", "plugnmeet" ); ?></button>
     </ul>
+    <div id="playbackModal" style="display:none">
+        <video id="modalPlayer" width="100%" height="400" controls controlsList="nodownload" src="" oncontextmenu="return false"></video>
+    </div>
 </div>
 
 <script>
-    const CAN_DELETE = <?php echo isset($role['can_delete']) && $role['can_delete'] === "on" ? 1 : 0 ?>;
+    const CAN_PLAY = <?php echo isset( $role['can_play'] ) && $role['can_play'] === "on" ? 1 : 0 ?>;
+    const CAN_DOWNLOAD = <?php echo isset( $role['can_download'] ) && $role['can_download'] === "on" ? 1 : 0 ?>;
+    const CAN_DELETE = <?php echo isset( $role['can_delete'] ) && $role['can_delete'] === "on" ? 1 : 0 ?>;
     const roomId = '<?php echo $roomInfo->room_id; ?>';
     let isShowingPagination = false,
         totalRecordings = 0,
@@ -67,12 +72,17 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
             }
         });
 
+        jQuery('body').on('thickbox:removed', function () {
+            console.log("removed")
+            document.getElementById("modalPlayer").src = "";
+        });
+
         fetchRecordings();
     });
 
     const fetchRecordings = async (from = 0, limitPerPage = 10) => {
         const formData = new FormData();
-        formData.append('nonce', '<?php echo wp_create_nonce('plugnmeet_get_recordings') ?>');
+        formData.append('nonce', '<?php echo wp_create_nonce( 'plugnmeet_get_recordings' ) ?>');
         formData.append('action', 'plugnmeet_get_recordings');
         formData.append('from', from);
         formData.append('limit', limitPerPage);
@@ -110,7 +120,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
         const recordId = e.target.attributes.getNamedItem('data-recording').value;
 
         const formData = new FormData();
-        formData.append('nonce', '<?php echo wp_create_nonce('plugnmeet_download_recording') ?>');
+        formData.append('nonce', '<?php echo wp_create_nonce( 'plugnmeet_download_recording' ) ?>');
         formData.append('action', 'plugnmeet_download_recording');
         formData.append('roomId', roomId);
         formData.append('recordingId', recordId);
@@ -127,16 +137,41 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
         }
     }
 
+    const playRecording = async (e, i) => {
+        e.preventDefault();
+        const recordId = e.target.attributes.getNamedItem('data-recording').value;
+        const title = document.getElementById("r_creation_" + i).innerHTML;
+
+        const formData = new FormData();
+        formData.append('nonce', '<?php echo wp_create_nonce( 'plugnmeet_download_recording' ) ?>');
+        formData.append('action', 'plugnmeet_download_recording');
+        formData.append('roomId', roomId);
+        formData.append('recordingId', recordId);
+        formData.append('role', 'can_play');
+
+        const res = await sendRequest(formData);
+        if (!res) {
+            return;
+        }
+
+        if (res.status) {
+            document.getElementById("modalPlayer").src = res.url;
+            tb_show(title, '#TB_inline?height=450&amp;inlineId=playbackModal');
+        } else {
+            alert(res.msg);
+        }
+    }
+
     const deleteRecording = async (e) => {
         e.preventDefault();
 
-        if (confirm('<?php echo __("Are you sure to delete?", "plugnmeet"); ?>') !== true) {
+        if (confirm('<?php echo __( "Are you sure to delete?", "plugnmeet" ); ?>') !== true) {
             return;
         }
 
         const recordId = e.target.attributes.getNamedItem('data-recording').value;
         const formData = new FormData();
-        formData.append('nonce', '<?php echo wp_create_nonce('plugnmeet_delete_recording') ?>');
+        formData.append('nonce', '<?php echo wp_create_nonce( 'plugnmeet_delete_recording' ) ?>');
         formData.append('action', 'plugnmeet_delete_recording');
         formData.append('roomId', roomId);
         formData.append('recordingId', recordId);
@@ -160,7 +195,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
             const recording = recordings[i];
             html += '<div class="table-item" id="' + recording.record_id + '">';
             html +=
-                '<div class="recording-date">' +
+                '<div class="recording-date" id="r_creation_' + i + '">' +
                 new Date(recording.creation_time * 1e3).toLocaleString() +
                 '</div>';
             html +=
@@ -170,15 +205,25 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
             html += '<div class="file-size">' + recording.file_size + '</div>';
 
             html += '<div class="action">';
-            html +=
-                '<a href="#" class="download" data-recording="' +
-                recording.record_id +
-                '" onclick="downloadRecording(event)"><?php echo __("Download", "plugnmeet"); ?></a>';
+            if (CAN_PLAY){
+                html +=
+                    '<a href="#" class="download" data-recording="' +
+                    recording.record_id +
+                    '" onclick="playRecording(event, ' + i + ')"><?php echo __( "Play", "plugnmeet" ); ?></a>';
+            }
+
+            if (CAN_DOWNLOAD){
+                html +=
+                    '<a href="#" class="download" data-recording="' +
+                    recording.record_id +
+                    '" onclick="downloadRecording(event)"><?php echo __( "Download", "plugnmeet" ); ?></a>';
+            }
+
             if (CAN_DELETE) {
                 html +=
                     '<a href="#" class="delete" data-recording="' +
                     recording.record_id +
-                    '" onclick="deleteRecording(event)"><?php echo __("Delete", "plugnmeet"); ?></a>';
+                    '" onclick="deleteRecording(event)"><?php echo __( "Delete", "plugnmeet" ); ?></a>';
             }
             html += '</div>';
 

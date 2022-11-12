@@ -22,17 +22,23 @@ foreach ($wp_roles->roles as $key => $role) {
         'title' => $role['name'],
         'require_password' => "on",
         'join_as' => 'attendee',
+        'can_view_recording' => "off",
+        'can_play' => "off",
         'can_download' => "off",
         'can_delete' => "off"
     );
 
     if (isset($role['capabilities']['edit_users']) && $role['capabilities']['edit_users']) {
         $r['require_password'] = "off";
+	    $r['can_play'] = "on";
+	    $r['can_view_recording'] = "on";
         $r['can_download'] = "on";
         $r['can_delete'] = "on";
         $r['join_as'] = 'moderator';
     } elseif (isset($role['capabilities']['edit_posts']) && $role['capabilities']['edit_posts']) {
         $r['require_password'] = "off";
+	    $r['can_view_recording'] = "on";
+	    $r['can_play'] = "on";
         $r['can_download'] = "on";
         $r['join_as'] = 'moderator';
     }
@@ -43,6 +49,8 @@ $roles['guest'] = array(
     'title' => "Guest/Public",
     'require_password' => "on",
     'join_as' => 'attendee',
+    'can_view_recording' => 'off',
+    'can_play' => 'off',
     'can_download' => "off",
     'can_delete' => "off"
 );
@@ -100,6 +108,8 @@ if (!empty($dbRoles)) {
             <th><?php echo __("Join as <br/>Moderator", "plugnmeet"); ?></th>
             <th><?php echo __("Join as <br/>Attendee", "plugnmeet"); ?></th>
             <th><?php echo __("Require <br/> Password", "plugnmeet"); ?></th>
+            <th><?php echo __("Allow View <br/>Recordings", "plugnmeet"); ?></th>
+            <th><?php echo __("Allow Play <br/>Recordings", "plugnmeet"); ?></th>
             <th><?php echo __("Allow Download <br/>Recordings", "plugnmeet"); ?></th>
             <th><?php echo __("Allow Delete <br/>Recordings", "plugnmeet"); ?></th>
         </tr>
@@ -119,6 +129,14 @@ if (!empty($dbRoles)) {
                 <td align="center">
                     <input type="checkbox" name="roles[<?php echo $key; ?>][require_password]"
                         <?php echo $role['require_password'] === "on" ? "checked='checked'" : ""; ?>>
+                </td>
+                <td align="center">
+                    <input type="checkbox" name="roles[<?php echo $key; ?>][can_view_recording]"
+			            <?php echo $role['can_view_recording'] === "on" ? "checked='checked'" : ""; ?>>
+                </td>
+                <td align="center">
+                    <input type="checkbox" name="roles[<?php echo $key; ?>][can_play]"
+			            <?php echo $role['can_play'] === "on" ? "checked='checked'" : ""; ?>>
                 </td>
                 <td align="center">
                     <input type="checkbox" name="roles[<?php echo $key; ?>][can_download]"

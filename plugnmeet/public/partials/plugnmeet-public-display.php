@@ -43,7 +43,7 @@ if (!empty($roomInfo->roles)) {
         <hr/>
         <?php require plugin_dir_path(dirname(__FILE__)) . '/partials/parts/login-form.php'; ?>
 
-        <?php if (isset($role['can_download']) && $role['can_download'] === "on"): ?>
+        <?php if (isset($role['can_view_recording']) && $role['can_view_recording'] === "on"): ?>
             <?php require plugin_dir_path(dirname(__FILE__)) . '/partials/parts/recordings.php'; ?>
         <?php endif; ?>
     </div>
