@@ -154,8 +154,10 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
         }
 
         if (res.status) {
-            document.getElementById("modalPlayer").src = res.url;
+            const modalPlayer = document.getElementById("modalPlayer");
+            modalPlayer.src = res.url;
             tb_show(title, '#TB_inline?height=450&amp;inlineId=playbackModal');
+            modalPlayer.removeAttribute('style');
         } else {
             alert(res.msg);
         }
