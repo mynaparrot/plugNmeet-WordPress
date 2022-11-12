@@ -37,7 +37,8 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
         <button id="forward"><?php echo __( "Next", "plugnmeet" ); ?></button>
     </ul>
     <div id="playbackModal" style="display:none">
-        <video id="modalPlayer" width="100%" height="400" controls controlsList="nodownload" src="" oncontextmenu="return false"></video>
+        <video id="modalPlayer" width="100%" height="400" controls controlsList="nodownload" src=""
+               oncontextmenu="return false"></video>
     </div>
 </div>
 
@@ -157,7 +158,9 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
             const modalPlayer = document.getElementById("modalPlayer");
             modalPlayer.src = res.url;
             tb_show(title, '#TB_inline?height=450&amp;inlineId=playbackModal');
-            modalPlayer.removeAttribute('style');
+            setTimeout(() => {
+                modalPlayer.setAttribute('style', '');
+            }, 200);
         } else {
             alert(res.msg);
         }
@@ -206,14 +209,14 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
             html += '<div class="file-size">' + recording.file_size + '</div>';
 
             html += '<div class="action">';
-            if (CAN_PLAY){
+            if (CAN_PLAY) {
                 html +=
                     '<a href="#" class="download" data-recording="' +
                     recording.record_id +
                     '" onclick="playRecording(event, ' + i + ')"><?php echo __( "Play", "plugnmeet" ); ?></a>';
             }
 
-            if (CAN_DOWNLOAD){
+            if (CAN_DOWNLOAD) {
                 html +=
                     '<a href="#" class="download" data-recording="' +
                     recording.record_id +
