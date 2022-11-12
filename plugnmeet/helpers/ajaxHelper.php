@@ -40,7 +40,7 @@ class PlugNmeetAjaxHelper {
             wp_send_json($output);
         }
 
-        $check = $this->canAccess($roomId, 'can_download');
+        $check = $this->canAccess($roomId, 'can_view_recording');
         if (!$check->status) {
             $output->msg = $check->msg;
             wp_send_json($output);
