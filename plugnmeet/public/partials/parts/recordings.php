@@ -73,7 +73,6 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
         });
 
         jQuery('body').on('thickbox:removed', function () {
-            console.log("removed")
             document.getElementById("modalPlayer").src = "";
         });
 
