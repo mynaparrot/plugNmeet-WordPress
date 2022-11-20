@@ -56,6 +56,10 @@ Please follow this article: https://www.plugnmeet.org/docs/installation
 
 == Changelog ==
 
+= 1.2.0 =
+* auto recording + playback recording
+* new permission setting
+
 = 1.1.0 =
 * Bump Plug-N-Meet PHP SDK to v1.1.0
 
