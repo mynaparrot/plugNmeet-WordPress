@@ -82,6 +82,7 @@ class Plugnmeet_Public {
      */
     public function enqueue_scripts() {
         wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/plugnmeet-public.js', array('jquery'), $this->version, true);
+	    add_thickbox();
 
         $nonce = wp_create_nonce('plugnmeet_frontend');
         $script = array('nonce' => $nonce, 'ajaxurl' => admin_url('admin-ajax.php'));

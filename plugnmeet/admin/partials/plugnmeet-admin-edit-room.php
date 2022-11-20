@@ -85,6 +85,12 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
             <div class="tab-pane fade" id="other-features" role="tabpanel" aria-labelledby="other-features">
                 <table class="form-table" role="presentation">
                     <tbody>
+		            <?php echo PlugnmeetHelper::getRecordingFeatures($fields_values['recording_features']); ?>
+                    </tbody>
+                </table>
+                <hr/>
+                <table class="form-table" role="presentation">
+                    <tbody>
                     <?php echo PlugnmeetHelper::getChatFeatures($fields_values['chat_features']); ?>
                     </tbody>
                 </table>

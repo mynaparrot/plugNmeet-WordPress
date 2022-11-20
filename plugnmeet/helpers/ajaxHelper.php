@@ -40,7 +40,7 @@ class PlugNmeetAjaxHelper {
             wp_send_json($output);
         }
 
-        $check = $this->canAccess($roomId, 'can_download');
+        $check = $this->canAccess($roomId, 'can_view_recording');
         if (!$check->status) {
             $output->msg = $check->msg;
             wp_send_json($output);
@@ -73,13 +73,14 @@ class PlugNmeetAjaxHelper {
 
         $recordingId = isset($_POST['recordingId']) ? sanitize_text_field($_POST['recordingId']) : null;
         $roomId = isset($_POST['roomId']) ? sanitize_text_field($_POST['roomId']) : null;
+		$role = isset($_POST['role']) ? sanitize_text_field($_POST['role']) : 'can_download';
 
         if (!$recordingId || !$roomId) {
             $output->msg = __("both roomId & record id required", 'plugnmeet');
             wp_send_json($output);
         }
 
-        $check = $this->canAccess($roomId, 'can_download');
+        $check = $this->canAccess($roomId, $role);
         if (!$check->status) {
             $output->msg = $check->msg;
             wp_send_json($output);
