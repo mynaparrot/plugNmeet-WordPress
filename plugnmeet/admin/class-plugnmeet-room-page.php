@@ -152,7 +152,6 @@ class Plugnmeet_RoomPage {
 
     private function getTotalNumRooms() {
         global $wpdb;
-        return $wpdb->get_var($wpdb->prepare(
-            "SELECT COUNT(*) FROM " . $wpdb->prefix . "plugnmeet_rooms"));
+        return $wpdb->get_var("SELECT COUNT(*) FROM " . $wpdb->prefix . "plugnmeet_rooms");
     }
 }
