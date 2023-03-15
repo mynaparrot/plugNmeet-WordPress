@@ -117,7 +117,7 @@ class Plugnmeet_Admin {
             'manage_options',
             'plugnmeet',
             [$menusPage, 'roomsPage'],
-            'dashicons-admin-tools'
+            1
         );
 
         add_submenu_page(
@@ -127,7 +127,7 @@ class Plugnmeet_Admin {
             'manage_options',
             'plugnmeet-recordings',
             [$menusPage, 'recordingsPage'],
-            'dashicons-admin-tools'
+            2
         );
 
         add_submenu_page(
@@ -137,7 +137,7 @@ class Plugnmeet_Admin {
             'manage_options',
             'plugnmeet-settings',
             [$menusPage, 'settingsPage'],
-            'dashicons-admin-tools'
+            3
         );
     }
 
