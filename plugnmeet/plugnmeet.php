@@ -15,7 +15,7 @@
  * Plugin Name:       Plug-N-Meet web conference integration
  * Plugin URI:        https://github.com/mynaparrot/plugNmeet-WordPress
  * Description:       Plug-N-Meet web conference integration with WordPress
- * Version:           1.2.0
+ * Version:           1.2.1
  * Author:            Jibon L. Costa <jibon@mynaparrot.com>
  * Requires at least: 5.9
  * Requires PHP:      7.4.0
@@ -28,8 +28,8 @@
  */
 
 // If this file is called directly, abort.
-if (!defined('WPINC')) {
-    die;
+if ( ! defined( 'WPINC' ) ) {
+	die;
 }
 
 /**
@@ -37,14 +37,14 @@ if (!defined('WPINC')) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('PLUGNMEET_VERSION', '1.2.0');
+define( 'PLUGNMEET_VERSION', '1.2.1' );
 
 /**
  * Define the Plugin basename
  */
-define('PLUGNMEET_BASE_NAME', plugin_basename(__FILE__));
+define( 'PLUGNMEET_BASE_NAME', plugin_basename( __FILE__ ) );
 
-define('PLUGNMEET_ROOT_PATH', dirname(__FILE__));
+define( 'PLUGNMEET_ROOT_PATH', dirname( __FILE__ ) );
 
 /**
  * The code that runs during plugin activation.
@@ -53,8 +53,8 @@ define('PLUGNMEET_ROOT_PATH', dirname(__FILE__));
  * Full security checks are performed inside the class.
  */
 function plugnmeet_activate() {
-    require_once plugin_dir_path(__FILE__) . 'includes/class-plugnmeet-activator.php';
-    Plugnmeet_Activator::activate();
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugnmeet-activator.php';
+	Plugnmeet_Activator::activate();
 }
 
 /**
@@ -64,18 +64,18 @@ function plugnmeet_activate() {
  * Full security checks are performed inside the class.
  */
 function plugnmeet_deactivate() {
-    require_once plugin_dir_path(__FILE__) . 'includes/class-plugnmeet-deactivator.php';
-    Plugnmeet_Deactivator::deactivate();
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugnmeet-deactivator.php';
+	Plugnmeet_Deactivator::deactivate();
 }
 
-register_activation_hook(__FILE__, 'plugnmeet_activate');
-register_deactivation_hook(__FILE__, 'plugnmeet_deactivate');
+register_activation_hook( __FILE__, 'plugnmeet_activate' );
+register_deactivation_hook( __FILE__, 'plugnmeet_deactivate' );
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path(__FILE__) . 'includes/class-plugnmeet.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-plugnmeet.php';
 
 /**
  * Begins execution of the plugin.
@@ -91,8 +91,8 @@ require plugin_dir_path(__FILE__) . 'includes/class-plugnmeet.php';
  */
 function plugnmeet_run() {
 
-    $plugin = new Plugnmeet();
-    $plugin->run();
+	$plugin = new Plugnmeet();
+	$plugin->run();
 
 }
 
