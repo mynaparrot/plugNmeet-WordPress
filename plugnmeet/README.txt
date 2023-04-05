@@ -1,6 +1,6 @@
 === plugnmeet ===
 Contributors: mynaparrot
-Donate link: https://www.mynaparrot.com/
+Donate link: https://www.plugnmeet.org/
 Tags: mynaparrot, web conference, plugnmeet
 Requires at least: 5.9
 Tested up to: 6.2

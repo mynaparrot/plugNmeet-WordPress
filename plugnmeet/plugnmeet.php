@@ -7,7 +7,7 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://www.mynaparrot.com
+ * @link              https://www.plugnmeet.org
  * @since             1.0.0
  * @package           Plugnmeet
  *
