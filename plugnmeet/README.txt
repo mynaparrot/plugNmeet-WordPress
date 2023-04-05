@@ -34,6 +34,14 @@ WebRTC based Scalable, High Performance, Open source web conferencing system. Us
 * MP4 Recordings.
 * RTMP Broadcasting
 
+= Note =
+
+This plugin will require the [plugNmeet-server](https://github.com/mynaparrot/plugNmeet-server) to be up and running. Plug-N-Meet is a free and open source project. You can obtain plugNmeet-server by either:
+
+1) Create your own plugNmeet-server by following the [installation instructions](https://www.plugnmeet.org/docs/installation); Or
+
+2) Use a ready-to-use [plugNmeet cloud solution](https://www.plugnmeet.cloud).
+
 == Installation ==
 
 1. Server setup: https://www.plugnmeet.org/docs/installation
@@ -47,7 +55,11 @@ After create room save it. Now enter to re-edit. You'll get shortcode there.
 
 = How to setup server? =
 
-Please follow this article: https://www.plugnmeet.org/docs/installation
+This plugin will require the [plugNmeet-server](https://github.com/mynaparrot/plugNmeet-server) to be up and running. Plug-N-Meet is a free and open source project. You can obtain plugNmeet-server by either:
+
+1) Create your own plugNmeet-server by following the [installation instructions](https://www.plugnmeet.org/docs/installation); Or
+
+2) Use a ready-to-use [plugNmeet cloud solution](https://www.plugnmeet.cloud).
 
 == Screenshots ==
 
