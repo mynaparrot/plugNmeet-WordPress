@@ -3,7 +3,7 @@ Contributors: mynaparrot
 Donate link: https://www.mynaparrot.com/
 Tags: mynaparrot, web conference, plugnmeet
 Requires at least: 5.9
-Tested up to: 6.1
+Tested up to: 6.2
 Stable tag: 1.2.1
 Requires PHP: 7.4
 License: GPLv2 or later
