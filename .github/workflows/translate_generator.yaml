@@ -18,8 +18,6 @@ jobs:
         run: |
           curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
           php wp-cli.phar i18n make-mo ./plugnmeet/languages/
-          ls ./plugnmeet/languages/
-          git status
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
