@@ -22,5 +22,6 @@ jobs:
         uses: actions-js/push@master
         with:
           branch: l10n_main
+          force: true
           message: "generated .mo files"
           github_token: ${{ secrets.GITHUB_TOKEN }}
