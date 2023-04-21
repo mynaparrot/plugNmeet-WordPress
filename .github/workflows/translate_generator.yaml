@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -18,10 +18,12 @@ jobs:
         run: |
           curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
           php wp-cli.phar i18n make-mo ./plugnmeet/languages/
-          rm -rf ./plugnmeet/languages/*.mo
+          ls ./plugnmeet/languages/
+          git status
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
-          branch: l10n_main
+          branch: ${{ github.head_ref }}
+          force: true
           message: "generated .mo files"
           github_token: ${{ secrets.GITHUB_TOKEN }}
