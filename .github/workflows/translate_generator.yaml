@@ -18,11 +18,11 @@ jobs:
         run: |
           curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
           php wp-cli.phar i18n make-mo ./plugnmeet/languages/
-          ls
+          ls ./plugnmeet/languages/
       - name: Commit & Push changes
-        uses: ad-m/github-push-action@master
+        uses: actions-js/push@master
         with:
-          branch: ${{ github.ref }}
+          branch: ${{ github.head_ref }}
           force: true
           message: "generated .mo files"
           github_token: ${{ secrets.GITHUB_TOKEN }}
