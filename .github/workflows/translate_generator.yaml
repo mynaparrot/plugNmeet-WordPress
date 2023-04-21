@@ -16,7 +16,6 @@ jobs:
           php-version: 8.1
       - name: Build project
         run: |
-          rm -rf ./plugnmeet/languages/*.mo
           curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
           php wp-cli.phar i18n make-mo ./plugnmeet/languages/
       - name: Commit & Push changes
