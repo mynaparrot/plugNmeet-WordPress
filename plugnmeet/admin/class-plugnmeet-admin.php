@@ -267,6 +267,7 @@ class Plugnmeet_Admin {
 			'breakout_room_features',
 			'display_external_link_features',
 			'ingress_features',
+			'speech_to_text_translation_features',
 			'default_lock_settings',
 			'custom_design'
 		];

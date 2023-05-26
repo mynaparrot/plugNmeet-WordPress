@@ -136,6 +136,12 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
 					<?php echo PlugnmeetHelper::getIngressFeatures( $fields_values['ingress_features'] ); ?>
                     </tbody>
                 </table>
+                <hr/>
+                <table class="form-table" role="presentation">
+                    <tbody>
+					<?php echo PlugnmeetHelper::getSpeechToTextTranslationFeatures( $fields_values['speech_to_text_translation_features'] ); ?>
+                    </tbody>
+                </table>
             </div>
 
             <div class="tab-pane fade" id="lock" role="tabpanel" aria-labelledby="lock-tab">

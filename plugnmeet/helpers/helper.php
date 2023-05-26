@@ -546,7 +546,7 @@ class PlugnmeetHelper {
 	}
 
 	public static function getIngressFeatures( $ingress_features ) {
-		$displayIngressFeatures = array(
+		$ingressFeatures = array(
 			"is_allow" => array(
 				"label"    => __( "Allow create ingress", "plugnmeet" ),
 				"options"  => array(
@@ -569,7 +569,49 @@ class PlugnmeetHelper {
 			$data = $ingress_features;
 		}
 
-		return self::formatHtml( $displayIngressFeatures, "ingress_features", $data );
+		return self::formatHtml( $ingressFeatures, "ingress_features", $data );
+	}
+
+	public static function getSpeechToTextTranslationFeatures( $speech_features ) {
+		$speechFeatures = array(
+			"is_allow"             => array(
+				"label"    => __( "Allow speech to text/translation feature", "plugnmeet" ),
+				"options"  => array(
+					array(
+						"label" => __( "Yes", "plugnmeet" ),
+						"value" => 1
+					),
+					array(
+						"label" => __( "No", "plugnmeet" ),
+						"value" => 0
+					)
+				),
+				"selected" => 1,
+				"type"     => "select"
+			),
+			"is_allow_translation" => array(
+				"label"    => __( "Allow translation", "plugnmeet" ),
+				"options"  => array(
+					array(
+						"label" => __( "Yes", "plugnmeet" ),
+						"value" => 1
+					),
+					array(
+						"label" => __( "No", "plugnmeet" ),
+						"value" => 0
+					)
+				),
+				"selected" => 1,
+				"type"     => "select"
+			)
+		);
+
+		$data = [];
+		if ( ! empty( $speech_features ) ) {
+			$data = $speech_features;
+		}
+
+		return self::formatHtml( $speechFeatures, "speech_to_text_translation_features", $data );
 	}
 
 	public static function getDefaultLockSettings( $default_lock_settings ) {
