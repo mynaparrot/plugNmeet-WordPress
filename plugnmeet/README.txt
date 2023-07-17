@@ -34,7 +34,7 @@ WebRTC based Scalable, High Performance, Open source web conferencing system. Us
 * MP4 Recordings.
 * RTMP Broadcasting
 * Live speech to text/translation (Powered by [microsoft azure](https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started-text-to-speech?pivots=programming-language-go&tabs=linux%2Cterminal#prerequisites))
-* End-to-End encryption (**E2EE**) for video (Supported browsers: browser based on Chromium 83, Google Chrome, Microsoft Edge, Safari).
+* End-to-End encryption (**E2EE**) (Supported browsers: browser based on Chromium 83, Google Chrome, Microsoft Edge, Safari).
 
 = Note =
 
