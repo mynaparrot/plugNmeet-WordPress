@@ -142,6 +142,12 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
 					<?php echo PlugnmeetHelper::getSpeechToTextTranslationFeatures( $fields_values['speech_to_text_translation_features'] ); ?>
                     </tbody>
                 </table>
+                <hr/>
+                <table class="form-table" role="presentation">
+                    <tbody>
+		            <?php echo PlugnmeetHelper::getEndToEndEncryptionFeatures( $fields_values['end_to_end_encryption_features'] ); ?>
+                    </tbody>
+                </table>
             </div>
 
             <div class="tab-pane fade" id="lock" role="tabpanel" aria-labelledby="lock-tab">

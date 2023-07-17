@@ -97,25 +97,9 @@ class Plugnmeet_RoomPage {
 			$fields_values['attendee_pass'] = PlugnmeetHelper::secureRandomKey( 10 );
 		}
 
-		$room_metadata_items = [
-			'room_features',
-			'recording_features',
-			'chat_features',
-			'shared_note_pad_features',
-			'whiteboard_features',
-			'external_media_player_features',
-			'waiting_room_features',
-			'breakout_room_features',
-			'display_external_link_features',
-			'ingress_features',
-			'speech_to_text_translation_features',
-			'default_lock_settings',
-			'custom_design'
-		];
-
 		if ( isset( $data->room_metadata ) ) {
 			$room_metadata = json_decode( $data->room_metadata, true );
-			foreach ( $room_metadata_items as $item ) {
+			foreach ( PlugnmeetHelper::$roomMetadataItems as $item ) {
 				if ( isset( $room_metadata[ $item ] ) ) {
 					$fields_values[ $item ] = $room_metadata[ $item ];
 				} else {
@@ -123,7 +107,7 @@ class Plugnmeet_RoomPage {
 				}
 			}
 		} else {
-			foreach ( $room_metadata_items as $item ) {
+			foreach ( PlugnmeetHelper::$roomMetadataItems as $item ) {
 				$fields_values[ $item ] = [];
 			}
 		}

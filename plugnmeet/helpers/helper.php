@@ -13,6 +13,23 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
 
 class PlugnmeetHelper {
 
+	public static $roomMetadataItems = [
+		'room_features',
+		'recording_features',
+		'chat_features',
+		'shared_note_pad_features',
+		'whiteboard_features',
+		'external_media_player_features',
+		'waiting_room_features',
+		'breakout_room_features',
+		'display_external_link_features',
+		'ingress_features',
+		'speech_to_text_translation_features',
+		'end_to_end_encryption_features',
+		'default_lock_settings',
+		'custom_design'
+	];
+
 	private static $allowedHtml = array(
 		'select'   => array(
 			'id'    => array(),
@@ -612,6 +629,33 @@ class PlugnmeetHelper {
 		}
 
 		return self::formatHtml( $speechFeatures, "speech_to_text_translation_features", $data );
+	}
+
+	public static function getEndToEndEncryptionFeatures( $e2ee_features ) {
+		$e2eeFeatures = array(
+			"is_enabled" => array(
+				"label"    => __( "Enable End-To-End Encryption (E2EE)", "plugnmeet" ),
+				"options"  => array(
+					array(
+						"label" => __( "Yes", "plugnmeet" ),
+						"value" => 1
+					),
+					array(
+						"label" => __( "No", "plugnmeet" ),
+						"value" => 0
+					)
+				),
+				"selected" => 0,
+				"type"     => "select"
+			)
+		);
+
+		$data = [];
+		if ( ! empty( $e2ee_features ) ) {
+			$data = $e2ee_features;
+		}
+
+		return self::formatHtml( $e2eeFeatures, "end_to_end_encryption_features", $data );
 	}
 
 	public static function getDefaultLockSettings( $default_lock_settings ) {

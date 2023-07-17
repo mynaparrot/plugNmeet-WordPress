@@ -256,24 +256,8 @@ class Plugnmeet_Admin {
 		$published        = isset( $_POST['published'] ) ? sanitize_text_field( $_POST['published'] ) : 1;
 		$roles            = isset( $_POST['roles'] ) ? $_POST['roles'] : array();
 
-		$room_metadata_items = [
-			'room_features',
-			'recording_features',
-			'chat_features',
-			'shared_note_pad_features',
-			'whiteboard_features',
-			'external_media_player_features',
-			'waiting_room_features',
-			'breakout_room_features',
-			'display_external_link_features',
-			'ingress_features',
-			'speech_to_text_translation_features',
-			'default_lock_settings',
-			'custom_design'
-		];
-
 		$room_metadata = [];
-		foreach ( $room_metadata_items as $item ) {
+		foreach ( PlugnmeetHelper::$roomMetadataItems as $item ) {
 			if ( isset( $_POST[ $item ] ) ) {
 				$room_metadata[ $item ] = $_POST[ $item ];
 			} else {
