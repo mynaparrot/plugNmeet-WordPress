@@ -211,7 +211,13 @@ class PlugNmeetAjaxHelper {
 
 		if ( ! $isRoomActive ) {
 			try {
-				$create = $connect->createRoom( $roomInfo->room_id, $roomInfo->room_title, $roomInfo->welcome_message, $roomInfo->max_participants, "", $room_metadata );
+				$extraData = json_encode(array(
+					"platform" => "wordpress",
+					"php-version" => phpversion(),
+					"plugin-version" => constant('PLUGNMEET_VERSION')
+				));
+
+				$create = $connect->createRoom( $roomInfo->room_id, $roomInfo->room_title, $roomInfo->welcome_message, $roomInfo->max_participants, "", $room_metadata, 0, "", $extraData );
 
 				$isRoomActive = $create->getStatus();
 				$output->msg  = $create->getResponseMsg();
