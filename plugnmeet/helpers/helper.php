@@ -266,6 +266,21 @@ class PlugnmeetHelper {
 				"selected" => 0,
 				"type"     => "select"
 			),
+			"enable_analytics"                 => array(
+				"label"    => __( "Enable Analytics", "plugnmeet" ),
+				"options"  => array(
+					array(
+						"label" => __( "Yes", "plugnmeet" ),
+						"value" => 1
+					),
+					array(
+						"label" => __( "No", "plugnmeet" ),
+						"value" => 0
+					)
+				),
+				"selected" => 1,
+				"type"     => "select"
+			),
 		);
 
 		$data = [];
