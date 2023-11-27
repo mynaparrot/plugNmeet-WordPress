@@ -156,6 +156,12 @@ class Plugnmeet_Public {
 		$js .= 'window.DEFAULT_WEBCAM_RESOLUTION = "' . esc_attr( $params->default_webcam_resolution ) . '";';
 		$js .= 'window.DEFAULT_SCREEN_SHARE_RESOLUTION = "' . esc_attr( $params->default_screen_share_resolution ) . '";';
 
+		$audioPreset = 'music';
+		if ( isset( $params->default_audio_preset ) ) {
+			$audioPreset = $params->default_audio_preset;
+		}
+		$js .= 'window.DEFAULT_AUDIO_PRESET = "' . esc_attr( $audioPreset ) . '";';
+
 		$js .= 'window.STOP_MIC_TRACK_ON_MUTE = "' . filter_var( $params->stop_mic_track_on_mute, FILTER_VALIDATE_BOOLEAN ) . '";';
 
 		$custom_designs = [];

@@ -70,6 +70,10 @@ This plugin will require the [plugNmeet-server](https://github.com/mynaparrot/pl
 2. Shared notepad
 
 == Changelog ==
+= 1.2.6 =
+* bump SDK
+* feat: option to set audio preset, default: music e.g Bitrate 32000
+
 = 1.2.5 =
 * bump SDK
 * feat: added option to enable analytics

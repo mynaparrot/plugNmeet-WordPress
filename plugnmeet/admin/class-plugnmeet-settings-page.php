@@ -290,6 +290,26 @@ class Plugnmeet_SettingsPage {
 		);
 
 		add_settings_field(
+			'default_audio_preset',
+			__( 'Audio preset', 'plugnmeet' ),
+			[ $this, 'selectCallBack' ],
+			'plugnmeet-settings',
+			'plugnmeet_settings_options_section',
+			[
+				'id'      => 'default_audio_preset',
+				'options' => array(
+					'telephone',
+					'speech',
+					'music',
+					'musicStereo',
+					'musicHighQuality',
+					'musicHighQualityStereo'
+				),
+				'default' => "music"
+			]
+		);
+
+		add_settings_field(
 			'stop_mic_track_on_mute',
 			__( 'Stop mic track on mute', 'plugnmeet' ),
 			[ $this, 'selectCallBack' ],
