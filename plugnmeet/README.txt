@@ -4,7 +4,7 @@ Donate link: https://www.plugnmeet.org/
 Tags: mynaparrot, web conference, plugnmeet
 Requires at least: 5.9
 Tested up to: 6.4.1
-Stable tag: 1.2.6
+Stable tag: 1.2.7
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -34,7 +34,7 @@ WebRTC based Scalable, High Performance, Open source web conferencing system. Us
 * MP4 Recordings.
 * RTMP Broadcasting
 * Live speech to text/translation (Powered by [microsoft azure](https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started-text-to-speech?pivots=programming-language-go&tabs=linux%2Cterminal#prerequisites))
-* End-to-End encryption (**E2EE**) (Supported browsers: browser based on Chromium 83, Google Chrome, Microsoft Edge, Safari).
+* End-to-End encryption (**E2EE**) (Supported browsers: browser based on Chromium 83, Google Chrome, Microsoft Edge, Safari, firefox 117+).
 * A detailed **analytics report** to assess students' performance in the online classroom.
 
 = Note =
@@ -70,6 +70,10 @@ This plugin will require the [plugNmeet-server](https://github.com/mynaparrot/pl
 2. Shared notepad
 
 == Changelog ==
+= 1.2.7 =
+* bump SDK
+* feat: option to disable virtualBackgrounds & raiseHand
+
 = 1.2.6 =
 * bump SDK
 * feat: option to set audio preset, default: music e.g Bitrate 32000

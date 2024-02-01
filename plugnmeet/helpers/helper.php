@@ -266,8 +266,38 @@ class PlugnmeetHelper {
 				"selected" => 0,
 				"type"     => "select"
 			),
-			"enable_analytics"                 => array(
-				"label"    => __( "Enable Analytics", "plugnmeet" ),
+			"enable_analytics"            => array(
+				"label"    => __( "Enable analytics", "plugnmeet" ),
+				"options"  => array(
+					array(
+						"label" => __( "Yes", "plugnmeet" ),
+						"value" => 1
+					),
+					array(
+						"label" => __( "No", "plugnmeet" ),
+						"value" => 0
+					)
+				),
+				"selected" => 1,
+				"type"     => "select"
+			),
+			"allow_virtual_bg"            => array(
+				"label"    => __( "Allow virtual background", "plugnmeet" ),
+				"options"  => array(
+					array(
+						"label" => __( "Yes", "plugnmeet" ),
+						"value" => 1
+					),
+					array(
+						"label" => __( "No", "plugnmeet" ),
+						"value" => 0
+					)
+				),
+				"selected" => 1,
+				"type"     => "select"
+			),
+			"allow_raise_hand"            => array(
+				"label"    => __( "Allow raise hand", "plugnmeet" ),
 				"options"  => array(
 					array(
 						"label" => __( "Yes", "plugnmeet" ),

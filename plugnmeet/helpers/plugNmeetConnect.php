@@ -129,6 +129,8 @@ class plugNmeetConnect {
 	 * @param string $webHookUrl
 	 * @param array $roomMetadata
 	 * @param int $empty_timeout
+	 * @param string $logoutUrl
+	 * @param string|null $extraData
 	 *
 	 * @return CreateRoomResponse
 	 */
@@ -160,13 +162,17 @@ class plugNmeetConnect {
 		if ( isset( $roomFeatures['allow_polls'] ) ) {
 			$features->setAllowPolls( $roomFeatures['allow_polls'] );
 		}
-		if ( isset( $roomFeatures['room_duration'] ) ) {
-			if ( $roomFeatures['room_duration'] > 0 ) {
-				$features->setRoomDuration( $roomFeatures['room_duration'] );
-			}
+		if ( isset( $roomFeatures['room_duration'] ) && $roomFeatures['room_duration'] > 0 ) {
+			$features->setRoomDuration( $roomFeatures['room_duration'] );
 		}
 		if ( isset( $roomFeatures['enable_analytics'] ) ) {
 			$features->setEnableAnalytics( $roomFeatures['enable_analytics'] );
+		}
+		if ( isset( $roomFeatures['allow_virtual_bg'] ) ) {
+			$features->setAllowVirtualBg( $roomFeatures['allow_virtual_bg'] );
+		}
+		if ( isset( $roomFeatures['allow_raise_hand'] ) ) {
+			$features->setAllowRaiseHand( $roomFeatures['allow_raise_hand'] );
 		}
 
 		if ( isset( $roomMetadata['recording_features'] ) ) {
@@ -375,15 +381,19 @@ class plugNmeetConnect {
 	 *
 	 * @return GenerateJoinTokenResponse
 	 */
-	public function getJoinToken( string $roomId, string $name, string $userId, bool $isAdmin, bool $isHidden = false, UserMetadataParameters $userMetadata = null ): GenerateJoinTokenResponse {
+	public function getJoinToken( string $roomId, string $name, string $userId, bool $isAdmin, bool $isHidden = false, UserMetadataParameters $userMetadata = null, LockSettingsParameters $lockSettings = null ): GenerateJoinTokenResponse {
 		$generateJoinTokenParameters = new GenerateJoinTokenParameters();
 		$generateJoinTokenParameters->setRoomId( $roomId );
 		$generateJoinTokenParameters->setName( $name );
 		$generateJoinTokenParameters->setUserId( $userId );
 		$generateJoinTokenParameters->setIsAdmin( $isAdmin );
 		$generateJoinTokenParameters->setIsHidden( $isHidden );
+
 		if ( $userMetadata !== null ) {
 			$generateJoinTokenParameters->setUserMetadata( $userMetadata );
+			if ( $lockSettings !== null ) {
+				$generateJoinTokenParameters->setLockSettings( $lockSettings );
+			}
 		}
 
 		return $this->plugnmeet->getJoinToken( $generateJoinTokenParameters );
