@@ -25,6 +25,7 @@
 use Mynaparrot\Plugnmeet\Parameters\AnalyticsDownloadTokenParameters;
 use Mynaparrot\Plugnmeet\Parameters\BreakoutRoomFeaturesParameters;
 use Mynaparrot\Plugnmeet\Parameters\ChatFeaturesParameters;
+use Mynaparrot\Plugnmeet\Parameters\CopyrightConfParameters;
 use Mynaparrot\Plugnmeet\Parameters\CreateRoomParameters;
 use Mynaparrot\Plugnmeet\Parameters\DeleteAnalyticsParameters;
 use Mynaparrot\Plugnmeet\Parameters\DeleteRecordingParameters;
@@ -356,6 +357,20 @@ class plugNmeetConnect {
 			}
 
 			$metadata->setDefaultLockSettings( $lockSettings );
+		}
+
+		if ( isset( $roomMetadata['copyright_conf'] ) ) {
+			$conf          = $roomMetadata['copyright_conf'];
+			$copyrightConf = new CopyrightConfParameters();
+
+			if ( isset( $conf["display"] ) ) {
+				$copyrightConf->setDisplay( $conf["display"] );
+			}
+			if ( isset( $conf["text"] ) ) {
+				$copyrightConf->setText( $conf["text"] );
+			}
+
+			$metadata->setCopyrightConf( $copyrightConf );
 		}
 
 		$roomCreateParams = new CreateRoomParameters();

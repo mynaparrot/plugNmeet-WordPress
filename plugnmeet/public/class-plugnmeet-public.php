@@ -229,7 +229,7 @@ class Plugnmeet_Public {
 	 * @param mixed $content ShortCode enclosed content.
 	 * @param string $tag The Shortcode tag.
 	 */
-	public function plugnmeet_shortcode_room_view( $atts, $content = null, $tag ) {
+	public function plugnmeet_shortcode_room_view( $atts, $content = null, $tag = "" ) {
 
 		/**
 		 * Combine user attributes with known attributes.
@@ -260,7 +260,7 @@ class Plugnmeet_Public {
 		/**
 		 * If the shortcode is enclosing, we may want to do something with $content
 		 */
-		if ( ! is_null( $content ) && ! empty( $content ) ) {
+		if ( ! empty( $content ) ) {
 			$id = do_shortcode( $content );// We can parse shortcodes inside $content.
 			$id = intval( $atts['id'] ) . ' ' . sanitize_text_field( $id );// Remember to sanitize your user input.
 		}

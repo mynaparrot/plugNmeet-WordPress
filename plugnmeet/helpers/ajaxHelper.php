@@ -193,8 +193,12 @@ class PlugNmeetAjaxHelper {
 		$room_metadata = json_decode( $roomInfo->room_metadata, true );
 
 		try {
-			$res          = $connect->isRoomActive( $roomInfo->room_id );
-			$isRoomActive = $res->getStatus();
+			$res = $connect->isRoomActive( $roomInfo->room_id );
+			if ( ! $res->getStatus() ) {
+				$output->msg = $res->getResponseMsg();
+				wp_send_json( $output );
+			}
+			$isRoomActive = $res->isActive();
 			$output->msg  = $res->getResponseMsg();
 		} catch ( Exception $e ) {
 			$output->msg = $e->getMessage();
@@ -211,11 +215,11 @@ class PlugNmeetAjaxHelper {
 
 		if ( ! $isRoomActive ) {
 			try {
-				$extraData = json_encode(array(
-					"platform" => "wordpress",
-					"php-version" => phpversion(),
-					"plugin-version" => constant('PLUGNMEET_VERSION')
-				));
+				$extraData = json_encode( array(
+					"platform"       => "wordpress",
+					"php-version"    => phpversion(),
+					"plugin-version" => constant( 'PLUGNMEET_VERSION' )
+				) );
 
 				$create = $connect->createRoom( $roomInfo->room_id, $roomInfo->room_title, $roomInfo->welcome_message, $roomInfo->max_participants, "", $room_metadata, 0, "", $extraData );
 
