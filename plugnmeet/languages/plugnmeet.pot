@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-01 11:46+0000\n"
+"POT-Creation-Date: 2024-06-16 06:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -239,6 +239,14 @@ msgstr ""
 msgid "Enable Dynacast"
 msgstr ""
 
+#: helpers/helper.php:697
+msgid "Enable encryption for chat"
+msgstr ""
+
+#: helpers/helper.php:712
+msgid "Enable encryption for whiteboard"
+msgstr ""
+
 #: helpers/helper.php:682
 msgid "Enable End-To-End Encryption (E2EE)"
 msgstr ""
@@ -306,39 +314,39 @@ msgstr ""
 msgid "Local client download url"
 msgstr ""
 
-#: helpers/helper.php:784
+#: helpers/helper.php:814
 msgid "Lock chat"
 msgstr ""
 
-#: helpers/helper.php:814
+#: helpers/helper.php:844
 msgid "Lock chat file share"
 msgstr ""
 
-#: helpers/helper.php:799
+#: helpers/helper.php:829
 msgid "Lock chat send message"
 msgstr ""
 
-#: helpers/helper.php:709
+#: helpers/helper.php:739
 msgid "Lock microphone"
 msgstr ""
 
-#: helpers/helper.php:829
+#: helpers/helper.php:859
 msgid "Lock private chat"
 msgstr ""
 
-#: helpers/helper.php:739
+#: helpers/helper.php:769
 msgid "Lock screen sharing"
 msgstr ""
 
-#: helpers/helper.php:769
+#: helpers/helper.php:799
 msgid "Lock shared notepad"
 msgstr ""
 
-#: helpers/helper.php:724
+#: helpers/helper.php:754
 msgid "Lock webcam"
 msgstr ""
 
-#: helpers/helper.php:754
+#: helpers/helper.php:784
 msgid "Lock whiteboard"
 msgstr ""
 
@@ -405,10 +413,10 @@ msgstr ""
 #: helpers/helper.php:448 helpers/helper.php:475 helpers/helper.php:502
 #: helpers/helper.php:529 helpers/helper.php:561 helpers/helper.php:593
 #: helpers/helper.php:620 helpers/helper.php:647 helpers/helper.php:662
-#: helpers/helper.php:689 helpers/helper.php:716 helpers/helper.php:731
+#: helpers/helper.php:689 helpers/helper.php:704 helpers/helper.php:719
 #: helpers/helper.php:746 helpers/helper.php:761 helpers/helper.php:776
 #: helpers/helper.php:791 helpers/helper.php:806 helpers/helper.php:821
-#: helpers/helper.php:836
+#: helpers/helper.php:836 helpers/helper.php:851 helpers/helper.php:866
 msgid "No"
 msgstr ""
 
@@ -416,8 +424,8 @@ msgstr ""
 msgid "No id was sent"
 msgstr ""
 
-#: public/class-plugnmeet-public.php:286 helpers/ajaxHelper.php:173
-#: helpers/ajaxHelper.php:316
+#: helpers/ajaxHelper.php:173 helpers/ajaxHelper.php:320
+#: public/class-plugnmeet-public.php:286
 msgid "no room found"
 msgstr ""
 
@@ -437,7 +445,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: helpers/ajaxHelper.php:267
+#: helpers/ajaxHelper.php:271
 msgid "password didn't match"
 msgstr ""
 
@@ -539,7 +547,7 @@ msgstr ""
 msgid "Room Id"
 msgstr ""
 
-#: public/class-plugnmeet-public.php:115 helpers/ajaxHelper.php:156
+#: helpers/ajaxHelper.php:156 public/class-plugnmeet-public.php:115
 msgid "room Id is missing"
 msgstr ""
 
@@ -547,11 +555,11 @@ msgstr ""
 msgid "room id required"
 msgstr ""
 
-#: helpers/ajaxHelper.php:176 helpers/ajaxHelper.php:320
+#: helpers/ajaxHelper.php:176 helpers/ajaxHelper.php:324
 msgid "room not active"
 msgstr ""
 
-#: helpers/helper.php:866
+#: helpers/helper.php:896
 msgid "Room Status"
 msgstr ""
 
@@ -627,7 +635,7 @@ msgstr ""
 msgid "Successfully updated room data"
 msgstr ""
 
-#: helpers/ajaxHelper.php:208
+#: helpers/ajaxHelper.php:212
 msgid "The meeting has not started yet, please come back later."
 msgstr ""
 
@@ -689,14 +697,14 @@ msgstr ""
 #: helpers/helper.php:444 helpers/helper.php:471 helpers/helper.php:498
 #: helpers/helper.php:525 helpers/helper.php:557 helpers/helper.php:589
 #: helpers/helper.php:616 helpers/helper.php:643 helpers/helper.php:658
-#: helpers/helper.php:685 helpers/helper.php:712 helpers/helper.php:727
+#: helpers/helper.php:685 helpers/helper.php:700 helpers/helper.php:715
 #: helpers/helper.php:742 helpers/helper.php:757 helpers/helper.php:772
 #: helpers/helper.php:787 helpers/helper.php:802 helpers/helper.php:817
-#: helpers/helper.php:832
+#: helpers/helper.php:832 helpers/helper.php:847 helpers/helper.php:862
 msgid "Yes"
 msgstr ""
 
-#: helpers/ajaxHelper.php:257 helpers/ajaxHelper.php:308
+#: helpers/ajaxHelper.php:261 helpers/ajaxHelper.php:312
 msgid "you don't have permission"
 msgstr ""
 

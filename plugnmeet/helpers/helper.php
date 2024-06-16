@@ -678,8 +678,38 @@ class PlugnmeetHelper {
 
 	public static function getEndToEndEncryptionFeatures( $e2ee_features ) {
 		$e2eeFeatures = array(
-			"is_enabled" => array(
+			"is_enabled"             => array(
 				"label"    => __( "Enable End-To-End Encryption (E2EE)", "plugnmeet" ),
+				"options"  => array(
+					array(
+						"label" => __( "Yes", "plugnmeet" ),
+						"value" => 1
+					),
+					array(
+						"label" => __( "No", "plugnmeet" ),
+						"value" => 0
+					)
+				),
+				"selected" => 0,
+				"type"     => "select"
+			),
+			"included_chat_messages" => array(
+				"label"    => __( "Enable encryption for chat", "plugnmeet" ),
+				"options"  => array(
+					array(
+						"label" => __( "Yes", "plugnmeet" ),
+						"value" => 1
+					),
+					array(
+						"label" => __( "No", "plugnmeet" ),
+						"value" => 0
+					)
+				),
+				"selected" => 0,
+				"type"     => "select"
+			),
+			"included_whiteboard"    => array(
+				"label"    => __( "Enable encryption for whiteboard", "plugnmeet" ),
 				"options"  => array(
 					array(
 						"label" => __( "Yes", "plugnmeet" ),
