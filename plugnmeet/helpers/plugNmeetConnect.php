@@ -97,7 +97,7 @@ class plugNmeetConnect {
 	/**
 	 * @return string
 	 */
-	public function getUUID() {
+	public function getUUID(): string {
 		return $this->plugnmeet->getUUID();
 	}
 
@@ -175,6 +175,9 @@ class plugNmeetConnect {
 		if ( isset( $roomFeatures['allow_raise_hand'] ) ) {
 			$features->setAllowRaiseHand( $roomFeatures['allow_raise_hand'] );
 		}
+		if ( isset( $roomFeatures['auto_gen_user_id'] ) ) {
+			$features->setAutoGenUserId( $roomFeatures['auto_gen_user_id'] );
+		}
 
 		if ( isset( $roomMetadata['recording_features'] ) ) {
 			$roomRecordingFeatures = $roomMetadata['recording_features'];
@@ -245,10 +248,8 @@ class plugNmeetConnect {
 			if ( isset( $roomWaitingRoomFeatures['is_active'] ) ) {
 				$waitingRoomFeatures->setIsActive( $roomWaitingRoomFeatures['is_active'] );
 			}
-			if ( isset( $roomWaitingRoomFeatures['waiting_room_msg'] ) ) {
-				if ( ! empty( $roomWaitingRoomFeatures['waiting_room_msg'] ) ) {
-					$waitingRoomFeatures->setWaitingRoomMsg( $roomWaitingRoomFeatures['waiting_room_msg'] );
-				}
+			if ( ! empty( $roomWaitingRoomFeatures['waiting_room_msg'] ) ) {
+				$waitingRoomFeatures->setWaitingRoomMsg( $roomWaitingRoomFeatures['waiting_room_msg'] );
 			}
 			$features->setWaitingRoomFeatures( $waitingRoomFeatures );
 		}
@@ -260,9 +261,7 @@ class plugNmeetConnect {
 				$breakoutRoomFeatures->setIsAllow( $roomBreakoutRoomFeatures['is_allow'] );
 			}
 			if ( isset( $roomBreakoutRoomFeatures['allowed_number_rooms'] ) ) {
-				if ( ! empty( $roomBreakoutRoomFeatures['allowed_number_rooms'] ) ) {
-					$breakoutRoomFeatures->setAllowedNumberRooms( $roomBreakoutRoomFeatures['allowed_number_rooms'] );
-				}
+				$breakoutRoomFeatures->setAllowedNumberRooms( (int) $roomBreakoutRoomFeatures['allowed_number_rooms'] );
 			}
 			$features->setBreakoutRoomFeatures( $breakoutRoomFeatures );
 		}
@@ -401,6 +400,7 @@ class plugNmeetConnect {
 	 * @param bool $isAdmin
 	 * @param bool $isHidden
 	 * @param UserMetadataParameters|null $userMetadata
+	 * @param LockSettingsParameters|null $lockSettings
 	 *
 	 * @return GenerateJoinTokenResponse
 	 */
@@ -427,7 +427,7 @@ class plugNmeetConnect {
 	 *
 	 * @return EndRoomResponse
 	 */
-	public function endRoom( string $roomId ) {
+	public function endRoom( string $roomId ): EndRoomResponse {
 		$endRoomParameters = new EndRoomParameters();
 		$endRoomParameters->setRoomId( $roomId );
 

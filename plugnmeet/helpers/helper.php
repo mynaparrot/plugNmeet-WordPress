@@ -311,6 +311,21 @@ class PlugnmeetHelper {
 				"selected" => 1,
 				"type"     => "select"
 			),
+			"auto_gen_user_id"            => array(
+				"label"    => __( "Auto generate user ID", "plugnmeet" ),
+				"options"  => array(
+					array(
+						"label" => __( "Yes", "plugnmeet" ),
+						"value" => 1
+					),
+					array(
+						"label" => __( "No", "plugnmeet" ),
+						"value" => 0
+					)
+				),
+				"selected" => 0,
+				"type"     => "select"
+			),
 		);
 
 		$data = [];

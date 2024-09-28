@@ -326,6 +326,27 @@ class Plugnmeet_SettingsPage {
 			'plugnmeet_settings_options_section',
 			[ 'id' => 'logo' ]
 		);
+
+		// copyright
+		add_settings_field(
+			'copyright_display',
+			__( 'Display copyright text', 'plugnmeet' ),
+			[ $this, 'selectCallBack' ],
+			'plugnmeet-settings',
+			'plugnmeet_settings_options_section',
+			[ 'id' => 'copyright_display', 'options' => array( "true", "false" ), 'default' => "false" ]
+		);
+		add_settings_field(
+			'copyright_text',
+			__( 'Copyright text', 'plugnmeet' ),
+			[ $this, 'textCallBack' ],
+			'plugnmeet-settings',
+			'plugnmeet_settings_options_section',
+			[
+				'id'      => 'copyright_text',
+				'default' => "Powered by plugNmeet"
+			]
+		);
 	}
 
 	private function designCustomization() {

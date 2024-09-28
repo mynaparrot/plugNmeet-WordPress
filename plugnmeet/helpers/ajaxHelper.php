@@ -140,6 +140,7 @@ class PlugNmeetAjaxHelper {
 	}
 
 	public function login_to_room() {
+		global $wp;
 		$output         = new stdClass();
 		$output->status = false;
 		$output->msg    = __( "Token mismatched", 'plugnmeet' );
@@ -220,6 +221,13 @@ class PlugNmeetAjaxHelper {
 					"php-version"    => phpversion(),
 					"plugin-version" => constant( 'PLUGNMEET_VERSION' )
 				) );
+				$config    = (object) get_option( "plugnmeet_settings" );
+				if ( isset( $config->copyright_display ) ) {
+					$room_metadata["copyright_conf"] = array(
+						"display" => $config->copyright_display === "true",
+						"text"    => $config->copyright_text
+					);
+				}
 
 				$create = $connect->createRoom( $roomInfo->room_id, $roomInfo->room_title, $roomInfo->welcome_message, $roomInfo->max_participants, "", $room_metadata, 0, "", $extraData );
 

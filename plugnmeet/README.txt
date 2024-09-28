@@ -3,8 +3,8 @@ Contributors: mynaparrot
 Donate link: https://www.plugnmeet.org/
 Tags: mynaparrot, web conference, plugnmeet
 Requires at least: 5.9
-Tested up to: 6.5.4
-Stable tag: 1.2.9
+Tested up to: 6.6.2
+Stable tag: 1.2.10
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -70,6 +70,11 @@ This plugin will require the [plugNmeet-server](https://github.com/mynaparrot/pl
 2. Shared notepad
 
 == Changelog ==
+= 1.2.10 =
+* bump SDK
+* option to set auto generate user id
+* option to configure copyright info
+
 = 1.2.9 =
 * bump SDK
 * option to encrypt chat & whiteboard data
