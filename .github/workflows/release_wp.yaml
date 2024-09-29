@@ -7,6 +7,8 @@ jobs:
     name: Upload Release Asset
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Upload to WordPress SVN
         uses: nk-o/action-wordpress-plugin-deploy@master
         env:
