@@ -140,7 +140,6 @@ class PlugNmeetAjaxHelper {
 	}
 
 	public function login_to_room() {
-		global $wp;
 		$output         = new stdClass();
 		$output->status = false;
 		$output->msg    = __( "Token mismatched", 'plugnmeet' );
@@ -149,9 +148,27 @@ class PlugNmeetAjaxHelper {
 			wp_send_json( $output );
 		}
 
-		$id       = isset( $_POST['id'] ) ? sanitize_text_field( $_POST['id'] ) : 0;
-		$name     = isset( $_POST['name'] ) ? sanitize_text_field( $_POST['name'] ) : "";
-		$password = isset( $_POST['password'] ) ? sanitize_text_field( $_POST['password'] ) : "";
+		$id          = isset( $_POST['id'] ) ? sanitize_text_field( $_POST['id'] ) : 0;
+		$name        = isset( $_POST['name'] ) ? sanitize_text_field( $_POST['name'] ) : "";
+		$password    = isset( $_POST['password'] ) ? sanitize_text_field( $_POST['password'] ) : "";
+		$current_url = isset( $_POST['current_url'] ) ? sanitize_url( urldecode( $_POST['current_url'] ) ) : "";
+
+		// create logout url
+		$logoutUrl = "";
+		if ( ! empty( $current_url ) ) {
+			$url        = parse_url( $current_url );
+			$logoutUrl  = sprintf( "%s://%s%s",
+				$url["scheme"],
+				$url["host"],
+				$url["path"]
+			);
+			$parameters = array();
+			if ( ! empty( $url["query"] ) ) {
+				parse_str( $url["query"], $parameters );
+			}
+			$parameters["pnm-returned"] = "true";
+			$logoutUrl                  = $logoutUrl . "?" . http_build_query( $parameters );
+		}
 
 		if ( empty( $id ) ) {
 			$output->msg = __( "room Id is missing", 'plugnmeet' );
@@ -229,7 +246,7 @@ class PlugNmeetAjaxHelper {
 					);
 				}
 
-				$create = $connect->createRoom( $roomInfo->room_id, $roomInfo->room_title, $roomInfo->welcome_message, $roomInfo->max_participants, "", $room_metadata, 0, "", $extraData );
+				$create = $connect->createRoom( $roomInfo->room_id, $roomInfo->room_title, $roomInfo->welcome_message, $roomInfo->max_participants, "", $room_metadata, 0, $logoutUrl, $extraData );
 
 				$isRoomActive = $create->getStatus();
 				$output->msg  = $create->getResponseMsg();

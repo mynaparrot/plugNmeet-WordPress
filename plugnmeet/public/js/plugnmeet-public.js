@@ -27,7 +27,7 @@
                     if (!windowOpen) {
                         setTimeout(() => {
                             window.location.href = data.url
-                        }, 2000);
+                        }, 5000);
                     }
 
                     $("#room-password").val("")
