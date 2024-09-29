@@ -1,0 +1,17 @@
+name: Transfer to WordPress
+on:
+  release:
+    types: [ published ]
+jobs:
+  build:
+    name: Upload Release Asset
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload to WordPress SVN
+        uses: nk-o/action-wordpress-plugin-deploy@master
+        env:
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SOURCE_DIR: plugnmeet/
+          ASSETS_DIR: assets
+          SLUG: plugnmeet

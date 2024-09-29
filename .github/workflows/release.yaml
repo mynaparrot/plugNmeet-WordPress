@@ -1,4 +1,4 @@
-name: Upload as release asset and transfer to WordPress
+name: Upload as release asset
 on:
   release:
     types: [ published ]
@@ -26,11 +26,3 @@ jobs:
           args: build/plugnmeet.zip application/zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Upload to WordPress SVN
-        uses: nk-o/action-wordpress-plugin-deploy@master
-        env:
-          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
-          SOURCE_DIR: plugnmeet/
-          ASSETS_DIR: assets
-          SLUG: plugnmeet
