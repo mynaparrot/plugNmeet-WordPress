@@ -26,7 +26,10 @@
                     const windowOpen = window.open(data.url, "_blank");
                     if (!windowOpen) {
                         setTimeout(() => {
-                            window.location.href = data.url
+                            // check, if still not opened
+                            if (!windowOpen) {
+                                window.location.href = url
+                            }
                         }, 5000);
                     }
 
