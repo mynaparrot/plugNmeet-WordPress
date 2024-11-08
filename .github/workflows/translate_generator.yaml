@@ -21,7 +21,7 @@ jobs:
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
-          branch: ${{ github.head_ref }}
+          branch: l10n_main
           force: true
           message: "generated .mo files"
           github_token: ${{ secrets.GITHUB_TOKEN }}
