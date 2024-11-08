@@ -1,28 +1,41 @@
-name: Upload as release asset
+name: Upload as release asset and transfer to WordPress
 on:
-  release:
-    types: [ published ]
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
-  build:
-    name: Upload Release Asset
+  release-plugin:
     runs-on: ubuntu-latest
     steps:
+      - uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: simple
       - name: Checkout code
+        if: ${{ steps.release.outputs.release_created }}
         uses: actions/checkout@v4
       - name: Build project
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           mkdir -p build
           rsync -ar plugnmeet build/
           cd build
           zip -X -r plugnmeet.zip *
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: plugnmeet
-          path: build/plugnmeet.zip
-      - name: Upload to release
-        uses: JasonEtco/upload-to-release@master
-        with:
-          args: build/plugnmeet.zip application/zip
+          gh release upload ${{ steps.release.outputs.tag_name }} plugnmeet.zip
+      - name: Upload to WordPress SVN
+        if: ${{ steps.release.outputs.release_created }}
+        uses: nk-o/action-wordpress-plugin-deploy@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SOURCE_DIR: plugnmeet/
+          ASSETS_DIR: assets
+          SLUG: plugnmeet
