@@ -5,8 +5,8 @@ msgstr ""
 "POT-Creation-Date: 2024-09-28 11:18+0000\n"
 "PO-Revision-Date: 2024-11-09 07:37\n"
 "Last-Translator: \n"
-"Language-Team: Dutch\n"
-"Language: nl_NL\n"
+"Language-Team: Portuguese\n"
+"Language: pt_PT\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,277 +14,277 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Crowdin-Project: plugnmeet-wordpress\n"
 "X-Crowdin-Project-ID: 582299\n"
-"X-Crowdin-Language: nl\n"
+"X-Crowdin-Language: pt-PT\n"
 "X-Crowdin-File: /main/plugnmeet/languages/plugnmeet.pot\n"
 "X-Crowdin-File-ID: 66\n"
 
 #: admin/class-plugnmeet-settings-page.php:128
 msgid " can't be empty."
-msgstr " kan niet leeg zijn."
+msgstr " não pode estar vazio."
 
 #: helpers/helper.php:537
 msgid "Activate waiting room"
-msgstr "Wachtkamer activeren"
+msgstr "Ativar sala de espera"
 
 #: admin/partials/plugnmeet-admin-display-rooms.php:21
 msgid "Add New"
-msgstr "Nieuwe toevoegen"
+msgstr "Adicionar Novo"
 
 #: helpers/helper.php:220
 msgid "Admin only webcams"
-msgstr "Alleen webcams voor beheerders"
+msgstr "Webcams apenas para administradores"
 
 #: helpers/helper.php:569
 msgid "Allow breakout rooms"
-msgstr "Aparte vergaderruimten toestaan"
+msgstr "Permitir salas de intervalo"
 
 #: helpers/helper.php:414
 msgid "Allow chat"
-msgstr "Chat toestaan"
+msgstr "Permitir bate-papo"
 
 #: helpers/helper.php:357
 msgid "Allow cloud recording"
-msgstr "Opnemen in de cloud toestaan"
+msgstr "Permitir gravação na nuvem"
 
 #: helpers/helper.php:628
 msgid "Allow create ingress"
-msgstr "Binnenkomen voor maken toestaan"
+msgstr "Permitir criar entrada"
 
 #: admin/partials/form-parts/permission.php:114
 msgid "Allow Delete <br/>Recordings"
-msgstr "Verwijderen toestaan <br/>Opnamen"
+msgstr "Permitir exclusão <br/>Gravações"
 
 #: helpers/helper.php:601
 msgid "Allow Display External Link"
-msgstr "Externe link weergeven toestaan"
+msgstr "Permitir Link Externo de Exibição"
 
 #: admin/partials/form-parts/permission.php:113
 msgid "Allow Download <br/>Recordings"
-msgstr "Downloaden toestaan <br/>Opnamen"
+msgstr "Permitir Download <br/>Gravações"
 
 #: helpers/helper.php:510
 msgid "Allow external media player"
-msgstr "Externe mediaspeler toestaan"
+msgstr "Permitir media player externo"
 
 #: helpers/helper.php:429
 msgid "Allow file upload"
-msgstr "Uploaden van bestanden toestaan"
+msgstr "Permitir o carregamento de ficheiros"
 
 #: helpers/helper.php:387
 msgid "Allow local recording"
-msgstr "Lokale opname toestaan"
+msgstr "Permitir gravação local"
 
 #: admin/partials/form-parts/permission.php:112
 msgid "Allow Play <br/>Recordings"
-msgstr "Spelen toestaan <br/>Opnamen"
+msgstr "Permitir Jogar <br/>Gravações"
 
 #: helpers/helper.php:235
 msgid "Allow polls"
-msgstr "Peilingen toestaan"
+msgstr "Permitir sondagens"
 
 #: helpers/helper.php:300
 msgid "Allow raise hand"
-msgstr "Sta hand opsteken toe"
+msgstr "Permitir levantar a mão"
 
 #: helpers/helper.php:342
 msgid "Allow recording"
-msgstr "Opname toestaan"
+msgstr "Permitir gravação"
 
 #: helpers/helper.php:175
 msgid "Allow rtmp"
-msgstr "Sta rtmp toe"
+msgstr "Permitir rtmp"
 
 #: helpers/helper.php:160
 msgid "Allow screen share"
-msgstr "Scherm delen toestaan"
+msgstr "Permitir partilha de ecrã"
 
 #: helpers/helper.php:456
 msgid "Allow shared notepad"
-msgstr "Gedeeld kladblok toestaan"
+msgstr "Permitir bloco de notas partilhado"
 
 #: helpers/helper.php:655
 msgid "Allow speech to text/translation feature"
-msgstr "Spraak-naar-tekst/vertaalfunctie toestaan"
+msgstr "Permitir a conversão de voz em texto/funcionalidade de tradução"
 
 #: helpers/helper.php:670
 msgid "Allow translation"
-msgstr "Vertaling toestaan"
+msgstr "Permitir tradução"
 
 #: admin/partials/form-parts/permission.php:111
 msgid "Allow View <br/>Recordings"
-msgstr "Weergave toestaan <br/>Opnamen"
+msgstr "Permitir visualização <br/>Gravações"
 
 #: helpers/helper.php:205
 msgid "Allow view other users list"
-msgstr "Lijst met andere gebruikers toestaan"
+msgstr "Permitir ver a lista de outros utilizadores"
 
 #: helpers/helper.php:190
 msgid "Allow view other webcams"
-msgstr "Weergave van andere webcams toestaan"
+msgstr "Permitir ver outras webcams"
 
 #: helpers/helper.php:285
 msgid "Allow virtual background"
-msgstr "Virtuele achtergrond toestaan"
+msgstr "Permitir plano de fundo virtual"
 
 #: helpers/helper.php:130
 msgid "Allow webcams"
-msgstr "Webcams toestaan"
+msgstr "Permitir webcams"
 
 #: helpers/helper.php:483
 msgid "Allow whiteboard"
-msgstr "Whiteboard toestaan"
+msgstr "Permitir quadro de comunicações"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:117
 #: public/partials/parts/recordings.php:172
 msgid "Are you sure to delete?"
-msgstr "Weet je zeker dat je gaat verwijderen?"
+msgstr "Tem certeza de excluir?"
 
 #: admin/class-plugnmeet-admin.php:277
 msgid "attendee & moderator password can't be same"
-msgstr "Het wachtwoord van de deelnemer en de moderator kan niet hetzelfde zijn"
+msgstr "A palavra-passe do participante e do moderador não pode ser a mesma"
 
 #: admin/partials/plugnmeet-admin-display-rooms.php:48
 #: admin/partials/form-parts/basic.php:48
 msgid "Attendee Password"
-msgstr "Wachtwoord voor deelnemer"
+msgstr "Senha do participante"
 
 #: admin/class-plugnmeet-settings-page.php:294
 msgid "Audio preset"
-msgstr "Audio voorinstelling"
+msgstr "Predefinição de áudio"
 
 #: helpers/helper.php:315
 msgid "Auto generate user ID"
-msgstr "Gebruikers-ID automatisch genereren"
+msgstr "Gerar automaticamente ID de usuário"
 
 #: admin/class-plugnmeet-settings-page.php:389
 #: admin/partials/form-parts/design.php:44
 msgid "Background Color"
-msgstr "Achtergrondkleur"
+msgstr "Cor de fundo"
 
 #: admin/class-plugnmeet-settings-page.php:398
 #: admin/partials/form-parts/design.php:51
 msgid "Background Image"
-msgstr "Achtergrondafbeelding"
+msgstr "Imagem de fundo"
 
 #: admin/partials/plugnmeet-admin-edit-room.php:34
 msgid "Basic"
-msgstr "Basisch"
+msgstr "Básico"
 
 #: helpers/ajaxHelper.php:79 helpers/ajaxHelper.php:119
 msgid "both roomId & record id required"
-msgstr "zowel roomId als record ID vereist"
+msgstr "ambos roomId & ID de registro necessário"
 
 #: admin/partials/form-parts/design.php:113
 msgid "Bottom"
-msgstr "Bodem"
+msgstr "Inferior"
 
 #: admin/class-plugnmeet-admin.php:185
 msgid "Can't write file"
-msgstr "Kan bestand niet schrijven"
+msgstr "Não é possível gravar o arquivo"
 
 #: admin/partials/plugnmeet-admin-edit-room.php:26
 msgid "Cancel"
-msgstr "Annuleren"
+msgstr "Cancelar"
 
 #: admin/class-plugnmeet-settings-page.php:210
 msgid "Client load"
-msgstr "Belasting van klanten"
+msgstr "Carga do cliente"
 
 #: admin/partials/form-parts/design.php:101
 msgid "Column camera position"
-msgstr "Kolom camera positie"
+msgstr "Posição da câmara da coluna"
 
 #: admin/partials/form-parts/design.php:122
 msgid "Column camera width"
-msgstr "Breedte kolomcamera"
+msgstr "Largura da câmara da coluna"
 
 #: admin/class-plugnmeet-settings-page.php:341
 msgid "Copyright text"
-msgstr "Copyright tekst"
+msgstr "Texto dos direitos de autor"
 
 #: admin/partials/plugnmeet-admin-display-rooms-pagination.php:52
 msgid "Current Page"
-msgstr "Huidige pagina"
+msgstr "Página Atual"
 
 #: admin/class-plugnmeet-settings-page.php:362
 #: admin/partials/form-parts/design.php:23
 msgid "Custom CSS URL"
-msgstr "Aangepaste CSS-URL"
+msgstr "URL CSS personalizado"
 
 #: admin/class-plugnmeet-settings-page.php:323
 msgid "Custom logo"
-msgstr "Aangepast logo"
+msgstr "Logótipo personalizado"
 
 #: admin/partials/form-parts/design.php:126
 msgid "Default"
-msgstr "Verstek"
+msgstr "Inadimplência"
 
 #: admin/partials/plugnmeet-admin-edit-room.php:54
 msgid "Default lock settings"
-msgstr "Standaard vergrendelingsinstellingen"
+msgstr "Configurações de bloqueio padrão"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:194
 #: admin/partials/plugnmeet-admin-display-rooms.php:68
 #: public/partials/parts/recordings.php:230
 msgid "Delete"
-msgstr "Verwijderen"
+msgstr "Suprimir"
 
 #: admin/class-plugnmeet-settings-page.php:355
 #: admin/partials/plugnmeet-admin-edit-room.php:60
 msgid "Design Customization"
-msgstr "Aanpassing van het ontwerp"
+msgstr "Personalização de Design"
 
 #: admin/class-plugnmeet-settings-page.php:333
 msgid "Display copyright text"
-msgstr "Copyrighttekst weergeven"
+msgstr "Exibir texto de direitos autorais"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:191
 #: public/partials/parts/recordings.php:223
 msgid "Download"
-msgstr "Downloaden"
+msgstr "Baixar"
 
 #: helpers/helper.php:270
 msgid "Enable analytics"
-msgstr "Analyse inschakelen"
+msgstr "Habilite a análise"
 
 #: helpers/helper.php:372
 msgid "Enable auto cloud recording"
-msgstr "Automatische cloudopname inschakelen"
+msgstr "Ativar a gravação automática na nuvem"
 
 #: admin/class-plugnmeet-settings-page.php:241
 msgid "Enable Dynacast"
-msgstr "Dynacast inschakelen"
+msgstr "Ativar o Dynacast"
 
 #: helpers/helper.php:712
 msgid "Enable encryption for chat"
-msgstr "Versleuteling inschakelen voor chat"
+msgstr "Ativar criptografia para bate-papo"
 
 #: helpers/helper.php:727
 msgid "Enable encryption for whiteboard"
-msgstr "Versleuteling inschakelen voor whiteboard"
+msgstr "Ativar criptografia para quadro de comunicações"
 
 #: helpers/helper.php:697
 msgid "Enable End-To-End Encryption (E2EE)"
-msgstr "End-to-end-versleuteling inschakelen (E2EE)"
+msgstr "Habilitar criptografia de ponta a ponta (E2EE)"
 
 #: admin/class-plugnmeet-settings-page.php:250
 msgid "Enable Simulcast"
-msgstr "Simulcast inschakelen"
+msgstr "Ativar Simulcast"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:45
 #: public/partials/parts/recordings.php:29
 msgid "File size (MB)"
-msgstr "Bestandsgrootte (MB)"
+msgstr "Tamanho do ficheiro (MB)"
 
 #: admin/class-plugnmeet-settings-page.php:416
 #: admin/partials/form-parts/design.php:80
 msgid "Footer Color"
-msgstr "Voettekst Kleur"
+msgstr "Cor do rodapé"
 
 #: admin/class-plugnmeet-settings-page.php:407
 #: admin/partials/form-parts/design.php:73
 msgid "Header Color"
-msgstr "Header Kleur"
+msgstr "Cor do cabeçalho"
 
 #. URI of the plugin
 msgid "https://github.com/mynaparrot/plugNmeet-WordPress"
@@ -296,7 +296,7 @@ msgstr "https://www.mynaparrot.com/"
 
 #: admin/partials/plugnmeet-admin-display-rooms.php:40
 msgid "Id"
-msgstr "Legitimatiebewijs"
+msgstr "Id"
 
 #. Author of the plugin
 msgid "Jibon L. Costa <jibon@mynaparrot.com>"
@@ -304,121 +304,121 @@ msgstr "Jibon L. Costa <jibon@mynaparrot.com>"
 
 #: public/partials/parts/login-form.php:47
 msgid "Join"
-msgstr "Verbinden"
+msgstr "Aderir"
 
 #: admin/partials/form-parts/permission.php:109
 msgid "Join as <br/>Attendee"
-msgstr "Meld je aan als <br/>Genodigde"
+msgstr "Junte-se como <br/>Participante"
 
 #: admin/partials/form-parts/permission.php:108
 msgid "Join as <br/>Moderator"
-msgstr "Meld je aan als <br/>Moderator"
+msgstr "Junte-se como <br/>Moderador"
 
 #: admin/partials/form-parts/design.php:105
 msgid "Left"
-msgstr "Links"
+msgstr "Esquerda"
 
 #: admin/partials/form-parts/design.php:87
 msgid "Left Bar Color"
-msgstr "Kleur linkerbalk"
+msgstr "Cor da barra esquerda"
 
 #: admin/class-plugnmeet-settings-page.php:425
 msgid "left Color"
-msgstr "links Kleur"
+msgstr "cor esquerda"
 
 #: admin/class-plugnmeet-settings-page.php:219
 msgid "Local client download url"
-msgstr "Download-URL voor lokale client"
+msgstr "URL de download do cliente local"
 
 #: helpers/helper.php:829
 msgid "Lock chat"
-msgstr "Chat vergrendelen"
+msgstr "Bloquear chat"
 
 #: helpers/helper.php:859
 msgid "Lock chat file share"
-msgstr "Chatbestandsdeling vergrendelen"
+msgstr "Bloquear compartilhamento de arquivos de bate-papo"
 
 #: helpers/helper.php:844
 msgid "Lock chat send message"
-msgstr "Chat vergrendelen, bericht verzenden"
+msgstr "Bloquear mensagem de envio de chat"
 
 #: helpers/helper.php:754
 msgid "Lock microphone"
-msgstr "Microfoon vergrendelen"
+msgstr "Bloquear microfone"
 
 #: helpers/helper.php:874
 msgid "Lock private chat"
-msgstr "Privéchat vergrendelen"
+msgstr "Bloquear chat privado"
 
 #: helpers/helper.php:784
 msgid "Lock screen sharing"
-msgstr "Scherm delen vergrendelen"
+msgstr "Compartilhamento de tela de bloqueio"
 
 #: helpers/helper.php:814
 msgid "Lock shared notepad"
-msgstr "Gedeeld kladblok vergrendelen"
+msgstr "Bloquear bloco de notas partilhado"
 
 #: helpers/helper.php:769
 msgid "Lock webcam"
-msgstr "Webcam vergrendelen"
+msgstr "Bloquear webcam"
 
 #: helpers/helper.php:799
 msgid "Lock whiteboard"
-msgstr "Whiteboard vergrendelen"
+msgstr "Quadro branco de bloqueio"
 
 #: admin/partials/form-parts/design.php:62
 msgid "Logo"
-msgstr "Logo"
+msgstr "Logótipo"
 
 #: admin/class-plugnmeet-admin.php:128
 msgid "Manage recordings"
-msgstr "Opnamen beheren"
+msgstr "Gerenciar gravações"
 
 #: admin/class-plugnmeet-admin.php:118
 msgid "Manage Rooms"
-msgstr "Kamers beheren"
+msgstr "Gerir Quartos"
 
 #: admin/partials/form-parts/basic.php:58
 msgid "Maximum participants (0 = unlimited)"
-msgstr "Maximum aantal deelnemers (0 = onbeperkt)"
+msgstr "Máximo de participantes (0 = ilimitado)"
 
 #: admin/partials/form-parts/design.php:130
 msgid "Medium"
-msgstr "Gemiddeld"
+msgstr "Média"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:42
 #: public/partials/parts/recordings.php:28
 msgid "Meeting date"
-msgstr "Datum van de zitting"
+msgstr "Data da reunião"
 
 #: helpers/helper.php:255
 msgid "Moderator join first"
-msgstr "Moderator doe eerst mee"
+msgstr "Moderador junte-se primeiro"
 
 #: admin/partials/plugnmeet-admin-display-rooms.php:45
 #: admin/partials/form-parts/basic.php:43
 msgid "Moderator Password"
-msgstr "Moderator Wachtwoord"
+msgstr "Palavra-passe do moderador"
 
 #: helpers/helper.php:145
 msgid "Mute on start"
-msgstr "Dempen bij starten"
+msgstr "Mudo no início"
 
 #: public/partials/parts/login-form.php:25
 msgid "Name"
-msgstr "Naam"
+msgstr "Designação"
 
 #: helpers/ajaxHelper.php:162
 msgid "name is required"
-msgstr "naam is verplicht"
+msgstr "nome é obrigatório"
 
 #: public/partials/parts/recordings.php:37
 msgid "Next"
-msgstr "Volgend"
+msgstr "Seguinte"
 
 #: admin/partials/plugnmeet-admin-display-rooms-pagination.php:64
 msgid "Next page"
-msgstr "Volgende pagina"
+msgstr "Página seguinte"
 
 #: helpers/helper.php:137 helpers/helper.php:152 helpers/helper.php:167
 #: helpers/helper.php:182 helpers/helper.php:197 helpers/helper.php:212
@@ -435,44 +435,44 @@ msgstr "Volgende pagina"
 #: helpers/helper.php:836 helpers/helper.php:851 helpers/helper.php:866
 #: helpers/helper.php:881
 msgid "No"
-msgstr "Nee"
+msgstr "Não"
 
 #: admin/class-plugnmeet-admin.php:360
 msgid "No id was sent"
-msgstr "Er is geen identiteitsbewijs verzonden"
+msgstr "Nenhum id foi enviado"
 
 #: helpers/ajaxHelper.php:174 helpers/ajaxHelper.php:328
 #: public/class-plugnmeet-public.php:286
 msgid "no room found"
-msgstr "Geen kamer gevonden"
+msgstr "nenhum quarto encontrado"
 
 #: helpers/helper.php:584
 msgid "Number of rooms"
-msgstr "Aantal kamers"
+msgstr "Número de quartos"
 
 #: admin/class-plugnmeet-settings-page.php:234
 msgid "Options"
-msgstr "Opties"
+msgstr "Opções"
 
 #: admin/partials/plugnmeet-admin-edit-room.php:48
 msgid "Other features"
-msgstr "Overige kenmerken"
+msgstr "Outras características"
 
 #: public/partials/parts/login-form.php:34
 msgid "Password"
-msgstr "Wachtwoord"
+msgstr "Palavra-passe"
 
 #: helpers/ajaxHelper.php:279
 msgid "password didn't match"
-msgstr "Wachtwoord komt niet overeen"
+msgstr "A palavra-passe não correspondeu"
 
 #: admin/partials/plugnmeet-admin-edit-room.php:67
 msgid "Permission"
-msgstr "Toestemming"
+msgstr "Permissão"
 
 #: public/partials/parts/recordings.php:216
 msgid "Play"
-msgstr "Spelen"
+msgstr "Reproduzir"
 
 #: admin/class-plugnmeet-admin.php:107 admin/class-plugnmeet-admin.php:108
 msgid "Plug-N-Meet"
@@ -480,230 +480,230 @@ msgstr "Plug-N-Meet"
 
 #. Name of the plugin
 msgid "Plug-N-Meet web conference integration"
-msgstr "Integratie van Plug-N-Meet-webconferenties"
+msgstr "Integração de conferência web Plug-N-Meet"
 
 #. Description of the plugin
 msgid "Plug-N-Meet web conference integration with WordPress"
-msgstr "Plug-N-Meet-integratie van webconferenties met WordPress"
+msgstr "Integração de webconferência Plug-N-Meet com WordPress"
 
 #: admin/class-plugnmeet-settings-page.php:188
 msgid "plugNmeet API Key"
-msgstr "plugNmeet API-sleutel"
+msgstr "plugNmeet API Key"
 
 #: admin/class-plugnmeet-settings-page.php:197
 msgid "plugNmeet Secret"
-msgstr "plugNmeet Geheim"
+msgstr "plugNmeet Segredo"
 
 #: admin/class-plugnmeet-settings-page.php:179
 msgid "plugNmeet Server URL"
-msgstr "plugNmeet Server-URL"
+msgstr "URL do servidor plugNmeet"
 
 #: public/partials/parts/recordings.php:36
 msgid "Pre"
-msgstr "Pre"
+msgstr "Pré"
 
 #: admin/partials/plugnmeet-admin-display-rooms-pagination.php:44
 msgid "Previous page"
-msgstr "Vorige pagina"
+msgstr "Página anterior"
 
 #: admin/class-plugnmeet-settings-page.php:371
 #: admin/partials/form-parts/design.php:30
 msgid "Primary Color"
-msgstr "Primaire kleur"
+msgstr "Cor primária"
 
 #: admin/partials/plugnmeet-admin-display-rooms.php:65
 msgid "Published"
-msgstr "Gepubliceerd"
+msgstr "Publicado em"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:36
 msgid "Record Id"
-msgstr "Opname-ID"
+msgstr "ID do registo"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:39
 #: public/partials/parts/recordings.php:27
 msgid "Recording date"
-msgstr "Datum van opname"
+msgstr "Data de gravação"
 
 #: helpers/ajaxHelper.php:136
 msgid "Recording was deleted successfully"
-msgstr "Opname is succesvol verwijderd"
+msgstr "A gravação foi excluída com sucesso"
 
 #: admin/class-plugnmeet-admin.php:129 public/partials/parts/recordings.php:20
 msgid "Recordings"
-msgstr "Opnamen"
+msgstr "Gravações"
 
 #: admin/partials/form-parts/permission.php:110
 msgid "Require <br/> Password"
-msgstr "Vereisen <br/> Wachtwoord"
+msgstr "Exigir <br/> Palavra-passe"
 
 #: admin/partials/form-parts/design.php:94
 msgid "Right Bar Color"
-msgstr "Kleur rechterbalk"
+msgstr "Cor da barra direita"
 
 #: admin/class-plugnmeet-settings-page.php:434
 msgid "Right Color"
-msgstr "Juiste kleur"
+msgstr "Cor certa"
 
 #: admin/partials/form-parts/permission.php:107
 msgid "Role"
-msgstr "Rol"
+msgstr "Funções"
 
 #: admin/partials/form-parts/basic.php:39
 msgid "Room description"
-msgstr "Beschrijving van de kamer"
+msgstr "Descrição do quarto"
 
 #: helpers/helper.php:250
 msgid "Room duration (In minutes, 0 = unlimited)"
-msgstr "Duur van de kamer (in minuten, 0 = onbeperkt)"
+msgstr "Duração do quarto (em minutos, 0 = ilimitado)"
 
 #: admin/partials/plugnmeet-admin-edit-room.php:41
 msgid "Room features"
-msgstr "Kenmerken van de kamer"
+msgstr "Características do quarto"
 
 #: admin/partials/form-parts/basic.php:23
 msgid "Room Id"
-msgstr "Kamer-ID"
+msgstr "Id do quarto"
 
 #: helpers/ajaxHelper.php:157 public/class-plugnmeet-public.php:115
 msgid "room Id is missing"
-msgstr "kamer-ID ontbreekt"
+msgstr "quarto Id está faltando"
 
 #: helpers/ajaxHelper.php:39
 msgid "room id required"
-msgstr "Kamer-ID vereist"
+msgstr "ID do quarto necessário"
 
 #: helpers/ajaxHelper.php:177 helpers/ajaxHelper.php:332
 msgid "room not active"
-msgstr "Kamer niet actief"
+msgstr "quarto não ativo"
 
 #: helpers/helper.php:911
 msgid "Room Status"
-msgstr "Status van de kamer"
+msgstr "Estado do quarto"
 
 #: admin/partials/plugnmeet-admin-display-rooms.php:43
 #: admin/partials/form-parts/basic.php:34
 msgid "Room title"
-msgstr "Titel van de kamer"
+msgstr "Título do quarto"
 
 #: public/partials/parts/login-form.php:37
 msgid "Room's Password"
-msgstr "Wachtwoord van de kamer"
+msgstr "Palavra-passe do quarto"
 
 #: admin/class-plugnmeet-admin.php:119
 #: admin/partials/plugnmeet-admin-display-rooms.php:20
 msgid "Rooms"
-msgstr "Kamers"
+msgstr "Quartos"
 
 #: admin/class-plugnmeet-settings-page.php:281
 msgid "Screen Sharing Resolution"
-msgstr "Resolutie voor schermdeling"
+msgstr "Resolução de compartilhamento de tela"
 
 #: admin/partials/plugnmeet-admin-display-rooms.php:26
 #: admin/partials/plugnmeet-admin-display-rooms.php:32
 msgid "Search"
-msgstr "Zoeken"
+msgstr "Pesquisar"
 
 #: admin/class-plugnmeet-settings-page.php:380
 #: admin/partials/form-parts/design.php:37
 msgid "Secondary Color"
-msgstr "Secundaire kleur"
+msgstr "Cor secundária"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:22
 msgid "Select room"
-msgstr "Selecteer kamer"
+msgstr "Selecionar quarto"
 
 #: admin/class-plugnmeet-settings-page.php:172
 msgid "Server Settings"
-msgstr "Server-instellingen"
+msgstr "Configurações do servidor"
 
 #: admin/class-plugnmeet-settings-page.php:142
 msgid "Setting saved"
-msgstr "Instelling opgeslagen"
+msgstr "Configuração salva"
 
 #: admin/class-plugnmeet-admin.php:138 admin/class-plugnmeet-admin.php:139
 msgid "Settings"
-msgstr "Instellingen"
+msgstr "Configurações"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:28
 msgid "Show recordings"
-msgstr "Opnames weergeven"
+msgstr "Mostrar gravações"
 
 #: admin/partials/form-parts/design.php:134
 msgid "Small"
-msgstr "Klein"
+msgstr "Pequeno"
 
 #: admin/partials/plugnmeet-admin-display-rooms.php:50
 msgid "Status"
-msgstr "Status"
+msgstr "Situação"
 
 #: admin/class-plugnmeet-settings-page.php:314
 msgid "Stop mic track on mute"
-msgstr "Stop microfoontrack bij dempen"
+msgstr "Pare a faixa do microfone no mudo"
 
 #: admin/partials/plugnmeet-admin-edit-room.php:24
 msgid "Submit"
-msgstr "Opslaan"
+msgstr "Enviar"
 
 #: admin/class-plugnmeet-admin.php:311
 msgid "Successfully saved room data"
-msgstr "Succesvol opgeslagen ruimtegegevens"
+msgstr "Dados da sala salvos com sucesso"
 
 #: admin/class-plugnmeet-admin.php:341
 msgid "Successfully updated room data"
-msgstr "Succesvol bijgewerkte ruimtegegevens"
+msgstr "Dados do quarto atualizados com sucesso"
 
 #: helpers/ajaxHelper.php:213
 msgid "The meeting has not started yet, please come back later."
-msgstr "De vergadering is nog niet begonnen, kom later terug."
+msgstr "A reunião ainda não começou, por favor, volte mais tarde."
 
 #: helpers/ajaxHelper.php:24 helpers/ajaxHelper.php:64
 #: helpers/ajaxHelper.php:105 helpers/ajaxHelper.php:146
 #: admin/class-plugnmeet-admin.php:159 admin/class-plugnmeet-admin.php:236
 #: admin/class-plugnmeet-admin.php:352
 msgid "Token mismatched"
-msgstr "Token komt niet overeen"
+msgstr "Token incompatível"
 
 #: admin/partials/form-parts/design.php:109
 msgid "Top"
-msgstr "Boven"
+msgstr "Início"
 
 #: admin/partials/plugnmeet-admin-display-rooms.php:65
 msgid "Unpublished"
-msgstr "Ongepubliceerd"
+msgstr "Inédito"
 
 #: admin/class-plugnmeet-admin.php:205
 msgid "Unzip failed"
-msgstr "Uitpakken mislukt"
+msgstr "Falha ao descompactar"
 
 #: admin/class-plugnmeet-settings-page.php:108
 msgid "Update"
-msgstr "Update"
+msgstr "Atualizar"
 
 #: admin/class-plugnmeet-admin.php:203
 msgid "Updated client successfully"
-msgstr "Bijgewerkte client met succes"
+msgstr "Cliente atualizado com êxito"
 
 #: admin/class-plugnmeet-settings-page.php:95
 #: admin/partials/form-parts/design.php:58
 #: admin/partials/form-parts/design.php:69
 msgid "Upload/Select image"
-msgstr "Afbeelding uploaden/selecteren"
+msgstr "Carregar/Selecionar imagem"
 
 #: admin/class-plugnmeet-settings-page.php:259
 msgid "Video Codec"
-msgstr "Videocodec"
+msgstr "Codec de vídeo"
 
 #: helpers/helper.php:552
 msgid "Waiting room message"
-msgstr "Bericht in de wachtkamer"
+msgstr "Mensagem da sala de espera"
 
 #: admin/class-plugnmeet-settings-page.php:268
 msgid "Webcam Resolution"
-msgstr "Webcam Resolutie"
+msgstr "Resolução da webcam"
 
 #: admin/partials/form-parts/basic.php:53
 msgid "Welcome Message"
-msgstr "Welkom Bericht"
+msgstr "Mensagem de Boas-vindas"
 
 #: helpers/helper.php:133 helpers/helper.php:148 helpers/helper.php:163
 #: helpers/helper.php:178 helpers/helper.php:193 helpers/helper.php:208
@@ -720,13 +720,13 @@ msgstr "Welkom Bericht"
 #: helpers/helper.php:832 helpers/helper.php:847 helpers/helper.php:862
 #: helpers/helper.php:877
 msgid "Yes"
-msgstr "Ja"
+msgstr "Sim"
 
 #: helpers/ajaxHelper.php:269 helpers/ajaxHelper.php:320
 msgid "you don't have permission"
-msgstr "Je hebt geen toestemming"
+msgstr "você não tem permissão"
 
 #: public/partials/parts/login-form.php:28
 msgid "Your full name"
-msgstr "Uw volledige naam"
+msgstr "O seu nome completo"
 
