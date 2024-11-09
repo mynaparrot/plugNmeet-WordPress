@@ -1,0 +1,732 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: plugnmeet-wordpress\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-28 11:18+0000\n"
+"PO-Revision-Date: 2024-11-09 07:37\n"
+"Last-Translator: \n"
+"Language-Team: Hebrew\n"
+"Language: he_IL\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Crowdin-Project: plugnmeet-wordpress\n"
+"X-Crowdin-Project-ID: 582299\n"
+"X-Crowdin-Language: he\n"
+"X-Crowdin-File: /main/plugnmeet/languages/plugnmeet.pot\n"
+"X-Crowdin-File-ID: 66\n"
+
+#: admin/class-plugnmeet-settings-page.php:128
+msgid " can't be empty."
+msgstr " לא יכול להיות ריק."
+
+#: helpers/helper.php:537
+msgid "Activate waiting room"
+msgstr "הפעלת חדר המתנה"
+
+#: admin/partials/plugnmeet-admin-display-rooms.php:21
+msgid "Add New"
+msgstr "הוסף חדש"
+
+#: helpers/helper.php:220
+msgid "Admin only webcams"
+msgstr "מצלמות אינטרנט למנהלי מערכת בלבד"
+
+#: helpers/helper.php:569
+msgid "Allow breakout rooms"
+msgstr "אפשר חדרי הפסקה"
+
+#: helpers/helper.php:414
+msgid "Allow chat"
+msgstr "אפשר צ'אט"
+
+#: helpers/helper.php:357
+msgid "Allow cloud recording"
+msgstr "אפשר הקלטה בענן"
+
+#: helpers/helper.php:628
+msgid "Allow create ingress"
+msgstr "אפשר ליצור חדירה"
+
+#: admin/partials/form-parts/permission.php:114
+msgid "Allow Delete <br/>Recordings"
+msgstr "אפשר מחיקה <br/>הקלטות"
+
+#: helpers/helper.php:601
+msgid "Allow Display External Link"
+msgstr "אפשר הצגת קישור חיצוני"
+
+#: admin/partials/form-parts/permission.php:113
+msgid "Allow Download <br/>Recordings"
+msgstr "אפשר הורדה <br/>הקלטות"
+
+#: helpers/helper.php:510
+msgid "Allow external media player"
+msgstr "אפשר נגן מדיה חיצוני"
+
+#: helpers/helper.php:429
+msgid "Allow file upload"
+msgstr "אפשר העלאת קבצים"
+
+#: helpers/helper.php:387
+msgid "Allow local recording"
+msgstr "אפשר הקלטה מקומית"
+
+#: admin/partials/form-parts/permission.php:112
+msgid "Allow Play <br/>Recordings"
+msgstr "אפשר משחק <br/>הקלטות"
+
+#: helpers/helper.php:235
+msgid "Allow polls"
+msgstr "אפשר סקרים"
+
+#: helpers/helper.php:300
+msgid "Allow raise hand"
+msgstr "אפשר להרים יד"
+
+#: helpers/helper.php:342
+msgid "Allow recording"
+msgstr "אפשר הקלטה"
+
+#: helpers/helper.php:175
+msgid "Allow rtmp"
+msgstr "אפשר rtmp"
+
+#: helpers/helper.php:160
+msgid "Allow screen share"
+msgstr "אפשר שיתוף מסך"
+
+#: helpers/helper.php:456
+msgid "Allow shared notepad"
+msgstr "התרת פנקס רשימות משותף"
+
+#: helpers/helper.php:655
+msgid "Allow speech to text/translation feature"
+msgstr "התכונה 'אפשר דיבור לטקסט/תרגום'"
+
+#: helpers/helper.php:670
+msgid "Allow translation"
+msgstr "אפשר תרגום"
+
+#: admin/partials/form-parts/permission.php:111
+msgid "Allow View <br/>Recordings"
+msgstr "אפשר תצוגה <br/>הקלטות"
+
+#: helpers/helper.php:205
+msgid "Allow view other users list"
+msgstr "אפשר הצגת רשימת משתמשים אחרים"
+
+#: helpers/helper.php:190
+msgid "Allow view other webcams"
+msgstr "אפשר להציג מצלמות אינטרנט אחרות"
+
+#: helpers/helper.php:285
+msgid "Allow virtual background"
+msgstr "אפשר רקע וירטואלי"
+
+#: helpers/helper.php:130
+msgid "Allow webcams"
+msgstr "אפשר מצלמות אינטרנט"
+
+#: helpers/helper.php:483
+msgid "Allow whiteboard"
+msgstr "אפשר לוח ציור"
+
+#: admin/partials/plugnmeet-admin-display-recordings.php:117
+#: public/partials/parts/recordings.php:172
+msgid "Are you sure to delete?"
+msgstr "האם אתה בטוח למחוק?"
+
+#: admin/class-plugnmeet-admin.php:277
+msgid "attendee & moderator password can't be same"
+msgstr "סיסמת משתתף ומגשר אינה יכולה להיות זהה"
+
+#: admin/partials/plugnmeet-admin-display-rooms.php:48
+#: admin/partials/form-parts/basic.php:48
+msgid "Attendee Password"
+msgstr "סיסמת משתתף"
+
+#: admin/class-plugnmeet-settings-page.php:294
+msgid "Audio preset"
+msgstr "הגדרת שמע מוגדרת מראש"
+
+#: helpers/helper.php:315
+msgid "Auto generate user ID"
+msgstr "יצירה אוטומטית של מזהה משתמש"
+
+#: admin/class-plugnmeet-settings-page.php:389
+#: admin/partials/form-parts/design.php:44
+msgid "Background Color"
+msgstr "צבע רקע"
+
+#: admin/class-plugnmeet-settings-page.php:398
+#: admin/partials/form-parts/design.php:51
+msgid "Background Image"
+msgstr "תמונת רקע"
+
+#: admin/partials/plugnmeet-admin-edit-room.php:34
+msgid "Basic"
+msgstr "בסיסי"
+
+#: helpers/ajaxHelper.php:79 helpers/ajaxHelper.php:119
+msgid "both roomId & record id required"
+msgstr "נדרשים גם roomId וגם מזהה הקלטה"
+
+#: admin/partials/form-parts/design.php:113
+msgid "Bottom"
+msgstr "ישבן"
+
+#: admin/class-plugnmeet-admin.php:185
+msgid "Can't write file"
+msgstr "לא ניתן לכתוב קובץ"
+
+#: admin/partials/plugnmeet-admin-edit-room.php:26
+msgid "Cancel"
+msgstr "ביטל"
+
+#: admin/class-plugnmeet-settings-page.php:210
+msgid "Client load"
+msgstr "עומס לקוח"
+
+#: admin/partials/form-parts/design.php:101
+msgid "Column camera position"
+msgstr "מיקום מצלמת עמודה"
+
+#: admin/partials/form-parts/design.php:122
+msgid "Column camera width"
+msgstr "רוחב מצלמת עמודה"
+
+#: admin/class-plugnmeet-settings-page.php:341
+msgid "Copyright text"
+msgstr "טקסט זכויות יוצרים"
+
+#: admin/partials/plugnmeet-admin-display-rooms-pagination.php:52
+msgid "Current Page"
+msgstr "עמוד נוכחי"
+
+#: admin/class-plugnmeet-settings-page.php:362
+#: admin/partials/form-parts/design.php:23
+msgid "Custom CSS URL"
+msgstr "כתובת URL מותאמת אישית של CSS"
+
+#: admin/class-plugnmeet-settings-page.php:323
+msgid "Custom logo"
+msgstr "לוגו מותאם אישית"
+
+#: admin/partials/form-parts/design.php:126
+msgid "Default"
+msgstr "ברירת מחדל"
+
+#: admin/partials/plugnmeet-admin-edit-room.php:54
+msgid "Default lock settings"
+msgstr "הגדרות נעילה המוגדרות כברירת מחדל"
+
+#: admin/partials/plugnmeet-admin-display-recordings.php:194
+#: admin/partials/plugnmeet-admin-display-rooms.php:68
+#: public/partials/parts/recordings.php:230
+msgid "Delete"
+msgstr "למחוק"
+
+#: admin/class-plugnmeet-settings-page.php:355
+#: admin/partials/plugnmeet-admin-edit-room.php:60
+msgid "Design Customization"
+msgstr "התאמה אישית של העיצוב"
+
+#: admin/class-plugnmeet-settings-page.php:333
+msgid "Display copyright text"
+msgstr "הצגת טקסט המוגן בזכויות יוצרים"
+
+#: admin/partials/plugnmeet-admin-display-recordings.php:191
+#: public/partials/parts/recordings.php:223
+msgid "Download"
+msgstr "הורדה"
+
+#: helpers/helper.php:270
+msgid "Enable analytics"
+msgstr "אפשר ניתוח"
+
+#: helpers/helper.php:372
+msgid "Enable auto cloud recording"
+msgstr "אפשר הקלטה אוטומטית בענן"
+
+#: admin/class-plugnmeet-settings-page.php:241
+msgid "Enable Dynacast"
+msgstr "הפיכת Dynacast לזמין"
+
+#: helpers/helper.php:712
+msgid "Enable encryption for chat"
+msgstr "אפשר הצפנה עבור צ'אט"
+
+#: helpers/helper.php:727
+msgid "Enable encryption for whiteboard"
+msgstr "הפיכת הצפנה לזמינה עבור לוח ציור"
+
+#: helpers/helper.php:697
+msgid "Enable End-To-End Encryption (E2EE)"
+msgstr "הפעלת הצפנה מקצה לקצה (E2EE)"
+
+#: admin/class-plugnmeet-settings-page.php:250
+msgid "Enable Simulcast"
+msgstr "הפעל Simulcast"
+
+#: admin/partials/plugnmeet-admin-display-recordings.php:45
+#: public/partials/parts/recordings.php:29
+msgid "File size (MB)"
+msgstr "גודל קובץ (MB)"
+
+#: admin/class-plugnmeet-settings-page.php:416
+#: admin/partials/form-parts/design.php:80
+msgid "Footer Color"
+msgstr "צבע כותרת תחתונה"
+
+#: admin/class-plugnmeet-settings-page.php:407
+#: admin/partials/form-parts/design.php:73
+msgid "Header Color"
+msgstr "צבע כותרת עליונה"
+
+#. URI of the plugin
+msgid "https://github.com/mynaparrot/plugNmeet-WordPress"
+msgstr "https://github.com/mynaparrot/plugNmeet-WordPress"
+
+#. Author URI of the plugin
+msgid "https://www.mynaparrot.com/"
+msgstr "https://www.mynaparrot.com/"
+
+#: admin/partials/plugnmeet-admin-display-rooms.php:40
+msgid "Id"
+msgstr "מזהה"
+
+#. Author of the plugin
+msgid "Jibon L. Costa <jibon@mynaparrot.com>"
+msgstr "ג'יבון ל. קוסטה <jibon@mynaparrot.com>"
+
+#: public/partials/parts/login-form.php:47
+msgid "Join"
+msgstr "הצטרף"
+
+#: admin/partials/form-parts/permission.php:109
+msgid "Join as <br/>Attendee"
+msgstr "הצטרף כ <br/>משתתף"
+
+#: admin/partials/form-parts/permission.php:108
+msgid "Join as <br/>Moderator"
+msgstr "הצטרף כ <br/>מנחה"
+
+#: admin/partials/form-parts/design.php:105
+msgid "Left"
+msgstr "שמאל"
+
+#: admin/partials/form-parts/design.php:87
+msgid "Left Bar Color"
+msgstr "צבע סרגל שמאלי"
+
+#: admin/class-plugnmeet-settings-page.php:425
+msgid "left Color"
+msgstr "צבע שמאלי"
+
+#: admin/class-plugnmeet-settings-page.php:219
+msgid "Local client download url"
+msgstr "כתובת URL להורדת לקוח מקומי"
+
+#: helpers/helper.php:829
+msgid "Lock chat"
+msgstr "נעל צ'אט"
+
+#: helpers/helper.php:859
+msgid "Lock chat file share"
+msgstr "נעילת שיתוף קובץ צ'אט"
+
+#: helpers/helper.php:844
+msgid "Lock chat send message"
+msgstr "נעילת צ'אט שליחת הודעה"
+
+#: helpers/helper.php:754
+msgid "Lock microphone"
+msgstr "נעילת מיקרופון"
+
+#: helpers/helper.php:874
+msgid "Lock private chat"
+msgstr "נעילת צ'אט פרטי"
+
+#: helpers/helper.php:784
+msgid "Lock screen sharing"
+msgstr "שיתוף מסך נעילה"
+
+#: helpers/helper.php:814
+msgid "Lock shared notepad"
+msgstr "נעילת פנקס רשימות משותף"
+
+#: helpers/helper.php:769
+msgid "Lock webcam"
+msgstr "נעילת מצלמת אינטרנט"
+
+#: helpers/helper.php:799
+msgid "Lock whiteboard"
+msgstr "נעילת לוח ציור"
+
+#: admin/partials/form-parts/design.php:62
+msgid "Logo"
+msgstr "לוגו"
+
+#: admin/class-plugnmeet-admin.php:128
+msgid "Manage recordings"
+msgstr "ניהול הקלטות"
+
+#: admin/class-plugnmeet-admin.php:118
+msgid "Manage Rooms"
+msgstr "ניהול חדרים"
+
+#: admin/partials/form-parts/basic.php:58
+msgid "Maximum participants (0 = unlimited)"
+msgstr "מספר משתתפים מרבי (0 = ללא הגבלה)"
+
+#: admin/partials/form-parts/design.php:130
+msgid "Medium"
+msgstr "בינוני"
+
+#: admin/partials/plugnmeet-admin-display-recordings.php:42
+#: public/partials/parts/recordings.php:28
+msgid "Meeting date"
+msgstr "מועד הפגישה"
+
+#: helpers/helper.php:255
+msgid "Moderator join first"
+msgstr "המנחה מצטרף ראשון"
+
+#: admin/partials/plugnmeet-admin-display-rooms.php:45
+#: admin/partials/form-parts/basic.php:43
+msgid "Moderator Password"
+msgstr "סיסמת מנחה"
+
+#: helpers/helper.php:145
+msgid "Mute on start"
+msgstr "השתקה במסך התחל"
+
+#: public/partials/parts/login-form.php:25
+msgid "Name"
+msgstr "שם"
+
+#: helpers/ajaxHelper.php:162
+msgid "name is required"
+msgstr "שם נדרש"
+
+#: public/partials/parts/recordings.php:37
+msgid "Next"
+msgstr "הבא"
+
+#: admin/partials/plugnmeet-admin-display-rooms-pagination.php:64
+msgid "Next page"
+msgstr "לעמוד הבא"
+
+#: helpers/helper.php:137 helpers/helper.php:152 helpers/helper.php:167
+#: helpers/helper.php:182 helpers/helper.php:197 helpers/helper.php:212
+#: helpers/helper.php:227 helpers/helper.php:242 helpers/helper.php:262
+#: helpers/helper.php:277 helpers/helper.php:292 helpers/helper.php:307
+#: helpers/helper.php:322 helpers/helper.php:349 helpers/helper.php:364
+#: helpers/helper.php:379 helpers/helper.php:394 helpers/helper.php:421
+#: helpers/helper.php:436 helpers/helper.php:463 helpers/helper.php:490
+#: helpers/helper.php:517 helpers/helper.php:544 helpers/helper.php:576
+#: helpers/helper.php:608 helpers/helper.php:635 helpers/helper.php:662
+#: helpers/helper.php:677 helpers/helper.php:704 helpers/helper.php:719
+#: helpers/helper.php:734 helpers/helper.php:761 helpers/helper.php:776
+#: helpers/helper.php:791 helpers/helper.php:806 helpers/helper.php:821
+#: helpers/helper.php:836 helpers/helper.php:851 helpers/helper.php:866
+#: helpers/helper.php:881
+msgid "No"
+msgstr "לא"
+
+#: admin/class-plugnmeet-admin.php:360
+msgid "No id was sent"
+msgstr "לא נשלחה תעודה מזהה"
+
+#: helpers/ajaxHelper.php:174 helpers/ajaxHelper.php:328
+#: public/class-plugnmeet-public.php:286
+msgid "no room found"
+msgstr "לא נמצא חדר"
+
+#: helpers/helper.php:584
+msgid "Number of rooms"
+msgstr "מספר חדרים"
+
+#: admin/class-plugnmeet-settings-page.php:234
+msgid "Options"
+msgstr "אפשרויות"
+
+#: admin/partials/plugnmeet-admin-edit-room.php:48
+msgid "Other features"
+msgstr "תכונות אחרות"
+
+#: public/partials/parts/login-form.php:34
+msgid "Password"
+msgstr "סיסמה"
+
+#: helpers/ajaxHelper.php:279
+msgid "password didn't match"
+msgstr "הסיסמה לא תאמה"
+
+#: admin/partials/plugnmeet-admin-edit-room.php:67
+msgid "Permission"
+msgstr "הרשאה"
+
+#: public/partials/parts/recordings.php:216
+msgid "Play"
+msgstr "משחק"
+
+#: admin/class-plugnmeet-admin.php:107 admin/class-plugnmeet-admin.php:108
+msgid "Plug-N-Meet"
+msgstr "פלאג-N-Meet"
+
+#. Name of the plugin
+msgid "Plug-N-Meet web conference integration"
+msgstr "שילוב Plug-N-Meet עם שיחות ועידה באינטרנט"
+
+#. Description of the plugin
+msgid "Plug-N-Meet web conference integration with WordPress"
+msgstr "שילוב Plug-N-Meet לשיחות ועידה באינטרנט עם WordPress"
+
+#: admin/class-plugnmeet-settings-page.php:188
+msgid "plugNmeet API Key"
+msgstr "מפתח API של plugNmeet"
+
+#: admin/class-plugnmeet-settings-page.php:197
+msgid "plugNmeet Secret"
+msgstr "plugNmeet סוד"
+
+#: admin/class-plugnmeet-settings-page.php:179
+msgid "plugNmeet Server URL"
+msgstr "כתובת URL של שרת plugNmeet"
+
+#: public/partials/parts/recordings.php:36
+msgid "Pre"
+msgstr "קדם"
+
+#: admin/partials/plugnmeet-admin-display-rooms-pagination.php:44
+msgid "Previous page"
+msgstr "לעמוד הקודם"
+
+#: admin/class-plugnmeet-settings-page.php:371
+#: admin/partials/form-parts/design.php:30
+msgid "Primary Color"
+msgstr "צבע יסוד"
+
+#: admin/partials/plugnmeet-admin-display-rooms.php:65
+msgid "Published"
+msgstr "פורסם"
+
+#: admin/partials/plugnmeet-admin-display-recordings.php:36
+msgid "Record Id"
+msgstr "מזהה הקלטה"
+
+#: admin/partials/plugnmeet-admin-display-recordings.php:39
+#: public/partials/parts/recordings.php:27
+msgid "Recording date"
+msgstr "תאריך הקלטה"
+
+#: helpers/ajaxHelper.php:136
+msgid "Recording was deleted successfully"
+msgstr "ההקלטה נמחקה בהצלחה"
+
+#: admin/class-plugnmeet-admin.php:129 public/partials/parts/recordings.php:20
+msgid "Recordings"
+msgstr "הקלטות"
+
+#: admin/partials/form-parts/permission.php:110
+msgid "Require <br/> Password"
+msgstr "הכריח <br/> סיסמה"
+
+#: admin/partials/form-parts/design.php:94
+msgid "Right Bar Color"
+msgstr "צבע סרגל ימני"
+
+#: admin/class-plugnmeet-settings-page.php:434
+msgid "Right Color"
+msgstr "צבע נכון"
+
+#: admin/partials/form-parts/permission.php:107
+msgid "Role"
+msgstr "תפקיד"
+
+#: admin/partials/form-parts/basic.php:39
+msgid "Room description"
+msgstr "תיאור החדר"
+
+#: helpers/helper.php:250
+msgid "Room duration (In minutes, 0 = unlimited)"
+msgstr "משך החדר (בדקות, 0 = ללא הגבלה)"
+
+#: admin/partials/plugnmeet-admin-edit-room.php:41
+msgid "Room features"
+msgstr "תכונות החדר"
+
+#: admin/partials/form-parts/basic.php:23
+msgid "Room Id"
+msgstr "מזהה החדר"
+
+#: helpers/ajaxHelper.php:157 public/class-plugnmeet-public.php:115
+msgid "room Id is missing"
+msgstr "מזהה החדר חסר"
+
+#: helpers/ajaxHelper.php:39
+msgid "room id required"
+msgstr "נדרש מזהה חדר"
+
+#: helpers/ajaxHelper.php:177 helpers/ajaxHelper.php:332
+msgid "room not active"
+msgstr "חדר לא פעיל"
+
+#: helpers/helper.php:911
+msgid "Room Status"
+msgstr "סטטוס החדר"
+
+#: admin/partials/plugnmeet-admin-display-rooms.php:43
+#: admin/partials/form-parts/basic.php:34
+msgid "Room title"
+msgstr "כותרת החדר"
+
+#: public/partials/parts/login-form.php:37
+msgid "Room's Password"
+msgstr "סיסמת החדר"
+
+#: admin/class-plugnmeet-admin.php:119
+#: admin/partials/plugnmeet-admin-display-rooms.php:20
+msgid "Rooms"
+msgstr "חדרים"
+
+#: admin/class-plugnmeet-settings-page.php:281
+msgid "Screen Sharing Resolution"
+msgstr "רזולוציית שיתוף מסך"
+
+#: admin/partials/plugnmeet-admin-display-rooms.php:26
+#: admin/partials/plugnmeet-admin-display-rooms.php:32
+msgid "Search"
+msgstr "חיפוש"
+
+#: admin/class-plugnmeet-settings-page.php:380
+#: admin/partials/form-parts/design.php:37
+msgid "Secondary Color"
+msgstr "צבע משני"
+
+#: admin/partials/plugnmeet-admin-display-recordings.php:22
+msgid "Select room"
+msgstr "בחר חדר"
+
+#: admin/class-plugnmeet-settings-page.php:172
+msgid "Server Settings"
+msgstr "הגדרות שרת"
+
+#: admin/class-plugnmeet-settings-page.php:142
+msgid "Setting saved"
+msgstr "הגדרה שנשמרה"
+
+#: admin/class-plugnmeet-admin.php:138 admin/class-plugnmeet-admin.php:139
+msgid "Settings"
+msgstr "הגדרות"
+
+#: admin/partials/plugnmeet-admin-display-recordings.php:28
+msgid "Show recordings"
+msgstr "הצג הקלטות"
+
+#: admin/partials/form-parts/design.php:134
+msgid "Small"
+msgstr "קטן"
+
+#: admin/partials/plugnmeet-admin-display-rooms.php:50
+msgid "Status"
+msgstr "מצב"
+
+#: admin/class-plugnmeet-settings-page.php:314
+msgid "Stop mic track on mute"
+msgstr "עצור את מסלול המיקרופון בהשתקה"
+
+#: admin/partials/plugnmeet-admin-edit-room.php:24
+msgid "Submit"
+msgstr "שלח"
+
+#: admin/class-plugnmeet-admin.php:311
+msgid "Successfully saved room data"
+msgstr "נתוני חדרים שנשמרו בהצלחה"
+
+#: admin/class-plugnmeet-admin.php:341
+msgid "Successfully updated room data"
+msgstr "נתוני חדרים שעודכנו בהצלחה"
+
+#: helpers/ajaxHelper.php:213
+msgid "The meeting has not started yet, please come back later."
+msgstr "הפגישה עדיין לא התחילה, אנא חזור מאוחר יותר."
+
+#: helpers/ajaxHelper.php:24 helpers/ajaxHelper.php:64
+#: helpers/ajaxHelper.php:105 helpers/ajaxHelper.php:146
+#: admin/class-plugnmeet-admin.php:159 admin/class-plugnmeet-admin.php:236
+#: admin/class-plugnmeet-admin.php:352
+msgid "Token mismatched"
+msgstr "אסימון לא תואם"
+
+#: admin/partials/form-parts/design.php:109
+msgid "Top"
+msgstr "סביבון"
+
+#: admin/partials/plugnmeet-admin-display-rooms.php:65
+msgid "Unpublished"
+msgstr "לא פורסם"
+
+#: admin/class-plugnmeet-admin.php:205
+msgid "Unzip failed"
+msgstr "Unzip נכשל"
+
+#: admin/class-plugnmeet-settings-page.php:108
+msgid "Update"
+msgstr "עדכון"
+
+#: admin/class-plugnmeet-admin.php:203
+msgid "Updated client successfully"
+msgstr "לקוח מעודכן בהצלחה"
+
+#: admin/class-plugnmeet-settings-page.php:95
+#: admin/partials/form-parts/design.php:58
+#: admin/partials/form-parts/design.php:69
+msgid "Upload/Select image"
+msgstr "העלאה/בחירה של תמונה"
+
+#: admin/class-plugnmeet-settings-page.php:259
+msgid "Video Codec"
+msgstr "Codec וידאו"
+
+#: helpers/helper.php:552
+msgid "Waiting room message"
+msgstr "הודעה על חדר המתנה"
+
+#: admin/class-plugnmeet-settings-page.php:268
+msgid "Webcam Resolution"
+msgstr "רזולוציית מצלמת אינטרנט"
+
+#: admin/partials/form-parts/basic.php:53
+msgid "Welcome Message"
+msgstr "הודעת ברכה"
+
+#: helpers/helper.php:133 helpers/helper.php:148 helpers/helper.php:163
+#: helpers/helper.php:178 helpers/helper.php:193 helpers/helper.php:208
+#: helpers/helper.php:223 helpers/helper.php:238 helpers/helper.php:258
+#: helpers/helper.php:273 helpers/helper.php:288 helpers/helper.php:303
+#: helpers/helper.php:318 helpers/helper.php:345 helpers/helper.php:360
+#: helpers/helper.php:375 helpers/helper.php:390 helpers/helper.php:417
+#: helpers/helper.php:432 helpers/helper.php:459 helpers/helper.php:486
+#: helpers/helper.php:513 helpers/helper.php:540 helpers/helper.php:572
+#: helpers/helper.php:604 helpers/helper.php:631 helpers/helper.php:658
+#: helpers/helper.php:673 helpers/helper.php:700 helpers/helper.php:715
+#: helpers/helper.php:730 helpers/helper.php:757 helpers/helper.php:772
+#: helpers/helper.php:787 helpers/helper.php:802 helpers/helper.php:817
+#: helpers/helper.php:832 helpers/helper.php:847 helpers/helper.php:862
+#: helpers/helper.php:877
+msgid "Yes"
+msgstr "כן"
+
+#: helpers/ajaxHelper.php:269 helpers/ajaxHelper.php:320
+msgid "you don't have permission"
+msgstr "אין לך הרשאה"
+
+#: public/partials/parts/login-form.php:28
+msgid "Your full name"
+msgstr "שמך המלא"
+
