@@ -39,3 +39,4 @@ jobs:
           SOURCE_DIR: plugnmeet/
           ASSETS_DIR: assets
           SLUG: plugnmeet
+          VERSION: ${{ steps.release.outputs.tag_name }}
