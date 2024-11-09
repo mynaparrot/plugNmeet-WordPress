@@ -4,7 +4,7 @@ Donate link: https://www.plugnmeet.org/
 Tags: mynaparrot, web conference, plugnmeet
 Requires at least: 5.9
 Tested up to: 6.6.2
-Stable tag: 1.2.11
+Stable tag: 1.2.12
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -70,89 +70,5 @@ This plugin will require the [plugNmeet-server](https://github.com/mynaparrot/pl
 2. Shared notepad
 
 == Changelog ==
-= 1.2.10 =
-* bump SDK
-* option to set auto generate user id
-* option to configure copyright info
 
-= 1.2.9 =
-* bump SDK
-* option to encrypt chat & whiteboard data
-
-= 1.2.8 =
-* bump SDK
-
-= 1.2.7 =
-* bump SDK
-* feat: option to disable virtualBackgrounds & raiseHand
-
-= 1.2.6 =
-* bump SDK
-* feat: option to set audio preset, default: music e.g Bitrate 32000
-
-= 1.2.5 =
-* bump SDK
-* feat: added option to enable analytics
-
-= 1.2.4 =
-* feat: E2EE
-
-= 1.2.3 =
-* feat: Speech to text/translation
-
-= 1.2.1 =
-* ingress
-* moderator join first
-* camera position
-
-= 1.2.0 =
-* auto recording + playback recording
-* new permission setting
-
-= 1.1.0 =
-* Bump Plug-N-Meet PHP SDK to v1.1.0
-
-**Note:** Require plugNmeet-server [v1.2.2 ](https://github.com/mynaparrot/plugNmeet-server/releases/tag/v1.2.2) or later
-
-= 1.0.12 =
-* feat: load client from remote
-
-= 1.0.10 =
-* refact: frontend enhancement
-* Update client to v1.1.6
-
-= 1.0.9 =
-* feat: Display external link features
-* Update client to v1.1.5
-
-= 1.0.7 =
-* new server's compatibility
-* Feat: Breakout rooms + room duration
-* Feat: Polls & private chat
-
-= 1.0.6 =
-* new server's compatibility
-
-= 1.0.5 =
-* impl: new design customization
-
-= 1.0.4 =
-* impl: Lock settings for whiteboard & shared notepad
-* Can set video_codec
-* Can set resolution for webcam & share screen
-* Improvement in design customization
-
-= 1.0.3 =
-* Feat: Interface customization
-* But fixed & improvement
-
-= 1.0.2 =
-* Feat: Whiteboard & Shared notepad
-* But fixed & improvement
-
-= 1.0.1 =
-* But fixed & improvement
-
-= 1.0.0 =
-* Initial release
-
+https://github.com/mynaparrot/plugNmeet-WordPress/blob/main/CHANGELOG.md
