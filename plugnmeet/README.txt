@@ -73,4 +73,4 @@ This plugin will require the [plugNmeet-server](https://github.com/mynaparrot/pl
 
 == Changelog ==
 
-https://github.com/mynaparrot/plugNmeet-WordPress/blob/main/CHANGELOG.md
+[CHANGELOG.md](https://github.com/mynaparrot/plugNmeet-WordPress/blob/main/CHANGELOG.md)
