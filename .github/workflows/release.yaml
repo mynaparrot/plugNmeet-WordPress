@@ -25,6 +25,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          sed -i '/\# x-release-please-start-version/d' plugnmeet/README.txt
+          sed -i '/\# x-release-please-end/d' plugnmeet/README.txt
           mkdir -p build
           rsync -ar plugnmeet build/
           cd build

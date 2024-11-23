@@ -3,6 +3,8 @@
 !/.github/
 !README.md
 !LICENSE
+!release-please-config.json
+!.release-please-manifest.json
 !/assets/
 !/plugnmeet/
 .DS_Store
