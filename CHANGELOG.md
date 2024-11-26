@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.13](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v1.2.12...v1.2.13) (2024-11-23)
+
+
+### Bug Fixes
+
+* **ci:** small fix ([eca922c](https://github.com/mynaparrot/plugNmeet-WordPress/commit/eca922ccde3f55bf2ae72ae9288284a6e774943a))
+* **ci:** small fix ([2583b8a](https://github.com/mynaparrot/plugNmeet-WordPress/commit/2583b8a08679cb1485b61d3ac82bdae93b431c2b))
+* **doc:** update link ([32ae30f](https://github.com/mynaparrot/plugNmeet-WordPress/commit/32ae30f92e6958ac66b1e532b27545ce70b5d5cc))
+
 ## [1.2.12](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v1.2.11...v1.2.12) (2024-11-09)
 
 
