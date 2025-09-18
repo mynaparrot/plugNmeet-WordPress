@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.14](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v1.2.13...v1.2.14) (2025-09-18)
+
+
+### Bug Fixes
+
+* update doc and preparing for new version ([3f11132](https://github.com/mynaparrot/plugNmeet-WordPress/commit/3f111323a319ff2ceeb9c44608a2a8ec2e4f5bb8))
+
 ## [1.2.13](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v1.2.12...v1.2.13) (2024-11-23)
 
 

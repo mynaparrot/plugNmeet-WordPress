@@ -5,7 +5,7 @@ Tags: video conference, webinar, online meeting, virtual classroom, video chat, 
 Requires at least: 5.9
 Tested up to: 6.8.2
 # x-release-please-start-version
-Stable tag: 1.2.13
+Stable tag: 1.2.14
 # x-release-please-end
 Requires PHP: 7.4
 License: GPLv2 or later
