@@ -26,6 +26,8 @@ This plugin connects your WordPress site to a plugNmeet server. As a free and op
 1.  **Self-Host:** Create your own server for maximum control and privacy by following the [official installation instructions](https://www.plugnmeet.org/docs/installation).
 2.  **Use the Cloud:** Get started in minutes with a ready-to-use [plugNmeet cloud subscription](https://www.plugnmeet.cloud).
 
+**Note:** The plugin includes pre-configured demo credentials to help you test its features immediately. This demo server is a shared resource and is **not intended for production use** as it can be unreliable. For any important meetings, we strongly recommend using one of the options above to ensure a stable and professional experience for you and your users.
+
 ---
 
 ### Powerful Features for Your Website
