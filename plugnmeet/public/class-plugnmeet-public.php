@@ -91,6 +91,16 @@ class Plugnmeet_Public {
 	}
 
 	public function start_session() {
+		// Don't start a session for WP-CLI or REST API requests.
+		if ( ( defined( 'WP_CLI' ) && WP_CLI ) || defined( 'REST_REQUEST' ) ) {
+			return;
+		}
+
+		// Don't start a session on "true" admin pages, but DO allow it for AJAX requests.
+		if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
+			return;
+		}
+
 		if ( ! session_id() ) {
 			session_start();
 		}
@@ -231,42 +241,28 @@ class Plugnmeet_Public {
 	 */
 	public function plugnmeet_shortcode_room_view( $atts, $content = null, $tag = "" ) {
 
-		/**
-		 * Combine user attributes with known attributes.
-		 *
-		 * @see https://developer.wordpress.org/reference/functions/shortcode_atts/
-		 *
-		 * Pass third paramter $shortcode to enable ShortCode Attribute Filtering.
-		 * @see https://developer.wordpress.org/reference/hooks/shortcode_atts_shortcode/
-		 */
-
 		$atts = shortcode_atts(
 			array(
-				'id' => 1,
+				'id' => 0, // Default to 0 to better handle cases where no ID is provided.
 			),
 			$atts,
 			$this->plugin_prefix . 'room_view'
 		);
 
-		/**
-		 * Build our ShortCode output.
-		 * Remember to sanitize all user input.
-		 * In this case, we expect a integer value to be passed to the ShortCode attribute.
-		 *
-		 * @see https://developer.wordpress.org/themes/theme-security/data-sanitization-escaping/
-		 */
 		$id = intval( $atts['id'] );
 
 		/**
-		 * If the shortcode is enclosing, we may want to do something with $content
+		 * If the shortcode is enclosing, the content will be used as the ID,
+		 * overriding the 'id' attribute.
+		 * e.g. [plugnmeet_room_view]123[/plugnmeet_room_view]
 		 */
 		if ( ! empty( $content ) ) {
-			$id = do_shortcode( $content );// We can parse shortcodes inside $content.
-			$id = intval( $atts['id'] ) . ' ' . sanitize_text_field( $id );// Remember to sanitize your user input.
+			$id = intval( do_shortcode( $content ) );
 		}
 
 		if ( ! $id ) {
-			return null;
+			// If no ID is provided via attribute or content, there's nothing to show.
+			return __( 'Room ID not provided for the shortcode.', 'plugnmeet' );
 		}
 
 		// ShortCodes are filters and should always return, never echo.
