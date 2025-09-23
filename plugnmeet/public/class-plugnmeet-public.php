@@ -92,12 +92,12 @@ class Plugnmeet_Public {
 
 	public function start_session() {
 		// Don't start a session for WP-CLI or REST API requests.
-		if ( ( defined( 'WP_CLI' ) && WP_CLI ) || defined( 'REST_REQUEST' ) ) {
+		if ( ( defined( 'WP_CLI' ) && WP_CLI ) || wp_is_serving_rest_request() ) {
 			return;
 		}
 
 		// Don't start a session on "true" admin pages, but DO allow it for AJAX requests.
-		if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
+		if ( is_admin() && ! wp_doing_ajax() ) {
 			return;
 		}
 
