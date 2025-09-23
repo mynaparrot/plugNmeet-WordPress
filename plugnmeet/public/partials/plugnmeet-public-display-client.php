@@ -115,6 +115,7 @@ add_filter( 'script_loader_tag', 'pnm_script_loader_tag_filter', 10, 2 );
     <meta charset="<?php bloginfo( 'charset' ); ?>"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>plugNmeet</title>
     <?php wp_head(); ?>
     <?php wp_print_inline_script_tag( $jsOptions ); ?>
 </head>
