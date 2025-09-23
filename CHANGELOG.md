@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.15](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v1.2.14...v1.2.15) (2025-09-23)
+
+
+### Bug Fixes
+
+* aggressively overwrite the entire script and style queue ([467e1f3](https://github.com/mynaparrot/plugNmeet-WordPress/commit/467e1f3377be8fc04d6758161c3f4f4bd4379ba5))
+* before session starting do more checking ([f0602e0](https://github.com/mynaparrot/plugNmeet-WordPress/commit/f0602e0d28a824c0c645093cb80d2d462d738a0d))
+* cleanup ([5f46cb1](https://github.com/mynaparrot/plugNmeet-WordPress/commit/5f46cb17be939a12e04e09282d878405a79cc57c))
+* mentioned regarding demo server ([7d5a3ee](https://github.com/mynaparrot/plugNmeet-WordPress/commit/7d5a3eed16ccfe340711deddd1fc3f25503ed824))
+
 ## [1.2.14](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v1.2.13...v1.2.14) (2025-09-18)
 
 
