@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.16](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v1.2.15...v1.2.16) (2025-09-23)
+
+
+### Bug Fixes
+
+* better use methods directly ([c9c9f09](https://github.com/mynaparrot/plugNmeet-WordPress/commit/c9c9f0953cd4503095bf785b519941f8dd437f0d))
+
 ## [1.2.15](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v1.2.14...v1.2.15) (2025-09-23)
 
 
