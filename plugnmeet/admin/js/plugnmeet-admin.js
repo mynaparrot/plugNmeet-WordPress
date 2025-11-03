@@ -3,7 +3,7 @@
 
     $(document).on("click", ".upload_media_button", (e) => {
         e.preventDefault();
-        const attachedTo = $(e.currentTarget).attr('data-attached-to');
+        const attachedTo = String($(e.currentTarget).data('attached-to'));
 
         //Extend the wp.media object
         const custom_uploader = wp.media.frames.file_frame = wp.media({
@@ -16,7 +16,11 @@
         //When a file is selected, grab the URL and set it as the text field's value
         custom_uploader.on('select', function () {
             const attachment = custom_uploader.state().get('selection').first().toJSON();
-            $(`#${attachedTo}`).val(attachment.url);
+            const targetInput = $(`#${attachedTo}`);
+
+            if (targetInput.length) {
+                targetInput.val(attachment.url);
+            }
         });
         //Open the uploader dialog
         custom_uploader.open();

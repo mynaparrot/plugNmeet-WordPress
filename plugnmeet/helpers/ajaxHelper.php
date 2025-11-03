@@ -279,6 +279,42 @@ class PlugNmeetAjaxHelper {
 		wp_send_json( $output );
 	}
 
+	private function get_user_role_for_room( $roomId ) {
+		global $wpdb;
+		$output         = new stdClass();
+		$output->status = false;
+		$output->role   = null;
+		$output->msg    = __( "you don't have permission", 'plugnmeet' );
+
+		$roomInfo = $wpdb->get_row( $wpdb->prepare(
+			"SELECT * FROM " . $wpdb->prefix . "plugnmeet_rooms WHERE room_id = %s",
+			$roomId
+		) );
+
+		if ( ! $roomInfo ) {
+			$output->msg = __( "no room found", 'plugnmeet' );
+
+			return $output;
+		} elseif ( $roomInfo->published !== "1" ) {
+			$output->msg = __( "room not active", 'plugnmeet' );
+
+			return $output;
+		}
+
+		if ( ! empty( $roomInfo->roles ) ) {
+			$user     = wp_get_current_user();
+			$roles    = json_decode( $roomInfo->roles, true );
+			$userRole = ( $user->ID ) ? $user->roles[0] : 'guest';
+
+			if ( isset( $roles[ $userRole ] ) ) {
+				$output->status = true;
+				$output->role   = $roles[ $userRole ];
+			}
+		}
+
+		return $output;
+	}
+
 	private function determineUserType( $roomInfo, $password ) {
 		$output          = new stdClass();
 		$output->status  = false;
@@ -299,76 +335,34 @@ class PlugNmeetAjaxHelper {
 			return $output;
 		}
 
-		if ( ! empty( $roomInfo->roles ) ) {
-			$user  = wp_get_current_user();
-			$roles = json_decode( $roomInfo->roles, true );
+		$roleInfo = $this->get_user_role_for_room( $roomInfo->room_id );
+		if ( ! $roleInfo->status || ! $roleInfo->role ) {
+			return $output; // No role found, permission denied
+		}
 
-			if ( $user->ID ) {
-				$userRole = $user->roles[0]; // at present let's consider the first one only
-			} else {
-				$userRole = 'guest';
-			}
+		$role = $roleInfo->role;
+		if ( isset( $role['require_password'] ) && $role['require_password'] === "on" ) {
+			return $output; // Password is required but not provided
+		}
 
-			if ( ! isset( $roles[ $userRole ] ) ) {
-				return $output;
-			}
-
-			$role = $roles[ $userRole ];
-			if ( isset( $role['require_password'] ) && $role['require_password'] === "on" ) {
-				return $output;
-			}
-
-			if ( $role['join_as'] === "moderator" ) {
-				$output->status  = true;
-				$output->isAdmin = true;
-			} else {
-				$output->status  = true;
-				$output->isAdmin = false;
-			}
+		$output->status = true;
+		if ( $role['join_as'] === "moderator" ) {
+			$output->isAdmin = true;
+		} else {
+			$output->isAdmin = false;
 		}
 
 		return $output;
 	}
 
 	private function canAccess( $roomId, $checkFor ) {
-		global $wpdb;
+		$roleInfo       = $this->get_user_role_for_room( $roomId );
 		$output         = new stdClass();
-		$output->status = false;
-		$output->msg    = __( "you don't have permission", 'plugnmeet' );
+		$output->status = $roleInfo->status && isset( $roleInfo->role[ $checkFor ] ) && $roleInfo->role[ $checkFor ] === "on";
+		$output->msg    = $roleInfo->msg;
 
-		$roomInfo = $wpdb->get_row( $wpdb->prepare(
-			"SELECT * FROM " . $wpdb->prefix . "plugnmeet_rooms WHERE room_id = %s",
-			$roomId
-		) );
-
-		if ( ! $roomInfo ) {
-			$output->msg = __( "no room found", 'plugnmeet' );
-
-			return $output;
-		} elseif ( $roomInfo->published !== "1" ) {
-			$output->msg = __( "room not active", 'plugnmeet' );
-
-			return $output;
-		}
-
-		if ( ! empty( $roomInfo->roles ) ) {
-			$user  = wp_get_current_user();
-			$roles = json_decode( $roomInfo->roles, true );
-
-			if ( $user->ID ) {
-				$userRole = $user->roles[0]; // at present let's consider the first one only
-			} else {
-				$userRole = 'guest';
-			}
-
-			if ( ! isset( $roles[ $userRole ] ) ) {
-				return $output;
-			}
-
-			$role = $roles[ $userRole ];
-			if ( isset( $role[ $checkFor ] ) && $role[ $checkFor ] === "on" ) {
-				$output->status = true;
-			}
+		if ( current_user_can( 'manage_options' ) ) {
+			$output->status = true;
 		}
 
 		return $output;

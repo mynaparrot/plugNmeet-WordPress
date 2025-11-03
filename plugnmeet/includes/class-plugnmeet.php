@@ -85,6 +85,7 @@ class Plugnmeet {
         $this->set_locale();
         $this->define_admin_hooks();
         $this->define_public_hooks();
+        $this->define_ajax_hooks();
         $this->version_update_checker();
     }
 
@@ -175,12 +176,6 @@ class Plugnmeet {
 
         $this->loader->add_action('wp_ajax_plugnmeet_save_room_data', $plugin_admin, 'save_room_data');
         $this->loader->add_action('wp_ajax_plugnmeet_delete_room', $plugin_admin, 'delete_room');
-
-        $ajaxHelper = new PlugNmeetAjaxHelper();
-
-        $this->loader->add_action('wp_ajax_plugnmeet_get_recordings', $ajaxHelper, 'get_recordings');
-        $this->loader->add_action('wp_ajax_plugnmeet_download_recording', $ajaxHelper, 'download_recording');
-        $this->loader->add_action('wp_ajax_plugnmeet_delete_recording', $ajaxHelper, 'delete_recording');
     }
 
     /**
@@ -207,12 +202,29 @@ class Plugnmeet {
         // Shortcode name must be the same as in shortcode_atts() third parameter.
         $this->loader->add_shortcode($this->get_plugin_prefix() . 'room_view', $plugin_public, 'plugnmeet_shortcode_room_view');
 
-        $ajaxHelper = new PlugNmeetAjaxHelper();
-        $this->loader->add_action('wp_ajax_nopriv_plugnmeet_login_to_room', $ajaxHelper, 'login_to_room');
-        $this->loader->add_action('wp_ajax_nopriv_plugnmeet_get_recordings', $ajaxHelper, 'get_recordings');
-        $this->loader->add_action('wp_ajax_nopriv_plugnmeet_download_recording', $ajaxHelper, 'download_recording');
+    }
 
+    /**
+     * Register all of the hooks related to AJAX functionality
+     * of the plugin.
+     *
+     * @since    1.0.0
+     * @access   private
+     */
+    private function define_ajax_hooks() {
+        $ajaxHelper = new PlugNmeetAjaxHelper();
+
+        // For both logged-in and non-logged-in users
+        $this->loader->add_action('wp_ajax_nopriv_plugnmeet_login_to_room', $ajaxHelper, 'login_to_room');
         $this->loader->add_action('wp_ajax_plugnmeet_login_to_room', $ajaxHelper, 'login_to_room');
+
+        $this->loader->add_action('wp_ajax_nopriv_plugnmeet_get_recordings', $ajaxHelper, 'get_recordings');
+        $this->loader->add_action('wp_ajax_plugnmeet_get_recordings', $ajaxHelper, 'get_recordings');
+
+        $this->loader->add_action('wp_ajax_nopriv_plugnmeet_download_recording', $ajaxHelper, 'download_recording');
+        $this->loader->add_action('wp_ajax_plugnmeet_download_recording', $ajaxHelper, 'download_recording');
+
+        $this->loader->add_action('wp_ajax_plugnmeet_delete_recording', $ajaxHelper, 'delete_recording');
     }
 
     /**

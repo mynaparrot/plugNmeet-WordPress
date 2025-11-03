@@ -254,12 +254,14 @@ class Plugnmeet_Admin {
 		$welcome_message  = isset( $_POST['welcome_message'] ) ? sanitize_textarea_field( $_POST['welcome_message'] ) : "";
 		$max_participants = isset( $_POST['max_participants'] ) ? sanitize_text_field( $_POST['max_participants'] ) : 0;
 		$published        = isset( $_POST['published'] ) ? sanitize_text_field( $_POST['published'] ) : 1;
-		$roles            = isset( $_POST['roles'] ) ? $_POST['roles'] : array();
+		$raw_roles        = $_POST['roles'] ?? array();
+		$roles            = is_array( $_POST['roles'] ) ? $this->sanitize_array_fields( $raw_roles ) : array();
 
 		$room_metadata = [];
 		foreach ( PlugnmeetHelper::$roomMetadataItems as $item ) {
 			if ( isset( $_POST[ $item ] ) ) {
-				$room_metadata[ $item ] = $_POST[ $item ];
+				$raw_meta               = $_POST[ $item ];
+				$room_metadata[ $item ] = is_array( $raw_meta ) ? $this->sanitize_array_fields( $raw_meta ) : sanitize_text_field( $raw_meta );
 			} else {
 				$room_metadata[ $item ] = [];
 			}
@@ -375,5 +377,26 @@ class Plugnmeet_Admin {
 		}
 
 		wp_send_json( $output );
+	}
+
+	/**
+	 * Recursively sanitize array fields.
+	 *
+	 * @param array $array The array to sanitize.
+	 *
+	 * @return array The sanitized array.
+	 */
+	private function sanitize_array_fields( $array ) {
+		$sanitized_array = [];
+		foreach ( $array as $key => $value ) {
+			$key = sanitize_key( $key );
+			if ( is_array( $value ) ) {
+				$sanitized_array[ $key ] = $this->sanitize_array_fields( $value );
+			} else {
+				$sanitized_array[ $key ] = sanitize_text_field( wp_unslash( $value ) );
+			}
+		}
+
+		return $sanitized_array;
 	}
 }
