@@ -24,8 +24,9 @@ class PlugnmeetHelper {
 		'breakout_room_features',
 		'display_external_link_features',
 		'ingress_features',
-		'speech_to_text_translation_features',
 		'end_to_end_encryption_features',
+		'insights_features',
+		'polls_features',
 		'default_lock_settings',
 		'custom_design'
 	];
@@ -61,7 +62,8 @@ class PlugnmeetHelper {
 		),
 		'td'       => array(
 			'scope' => array()
-		)
+		),
+		'hr'       => array(),
 	);
 
 	public static function secureRandomKey( int $length = 36 ): string {
@@ -75,50 +77,61 @@ class PlugnmeetHelper {
 		return implode( '', $pieces );
 	}
 
-	private static function formatHtml( $items, $fieldName, $data ) {
+	private static function formatHtml( $items, $fieldName, $data, $isRecursiveCall = false ) {
 		$html = "";
 		foreach ( $items as $key => $item ) {
-			if ( $item["type"] === "select" ) {
-				$html .= '<tr>';
-				$html .= '<th scope="row">' . $item['label'] . '</th>';
-				$html .= '<td>';
-				$html .= "<select name=\"{$fieldName}[{$key}]\" class=\"list_class\">";
+			if ( is_array( $item ) && ! isset( $item['type'] ) ) {
+				$newFieldName = $fieldName . '[' . $key . ']';
+				$newData      = isset( $data[ $key ] ) ? $data[ $key ] : [];
+				$html         .= "<tr><td><hr/></td></tr>";
+				$html         .= self::formatHtml( $item, $newFieldName, $newData, true );
+			} elseif ( isset( $item['type'] ) ) {
+				if ( $item["type"] === "select" ) {
+					$html .= '<tr>';
+					$html .= '<th scope="row">' . $item['label'] . '</th>';
+					$html .= '<td>';
+					$html .= "<select name=\"{$fieldName}[{$key}]\" class=\"list_class\">";
 
-				$value = $item["selected"];
-				if ( isset( $data[ $key ] ) ) {
-					$value = $data[ $key ];
-				}
-
-				foreach ( $item["options"] as $option ) {
-					$selected = "";
-					if ( $option['value'] == $value ) {
-						$selected = "selected";
+					$value = $item["selected"];
+					if ( isset( $data[ $key ] ) ) {
+						$value = $data[ $key ];
 					}
-					$html .= '<option value="' . esc_attr( $option['value'] ) . '" ' . $selected . '>' . esc_attr( $option['label'] ) . '</option>';
-				}
 
-				$html .= '</select></td></tr>';
-			} elseif ( $item["type"] === "text" || $item["type"] === "number" ) {
-				$value = $item["default"];
-				if ( isset( $data[ $key ] ) ) {
-					$value = $data[ $key ];
+					foreach ( $item["options"] as $option ) {
+						$selected = "";
+						if ( $option['value'] == $value ) {
+							$selected = "selected";
+						}
+						$html .= '<option value="' . esc_attr( $option['value'] ) . '" ' . $selected . '>' . esc_attr( $option['label'] ) . '</option>';
+					}
+
+					$html .= '</select></td></tr>';
+				} elseif ( $item["type"] === "text" || $item["type"] === "number" ) {
+					$value = $item["default"];
+					if ( isset( $data[ $key ] ) ) {
+						$value = $data[ $key ];
+					}
+					$html .= '<tr>';
+					$html .= '<th scope="row">' . esc_attr( $item['label'] ) . '</th>';
+					$html .= '<td>';
+					$html .= '<input type="' . esc_attr( $item["type"] ) . '" name="' . $fieldName . '[' . esc_attr( $key ) . ']" value="' . esc_attr( $value ) . '"   autocomplete="off">';
+					$html .= '</td></tr>';
+				} elseif ( $item["type"] === "textarea" ) {
+					$value = $item["default"];
+					if ( isset( $data[ $key ] ) ) {
+						$value = $data[ $key ];
+					}
+					$html .= '<tr>';
+					$html .= '<th scope="row">' . esc_attr( $item['label'] ) . '</th>';
+					$html .= '<td>';
+					$html .= '<textarea name="' . esc_attr( $fieldName ) . '[' . esc_attr( $key ) . ']">' . esc_attr( $value ) . '</textarea>';
+					$html .= '</td></tr>';
 				}
-				$html .= '<tr>';
-				$html .= '<th scope="row">' . esc_attr( $item['label'] ) . '</th>';
-				$html .= '<td>';
-				$html .= '<input type="' . esc_attr( $item["type"] ) . '" name="' . $fieldName . '[' . esc_attr( $key ) . ']" value="' . esc_attr( $value ) . '"   autocomplete="off">';
-				$html .= '</td></tr>';
-			} elseif ( $item["type"] === "textarea" ) {
-				$value = $item["default"];
-				if ( isset( $data[ $key ] ) ) {
-					$value = $data[ $key ];
-				}
-				$html .= '<tr>';
-				$html .= '<th scope="row">' . esc_attr( $item['label'] ) . '</th>';
-				$html .= '<td>';
-				$html .= '<textarea name="' . esc_attr( $fieldName ) . '[' . esc_attr( $key ) . ']">' . esc_attr( $value ) . '</textarea>';
-				$html .= '</td></tr>';
 			}
+		}
+
+		if ( $isRecursiveCall ) {
+			return $html;
 		}
 
 		return wp_kses( $html, self::$allowedHtml );
@@ -229,21 +242,6 @@ class PlugnmeetHelper {
 					)
 				),
 				"selected" => 0,
-				"type"     => "select"
-			),
-			"allow_polls"                 => array(
-				"label"    => __( "Allow polls", "plugnmeet" ),
-				"options"  => array(
-					array(
-						"label" => __( "Yes", "plugnmeet" ),
-						"value" => 1
-					),
-					array(
-						"label" => __( "No", "plugnmeet" ),
-						"value" => 0
-					)
-				),
-				"selected" => 1,
 				"type"     => "select"
 			),
 			"room_duration"               => array(
@@ -410,7 +408,7 @@ class PlugnmeetHelper {
 
 	public static function getChatFeatures( $chat_features ) {
 		$chatFeatures = array(
-			"allow_chat"        => array(
+			"is_allow"             => array(
 				"label"    => __( "Allow chat", "plugnmeet" ),
 				"options"  => array(
 					array(
@@ -425,7 +423,7 @@ class PlugnmeetHelper {
 				"selected" => 1,
 				"type"     => "select"
 			),
-			"allow_file_upload" => array(
+			"is_allow_file_upload" => array(
 				"label"    => __( "Allow file upload", "plugnmeet" ),
 				"options"  => array(
 					array(
@@ -452,7 +450,7 @@ class PlugnmeetHelper {
 
 	public static function getSharedNotePadFeatures( $sharedNotePad_features ) {
 		$sharedNotePadFeatures = array(
-			"allowed_shared_note_pad" => array(
+			"is_allow" => array(
 				"label"    => __( "Allow shared notepad", "plugnmeet" ),
 				"options"  => array(
 					array(
@@ -479,7 +477,7 @@ class PlugnmeetHelper {
 
 	public static function getWhiteboardFeatures( $whiteboard_features ) {
 		$whiteboardFeatures = array(
-			"allowed_whiteboard" => array(
+			"is_allow" => array(
 				"label"    => __( "Allow whiteboard", "plugnmeet" ),
 				"options"  => array(
 					array(
@@ -506,7 +504,7 @@ class PlugnmeetHelper {
 
 	public static function getExternalMediaPlayerFeatures( $external_media_player_features ) {
 		$externalMediaPlayerFeatures = array(
-			"allowed_external_media_player" => array(
+			"is_allow" => array(
 				"label"    => __( "Allow external media player", "plugnmeet" ),
 				"options"  => array(
 					array(
@@ -649,25 +647,10 @@ class PlugnmeetHelper {
 		return self::formatHtml( $ingressFeatures, "ingress_features", $data );
 	}
 
-	public static function getSpeechToTextTranslationFeatures( $speech_features ) {
-		$speechFeatures = array(
-			"is_allow"             => array(
-				"label"    => __( "Allow speech to text/translation feature", "plugnmeet" ),
-				"options"  => array(
-					array(
-						"label" => __( "Yes", "plugnmeet" ),
-						"value" => 1
-					),
-					array(
-						"label" => __( "No", "plugnmeet" ),
-						"value" => 0
-					)
-				),
-				"selected" => 1,
-				"type"     => "select"
-			),
-			"is_allow_translation" => array(
-				"label"    => __( "Allow translation", "plugnmeet" ),
+	public static function getPollsFeatures( $polls_features ) {
+		$pollsFeatures = array(
+			"is_allow" => array(
+				"label"    => __( "Allow polls", "plugnmeet" ),
 				"options"  => array(
 					array(
 						"label" => __( "Yes", "plugnmeet" ),
@@ -684,16 +667,16 @@ class PlugnmeetHelper {
 		);
 
 		$data = [];
-		if ( ! empty( $speech_features ) ) {
-			$data = $speech_features;
+		if ( ! empty( $polls_features ) ) {
+			$data = $polls_features;
 		}
 
-		return self::formatHtml( $speechFeatures, "speech_to_text_translation_features", $data );
+		return self::formatHtml( $pollsFeatures, "polls_features", $data );
 	}
 
 	public static function getEndToEndEncryptionFeatures( $e2ee_features ) {
 		$e2eeFeatures = array(
-			"is_enabled"             => array(
+			"is_enabled"                         => array(
 				"label"    => __( "Enable End-To-End Encryption (E2EE)", "plugnmeet" ),
 				"options"  => array(
 					array(
@@ -708,7 +691,22 @@ class PlugnmeetHelper {
 				"selected" => 0,
 				"type"     => "select"
 			),
-			"included_chat_messages" => array(
+			"enabled_self_insert_encryption_key" => array(
+				"label"    => __( "Enable self insert key", "plugnmeet" ),
+				"options"  => array(
+					array(
+						"label" => __( "Yes", "plugnmeet" ),
+						"value" => 1
+					),
+					array(
+						"label" => __( "No", "plugnmeet" ),
+						"value" => 0
+					)
+				),
+				"selected" => 0,
+				"type"     => "select"
+			),
+			"included_chat_messages"             => array(
 				"label"    => __( "Enable encryption for chat", "plugnmeet" ),
 				"options"  => array(
 					array(
@@ -723,7 +721,7 @@ class PlugnmeetHelper {
 				"selected" => 0,
 				"type"     => "select"
 			),
-			"included_whiteboard"    => array(
+			"included_whiteboard"                => array(
 				"label"    => __( "Enable encryption for whiteboard", "plugnmeet" ),
 				"options"  => array(
 					array(
@@ -746,6 +744,148 @@ class PlugnmeetHelper {
 		}
 
 		return self::formatHtml( $e2eeFeatures, "end_to_end_encryption_features", $data );
+	}
+
+	public static function getInsightsFeatures( $insights_features ) {
+		$insightsFeatures = array(
+			"is_allow"                  => array(
+				"label"    => __( "Enable insights features", "plugnmeet" ),
+				"options"  => array(
+					array(
+						"label" => __( "Yes", "plugnmeet" ),
+						"value" => 1
+					),
+					array(
+						"label" => __( "No", "plugnmeet" ),
+						"value" => 0
+					)
+				),
+				"selected" => 0,
+				"type"     => "select"
+			),
+			"transcription_features"    => array(
+				"is_allow"                  => array(
+					"label"    => __( "Allow transcription", "plugnmeet" ),
+					"options"  => array(
+						array(
+							"label" => __( "Yes", "plugnmeet" ),
+							"value" => 1
+						),
+						array(
+							"label" => __( "No", "plugnmeet" ),
+							"value" => 0
+						)
+					),
+					"selected" => 0,
+					"type"     => "select"
+				),
+				"is_allow_translation"      => array(
+					"label"    => __( "Allow translation feature", "plugnmeet" ),
+					"options"  => array(
+						array(
+							"label" => __( "Yes", "plugnmeet" ),
+							"value" => 1
+						),
+						array(
+							"label" => __( "No", "plugnmeet" ),
+							"value" => 0
+						)
+					),
+					"selected" => 0,
+					"type"     => "select"
+				),
+				"is_allow_speech_synthesis" => array(
+					"label"    => __( "Allow speech synthesis", "plugnmeet" ),
+					"options"  => array(
+						array(
+							"label" => __( "Yes", "plugnmeet" ),
+							"value" => 1
+						),
+						array(
+							"label" => __( "No", "plugnmeet" ),
+							"value" => 0
+						)
+					),
+					"selected" => 0,
+					"type"     => "select"
+				),
+			),
+			"chat_translation_features" => array(
+				"is_allow" => array(
+					"label"    => __( "Allow chat translation", "plugnmeet" ),
+					"options"  => array(
+						array(
+							"label" => __( "Yes", "plugnmeet" ),
+							"value" => 1
+						),
+						array(
+							"label" => __( "No", "plugnmeet" ),
+							"value" => 0
+						)
+					),
+					"selected" => 0,
+					"type"     => "select"
+				),
+			),
+			"ai_features"               => array(
+				"is_allow"                       => array(
+					"label"    => __( "Enable AI features", "plugnmeet" ),
+					"options"  => array(
+						array(
+							"label" => __( "Yes", "plugnmeet" ),
+							"value" => 1
+						),
+						array(
+							"label" => __( "No", "plugnmeet" ),
+							"value" => 0
+						)
+					),
+					"selected" => 0,
+					"type"     => "select"
+				),
+				"ai_text_chat_features"          => array(
+					"is_allow" => array(
+						"label"    => __( "Allow AI text chat", "plugnmeet" ),
+						"options"  => array(
+							array(
+								"label" => __( "Yes", "plugnmeet" ),
+								"value" => 1
+							),
+							array(
+								"label" => __( "No", "plugnmeet" ),
+								"value" => 0
+							)
+						),
+						"selected" => 0,
+						"type"     => "select"
+					),
+				),
+				"meeting_summarization_features" => array(
+					"is_allow" => array(
+						"label"    => __( "Allow meeting summarization", "plugnmeet" ),
+						"options"  => array(
+							array(
+								"label" => __( "Yes", "plugnmeet" ),
+								"value" => 1
+							),
+							array(
+								"label" => __( "No", "plugnmeet" ),
+								"value" => 0
+							)
+						),
+						"selected" => 0,
+						"type"     => "select"
+					),
+				)
+			)
+		);
+
+		$data = [];
+		if ( ! empty( $insights_features ) ) {
+			$data = $insights_features;
+		}
+
+		return self::formatHtml( $insightsFeatures, "insights_features", $data );
 	}
 
 	public static function getDefaultLockSettings( $default_lock_settings ) {

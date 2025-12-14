@@ -49,12 +49,13 @@ class PlugNmeetAjaxHelper {
 		$options = $this->setting_params;
 		$connect = new plugNmeetConnect( $options );
 		$roomIds = array( $roomId );
-		$res     = $connect->getRecordings( $roomIds, $from, $limit, $orderBy );
+		$res     = $connect->getRecordings( $roomIds, null, (int) $from, (int) $limit, $orderBy );
 
 		$output->status = $res->getStatus();
-		$output->msg    = $res->getResponseMsg();
-		$output->result = $res->getRawResponse()->result;
-
+		$output->msg    = $res->getMsg();
+		if ( $res->getStatus() ) {
+			$output->result = $res->getResult()->serializeToJsonString();
+		}
 		wp_send_json( $output );
 	}
 
@@ -90,7 +91,7 @@ class PlugNmeetAjaxHelper {
 		$connect        = new plugNmeetConnect( $params );
 		$res            = $connect->getRecordingDownloadLink( $recordingId );
 		$output->status = $res->getStatus();
-		$output->msg    = $res->getResponseMsg();
+		$output->msg    = $res->getMsg();
 
 		if ( $res->getStatus() && $res->getToken() ) {
 			$output->url = $params->plugnmeet_server_url . "/download/recording/" . $res->getToken();
@@ -130,7 +131,7 @@ class PlugNmeetAjaxHelper {
 		$connect        = new plugNmeetConnect( $params );
 		$res            = $connect->deleteRecording( $recordingId );
 		$output->status = $res->getStatus();
-		$output->msg    = $res->getResponseMsg();
+		$output->msg    = $res->getMsg();
 
 		if ( $output->status ) {
 			$output->msg = __( "Recording was deleted successfully", 'plugnmeet' );
@@ -213,11 +214,11 @@ class PlugNmeetAjaxHelper {
 		try {
 			$res = $connect->isRoomActive( $roomInfo->room_id );
 			if ( ! $res->getStatus() ) {
-				$output->msg = $res->getResponseMsg();
+				$output->msg = $res->getMsg();
 				wp_send_json( $output );
 			}
-			$isRoomActive = $res->isActive();
-			$output->msg  = $res->getResponseMsg();
+			$isRoomActive = $res->getIsActive();
+			$output->msg  = $res->getMsg();
 		} catch ( Exception $e ) {
 			$output->msg = $e->getMessage();
 			wp_send_json( $output );
@@ -233,11 +234,11 @@ class PlugNmeetAjaxHelper {
 
 		if ( ! $isRoomActive ) {
 			try {
-				$extraData = json_encode( array(
+				$extraData = array(
 					"platform"       => "wordpress",
 					"php-version"    => phpversion(),
 					"plugin-version" => constant( 'PLUGNMEET_VERSION' )
-				) );
+				);
 				$config    = (object) get_option( "plugnmeet_settings" );
 				if ( isset( $config->copyright_display ) ) {
 					$room_metadata["copyright_conf"] = array(
@@ -246,10 +247,10 @@ class PlugNmeetAjaxHelper {
 					);
 				}
 
-				$create = $connect->createRoom( $roomInfo->room_id, $roomInfo->room_title, $roomInfo->welcome_message, $roomInfo->max_participants, "", $room_metadata, 0, $logoutUrl, $extraData );
+				$create = $connect->createRoom( $roomInfo->room_id, $roomInfo->room_title, $room_metadata, $roomInfo->welcome_message, $logoutUrl, "", $roomInfo->max_participants, 0, $extraData );
 
 				$isRoomActive = $create->getStatus();
-				$output->msg  = $create->getResponseMsg();
+				$output->msg  = $create->getMsg();
 			} catch ( Exception $e ) {
 				$output->msg = $e->getMessage();
 				wp_send_json( $output );
@@ -269,7 +270,7 @@ class PlugNmeetAjaxHelper {
 
 				$output->url    = get_site_url() . "/index.php?access_token=" . $join->getToken() . "&id=" . $id . "&Plug-N-Meet-Conference=1";
 				$output->status = $join->getStatus();
-				$output->msg    = $join->getResponseMsg();
+				$output->msg    = $join->getMsg();
 			} catch ( Exception $e ) {
 				$output->msg = $e->getMessage();
 				wp_send_json( $output );

@@ -12,7 +12,7 @@
  */
 
 if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
-	die;
+    die;
 }
 ?>
 
@@ -98,13 +98,13 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
             showMessage(data.msg);
             return;
         }
-
-        const recordings = data.result.recordings_list;
+        const result = JSON.parse(data.result);
+        const recordings = result.recordingsList;
         if (!recordings) {
             showMessage('no recordings found');
             return;
         }
-        totalRecordings = data.result.total_recordings;
+        totalRecordings = result.totalRecordings;
         if (
             totalRecordings > limitPerPage &&
             !isShowingPagination
@@ -197,36 +197,36 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
         let html = '';
         for (let i = 0; i < recordings.length; i++) {
             const recording = recordings[i];
-            html += '<div class="table-item" id="' + recording.record_id + '">';
+            html += '<div class="table-item" id="' + recording.recordId + '">';
             html +=
                 '<div class="recording-date" id="r_creation_' + i + '">' +
-                new Date(recording.creation_time * 1e3).toLocaleString() +
+                new Date(recording.creationTime * 1e3).toLocaleString() +
                 '</div>';
             html +=
                 '<div class="meeting-date">' +
-                new Date(recording.room_creation_time * 1e3).toLocaleString() +
+                new Date(recording.roomCreationTime * 1e3).toLocaleString() +
                 '</div>';
-            html += '<div class="file-size">' + recording.file_size + '</div>';
+            html += '<div class="file-size">' + recording.fileSize + '</div>';
 
             html += '<div class="action">';
             if (CAN_PLAY) {
                 html +=
                     '<a href="#" class="download" data-recording="' +
-                    recording.record_id +
+                    recording.recordId +
                     '" onclick="playRecording(event, ' + i + ')"><?php echo __( "Play", "plugnmeet" ); ?></a>';
             }
 
             if (CAN_DOWNLOAD) {
                 html +=
                     '<a href="#" class="download" data-recording="' +
-                    recording.record_id +
+                    recording.recordId +
                     '" onclick="downloadRecording(event)"><?php echo __( "Download", "plugnmeet" ); ?></a>';
             }
 
             if (CAN_DELETE) {
                 html +=
                     '<a href="#" class="delete" data-recording="' +
-                    recording.record_id +
+                    recording.recordId +
                     '" onclick="deleteRecording(event)"><?php echo __( "Delete", "plugnmeet" ); ?></a>';
             }
             html += '</div>';

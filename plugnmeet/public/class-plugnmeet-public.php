@@ -142,87 +142,109 @@ class Plugnmeet_Public {
 	}
 
 	private function getJsOptions( $custom_design_params ) {
-		$params = $this->setting_params;
-		if ( ! isset( $params->client_load ) || $params->client_load === "remote" ) {
-			$assets_path = $params->plugnmeet_server_url . "/assets";
+		$config = $this->setting_params;
+		if ( ! isset( $config->client_load ) || $config->client_load === "remote" ) {
+			$assetsPath = $config->plugnmeet_server_url . "/assets";
 		} else {
-			$assets_path = plugins_url( 'public/client/dist/assets', PLUGNMEET_BASE_NAME );
+			$assetsPath = plugins_url( 'public/client/dist/assets', PLUGNMEET_BASE_NAME );
 		}
 
-		$customLogo = "";
-		if ( ! empty( $custom_design_params['logo'] ) ) {
-			$customLogo = 'window.CUSTOM_LOGO = "' . esc_url_raw( $custom_design_params['logo'] ) . '";';
-		} else if ( $params->logo ) {
-			$customLogo = 'window.CUSTOM_LOGO = "' . esc_url_raw( $params->logo ) . '";';
-		}
+		$plugNmeetConfig = [
+			// The URL of your plugNmeet server.
+			'serverUrl'                    => esc_url_raw( $config->plugnmeet_server_url ),
 
-		$js = 'window.PLUG_N_MEET_SERVER_URL = "' . esc_url_raw( $params->plugnmeet_server_url ) . '";';
-		$js .= 'window.STATIC_ASSETS_PATH = "' . esc_url_raw( $assets_path ) . '";';
-		$js .= $customLogo;
-		$js .= 'window.ENABLE_DYNACAST = "' . filter_var( $params->enable_dynacast, FILTER_VALIDATE_BOOLEAN ) . '";';
-		$js .= 'window.ENABLE_SIMULCAST = "' . filter_var( $params->enable_simulcast, FILTER_VALIDATE_BOOLEAN ) . '";';
+			// This is helpful for external plugin development where images or other files are located
+			// in another place.
+			'staticAssetsPath'             => esc_url_raw( $assetsPath ),
 
-		$js .= 'window.VIDEO_CODEC = "' . esc_attr( $params->video_codec ) . '";';
-		$js .= 'window.DEFAULT_WEBCAM_RESOLUTION = "' . esc_attr( $params->default_webcam_resolution ) . '";';
-		$js .= 'window.DEFAULT_SCREEN_SHARE_RESOLUTION = "' . esc_attr( $params->default_screen_share_resolution ) . '";';
+			// Dynacast dynamically pauses video layers that are not being consumed by any subscribers,
+			// significantly reducing publishing CPU and bandwidth usage.
+			'enableDynacast'               => filter_var( $config->enable_dynacast, FILTER_VALIDATE_BOOLEAN ),
 
-		$audioPreset = 'music';
-		if ( isset( $params->default_audio_preset ) ) {
-			$audioPreset = $params->default_audio_preset;
-		}
-		$js .= 'window.DEFAULT_AUDIO_PRESET = "' . esc_attr( $audioPreset ) . '";';
+			// When using simulcast, LiveKit will publish up to three versions of the stream at various resolutions.
+			// The client can then pick the most appropriate one.
+			'enableSimulcast'              => filter_var( $config->enable_simulcast, FILTER_VALIDATE_BOOLEAN ),
 
-		$js .= 'window.STOP_MIC_TRACK_ON_MUTE = "' . filter_var( $params->stop_mic_track_on_mute, FILTER_VALIDATE_BOOLEAN ) . '";';
+			// Available options: 'vp8' | 'h264' | 'vp9' | 'av1'. Default: 'vp8'.
+			'videoCodec'                   => esc_attr( $config->video_codec ),
+
+			// Available options: 'h90' | 'h180' | 'h216' | 'h360' | 'h540' | 'h720' | 'h1080' | 'h1440' | 'h2160'.
+			// Default: 'h720'.
+			'defaultWebcamResolution'      => esc_attr( $config->default_webcam_resolution ),
+
+			// Available options: 'h360fps3' | 'h720fps5' | 'h720fps15' | 'h1080fps15' | 'h1080fps30'.
+			// Default: 'h1080fps15'.
+			'defaultScreenShareResolution' => esc_attr( $config->default_screen_share_resolution ),
+
+			// Available options: 'telephone' | 'speech' | 'music' | 'musicStereo' | 'musicHighQuality' | 'musicHighQualityStereo'.
+			// Default: 'music'.
+			'defaultAudioPreset'           => isset( $config->default_audio_preset ) ? esc_attr( $config->default_audio_preset ) : 'music',
+
+			// For local tracks, stop the underlying MediaStreamTrack when the track is muted (or paused).
+			'stopMicTrackOnMute'           => filter_var( $config->stop_mic_track_on_mute, FILTER_VALIDATE_BOOLEAN ),
+
+			// If true, the webcam view will be relocated and arranged based on the active speaker.
+			// Default: true.
+			'focusActiveSpeakerWebcam'     => true,
+		];
 
 		$custom_designs = [];
 		foreach ( $custom_design_params as $key => $val ) {
 			if ( empty( $val ) ) {
-				$custom_designs[ $key ] = $params->$key;
+				$custom_designs[ $key ] = isset( $config->$key ) ? $config->$key : '';
 			} else {
 				$custom_designs[ $key ] = $val;
 			}
 		}
 
-		$custom_design_items = [];
+		$designCustomization = [];
 		if ( ! empty( $custom_designs['primary_color'] ) ) {
-			$custom_design_items['primary_color'] = esc_attr( $custom_designs['primary_color'] );
+			$designCustomization['primary_color'] = esc_attr( $custom_designs['primary_color'] );
 		}
 		if ( ! empty( $custom_designs['secondary_color'] ) ) {
-			$custom_design_items['secondary_color'] = esc_attr( $custom_designs['secondary_color'] );
+			$designCustomization['secondary_color'] = esc_attr( $custom_designs['secondary_color'] );
 		}
 		if ( ! empty( $custom_designs['background_color'] ) ) {
-			$custom_design_items['background_color'] = esc_attr( $custom_designs['background_color'] );
+			$designCustomization['background_color'] = esc_attr( $custom_designs['background_color'] );
 		}
 		if ( ! empty( $custom_designs['background_image'] ) ) {
-			$custom_design_items['background_image'] = esc_attr( $custom_designs['background_image'] );
+			$designCustomization['background_image'] = esc_url_raw( $custom_designs['background_image'] );
 		}
 		if ( ! empty( $custom_designs['header_color'] ) ) {
-			$custom_design_items['header_bg_color'] = esc_attr( $custom_designs['header_color'] );
+			$designCustomization['header_bg_color'] = esc_attr( $custom_designs['header_color'] );
 		}
 		if ( ! empty( $custom_designs['footer_color'] ) ) {
-			$custom_design_items['footer_bg_color'] = esc_attr( $custom_designs['footer_color'] );
+			$designCustomization['footer_bg_color'] = esc_attr( $custom_designs['footer_color'] );
 		}
 		if ( ! empty( $custom_designs['left_color'] ) ) {
-			$custom_design_items['left_side_bg_color'] = esc_attr( $custom_designs['left_color'] );
+			$designCustomization['left_side_bg_color'] = esc_attr( $custom_designs['left_color'] );
 		}
 		if ( ! empty( $custom_designs['right_color'] ) ) {
-			$custom_design_items['right_side_bg_color'] = esc_attr( $custom_designs['right_color'] );
+			$designCustomization['right_side_bg_color'] = esc_attr( $custom_designs['right_color'] );
 		}
 		if ( ! empty( $custom_designs['custom_css_url'] ) ) {
-			$custom_design_items['custom_css_url'] = esc_attr( $custom_designs['custom_css_url'] );
+			$designCustomization['custom_css_url'] = esc_url_raw( $custom_designs['custom_css_url'] );
 		}
 		if ( ! empty( $custom_designs['column_camera_position'] ) ) {
-			$custom_design_items['column_camera_position'] = esc_attr( $custom_designs['column_camera_position'] );
+			$designCustomization['column_camera_position'] = esc_attr( $custom_designs['column_camera_position'] );
 		}
 		if ( ! empty( $custom_designs['column_camera_width'] ) ) {
-			$custom_design_items['column_camera_width'] = esc_attr( $custom_designs['column_camera_width'] );
+			$designCustomization['column_camera_width'] = esc_attr( $custom_designs['column_camera_width'] );
 		}
 
-		if ( count( $custom_design_items ) > 0 ) {
-			$js .= 'window.DESIGN_CUSTOMIZATION = `' . json_encode( $custom_design_items ) . '`;';
+		if ( ! empty( $custom_design_params['logo'] ) ) {
+			$designCustomization['custom_logo'] = esc_url_raw( $custom_design_params['logo'] );
+		} else if ( ! empty( $config->logo ) ) {
+			$designCustomization['custom_logo'] = esc_url_raw( $config->logo );
 		}
 
-		return $js;
+		if ( ! empty( $designCustomization ) ) {
+			$plugNmeetConfig['designCustomization'] = $designCustomization;
+		}
+
+		$jsonConfig = json_encode( $plugNmeetConfig, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES );
+
+		return "window.plugNmeetConfig = JSON.parse(`" . addslashes( $jsonConfig ) . "`);";
 	}
 
 	/**
