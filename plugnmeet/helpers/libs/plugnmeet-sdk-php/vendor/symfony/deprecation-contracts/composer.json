@@ -1,8 +1,7 @@
 {
-    "name": "symfony/polyfill-php81",
+    "name": "symfony/deprecation-contracts",
     "type": "library",
-    "description": "Symfony polyfill backporting some PHP 8.1+ features to lower PHP versions",
-    "keywords": ["polyfill", "shim", "compatibility", "portable"],
+    "description": "A generic function and convention to trigger deprecation notices",
     "homepage": "https://symfony.com",
     "license": "MIT",
     "authors": [
@@ -16,18 +15,21 @@
         }
     ],
     "require": {
-        "php": ">=7.2"
+        "php": ">=8.1"
     },
     "autoload": {
-        "psr-4": { "Symfony\\Polyfill\\Php81\\": "" },
-        "files": [ "bootstrap.php" ],
-        "classmap": [ "Resources/stubs" ]
+        "files": [
+            "function.php"
+        ]
     },
     "minimum-stability": "dev",
     "extra": {
+        "branch-alias": {
+            "dev-main": "3.6-dev"
+        },
         "thanks": {
-            "name": "symfony/polyfill",
-            "url": "https://github.com/symfony/polyfill"
+            "name": "symfony/contracts",
+            "url": "https://github.com/symfony/contracts"
         }
     }
 }
