@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-20 04:02+0000\n"
-"PO-Revision-Date: 2025-12-20 04:02\n"
+"PO-Revision-Date: 2025-12-20 04:04\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -36,7 +36,7 @@ msgstr "מצלמות אינטרנט למנהלי מערכת בלבד"
 
 #: helpers/helper.php:848
 msgid "Allow AI text chat"
-msgstr ""
+msgstr "אפשר צ'אט טקסט בינה מלאכותית"
 
 #: helpers/helper.php:567
 msgid "Allow breakout rooms"
@@ -48,7 +48,7 @@ msgstr "אפשר צ'אט"
 
 #: helpers/helper.php:815
 msgid "Allow chat translation"
-msgstr ""
+msgstr "אפשר תרגום צ'אט"
 
 #: helpers/helper.php:355
 msgid "Allow cloud recording"
@@ -84,7 +84,7 @@ msgstr "אפשר הקלטה מקומית"
 
 #: helpers/helper.php:865
 msgid "Allow meeting summarization"
-msgstr ""
+msgstr "אפשר סיכום פגישות"
 
 #: admin/partials/form-parts/permission.php:112
 msgid "Allow Play <br/>Recordings"
@@ -116,15 +116,15 @@ msgstr "התרת פנקס רשימות משותף"
 
 #: helpers/helper.php:798
 msgid "Allow speech synthesis"
-msgstr ""
+msgstr "אפשר סינתזת דיבור"
 
 #: helpers/helper.php:768
 msgid "Allow transcription"
-msgstr ""
+msgstr "אפשר תמלול"
 
 #: helpers/helper.php:783
 msgid "Allow translation feature"
-msgstr ""
+msgstr "אפשרות תרגום"
 
 #: admin/partials/form-parts/permission.php:111
 msgid "Allow View <br/>Recordings"
@@ -261,7 +261,7 @@ msgstr "הורדה"
 
 #: helpers/helper.php:832
 msgid "Enable AI features"
-msgstr ""
+msgstr "הפעלת תכונות בינה מלאכותית"
 
 #: helpers/helper.php:268
 msgid "Enable analytics"
@@ -289,11 +289,11 @@ msgstr "הפעלת הצפנה מקצה לקצה (E2EE)"
 
 #: helpers/helper.php:752
 msgid "Enable insights features"
-msgstr ""
+msgstr "הפעל תכונות תובנות"
 
 #: helpers/helper.php:695
 msgid "Enable self insert key"
-msgstr ""
+msgstr "הפעלת מפתח ההכנסה העצמית"
 
 #: admin/class-plugnmeet-settings-page.php:250
 msgid "Enable Simulcast"
@@ -328,7 +328,7 @@ msgstr "מזהה"
 
 #: admin/partials/plugnmeet-admin-edit-room.php:54
 msgid "Insights AI"
-msgstr ""
+msgstr "Insights AI"
 
 #. Author of the plugin
 msgid "Jibon L. Costa <jibon@mynaparrot.com>"
@@ -596,7 +596,7 @@ msgstr "מזהה החדר חסר"
 
 #: public/class-plugnmeet-public.php:251
 msgid "Room ID not provided for the shortcode."
-msgstr ""
+msgstr "זיהוי החדר לא סופק עבור הקוד הקצר."
 
 #: helpers/ajaxHelper.php:39
 msgid "room id required"
@@ -660,7 +660,7 @@ msgstr "הצג הקלטות"
 
 #: admin/class-plugnmeet-settings-page.php:425
 msgid "Side Panel Color"
-msgstr ""
+msgstr "צבע לוח הצד"
 
 #: admin/partials/form-parts/design.php:134
 msgid "Small"
