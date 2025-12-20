@@ -51,10 +51,10 @@ This plugin connects your WordPress site to a plugNmeet server. As a free and op
 *   **Secure & Encrypted:** All communication is secured using WebRTC standards.
 
 #### Advanced Capabilities
+*   **AI Meeting Agent:** Turn your meetings into actionable intelligence. Our powerful AI agent provides live spoken translations, generates automated summaries, creates full transcriptions, **and many more...**
 *   **MP4 Recording:** Record your sessions to share or review later.
 *   **Live Broadcasting:** Stream your meetings live to platforms like YouTube via RTMP.
 *   **Stable on Any Connection:** Adaptive streaming (Simulcast & Dynacast) ensures a smooth experience, even on slower internet.
-*   **Live Speech-to-Text & Translation:** Increase accessibility with real-time captions, powered by Microsoft Azure.
 *   **Detailed Analytics:** Assess attendance and engagement with post-session reports.
 
 == Installation ==
