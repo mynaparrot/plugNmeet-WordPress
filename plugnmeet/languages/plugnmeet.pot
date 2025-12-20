@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-14 09:44+0000\n"
+"POT-Creation-Date: 2025-12-20 04:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -182,7 +182,7 @@ msgstr ""
 msgid "Basic"
 msgstr ""
 
-#: helpers/ajaxHelper.php:79 helpers/ajaxHelper.php:119
+#: helpers/ajaxHelper.php:80 helpers/ajaxHelper.php:120
 msgid "both roomId & record id required"
 msgstr ""
 
@@ -350,10 +350,6 @@ msgstr ""
 msgid "Left Bar Color"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:425
-msgid "left Color"
-msgstr ""
-
 #: admin/class-plugnmeet-settings-page.php:219
 msgid "Local client download url"
 msgstr ""
@@ -436,7 +432,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: helpers/ajaxHelper.php:179
+#: helpers/ajaxHelper.php:180
 msgid "name is required"
 msgstr ""
 
@@ -471,8 +467,8 @@ msgstr ""
 msgid "No id was sent"
 msgstr ""
 
-#: helpers/ajaxHelper.php:191 helpers/ajaxHelper.php:295
-#: public/class-plugnmeet-public.php:282
+#: helpers/ajaxHelper.php:192 helpers/ajaxHelper.php:296
+#: public/class-plugnmeet-public.php:268
 msgid "no room found"
 msgstr ""
 
@@ -492,7 +488,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: helpers/ajaxHelper.php:332
+#: helpers/ajaxHelper.php:333
 msgid "password didn't match"
 msgstr ""
 
@@ -554,7 +550,7 @@ msgstr ""
 msgid "Recording date"
 msgstr ""
 
-#: helpers/ajaxHelper.php:136
+#: helpers/ajaxHelper.php:137
 msgid "Recording was deleted successfully"
 msgstr ""
 
@@ -568,10 +564,6 @@ msgstr ""
 
 #: admin/partials/form-parts/design.php:94
 msgid "Right Bar Color"
-msgstr ""
-
-#: admin/class-plugnmeet-settings-page.php:434
-msgid "Right Color"
 msgstr ""
 
 #: admin/partials/form-parts/permission.php:107
@@ -594,11 +586,11 @@ msgstr ""
 msgid "Room Id"
 msgstr ""
 
-#: helpers/ajaxHelper.php:174 public/class-plugnmeet-public.php:125
+#: helpers/ajaxHelper.php:175 public/class-plugnmeet-public.php:125
 msgid "room Id is missing"
 msgstr ""
 
-#: public/class-plugnmeet-public.php:265
+#: public/class-plugnmeet-public.php:251
 msgid "Room ID not provided for the shortcode."
 msgstr ""
 
@@ -606,7 +598,7 @@ msgstr ""
 msgid "room id required"
 msgstr ""
 
-#: helpers/ajaxHelper.php:194 helpers/ajaxHelper.php:299
+#: helpers/ajaxHelper.php:195 helpers/ajaxHelper.php:300
 msgid "room not active"
 msgstr ""
 
@@ -662,6 +654,10 @@ msgstr ""
 msgid "Show recordings"
 msgstr ""
 
+#: admin/class-plugnmeet-settings-page.php:425
+msgid "Side Panel Color"
+msgstr ""
+
 #: admin/partials/form-parts/design.php:134
 msgid "Small"
 msgstr ""
@@ -686,12 +682,12 @@ msgstr ""
 msgid "Successfully updated room data"
 msgstr ""
 
-#: helpers/ajaxHelper.php:230
+#: helpers/ajaxHelper.php:231
 msgid "The meeting has not started yet, please come back later."
 msgstr ""
 
-#: helpers/ajaxHelper.php:24 helpers/ajaxHelper.php:64
-#: helpers/ajaxHelper.php:105 helpers/ajaxHelper.php:145
+#: helpers/ajaxHelper.php:24 helpers/ajaxHelper.php:65
+#: helpers/ajaxHelper.php:106 helpers/ajaxHelper.php:146
 #: admin/class-plugnmeet-admin.php:159 admin/class-plugnmeet-admin.php:236
 #: admin/class-plugnmeet-admin.php:354
 msgid "Token mismatched"
@@ -758,7 +754,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: helpers/ajaxHelper.php:287 helpers/ajaxHelper.php:322
+#: helpers/ajaxHelper.php:288 helpers/ajaxHelper.php:323
 msgid "you don't have permission"
 msgstr ""
 
