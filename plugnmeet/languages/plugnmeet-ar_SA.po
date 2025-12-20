@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-20 04:02+0000\n"
-"PO-Revision-Date: 2025-12-20 04:02\n"
+"PO-Revision-Date: 2025-12-20 04:04\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -36,7 +36,7 @@ msgstr "كاميرات الويب للمشرف فقط"
 
 #: helpers/helper.php:848
 msgid "Allow AI text chat"
-msgstr ""
+msgstr "السماح بالمحادثة النصية الذكاء الاصطناعي"
 
 #: helpers/helper.php:567
 msgid "Allow breakout rooms"
@@ -48,7 +48,7 @@ msgstr "السماح بالدردشة"
 
 #: helpers/helper.php:815
 msgid "Allow chat translation"
-msgstr ""
+msgstr "السماح بترجمة الدردشة"
 
 #: helpers/helper.php:355
 msgid "Allow cloud recording"
@@ -84,7 +84,7 @@ msgstr "السماح بالتسجيل المحلي"
 
 #: helpers/helper.php:865
 msgid "Allow meeting summarization"
-msgstr ""
+msgstr "السماح بتلخيص الاجتماعات"
 
 #: admin/partials/form-parts/permission.php:112
 msgid "Allow Play <br/>Recordings"
@@ -116,15 +116,15 @@ msgstr "السماح بالمفكرة المشتركة"
 
 #: helpers/helper.php:798
 msgid "Allow speech synthesis"
-msgstr ""
+msgstr "السماح بتوليف الكلام"
 
 #: helpers/helper.php:768
 msgid "Allow transcription"
-msgstr ""
+msgstr "السماح بالنسخ"
 
 #: helpers/helper.php:783
 msgid "Allow translation feature"
-msgstr ""
+msgstr "ميزة السماح بالترجمة"
 
 #: admin/partials/form-parts/permission.php:111
 msgid "Allow View <br/>Recordings"
@@ -261,7 +261,7 @@ msgstr "تحميل"
 
 #: helpers/helper.php:832
 msgid "Enable AI features"
-msgstr ""
+msgstr "تمكين ميزات الذكاء الاصطناعي"
 
 #: helpers/helper.php:268
 msgid "Enable analytics"
@@ -289,11 +289,11 @@ msgstr "تمكين التشفير من طرف إلى طرف (E2EE)"
 
 #: helpers/helper.php:752
 msgid "Enable insights features"
-msgstr ""
+msgstr "تمكين ميزات الرؤية"
 
 #: helpers/helper.php:695
 msgid "Enable self insert key"
-msgstr ""
+msgstr "تفعيل مفتاح الإدراج الذاتي"
 
 #: admin/class-plugnmeet-settings-page.php:250
 msgid "Enable Simulcast"
@@ -328,7 +328,7 @@ msgstr "معرف"
 
 #: admin/partials/plugnmeet-admin-edit-room.php:54
 msgid "Insights AI"
-msgstr ""
+msgstr "رؤى الذكاء الاصطناعي"
 
 #. Author of the plugin
 msgid "Jibon L. Costa <jibon@mynaparrot.com>"
@@ -596,7 +596,7 @@ msgstr "معرف الغرفة مفقود"
 
 #: public/class-plugnmeet-public.php:251
 msgid "Room ID not provided for the shortcode."
-msgstr ""
+msgstr "لم يتم توفير معرف الغرفة للرمز المختصر."
 
 #: helpers/ajaxHelper.php:39
 msgid "room id required"
@@ -660,7 +660,7 @@ msgstr "عرض التسجيلات"
 
 #: admin/class-plugnmeet-settings-page.php:425
 msgid "Side Panel Color"
-msgstr ""
+msgstr "لون لوحة الجانب"
 
 #: admin/partials/form-parts/design.php:134
 msgid "Small"
