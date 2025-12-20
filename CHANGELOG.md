@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.0.0](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v1.2.17...v2.0.0) (2025-12-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* new UI + API
+
+### Features
+
+* new UI + API ([5984fac](https://github.com/mynaparrot/plugNmeet-WordPress/commit/5984fac3857c9a840c201e8bc2d6b9d7345c419e))
+
+
+### Bug Fixes
+
+* bump SDK ([30dd2a9](https://github.com/mynaparrot/plugNmeet-WordPress/commit/30dd2a912ee921b3729201d0579ad3d66f201bcc))
+* new Crowdin updates ([ec09006](https://github.com/mynaparrot/plugNmeet-WordPress/commit/ec09006f5939c38b9f28f562dceef528826039f1))
+* update language file ([e9a46f4](https://github.com/mynaparrot/plugNmeet-WordPress/commit/e9a46f4a31a075750186b1e90671b1229190e8c8))
+
 ## [1.2.17](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v1.2.16...v1.2.17) (2025-11-03)
 
 
