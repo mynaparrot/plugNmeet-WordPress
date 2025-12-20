@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-20 04:02+0000\n"
-"PO-Revision-Date: 2025-12-20 04:02\n"
+"PO-Revision-Date: 2025-12-20 04:04\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -36,7 +36,7 @@ msgstr "Webcams réservées aux administrateurs"
 
 #: helpers/helper.php:848
 msgid "Allow AI text chat"
-msgstr ""
+msgstr "Autoriser le chat texte par IA"
 
 #: helpers/helper.php:567
 msgid "Allow breakout rooms"
@@ -48,7 +48,7 @@ msgstr "Autoriser le chat"
 
 #: helpers/helper.php:815
 msgid "Allow chat translation"
-msgstr ""
+msgstr "Autoriser la traduction du chat"
 
 #: helpers/helper.php:355
 msgid "Allow cloud recording"
@@ -84,7 +84,7 @@ msgstr "Autoriser l’enregistrement local"
 
 #: helpers/helper.php:865
 msgid "Allow meeting summarization"
-msgstr ""
+msgstr "Permettre la réflexion des réunions"
 
 #: admin/partials/form-parts/permission.php:112
 msgid "Allow Play <br/>Recordings"
@@ -116,15 +116,15 @@ msgstr "Autoriser le bloc-notes partagé"
 
 #: helpers/helper.php:798
 msgid "Allow speech synthesis"
-msgstr ""
+msgstr "Autoriser la synthèse vocale"
 
 #: helpers/helper.php:768
 msgid "Allow transcription"
-msgstr ""
+msgstr "Autoriser la transcription"
 
 #: helpers/helper.php:783
 msgid "Allow translation feature"
-msgstr ""
+msgstr "Fonction d’autorisation de traduction"
 
 #: admin/partials/form-parts/permission.php:111
 msgid "Allow View <br/>Recordings"
@@ -261,7 +261,7 @@ msgstr "Télécharger"
 
 #: helpers/helper.php:832
 msgid "Enable AI features"
-msgstr ""
+msgstr "Activez les fonctionnalités de l’IA"
 
 #: helpers/helper.php:268
 msgid "Enable analytics"
@@ -289,11 +289,11 @@ msgstr "Activer le chiffrement de bout en bout (E2EE)"
 
 #: helpers/helper.php:752
 msgid "Enable insights features"
-msgstr ""
+msgstr "Activer les fonctionnalités d’insights"
 
 #: helpers/helper.php:695
 msgid "Enable self insert key"
-msgstr ""
+msgstr "Activer la clé d’auto-insertion"
 
 #: admin/class-plugnmeet-settings-page.php:250
 msgid "Enable Simulcast"
@@ -328,7 +328,7 @@ msgstr "Id"
 
 #: admin/partials/plugnmeet-admin-edit-room.php:54
 msgid "Insights AI"
-msgstr ""
+msgstr "IA des insights"
 
 #. Author of the plugin
 msgid "Jibon L. Costa <jibon@mynaparrot.com>"
@@ -596,7 +596,7 @@ msgstr "l’identifiant de la chambre est manquant"
 
 #: public/class-plugnmeet-public.php:251
 msgid "Room ID not provided for the shortcode."
-msgstr ""
+msgstr "L’identifiant de la chambre n’est pas fourni pour le code court."
 
 #: helpers/ajaxHelper.php:39
 msgid "room id required"
@@ -660,7 +660,7 @@ msgstr "Enregistrements du spectacle"
 
 #: admin/class-plugnmeet-settings-page.php:425
 msgid "Side Panel Color"
-msgstr ""
+msgstr "Couleur des panneaux latéraux"
 
 #: admin/partials/form-parts/design.php:134
 msgid "Small"
