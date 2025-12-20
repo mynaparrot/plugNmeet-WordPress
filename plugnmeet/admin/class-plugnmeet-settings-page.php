@@ -421,21 +421,12 @@ class Plugnmeet_SettingsPage {
 		);
 
 		add_settings_field(
-			'left_color',
-			__( 'left Color', 'plugnmeet' ),
+			'side_panel_bg_color',
+			__( 'Side Panel Color', 'plugnmeet' ),
 			[ $this, 'textCallBack' ],
 			'plugnmeet-settings',
 			'plugnmeet_design_customization_section',
-			[ 'id' => 'left_color', 'className' => 'colorPickerItem' ]
-		);
-
-		add_settings_field(
-			'right_color',
-			__( 'Right Color', 'plugnmeet' ),
-			[ $this, 'textCallBack' ],
-			'plugnmeet-settings',
-			'plugnmeet_design_customization_section',
-			[ 'id' => 'right_color', 'className' => 'colorPickerItem' ]
+			[ 'id' => 'side_panel_bg_color', 'className' => 'colorPickerItem' ]
 		);
 	}
 }

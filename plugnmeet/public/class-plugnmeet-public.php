@@ -150,42 +150,15 @@ class Plugnmeet_Public {
 		}
 
 		$plugNmeetConfig = [
-			// The URL of your plugNmeet server.
 			'serverUrl'                    => esc_url_raw( $config->plugnmeet_server_url ),
-
-			// This is helpful for external plugin development where images or other files are located
-			// in another place.
 			'staticAssetsPath'             => esc_url_raw( $assetsPath ),
-
-			// Dynacast dynamically pauses video layers that are not being consumed by any subscribers,
-			// significantly reducing publishing CPU and bandwidth usage.
 			'enableDynacast'               => filter_var( $config->enable_dynacast, FILTER_VALIDATE_BOOLEAN ),
-
-			// When using simulcast, LiveKit will publish up to three versions of the stream at various resolutions.
-			// The client can then pick the most appropriate one.
 			'enableSimulcast'              => filter_var( $config->enable_simulcast, FILTER_VALIDATE_BOOLEAN ),
-
-			// Available options: 'vp8' | 'h264' | 'vp9' | 'av1'. Default: 'vp8'.
 			'videoCodec'                   => esc_attr( $config->video_codec ),
-
-			// Available options: 'h90' | 'h180' | 'h216' | 'h360' | 'h540' | 'h720' | 'h1080' | 'h1440' | 'h2160'.
-			// Default: 'h720'.
 			'defaultWebcamResolution'      => esc_attr( $config->default_webcam_resolution ),
-
-			// Available options: 'h360fps3' | 'h720fps5' | 'h720fps15' | 'h1080fps15' | 'h1080fps30'.
-			// Default: 'h1080fps15'.
 			'defaultScreenShareResolution' => esc_attr( $config->default_screen_share_resolution ),
-
-			// Available options: 'telephone' | 'speech' | 'music' | 'musicStereo' | 'musicHighQuality' | 'musicHighQualityStereo'.
-			// Default: 'music'.
 			'defaultAudioPreset'           => isset( $config->default_audio_preset ) ? esc_attr( $config->default_audio_preset ) : 'music',
-
-			// For local tracks, stop the underlying MediaStreamTrack when the track is muted (or paused).
 			'stopMicTrackOnMute'           => filter_var( $config->stop_mic_track_on_mute, FILTER_VALIDATE_BOOLEAN ),
-
-			// If true, the webcam view will be relocated and arranged based on the active speaker.
-			// Default: true.
-			'focusActiveSpeakerWebcam'     => true,
 		];
 
 		$custom_designs = [];
@@ -216,20 +189,11 @@ class Plugnmeet_Public {
 		if ( ! empty( $custom_designs['footer_color'] ) ) {
 			$designCustomization['footer_bg_color'] = esc_attr( $custom_designs['footer_color'] );
 		}
-		if ( ! empty( $custom_designs['left_color'] ) ) {
-			$designCustomization['left_side_bg_color'] = esc_attr( $custom_designs['left_color'] );
-		}
-		if ( ! empty( $custom_designs['right_color'] ) ) {
-			$designCustomization['right_side_bg_color'] = esc_attr( $custom_designs['right_color'] );
+		if ( ! empty( $custom_designs['side_panel_bg_color'] ) ) {
+			$designCustomization['side_panel_bg_color'] = esc_attr( $custom_designs['side_panel_bg_color'] );
 		}
 		if ( ! empty( $custom_designs['custom_css_url'] ) ) {
 			$designCustomization['custom_css_url'] = esc_url_raw( $custom_designs['custom_css_url'] );
-		}
-		if ( ! empty( $custom_designs['column_camera_position'] ) ) {
-			$designCustomization['column_camera_position'] = esc_attr( $custom_designs['column_camera_position'] );
-		}
-		if ( ! empty( $custom_designs['column_camera_width'] ) ) {
-			$designCustomization['column_camera_width'] = esc_attr( $custom_designs['column_camera_width'] );
 		}
 
 		if ( ! empty( $custom_design_params['logo'] ) ) {
