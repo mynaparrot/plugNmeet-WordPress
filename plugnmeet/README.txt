@@ -107,8 +107,13 @@ The most common reason for this is that your website is not running on **HTTPS**
 
 == Screenshots ==
 
-1. The collaborative whiteboard in action during a meeting.
-2. The shared notepad allows for real-time, collaborative note-taking.
+1. Webcams.
+2. Whiteboard.
+3. Whiteboard files.
+4. Shared notepad.
+5. Live transcription
+6. Live Chat
+7. AI Chat assistant
 
 == Changelog ==
 
