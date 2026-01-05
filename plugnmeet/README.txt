@@ -3,11 +3,11 @@ Contributors: mynaparrot
 Donate link: https://www.plugnmeet.org/
 Tags: video conference, webinar, online meeting, virtual classroom, video chat, zoom alternative, live streaming, webrtc, self-hosted, meeting, video
 Requires at least: 5.9
-Tested up to: 6.8.2
+Tested up to: 6.9
 # x-release-please-start-version
 Stable tag: 2.0.0
 # x-release-please-end
-Requires PHP: 7.4
+Requires PHP: 8.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
