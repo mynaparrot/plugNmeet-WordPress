@@ -97,13 +97,26 @@ add_action( 'wp_print_styles', 'pnm_final_asset_loader', 9999 );
 function pnm_script_loader_tag_filter( $tag, $handle ) {
     global $pnm_main_module_handle;
 
-    // Check if the current script is our main module and add type="module".
+    // Check if the current script is our main module.
     if ( $pnm_main_module_handle === $handle ) {
-        return str_replace( ' src=', ' type="module" src=', $tag );
+        // finds an existing 'type' attribute.
+        if ( preg_match( '/\s*type\s*=\s*([\'"]?)[^\s>]*\1/', $tag ) ) {
+            // If the attribute exists, replace it.
+            $tag = preg_replace( '/\s*type\s*=\s*([\'"]?)[^\s>]*\1/', ' type="module"', $tag );
+        } else {
+            // If it doesn't exist, add it.
+            $tag = str_replace( '<script', '<script type="module"', $tag );
+        }
+
+        return $tag;
     }
 
-    // For all other scripts on this page, add 'defer'.
-    return str_replace( ' src=', ' defer="defer" src=', $tag );
+    // For all other scripts on this page, add 'defer' if it's not already there.
+    if ( ! str_contains( $tag, ' defer' ) ) {
+        $tag = str_replace( '<script', '<script defer', $tag );
+    }
+
+    return $tag;
 }
 
 add_filter( 'script_loader_tag', 'pnm_script_loader_tag_filter', 10, 2 );
