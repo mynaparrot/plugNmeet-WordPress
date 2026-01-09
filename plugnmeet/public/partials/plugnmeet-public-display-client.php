@@ -53,6 +53,9 @@ function pnm_final_asset_loader() {
         $jsFiles  = $files->getJSFiles() ?? [];
         $cssFiles = $files->getCSSFiles() ?? [];
         $path     = $setting_params->plugnmeet_server_url . "/assets";
+        if ( ! empty( $files->getStaticAssetsPath() ) ) {
+            $path = $files->getStaticAssetsPath();
+        }
     } else {
         $clientPath = PLUGNMEET_ROOT_PATH . "/public/client/dist/assets";
         $jsFiles    = array_values( preg_grep( '~\.(js)$~', scandir( $clientPath . "/js", SCANDIR_SORT_DESCENDING ) ) );
