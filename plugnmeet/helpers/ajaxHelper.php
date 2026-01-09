@@ -234,8 +234,9 @@ class PlugNmeetAjaxHelper {
 
 		if ( ! $isRoomActive ) {
 			try {
+				global $wp_version;
 				$extraData = array(
-					"platform"       => "wordpress",
+					"platform"       => sprintf( "wordpress-%s", $wp_version ),
 					"php-version"    => phpversion(),
 					"plugin-version" => constant( 'PLUGNMEET_VERSION' )
 				);

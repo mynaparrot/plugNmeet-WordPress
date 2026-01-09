@@ -15,6 +15,7 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
 }
 
 // Remove unnecessary meta tags and actions from wp_head for a cleaner output.
+remove_action( 'wp_head', '_wp_render_title_tag', 1 );
 remove_action( 'wp_head', 'rsd_link' );
 remove_action( 'wp_head', 'wp_generator' );
 remove_action( 'wp_head', 'feed_links', 2 );
@@ -61,13 +62,17 @@ function pnm_final_asset_loader() {
 
     $allowed_js_handles = [];
     foreach ( $jsFiles as $file ) {
-        $handle = $file; // Use the filename as the handle, matching original logic.
+        $handle = $file; // Use the filename as the handle.
+        $url    = $path . '/js/' . $file;
+        $args   = [ 'strategy' => 'defer' ]; // Default to defer for all scripts.
+
         if ( str_starts_with( $handle, 'main-module.' ) ) {
             $pnm_main_module_handle = $handle;
+            $args                   = []; // The main module gets special handling, so no defer.
         }
+
         $allowed_js_handles[] = $handle;
-        // Enqueue the script to register it. We'll force it into the queue later.
-        wp_enqueue_script( $handle, $path . '/js/' . $file, [], null, false );
+        wp_enqueue_script( $handle, $url, [], null, $args );
     }
 
     $allowed_css_handles = [];
@@ -87,7 +92,7 @@ add_action( 'wp_print_styles', 'pnm_final_asset_loader', 9999 );
 
 
 /**
- * Filters the script tag to add `type="module"` or `defer` attributes.
+ * Filters the script tag to add `type="module"`.
  *
  * @param string $tag The <script> tag for the enqueued script.
  * @param string $handle The script's handle.
@@ -97,9 +102,9 @@ add_action( 'wp_print_styles', 'pnm_final_asset_loader', 9999 );
 function pnm_script_loader_tag_filter( $tag, $handle ) {
     global $pnm_main_module_handle;
 
-    // Check if the current script is our main module.
+    // Only apply module logic to the main script. Defer is now handled by wp_enqueue_script.
     if ( $pnm_main_module_handle === $handle ) {
-        // finds an existing 'type' attribute.
+        // This regex robustly finds an existing 'type' attribute.
         if ( preg_match( '/\s*type\s*=\s*([\'"]?)[^\s>]*\1/', $tag ) ) {
             // If the attribute exists, replace it.
             $tag = preg_replace( '/\s*type\s*=\s*([\'"]?)[^\s>]*\1/', ' type="module"', $tag );
@@ -107,13 +112,6 @@ function pnm_script_loader_tag_filter( $tag, $handle ) {
             // If it doesn't exist, add it.
             $tag = str_replace( '<script', '<script type="module"', $tag );
         }
-
-        return $tag;
-    }
-
-    // For all other scripts on this page, add 'defer' if it's not already there.
-    if ( ! str_contains( $tag, ' defer' ) ) {
-        $tag = str_replace( '<script', '<script defer', $tag );
     }
 
     return $tag;
@@ -134,6 +132,5 @@ add_filter( 'script_loader_tag', 'pnm_script_loader_tag_filter', 10, 2 );
 </head>
 <body>
 <div id="plugNmeet-app"></div>
-<?php // Do not include wp_footer() to ensure a clean environment. ?>
 </body>
 </html>
