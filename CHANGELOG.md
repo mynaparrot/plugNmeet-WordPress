@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.0.1](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.0.0...v2.0.1) (2026-01-09)
+
+
+### Bug Fixes
+
+* bump SDK ([051025b](https://github.com/mynaparrot/plugNmeet-WordPress/commit/051025b700bdc6adef9f44aa931af74351a16e3d))
+* clean up code ([7bd09f4](https://github.com/mynaparrot/plugNmeet-WordPress/commit/7bd09f4a7c33a2d4fb34e3029cbeb0d499d8fdc1))
+* duplicate `type` was adding ([d4869dc](https://github.com/mynaparrot/plugNmeet-WordPress/commit/d4869dc085d175799ac6bd7e94628f318ec6e7c0))
+
 ## [2.0.0](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.0.0...v2.0.0) (2025-12-20)
 
 ### ⚠ BREAKING CHANGES
