@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.0.1...v2.0.2) (2026-01-13)
+
+
+### Bug Fixes
+
+* use `toFixed(2)` for recording file size ([8e39e7c](https://github.com/mynaparrot/plugNmeet-WordPress/commit/8e39e7cef8ac8d89a2f844b5b221d88bf4da8134))
+
 ## [2.0.1](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.0.0...v2.0.1) (2026-01-09)
 
 
