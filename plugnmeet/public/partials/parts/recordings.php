@@ -206,7 +206,7 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
                 '<div class="meeting-date">' +
                 new Date(recording.roomCreationTime * 1e3).toLocaleString() +
                 '</div>';
-            html += '<div class="file-size">' + recording.fileSize + '</div>';
+            html += '<div class="file-size">' + recording.fileSize.toFixed(2) + '</div>';
 
             html += '<div class="action">';
             if (CAN_PLAY) {
