@@ -27,6 +27,7 @@ class PlugnmeetHelper {
 		'end_to_end_encryption_features',
 		'insights_features',
 		'polls_features',
+		'sip_dial_in_features',
 		'default_lock_settings',
 		'custom_design'
 	];
@@ -744,6 +745,63 @@ class PlugnmeetHelper {
 		}
 
 		return self::formatHtml( $e2eeFeatures, "end_to_end_encryption_features", $data );
+	}
+
+	public static function getSipDialInFeatures( $sip_dial_in_features ) {
+		$sipDialInFeatures = array(
+			"is_allow"                 => array(
+				"label"    => __( "Allow SIP/VoIP dial in", "plugnmeet" ),
+				"options"  => array(
+					array(
+						"label" => __( "Yes", "plugnmeet" ),
+						"value" => 1
+					),
+					array(
+						"label" => __( "No", "plugnmeet" ),
+						"value" => 0
+					)
+				),
+				"selected" => 0,
+				"type"     => "select"
+			),
+			"enable_dial_in_on_create" => array(
+				"label"    => __( "Enable dial in on create", "plugnmeet" ),
+				"options"  => array(
+					array(
+						"label" => __( "Yes", "plugnmeet" ),
+						"value" => 1
+					),
+					array(
+						"label" => __( "No", "plugnmeet" ),
+						"value" => 0
+					)
+				),
+				"selected" => 0,
+				"type"     => "select"
+			),
+			"hide_phone_number"        => array(
+				"label"    => __( "Hide phone number", "plugnmeet" ),
+				"options"  => array(
+					array(
+						"label" => __( "Yes", "plugnmeet" ),
+						"value" => 1
+					),
+					array(
+						"label" => __( "No", "plugnmeet" ),
+						"value" => 0
+					)
+				),
+				"selected" => 0,
+				"type"     => "select"
+			),
+		);
+
+		$data = [];
+		if ( ! empty( $sip_dial_in_features ) ) {
+			$data = $sip_dial_in_features;
+		}
+
+		return self::formatHtml( $sipDialInFeatures, "sip_dial_in_features", $data );
 	}
 
 	public static function getInsightsFeatures( $insights_features ) {

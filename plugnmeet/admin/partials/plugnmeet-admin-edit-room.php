@@ -151,6 +151,12 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
                 <hr/>
                 <table class="form-table" role="presentation">
                     <tbody>
+                    <?php echo PlugnmeetHelper::getSipDialInFeatures( $fields_values['sip_dial_in_features'] ); ?>
+                    </tbody>
+                </table>
+                <hr/>
+                <table class="form-table" role="presentation">
+                    <tbody>
                     <?php echo PlugnmeetHelper::getEndToEndEncryptionFeatures( $fields_values['end_to_end_encryption_features'] ); ?>
                     </tbody>
                 </table>
