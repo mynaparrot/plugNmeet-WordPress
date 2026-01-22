@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.1.0](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.0.2...v2.1.0) (2026-01-22)
+
+
+### Features
+
+* SIP/VoIP dial in ([0d541a9](https://github.com/mynaparrot/plugNmeet-WordPress/commit/0d541a9a6e70c871a8e5b1455e8bc93bbdc576fc))
+
+
+### Bug Fixes
+
+* added feature text ([7443540](https://github.com/mynaparrot/plugNmeet-WordPress/commit/7443540cb60497ee13ea3f56ead1e962c594a7de))
+* new Crowdin updates ([d838fc0](https://github.com/mynaparrot/plugNmeet-WordPress/commit/d838fc0615dc598ed53d35252e362cb14c4fc3af))
+
 ## [2.0.2](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.0.1...v2.0.2) (2026-01-13)
 
 
