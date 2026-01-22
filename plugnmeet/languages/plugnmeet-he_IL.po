@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-22 15:04+0000\n"
-"PO-Revision-Date: 2026-01-22 15:14\n"
+"PO-Revision-Date: 2026-01-22 15:16\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -116,7 +116,7 @@ msgstr "התרת פנקס רשימות משותף"
 
 #: helpers/helper.php:753
 msgid "Allow SIP/VoIP dial in"
-msgstr ""
+msgstr "אפשר חיוג SIP/VoIP"
 
 #: helpers/helper.php:856
 msgid "Allow speech synthesis"
@@ -277,7 +277,7 @@ msgstr "אפשר הקלטה אוטומטית בענן"
 
 #: helpers/helper.php:768
 msgid "Enable dial in on create"
-msgstr ""
+msgstr "הפעל חיוג תוך כדי יצירת"
 
 #: admin/class-plugnmeet-settings-page.php:241
 msgid "Enable Dynacast"
@@ -324,7 +324,7 @@ msgstr "צבע כותרת עליונה"
 
 #: helpers/helper.php:783
 msgid "Hide phone number"
-msgstr ""
+msgstr "הסתרת מספר טלפון"
 
 #. URI of the plugin
 msgid "https://github.com/mynaparrot/plugNmeet-WordPress"
