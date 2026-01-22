@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-20 04:02+0000\n"
-"PO-Revision-Date: 2025-12-20 04:04\n"
+"POT-Creation-Date: 2026-01-22 15:04+0000\n"
+"PO-Revision-Date: 2026-01-22 15:14\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid " can't be empty."
 msgstr " darf nicht leer sein."
 
-#: helpers/helper.php:535
+#: helpers/helper.php:536
 msgid "Activate waiting room"
 msgstr "Wartezimmer aktivieren"
 
@@ -30,31 +30,31 @@ msgstr "Wartezimmer aktivieren"
 msgid "Add New"
 msgstr "Neu hinzufügen"
 
-#: helpers/helper.php:233
+#: helpers/helper.php:234
 msgid "Admin only webcams"
 msgstr "Webcams nur für Administratoren"
 
-#: helpers/helper.php:848
+#: helpers/helper.php:906
 msgid "Allow AI text chat"
 msgstr "KI-Textchat erlauben"
 
-#: helpers/helper.php:567
+#: helpers/helper.php:568
 msgid "Allow breakout rooms"
 msgstr "Breakout-Räume zulassen"
 
-#: helpers/helper.php:412
+#: helpers/helper.php:413
 msgid "Allow chat"
 msgstr "Chat zulassen"
 
-#: helpers/helper.php:815
+#: helpers/helper.php:873
 msgid "Allow chat translation"
 msgstr "Chat-Übersetzung erlauben"
 
-#: helpers/helper.php:355
+#: helpers/helper.php:356
 msgid "Allow cloud recording"
 msgstr "Cloud-Aufzeichnung zulassen"
 
-#: helpers/helper.php:626
+#: helpers/helper.php:627
 msgid "Allow create ingress"
 msgstr "Erstellen von Ingress zulassen"
 
@@ -62,7 +62,7 @@ msgstr "Erstellen von Ingress zulassen"
 msgid "Allow Delete <br/>Recordings"
 msgstr "Löschen zulassen <br/>Aufnahmen"
 
-#: helpers/helper.php:599
+#: helpers/helper.php:600
 msgid "Allow Display External Link"
 msgstr "Anzeige von externem Link zulassen"
 
@@ -70,19 +70,19 @@ msgstr "Anzeige von externem Link zulassen"
 msgid "Allow Download <br/>Recordings"
 msgstr "Download erlauben <br/>Aufnahmen"
 
-#: helpers/helper.php:508
+#: helpers/helper.php:509
 msgid "Allow external media player"
 msgstr "Externen Mediaplayer zulassen"
 
-#: helpers/helper.php:427
+#: helpers/helper.php:428
 msgid "Allow file upload"
 msgstr "Hochladen von Dateien zulassen"
 
-#: helpers/helper.php:385
+#: helpers/helper.php:386
 msgid "Allow local recording"
 msgstr "Lokale Aufzeichnung zulassen"
 
-#: helpers/helper.php:865
+#: helpers/helper.php:923
 msgid "Allow meeting summarization"
 msgstr "Erlauben Sie Zusammenfassung von Sitzungen"
 
@@ -90,39 +90,43 @@ msgstr "Erlauben Sie Zusammenfassung von Sitzungen"
 msgid "Allow Play <br/>Recordings"
 msgstr "Spiel zulassen <br/>Aufnahmen"
 
-#: helpers/helper.php:653
+#: helpers/helper.php:654
 msgid "Allow polls"
 msgstr "Umfragen zulassen"
 
-#: helpers/helper.php:298
+#: helpers/helper.php:299
 msgid "Allow raise hand"
 msgstr "Erlauben Sie das Heben der Hand"
 
-#: helpers/helper.php:340
+#: helpers/helper.php:341
 msgid "Allow recording"
 msgstr "Aufzeichnung zulassen"
 
-#: helpers/helper.php:188
+#: helpers/helper.php:189
 msgid "Allow rtmp"
 msgstr "RTMP zulassen"
 
-#: helpers/helper.php:173
+#: helpers/helper.php:174
 msgid "Allow screen share"
 msgstr "Bildschirmfreigabe zulassen"
 
-#: helpers/helper.php:454
+#: helpers/helper.php:455
 msgid "Allow shared notepad"
 msgstr "Freigegebenen Editor zulassen"
 
-#: helpers/helper.php:798
+#: helpers/helper.php:753
+msgid "Allow SIP/VoIP dial in"
+msgstr ""
+
+#: helpers/helper.php:856
 msgid "Allow speech synthesis"
 msgstr "Sprachsynthese erlauben"
 
-#: helpers/helper.php:768
+#: helpers/helper.php:826
 msgid "Allow transcription"
 msgstr "Transkription erlauben"
 
-#: helpers/helper.php:783
+#: helpers/helper.php:841
 msgid "Allow translation feature"
 msgstr "Übersetzungsfunktion erlauben"
 
@@ -130,23 +134,23 @@ msgstr "Übersetzungsfunktion erlauben"
 msgid "Allow View <br/>Recordings"
 msgstr "Ansicht zulassen <br/>Aufnahmen"
 
-#: helpers/helper.php:218
+#: helpers/helper.php:219
 msgid "Allow view other users list"
 msgstr "Zulassen der Anzeige anderer Benutzer"
 
-#: helpers/helper.php:203
+#: helpers/helper.php:204
 msgid "Allow view other webcams"
 msgstr "Andere Webcams anzeigen zulassen"
 
-#: helpers/helper.php:283
+#: helpers/helper.php:284
 msgid "Allow virtual background"
 msgstr "Virtuellen Hintergrund zulassen"
 
-#: helpers/helper.php:143
+#: helpers/helper.php:144
 msgid "Allow webcams"
 msgstr "Webcams zulassen"
 
-#: helpers/helper.php:481
+#: helpers/helper.php:482
 msgid "Allow whiteboard"
 msgstr "Whiteboard zulassen"
 
@@ -168,7 +172,7 @@ msgstr "Passwort des Teilnehmers"
 msgid "Audio preset"
 msgstr "Audio-Voreinstellung"
 
-#: helpers/helper.php:313
+#: helpers/helper.php:314
 msgid "Auto generate user ID"
 msgstr "Benutzer-ID automatisch generieren"
 
@@ -259,39 +263,43 @@ msgstr "Copyright-Text anzeigen"
 msgid "Download"
 msgstr "Herunterladen"
 
-#: helpers/helper.php:832
+#: helpers/helper.php:890
 msgid "Enable AI features"
 msgstr "KI-Funktionen aktivieren"
 
-#: helpers/helper.php:268
+#: helpers/helper.php:269
 msgid "Enable analytics"
 msgstr "Aktivieren von Analysen"
 
-#: helpers/helper.php:370
+#: helpers/helper.php:371
 msgid "Enable auto cloud recording"
 msgstr "Aktivieren der automatischen Cloud-Aufzeichnung"
+
+#: helpers/helper.php:768
+msgid "Enable dial in on create"
+msgstr ""
 
 #: admin/class-plugnmeet-settings-page.php:241
 msgid "Enable Dynacast"
 msgstr "Aktivieren von Dynacast"
 
-#: helpers/helper.php:710
+#: helpers/helper.php:711
 msgid "Enable encryption for chat"
 msgstr "Aktivieren der Verschlüsselung für den Chat"
 
-#: helpers/helper.php:725
+#: helpers/helper.php:726
 msgid "Enable encryption for whiteboard"
 msgstr "Aktivieren der Verschlüsselung für Whiteboards"
 
-#: helpers/helper.php:680
+#: helpers/helper.php:681
 msgid "Enable End-To-End Encryption (E2EE)"
 msgstr "Aktivieren der Ende-zu-Ende-Verschlüsselung (E2EE)"
 
-#: helpers/helper.php:752
+#: helpers/helper.php:810
 msgid "Enable insights features"
 msgstr "Aktivieren Sie Insights-Funktionen"
 
-#: helpers/helper.php:695
+#: helpers/helper.php:696
 msgid "Enable self insert key"
 msgstr "Aktivieren Sie den Selbsteinfüge-Schlüssel"
 
@@ -313,6 +321,10 @@ msgstr "Farbe der Fußzeile"
 #: admin/partials/form-parts/design.php:73
 msgid "Header Color"
 msgstr "Farbe der Kopfzeile"
+
+#: helpers/helper.php:783
+msgid "Hide phone number"
+msgstr ""
 
 #. URI of the plugin
 msgid "https://github.com/mynaparrot/plugNmeet-WordPress"
@@ -358,39 +370,39 @@ msgstr "Farbe des linken Balkens"
 msgid "Local client download url"
 msgstr "Download-URL des lokalen Clients"
 
-#: helpers/helper.php:969
+#: helpers/helper.php:1027
 msgid "Lock chat"
 msgstr "Chat sperren"
 
-#: helpers/helper.php:999
+#: helpers/helper.php:1057
 msgid "Lock chat file share"
 msgstr "Sperren der Chat-Dateifreigabe"
 
-#: helpers/helper.php:984
+#: helpers/helper.php:1042
 msgid "Lock chat send message"
 msgstr "Chat sperren Nachricht senden"
 
-#: helpers/helper.php:894
+#: helpers/helper.php:952
 msgid "Lock microphone"
 msgstr "Mikrofon sperren"
 
-#: helpers/helper.php:1014
+#: helpers/helper.php:1072
 msgid "Lock private chat"
 msgstr "Privaten Chat sperren"
 
-#: helpers/helper.php:924
+#: helpers/helper.php:982
 msgid "Lock screen sharing"
 msgstr "Bildschirmfreigabe sperren"
 
-#: helpers/helper.php:954
+#: helpers/helper.php:1012
 msgid "Lock shared notepad"
 msgstr "Freigegebenen Notizblock sperren"
 
-#: helpers/helper.php:909
+#: helpers/helper.php:967
 msgid "Lock webcam"
 msgstr "Webcam sperren"
 
-#: helpers/helper.php:939
+#: helpers/helper.php:997
 msgid "Lock whiteboard"
 msgstr "Whiteboard sperren"
 
@@ -419,7 +431,7 @@ msgstr "Mittel"
 msgid "Meeting date"
 msgstr "Datum des Treffens"
 
-#: helpers/helper.php:253
+#: helpers/helper.php:254
 msgid "Moderator join first"
 msgstr "Moderator zuerst beitreten"
 
@@ -428,7 +440,7 @@ msgstr "Moderator zuerst beitreten"
 msgid "Moderator Password"
 msgstr "Passwort des Moderators"
 
-#: helpers/helper.php:158
+#: helpers/helper.php:159
 msgid "Mute on start"
 msgstr "Stummschaltung beim Start"
 
@@ -448,22 +460,23 @@ msgstr "Nächster"
 msgid "Next page"
 msgstr "Nächste Seite"
 
-#: helpers/helper.php:150 helpers/helper.php:165 helpers/helper.php:180
-#: helpers/helper.php:195 helpers/helper.php:210 helpers/helper.php:225
-#: helpers/helper.php:240 helpers/helper.php:260 helpers/helper.php:275
-#: helpers/helper.php:290 helpers/helper.php:305 helpers/helper.php:320
-#: helpers/helper.php:347 helpers/helper.php:362 helpers/helper.php:377
-#: helpers/helper.php:392 helpers/helper.php:419 helpers/helper.php:434
-#: helpers/helper.php:461 helpers/helper.php:488 helpers/helper.php:515
-#: helpers/helper.php:542 helpers/helper.php:574 helpers/helper.php:606
-#: helpers/helper.php:633 helpers/helper.php:660 helpers/helper.php:687
-#: helpers/helper.php:702 helpers/helper.php:717 helpers/helper.php:732
-#: helpers/helper.php:759 helpers/helper.php:775 helpers/helper.php:790
-#: helpers/helper.php:805 helpers/helper.php:822 helpers/helper.php:839
-#: helpers/helper.php:855 helpers/helper.php:872 helpers/helper.php:901
-#: helpers/helper.php:916 helpers/helper.php:931 helpers/helper.php:946
-#: helpers/helper.php:961 helpers/helper.php:976 helpers/helper.php:991
-#: helpers/helper.php:1006 helpers/helper.php:1021
+#: helpers/helper.php:151 helpers/helper.php:166 helpers/helper.php:181
+#: helpers/helper.php:196 helpers/helper.php:211 helpers/helper.php:226
+#: helpers/helper.php:241 helpers/helper.php:261 helpers/helper.php:276
+#: helpers/helper.php:291 helpers/helper.php:306 helpers/helper.php:321
+#: helpers/helper.php:348 helpers/helper.php:363 helpers/helper.php:378
+#: helpers/helper.php:393 helpers/helper.php:420 helpers/helper.php:435
+#: helpers/helper.php:462 helpers/helper.php:489 helpers/helper.php:516
+#: helpers/helper.php:543 helpers/helper.php:575 helpers/helper.php:607
+#: helpers/helper.php:634 helpers/helper.php:661 helpers/helper.php:688
+#: helpers/helper.php:703 helpers/helper.php:718 helpers/helper.php:733
+#: helpers/helper.php:760 helpers/helper.php:775 helpers/helper.php:790
+#: helpers/helper.php:817 helpers/helper.php:833 helpers/helper.php:848
+#: helpers/helper.php:863 helpers/helper.php:880 helpers/helper.php:897
+#: helpers/helper.php:913 helpers/helper.php:930 helpers/helper.php:959
+#: helpers/helper.php:974 helpers/helper.php:989 helpers/helper.php:1004
+#: helpers/helper.php:1019 helpers/helper.php:1034 helpers/helper.php:1049
+#: helpers/helper.php:1064 helpers/helper.php:1079
 msgid "No"
 msgstr "Nein"
 
@@ -471,12 +484,12 @@ msgstr "Nein"
 msgid "No id was sent"
 msgstr "Es wurde kein Ausweis gesendet"
 
-#: helpers/ajaxHelper.php:192 helpers/ajaxHelper.php:296
-#: public/class-plugnmeet-public.php:268
+#: public/class-plugnmeet-public.php:268 helpers/ajaxHelper.php:192
+#: helpers/ajaxHelper.php:297
 msgid "no room found"
 msgstr "Kein Zimmer gefunden"
 
-#: helpers/helper.php:582
+#: helpers/helper.php:583
 msgid "Number of rooms"
 msgstr "Anzahl der Zimmer"
 
@@ -492,7 +505,7 @@ msgstr "Weitere Funktionen"
 msgid "Password"
 msgstr "Passwort"
 
-#: helpers/ajaxHelper.php:333
+#: helpers/ajaxHelper.php:334
 msgid "password didn't match"
 msgstr "Passwort stimmte nicht überein"
 
@@ -578,7 +591,7 @@ msgstr "Rolle"
 msgid "Room description"
 msgstr "Zimmerbeschreibung"
 
-#: helpers/helper.php:248
+#: helpers/helper.php:249
 msgid "Room duration (In minutes, 0 = unlimited)"
 msgstr "Raumdauer (in Minuten, 0 = unbegrenzt)"
 
@@ -590,7 +603,7 @@ msgstr "Zimmerausstattung"
 msgid "Room Id"
 msgstr "Raum-ID"
 
-#: helpers/ajaxHelper.php:175 public/class-plugnmeet-public.php:125
+#: public/class-plugnmeet-public.php:125 helpers/ajaxHelper.php:175
 msgid "room Id is missing"
 msgstr "Raum-ID fehlt"
 
@@ -602,11 +615,11 @@ msgstr "Zimmer-ID nicht für den Shortcode angegeben."
 msgid "room id required"
 msgstr "Raum-ID erforderlich"
 
-#: helpers/ajaxHelper.php:195 helpers/ajaxHelper.php:300
+#: helpers/ajaxHelper.php:195 helpers/ajaxHelper.php:301
 msgid "room not active"
 msgstr "Raum nicht aktiv"
 
-#: helpers/helper.php:1051
+#: helpers/helper.php:1109
 msgid "Room Status"
 msgstr "Status des Zimmers"
 
@@ -727,7 +740,7 @@ msgstr "Bild hochladen/auswählen"
 msgid "Video Codec"
 msgstr "Video-Codec"
 
-#: helpers/helper.php:550
+#: helpers/helper.php:551
 msgid "Waiting room message"
 msgstr "Nachricht im Wartezimmer"
 
@@ -739,26 +752,27 @@ msgstr "Webcam-Auflösung"
 msgid "Welcome Message"
 msgstr "Willkommensnachricht"
 
-#: helpers/helper.php:146 helpers/helper.php:161 helpers/helper.php:176
-#: helpers/helper.php:191 helpers/helper.php:206 helpers/helper.php:221
-#: helpers/helper.php:236 helpers/helper.php:256 helpers/helper.php:271
-#: helpers/helper.php:286 helpers/helper.php:301 helpers/helper.php:316
-#: helpers/helper.php:343 helpers/helper.php:358 helpers/helper.php:373
-#: helpers/helper.php:388 helpers/helper.php:415 helpers/helper.php:430
-#: helpers/helper.php:457 helpers/helper.php:484 helpers/helper.php:511
-#: helpers/helper.php:538 helpers/helper.php:570 helpers/helper.php:602
-#: helpers/helper.php:629 helpers/helper.php:656 helpers/helper.php:683
-#: helpers/helper.php:698 helpers/helper.php:713 helpers/helper.php:728
-#: helpers/helper.php:755 helpers/helper.php:771 helpers/helper.php:786
-#: helpers/helper.php:801 helpers/helper.php:818 helpers/helper.php:835
-#: helpers/helper.php:851 helpers/helper.php:868 helpers/helper.php:897
-#: helpers/helper.php:912 helpers/helper.php:927 helpers/helper.php:942
-#: helpers/helper.php:957 helpers/helper.php:972 helpers/helper.php:987
-#: helpers/helper.php:1002 helpers/helper.php:1017
+#: helpers/helper.php:147 helpers/helper.php:162 helpers/helper.php:177
+#: helpers/helper.php:192 helpers/helper.php:207 helpers/helper.php:222
+#: helpers/helper.php:237 helpers/helper.php:257 helpers/helper.php:272
+#: helpers/helper.php:287 helpers/helper.php:302 helpers/helper.php:317
+#: helpers/helper.php:344 helpers/helper.php:359 helpers/helper.php:374
+#: helpers/helper.php:389 helpers/helper.php:416 helpers/helper.php:431
+#: helpers/helper.php:458 helpers/helper.php:485 helpers/helper.php:512
+#: helpers/helper.php:539 helpers/helper.php:571 helpers/helper.php:603
+#: helpers/helper.php:630 helpers/helper.php:657 helpers/helper.php:684
+#: helpers/helper.php:699 helpers/helper.php:714 helpers/helper.php:729
+#: helpers/helper.php:756 helpers/helper.php:771 helpers/helper.php:786
+#: helpers/helper.php:813 helpers/helper.php:829 helpers/helper.php:844
+#: helpers/helper.php:859 helpers/helper.php:876 helpers/helper.php:893
+#: helpers/helper.php:909 helpers/helper.php:926 helpers/helper.php:955
+#: helpers/helper.php:970 helpers/helper.php:985 helpers/helper.php:1000
+#: helpers/helper.php:1015 helpers/helper.php:1030 helpers/helper.php:1045
+#: helpers/helper.php:1060 helpers/helper.php:1075
 msgid "Yes"
 msgstr "Ja"
 
-#: helpers/ajaxHelper.php:288 helpers/ajaxHelper.php:323
+#: helpers/ajaxHelper.php:289 helpers/ajaxHelper.php:324
 msgid "you don't have permission"
 msgstr "Sie haben keine Berechtigung"
 
