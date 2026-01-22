@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-20 04:02+0000\n"
-"PO-Revision-Date: 2025-12-20 04:04\n"
+"POT-Creation-Date: 2026-01-22 15:04+0000\n"
+"PO-Revision-Date: 2026-01-22 15:16\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid " can't be empty."
 msgstr " לא יכול להיות ריק."
 
-#: helpers/helper.php:535
+#: helpers/helper.php:536
 msgid "Activate waiting room"
 msgstr "הפעלת חדר המתנה"
 
@@ -30,31 +30,31 @@ msgstr "הפעלת חדר המתנה"
 msgid "Add New"
 msgstr "הוסף חדש"
 
-#: helpers/helper.php:233
+#: helpers/helper.php:234
 msgid "Admin only webcams"
 msgstr "מצלמות אינטרנט למנהלי מערכת בלבד"
 
-#: helpers/helper.php:848
+#: helpers/helper.php:906
 msgid "Allow AI text chat"
 msgstr "אפשר צ'אט טקסט בינה מלאכותית"
 
-#: helpers/helper.php:567
+#: helpers/helper.php:568
 msgid "Allow breakout rooms"
 msgstr "אפשר חדרי הפסקה"
 
-#: helpers/helper.php:412
+#: helpers/helper.php:413
 msgid "Allow chat"
 msgstr "אפשר צ'אט"
 
-#: helpers/helper.php:815
+#: helpers/helper.php:873
 msgid "Allow chat translation"
 msgstr "אפשר תרגום צ'אט"
 
-#: helpers/helper.php:355
+#: helpers/helper.php:356
 msgid "Allow cloud recording"
 msgstr "אפשר הקלטה בענן"
 
-#: helpers/helper.php:626
+#: helpers/helper.php:627
 msgid "Allow create ingress"
 msgstr "אפשר ליצור חדירה"
 
@@ -62,7 +62,7 @@ msgstr "אפשר ליצור חדירה"
 msgid "Allow Delete <br/>Recordings"
 msgstr "אפשר מחיקה <br/>הקלטות"
 
-#: helpers/helper.php:599
+#: helpers/helper.php:600
 msgid "Allow Display External Link"
 msgstr "אפשר הצגת קישור חיצוני"
 
@@ -70,19 +70,19 @@ msgstr "אפשר הצגת קישור חיצוני"
 msgid "Allow Download <br/>Recordings"
 msgstr "אפשר הורדה <br/>הקלטות"
 
-#: helpers/helper.php:508
+#: helpers/helper.php:509
 msgid "Allow external media player"
 msgstr "אפשר נגן מדיה חיצוני"
 
-#: helpers/helper.php:427
+#: helpers/helper.php:428
 msgid "Allow file upload"
 msgstr "אפשר העלאת קבצים"
 
-#: helpers/helper.php:385
+#: helpers/helper.php:386
 msgid "Allow local recording"
 msgstr "אפשר הקלטה מקומית"
 
-#: helpers/helper.php:865
+#: helpers/helper.php:923
 msgid "Allow meeting summarization"
 msgstr "אפשר סיכום פגישות"
 
@@ -90,39 +90,43 @@ msgstr "אפשר סיכום פגישות"
 msgid "Allow Play <br/>Recordings"
 msgstr "אפשר משחק <br/>הקלטות"
 
-#: helpers/helper.php:653
+#: helpers/helper.php:654
 msgid "Allow polls"
 msgstr "אפשר סקרים"
 
-#: helpers/helper.php:298
+#: helpers/helper.php:299
 msgid "Allow raise hand"
 msgstr "אפשר להרים יד"
 
-#: helpers/helper.php:340
+#: helpers/helper.php:341
 msgid "Allow recording"
 msgstr "אפשר הקלטה"
 
-#: helpers/helper.php:188
+#: helpers/helper.php:189
 msgid "Allow rtmp"
 msgstr "אפשר rtmp"
 
-#: helpers/helper.php:173
+#: helpers/helper.php:174
 msgid "Allow screen share"
 msgstr "אפשר שיתוף מסך"
 
-#: helpers/helper.php:454
+#: helpers/helper.php:455
 msgid "Allow shared notepad"
 msgstr "התרת פנקס רשימות משותף"
 
-#: helpers/helper.php:798
+#: helpers/helper.php:753
+msgid "Allow SIP/VoIP dial in"
+msgstr "אפשר חיוג SIP/VoIP"
+
+#: helpers/helper.php:856
 msgid "Allow speech synthesis"
 msgstr "אפשר סינתזת דיבור"
 
-#: helpers/helper.php:768
+#: helpers/helper.php:826
 msgid "Allow transcription"
 msgstr "אפשר תמלול"
 
-#: helpers/helper.php:783
+#: helpers/helper.php:841
 msgid "Allow translation feature"
 msgstr "אפשרות תרגום"
 
@@ -130,23 +134,23 @@ msgstr "אפשרות תרגום"
 msgid "Allow View <br/>Recordings"
 msgstr "אפשר תצוגה <br/>הקלטות"
 
-#: helpers/helper.php:218
+#: helpers/helper.php:219
 msgid "Allow view other users list"
 msgstr "אפשר הצגת רשימת משתמשים אחרים"
 
-#: helpers/helper.php:203
+#: helpers/helper.php:204
 msgid "Allow view other webcams"
 msgstr "אפשר להציג מצלמות אינטרנט אחרות"
 
-#: helpers/helper.php:283
+#: helpers/helper.php:284
 msgid "Allow virtual background"
 msgstr "אפשר רקע וירטואלי"
 
-#: helpers/helper.php:143
+#: helpers/helper.php:144
 msgid "Allow webcams"
 msgstr "אפשר מצלמות אינטרנט"
 
-#: helpers/helper.php:481
+#: helpers/helper.php:482
 msgid "Allow whiteboard"
 msgstr "אפשר לוח ציור"
 
@@ -168,7 +172,7 @@ msgstr "סיסמת משתתף"
 msgid "Audio preset"
 msgstr "הגדרת שמע מוגדרת מראש"
 
-#: helpers/helper.php:313
+#: helpers/helper.php:314
 msgid "Auto generate user ID"
 msgstr "יצירה אוטומטית של מזהה משתמש"
 
@@ -259,39 +263,43 @@ msgstr "הצגת טקסט המוגן בזכויות יוצרים"
 msgid "Download"
 msgstr "הורדה"
 
-#: helpers/helper.php:832
+#: helpers/helper.php:890
 msgid "Enable AI features"
 msgstr "הפעלת תכונות בינה מלאכותית"
 
-#: helpers/helper.php:268
+#: helpers/helper.php:269
 msgid "Enable analytics"
 msgstr "אפשר ניתוח"
 
-#: helpers/helper.php:370
+#: helpers/helper.php:371
 msgid "Enable auto cloud recording"
 msgstr "אפשר הקלטה אוטומטית בענן"
+
+#: helpers/helper.php:768
+msgid "Enable dial in on create"
+msgstr "הפעל חיוג תוך כדי יצירת"
 
 #: admin/class-plugnmeet-settings-page.php:241
 msgid "Enable Dynacast"
 msgstr "הפיכת Dynacast לזמין"
 
-#: helpers/helper.php:710
+#: helpers/helper.php:711
 msgid "Enable encryption for chat"
 msgstr "אפשר הצפנה עבור צ'אט"
 
-#: helpers/helper.php:725
+#: helpers/helper.php:726
 msgid "Enable encryption for whiteboard"
 msgstr "הפיכת הצפנה לזמינה עבור לוח ציור"
 
-#: helpers/helper.php:680
+#: helpers/helper.php:681
 msgid "Enable End-To-End Encryption (E2EE)"
 msgstr "הפעלת הצפנה מקצה לקצה (E2EE)"
 
-#: helpers/helper.php:752
+#: helpers/helper.php:810
 msgid "Enable insights features"
 msgstr "הפעל תכונות תובנות"
 
-#: helpers/helper.php:695
+#: helpers/helper.php:696
 msgid "Enable self insert key"
 msgstr "הפעלת מפתח ההכנסה העצמית"
 
@@ -313,6 +321,10 @@ msgstr "צבע כותרת תחתונה"
 #: admin/partials/form-parts/design.php:73
 msgid "Header Color"
 msgstr "צבע כותרת עליונה"
+
+#: helpers/helper.php:783
+msgid "Hide phone number"
+msgstr "הסתרת מספר טלפון"
 
 #. URI of the plugin
 msgid "https://github.com/mynaparrot/plugNmeet-WordPress"
@@ -358,39 +370,39 @@ msgstr "צבע סרגל שמאלי"
 msgid "Local client download url"
 msgstr "כתובת URL להורדת לקוח מקומי"
 
-#: helpers/helper.php:969
+#: helpers/helper.php:1027
 msgid "Lock chat"
 msgstr "נעל צ'אט"
 
-#: helpers/helper.php:999
+#: helpers/helper.php:1057
 msgid "Lock chat file share"
 msgstr "נעילת שיתוף קובץ צ'אט"
 
-#: helpers/helper.php:984
+#: helpers/helper.php:1042
 msgid "Lock chat send message"
 msgstr "נעילת צ'אט שליחת הודעה"
 
-#: helpers/helper.php:894
+#: helpers/helper.php:952
 msgid "Lock microphone"
 msgstr "נעילת מיקרופון"
 
-#: helpers/helper.php:1014
+#: helpers/helper.php:1072
 msgid "Lock private chat"
 msgstr "נעילת צ'אט פרטי"
 
-#: helpers/helper.php:924
+#: helpers/helper.php:982
 msgid "Lock screen sharing"
 msgstr "שיתוף מסך נעילה"
 
-#: helpers/helper.php:954
+#: helpers/helper.php:1012
 msgid "Lock shared notepad"
 msgstr "נעילת פנקס רשימות משותף"
 
-#: helpers/helper.php:909
+#: helpers/helper.php:967
 msgid "Lock webcam"
 msgstr "נעילת מצלמת אינטרנט"
 
-#: helpers/helper.php:939
+#: helpers/helper.php:997
 msgid "Lock whiteboard"
 msgstr "נעילת לוח ציור"
 
@@ -419,7 +431,7 @@ msgstr "בינוני"
 msgid "Meeting date"
 msgstr "מועד הפגישה"
 
-#: helpers/helper.php:253
+#: helpers/helper.php:254
 msgid "Moderator join first"
 msgstr "המנחה מצטרף ראשון"
 
@@ -428,7 +440,7 @@ msgstr "המנחה מצטרף ראשון"
 msgid "Moderator Password"
 msgstr "סיסמת מנחה"
 
-#: helpers/helper.php:158
+#: helpers/helper.php:159
 msgid "Mute on start"
 msgstr "השתקה במסך התחל"
 
@@ -448,22 +460,23 @@ msgstr "הבא"
 msgid "Next page"
 msgstr "לעמוד הבא"
 
-#: helpers/helper.php:150 helpers/helper.php:165 helpers/helper.php:180
-#: helpers/helper.php:195 helpers/helper.php:210 helpers/helper.php:225
-#: helpers/helper.php:240 helpers/helper.php:260 helpers/helper.php:275
-#: helpers/helper.php:290 helpers/helper.php:305 helpers/helper.php:320
-#: helpers/helper.php:347 helpers/helper.php:362 helpers/helper.php:377
-#: helpers/helper.php:392 helpers/helper.php:419 helpers/helper.php:434
-#: helpers/helper.php:461 helpers/helper.php:488 helpers/helper.php:515
-#: helpers/helper.php:542 helpers/helper.php:574 helpers/helper.php:606
-#: helpers/helper.php:633 helpers/helper.php:660 helpers/helper.php:687
-#: helpers/helper.php:702 helpers/helper.php:717 helpers/helper.php:732
-#: helpers/helper.php:759 helpers/helper.php:775 helpers/helper.php:790
-#: helpers/helper.php:805 helpers/helper.php:822 helpers/helper.php:839
-#: helpers/helper.php:855 helpers/helper.php:872 helpers/helper.php:901
-#: helpers/helper.php:916 helpers/helper.php:931 helpers/helper.php:946
-#: helpers/helper.php:961 helpers/helper.php:976 helpers/helper.php:991
-#: helpers/helper.php:1006 helpers/helper.php:1021
+#: helpers/helper.php:151 helpers/helper.php:166 helpers/helper.php:181
+#: helpers/helper.php:196 helpers/helper.php:211 helpers/helper.php:226
+#: helpers/helper.php:241 helpers/helper.php:261 helpers/helper.php:276
+#: helpers/helper.php:291 helpers/helper.php:306 helpers/helper.php:321
+#: helpers/helper.php:348 helpers/helper.php:363 helpers/helper.php:378
+#: helpers/helper.php:393 helpers/helper.php:420 helpers/helper.php:435
+#: helpers/helper.php:462 helpers/helper.php:489 helpers/helper.php:516
+#: helpers/helper.php:543 helpers/helper.php:575 helpers/helper.php:607
+#: helpers/helper.php:634 helpers/helper.php:661 helpers/helper.php:688
+#: helpers/helper.php:703 helpers/helper.php:718 helpers/helper.php:733
+#: helpers/helper.php:760 helpers/helper.php:775 helpers/helper.php:790
+#: helpers/helper.php:817 helpers/helper.php:833 helpers/helper.php:848
+#: helpers/helper.php:863 helpers/helper.php:880 helpers/helper.php:897
+#: helpers/helper.php:913 helpers/helper.php:930 helpers/helper.php:959
+#: helpers/helper.php:974 helpers/helper.php:989 helpers/helper.php:1004
+#: helpers/helper.php:1019 helpers/helper.php:1034 helpers/helper.php:1049
+#: helpers/helper.php:1064 helpers/helper.php:1079
 msgid "No"
 msgstr "לא"
 
@@ -471,12 +484,12 @@ msgstr "לא"
 msgid "No id was sent"
 msgstr "לא נשלחה תעודה מזהה"
 
-#: helpers/ajaxHelper.php:192 helpers/ajaxHelper.php:296
-#: public/class-plugnmeet-public.php:268
+#: public/class-plugnmeet-public.php:268 helpers/ajaxHelper.php:192
+#: helpers/ajaxHelper.php:297
 msgid "no room found"
 msgstr "לא נמצא חדר"
 
-#: helpers/helper.php:582
+#: helpers/helper.php:583
 msgid "Number of rooms"
 msgstr "מספר חדרים"
 
@@ -492,7 +505,7 @@ msgstr "תכונות אחרות"
 msgid "Password"
 msgstr "סיסמה"
 
-#: helpers/ajaxHelper.php:333
+#: helpers/ajaxHelper.php:334
 msgid "password didn't match"
 msgstr "הסיסמה לא תאמה"
 
@@ -578,7 +591,7 @@ msgstr "תפקיד"
 msgid "Room description"
 msgstr "תיאור החדר"
 
-#: helpers/helper.php:248
+#: helpers/helper.php:249
 msgid "Room duration (In minutes, 0 = unlimited)"
 msgstr "משך החדר (בדקות, 0 = ללא הגבלה)"
 
@@ -590,7 +603,7 @@ msgstr "תכונות החדר"
 msgid "Room Id"
 msgstr "מזהה החדר"
 
-#: helpers/ajaxHelper.php:175 public/class-plugnmeet-public.php:125
+#: public/class-plugnmeet-public.php:125 helpers/ajaxHelper.php:175
 msgid "room Id is missing"
 msgstr "מזהה החדר חסר"
 
@@ -602,11 +615,11 @@ msgstr "זיהוי החדר לא סופק עבור הקוד הקצר."
 msgid "room id required"
 msgstr "נדרש מזהה חדר"
 
-#: helpers/ajaxHelper.php:195 helpers/ajaxHelper.php:300
+#: helpers/ajaxHelper.php:195 helpers/ajaxHelper.php:301
 msgid "room not active"
 msgstr "חדר לא פעיל"
 
-#: helpers/helper.php:1051
+#: helpers/helper.php:1109
 msgid "Room Status"
 msgstr "סטטוס החדר"
 
@@ -727,7 +740,7 @@ msgstr "העלאה/בחירה של תמונה"
 msgid "Video Codec"
 msgstr "Codec וידאו"
 
-#: helpers/helper.php:550
+#: helpers/helper.php:551
 msgid "Waiting room message"
 msgstr "הודעה על חדר המתנה"
 
@@ -739,26 +752,27 @@ msgstr "רזולוציית מצלמת אינטרנט"
 msgid "Welcome Message"
 msgstr "הודעת ברכה"
 
-#: helpers/helper.php:146 helpers/helper.php:161 helpers/helper.php:176
-#: helpers/helper.php:191 helpers/helper.php:206 helpers/helper.php:221
-#: helpers/helper.php:236 helpers/helper.php:256 helpers/helper.php:271
-#: helpers/helper.php:286 helpers/helper.php:301 helpers/helper.php:316
-#: helpers/helper.php:343 helpers/helper.php:358 helpers/helper.php:373
-#: helpers/helper.php:388 helpers/helper.php:415 helpers/helper.php:430
-#: helpers/helper.php:457 helpers/helper.php:484 helpers/helper.php:511
-#: helpers/helper.php:538 helpers/helper.php:570 helpers/helper.php:602
-#: helpers/helper.php:629 helpers/helper.php:656 helpers/helper.php:683
-#: helpers/helper.php:698 helpers/helper.php:713 helpers/helper.php:728
-#: helpers/helper.php:755 helpers/helper.php:771 helpers/helper.php:786
-#: helpers/helper.php:801 helpers/helper.php:818 helpers/helper.php:835
-#: helpers/helper.php:851 helpers/helper.php:868 helpers/helper.php:897
-#: helpers/helper.php:912 helpers/helper.php:927 helpers/helper.php:942
-#: helpers/helper.php:957 helpers/helper.php:972 helpers/helper.php:987
-#: helpers/helper.php:1002 helpers/helper.php:1017
+#: helpers/helper.php:147 helpers/helper.php:162 helpers/helper.php:177
+#: helpers/helper.php:192 helpers/helper.php:207 helpers/helper.php:222
+#: helpers/helper.php:237 helpers/helper.php:257 helpers/helper.php:272
+#: helpers/helper.php:287 helpers/helper.php:302 helpers/helper.php:317
+#: helpers/helper.php:344 helpers/helper.php:359 helpers/helper.php:374
+#: helpers/helper.php:389 helpers/helper.php:416 helpers/helper.php:431
+#: helpers/helper.php:458 helpers/helper.php:485 helpers/helper.php:512
+#: helpers/helper.php:539 helpers/helper.php:571 helpers/helper.php:603
+#: helpers/helper.php:630 helpers/helper.php:657 helpers/helper.php:684
+#: helpers/helper.php:699 helpers/helper.php:714 helpers/helper.php:729
+#: helpers/helper.php:756 helpers/helper.php:771 helpers/helper.php:786
+#: helpers/helper.php:813 helpers/helper.php:829 helpers/helper.php:844
+#: helpers/helper.php:859 helpers/helper.php:876 helpers/helper.php:893
+#: helpers/helper.php:909 helpers/helper.php:926 helpers/helper.php:955
+#: helpers/helper.php:970 helpers/helper.php:985 helpers/helper.php:1000
+#: helpers/helper.php:1015 helpers/helper.php:1030 helpers/helper.php:1045
+#: helpers/helper.php:1060 helpers/helper.php:1075
 msgid "Yes"
 msgstr "כן"
 
-#: helpers/ajaxHelper.php:288 helpers/ajaxHelper.php:323
+#: helpers/ajaxHelper.php:289 helpers/ajaxHelper.php:324
 msgid "you don't have permission"
 msgstr "אין לך הרשאה"
 
