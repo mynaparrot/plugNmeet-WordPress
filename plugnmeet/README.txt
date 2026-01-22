@@ -2,7 +2,7 @@
 Contributors: mynaparrot
 Donate link: https://www.plugnmeet.org/
 Tags: video conference, webinar, online meeting, virtual classroom, video chat, zoom alternative, live streaming, webrtc, self-hosted, meeting, video
-Requires at least: 5.9
+Requires at least: 6.6
 Tested up to: 6.9
 # x-release-please-start-version
 Stable tag: 2.1.0

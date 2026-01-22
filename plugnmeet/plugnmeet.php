@@ -19,7 +19,7 @@
  * Version:           2.1.0
  * x-release-please-end
  * Author:            Jibon L. Costa <jibon@mynaparrot.com>
- * Requires at least: 5.9
+ * Requires at least: 6.6
  * Requires PHP:      8.2.0
  * Tested up to:      6.9
  * Author URI:        https://www.mynaparrot.com/
