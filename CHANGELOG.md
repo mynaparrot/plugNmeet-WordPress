@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.1](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.1.0...v2.1.1) (2026-02-02)
+
+
+### Bug Fixes
+
+* bump minimum ([e28102b](https://github.com/mynaparrot/plugNmeet-WordPress/commit/e28102b50dd34365c88a10fa32d4d41795066f64))
+* new Crowdin updates ([87731a3](https://github.com/mynaparrot/plugNmeet-WordPress/commit/87731a31d0be06fa129a32ddc213470ae7ef70eb))
+
 ## [2.1.0](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.0.2...v2.1.0) (2026-01-22)
 
 
