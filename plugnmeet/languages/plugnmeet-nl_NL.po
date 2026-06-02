@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-02 07:46+0000\n"
-"PO-Revision-Date: 2026-06-02 07:49\n"
+"PO-Revision-Date: 2026-06-02 07:51\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -72,7 +72,7 @@ msgstr "Downloaden toestaan <br/>Opnamen"
 
 #: helpers/helper.php:414
 msgid "Allow External Broadcasting Features"
-msgstr ""
+msgstr "Externe uitzendfuncties inschakelen"
 
 #: helpers/helper.php:552
 msgid "Allow external media player"
@@ -112,7 +112,7 @@ msgstr "Sta rtmp toe"
 
 #: helpers/helper.php:429
 msgid "Allow RTMP broadcasting"
-msgstr ""
+msgstr "Sta RTMP-uitzendingen toe"
 
 #: helpers/helper.php:175
 msgid "Allow screen share"
@@ -168,7 +168,7 @@ msgstr "Weet je zeker dat je gaat verwijderen?"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:68
 msgid "Are you sure you want to merge the following recordings in this order?"
-msgstr ""
+msgstr "Weet je zeker dat je de volgende opnames in deze volgorde wilt samenvoegen?"
 
 #: admin/class-plugnmeet-admin.php:300
 msgid "attendee & moderator password can't be same"
@@ -233,7 +233,7 @@ msgstr "Breedte kolomcamera"
 #: admin/partials/plugnmeet-admin-display-recordings.php:65
 #: admin/partials/plugnmeet-admin-display-recordings.php:75
 msgid "Confirm Merge"
-msgstr ""
+msgstr "Samenvoeging bevestigen"
 
 #: admin/class-plugnmeet-settings-page.php:341
 msgid "Copyright text"
@@ -449,11 +449,11 @@ msgstr "Datum van de zitting"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:31
 msgid "Merge Recordings"
-msgstr ""
+msgstr "Opnames samenvoegen"
 
 #: helpers/ajaxHelper.php:163
 msgid "Minimum two recordings & room id required"
-msgstr ""
+msgstr "Minimaal twee opnames en een kamer-ID zijn vereist."
 
 #: helpers/helper.php:255
 msgid "Moderator join first"
@@ -602,7 +602,7 @@ msgstr "Opnamen"
 
 #: helpers/ajaxHelper.php:188
 msgid "Recordings merge job was created successfully"
-msgstr ""
+msgstr "Het samenvoegen van opnames is succesvol aangemaakt."
 
 #: admin/partials/form-parts/permission.php:110
 msgid "Require <br/> Password"
@@ -682,7 +682,7 @@ msgstr "Secundaire kleur"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:40
 msgid "Select All"
-msgstr ""
+msgstr "Alles selecteren"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:22
 msgid "Select room"
