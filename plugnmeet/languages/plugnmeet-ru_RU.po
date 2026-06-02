@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-02 07:46+0000\n"
-"PO-Revision-Date: 2026-06-02 07:49\n"
+"PO-Revision-Date: 2026-06-02 07:51\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -72,7 +72,7 @@ msgstr "Разрешить загрузку <br/>Записи"
 
 #: helpers/helper.php:414
 msgid "Allow External Broadcasting Features"
-msgstr ""
+msgstr "Разрешить внешние функции трансляции"
 
 #: helpers/helper.php:552
 msgid "Allow external media player"
@@ -112,7 +112,7 @@ msgstr "Разрешить rtmp"
 
 #: helpers/helper.php:429
 msgid "Allow RTMP broadcasting"
-msgstr ""
+msgstr "Разрешить трансляцию по протоколу RTMP"
 
 #: helpers/helper.php:175
 msgid "Allow screen share"
@@ -168,7 +168,7 @@ msgstr "Вы уверены, что удалите?"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:68
 msgid "Are you sure you want to merge the following recordings in this order?"
-msgstr ""
+msgstr "Вы уверены, что хотите объединить следующие записи именно в таком порядке?"
 
 #: admin/class-plugnmeet-admin.php:300
 msgid "attendee & moderator password can't be same"
@@ -233,7 +233,7 @@ msgstr "Ширина камеры в столбце"
 #: admin/partials/plugnmeet-admin-display-recordings.php:65
 #: admin/partials/plugnmeet-admin-display-recordings.php:75
 msgid "Confirm Merge"
-msgstr ""
+msgstr "Подтвердить слияние"
 
 #: admin/class-plugnmeet-settings-page.php:341
 msgid "Copyright text"
@@ -449,11 +449,11 @@ msgstr "Дата встречи"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:31
 msgid "Merge Recordings"
-msgstr ""
+msgstr "Merge Recordings"
 
 #: helpers/ajaxHelper.php:163
 msgid "Minimum two recordings & room id required"
-msgstr ""
+msgstr "Требуется как минимум две записи и идентификатор помещения."
 
 #: helpers/helper.php:255
 msgid "Moderator join first"
@@ -602,7 +602,7 @@ msgstr "Записи"
 
 #: helpers/ajaxHelper.php:188
 msgid "Recordings merge job was created successfully"
-msgstr ""
+msgstr "Задача объединения записей успешно создана."
 
 #: admin/partials/form-parts/permission.php:110
 msgid "Require <br/> Password"
@@ -682,7 +682,7 @@ msgstr "Вторичный цвет"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:40
 msgid "Select All"
-msgstr ""
+msgstr "Выбрать все"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:22
 msgid "Select room"
