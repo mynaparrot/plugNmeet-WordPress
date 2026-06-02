@@ -111,6 +111,7 @@ jQuery(document).ready(function ($) {
         fetchRecordings(data);
         isShowingPagination = false;
         $('#recordingListsFooter').hide();
+        $('#plugnmeet-recordings-info').hide(); // Hide info div on init
         selectedRecordings = [];
         $('#plugnmeet-merge-recordings').hide();
     }
@@ -126,16 +127,20 @@ jQuery(document).ready(function ($) {
             success: (data) => {
                 if (!data.status) {
                     showMessage(data.msg);
+                    $('#plugnmeet-recordings-info').hide(); // Hide info div on error
                     return;
                 }
 
                 const result = JSON.parse(data.result);
                 const recordings = result.recordingsList;
-                if (!recordings) {
+                totalRecordings = result.totalRecordings;
+
+                if (!recordings || recordings.length === 0) {
                     showMessage('no recordings found');
+                    $('#plugnmeet-recordings-info').hide(); // Hide info div if no recordings
                     return;
                 }
-                totalRecordings = result.totalRecordings;
+
                 // check if pagination require
                 if (
                     totalRecordings > limitPerPage &&
@@ -144,6 +149,7 @@ jQuery(document).ready(function ($) {
                     showPagination();
                     isShowingPagination = true;
                 }
+                updateRecordingsInfo(); // Update info after fetching
 
                 let html = '';
                 for (let i = 0; i < recordings.length; i++) {
@@ -208,6 +214,16 @@ jQuery(document).ready(function ($) {
 
 
         $('#recordingListsFooter').html(html);
+        updateRecordingsInfo(); // Update info when pagination is shown
+    }
+
+    function updateRecordingsInfo() {
+        const totalPages = Math.ceil(totalRecordings / limitPerPage);
+        let infoText = plugnmeet_recordings_data.i18n.total_recordings + ': ' + totalRecordings;
+        if (totalPages > 1) {
+            infoText += ' | ' + plugnmeet_recordings_data.i18n.page + ': ' + currentPage + '/' + totalPages;
+        }
+        $('#plugnmeet-recordings-info').html(infoText).show();
     }
 
     let showPre = false,
@@ -259,6 +275,7 @@ jQuery(document).ready(function ($) {
             roomId,
         };
         fetchRecordings(data);
+        updateRecordingsInfo(); // Update info after pagination
     }
 
     $(document).on('click', '#plugnmeet-merge-recordings', function () {

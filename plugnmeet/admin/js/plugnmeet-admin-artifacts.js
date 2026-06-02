@@ -28,6 +28,7 @@ jQuery(document).ready(function ($) {
         fetchArtifacts(data);
         isShowingPagination = false;
         $('#artifactListsFooter').hide();
+        $('#plugnmeet-artifacts-info').hide();
     }
 
     function fetchArtifacts(data) {
@@ -41,16 +42,20 @@ jQuery(document).ready(function ($) {
             success: (data) => {
                 if (!data.status) {
                     showMessage(data.msg);
+                    $('#plugnmeet-artifacts-info').hide();
                     return;
                 }
 
                 const result = JSON.parse(data.result);
                 const artifacts = result.artifactsList;
-                if (!artifacts) {
+                totalArtifacts = result.totalArtifacts;
+
+                if (!artifacts || artifacts.length === 0) {
                     showMessage('no artifacts found');
+                    $('#plugnmeet-artifacts-info').hide();
                     return;
                 }
-                totalArtifacts = result.totalArtifacts;
+
                 // check if pagination require
                 if (
                     totalArtifacts > limitPerPage &&
@@ -59,6 +64,7 @@ jQuery(document).ready(function ($) {
                     showPagination();
                     isShowingPagination = true;
                 }
+                updateArtifactsInfo();
 
                 let html = '';
                 for (let i = 0; i < artifacts.length; i++) {
@@ -67,7 +73,11 @@ jQuery(document).ready(function ($) {
                     html += '<td>' + artifact.artifact_id + '</td>';
                     html += '<td>' + artifact.type + '</td>';
                     html += '<td>' + artifact.created + '</td>';
-                    html += '<td><a href="' + artifact.view_url + '" class="button">' + plugnmeet_artifacts_data.i18n.view + '</a></td>';
+                    html += '<td>';
+                    html += '<div class="alignright actions">';
+                    html += '<a href="' + artifact.view_url + '" class="button">' + plugnmeet_artifacts_data.i18n.view + '</a>';
+                    html += '</div>';
+                    html += '</td>';
                     html += '</tr>';
                 }
 
@@ -107,6 +117,16 @@ jQuery(document).ready(function ($) {
 
 
         $('#artifactListsFooter').html(html);
+        updateArtifactsInfo();
+    }
+
+    function updateArtifactsInfo() {
+        const totalPages = Math.ceil(totalArtifacts / limitPerPage);
+        let infoText = plugnmeet_artifacts_data.i18n.total_artifacts + ': ' + totalArtifacts;
+        if (totalPages > 1) {
+            infoText += ' | ' + plugnmeet_artifacts_data.i18n.page + ': ' + currentPage + '/' + totalPages;
+        }
+        $('#plugnmeet-artifacts-info').html(infoText).show();
     }
 
     let showPre = false,
@@ -158,6 +178,7 @@ jQuery(document).ready(function ($) {
             roomId,
         };
         fetchArtifacts(data);
+        updateArtifactsInfo();
     }
 
     $(document).on('click', '.download-artifact', function (e) {

@@ -98,7 +98,7 @@ class Plugnmeet_Admin {
 			wp_enqueue_script( "bootstrap-bundle", plugin_dir_url( __FILE__ ) . 'js/bootstrap.bundle.js', array(), $this->version );
 			wp_enqueue_script( "bootstrap-colorpicker", plugin_dir_url( __FILE__ ) . 'js/bootstrap-colorpicker.min.js', array(), $this->version );
 			wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugnmeet-admin.js', array( 'jquery' ), $this->version, false );
-			
+
 			if ( $hook_suffix === 'plug-n-meet_page_plugnmeet-recordings' ) {
 				wp_enqueue_script( $this->plugin_name . '-recordings', plugin_dir_url( __FILE__ ) . 'js/plugnmeet-admin-recordings.js', array( 'jquery' ), $this->version, true );
 				wp_localize_script( $this->plugin_name . '-recordings', 'plugnmeet_recordings_data', array(
@@ -109,9 +109,11 @@ class Plugnmeet_Admin {
 						'merge_recordings'   => wp_create_nonce( 'plugnmeet_merge_recordings' ),
 					),
 					'i18n'  => array(
-						'confirm_delete' => __( 'Are you sure to delete?', 'plugnmeet' ),
-						'download'       => __( 'Download', 'plugnmeet' ),
-						'delete'         => __( 'Delete', 'plugnmeet' ),
+						'confirm_delete'   => __( 'Are you sure to delete?', 'plugnmeet' ),
+						'download'         => __( 'Download', 'plugnmeet' ),
+						'delete'           => __( 'Delete', 'plugnmeet' ),
+						'total_recordings' => __( 'Total recordings', 'plugnmeet' ),
+						'page'             => __( 'Page', 'plugnmeet' ),
 					),
 				) );
 			}
@@ -120,14 +122,16 @@ class Plugnmeet_Admin {
 				wp_enqueue_script( $this->plugin_name . '-artifacts', plugin_dir_url( __FILE__ ) . 'js/plugnmeet-admin-artifacts.js', array( 'jquery' ), $this->version, true );
 				wp_localize_script( $this->plugin_name . '-artifacts', 'plugnmeet_artifacts_data', array(
 					'nonce' => array(
-						'get_artifacts' => wp_create_nonce( 'plugnmeet_get_artifacts' ),
-						'download_artifact' => wp_create_nonce( 'plugnmeet_download_artifact' ),
+						'get_artifacts'      => wp_create_nonce( 'plugnmeet_get_artifacts' ),
+						'download_artifact'  => wp_create_nonce( 'plugnmeet_download_artifact' ),
 						'download_analytics' => wp_create_nonce( 'plugnmeet_download_analytics' ),
-						'delete_artifact' => wp_create_nonce( 'plugnmeet_delete_artifact' ),
+						'delete_artifact'    => wp_create_nonce( 'plugnmeet_delete_artifact' ),
 					),
-					'i18n' => array(
-						'view' => __( 'View', 'plugnmeet' ),
-						'confirm_delete' => __( 'Are you sure you want to delete this artifact?', 'plugnmeet' ),
+					'i18n'  => array(
+						'view'            => __( 'View', 'plugnmeet' ),
+						'confirm_delete'  => __( 'Are you sure you want to delete this artifact?', 'plugnmeet' ),
+						'total_artifacts' => __( 'Total artifacts', 'plugnmeet' ),
+						'page'            => __( 'Page', 'plugnmeet' ),
 					),
 				) );
 			}
