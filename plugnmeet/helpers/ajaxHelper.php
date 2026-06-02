@@ -126,10 +126,6 @@ class PlugNmeetAjaxHelper {
 			wp_send_json( $output );
 		}
 
-		if ( ! class_exists( "plugNmeetConnect" ) ) {
-			require plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/plugNmeetConnect.php';
-		}
-
 		$artifact_id = isset( $_POST['artifact_id'] ) ? sanitize_text_field( $_POST['artifact_id'] ) : null;
 
 		if ( ! $artifact_id ) {
@@ -318,9 +314,8 @@ class PlugNmeetAjaxHelper {
 			wp_send_json( $output );
 		}
 
-		$check = $this->canAccess( $roomId, 'can_delete' ); // Assuming same permission
-		if ( ! $check->status ) {
-			$output->msg = $check->msg;
+		if ( ! current_user_can( 'manage_options' ) ) {
+			$output->msg = __( "You don't have permission to access this page", "plugnmeet" );
 			wp_send_json( $output );
 		}
 
@@ -407,11 +402,7 @@ class PlugNmeetAjaxHelper {
 			wp_send_json( $output );
 		}
 		$isAdmin = $roleDetermine->isAdmin;
-
-		if ( ! class_exists( "plugNmeetConnect" ) ) {
-			include PLUGNMEET_ROOT_PATH . "/helpers/plugNmeetConnect.php";
-		}
-
+		
 		$connect       = new plugNmeetConnect( $this->setting_params );
 		$isRoomActive  = false;
 		$room_metadata = json_decode( $roomInfo->room_metadata, true );

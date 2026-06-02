@@ -6,7 +6,6 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-use PhpOffice\PhpSpreadsheet\Style\Font;
 
 class Plugnmeet_AnalyticsHelper {
 	private $analyticsformatter;
