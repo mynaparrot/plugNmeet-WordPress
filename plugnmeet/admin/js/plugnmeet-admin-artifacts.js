@@ -73,7 +73,11 @@ jQuery(document).ready(function ($) {
                     html += '<td>' + artifact.artifact_id + '</td>';
                     html += '<td>' + artifact.type + '</td>';
                     html += '<td>' + artifact.created + '</td>';
-                    html += '<td><a href="' + artifact.view_url + '" class="button">' + plugnmeet_artifacts_data.i18n.view + '</a></td>';
+                    html += '<td>';
+                    html += '<div class="alignright actions">';
+                    html += '<a href="' + artifact.view_url + '" class="button">' + plugnmeet_artifacts_data.i18n.view + '</a>';
+                    html += '</div>';
+                    html += '</td>';
                     html += '</tr>';
                 }
 

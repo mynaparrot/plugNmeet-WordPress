@@ -25,7 +25,12 @@
 
 .plugnmeet-pagination-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    gap: 20px;
     align-items: center;
     margin-top: 10px;
+}
+
+#plugnmeet-recordings-info, #plugnmeet-artifacts-info {
+    margin-top: 12px;
 }

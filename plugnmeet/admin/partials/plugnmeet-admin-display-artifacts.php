@@ -42,9 +42,7 @@ $selected_room = isset( $_GET['room_id'] ) ? sanitize_text_field( $_GET['room_id
             <th class="manage-column column-categories">
                 <?php echo __( "Created", "plugnmeet" ); ?>
             </th>
-            <th class="manage-column" style="width: 22%">
-                <?php echo __( "Actions", "plugnmeet" ); ?>
-            </th>
+            <th class="manage-column" style="width: 22%"></th>
         </tr>
         </thead>
         <tbody id="artifactListsBody"></tbody>
