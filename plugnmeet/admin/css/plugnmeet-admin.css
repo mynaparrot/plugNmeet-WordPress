@@ -11,8 +11,12 @@
     margin-right: 10px;
 }
 
-.rooms-list .wp-list-table tbody td {
+.wp-list-table tbody td, .wp-list-table tbody th {
     vertical-align: middle;
+}
+
+.wp-list-table .recording-checkbox {
+    margin-top: 8px;
 }
 
 .permission-table .wp-list-table.striped tbody tr:nth-child(odd) {
