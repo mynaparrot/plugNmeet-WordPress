@@ -16,7 +16,8 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
 }
 
 ?>
-<div class="wrap">
+
+<div class="wrap rooms-list">
     <h1 class="wp-heading-inline"><?php echo __( "Rooms", "plugnmeet" ) ?></h1>
     <a href="admin.php?page=plugnmeet&task=add" class="page-title-action"><?php echo __( "Add New", "plugnmeet" ) ?></a>
     <hr/>
@@ -64,7 +65,8 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
                 </td>
                 <td class="moderator_pass column-moderator_pass"><?php echo esc_html( $room->moderator_pass ) ?></td>
                 <td class="attendee_pass column-attendee_pass"><?php echo esc_html( $room->attendee_pass ) ?></td>
-                <td class="published column-published"><?php echo $room->published ? __( "Published", "plugnmeet" ) : __( "Unpublished", "plugnmeet" ) ?>
+                <td class="published column-published" <?php echo ! $room->published ? 'style="color: red;"' : ''; ?>>
+                    <?php echo $room->published ? __( "Published", "plugnmeet" ) : __( "Unpublished", "plugnmeet" ) ?>
                 </td>
                 <td class="actions column-actions">
                     <div style="display: flex; gap: 5px; justify-content: flex-end;">

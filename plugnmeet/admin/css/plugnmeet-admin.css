@@ -10,3 +10,11 @@
 #recordingLists .filesize button:first-child {
     margin-right: 10px;
 }
+
+.rooms-list .wp-list-table tbody td {
+    vertical-align: middle;
+}
+
+.permission-table .wp-list-table.striped tbody tr:nth-child(odd) {
+    background-color: #f0f0f0; /* A slightly darker grey */
+}
