@@ -65,6 +65,19 @@ class ClientInfo extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string other_sdks = 11;</code>
      */
     protected $other_sdks = '';
+    /**
+     * client protocol version
+     *
+     * Generated from protobuf field <code>int32 client_protocol = 12;</code>
+     */
+    protected $client_protocol = 0;
+    /**
+     * capabilities the client advertises. Populated automatically by each SDK;
+     * not a user-configurable setting.
+     *
+     * Generated from protobuf field <code>repeated .livekit.ClientInfo.Capability capabilities = 13;</code>
+     */
+    private $capabilities;
 
     /**
      * Constructor.
@@ -86,6 +99,11 @@ class ClientInfo extends \Google\Protobuf\Internal\Message
      *     @type string $other_sdks
      *           comma separated list of additional LiveKit SDKs in use of this client, with versions
      *           e.g. "components-js:1.2.3,track-processors-js:1.2.3"
+     *     @type int $client_protocol
+     *           client protocol version
+     *     @type int[] $capabilities
+     *           capabilities the client advertises. Populated automatically by each SDK;
+     *           not a user-configurable setting.
      * }
      */
     public function __construct($data = NULL) {
@@ -341,6 +359,60 @@ class ClientInfo extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->other_sdks = $var;
+
+        return $this;
+    }
+
+    /**
+     * client protocol version
+     *
+     * Generated from protobuf field <code>int32 client_protocol = 12;</code>
+     * @return int
+     */
+    public function getClientProtocol()
+    {
+        return $this->client_protocol;
+    }
+
+    /**
+     * client protocol version
+     *
+     * Generated from protobuf field <code>int32 client_protocol = 12;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setClientProtocol($var)
+    {
+        GPBUtil::checkInt32($var);
+        $this->client_protocol = $var;
+
+        return $this;
+    }
+
+    /**
+     * capabilities the client advertises. Populated automatically by each SDK;
+     * not a user-configurable setting.
+     *
+     * Generated from protobuf field <code>repeated .livekit.ClientInfo.Capability capabilities = 13;</code>
+     * @return RepeatedField<int>
+     */
+    public function getCapabilities()
+    {
+        return $this->capabilities;
+    }
+
+    /**
+     * capabilities the client advertises. Populated automatically by each SDK;
+     * not a user-configurable setting.
+     *
+     * Generated from protobuf field <code>repeated .livekit.ClientInfo.Capability capabilities = 13;</code>
+     * @param int[] $var
+     * @return $this
+     */
+    public function setCapabilities($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::ENUM, \Livekit\ClientInfo\Capability::class);
+        $this->capabilities = $arr;
 
         return $this;
     }

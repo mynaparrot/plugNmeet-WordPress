@@ -15,7 +15,7 @@ use Google\Protobuf\RepeatedField;
 class DeployAgentRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string agent_id = 1;</code>
+     * Generated from protobuf field <code>string agent_id = 1 [(.logger.name) = "agentID"];</code>
      */
     protected $agent_id = '';
     /**
@@ -42,6 +42,10 @@ class DeployAgentRequest extends \Google\Protobuf\Internal\Message
      * @deprecated
      */
     protected $cpu_req = '';
+    /**
+     * Generated from protobuf field <code>string deployment = 7;</code>
+     */
+    protected $deployment = '';
 
     /**
      * Constructor.
@@ -55,6 +59,7 @@ class DeployAgentRequest extends \Google\Protobuf\Internal\Message
      *     @type int $replicas
      *     @type int $max_replicas
      *     @type string $cpu_req
+     *     @type string $deployment
      * }
      */
     public function __construct($data = NULL) {
@@ -63,7 +68,7 @@ class DeployAgentRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string agent_id = 1;</code>
+     * Generated from protobuf field <code>string agent_id = 1 [(.logger.name) = "agentID"];</code>
      * @return string
      */
     public function getAgentId()
@@ -72,7 +77,7 @@ class DeployAgentRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string agent_id = 1;</code>
+     * Generated from protobuf field <code>string agent_id = 1 [(.logger.name) = "agentID"];</code>
      * @param string $var
      * @return $this
      */
@@ -214,6 +219,28 @@ class DeployAgentRequest extends \Google\Protobuf\Internal\Message
         @trigger_error('cpu_req is deprecated.', E_USER_DEPRECATED);
         GPBUtil::checkString($var, True);
         $this->cpu_req = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string deployment = 7;</code>
+     * @return string
+     */
+    public function getDeployment()
+    {
+        return $this->deployment;
+    }
+
+    /**
+     * Generated from protobuf field <code>string deployment = 7;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setDeployment($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->deployment = $var;
 
         return $this;
     }

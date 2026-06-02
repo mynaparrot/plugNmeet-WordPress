@@ -27,13 +27,23 @@ class AgentDispatch extends \Google\Protobuf\Internal\Message
      */
     protected $room = '';
     /**
-     * Generated from protobuf field <code>string metadata = 4 [(.logger.redact) = true];</code>
+     * Generated from protobuf field <code>string metadata = 4 [(.logger.sensitivity) = SENSITIVITY_PII];</code>
      */
     protected $metadata = '';
     /**
      * Generated from protobuf field <code>.livekit.AgentDispatchState state = 5;</code>
      */
     protected $state = null;
+    /**
+     * cloud only
+     *
+     * Generated from protobuf field <code>.livekit.JobRestartPolicy restart_policy = 6;</code>
+     */
+    protected $restart_policy = 0;
+    /**
+     * Generated from protobuf field <code>string deployment = 7;</code>
+     */
+    protected $deployment = '';
 
     /**
      * Constructor.
@@ -46,6 +56,9 @@ class AgentDispatch extends \Google\Protobuf\Internal\Message
      *     @type string $room
      *     @type string $metadata
      *     @type \Livekit\AgentDispatchState $state
+     *     @type int $restart_policy
+     *           cloud only
+     *     @type string $deployment
      * }
      */
     public function __construct($data = NULL) {
@@ -120,7 +133,7 @@ class AgentDispatch extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string metadata = 4 [(.logger.redact) = true];</code>
+     * Generated from protobuf field <code>string metadata = 4 [(.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @return string
      */
     public function getMetadata()
@@ -129,7 +142,7 @@ class AgentDispatch extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string metadata = 4 [(.logger.redact) = true];</code>
+     * Generated from protobuf field <code>string metadata = 4 [(.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @param string $var
      * @return $this
      */
@@ -169,6 +182,54 @@ class AgentDispatch extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Livekit\AgentDispatchState::class);
         $this->state = $var;
+
+        return $this;
+    }
+
+    /**
+     * cloud only
+     *
+     * Generated from protobuf field <code>.livekit.JobRestartPolicy restart_policy = 6;</code>
+     * @return int
+     */
+    public function getRestartPolicy()
+    {
+        return $this->restart_policy;
+    }
+
+    /**
+     * cloud only
+     *
+     * Generated from protobuf field <code>.livekit.JobRestartPolicy restart_policy = 6;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setRestartPolicy($var)
+    {
+        GPBUtil::checkEnum($var, \Livekit\JobRestartPolicy::class);
+        $this->restart_policy = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string deployment = 7;</code>
+     * @return string
+     */
+    public function getDeployment()
+    {
+        return $this->deployment;
+    }
+
+    /**
+     * Generated from protobuf field <code>string deployment = 7;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setDeployment($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->deployment = $var;
 
         return $this;
     }

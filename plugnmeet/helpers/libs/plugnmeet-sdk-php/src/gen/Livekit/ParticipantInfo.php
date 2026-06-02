@@ -31,7 +31,7 @@ class ParticipantInfo extends \Google\Protobuf\Internal\Message
      */
     private $tracks;
     /**
-     * Generated from protobuf field <code>string metadata = 5 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string metadata = 5 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      */
     protected $metadata = '';
     /**
@@ -47,7 +47,7 @@ class ParticipantInfo extends \Google\Protobuf\Internal\Message
      */
     protected $joined_at_ms = 0;
     /**
-     * Generated from protobuf field <code>string name = 9 [(.logger.redact) = true];</code>
+     * Generated from protobuf field <code>string name = 9 [(.logger.sensitivity) = SENSITIVITY_PII];</code>
      */
     protected $name = '';
     /**
@@ -74,7 +74,7 @@ class ParticipantInfo extends \Google\Protobuf\Internal\Message
      */
     protected $kind = 0;
     /**
-     * Generated from protobuf field <code>map<string, string> attributes = 15 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> attributes = 15 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      */
     private $attributes;
     /**
@@ -89,6 +89,12 @@ class ParticipantInfo extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .livekit.DataTrackInfo data_tracks = 19;</code>
      */
     private $data_tracks;
+    /**
+     * protocol version used for client feature compatibility
+     *
+     * Generated from protobuf field <code>int32 client_protocol = 20;</code>
+     */
+    protected $client_protocol = 0;
 
     /**
      * Constructor.
@@ -117,6 +123,8 @@ class ParticipantInfo extends \Google\Protobuf\Internal\Message
      *     @type int $disconnect_reason
      *     @type int[] $kind_details
      *     @type \Livekit\DataTrackInfo[] $data_tracks
+     *     @type int $client_protocol
+     *           protocol version used for client feature compatibility
      * }
      */
     public function __construct($data = NULL) {
@@ -213,7 +221,7 @@ class ParticipantInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string metadata = 5 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string metadata = 5 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @return string
      */
     public function getMetadata()
@@ -222,7 +230,7 @@ class ParticipantInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string metadata = 5 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string metadata = 5 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @param string $var
      * @return $this
      */
@@ -287,7 +295,7 @@ class ParticipantInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string name = 9 [(.logger.redact) = true];</code>
+     * Generated from protobuf field <code>string name = 9 [(.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @return string
      */
     public function getName()
@@ -296,7 +304,7 @@ class ParticipantInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string name = 9 [(.logger.redact) = true];</code>
+     * Generated from protobuf field <code>string name = 9 [(.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @param string $var
      * @return $this
      */
@@ -435,7 +443,7 @@ class ParticipantInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> attributes = 15 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> attributes = 15 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @return \Google\Protobuf\Internal\MapField
      */
     public function getAttributes()
@@ -444,7 +452,7 @@ class ParticipantInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> attributes = 15 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> attributes = 15 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
@@ -518,6 +526,32 @@ class ParticipantInfo extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Livekit\DataTrackInfo::class);
         $this->data_tracks = $arr;
+
+        return $this;
+    }
+
+    /**
+     * protocol version used for client feature compatibility
+     *
+     * Generated from protobuf field <code>int32 client_protocol = 20;</code>
+     * @return int
+     */
+    public function getClientProtocol()
+    {
+        return $this->client_protocol;
+    }
+
+    /**
+     * protocol version used for client feature compatibility
+     *
+     * Generated from protobuf field <code>int32 client_protocol = 20;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setClientProtocol($var)
+    {
+        GPBUtil::checkInt32($var);
+        $this->client_protocol = $var;
 
         return $this;
     }

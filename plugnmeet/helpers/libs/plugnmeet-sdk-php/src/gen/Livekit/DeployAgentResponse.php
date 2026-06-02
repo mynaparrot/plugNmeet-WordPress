@@ -23,11 +23,12 @@ class DeployAgentResponse extends \Google\Protobuf\Internal\Message
      */
     protected $message = '';
     /**
-     * Generated from protobuf field <code>string agent_id = 3;</code>
+     * Generated from protobuf field <code>string agent_id = 3 [(.logger.name) = "agentID"];</code>
      */
     protected $agent_id = '';
     /**
-     * Generated from protobuf field <code>string presigned_url = 4;</code>
+     * Generated from protobuf field <code>string presigned_url = 4 [deprecated = true];</code>
+     * @deprecated
      */
     protected $presigned_url = '';
     /**
@@ -38,6 +39,10 @@ class DeployAgentResponse extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.livekit.PresignedPostRequest presigned_post_request = 6;</code>
      */
     protected $presigned_post_request = null;
+    /**
+     * Generated from protobuf field <code>string deployment = 7;</code>
+     */
+    protected $deployment = '';
 
     /**
      * Constructor.
@@ -51,6 +56,7 @@ class DeployAgentResponse extends \Google\Protobuf\Internal\Message
      *     @type string $presigned_url
      *     @type string $tag
      *     @type \Livekit\PresignedPostRequest $presigned_post_request
+     *     @type string $deployment
      * }
      */
     public function __construct($data = NULL) {
@@ -103,7 +109,7 @@ class DeployAgentResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string agent_id = 3;</code>
+     * Generated from protobuf field <code>string agent_id = 3 [(.logger.name) = "agentID"];</code>
      * @return string
      */
     public function getAgentId()
@@ -112,7 +118,7 @@ class DeployAgentResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string agent_id = 3;</code>
+     * Generated from protobuf field <code>string agent_id = 3 [(.logger.name) = "agentID"];</code>
      * @param string $var
      * @return $this
      */
@@ -125,21 +131,27 @@ class DeployAgentResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string presigned_url = 4;</code>
+     * Generated from protobuf field <code>string presigned_url = 4 [deprecated = true];</code>
      * @return string
+     * @deprecated
      */
     public function getPresignedUrl()
     {
+        if ($this->presigned_url !== '') {
+            @trigger_error('presigned_url is deprecated.', E_USER_DEPRECATED);
+        }
         return $this->presigned_url;
     }
 
     /**
-     * Generated from protobuf field <code>string presigned_url = 4;</code>
+     * Generated from protobuf field <code>string presigned_url = 4 [deprecated = true];</code>
      * @param string $var
      * @return $this
+     * @deprecated
      */
     public function setPresignedUrl($var)
     {
+        @trigger_error('presigned_url is deprecated.', E_USER_DEPRECATED);
         GPBUtil::checkString($var, True);
         $this->presigned_url = $var;
 
@@ -196,6 +208,28 @@ class DeployAgentResponse extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Livekit\PresignedPostRequest::class);
         $this->presigned_post_request = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string deployment = 7;</code>
+     * @return string
+     */
+    public function getDeployment()
+    {
+        return $this->deployment;
+    }
+
+    /**
+     * Generated from protobuf field <code>string deployment = 7;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setDeployment($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->deployment = $var;
 
         return $this;
     }

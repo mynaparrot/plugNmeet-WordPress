@@ -15,7 +15,7 @@ use Google\Protobuf\RepeatedField;
 class SIPDispatchRuleInfo extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string sip_dispatch_rule_id = 1;</code>
+     * Generated from protobuf field <code>string sip_dispatch_rule_id = 1 [(.logger.name) = "sipDispatchRuleID"];</code>
      */
     protected $sip_dispatch_rule_id = '';
     /**
@@ -52,14 +52,14 @@ class SIPDispatchRuleInfo extends \Google\Protobuf\Internal\Message
      * User-defined metadata for the Dispatch Rule.
      * Participants created by this rule will inherit this metadata.
      *
-     * Generated from protobuf field <code>string metadata = 6 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string metadata = 6 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      */
     protected $metadata = '';
     /**
      * User-defined attributes for the Dispatch Rule.
      * Participants created by this rule will inherit these attributes.
      *
-     * Generated from protobuf field <code>map<string, string> attributes = 8 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> attributes = 8 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      */
     private $attributes;
     /**
@@ -75,15 +75,26 @@ class SIPDispatchRuleInfo extends \Google\Protobuf\Internal\Message
      */
     protected $room_config = null;
     /**
+     * Generated from protobuf field <code>.livekit.SIPMediaConfig media = 16;</code>
+     */
+    protected $media = null;
+    /**
      * Generated from protobuf field <code>bool krisp_enabled = 11;</code>
      */
     protected $krisp_enabled = false;
     /**
-     * NEXT ID: 14
-     *
-     * Generated from protobuf field <code>.livekit.SIPMediaEncryption media_encryption = 12;</code>
+     * Generated from protobuf field <code>.livekit.SIPMediaEncryption media_encryption = 12 [deprecated = true];</code>
+     * @deprecated
      */
     protected $media_encryption = 0;
+    /**
+     * Generated from protobuf field <code>.google.protobuf.Timestamp created_at = 14;</code>
+     */
+    protected $created_at = null;
+    /**
+     * Generated from protobuf field <code>.google.protobuf.Timestamp updated_at = 15;</code>
+     */
+    protected $updated_at = null;
 
     /**
      * Constructor.
@@ -111,9 +122,11 @@ class SIPDispatchRuleInfo extends \Google\Protobuf\Internal\Message
      *           Cloud-only, config preset to use
      *     @type \Livekit\RoomConfiguration $room_config
      *           RoomConfiguration to use if the participant initiates the room
+     *     @type \Livekit\SIPMediaConfig $media
      *     @type bool $krisp_enabled
      *     @type int $media_encryption
-     *           NEXT ID: 14
+     *     @type \Google\Protobuf\Timestamp $created_at
+     *     @type \Google\Protobuf\Timestamp $updated_at
      * }
      */
     public function __construct($data = NULL) {
@@ -122,7 +135,7 @@ class SIPDispatchRuleInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string sip_dispatch_rule_id = 1;</code>
+     * Generated from protobuf field <code>string sip_dispatch_rule_id = 1 [(.logger.name) = "sipDispatchRuleID"];</code>
      * @return string
      */
     public function getSipDispatchRuleId()
@@ -131,7 +144,7 @@ class SIPDispatchRuleInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string sip_dispatch_rule_id = 1;</code>
+     * Generated from protobuf field <code>string sip_dispatch_rule_id = 1 [(.logger.name) = "sipDispatchRuleID"];</code>
      * @param string $var
      * @return $this
      */
@@ -301,7 +314,7 @@ class SIPDispatchRuleInfo extends \Google\Protobuf\Internal\Message
      * User-defined metadata for the Dispatch Rule.
      * Participants created by this rule will inherit this metadata.
      *
-     * Generated from protobuf field <code>string metadata = 6 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string metadata = 6 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @return string
      */
     public function getMetadata()
@@ -313,7 +326,7 @@ class SIPDispatchRuleInfo extends \Google\Protobuf\Internal\Message
      * User-defined metadata for the Dispatch Rule.
      * Participants created by this rule will inherit this metadata.
      *
-     * Generated from protobuf field <code>string metadata = 6 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string metadata = 6 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @param string $var
      * @return $this
      */
@@ -329,7 +342,7 @@ class SIPDispatchRuleInfo extends \Google\Protobuf\Internal\Message
      * User-defined attributes for the Dispatch Rule.
      * Participants created by this rule will inherit these attributes.
      *
-     * Generated from protobuf field <code>map<string, string> attributes = 8 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> attributes = 8 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @return \Google\Protobuf\Internal\MapField
      */
     public function getAttributes()
@@ -341,7 +354,7 @@ class SIPDispatchRuleInfo extends \Google\Protobuf\Internal\Message
      * User-defined attributes for the Dispatch Rule.
      * Participants created by this rule will inherit these attributes.
      *
-     * Generated from protobuf field <code>map<string, string> attributes = 8 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> attributes = 8 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
@@ -416,6 +429,38 @@ class SIPDispatchRuleInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Generated from protobuf field <code>.livekit.SIPMediaConfig media = 16;</code>
+     * @return \Livekit\SIPMediaConfig|null
+     */
+    public function getMedia()
+    {
+        return $this->media;
+    }
+
+    public function hasMedia()
+    {
+        return isset($this->media);
+    }
+
+    public function clearMedia()
+    {
+        unset($this->media);
+    }
+
+    /**
+     * Generated from protobuf field <code>.livekit.SIPMediaConfig media = 16;</code>
+     * @param \Livekit\SIPMediaConfig $var
+     * @return $this
+     */
+    public function setMedia($var)
+    {
+        GPBUtil::checkMessage($var, \Livekit\SIPMediaConfig::class);
+        $this->media = $var;
+
+        return $this;
+    }
+
+    /**
      * Generated from protobuf field <code>bool krisp_enabled = 11;</code>
      * @return bool
      */
@@ -438,27 +483,93 @@ class SIPDispatchRuleInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * NEXT ID: 14
-     *
-     * Generated from protobuf field <code>.livekit.SIPMediaEncryption media_encryption = 12;</code>
+     * Generated from protobuf field <code>.livekit.SIPMediaEncryption media_encryption = 12 [deprecated = true];</code>
      * @return int
+     * @deprecated
      */
     public function getMediaEncryption()
     {
+        if ($this->media_encryption !== 0) {
+            @trigger_error('media_encryption is deprecated.', E_USER_DEPRECATED);
+        }
         return $this->media_encryption;
     }
 
     /**
-     * NEXT ID: 14
-     *
-     * Generated from protobuf field <code>.livekit.SIPMediaEncryption media_encryption = 12;</code>
+     * Generated from protobuf field <code>.livekit.SIPMediaEncryption media_encryption = 12 [deprecated = true];</code>
      * @param int $var
      * @return $this
+     * @deprecated
      */
     public function setMediaEncryption($var)
     {
+        @trigger_error('media_encryption is deprecated.', E_USER_DEPRECATED);
         GPBUtil::checkEnum($var, \Livekit\SIPMediaEncryption::class);
         $this->media_encryption = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.google.protobuf.Timestamp created_at = 14;</code>
+     * @return \Google\Protobuf\Timestamp|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    public function hasCreatedAt()
+    {
+        return isset($this->created_at);
+    }
+
+    public function clearCreatedAt()
+    {
+        unset($this->created_at);
+    }
+
+    /**
+     * Generated from protobuf field <code>.google.protobuf.Timestamp created_at = 14;</code>
+     * @param \Google\Protobuf\Timestamp $var
+     * @return $this
+     */
+    public function setCreatedAt($var)
+    {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
+        $this->created_at = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.google.protobuf.Timestamp updated_at = 15;</code>
+     * @return \Google\Protobuf\Timestamp|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    public function hasUpdatedAt()
+    {
+        return isset($this->updated_at);
+    }
+
+    public function clearUpdatedAt()
+    {
+        unset($this->updated_at);
+    }
+
+    /**
+     * Generated from protobuf field <code>.google.protobuf.Timestamp updated_at = 15;</code>
+     * @param \Google\Protobuf\Timestamp $var
+     * @return $this
+     */
+    public function setUpdatedAt($var)
+    {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
+        $this->updated_at = $var;
 
         return $this;
     }

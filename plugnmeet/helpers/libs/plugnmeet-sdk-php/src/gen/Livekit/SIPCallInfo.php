@@ -15,15 +15,15 @@ use Google\Protobuf\RepeatedField;
 class SIPCallInfo extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string call_id = 1;</code>
+     * Generated from protobuf field <code>string call_id = 1 [(.logger.name) = "callID"];</code>
      */
     protected $call_id = '';
     /**
-     * Generated from protobuf field <code>string trunk_id = 2;</code>
+     * Generated from protobuf field <code>string trunk_id = 2 [(.logger.name) = "trunkID"];</code>
      */
     protected $trunk_id = '';
     /**
-     * Generated from protobuf field <code>string dispatch_rule_id = 16;</code>
+     * Generated from protobuf field <code>string dispatch_rule_id = 16 [(.logger.name) = "dispatchRuleID"];</code>
      */
     protected $dispatch_rule_id = '';
     /**
@@ -37,7 +37,7 @@ class SIPCallInfo extends \Google\Protobuf\Internal\Message
     /**
      * ID of the current/previous room published to
      *
-     * Generated from protobuf field <code>string room_id = 4;</code>
+     * Generated from protobuf field <code>string room_id = 4 [(.logger.name) = "roomID"];</code>
      */
     protected $room_id = '';
     /**
@@ -45,7 +45,7 @@ class SIPCallInfo extends \Google\Protobuf\Internal\Message
      */
     protected $participant_identity = '';
     /**
-     * Generated from protobuf field <code>map<string, string> participant_attributes = 18 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> participant_attributes = 18 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      */
     private $participant_attributes;
     /**
@@ -128,7 +128,7 @@ class SIPCallInfo extends \Google\Protobuf\Internal\Message
      */
     protected $provider_info = null;
     /**
-     * Generated from protobuf field <code>string sip_call_id = 28;</code>
+     * Generated from protobuf field <code>string sip_call_id = 28 [(.logger.name) = "sipCallID"];</code>
      */
     protected $sip_call_id = '';
 
@@ -175,7 +175,7 @@ class SIPCallInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string call_id = 1;</code>
+     * Generated from protobuf field <code>string call_id = 1 [(.logger.name) = "callID"];</code>
      * @return string
      */
     public function getCallId()
@@ -184,7 +184,7 @@ class SIPCallInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string call_id = 1;</code>
+     * Generated from protobuf field <code>string call_id = 1 [(.logger.name) = "callID"];</code>
      * @param string $var
      * @return $this
      */
@@ -197,7 +197,7 @@ class SIPCallInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string trunk_id = 2;</code>
+     * Generated from protobuf field <code>string trunk_id = 2 [(.logger.name) = "trunkID"];</code>
      * @return string
      */
     public function getTrunkId()
@@ -206,7 +206,7 @@ class SIPCallInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string trunk_id = 2;</code>
+     * Generated from protobuf field <code>string trunk_id = 2 [(.logger.name) = "trunkID"];</code>
      * @param string $var
      * @return $this
      */
@@ -219,7 +219,7 @@ class SIPCallInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string dispatch_rule_id = 16;</code>
+     * Generated from protobuf field <code>string dispatch_rule_id = 16 [(.logger.name) = "dispatchRuleID"];</code>
      * @return string
      */
     public function getDispatchRuleId()
@@ -228,7 +228,7 @@ class SIPCallInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string dispatch_rule_id = 16;</code>
+     * Generated from protobuf field <code>string dispatch_rule_id = 16 [(.logger.name) = "dispatchRuleID"];</code>
      * @param string $var
      * @return $this
      */
@@ -287,7 +287,7 @@ class SIPCallInfo extends \Google\Protobuf\Internal\Message
     /**
      * ID of the current/previous room published to
      *
-     * Generated from protobuf field <code>string room_id = 4;</code>
+     * Generated from protobuf field <code>string room_id = 4 [(.logger.name) = "roomID"];</code>
      * @return string
      */
     public function getRoomId()
@@ -298,7 +298,7 @@ class SIPCallInfo extends \Google\Protobuf\Internal\Message
     /**
      * ID of the current/previous room published to
      *
-     * Generated from protobuf field <code>string room_id = 4;</code>
+     * Generated from protobuf field <code>string room_id = 4 [(.logger.name) = "roomID"];</code>
      * @param string $var
      * @return $this
      */
@@ -333,7 +333,7 @@ class SIPCallInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> participant_attributes = 18 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> participant_attributes = 18 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @return \Google\Protobuf\Internal\MapField
      */
     public function getParticipantAttributes()
@@ -342,7 +342,7 @@ class SIPCallInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> participant_attributes = 18 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> participant_attributes = 18 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
@@ -831,7 +831,7 @@ class SIPCallInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string sip_call_id = 28;</code>
+     * Generated from protobuf field <code>string sip_call_id = 28 [(.logger.name) = "sipCallID"];</code>
      * @return string
      */
     public function getSipCallId()
@@ -840,7 +840,7 @@ class SIPCallInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string sip_call_id = 28;</code>
+     * Generated from protobuf field <code>string sip_call_id = 28 [(.logger.name) = "sipCallID"];</code>
      * @param string $var
      * @return $this
      */

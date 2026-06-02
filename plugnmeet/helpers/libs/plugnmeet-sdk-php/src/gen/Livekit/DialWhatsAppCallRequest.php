@@ -17,19 +17,19 @@ class DialWhatsAppCallRequest extends \Google\Protobuf\Internal\Message
     /**
      * Required - The phone number id of the business that is initiating the call
      *
-     * Generated from protobuf field <code>string whatsapp_phone_number_id = 1;</code>
+     * Generated from protobuf field <code>string whatsapp_phone_number_id = 1 [(.logger.name) = "whatsappPhoneNumberID"];</code>
      */
     protected $whatsapp_phone_number_id = '';
     /**
      * Required - The number of the user that is supossed to receive the call
      *
-     * Generated from protobuf field <code>string whatsapp_to_phone_number = 2 [(.logger.redact) = true];</code>
+     * Generated from protobuf field <code>string whatsapp_to_phone_number = 2 [(.logger.sensitivity) = SENSITIVITY_PII];</code>
      */
     protected $whatsapp_to_phone_number = '';
     /**
      * Required - The API key of the business that is initiating the call
      *
-     * Generated from protobuf field <code>string whatsapp_api_key = 3 [(.logger.redact) = true];</code>
+     * Generated from protobuf field <code>string whatsapp_api_key = 3 [(.logger.sensitivity) = SENSITIVITY_SECRET];</code>
      */
     protected $whatsapp_api_key = '';
     /**
@@ -66,19 +66,19 @@ class DialWhatsAppCallRequest extends \Google\Protobuf\Internal\Message
     /**
      * Optional - Name of the participant in LiveKit room
      *
-     * Generated from protobuf field <code>string participant_name = 8 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string participant_name = 8 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      */
     protected $participant_name = '';
     /**
      * Optional - User-defined metadata. Will be attached to a created Participant in the room.
      *
-     * Generated from protobuf field <code>string participant_metadata = 9 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string participant_metadata = 9 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      */
     protected $participant_metadata = '';
     /**
      * Optional - User-defined attributes. Will be attached to a created Participant in the room.
      *
-     * Generated from protobuf field <code>map<string, string> participant_attributes = 10 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> participant_attributes = 10 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      */
     private $participant_attributes;
     /**
@@ -87,6 +87,12 @@ class DialWhatsAppCallRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string destination_country = 11;</code>
      */
     protected $destination_country = '';
+    /**
+     * Max time for the callee to answer the call.
+     *
+     * Generated from protobuf field <code>.google.protobuf.Duration ringing_timeout = 13;</code>
+     */
+    protected $ringing_timeout = null;
 
     /**
      * Constructor.
@@ -119,6 +125,8 @@ class DialWhatsAppCallRequest extends \Google\Protobuf\Internal\Message
      *           Optional - User-defined attributes. Will be attached to a created Participant in the room.
      *     @type string $destination_country
      *           Optional - Country where the call terminates as ISO 3166-1 alpha-2 (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). This will be used by the livekit infrastructure to route calls.
+     *     @type \Google\Protobuf\Duration $ringing_timeout
+     *           Max time for the callee to answer the call.
      * }
      */
     public function __construct($data = NULL) {
@@ -129,7 +137,7 @@ class DialWhatsAppCallRequest extends \Google\Protobuf\Internal\Message
     /**
      * Required - The phone number id of the business that is initiating the call
      *
-     * Generated from protobuf field <code>string whatsapp_phone_number_id = 1;</code>
+     * Generated from protobuf field <code>string whatsapp_phone_number_id = 1 [(.logger.name) = "whatsappPhoneNumberID"];</code>
      * @return string
      */
     public function getWhatsappPhoneNumberId()
@@ -140,7 +148,7 @@ class DialWhatsAppCallRequest extends \Google\Protobuf\Internal\Message
     /**
      * Required - The phone number id of the business that is initiating the call
      *
-     * Generated from protobuf field <code>string whatsapp_phone_number_id = 1;</code>
+     * Generated from protobuf field <code>string whatsapp_phone_number_id = 1 [(.logger.name) = "whatsappPhoneNumberID"];</code>
      * @param string $var
      * @return $this
      */
@@ -155,7 +163,7 @@ class DialWhatsAppCallRequest extends \Google\Protobuf\Internal\Message
     /**
      * Required - The number of the user that is supossed to receive the call
      *
-     * Generated from protobuf field <code>string whatsapp_to_phone_number = 2 [(.logger.redact) = true];</code>
+     * Generated from protobuf field <code>string whatsapp_to_phone_number = 2 [(.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @return string
      */
     public function getWhatsappToPhoneNumber()
@@ -166,7 +174,7 @@ class DialWhatsAppCallRequest extends \Google\Protobuf\Internal\Message
     /**
      * Required - The number of the user that is supossed to receive the call
      *
-     * Generated from protobuf field <code>string whatsapp_to_phone_number = 2 [(.logger.redact) = true];</code>
+     * Generated from protobuf field <code>string whatsapp_to_phone_number = 2 [(.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @param string $var
      * @return $this
      */
@@ -181,7 +189,7 @@ class DialWhatsAppCallRequest extends \Google\Protobuf\Internal\Message
     /**
      * Required - The API key of the business that is initiating the call
      *
-     * Generated from protobuf field <code>string whatsapp_api_key = 3 [(.logger.redact) = true];</code>
+     * Generated from protobuf field <code>string whatsapp_api_key = 3 [(.logger.sensitivity) = SENSITIVITY_SECRET];</code>
      * @return string
      */
     public function getWhatsappApiKey()
@@ -192,7 +200,7 @@ class DialWhatsAppCallRequest extends \Google\Protobuf\Internal\Message
     /**
      * Required - The API key of the business that is initiating the call
      *
-     * Generated from protobuf field <code>string whatsapp_api_key = 3 [(.logger.redact) = true];</code>
+     * Generated from protobuf field <code>string whatsapp_api_key = 3 [(.logger.sensitivity) = SENSITIVITY_SECRET];</code>
      * @param string $var
      * @return $this
      */
@@ -339,7 +347,7 @@ class DialWhatsAppCallRequest extends \Google\Protobuf\Internal\Message
     /**
      * Optional - Name of the participant in LiveKit room
      *
-     * Generated from protobuf field <code>string participant_name = 8 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string participant_name = 8 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @return string
      */
     public function getParticipantName()
@@ -350,7 +358,7 @@ class DialWhatsAppCallRequest extends \Google\Protobuf\Internal\Message
     /**
      * Optional - Name of the participant in LiveKit room
      *
-     * Generated from protobuf field <code>string participant_name = 8 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string participant_name = 8 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @param string $var
      * @return $this
      */
@@ -365,7 +373,7 @@ class DialWhatsAppCallRequest extends \Google\Protobuf\Internal\Message
     /**
      * Optional - User-defined metadata. Will be attached to a created Participant in the room.
      *
-     * Generated from protobuf field <code>string participant_metadata = 9 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string participant_metadata = 9 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @return string
      */
     public function getParticipantMetadata()
@@ -376,7 +384,7 @@ class DialWhatsAppCallRequest extends \Google\Protobuf\Internal\Message
     /**
      * Optional - User-defined metadata. Will be attached to a created Participant in the room.
      *
-     * Generated from protobuf field <code>string participant_metadata = 9 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string participant_metadata = 9 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @param string $var
      * @return $this
      */
@@ -391,7 +399,7 @@ class DialWhatsAppCallRequest extends \Google\Protobuf\Internal\Message
     /**
      * Optional - User-defined attributes. Will be attached to a created Participant in the room.
      *
-     * Generated from protobuf field <code>map<string, string> participant_attributes = 10 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> participant_attributes = 10 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @return \Google\Protobuf\Internal\MapField
      */
     public function getParticipantAttributes()
@@ -402,7 +410,7 @@ class DialWhatsAppCallRequest extends \Google\Protobuf\Internal\Message
     /**
      * Optional - User-defined attributes. Will be attached to a created Participant in the room.
      *
-     * Generated from protobuf field <code>map<string, string> participant_attributes = 10 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> participant_attributes = 10 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
@@ -436,6 +444,42 @@ class DialWhatsAppCallRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->destination_country = $var;
+
+        return $this;
+    }
+
+    /**
+     * Max time for the callee to answer the call.
+     *
+     * Generated from protobuf field <code>.google.protobuf.Duration ringing_timeout = 13;</code>
+     * @return \Google\Protobuf\Duration|null
+     */
+    public function getRingingTimeout()
+    {
+        return $this->ringing_timeout;
+    }
+
+    public function hasRingingTimeout()
+    {
+        return isset($this->ringing_timeout);
+    }
+
+    public function clearRingingTimeout()
+    {
+        unset($this->ringing_timeout);
+    }
+
+    /**
+     * Max time for the callee to answer the call.
+     *
+     * Generated from protobuf field <code>.google.protobuf.Duration ringing_timeout = 13;</code>
+     * @param \Google\Protobuf\Duration $var
+     * @return $this
+     */
+    public function setRingingTimeout($var)
+    {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Duration::class);
+        $this->ringing_timeout = $var;
 
         return $this;
     }

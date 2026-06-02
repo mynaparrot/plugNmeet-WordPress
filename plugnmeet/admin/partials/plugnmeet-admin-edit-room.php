@@ -97,6 +97,12 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
                 <hr/>
                 <table class="form-table" role="presentation">
                     <tbody>
+                    <?php echo PlugnmeetHelper::getExternalBroadcastingFeatures( $fields_values['external_broadcasting_features'] ); ?>
+                    </tbody>
+                </table>
+                <hr/>
+                <table class="form-table" role="presentation">
+                    <tbody>
                     <?php echo PlugnmeetHelper::getChatFeatures( $fields_values['chat_features'] ); ?>
                     </tbody>
                 </table>

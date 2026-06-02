@@ -16,6 +16,7 @@ class PlugnmeetHelper {
 	public static $roomMetadataItems = [
 		'room_features',
 		'recording_features',
+		'external_broadcasting_features',
 		'chat_features',
 		'shared_note_pad_features',
 		'whiteboard_features',
@@ -405,6 +406,48 @@ class PlugnmeetHelper {
 		}
 
 		return self::formatHtml( $recordingFeatures, "recording_features", $data );
+	}
+
+	public static function getExternalBroadcastingFeatures( $external_broadcasting_features ) {
+		$externalBroadcastingFeatures = array(
+			"is_allow"      => array(
+				"label"    => __( "Allow External Broadcasting Features", "plugnmeet" ),
+				"options"  => array(
+					array(
+						"label" => __( "Yes", "plugnmeet" ),
+						"value" => 1
+					),
+					array(
+						"label" => __( "No", "plugnmeet" ),
+						"value" => 0
+					)
+				),
+				"selected" => 1,
+				"type"     => "select"
+			),
+			"is_allow_rtmp" => array(
+				"label"    => __( "Allow RTMP broadcasting", "plugnmeet" ),
+				"options"  => array(
+					array(
+						"label" => __( "Yes", "plugnmeet" ),
+						"value" => 1
+					),
+					array(
+						"label" => __( "No", "plugnmeet" ),
+						"value" => 0
+					)
+				),
+				"selected" => 1,
+				"type"     => "select"
+			),
+		);
+
+		$data = [];
+		if ( ! empty( $external_broadcasting_features ) ) {
+			$data = $external_broadcasting_features;
+		}
+
+		return self::formatHtml( $externalBroadcastingFeatures, "external_broadcasting_features", $data );
 	}
 
 	public static function getChatFeatures( $chat_features ) {

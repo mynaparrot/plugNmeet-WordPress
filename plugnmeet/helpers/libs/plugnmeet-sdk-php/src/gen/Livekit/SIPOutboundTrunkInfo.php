@@ -15,7 +15,7 @@ use Google\Protobuf\RepeatedField;
 class SIPOutboundTrunkInfo extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string sip_trunk_id = 1;</code>
+     * Generated from protobuf field <code>string sip_trunk_id = 1 [(.logger.name) = "sipTrunkID"];</code>
      */
     protected $sip_trunk_id = '';
     /**
@@ -27,7 +27,7 @@ class SIPOutboundTrunkInfo extends \Google\Protobuf\Internal\Message
     /**
      * User-defined metadata for the Trunk.
      *
-     * Generated from protobuf field <code>string metadata = 3 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string metadata = 3 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      */
     protected $metadata = '';
     /**
@@ -59,18 +59,18 @@ class SIPOutboundTrunkInfo extends \Google\Protobuf\Internal\Message
      * Username and password used to authenticate with SIP server.
      * May be empty to have no authentication.
      *
-     * Generated from protobuf field <code>string auth_username = 7 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string auth_username = 7 [(.logger.sensitivity) = SENSITIVITY_PII];</code>
      */
     protected $auth_username = '';
     /**
-     * Generated from protobuf field <code>string auth_password = 8 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string auth_password = 8 [(.logger.sensitivity) = SENSITIVITY_SECRET];</code>
      */
     protected $auth_password = '';
     /**
      * Include these SIP X-* headers in INVITE request.
      * These headers are sent as-is and may help identify this call as coming from LiveKit for the other SIP endpoint.
      *
-     * Generated from protobuf field <code>map<string, string> headers = 9 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> headers = 9 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      */
     private $headers;
     /**
@@ -100,6 +100,22 @@ class SIPOutboundTrunkInfo extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.livekit.SIPMediaEncryption media_encryption = 13;</code>
      */
     protected $media_encryption = 0;
+    /**
+     * Optional custom hostname for the 'From' SIP header in outbound INVITEs.
+     * When set, outbound calls from this trunk will use this host instead of the default project SIP domain.
+     * Enables originating calls from custom domains.
+     *
+     * Generated from protobuf field <code>string from_host = 15;</code>
+     */
+    protected $from_host = '';
+    /**
+     * Generated from protobuf field <code>.google.protobuf.Timestamp created_at = 16;</code>
+     */
+    protected $created_at = null;
+    /**
+     * Generated from protobuf field <code>.google.protobuf.Timestamp updated_at = 17;</code>
+     */
+    protected $updated_at = null;
 
     /**
      * Constructor.
@@ -140,6 +156,12 @@ class SIPOutboundTrunkInfo extends \Google\Protobuf\Internal\Message
      *           When mapping 200 OK headers to follow-up request headers with attributes_to_headers map,
      *           lowercase header names should be used, for example: sip.h.x-custom-header.
      *     @type int $media_encryption
+     *     @type string $from_host
+     *           Optional custom hostname for the 'From' SIP header in outbound INVITEs.
+     *           When set, outbound calls from this trunk will use this host instead of the default project SIP domain.
+     *           Enables originating calls from custom domains.
+     *     @type \Google\Protobuf\Timestamp $created_at
+     *     @type \Google\Protobuf\Timestamp $updated_at
      * }
      */
     public function __construct($data = NULL) {
@@ -148,7 +170,7 @@ class SIPOutboundTrunkInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string sip_trunk_id = 1;</code>
+     * Generated from protobuf field <code>string sip_trunk_id = 1 [(.logger.name) = "sipTrunkID"];</code>
      * @return string
      */
     public function getSipTrunkId()
@@ -157,7 +179,7 @@ class SIPOutboundTrunkInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string sip_trunk_id = 1;</code>
+     * Generated from protobuf field <code>string sip_trunk_id = 1 [(.logger.name) = "sipTrunkID"];</code>
      * @param string $var
      * @return $this
      */
@@ -198,7 +220,7 @@ class SIPOutboundTrunkInfo extends \Google\Protobuf\Internal\Message
     /**
      * User-defined metadata for the Trunk.
      *
-     * Generated from protobuf field <code>string metadata = 3 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string metadata = 3 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @return string
      */
     public function getMetadata()
@@ -209,7 +231,7 @@ class SIPOutboundTrunkInfo extends \Google\Protobuf\Internal\Message
     /**
      * User-defined metadata for the Trunk.
      *
-     * Generated from protobuf field <code>string metadata = 3 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string metadata = 3 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @param string $var
      * @return $this
      */
@@ -331,7 +353,7 @@ class SIPOutboundTrunkInfo extends \Google\Protobuf\Internal\Message
      * Username and password used to authenticate with SIP server.
      * May be empty to have no authentication.
      *
-     * Generated from protobuf field <code>string auth_username = 7 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string auth_username = 7 [(.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @return string
      */
     public function getAuthUsername()
@@ -343,7 +365,7 @@ class SIPOutboundTrunkInfo extends \Google\Protobuf\Internal\Message
      * Username and password used to authenticate with SIP server.
      * May be empty to have no authentication.
      *
-     * Generated from protobuf field <code>string auth_username = 7 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string auth_username = 7 [(.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @param string $var
      * @return $this
      */
@@ -356,7 +378,7 @@ class SIPOutboundTrunkInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string auth_password = 8 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string auth_password = 8 [(.logger.sensitivity) = SENSITIVITY_SECRET];</code>
      * @return string
      */
     public function getAuthPassword()
@@ -365,7 +387,7 @@ class SIPOutboundTrunkInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string auth_password = 8 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string auth_password = 8 [(.logger.sensitivity) = SENSITIVITY_SECRET];</code>
      * @param string $var
      * @return $this
      */
@@ -381,7 +403,7 @@ class SIPOutboundTrunkInfo extends \Google\Protobuf\Internal\Message
      * Include these SIP X-* headers in INVITE request.
      * These headers are sent as-is and may help identify this call as coming from LiveKit for the other SIP endpoint.
      *
-     * Generated from protobuf field <code>map<string, string> headers = 9 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> headers = 9 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @return \Google\Protobuf\Internal\MapField
      */
     public function getHeaders()
@@ -393,7 +415,7 @@ class SIPOutboundTrunkInfo extends \Google\Protobuf\Internal\Message
      * Include these SIP X-* headers in INVITE request.
      * These headers are sent as-is and may help identify this call as coming from LiveKit for the other SIP endpoint.
      *
-     * Generated from protobuf field <code>map<string, string> headers = 9 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> headers = 9 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
@@ -511,6 +533,100 @@ class SIPOutboundTrunkInfo extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Livekit\SIPMediaEncryption::class);
         $this->media_encryption = $var;
+
+        return $this;
+    }
+
+    /**
+     * Optional custom hostname for the 'From' SIP header in outbound INVITEs.
+     * When set, outbound calls from this trunk will use this host instead of the default project SIP domain.
+     * Enables originating calls from custom domains.
+     *
+     * Generated from protobuf field <code>string from_host = 15;</code>
+     * @return string
+     */
+    public function getFromHost()
+    {
+        return $this->from_host;
+    }
+
+    /**
+     * Optional custom hostname for the 'From' SIP header in outbound INVITEs.
+     * When set, outbound calls from this trunk will use this host instead of the default project SIP domain.
+     * Enables originating calls from custom domains.
+     *
+     * Generated from protobuf field <code>string from_host = 15;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setFromHost($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->from_host = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.google.protobuf.Timestamp created_at = 16;</code>
+     * @return \Google\Protobuf\Timestamp|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    public function hasCreatedAt()
+    {
+        return isset($this->created_at);
+    }
+
+    public function clearCreatedAt()
+    {
+        unset($this->created_at);
+    }
+
+    /**
+     * Generated from protobuf field <code>.google.protobuf.Timestamp created_at = 16;</code>
+     * @param \Google\Protobuf\Timestamp $var
+     * @return $this
+     */
+    public function setCreatedAt($var)
+    {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
+        $this->created_at = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.google.protobuf.Timestamp updated_at = 17;</code>
+     * @return \Google\Protobuf\Timestamp|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    public function hasUpdatedAt()
+    {
+        return isset($this->updated_at);
+    }
+
+    public function clearUpdatedAt()
+    {
+        unset($this->updated_at);
+    }
+
+    /**
+     * Generated from protobuf field <code>.google.protobuf.Timestamp updated_at = 17;</code>
+     * @param \Google\Protobuf\Timestamp $var
+     * @return $this
+     */
+    public function setUpdatedAt($var)
+    {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
+        $this->updated_at = $var;
 
         return $this;
     }

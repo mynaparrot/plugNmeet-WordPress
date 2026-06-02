@@ -74,6 +74,10 @@ class Plugnmeet_Admin {
 			wp_enqueue_style( 'bootstrap-min', plugin_dir_url( __FILE__ ) . 'css/bootstrap.min.css' );
 			wp_enqueue_style( 'bootstrap-colorpicker', plugin_dir_url( __FILE__ ) . 'css/bootstrap-colorpicker.min.css' );
 			wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/plugnmeet-admin.css' );
+
+			if ( $hook_suffix === 'plug-n-meet_page_plugnmeet-recordings' ) {
+				wp_enqueue_style( $this->plugin_name . '-recordings', plugin_dir_url( __FILE__ ) . 'css/plugnmeet-admin-recordings.css' );
+			}
 		}
 	}
 
@@ -90,6 +94,23 @@ class Plugnmeet_Admin {
 			wp_enqueue_script( "bootstrap-bundle", plugin_dir_url( __FILE__ ) . 'js/bootstrap.bundle.js', array(), $this->version );
 			wp_enqueue_script( "bootstrap-colorpicker", plugin_dir_url( __FILE__ ) . 'js/bootstrap-colorpicker.min.js', array(), $this->version );
 			wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugnmeet-admin.js', array( 'jquery' ), $this->version, false );
+			
+			if ( $hook_suffix === 'plug-n-meet_page_plugnmeet-recordings' ) {
+				wp_enqueue_script( $this->plugin_name . '-recordings', plugin_dir_url( __FILE__ ) . 'js/plugnmeet-admin-recordings.js', array( 'jquery' ), $this->version, true );
+				wp_localize_script( $this->plugin_name . '-recordings', 'plugnmeet_recordings_data', array(
+					'nonce' => array(
+						'get_recordings'     => wp_create_nonce( 'plugnmeet_get_recordings' ),
+						'download_recording' => wp_create_nonce( 'plugnmeet_download_recording' ),
+						'delete_recording'   => wp_create_nonce( 'plugnmeet_delete_recording' ),
+						'merge_recordings'   => wp_create_nonce( 'plugnmeet_merge_recordings' ),
+					),
+					'i18n'  => array(
+						'confirm_delete' => __( 'Are you sure to delete?', 'plugnmeet' ),
+						'download'       => __( 'Download', 'plugnmeet' ),
+						'delete'         => __( 'Delete', 'plugnmeet' ),
+					),
+				) );
+			}
 		}
 
 		$nonce  = wp_create_nonce( 'ajax_admin' );

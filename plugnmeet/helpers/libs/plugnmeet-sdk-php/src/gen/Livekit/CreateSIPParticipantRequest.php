@@ -20,13 +20,31 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
     /**
      * What SIP Trunk should be used to dial the user
      *
-     * Generated from protobuf field <code>string sip_trunk_id = 1;</code>
+     * Generated from protobuf field <code>string sip_trunk_id = 1 [(.logger.name) = "sipTrunkID"];</code>
      */
     protected $sip_trunk_id = '';
     /**
      * Generated from protobuf field <code>.livekit.SIPOutboundConfig trunk = 20;</code>
      */
     protected $trunk = null;
+    /**
+     * INVITE <uri>
+     *
+     * Generated from protobuf field <code>.livekit.SIPRequestDest sip_request_uri = 24;</code>
+     */
+    protected $sip_request_uri = null;
+    /**
+     * To:   "Name" <uri>
+     *
+     * Generated from protobuf field <code>.livekit.SIPNamedDest sip_to_header = 25;</code>
+     */
+    protected $sip_to_header = null;
+    /**
+     * From: "Name" <uri>
+     *
+     * Generated from protobuf field <code>.livekit.SIPNamedDest sip_from_header = 26;</code>
+     */
+    protected $sip_from_header = null;
     /**
      * What number should be dialed via SIP
      *
@@ -54,19 +72,19 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
     /**
      * Optional name of the participant in LiveKit room
      *
-     * Generated from protobuf field <code>string participant_name = 7 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string participant_name = 7 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      */
     protected $participant_name = '';
     /**
      * Optional user-defined metadata. Will be attached to a created Participant in the room.
      *
-     * Generated from protobuf field <code>string participant_metadata = 8 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string participant_metadata = 8 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      */
     protected $participant_metadata = '';
     /**
      * Optional user-defined attributes. Will be attached to a created Participant in the room.
      *
-     * Generated from protobuf field <code>map<string, string> participant_attributes = 9 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> participant_attributes = 9 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      */
     private $participant_attributes;
     /**
@@ -97,7 +115,7 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
     /**
      * These headers are sent as-is and may help identify this call as coming from LiveKit for the other SIP endpoint.
      *
-     * Generated from protobuf field <code>map<string, string> headers = 16 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> headers = 16 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      */
     private $headers;
     /**
@@ -128,9 +146,14 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
      */
     protected $krisp_enabled = false;
     /**
-     * Generated from protobuf field <code>.livekit.SIPMediaEncryption media_encryption = 18;</code>
+     * Generated from protobuf field <code>.livekit.SIPMediaEncryption media_encryption = 18 [deprecated = true];</code>
+     * @deprecated
      */
     protected $media_encryption = 0;
+    /**
+     * Generated from protobuf field <code>.livekit.SIPMediaConfig media = 23;</code>
+     */
+    protected $media = null;
     /**
      * Wait for the answer for the call before returning.
      *
@@ -144,11 +167,11 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
      * 2) Empty string: Do not send a display name, which will result in a CNAM lookup downstream.
      * 3) Non-empty: Use the specified value as the display name.
      *
-     * Generated from protobuf field <code>optional string display_name = 21 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>optional string display_name = 21 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      */
     protected $display_name = null;
     /**
-     * NEXT ID: 23
+     * NEXT ID: 27
      *
      * Generated from protobuf field <code>optional .livekit.Destination destination = 22;</code>
      */
@@ -163,6 +186,12 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
      *     @type string $sip_trunk_id
      *           What SIP Trunk should be used to dial the user
      *     @type \Livekit\SIPOutboundConfig $trunk
+     *     @type \Livekit\SIPRequestDest $sip_request_uri
+     *           INVITE <uri>
+     *     @type \Livekit\SIPNamedDest $sip_to_header
+     *           To:   "Name" <uri>
+     *     @type \Livekit\SIPNamedDest $sip_from_header
+     *           From: "Name" <uri>
      *     @type string $sip_call_to
      *           What number should be dialed via SIP
      *     @type string $sip_number
@@ -200,6 +229,7 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
      *     @type bool $krisp_enabled
      *           Enable voice isolation for the callee.
      *     @type int $media_encryption
+     *     @type \Livekit\SIPMediaConfig $media
      *     @type bool $wait_until_answered
      *           Wait for the answer for the call before returning.
      *     @type string $display_name
@@ -209,7 +239,7 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
      *           2) Empty string: Do not send a display name, which will result in a CNAM lookup downstream.
      *           3) Non-empty: Use the specified value as the display name.
      *     @type \Livekit\Destination $destination
-     *           NEXT ID: 23
+     *           NEXT ID: 27
      * }
      */
     public function __construct($data = NULL) {
@@ -220,7 +250,7 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
     /**
      * What SIP Trunk should be used to dial the user
      *
-     * Generated from protobuf field <code>string sip_trunk_id = 1;</code>
+     * Generated from protobuf field <code>string sip_trunk_id = 1 [(.logger.name) = "sipTrunkID"];</code>
      * @return string
      */
     public function getSipTrunkId()
@@ -231,7 +261,7 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
     /**
      * What SIP Trunk should be used to dial the user
      *
-     * Generated from protobuf field <code>string sip_trunk_id = 1;</code>
+     * Generated from protobuf field <code>string sip_trunk_id = 1 [(.logger.name) = "sipTrunkID"];</code>
      * @param string $var
      * @return $this
      */
@@ -271,6 +301,114 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Livekit\SIPOutboundConfig::class);
         $this->trunk = $var;
+
+        return $this;
+    }
+
+    /**
+     * INVITE <uri>
+     *
+     * Generated from protobuf field <code>.livekit.SIPRequestDest sip_request_uri = 24;</code>
+     * @return \Livekit\SIPRequestDest|null
+     */
+    public function getSipRequestUri()
+    {
+        return $this->sip_request_uri;
+    }
+
+    public function hasSipRequestUri()
+    {
+        return isset($this->sip_request_uri);
+    }
+
+    public function clearSipRequestUri()
+    {
+        unset($this->sip_request_uri);
+    }
+
+    /**
+     * INVITE <uri>
+     *
+     * Generated from protobuf field <code>.livekit.SIPRequestDest sip_request_uri = 24;</code>
+     * @param \Livekit\SIPRequestDest $var
+     * @return $this
+     */
+    public function setSipRequestUri($var)
+    {
+        GPBUtil::checkMessage($var, \Livekit\SIPRequestDest::class);
+        $this->sip_request_uri = $var;
+
+        return $this;
+    }
+
+    /**
+     * To:   "Name" <uri>
+     *
+     * Generated from protobuf field <code>.livekit.SIPNamedDest sip_to_header = 25;</code>
+     * @return \Livekit\SIPNamedDest|null
+     */
+    public function getSipToHeader()
+    {
+        return $this->sip_to_header;
+    }
+
+    public function hasSipToHeader()
+    {
+        return isset($this->sip_to_header);
+    }
+
+    public function clearSipToHeader()
+    {
+        unset($this->sip_to_header);
+    }
+
+    /**
+     * To:   "Name" <uri>
+     *
+     * Generated from protobuf field <code>.livekit.SIPNamedDest sip_to_header = 25;</code>
+     * @param \Livekit\SIPNamedDest $var
+     * @return $this
+     */
+    public function setSipToHeader($var)
+    {
+        GPBUtil::checkMessage($var, \Livekit\SIPNamedDest::class);
+        $this->sip_to_header = $var;
+
+        return $this;
+    }
+
+    /**
+     * From: "Name" <uri>
+     *
+     * Generated from protobuf field <code>.livekit.SIPNamedDest sip_from_header = 26;</code>
+     * @return \Livekit\SIPNamedDest|null
+     */
+    public function getSipFromHeader()
+    {
+        return $this->sip_from_header;
+    }
+
+    public function hasSipFromHeader()
+    {
+        return isset($this->sip_from_header);
+    }
+
+    public function clearSipFromHeader()
+    {
+        unset($this->sip_from_header);
+    }
+
+    /**
+     * From: "Name" <uri>
+     *
+     * Generated from protobuf field <code>.livekit.SIPNamedDest sip_from_header = 26;</code>
+     * @param \Livekit\SIPNamedDest $var
+     * @return $this
+     */
+    public function setSipFromHeader($var)
+    {
+        GPBUtil::checkMessage($var, \Livekit\SIPNamedDest::class);
+        $this->sip_from_header = $var;
 
         return $this;
     }
@@ -382,7 +520,7 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
     /**
      * Optional name of the participant in LiveKit room
      *
-     * Generated from protobuf field <code>string participant_name = 7 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string participant_name = 7 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @return string
      */
     public function getParticipantName()
@@ -393,7 +531,7 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
     /**
      * Optional name of the participant in LiveKit room
      *
-     * Generated from protobuf field <code>string participant_name = 7 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string participant_name = 7 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @param string $var
      * @return $this
      */
@@ -408,7 +546,7 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
     /**
      * Optional user-defined metadata. Will be attached to a created Participant in the room.
      *
-     * Generated from protobuf field <code>string participant_metadata = 8 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string participant_metadata = 8 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @return string
      */
     public function getParticipantMetadata()
@@ -419,7 +557,7 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
     /**
      * Optional user-defined metadata. Will be attached to a created Participant in the room.
      *
-     * Generated from protobuf field <code>string participant_metadata = 8 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>string participant_metadata = 8 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @param string $var
      * @return $this
      */
@@ -434,7 +572,7 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
     /**
      * Optional user-defined attributes. Will be attached to a created Participant in the room.
      *
-     * Generated from protobuf field <code>map<string, string> participant_attributes = 9 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> participant_attributes = 9 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @return \Google\Protobuf\Internal\MapField
      */
     public function getParticipantAttributes()
@@ -445,7 +583,7 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
     /**
      * Optional user-defined attributes. Will be attached to a created Participant in the room.
      *
-     * Generated from protobuf field <code>map<string, string> participant_attributes = 9 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> participant_attributes = 9 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
@@ -570,7 +708,7 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
     /**
      * These headers are sent as-is and may help identify this call as coming from LiveKit for the other SIP endpoint.
      *
-     * Generated from protobuf field <code>map<string, string> headers = 16 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> headers = 16 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @return \Google\Protobuf\Internal\MapField
      */
     public function getHeaders()
@@ -581,7 +719,7 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
     /**
      * These headers are sent as-is and may help identify this call as coming from LiveKit for the other SIP endpoint.
      *
-     * Generated from protobuf field <code>map<string, string> headers = 16 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>map<string, string> headers = 16 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
@@ -724,23 +862,61 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.livekit.SIPMediaEncryption media_encryption = 18;</code>
+     * Generated from protobuf field <code>.livekit.SIPMediaEncryption media_encryption = 18 [deprecated = true];</code>
      * @return int
+     * @deprecated
      */
     public function getMediaEncryption()
     {
+        if ($this->media_encryption !== 0) {
+            @trigger_error('media_encryption is deprecated.', E_USER_DEPRECATED);
+        }
         return $this->media_encryption;
     }
 
     /**
-     * Generated from protobuf field <code>.livekit.SIPMediaEncryption media_encryption = 18;</code>
+     * Generated from protobuf field <code>.livekit.SIPMediaEncryption media_encryption = 18 [deprecated = true];</code>
      * @param int $var
      * @return $this
+     * @deprecated
      */
     public function setMediaEncryption($var)
     {
+        @trigger_error('media_encryption is deprecated.', E_USER_DEPRECATED);
         GPBUtil::checkEnum($var, \Livekit\SIPMediaEncryption::class);
         $this->media_encryption = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.livekit.SIPMediaConfig media = 23;</code>
+     * @return \Livekit\SIPMediaConfig|null
+     */
+    public function getMedia()
+    {
+        return $this->media;
+    }
+
+    public function hasMedia()
+    {
+        return isset($this->media);
+    }
+
+    public function clearMedia()
+    {
+        unset($this->media);
+    }
+
+    /**
+     * Generated from protobuf field <code>.livekit.SIPMediaConfig media = 23;</code>
+     * @param \Livekit\SIPMediaConfig $var
+     * @return $this
+     */
+    public function setMedia($var)
+    {
+        GPBUtil::checkMessage($var, \Livekit\SIPMediaConfig::class);
+        $this->media = $var;
 
         return $this;
     }
@@ -778,7 +954,7 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
      * 2) Empty string: Do not send a display name, which will result in a CNAM lookup downstream.
      * 3) Non-empty: Use the specified value as the display name.
      *
-     * Generated from protobuf field <code>optional string display_name = 21 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>optional string display_name = 21 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @return string
      */
     public function getDisplayName()
@@ -803,7 +979,7 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
      * 2) Empty string: Do not send a display name, which will result in a CNAM lookup downstream.
      * 3) Non-empty: Use the specified value as the display name.
      *
-     * Generated from protobuf field <code>optional string display_name = 21 [(.logger.redact) = true, (.logger.redact_format) = "<redacted ({{ .Size }} bytes)>"];</code>
+     * Generated from protobuf field <code>optional string display_name = 21 [(.logger.redact_format) = "<redacted ({{ .Size }} bytes)>", (.logger.sensitivity) = SENSITIVITY_PII];</code>
      * @param string $var
      * @return $this
      */
@@ -816,7 +992,7 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * NEXT ID: 23
+     * NEXT ID: 27
      *
      * Generated from protobuf field <code>optional .livekit.Destination destination = 22;</code>
      * @return \Livekit\Destination|null
@@ -837,7 +1013,7 @@ class CreateSIPParticipantRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * NEXT ID: 23
+     * NEXT ID: 27
      *
      * Generated from protobuf field <code>optional .livekit.Destination destination = 22;</code>
      * @param \Livekit\Destination $var

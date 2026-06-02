@@ -34,6 +34,10 @@ class AgentSecret extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.livekit.AgentSecretKind kind = 5;</code>
      */
     protected $kind = 0;
+    /**
+     * Generated from protobuf field <code>repeated string deployments = 6;</code>
+     */
+    private $deployments;
 
     /**
      * Constructor.
@@ -46,6 +50,7 @@ class AgentSecret extends \Google\Protobuf\Internal\Message
      *     @type \Google\Protobuf\Timestamp $created_at
      *     @type \Google\Protobuf\Timestamp $updated_at
      *     @type int $kind
+     *     @type string[] $deployments
      * }
      */
     public function __construct($data = NULL) {
@@ -179,6 +184,28 @@ class AgentSecret extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Livekit\AgentSecretKind::class);
         $this->kind = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string deployments = 6;</code>
+     * @return RepeatedField<string>
+     */
+    public function getDeployments()
+    {
+        return $this->deployments;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string deployments = 6;</code>
+     * @param string[] $var
+     * @return $this
+     */
+    public function setDeployments($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->deployments = $arr;
 
         return $this;
     }

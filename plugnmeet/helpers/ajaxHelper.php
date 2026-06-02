@@ -7,6 +7,9 @@
  * @author     Jibon Costa <jibon@mynaparrot.com>
  */
 
+use Mynaparrot\PlugnmeetProto\MergeRecordingsByIds;
+use Mynaparrot\PlugnmeetProto\MergeRecordingsReq;
+
 if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
 	die;
 }
@@ -135,6 +138,54 @@ class PlugNmeetAjaxHelper {
 
 		if ( $output->status ) {
 			$output->msg = __( "Recording was deleted successfully", 'plugnmeet' );
+		}
+
+		wp_send_json( $output );
+	}
+
+	public function merge_recordings() {
+		$output         = new stdClass();
+		$output->status = false;
+		$output->msg    = __( 'Token mismatched', 'plugnmeet' );
+
+		if ( ! wp_verify_nonce( $_REQUEST['nonce'], 'plugnmeet_merge_recordings' ) ) {
+			wp_send_json( $output );
+		}
+
+		if ( ! class_exists( "plugNmeetConnect" ) ) {
+			require plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/plugNmeetConnect.php';
+		}
+
+		$recordings = isset( $_POST['recordings'] ) ? $_POST['recordings'] : [];
+		$roomId     = isset( $_POST['roomId'] ) ? sanitize_text_field( $_POST['roomId'] ) : null;
+
+		if ( count( $recordings ) < 2 || ! $roomId ) {
+			$output->msg = __( "Minimum two recordings & room id required", 'plugnmeet' );
+			wp_send_json( $output );
+		}
+
+		$check = $this->canAccess( $roomId, 'can_delete' ); // Assuming same permission
+		if ( ! $check->status ) {
+			$output->msg = $check->msg;
+			wp_send_json( $output );
+		}
+
+		$params  = $this->setting_params;
+		$connect = new plugNmeetConnect( $params );
+
+		$byId = new MergeRecordingsByIds();
+		$byId->setRoomId( $roomId );
+		$byId->setRecordingIds( $recordings );
+
+		$mergeReq = new MergeRecordingsReq();
+		$mergeReq->setByIds( $byId );
+
+		$res            = $connect->mergeRecordings( $mergeReq );
+		$output->status = $res->getStatus();
+		$output->msg    = $res->getMsg();
+
+		if ( $output->status ) {
+			$output->msg = __( "Recordings merge job was created successfully", 'plugnmeet' );
 		}
 
 		wp_send_json( $output );
