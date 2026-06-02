@@ -103,8 +103,8 @@ class PlugNmeetAjaxHelper {
 				$result_artifacts[] = [
 					'artifact_id' => $artifact->getArtifactId(),
 					'type'        => $this->format_type_name( $artifact->getType() ),
-					'created'     => gmdate( "Y-m-d H:i:s", strtotime($artifact->getCreated()) ),
-					'view_url'    => admin_url( 'admin.php?page=plugnmeet-artifacts&artifact_id=' . $artifact->getArtifactId() ),
+					'created'     => gmdate( "Y-m-d H:i:s", strtotime( $artifact->getCreated() ) ),
+					'view_url'    => admin_url( 'admin.php?page=plugnmeet-artifacts&artifact_id=' . $artifact->getArtifactId() . "&room_id=" . $roomId ),
 				];
 			}
 
@@ -181,12 +181,12 @@ class PlugNmeetAjaxHelper {
 		}
 
 		try {
-			$analyticsHelper = new Plugnmeet_AnalyticsHelper($artifact_id);
-			$file = $analyticsHelper->generate_xlsx_file();
-			$output->status = true;
-			$output->msg = 'success';
-			$output->url = $file['url'];
-		} catch (Exception $e) {
+			$analyticsHelper = new Plugnmeet_AnalyticsHelper( $artifact_id );
+			$file            = $analyticsHelper->generate_xlsx_file();
+			$output->status  = true;
+			$output->msg     = 'success';
+			$output->url     = $file['url'];
+		} catch ( Exception $e ) {
 			$output->msg = $e->getMessage();
 		}
 
@@ -214,15 +214,15 @@ class PlugNmeetAjaxHelper {
 			wp_send_json( $output );
 		}
 
-		$options = (object) get_option("plugnmeet_settings");
-		$connect = new plugNmeetConnect($options);
-		$res = $connect->deleteArtifact($artifact_id);
+		$options = (object) get_option( "plugnmeet_settings" );
+		$connect = new plugNmeetConnect( $options );
+		$res     = $connect->deleteArtifact( $artifact_id );
 
 		$output->status = $res->getStatus();
 		$output->msg    = $res->getMsg();
 
-		if ($output->status) {
-			$output->msg = __("Artifact was deleted successfully", "plugnmeet");
+		if ( $output->status ) {
+			$output->msg = __( "Artifact was deleted successfully", "plugnmeet" );
 		}
 
 		wp_send_json( $output );

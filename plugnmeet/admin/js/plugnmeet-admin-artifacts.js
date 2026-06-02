@@ -2,9 +2,16 @@ jQuery(document).ready(function ($) {
     let isShowingPagination = false;
     let roomId = '', totalArtifacts = 0, currentPage = 1, limitPerPage = 20;
 
+    if ($('#plugnmeet-selected-roomId').val()) {
+        initLoadArtifacts();
+    }
+
     $(document).on('click', "#plugnmeet-show-artifacts", function (e) {
         e.preventDefault();
+        initLoadArtifacts();
+    });
 
+    function initLoadArtifacts() {
         roomId = $('#plugnmeet-selected-roomId').val();
         if (!roomId) {
             return;
@@ -21,7 +28,7 @@ jQuery(document).ready(function ($) {
         fetchArtifacts(data);
         isShowingPagination = false;
         $('#artifactListsFooter').hide();
-    });
+    }
 
     function fetchArtifacts(data) {
         $.ajax({
@@ -153,7 +160,7 @@ jQuery(document).ready(function ($) {
         fetchArtifacts(data);
     }
 
-    $(document).on('click', '.download-artifact', function(e) {
+    $(document).on('click', '.download-artifact', function (e) {
         e.preventDefault();
 
         const artifact_id = $(this).data('artifact-id');
@@ -180,7 +187,7 @@ jQuery(document).ready(function ($) {
         });
     });
 
-    $(document).on('click', '.download-analytics-excel', function(e) {
+    $(document).on('click', '.download-analytics-excel', function (e) {
         e.preventDefault();
 
         const artifact_id = $(this).data('artifact-id');
@@ -207,13 +214,14 @@ jQuery(document).ready(function ($) {
         });
     });
 
-    $(document).on('click', '.delete-artifact', function(e) {
+    $(document).on('click', '.delete-artifact', function (e) {
         e.preventDefault();
 
         if (!confirm(plugnmeet_artifacts_data.i18n.confirm_delete)) {
             return;
         }
 
+        let params = new URLSearchParams(document.location.search);
         const artifact_id = $(this).data('artifact-id');
         const data = {
             nonce: plugnmeet_artifacts_data.nonce.delete_artifact,
@@ -227,7 +235,7 @@ jQuery(document).ready(function ($) {
             data,
             success: (data) => {
                 if (data.status) {
-                    window.location.href = 'admin.php?page=plugnmeet-artifacts';
+                    window.location.href = 'admin.php?page=plugnmeet-artifacts&room_id=' + params.get('room_id');
                 } else {
                     alert(data.msg);
                 }

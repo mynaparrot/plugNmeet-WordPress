@@ -2,27 +2,13 @@ jQuery(document).ready(function ($) {
     let isShowingPagination = false;
     let roomId = '', totalRecordings = 0, currentPage = 1, limitPerPage = 20, selectedRecordings = [];
 
+    if ($('#plugnmeet-selected-roomId').val()) {
+        initLoadRecordings();
+    }
+
     $(document).on('click', "#plugnmeet-show-recordings", function (e) {
         e.preventDefault();
-
-        roomId = $('#plugnmeet-selected-roomId').val();
-        if (!roomId) {
-            return;
-        }
-        const data = {
-            nonce: plugnmeet_recordings_data.nonce.get_recordings,
-            action: "plugnmeet_get_recordings",
-            from: 0,
-            limit: limitPerPage,
-            order_by: 'DESC',
-            roomId,
-        };
-
-        fetchRecordings(data);
-        isShowingPagination = false;
-        $('#recordingListsFooter').hide();
-        selectedRecordings = [];
-        $('#plugnmeet-merge-recordings').hide();
+        initLoadRecordings();
     });
 
     $(document).on('click', '.downloadRecording', function (e) {
@@ -91,7 +77,7 @@ jQuery(document).ready(function ($) {
         })
     });
 
-    $(document).on('change', '.recording-checkbox', function() {
+    $(document).on('change', '.recording-checkbox', function () {
         const recordId = $(this).val();
         if ($(this).is(':checked')) {
             if (!selectedRecordings.includes(recordId)) {
@@ -107,6 +93,27 @@ jQuery(document).ready(function ($) {
             $('#plugnmeet-merge-recordings').hide();
         }
     });
+
+    function initLoadRecordings() {
+        roomId = $('#plugnmeet-selected-roomId').val();
+        if (!roomId) {
+            return;
+        }
+        const data = {
+            nonce: plugnmeet_recordings_data.nonce.get_recordings,
+            action: "plugnmeet_get_recordings",
+            from: 0,
+            limit: limitPerPage,
+            order_by: 'DESC',
+            roomId,
+        };
+
+        fetchRecordings(data);
+        isShowingPagination = false;
+        $('#recordingListsFooter').hide();
+        selectedRecordings = [];
+        $('#plugnmeet-merge-recordings').hide();
+    }
 
     function fetchRecordings(data) {
         $.ajax({
@@ -254,7 +261,7 @@ jQuery(document).ready(function ($) {
         fetchRecordings(data);
     }
 
-    $(document).on('click', '#plugnmeet-merge-recordings', function() {
+    $(document).on('click', '#plugnmeet-merge-recordings', function () {
         let listHtml = '';
         selectedRecordings.forEach(recordId => {
             listHtml += '<li>' + recordId + '</li>';
@@ -264,14 +271,14 @@ jQuery(document).ready(function ($) {
         $('#plugnmeet-merge-confirm-modal').show();
     });
 
-    $(document).on('click', '#plugnmeet-cancel-merge, #plugnmeet-cancel-merge-top', function() {
+    $(document).on('click', '#plugnmeet-cancel-merge, #plugnmeet-cancel-merge-top', function () {
         $('#plugnmeet-merge-confirm-modal').hide();
         $('#plugnmeet-confirm-merge').prop('disabled', false);
         $('#plugnmeet-cancel-merge').prop('disabled', false);
         $('#plugnmeet-cancel-merge-top').prop('disabled', false);
     });
 
-    $(document).on('click', '#plugnmeet-confirm-merge', function() {
+    $(document).on('click', '#plugnmeet-confirm-merge', function () {
         $(this).prop('disabled', true);
 
         const data = {
@@ -303,7 +310,7 @@ jQuery(document).ready(function ($) {
         });
     });
 
-    $(document).on('change', '#cb-select-all-1', function() {
+    $(document).on('change', '#cb-select-all-1', function () {
         $('.recording-checkbox').prop('checked', $(this).prop('checked')).trigger('change');
     });
 });
