@@ -1163,7 +1163,7 @@ class PlugnmeetHelper {
 
 		$html .= '</select></td></tr>';
 
-		return $html;
+		return wp_kses( $html, self::$allowedHtml );
 	}
 
 	/**
@@ -1190,6 +1190,6 @@ class PlugnmeetHelper {
 
 		$html .= '</select></td></tr>';
 
-		return $html;
+		return wp_kses( $html, self::$allowedHtml );
 	}
 }
