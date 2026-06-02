@@ -49,5 +49,8 @@ $selected_room = isset( $_GET['room_id'] ) ? sanitize_text_field( $_GET['room_id
         </thead>
         <tbody id="artifactListsBody"></tbody>
     </table>
-    <div id="artifactListsFooter" class="alignright actions" style="display: none"></div>
+    <div class="plugnmeet-pagination-wrapper">
+        <div id="plugnmeet-artifacts-info"></div>
+        <div id="artifactListsFooter"></div>
+    </div>
 </div>

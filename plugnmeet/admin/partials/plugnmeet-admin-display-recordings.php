@@ -56,7 +56,10 @@ $selected_room = isset( $_GET['room_id'] ) ? sanitize_text_field( $_GET['room_id
         </thead>
         <tbody id="recordingListsBody"></tbody>
     </table>
-    <div id="recordingListsFooter" class="alignright actions" style="display: none"></div>
+    <div class="plugnmeet-pagination-wrapper">
+        <div id="plugnmeet-recordings-info"></div>
+        <div id="recordingListsFooter"></div>
+    </div>
 </div>
 <div id="plugnmeet-merge-confirm-modal" style="display: none;">
     <div class="plugnmeet-modal-backdrop"></div>
