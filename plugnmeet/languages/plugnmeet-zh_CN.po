@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-02 15:52+0000\n"
-"PO-Revision-Date: 2026-06-02 16:10\n"
+"PO-Revision-Date: 2026-06-02 16:41\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -25,7 +25,7 @@ msgstr " 不能为空。"
 #: admin/partials/plugnmeet-admin-display-artifacts.php:46
 #: admin/partials/plugnmeet-admin-display-rooms.php:52
 msgid "Actions"
-msgstr ""
+msgstr "行动"
 
 #: helpers/helper.php:564
 msgid "Activate waiting room"
@@ -169,7 +169,7 @@ msgstr "您确定要删除吗？"
 
 #: admin/class-plugnmeet-admin.php:130
 msgid "Are you sure you want to delete this artifact?"
-msgstr ""
+msgstr "你确定要删除这个遗物吗？"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:69
 msgid "Are you sure you want to merge the following recordings in this order?"
@@ -177,26 +177,26 @@ msgstr "您确定要按此顺序合并以下录音吗？"
 
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:19
 msgid "Artifact Details"
-msgstr ""
+msgstr "文物详情"
 
 #: admin/class-plugnmeet-room-page.php:112
 #: admin/partials/plugnmeet-admin-display-artifacts.php:37
 msgid "Artifact ID"
-msgstr ""
+msgstr "文物ID"
 
 #: helpers/ajaxHelper.php:136 helpers/ajaxHelper.php:174
 #: helpers/ajaxHelper.php:208
 msgid "artifact id required"
-msgstr ""
+msgstr "需要工件ID"
 
 #: helpers/ajaxHelper.php:225
 msgid "Artifact was deleted successfully"
-msgstr ""
+msgstr "遗迹已成功删除"
 
 #: admin/class-plugnmeet-admin.php:180
 #: admin/partials/plugnmeet-admin-display-rooms.php:74
 msgid "Artifacts"
-msgstr ""
+msgstr "文物"
 
 #: admin/class-plugnmeet-admin.php:330
 msgid "attendee & moderator password can't be same"
@@ -217,7 +217,7 @@ msgstr "自动生成 User ID"
 
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:23
 msgid "Back to Artifacts"
-msgstr ""
+msgstr "回到文物"
 
 #: admin/class-plugnmeet-settings-page.php:389
 #: admin/partials/form-parts/design.php:44
@@ -243,7 +243,7 @@ msgstr "底"
 
 #: helpers/analyticsHelper.php:347
 msgid "Breakout Room Count"
-msgstr ""
+msgstr "分组讨论室数量"
 
 #: admin/class-plugnmeet-admin.php:236
 msgid "Can't write file"
@@ -256,11 +256,11 @@ msgstr "取消"
 
 #: admin/class-plugnmeet-room-page.php:136
 msgid "Character Count Usage"
-msgstr ""
+msgstr "字符数使用"
 
 #: helpers/analyticsHelper.php:376
 msgid "Chat Files Shared"
-msgstr ""
+msgstr "聊天文件共享"
 
 #: admin/class-plugnmeet-settings-page.php:210
 msgid "Client load"
@@ -281,7 +281,7 @@ msgstr "确认合并"
 
 #: helpers/analyticsHelper.php:378
 msgid "Connection Quality"
-msgstr ""
+msgstr "连接质量"
 
 #: admin/class-plugnmeet-settings-page.php:341
 msgid "Copyright text"
@@ -289,12 +289,12 @@ msgstr "版权文本"
 
 #: admin/partials/plugnmeet-admin-display-artifacts.php:43
 msgid "Created"
-msgstr ""
+msgstr "创作"
 
 #: helpers/analyticsHelper.php:214 helpers/analyticsHelper.php:244
 #: admin/class-plugnmeet-room-page.php:115
 msgid "Created At"
-msgstr ""
+msgstr "诞生于"
 
 #: admin/partials/plugnmeet-admin-display-rooms-pagination.php:52
 msgid "Current Page"
@@ -341,19 +341,19 @@ msgstr "下载"
 
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:31
 msgid "Download Excel"
-msgstr ""
+msgstr "下载Excel"
 
 #: helpers/analyticsHelper.php:358
 msgid "Duration"
-msgstr ""
+msgstr "持续时间"
 
 #: admin/class-plugnmeet-room-page.php:131
 msgid "Duration Usage"
-msgstr ""
+msgstr "持续时间使用"
 
 #: helpers/analyticsHelper.php:339
 msgid "E2EE Enabled"
-msgstr ""
+msgstr "支持端对端加密"
 
 #: helpers/helper.php:918
 msgid "Enable AI features"
@@ -403,31 +403,31 @@ msgstr "启用联播"
 #: admin/class-plugnmeet-room-page.php:132
 #: admin/class-plugnmeet-room-page.php:137
 msgid "Estimated Cost"
-msgstr ""
+msgstr "预计成本"
 
 #: helpers/analyticsHelper.php:344
 msgid "Etherpad Status Count"
-msgstr ""
+msgstr "以太垫状态计数"
 
 #: helpers/analyticsHelper.php:384
 msgid "Excellent"
-msgstr ""
+msgstr "太好了"
 
 #: helpers/analyticsHelper.php:345
 msgid "External Display Link Status Count"
-msgstr ""
+msgstr "外部显示链路状态计数"
 
 #: helpers/analyticsHelper.php:343
 msgid "External Media Player Status Count"
-msgstr ""
+msgstr "外部媒体播放器状态计数"
 
 #: helpers/analyticsHelper.php:243
 msgid "File Name"
-msgstr ""
+msgstr "文件名"
 
 #: admin/class-plugnmeet-room-page.php:121
 msgid "File Size"
-msgstr ""
+msgstr "文件大小"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:53
 #: public/partials/parts/recordings.php:29
@@ -441,7 +441,7 @@ msgstr "页脚颜色"
 
 #: helpers/analyticsHelper.php:385
 msgid "Good"
-msgstr ""
+msgstr "很好"
 
 #: admin/class-plugnmeet-settings-page.php:407
 #: admin/partials/form-parts/design.php:73
@@ -466,7 +466,7 @@ msgstr "ID"
 
 #: helpers/analyticsHelper.php:346
 msgid "Ingress Created Count"
-msgstr ""
+msgstr "被创立的入侵伯爵"
 
 #: admin/partials/plugnmeet-admin-edit-room.php:54
 msgid "Insights AI"
@@ -474,11 +474,11 @@ msgstr "洞察人工智能"
 
 #: helpers/analyticsHelper.php:377
 msgid "Interface Invisible Count"
-msgstr ""
+msgstr "接口隐形计数"
 
 #: helpers/analyticsHelper.php:357
 msgid "Is Admin"
-msgstr ""
+msgstr "是管理员"
 
 #. Author of the plugin
 msgid "Jibon L. Costa <jibon@mynaparrot.com>"
@@ -498,7 +498,7 @@ msgstr "加入身份 <br/>慢化剂"
 
 #: helpers/analyticsHelper.php:359
 msgid "Joined At"
-msgstr ""
+msgstr "加入地点"
 
 #: admin/partials/form-parts/design.php:105
 msgid "Left"
@@ -506,7 +506,7 @@ msgstr "左"
 
 #: helpers/analyticsHelper.php:360
 msgid "Left At"
-msgstr ""
+msgstr "留在"
 
 #: admin/partials/form-parts/design.php:87
 msgid "Left Bar Color"
@@ -558,7 +558,7 @@ msgstr "商标"
 
 #: admin/class-plugnmeet-admin.php:179
 msgid "Manage artifacts"
-msgstr ""
+msgstr "管理文件"
 
 #: admin/class-plugnmeet-admin.php:169
 msgid "Manage recordings"
@@ -583,7 +583,7 @@ msgstr "会议日期"
 
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:91
 msgid "Meeting Summary"
-msgstr ""
+msgstr "会议摘要"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:32
 msgid "Merge Recordings"
@@ -591,19 +591,19 @@ msgstr "合并录音"
 
 #: helpers/analyticsHelper.php:363
 msgid "Mic Enabled Duration"
-msgstr ""
+msgstr "麦克风启用时长"
 
 #: helpers/analyticsHelper.php:362
 msgid "Mic Muted Count"
-msgstr ""
+msgstr "麦克风静音计数"
 
 #: helpers/analyticsHelper.php:361
 msgid "Mic Status Changes"
-msgstr ""
+msgstr "麦克风状态变更"
 
 #: admin/class-plugnmeet-room-page.php:122
 msgid "MIME Type"
-msgstr ""
+msgstr "哑剧类型"
 
 #: helpers/ajaxHelper.php:317
 msgid "Minimum two recordings & room id required"
@@ -723,11 +723,11 @@ msgstr "plugNmeet 服务器 URL"
 
 #: helpers/analyticsHelper.php:206
 msgid "Polls"
-msgstr ""
+msgstr "民调"
 
 #: helpers/analyticsHelper.php:386
 msgid "Poor"
-msgstr ""
+msgstr "可怜"
 
 #: public/partials/parts/recordings.php:36
 msgid "Pre"
@@ -744,11 +744,11 @@ msgstr "原色"
 
 #: helpers/analyticsHelper.php:375
 msgid "Private Chat Messages"
-msgstr ""
+msgstr "私人聊天消息"
 
 #: helpers/analyticsHelper.php:374
 msgid "Public Chat Messages"
-msgstr ""
+msgstr "公共聊天消息"
 
 #: admin/partials/plugnmeet-admin-display-rooms.php:67
 msgid "Published"
@@ -756,11 +756,11 @@ msgstr "发表"
 
 #: helpers/analyticsHelper.php:212
 msgid "Question"
-msgstr ""
+msgstr "问题"
 
 #: helpers/analyticsHelper.php:368
 msgid "Raise Hand Count"
-msgstr ""
+msgstr "举手计数"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:44
 msgid "Record Id"
@@ -773,7 +773,7 @@ msgstr "录制日期"
 
 #: helpers/analyticsHelper.php:340
 msgid "Recording Status Count"
-msgstr ""
+msgstr "记录状态计数"
 
 #: helpers/ajaxHelper.php:298
 msgid "Recording was deleted successfully"
@@ -803,11 +803,11 @@ msgstr "角色"
 
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:53
 msgid "Room Analytics"
-msgstr ""
+msgstr "房间分析"
 
 #: helpers/analyticsHelper.php:335
 msgid "Room Creation Time"
-msgstr ""
+msgstr "房间创建时间"
 
 #: admin/partials/form-parts/basic.php:39
 msgid "Room description"
@@ -815,7 +815,7 @@ msgstr "房间描述"
 
 #: helpers/analyticsHelper.php:337
 msgid "Room Duration"
-msgstr ""
+msgstr "房间时长"
 
 #: helpers/helper.php:235
 msgid "Room duration (In minutes, 0 = unlimited)"
@@ -823,7 +823,7 @@ msgstr "房间持续时间（以分钟为单位，0 = 无限制）"
 
 #: helpers/analyticsHelper.php:336
 msgid "Room Ended Time"
-msgstr ""
+msgstr "房间结束时间"
 
 #: admin/partials/plugnmeet-admin-edit-room.php:41
 msgid "Room features"
@@ -831,7 +831,7 @@ msgstr "客房特色"
 
 #: helpers/analyticsHelper.php:333 admin/class-plugnmeet-room-page.php:113
 msgid "Room ID"
-msgstr ""
+msgstr "房间编号"
 
 #: admin/partials/form-parts/basic.php:23
 msgid "Room Id"
@@ -851,7 +851,7 @@ msgstr "需要会议室 ID"
 
 #: helpers/analyticsHelper.php:152
 msgid "Room Info"
-msgstr ""
+msgstr "房间信息"
 
 #: helpers/ajaxHelper.php:400 helpers/ajaxHelper.php:506
 msgid "room not active"
@@ -863,7 +863,7 @@ msgstr "房间状态"
 
 #: helpers/analyticsHelper.php:334
 msgid "Room Title"
-msgstr ""
+msgstr "房间标题"
 
 #: admin/partials/plugnmeet-admin-display-rooms.php:43
 #: admin/partials/form-parts/basic.php:34
@@ -881,11 +881,11 @@ msgstr "房间"
 
 #: helpers/analyticsHelper.php:341
 msgid "RTMP Status Count"
-msgstr ""
+msgstr "RTMP状态计数"
 
 #: helpers/analyticsHelper.php:372
 msgid "Screen Share Status Changes"
-msgstr ""
+msgstr "屏幕共享状态变更"
 
 #: admin/class-plugnmeet-settings-page.php:281
 msgid "Screen Sharing Resolution"
@@ -903,7 +903,7 @@ msgstr "辅助颜色"
 
 #: helpers/analyticsHelper.php:112
 msgid "See Excel Report"
-msgstr ""
+msgstr "参见Excel报告"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:41
 msgid "Select All"
@@ -928,7 +928,7 @@ msgstr "设置"
 
 #: admin/partials/plugnmeet-admin-display-artifacts.php:29
 msgid "Show artifacts"
-msgstr ""
+msgstr "展品"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:29
 msgid "Show recordings"
@@ -944,11 +944,11 @@ msgstr "小"
 
 #: helpers/analyticsHelper.php:342
 msgid "Speech Service Total Usage"
-msgstr ""
+msgstr "语音服务总使用量"
 
 #: helpers/analyticsHelper.php:373
 msgid "Speech Services Usage"
-msgstr ""
+msgstr "语音服务的使用"
 
 #: admin/partials/plugnmeet-admin-display-rooms.php:51
 msgid "Status"
@@ -972,11 +972,11 @@ msgstr "已成功更新会议室数据"
 
 #: helpers/analyticsHelper.php:364
 msgid "Talked Count"
-msgstr ""
+msgstr "谈伯爵"
 
 #: helpers/analyticsHelper.php:365
 msgid "Talked Duration"
-msgstr ""
+msgstr "通话时长"
 
 #: helpers/ajaxHelper.php:436
 msgid "The meeting has not started yet, please come back later."
@@ -993,7 +993,7 @@ msgstr "令牌不匹配"
 
 #: admin/class-plugnmeet-room-page.php:126
 msgid "Token Usage"
-msgstr ""
+msgstr "令牌使用"
 
 #: admin/partials/form-parts/design.php:109
 msgid "Top"
@@ -1001,12 +1001,12 @@ msgstr "返回页首"
 
 #: helpers/analyticsHelper.php:338
 msgid "Total Participants"
-msgstr ""
+msgstr "参赛总人数"
 
 #: admin/class-plugnmeet-room-page.php:114
 #: admin/partials/plugnmeet-admin-display-artifacts.php:40
 msgid "Type"
-msgstr ""
+msgstr "类型"
 
 #: admin/partials/plugnmeet-admin-display-rooms.php:67
 msgid "Unpublished"
@@ -1032,16 +1032,16 @@ msgstr "上传/选择图片"
 
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:66
 msgid "User Analytics"
-msgstr ""
+msgstr "用户分析"
 
 #: helpers/analyticsHelper.php:354 helpers/analyticsHelper.php:355
 #: helpers/analyticsHelper.php:356
 msgid "User ID"
-msgstr ""
+msgstr "用户ID"
 
 #: helpers/analyticsHelper.php:173
 msgid "Users Info"
-msgstr ""
+msgstr "用户信息"
 
 #: admin/class-plugnmeet-settings-page.php:259
 msgid "Video Codec"
@@ -1049,11 +1049,11 @@ msgstr "视频编解码器"
 
 #: admin/class-plugnmeet-admin.php:129
 msgid "View"
-msgstr ""
+msgstr "景观"
 
 #: helpers/analyticsHelper.php:369
 msgid "Voted Poll Count"
-msgstr ""
+msgstr "投票计票数"
 
 #: helpers/helper.php:579
 msgid "Waiting room message"
@@ -1061,7 +1061,7 @@ msgstr "等候室消息"
 
 #: helpers/analyticsHelper.php:367
 msgid "Webcam Enabled Duration"
-msgstr ""
+msgstr "摄像头支持时长"
 
 #: admin/class-plugnmeet-settings-page.php:268
 msgid "Webcam Resolution"
@@ -1069,7 +1069,7 @@ msgstr "网络摄像头分辨率"
 
 #: helpers/analyticsHelper.php:366
 msgid "Webcam Status Changes"
-msgstr ""
+msgstr "摄像头状态变更"
 
 #: admin/partials/form-parts/basic.php:53
 msgid "Welcome Message"
@@ -1077,15 +1077,15 @@ msgstr "欢迎辞"
 
 #: helpers/analyticsHelper.php:370
 msgid "Whiteboard Annotated Count"
-msgstr ""
+msgstr "白板注释计数"
 
 #: helpers/analyticsHelper.php:238
 msgid "Whiteboard Files"
-msgstr ""
+msgstr "白板文件"
 
 #: helpers/analyticsHelper.php:371
 msgid "Whiteboard Files Count"
-msgstr ""
+msgstr "白板文件数量"
 
 #: helpers/analyticsHelper.php:82 helpers/analyticsHelper.php:98
 #: helpers/analyticsHelper.php:264 helpers/analyticsHelper.php:302
@@ -1116,11 +1116,11 @@ msgstr "您没有权限"
 #: helpers/ajaxHelper.php:87 helpers/ajaxHelper.php:141
 #: helpers/ajaxHelper.php:179
 msgid "You don't have permission to access this page"
-msgstr ""
+msgstr "您无权访问此页面"
 
 #: helpers/ajaxHelper.php:213
 msgid "You don't have permission to perform this action"
-msgstr ""
+msgstr "你没有权限执行这个动作"
 
 #: public/partials/parts/login-form.php:29
 msgid "Your full name"
