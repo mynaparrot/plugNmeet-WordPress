@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-02 07:46+0000\n"
-"PO-Revision-Date: 2026-06-02 07:49\n"
+"PO-Revision-Date: 2026-06-02 07:51\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -72,7 +72,7 @@ msgstr "Consenti download <br/>Registrazioni"
 
 #: helpers/helper.php:414
 msgid "Allow External Broadcasting Features"
-msgstr ""
+msgstr "Consenti funzionalità di trasmissione esterna"
 
 #: helpers/helper.php:552
 msgid "Allow external media player"
@@ -112,7 +112,7 @@ msgstr "Consenti rtmp"
 
 #: helpers/helper.php:429
 msgid "Allow RTMP broadcasting"
-msgstr ""
+msgstr "Consenti la trasmissione RTMP"
 
 #: helpers/helper.php:175
 msgid "Allow screen share"
@@ -168,7 +168,7 @@ msgstr "Sei sicuro di eliminare?"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:68
 msgid "Are you sure you want to merge the following recordings in this order?"
-msgstr ""
+msgstr "Sei sicuro di voler unire le seguenti registrazioni in quest'ordine?"
 
 #: admin/class-plugnmeet-admin.php:300
 msgid "attendee & moderator password can't be same"
@@ -233,7 +233,7 @@ msgstr "Larghezza della telecamera a colonna"
 #: admin/partials/plugnmeet-admin-display-recordings.php:65
 #: admin/partials/plugnmeet-admin-display-recordings.php:75
 msgid "Confirm Merge"
-msgstr ""
+msgstr "Conferma l'unione"
 
 #: admin/class-plugnmeet-settings-page.php:341
 msgid "Copyright text"
@@ -449,11 +449,11 @@ msgstr "Data dell'incontro"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:31
 msgid "Merge Recordings"
-msgstr ""
+msgstr "Unisci registrazioni"
 
 #: helpers/ajaxHelper.php:163
 msgid "Minimum two recordings & room id required"
-msgstr ""
+msgstr "Sono richieste almeno due registrazioni e l'ID della stanza."
 
 #: helpers/helper.php:255
 msgid "Moderator join first"
@@ -602,7 +602,7 @@ msgstr "Registrazioni"
 
 #: helpers/ajaxHelper.php:188
 msgid "Recordings merge job was created successfully"
-msgstr ""
+msgstr "Il processo di unione delle registrazioni è stato creato correttamente."
 
 #: admin/partials/form-parts/permission.php:110
 msgid "Require <br/> Password"
@@ -682,7 +682,7 @@ msgstr "Colore secondario"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:40
 msgid "Select All"
-msgstr ""
+msgstr "Seleziona tutto"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:22
 msgid "Select room"
