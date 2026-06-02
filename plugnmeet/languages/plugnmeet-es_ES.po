@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-02 07:46+0000\n"
-"PO-Revision-Date: 2026-06-02 07:49\n"
+"PO-Revision-Date: 2026-06-02 07:50\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -72,7 +72,7 @@ msgstr "Permitir descargar <br/>grabaciones"
 
 #: helpers/helper.php:414
 msgid "Allow External Broadcasting Features"
-msgstr ""
+msgstr "Permitir funciones de transmisión externa"
 
 #: helpers/helper.php:552
 msgid "Allow external media player"
@@ -112,7 +112,7 @@ msgstr "Permitir rtmp"
 
 #: helpers/helper.php:429
 msgid "Allow RTMP broadcasting"
-msgstr ""
+msgstr "Permitir la transmisión RTMP"
 
 #: helpers/helper.php:175
 msgid "Allow screen share"
@@ -168,7 +168,7 @@ msgstr "¿Estás seguro de eliminar?"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:68
 msgid "Are you sure you want to merge the following recordings in this order?"
-msgstr ""
+msgstr "¿Está seguro de que desea fusionar las siguientes grabaciones en este orden?"
 
 #: admin/class-plugnmeet-admin.php:300
 msgid "attendee & moderator password can't be same"
@@ -233,7 +233,7 @@ msgstr "Anchura de la cámara de columna"
 #: admin/partials/plugnmeet-admin-display-recordings.php:65
 #: admin/partials/plugnmeet-admin-display-recordings.php:75
 msgid "Confirm Merge"
-msgstr ""
+msgstr "Confirmar fusión"
 
 #: admin/class-plugnmeet-settings-page.php:341
 msgid "Copyright text"
@@ -449,11 +449,11 @@ msgstr "Fecha de la reunión"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:31
 msgid "Merge Recordings"
-msgstr ""
+msgstr "Fusionar grabaciones"
 
 #: helpers/ajaxHelper.php:163
 msgid "Minimum two recordings & room id required"
-msgstr ""
+msgstr "Se requieren al menos dos grabaciones y el ID de la sala."
 
 #: helpers/helper.php:255
 msgid "Moderator join first"
@@ -602,7 +602,7 @@ msgstr "Grabaciones"
 
 #: helpers/ajaxHelper.php:188
 msgid "Recordings merge job was created successfully"
-msgstr ""
+msgstr "El trabajo de fusión de grabaciones se creó correctamente."
 
 #: admin/partials/form-parts/permission.php:110
 msgid "Require <br/> Password"
@@ -682,7 +682,7 @@ msgstr "Color secundario"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:40
 msgid "Select All"
-msgstr ""
+msgstr "Seleccionar todo"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:22
 msgid "Select room"
