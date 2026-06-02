@@ -77,7 +77,7 @@ $roomId        = isset( $_GET['room_id'] ) ? sanitize_text_field( $_GET['room_id
                     <?php foreach ( $context['user_rows'] as $row ) : ?>
                         <tr>
                             <?php foreach ( $row['data'] as $cell ) : ?>
-                                <td><?php echo $cell['value']; ?></td>
+                                <td><?php echo wp_kses( $cell['value'], array( 'br' => array() ) ); ?></td>
                             <?php endforeach; ?>
                         </tr>
                     <?php endforeach; ?>
@@ -90,7 +90,7 @@ $roomId        = isset( $_GET['room_id'] ) ? sanitize_text_field( $_GET['room_id
     <?php if ( $context['is_meeting_summary'] ) : ?>
         <h4 class="mb-4"><?php echo __( 'Meeting Summary', 'plugnmeet' ); ?></h4>
         <div>
-            <?php echo $context['meeting_summary_content']; ?>
+            <?php echo wp_kses_post( $context['meeting_summary_content'] ); ?>
         </div>
     <?php endif; ?>
 </div>

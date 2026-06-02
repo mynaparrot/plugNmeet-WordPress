@@ -70,9 +70,9 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
                     <div style="display: flex; gap: 5px; justify-content: flex-end;">
                         <button class="btn btn-danger delete deleteRoom"
                                 id="<?php echo esc_attr( $room->id ) ?>"><?php echo __( "Delete", "plugnmeet" ) ?></button>
-                        <a href="admin.php?page=plugnmeet-artifacts&room_id=<?php echo $room->room_id ?>"
+                        <a href="admin.php?page=plugnmeet-artifacts&room_id=<?php echo esc_attr( $room->room_id ) ?>"
                            class="button button-secondary"><?php echo __( "Artifacts", "plugnmeet" ) ?></a>
-                        <a href="admin.php?page=plugnmeet-recordings&room_id=<?php echo $room->room_id ?>"
+                        <a href="admin.php?page=plugnmeet-recordings&room_id=<?php echo esc_attr( $room->room_id ) ?>"
                            class="button button-secondary"><?php echo __( "Recordings", "plugnmeet" ) ?></a>
                     </div>
                 </td>

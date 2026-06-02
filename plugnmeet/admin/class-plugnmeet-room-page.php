@@ -151,7 +151,7 @@ class Plugnmeet_RoomPage {
                 $context         = array_merge( $context, $analyticshelper->get_context_data() );
             } catch ( \Exception $e ) {
                 $context['is_analytics'] = false; // Prevent rendering analytics section on error.
-                echo '<div class="notice notice-error"><p>' . $e->getMessage() . '</p></div>';
+                echo '<div class="notice notice-error"><p>' . esc_html( $e->getMessage() ) . '</p></div>';
             }
         } else if ( $context['is_meeting_summary'] ) {
             $this->populate_meeting_summary_context( $artifact_id, $context );
@@ -177,7 +177,7 @@ class Plugnmeet_RoomPage {
             $response   = wp_remote_get( $host, array( 'timeout' => 60 ) );
 
             if ( is_wp_error( $response ) ) {
-                echo '<div class="notice notice-error"><p>' . $response->get_error_message() . '</p></div>';
+                echo '<div class="notice notice-error"><p>' . esc_html( $response->get_error_message() ) . '</p></div>';
             } else {
                 $summarycontent = wp_remote_retrieve_body( $response );
                 // Remove the header "Meeting Summary for: [UUID]\n---\n" using regex.
@@ -190,7 +190,7 @@ class Plugnmeet_RoomPage {
                 $context['meeting_summary_content'] = $cleancontent;
             }
         } else {
-            echo '<div class="notice notice-error"><p>' . $res->getMsg() . '</p></div>';
+            echo '<div class="notice notice-error"><p>' . esc_html( $res->getMsg() ) . '</p></div>';
         }
     }
 
