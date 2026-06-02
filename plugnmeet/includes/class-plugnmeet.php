@@ -227,8 +227,10 @@ class Plugnmeet {
 		$this->loader->add_action( 'wp_ajax_plugnmeet_delete_recording', $ajaxHelper, 'delete_recording' );
 		$this->loader->add_action( 'wp_ajax_plugnmeet_merge_recordings', $ajaxHelper, 'merge_recordings' );
 
-		$this->loader->add_action( 'wp_ajax_nopriv_plugnmeet_get_artifacts', $ajaxHelper, 'get_artifacts' );
 		$this->loader->add_action( 'wp_ajax_plugnmeet_get_artifacts', $ajaxHelper, 'get_artifacts' );
+		$this->loader->add_action( 'wp_ajax_plugnmeet_download_artifact', $ajaxHelper, 'download_artifact' );
+		$this->loader->add_action( 'wp_ajax_plugnmeet_download_analytics', $ajaxHelper, 'download_analytics' );
+		$this->loader->add_action( 'wp_ajax_plugnmeet_delete_artifact', $ajaxHelper, 'delete_artifact' );
 	}
 
 	/**

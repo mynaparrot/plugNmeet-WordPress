@@ -57,13 +57,10 @@ jQuery(document).ready(function ($) {
                 for (let i = 0; i < artifacts.length; i++) {
                     const artifact = artifacts[i];
                     html += '<tr>';
-                    html += '<td>' + artifact.artifactId + '</td>';
-                    html += '<td>' + artifact.metadata.fileInfo.filePath + '</td>';
-                    html += '<td>' + parseFloat(artifact.metadata.fileInfo.fileSize).toFixed(2) + '</td>';
-                    html +=
-                        '<td>' +
-                        new Date(artifact.created * 1e3).toLocaleString() +
-                        '</td>';
+                    html += '<td>' + artifact.artifact_id + '</td>';
+                    html += '<td>' + artifact.type + '</td>';
+                    html += '<td>' + artifact.created + '</td>';
+                    html += '<td><a href="' + artifact.view_url + '" class="button">' + plugnmeet_artifacts_data.i18n.view + '</a></td>';
                     html += '</tr>';
                 }
 
@@ -155,4 +152,89 @@ jQuery(document).ready(function ($) {
         };
         fetchArtifacts(data);
     }
+
+    $(document).on('click', '.download-artifact', function(e) {
+        e.preventDefault();
+
+        const artifact_id = $(this).data('artifact-id');
+        const data = {
+            nonce: plugnmeet_artifacts_data.nonce.download_artifact,
+            action: 'plugnmeet_download_artifact',
+            artifact_id: artifact_id,
+        };
+
+        $.ajax({
+            url: ajaxurl,
+            method: 'POST',
+            data,
+            success: (data) => {
+                if (data.status) {
+                    window.location.href = data.url;
+                } else {
+                    alert(data.msg);
+                }
+            },
+            error: (jqXHR, textStatus, errorThrown) => {
+                alert(errorThrown);
+            },
+        });
+    });
+
+    $(document).on('click', '.download-analytics-excel', function(e) {
+        e.preventDefault();
+
+        const artifact_id = $(this).data('artifact-id');
+        const data = {
+            nonce: plugnmeet_artifacts_data.nonce.download_analytics,
+            action: 'plugnmeet_download_analytics',
+            artifact_id: artifact_id,
+        };
+
+        $.ajax({
+            url: ajaxurl,
+            method: 'POST',
+            data,
+            success: (data) => {
+                if (data.status) {
+                    window.location.href = data.url;
+                } else {
+                    alert(data.msg);
+                }
+            },
+            error: (jqXHR, textStatus, errorThrown) => {
+                alert(errorThrown);
+            },
+        });
+    });
+
+    $(document).on('click', '.delete-artifact', function(e) {
+        e.preventDefault();
+
+        if (!confirm(plugnmeet_artifacts_data.i18n.confirm_delete)) {
+            return;
+        }
+
+        const artifact_id = $(this).data('artifact-id');
+        const data = {
+            nonce: plugnmeet_artifacts_data.nonce.delete_artifact,
+            action: 'plugnmeet_delete_artifact',
+            artifact_id: artifact_id,
+        };
+
+        $.ajax({
+            url: ajaxurl,
+            method: 'POST',
+            data,
+            success: (data) => {
+                if (data.status) {
+                    window.location.href = 'admin.php?page=plugnmeet-artifacts';
+                } else {
+                    alert(data.msg);
+                }
+            },
+            error: (jqXHR, textStatus, errorThrown) => {
+                alert(errorThrown);
+            },
+        });
+    });
 });

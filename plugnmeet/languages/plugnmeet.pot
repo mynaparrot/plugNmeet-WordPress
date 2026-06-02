@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-02 07:46+0000\n"
+"POT-Creation-Date: 2026-06-02 12:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,6 +16,10 @@ msgstr ""
 
 #: admin/class-plugnmeet-settings-page.php:128
 msgid " can't be empty."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifacts.php:45
+msgid "Actions"
 msgstr ""
 
 #: helpers/helper.php:579
@@ -158,15 +162,41 @@ msgstr ""
 msgid "Allow whiteboard"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:108 public/partials/parts/recordings.php:172
+#: admin/class-plugnmeet-admin.php:112 public/partials/parts/recordings.php:172
 msgid "Are you sure to delete?"
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:130
+msgid "Are you sure you want to delete this artifact?"
 msgstr ""
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:68
 msgid "Are you sure you want to merge the following recordings in this order?"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:300
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:18
+msgid "Artifact Details"
+msgstr ""
+
+#: admin/class-plugnmeet-room-page.php:113
+#: admin/partials/plugnmeet-admin-display-artifacts.php:36
+msgid "Artifact ID"
+msgstr ""
+
+#: helpers/ajaxHelper.php:136 helpers/ajaxHelper.php:174
+#: helpers/ajaxHelper.php:208
+msgid "artifact id required"
+msgstr ""
+
+#: helpers/ajaxHelper.php:225
+msgid "Artifact was deleted successfully"
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:180
+msgid "Artifacts"
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:330
 msgid "attendee & moderator password can't be same"
 msgstr ""
 
@@ -183,6 +213,10 @@ msgstr ""
 msgid "Auto generate user ID"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:21
+msgid "Back to Artifacts"
+msgstr ""
+
 #: admin/class-plugnmeet-settings-page.php:389
 #: admin/partials/form-parts/design.php:44
 msgid "Background Color"
@@ -197,7 +231,7 @@ msgstr ""
 msgid "Basic"
 msgstr ""
 
-#: helpers/ajaxHelper.php:83 helpers/ajaxHelper.php:123
+#: helpers/ajaxHelper.php:245 helpers/ajaxHelper.php:281
 msgid "both roomId & record id required"
 msgstr ""
 
@@ -205,13 +239,25 @@ msgstr ""
 msgid "Bottom"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:206
+#: helpers/analyticsHelper.php:363
+msgid "Breakout Room Count"
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:236
 msgid "Can't write file"
 msgstr ""
 
 #: admin/partials/plugnmeet-admin-edit-room.php:26
 #: admin/partials/plugnmeet-admin-display-recordings.php:73
 msgid "Cancel"
+msgstr ""
+
+#: admin/class-plugnmeet-room-page.php:137
+msgid "Character Count Usage"
+msgstr ""
+
+#: helpers/analyticsHelper.php:391
+msgid "Chat Files Shared"
 msgstr ""
 
 #: admin/class-plugnmeet-settings-page.php:210
@@ -231,8 +277,21 @@ msgstr ""
 msgid "Confirm Merge"
 msgstr ""
 
+#: helpers/analyticsHelper.php:393
+msgid "Connection Quality"
+msgstr ""
+
 #: admin/class-plugnmeet-settings-page.php:341
 msgid "Copyright text"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifacts.php:42
+msgid "Created"
+msgstr ""
+
+#: helpers/analyticsHelper.php:222 helpers/analyticsHelper.php:253
+#: admin/class-plugnmeet-room-page.php:116
+msgid "Created At"
 msgstr ""
 
 #: admin/partials/plugnmeet-admin-display-rooms-pagination.php:52
@@ -256,7 +315,8 @@ msgstr ""
 msgid "Default lock settings"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:110
+#: admin/class-plugnmeet-admin.php:114
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:29
 #: admin/partials/plugnmeet-admin-display-rooms.php:68
 #: public/partials/parts/recordings.php:230
 msgid "Delete"
@@ -271,8 +331,26 @@ msgstr ""
 msgid "Display copyright text"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:109 public/partials/parts/recordings.php:223
+#: admin/class-plugnmeet-admin.php:113
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:24
+#: public/partials/parts/recordings.php:223
 msgid "Download"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:27
+msgid "Download Excel"
+msgstr ""
+
+#: helpers/analyticsHelper.php:373
+msgid "Duration"
+msgstr ""
+
+#: admin/class-plugnmeet-room-page.php:132
+msgid "Duration Usage"
+msgstr ""
+
+#: helpers/analyticsHelper.php:355
+msgid "E2EE Enabled"
 msgstr ""
 
 #: helpers/helper.php:933
@@ -319,6 +397,36 @@ msgstr ""
 msgid "Enable Simulcast"
 msgstr ""
 
+#: admin/class-plugnmeet-room-page.php:128
+#: admin/class-plugnmeet-room-page.php:133
+#: admin/class-plugnmeet-room-page.php:138
+msgid "Estimated Cost"
+msgstr ""
+
+#: helpers/analyticsHelper.php:360
+msgid "Etherpad Status Count"
+msgstr ""
+
+#: helpers/analyticsHelper.php:399
+msgid "Excellent"
+msgstr ""
+
+#: helpers/analyticsHelper.php:361
+msgid "External Display Link Status Count"
+msgstr ""
+
+#: helpers/analyticsHelper.php:359
+msgid "External Media Player Status Count"
+msgstr ""
+
+#: helpers/analyticsHelper.php:252
+msgid "File Name"
+msgstr ""
+
+#: admin/class-plugnmeet-room-page.php:122
+msgid "File Size"
+msgstr ""
+
 #: admin/partials/plugnmeet-admin-display-recordings.php:52
 #: public/partials/parts/recordings.php:29
 msgid "File size (MB)"
@@ -327,6 +435,10 @@ msgstr ""
 #: admin/class-plugnmeet-settings-page.php:416
 #: admin/partials/form-parts/design.php:80
 msgid "Footer Color"
+msgstr ""
+
+#: helpers/analyticsHelper.php:400
+msgid "Good"
 msgstr ""
 
 #: admin/class-plugnmeet-settings-page.php:407
@@ -350,8 +462,20 @@ msgstr ""
 msgid "Id"
 msgstr ""
 
+#: helpers/analyticsHelper.php:362
+msgid "Ingress Created Count"
+msgstr ""
+
 #: admin/partials/plugnmeet-admin-edit-room.php:54
 msgid "Insights AI"
+msgstr ""
+
+#: helpers/analyticsHelper.php:392
+msgid "Interface Invisible Count"
+msgstr ""
+
+#: helpers/analyticsHelper.php:372
+msgid "Is Admin"
 msgstr ""
 
 #. Author of the plugin
@@ -370,8 +494,16 @@ msgstr ""
 msgid "Join as <br/>Moderator"
 msgstr ""
 
+#: helpers/analyticsHelper.php:374
+msgid "Joined At"
+msgstr ""
+
 #: admin/partials/form-parts/design.php:105
 msgid "Left"
+msgstr ""
+
+#: helpers/analyticsHelper.php:375
+msgid "Left At"
 msgstr ""
 
 #: admin/partials/form-parts/design.php:87
@@ -422,11 +554,15 @@ msgstr ""
 msgid "Logo"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:149
+#: admin/class-plugnmeet-admin.php:179
+msgid "Manage artifacts"
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:169
 msgid "Manage recordings"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:139
+#: admin/class-plugnmeet-admin.php:159
 msgid "Manage Rooms"
 msgstr ""
 
@@ -443,11 +579,31 @@ msgstr ""
 msgid "Meeting date"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:84
+msgid "Meeting Summary"
+msgstr ""
+
 #: admin/partials/plugnmeet-admin-display-recordings.php:31
 msgid "Merge Recordings"
 msgstr ""
 
-#: helpers/ajaxHelper.php:163
+#: helpers/analyticsHelper.php:378
+msgid "Mic Enabled Duration"
+msgstr ""
+
+#: helpers/analyticsHelper.php:377
+msgid "Mic Muted Count"
+msgstr ""
+
+#: helpers/analyticsHelper.php:376
+msgid "Mic Status Changes"
+msgstr ""
+
+#: admin/class-plugnmeet-room-page.php:123
+msgid "MIME Type"
+msgstr ""
+
+#: helpers/ajaxHelper.php:317
 msgid "Minimum two recordings & room id required"
 msgstr ""
 
@@ -464,11 +620,11 @@ msgstr ""
 msgid "Mute on start"
 msgstr ""
 
-#: public/partials/parts/login-form.php:26
+#: helpers/analyticsHelper.php:369 public/partials/parts/login-form.php:26
 msgid "Name"
 msgstr ""
 
-#: helpers/ajaxHelper.php:231
+#: helpers/ajaxHelper.php:385
 msgid "name is required"
 msgstr ""
 
@@ -480,6 +636,8 @@ msgstr ""
 msgid "Next page"
 msgstr ""
 
+#: helpers/analyticsHelper.php:86 helpers/analyticsHelper.php:102
+#: helpers/analyticsHelper.php:274 helpers/analyticsHelper.php:313
 #: helpers/helper.php:152 helpers/helper.php:167 helpers/helper.php:182
 #: helpers/helper.php:197 helpers/helper.php:212 helpers/helper.php:227
 #: helpers/helper.php:242 helpers/helper.php:262 helpers/helper.php:277
@@ -501,12 +659,12 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:383
+#: admin/class-plugnmeet-admin.php:413
 msgid "No id was sent"
 msgstr ""
 
-#: helpers/ajaxHelper.php:243 helpers/ajaxHelper.php:348
-#: public/class-plugnmeet-public.php:268
+#: public/class-plugnmeet-public.php:268 helpers/ajaxHelper.php:397
+#: helpers/ajaxHelper.php:502
 msgid "no room found"
 msgstr ""
 
@@ -514,7 +672,7 @@ msgstr ""
 msgid "Number of rooms"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:234
+#: helpers/analyticsHelper.php:221 admin/class-plugnmeet-settings-page.php:234
 msgid "Options"
 msgstr ""
 
@@ -526,7 +684,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: helpers/ajaxHelper.php:385
+#: helpers/ajaxHelper.php:539
 msgid "password didn't match"
 msgstr ""
 
@@ -538,7 +696,7 @@ msgstr ""
 msgid "Play"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:128 admin/class-plugnmeet-admin.php:129
+#: admin/class-plugnmeet-admin.php:148 admin/class-plugnmeet-admin.php:149
 msgid "Plug-N-Meet"
 msgstr ""
 
@@ -562,6 +720,14 @@ msgstr ""
 msgid "plugNmeet Server URL"
 msgstr ""
 
+#: helpers/analyticsHelper.php:214
+msgid "Polls"
+msgstr ""
+
+#: helpers/analyticsHelper.php:401
+msgid "Poor"
+msgstr ""
+
 #: public/partials/parts/recordings.php:36
 msgid "Pre"
 msgstr ""
@@ -575,8 +741,24 @@ msgstr ""
 msgid "Primary Color"
 msgstr ""
 
+#: helpers/analyticsHelper.php:390
+msgid "Private Chat Messages"
+msgstr ""
+
+#: helpers/analyticsHelper.php:389
+msgid "Public Chat Messages"
+msgstr ""
+
 #: admin/partials/plugnmeet-admin-display-rooms.php:65
 msgid "Published"
+msgstr ""
+
+#: helpers/analyticsHelper.php:220
+msgid "Question"
+msgstr ""
+
+#: helpers/analyticsHelper.php:383
+msgid "Raise Hand Count"
 msgstr ""
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:43
@@ -588,15 +770,19 @@ msgstr ""
 msgid "Recording date"
 msgstr ""
 
-#: helpers/ajaxHelper.php:140
+#: helpers/analyticsHelper.php:356
+msgid "Recording Status Count"
+msgstr ""
+
+#: helpers/ajaxHelper.php:298
 msgid "Recording was deleted successfully"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:150 public/partials/parts/recordings.php:20
+#: admin/class-plugnmeet-admin.php:170 public/partials/parts/recordings.php:20
 msgid "Recordings"
 msgstr ""
 
-#: helpers/ajaxHelper.php:188
+#: helpers/ajaxHelper.php:342
 msgid "Recordings merge job was created successfully"
 msgstr ""
 
@@ -612,23 +798,43 @@ msgstr ""
 msgid "Role"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:46
+msgid "Room Analytics"
+msgstr ""
+
+#: helpers/analyticsHelper.php:351
+msgid "Room Creation Time"
+msgstr ""
+
 #: admin/partials/form-parts/basic.php:39
 msgid "Room description"
+msgstr ""
+
+#: helpers/analyticsHelper.php:353
+msgid "Room Duration"
 msgstr ""
 
 #: helpers/helper.php:250
 msgid "Room duration (In minutes, 0 = unlimited)"
 msgstr ""
 
+#: helpers/analyticsHelper.php:352
+msgid "Room Ended Time"
+msgstr ""
+
 #: admin/partials/plugnmeet-admin-edit-room.php:41
 msgid "Room features"
+msgstr ""
+
+#: helpers/analyticsHelper.php:349 admin/class-plugnmeet-room-page.php:114
+msgid "Room ID"
 msgstr ""
 
 #: admin/partials/form-parts/basic.php:23
 msgid "Room Id"
 msgstr ""
 
-#: helpers/ajaxHelper.php:226 public/class-plugnmeet-public.php:125
+#: public/class-plugnmeet-public.php:125 helpers/ajaxHelper.php:380
 msgid "room Id is missing"
 msgstr ""
 
@@ -636,16 +842,24 @@ msgstr ""
 msgid "Room ID not provided for the shortcode."
 msgstr ""
 
-#: helpers/ajaxHelper.php:42
+#: helpers/ajaxHelper.php:44 helpers/ajaxHelper.php:82
 msgid "room id required"
 msgstr ""
 
-#: helpers/ajaxHelper.php:246 helpers/ajaxHelper.php:352
+#: helpers/analyticsHelper.php:158
+msgid "Room Info"
+msgstr ""
+
+#: helpers/ajaxHelper.php:400 helpers/ajaxHelper.php:506
 msgid "room not active"
 msgstr ""
 
 #: helpers/helper.php:1152
 msgid "Room Status"
+msgstr ""
+
+#: helpers/analyticsHelper.php:350
+msgid "Room Title"
 msgstr ""
 
 #: admin/partials/plugnmeet-admin-display-rooms.php:43
@@ -657,9 +871,17 @@ msgstr ""
 msgid "Room's Password"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:140
+#: admin/class-plugnmeet-admin.php:160
 #: admin/partials/plugnmeet-admin-display-rooms.php:20
 msgid "Rooms"
+msgstr ""
+
+#: helpers/analyticsHelper.php:357
+msgid "RTMP Status Count"
+msgstr ""
+
+#: helpers/analyticsHelper.php:387
+msgid "Screen Share Status Changes"
 msgstr ""
 
 #: admin/class-plugnmeet-settings-page.php:281
@@ -676,10 +898,15 @@ msgstr ""
 msgid "Secondary Color"
 msgstr ""
 
+#: helpers/analyticsHelper.php:116
+msgid "See Excel Report"
+msgstr ""
+
 #: admin/partials/plugnmeet-admin-display-recordings.php:40
 msgid "Select All"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-display-artifacts.php:22
 #: admin/partials/plugnmeet-admin-display-recordings.php:22
 msgid "Select room"
 msgstr ""
@@ -692,8 +919,12 @@ msgstr ""
 msgid "Setting saved"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:159 admin/class-plugnmeet-admin.php:160
+#: admin/class-plugnmeet-admin.php:189 admin/class-plugnmeet-admin.php:190
 msgid "Settings"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifacts.php:28
+msgid "Show artifacts"
 msgstr ""
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:28
@@ -708,6 +939,14 @@ msgstr ""
 msgid "Small"
 msgstr ""
 
+#: helpers/analyticsHelper.php:358
+msgid "Speech Service Total Usage"
+msgstr ""
+
+#: helpers/analyticsHelper.php:388
+msgid "Speech Services Usage"
+msgstr ""
+
 #: admin/partials/plugnmeet-admin-display-rooms.php:50
 msgid "Status"
 msgstr ""
@@ -720,34 +959,57 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:334
+#: admin/class-plugnmeet-admin.php:364
 msgid "Successfully saved room data"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:364
+#: admin/class-plugnmeet-admin.php:394
 msgid "Successfully updated room data"
 msgstr ""
 
-#: helpers/ajaxHelper.php:282
+#: helpers/analyticsHelper.php:379
+msgid "Talked Count"
+msgstr ""
+
+#: helpers/analyticsHelper.php:380
+msgid "Talked Duration"
+msgstr ""
+
+#: helpers/ajaxHelper.php:436
 msgid "The meeting has not started yet, please come back later."
 msgstr ""
 
-#: helpers/ajaxHelper.php:27 helpers/ajaxHelper.php:68
-#: helpers/ajaxHelper.php:109 helpers/ajaxHelper.php:149
-#: helpers/ajaxHelper.php:197 admin/class-plugnmeet-admin.php:180
-#: admin/class-plugnmeet-admin.php:257 admin/class-plugnmeet-admin.php:375
+#: helpers/ajaxHelper.php:32 helpers/ajaxHelper.php:70
+#: helpers/ajaxHelper.php:123 helpers/ajaxHelper.php:161
+#: helpers/ajaxHelper.php:199 helpers/ajaxHelper.php:234
+#: helpers/ajaxHelper.php:271 helpers/ajaxHelper.php:307
+#: helpers/ajaxHelper.php:351 admin/class-plugnmeet-admin.php:210
+#: admin/class-plugnmeet-admin.php:287 admin/class-plugnmeet-admin.php:405
 msgid "Token mismatched"
+msgstr ""
+
+#: admin/class-plugnmeet-room-page.php:127
+msgid "Token Usage"
 msgstr ""
 
 #: admin/partials/form-parts/design.php:109
 msgid "Top"
 msgstr ""
 
+#: helpers/analyticsHelper.php:354
+msgid "Total Participants"
+msgstr ""
+
+#: admin/class-plugnmeet-room-page.php:115
+#: admin/partials/plugnmeet-admin-display-artifacts.php:39
+msgid "Type"
+msgstr ""
+
 #: admin/partials/plugnmeet-admin-display-rooms.php:65
 msgid "Unpublished"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:226
+#: admin/class-plugnmeet-admin.php:256
 msgid "Unzip failed"
 msgstr ""
 
@@ -755,7 +1017,7 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:224
+#: admin/class-plugnmeet-admin.php:254
 msgid "Updated client successfully"
 msgstr ""
 
@@ -765,22 +1027,64 @@ msgstr ""
 msgid "Upload/Select image"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:59
+msgid "User Analytics"
+msgstr ""
+
+#: helpers/analyticsHelper.php:370 helpers/analyticsHelper.php:371
+msgid "User ID"
+msgstr ""
+
+#: helpers/analyticsHelper.php:180
+msgid "Users Info"
+msgstr ""
+
 #: admin/class-plugnmeet-settings-page.php:259
 msgid "Video Codec"
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:129
+msgid "View"
+msgstr ""
+
+#: helpers/analyticsHelper.php:384
+msgid "Voted Poll Count"
 msgstr ""
 
 #: helpers/helper.php:594
 msgid "Waiting room message"
 msgstr ""
 
+#: helpers/analyticsHelper.php:382
+msgid "Webcam Enabled Duration"
+msgstr ""
+
 #: admin/class-plugnmeet-settings-page.php:268
 msgid "Webcam Resolution"
+msgstr ""
+
+#: helpers/analyticsHelper.php:381
+msgid "Webcam Status Changes"
 msgstr ""
 
 #: admin/partials/form-parts/basic.php:53
 msgid "Welcome Message"
 msgstr ""
 
+#: helpers/analyticsHelper.php:385
+msgid "Whiteboard Annotated Count"
+msgstr ""
+
+#: helpers/analyticsHelper.php:247
+msgid "Whiteboard Files"
+msgstr ""
+
+#: helpers/analyticsHelper.php:386
+msgid "Whiteboard Files Count"
+msgstr ""
+
+#: helpers/analyticsHelper.php:86 helpers/analyticsHelper.php:102
+#: helpers/analyticsHelper.php:274 helpers/analyticsHelper.php:313
 #: helpers/helper.php:148 helpers/helper.php:163 helpers/helper.php:178
 #: helpers/helper.php:193 helpers/helper.php:208 helpers/helper.php:223
 #: helpers/helper.php:238 helpers/helper.php:258 helpers/helper.php:273
@@ -802,8 +1106,17 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: helpers/ajaxHelper.php:340 helpers/ajaxHelper.php:375
+#: helpers/ajaxHelper.php:494 helpers/ajaxHelper.php:529
 msgid "you don't have permission"
+msgstr ""
+
+#: helpers/ajaxHelper.php:87 helpers/ajaxHelper.php:141
+#: helpers/ajaxHelper.php:179
+msgid "You don't have permission to access this page"
+msgstr ""
+
+#: helpers/ajaxHelper.php:213
+msgid "You don't have permission to perform this action"
 msgstr ""
 
 #: public/partials/parts/login-form.php:29

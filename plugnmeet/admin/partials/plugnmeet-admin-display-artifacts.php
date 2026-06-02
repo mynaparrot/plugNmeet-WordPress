@@ -36,13 +36,13 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
                 <?php echo __("Artifact ID", "plugnmeet"); ?>
             </th>
             <th class="manage-column column-categories">
-                <?php echo __("File Name", "plugnmeet"); ?>
+                <?php echo __("Type", "plugnmeet"); ?>
             </th>
             <th class="manage-column column-categories">
-                <?php echo __("File Size (MB)", "plugnmeet"); ?>
+                <?php echo __("Created", "plugnmeet"); ?>
             </th>
             <th class="manage-column" style="width: 22%">
-                <?php echo __("Creation Date", "plugnmeet"); ?>
+                <?php echo __("Actions", "plugnmeet"); ?>
             </th>
         </tr>
         </thead>

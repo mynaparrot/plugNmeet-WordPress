@@ -9,9 +9,14 @@
 
 use Mynaparrot\PlugnmeetProto\MergeRecordingsByIds;
 use Mynaparrot\PlugnmeetProto\MergeRecordingsReq;
+use Mynaparrot\PlugnmeetProto\RoomArtifactType;
 
 if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
 	die;
+}
+
+if ( ! class_exists( "plugNmeetConnect" ) ) {
+	require plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/plugNmeetConnect.php';
 }
 
 class PlugNmeetAjaxHelper {
@@ -30,9 +35,6 @@ class PlugNmeetAjaxHelper {
 			wp_send_json( $output );
 		}
 
-		if ( ! class_exists( "plugNmeetConnect" ) ) {
-			require plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/plugNmeetConnect.php';
-		}
 		$roomId  = isset( $_POST['roomId'] ) ? sanitize_text_field( $_POST['roomId'] ) : "";
 		$from    = isset( $_POST['from'] ) ? sanitize_text_field( $_POST['from'] ) : 0;
 		$limit   = isset( $_POST['limit'] ) ? sanitize_text_field( $_POST['limit'] ) : 20;
@@ -71,9 +73,6 @@ class PlugNmeetAjaxHelper {
 			wp_send_json( $output );
 		}
 
-		if ( ! class_exists( "plugNmeetConnect" ) ) {
-			require plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/plugNmeetConnect.php';
-		}
 		$roomId  = isset( $_POST['roomId'] ) ? sanitize_text_field( $_POST['roomId'] ) : "";
 		$from    = isset( $_POST['from'] ) ? sanitize_text_field( $_POST['from'] ) : 0;
 		$limit   = isset( $_POST['limit'] ) ? sanitize_text_field( $_POST['limit'] ) : 20;
@@ -97,8 +96,135 @@ class PlugNmeetAjaxHelper {
 		$output->status = $res->getStatus();
 		$output->msg    = $res->getMsg();
 		if ( $res->getStatus() ) {
-			$output->result = $res->getResult()->serializeToJsonString();
+			$artifacts        = $res->getResult()->getArtifactsList();
+			$result_artifacts = [];
+
+			foreach ( $artifacts as $artifact ) {
+				$result_artifacts[] = [
+					'artifact_id' => $artifact->getArtifactId(),
+					'type'        => $this->format_type_name( $artifact->getType() ),
+					'created'     => gmdate( "Y-m-d H:i:s", strtotime($artifact->getCreated()) ),
+					'view_url'    => admin_url( 'admin.php?page=plugnmeet-artifacts&artifact_id=' . $artifact->getArtifactId() ),
+				];
+			}
+
+			$result_obj                 = new stdClass();
+			$result_obj->artifactsList  = $result_artifacts;
+			$result_obj->totalArtifacts = $res->getResult()->getTotalArtifacts();
+
+			$output->result = json_encode( $result_obj );
 		}
+		wp_send_json( $output );
+	}
+
+	public function download_artifact() {
+		$output         = new stdClass();
+		$output->status = false;
+		$output->msg    = __( 'Token mismatched', 'plugnmeet' );
+
+		if ( ! wp_verify_nonce( $_REQUEST['nonce'], 'plugnmeet_download_artifact' ) ) {
+			wp_send_json( $output );
+		}
+
+		if ( ! class_exists( "plugNmeetConnect" ) ) {
+			require plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/plugNmeetConnect.php';
+		}
+
+		$artifact_id = isset( $_POST['artifact_id'] ) ? sanitize_text_field( $_POST['artifact_id'] ) : null;
+
+		if ( ! $artifact_id ) {
+			$output->msg = __( "artifact id required", 'plugnmeet' );
+			wp_send_json( $output );
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			$output->msg = __( "You don't have permission to access this page", "plugnmeet" );
+			wp_send_json( $output );
+		}
+
+		$params         = $this->setting_params;
+		$connect        = new plugNmeetConnect( $params );
+		$res            = $connect->getArtifactDownloadToken( $artifact_id );
+		$output->status = $res->getStatus();
+		$output->msg    = $res->getMsg();
+
+		if ( $res->getStatus() && $res->getToken() ) {
+			$output->url = $params->plugnmeet_server_url . "/download/artifact/" . $res->getToken();
+		}
+
+		wp_send_json( $output );
+	}
+
+	public function download_analytics() {
+		$output         = new stdClass();
+		$output->status = false;
+		$output->msg    = __( 'Token mismatched', 'plugnmeet' );
+
+		if ( ! wp_verify_nonce( $_REQUEST['nonce'], 'plugnmeet_download_analytics' ) ) {
+			wp_send_json( $output );
+		}
+
+		if ( ! class_exists( "Plugnmeet_AnalyticsHelper" ) ) {
+			require plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/analyticsHelper.php';
+		}
+
+		$artifact_id = isset( $_POST['artifact_id'] ) ? sanitize_text_field( $_POST['artifact_id'] ) : null;
+
+		if ( ! $artifact_id ) {
+			$output->msg = __( "artifact id required", 'plugnmeet' );
+			wp_send_json( $output );
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			$output->msg = __( "You don't have permission to access this page", "plugnmeet" );
+			wp_send_json( $output );
+		}
+
+		try {
+			$analyticsHelper = new Plugnmeet_AnalyticsHelper($artifact_id);
+			$file = $analyticsHelper->generate_xlsx_file();
+			$output->status = true;
+			$output->msg = 'success';
+			$output->url = $file['url'];
+		} catch (Exception $e) {
+			$output->msg = $e->getMessage();
+		}
+
+		wp_send_json( $output );
+	}
+
+	public function delete_artifact() {
+		$output         = new stdClass();
+		$output->status = false;
+		$output->msg    = __( 'Token mismatched', 'plugnmeet' );
+
+		if ( ! wp_verify_nonce( $_REQUEST['nonce'], 'plugnmeet_delete_artifact' ) ) {
+			wp_send_json( $output );
+		}
+
+		$artifact_id = isset( $_POST['artifact_id'] ) ? sanitize_text_field( $_POST['artifact_id'] ) : null;
+
+		if ( ! $artifact_id ) {
+			$output->msg = __( "artifact id required", 'plugnmeet' );
+			wp_send_json( $output );
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			$output->msg = __( "You don't have permission to perform this action", "plugnmeet" );
+			wp_send_json( $output );
+		}
+
+		$options = (object) get_option("plugnmeet_settings");
+		$connect = new plugNmeetConnect($options);
+		$res = $connect->deleteArtifact($artifact_id);
+
+		$output->status = $res->getStatus();
+		$output->msg    = $res->getMsg();
+
+		if ($output->status) {
+			$output->msg = __("Artifact was deleted successfully", "plugnmeet");
+		}
+
 		wp_send_json( $output );
 	}
 
@@ -109,10 +235,6 @@ class PlugNmeetAjaxHelper {
 
 		if ( ! wp_verify_nonce( $_REQUEST['nonce'], 'plugnmeet_download_recording' ) ) {
 			wp_send_json( $output );
-		}
-
-		if ( ! class_exists( "plugNmeetConnect" ) ) {
-			require plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/plugNmeetConnect.php';
 		}
 
 		$recordingId = isset( $_POST['recordingId'] ) ? sanitize_text_field( $_POST['recordingId'] ) : null;
@@ -152,10 +274,6 @@ class PlugNmeetAjaxHelper {
 			wp_send_json( $output );
 		}
 
-		if ( ! class_exists( "plugNmeetConnect" ) ) {
-			require plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/plugNmeetConnect.php';
-		}
-
 		$recordingId = isset( $_POST['recordingId'] ) ? sanitize_text_field( $_POST['recordingId'] ) : null;
 		$roomId      = isset( $_POST['roomId'] ) ? sanitize_text_field( $_POST['roomId'] ) : null;
 
@@ -190,10 +308,6 @@ class PlugNmeetAjaxHelper {
 
 		if ( ! wp_verify_nonce( $_REQUEST['nonce'], 'plugnmeet_merge_recordings' ) ) {
 			wp_send_json( $output );
-		}
-
-		if ( ! class_exists( "plugNmeetConnect" ) ) {
-			require plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/plugNmeetConnect.php';
 		}
 
 		$recordings = isset( $_POST['recordings'] ) ? $_POST['recordings'] : [];
@@ -459,5 +573,11 @@ class PlugNmeetAjaxHelper {
 		}
 
 		return $output;
+	}
+
+	private function format_type_name( $type ) {
+		$name = RoomArtifactType::name( $type );
+
+		return ucwords( strtolower( str_replace( '_', ' ', $name ) ) );
 	}
 }

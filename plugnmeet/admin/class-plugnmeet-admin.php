@@ -121,6 +121,13 @@ class Plugnmeet_Admin {
 				wp_localize_script( $this->plugin_name . '-artifacts', 'plugnmeet_artifacts_data', array(
 					'nonce' => array(
 						'get_artifacts' => wp_create_nonce( 'plugnmeet_get_artifacts' ),
+						'download_artifact' => wp_create_nonce( 'plugnmeet_download_artifact' ),
+						'download_analytics' => wp_create_nonce( 'plugnmeet_download_analytics' ),
+						'delete_artifact' => wp_create_nonce( 'plugnmeet_delete_artifact' ),
+					),
+					'i18n' => array(
+						'view' => __( 'View', 'plugnmeet' ),
+						'confirm_delete' => __( 'Are you sure you want to delete this artifact?', 'plugnmeet' ),
 					),
 				) );
 			}
