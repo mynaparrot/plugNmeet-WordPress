@@ -1,18 +1,20 @@
-.plugnmeet-recordings .room-selector {
-    padding-top: 10px;
-    display: flex;
-    justify-content: center;
-    color: green;
+.room-selector {
+    text-align: center;
+    margin-bottom: 15px;
 }
 
-.plugnmeet-recordings .room-selector button {
-    margin-left: 20px;
-}
-
-#recordingListsFooter {
+#recordingListsFooter, #artifactListsFooter {
     margin-top: 10px;
 }
 
 #recordingLists .filesize button:first-child {
     margin-right: 10px;
+}
+
+.rooms-list .wp-list-table tbody td {
+    vertical-align: middle;
+}
+
+.permission-table .wp-list-table.striped tbody tr:nth-child(odd) {
+    background-color: #f0f0f0; /* A slightly darker grey */
 }

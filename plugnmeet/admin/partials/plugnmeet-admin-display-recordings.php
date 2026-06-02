@@ -14,6 +14,7 @@
 if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
     die;
 }
+$selected_room = isset( $_GET['room_id'] ) ? sanitize_text_field( $_GET['room_id'] ) : '';
 ?>
 
 <div class="wrap plugnmeet-recordings">
@@ -21,7 +22,7 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
         <select name="roomId" id="plugnmeet-selected-roomId">
             <option value=""><?php echo __( "Select room", "plugnmeet" ) ?></option>
             <?php foreach ( $rooms as $room ): ?>
-                <option value="<?php echo esc_attr( $room->room_id ); ?>"><?php echo esc_html( $room->room_title ); ?></option>
+                <option value="<?php echo esc_attr( $room->room_id ); ?>" <?php selected( $selected_room, $room->room_id ); ?>><?php echo esc_html( $room->room_title ); ?></option>
             <?php endforeach; ?>
         </select>
         <button class="button button-primary"

@@ -70,7 +70,7 @@ use Mynaparrot\PlugnmeetProto\UserInfo;
 use Mynaparrot\PlugnmeetProto\UserMetadata;
 
 
-require __DIR__ . "/libs/plugnmeet-sdk-php/vendor/autoload.php";
+require __DIR__ . "/libs/packages/vendor/autoload.php";
 
 /**
  *

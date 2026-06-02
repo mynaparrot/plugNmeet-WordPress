@@ -78,6 +78,10 @@ class Plugnmeet_Admin {
 			if ( $hook_suffix === 'plug-n-meet_page_plugnmeet-recordings' ) {
 				wp_enqueue_style( $this->plugin_name . '-recordings', plugin_dir_url( __FILE__ ) . 'css/plugnmeet-admin-recordings.css' );
 			}
+
+			if ( $hook_suffix === 'plug-n-meet_page_plugnmeet-artifacts' ) {
+				wp_enqueue_style( $this->plugin_name . '-artifacts', plugin_dir_url( __FILE__ ) . 'css/plugnmeet-admin-artifacts.css' );
+			}
 		}
 	}
 
@@ -108,6 +112,22 @@ class Plugnmeet_Admin {
 						'confirm_delete' => __( 'Are you sure to delete?', 'plugnmeet' ),
 						'download'       => __( 'Download', 'plugnmeet' ),
 						'delete'         => __( 'Delete', 'plugnmeet' ),
+					),
+				) );
+			}
+
+			if ( $hook_suffix === 'plug-n-meet_page_plugnmeet-artifacts' ) {
+				wp_enqueue_script( $this->plugin_name . '-artifacts', plugin_dir_url( __FILE__ ) . 'js/plugnmeet-admin-artifacts.js', array( 'jquery' ), $this->version, true );
+				wp_localize_script( $this->plugin_name . '-artifacts', 'plugnmeet_artifacts_data', array(
+					'nonce' => array(
+						'get_artifacts' => wp_create_nonce( 'plugnmeet_get_artifacts' ),
+						'download_artifact' => wp_create_nonce( 'plugnmeet_download_artifact' ),
+						'download_analytics' => wp_create_nonce( 'plugnmeet_download_analytics' ),
+						'delete_artifact' => wp_create_nonce( 'plugnmeet_delete_artifact' ),
+					),
+					'i18n' => array(
+						'view' => __( 'View', 'plugnmeet' ),
+						'confirm_delete' => __( 'Are you sure you want to delete this artifact?', 'plugnmeet' ),
 					),
 				) );
 			}
@@ -156,12 +176,22 @@ class Plugnmeet_Admin {
 
 		add_submenu_page(
 			'plugnmeet',
+			__( 'Manage artifacts', 'plugnmeet' ),
+			__( 'Artifacts', 'plugnmeet' ),
+			'manage_options',
+			'plugnmeet-artifacts',
+			[ $menusPage, 'artifactsPage' ],
+			3
+		);
+
+		add_submenu_page(
+			'plugnmeet',
 			__( 'Settings', 'plugnmeet' ),
 			__( 'Settings', 'plugnmeet' ),
 			'manage_options',
 			'plugnmeet-settings',
 			[ $menusPage, 'settingsPage' ],
-			3
+			4
 		);
 	}
 

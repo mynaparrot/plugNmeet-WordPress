@@ -186,21 +186,6 @@ class PlugnmeetHelper {
 				"selected" => 1,
 				"type"     => "select"
 			),
-			"allow_rtmp"                  => array(
-				"label"    => __( "Allow rtmp", "plugnmeet" ),
-				"options"  => array(
-					array(
-						"label" => __( "Yes", "plugnmeet" ),
-						"value" => 1
-					),
-					array(
-						"label" => __( "No", "plugnmeet" ),
-						"value" => 0
-					)
-				),
-				"selected" => 1,
-				"type"     => "select"
-			),
 			"allow_view_other_webcams"    => array(
 				"label"    => __( "Allow view other webcams", "plugnmeet" ),
 				"options"  => array(

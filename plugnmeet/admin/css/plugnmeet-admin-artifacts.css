@@ -1,0 +1,15 @@
+.plugnmeet-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.plugnmeet-header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.plugnmeet-analytics-table-wrapper {
+    max-width: 100%;
+    overflow-x: auto;
+}

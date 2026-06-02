@@ -20,7 +20,7 @@
  * x-release-please-end
  * Author:            Jibon L. Costa <jibon@mynaparrot.com>
  * Requires at least: 6.6
- * Requires PHP:      8.2.0
+ * Requires PHP:      8.3.0
  * Tested up to:      7.0
  * Author URI:        https://www.mynaparrot.com/
  * License:           GPL-2.0+

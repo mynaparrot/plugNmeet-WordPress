@@ -7,7 +7,7 @@ Tested up to: 7.0
 # x-release-please-start-version
 Stable tag: 2.1.1
 # x-release-please-end
-Requires PHP: 8.2.0
+Requires PHP: 8.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
