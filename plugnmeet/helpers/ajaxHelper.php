@@ -62,6 +62,46 @@ class PlugNmeetAjaxHelper {
 		wp_send_json( $output );
 	}
 
+	public function get_artifacts() {
+		$output         = new stdClass();
+		$output->status = false;
+		$output->msg    = __( 'Token mismatched', 'plugnmeet' );
+
+		if ( ! wp_verify_nonce( $_REQUEST['nonce'], 'plugnmeet_get_artifacts' ) ) {
+			wp_send_json( $output );
+		}
+
+		if ( ! class_exists( "plugNmeetConnect" ) ) {
+			require plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/plugNmeetConnect.php';
+		}
+		$roomId  = isset( $_POST['roomId'] ) ? sanitize_text_field( $_POST['roomId'] ) : "";
+		$from    = isset( $_POST['from'] ) ? sanitize_text_field( $_POST['from'] ) : 0;
+		$limit   = isset( $_POST['limit'] ) ? sanitize_text_field( $_POST['limit'] ) : 20;
+		$orderBy = isset( $_POST['order_by'] ) ? sanitize_text_field( $_POST['order_by'] ) : "DESC";
+
+		if ( empty( $roomId ) ) {
+			$output->msg = __( "room id required", 'plugnmeet' );
+			wp_send_json( $output );
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			$output->msg = __( "You don't have permission to access this page", "plugnmeet" );
+			wp_send_json( $output );
+		}
+
+		$options = $this->setting_params;
+		$connect = new plugNmeetConnect( $options );
+		$roomIds = array( $roomId );
+		$res     = $connect->getArtifacts( $roomIds, null, null, (int) $from, (int) $limit, $orderBy );
+
+		$output->status = $res->getStatus();
+		$output->msg    = $res->getMsg();
+		if ( $res->getStatus() ) {
+			$output->result = $res->getResult()->serializeToJsonString();
+		}
+		wp_send_json( $output );
+	}
+
 	public function download_recording() {
 		$output         = new stdClass();
 		$output->status = false;
