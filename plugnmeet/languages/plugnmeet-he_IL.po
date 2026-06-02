@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-02 15:52+0000\n"
-"PO-Revision-Date: 2026-06-02 16:10\n"
+"PO-Revision-Date: 2026-06-02 16:41\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -25,7 +25,7 @@ msgstr " לא יכול להיות ריק."
 #: admin/partials/plugnmeet-admin-display-artifacts.php:46
 #: admin/partials/plugnmeet-admin-display-rooms.php:52
 msgid "Actions"
-msgstr ""
+msgstr "פעולות"
 
 #: helpers/helper.php:564
 msgid "Activate waiting room"
@@ -169,7 +169,7 @@ msgstr "האם אתה בטוח למחוק?"
 
 #: admin/class-plugnmeet-admin.php:130
 msgid "Are you sure you want to delete this artifact?"
-msgstr ""
+msgstr "אתה בטוח שאתה רוצה למחוק את החפץ הזה?"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:69
 msgid "Are you sure you want to merge the following recordings in this order?"
@@ -177,26 +177,26 @@ msgstr "האם אתה בטוח שברצונך למזג את ההקלטות הב�
 
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:19
 msgid "Artifact Details"
-msgstr ""
+msgstr "פרטי החפץ"
 
 #: admin/class-plugnmeet-room-page.php:112
 #: admin/partials/plugnmeet-admin-display-artifacts.php:37
 msgid "Artifact ID"
-msgstr ""
+msgstr "מזהה ארטיפקט"
 
 #: helpers/ajaxHelper.php:136 helpers/ajaxHelper.php:174
 #: helpers/ajaxHelper.php:208
 msgid "artifact id required"
-msgstr ""
+msgstr "נדרש זיהוי ארטיפקט"
 
 #: helpers/ajaxHelper.php:225
 msgid "Artifact was deleted successfully"
-msgstr ""
+msgstr "ארטיפקט נמחק בהצלחה"
 
 #: admin/class-plugnmeet-admin.php:180
 #: admin/partials/plugnmeet-admin-display-rooms.php:74
 msgid "Artifacts"
-msgstr ""
+msgstr "חפצים"
 
 #: admin/class-plugnmeet-admin.php:330
 msgid "attendee & moderator password can't be same"
@@ -217,7 +217,7 @@ msgstr "יצירה אוטומטית של מזהה משתמש"
 
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:23
 msgid "Back to Artifacts"
-msgstr ""
+msgstr "חזרה ל-Artifacts"
 
 #: admin/class-plugnmeet-settings-page.php:389
 #: admin/partials/form-parts/design.php:44
@@ -243,7 +243,7 @@ msgstr "ישבן"
 
 #: helpers/analyticsHelper.php:347
 msgid "Breakout Room Count"
-msgstr ""
+msgstr "ספירת חדרי בריצה"
 
 #: admin/class-plugnmeet-admin.php:236
 msgid "Can't write file"
@@ -256,11 +256,11 @@ msgstr "ביטל"
 
 #: admin/class-plugnmeet-room-page.php:136
 msgid "Character Count Usage"
-msgstr ""
+msgstr "שימוש במספר תווים"
 
 #: helpers/analyticsHelper.php:376
 msgid "Chat Files Shared"
-msgstr ""
+msgstr "קבצי צ'אט משותפים"
 
 #: admin/class-plugnmeet-settings-page.php:210
 msgid "Client load"
@@ -281,7 +281,7 @@ msgstr "אישור מיזוג"
 
 #: helpers/analyticsHelper.php:378
 msgid "Connection Quality"
-msgstr ""
+msgstr "איכות החיבור"
 
 #: admin/class-plugnmeet-settings-page.php:341
 msgid "Copyright text"
@@ -289,12 +289,12 @@ msgstr "טקסט זכויות יוצרים"
 
 #: admin/partials/plugnmeet-admin-display-artifacts.php:43
 msgid "Created"
-msgstr ""
+msgstr "נוצר"
 
 #: helpers/analyticsHelper.php:214 helpers/analyticsHelper.php:244
 #: admin/class-plugnmeet-room-page.php:115
 msgid "Created At"
-msgstr ""
+msgstr "נוצר ב-"
 
 #: admin/partials/plugnmeet-admin-display-rooms-pagination.php:52
 msgid "Current Page"
@@ -341,19 +341,19 @@ msgstr "הורדה"
 
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:31
 msgid "Download Excel"
-msgstr ""
+msgstr "הורד אקסל"
 
 #: helpers/analyticsHelper.php:358
 msgid "Duration"
-msgstr ""
+msgstr "משך"
 
 #: admin/class-plugnmeet-room-page.php:131
 msgid "Duration Usage"
-msgstr ""
+msgstr "משך שימוש"
 
 #: helpers/analyticsHelper.php:339
 msgid "E2EE Enabled"
-msgstr ""
+msgstr "E2EE מופעל"
 
 #: helpers/helper.php:918
 msgid "Enable AI features"
@@ -403,31 +403,31 @@ msgstr "הפעל Simulcast"
 #: admin/class-plugnmeet-room-page.php:132
 #: admin/class-plugnmeet-room-page.php:137
 msgid "Estimated Cost"
-msgstr ""
+msgstr "עלות משוערת"
 
 #: helpers/analyticsHelper.php:344
 msgid "Etherpad Status Count"
-msgstr ""
+msgstr "ספירת סטטוס של Etherpad"
 
 #: helpers/analyticsHelper.php:384
 msgid "Excellent"
-msgstr ""
+msgstr "מצוין"
 
 #: helpers/analyticsHelper.php:345
 msgid "External Display Link Status Count"
-msgstr ""
+msgstr "ספירת סטטוס קישורי תצוגה חיצוניים"
 
 #: helpers/analyticsHelper.php:343
 msgid "External Media Player Status Count"
-msgstr ""
+msgstr "ספירת סטטוס נגן מדיה חיצוני"
 
 #: helpers/analyticsHelper.php:243
 msgid "File Name"
-msgstr ""
+msgstr "שם קובץ"
 
 #: admin/class-plugnmeet-room-page.php:121
 msgid "File Size"
-msgstr ""
+msgstr "גודל קובץ"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:53
 #: public/partials/parts/recordings.php:29
@@ -441,7 +441,7 @@ msgstr "צבע כותרת תחתונה"
 
 #: helpers/analyticsHelper.php:385
 msgid "Good"
-msgstr ""
+msgstr "טוב"
 
 #: admin/class-plugnmeet-settings-page.php:407
 #: admin/partials/form-parts/design.php:73
@@ -466,7 +466,7 @@ msgstr "מזהה"
 
 #: helpers/analyticsHelper.php:346
 msgid "Ingress Created Count"
-msgstr ""
+msgstr "אינגרס נוצר רוזן"
 
 #: admin/partials/plugnmeet-admin-edit-room.php:54
 msgid "Insights AI"
@@ -474,11 +474,11 @@ msgstr "Insights AI"
 
 #: helpers/analyticsHelper.php:377
 msgid "Interface Invisible Count"
-msgstr ""
+msgstr "ממשק Invisible Count"
 
 #: helpers/analyticsHelper.php:357
 msgid "Is Admin"
-msgstr ""
+msgstr "האם הוא מנהל"
 
 #. Author of the plugin
 msgid "Jibon L. Costa <jibon@mynaparrot.com>"
@@ -498,7 +498,7 @@ msgstr "הצטרף כ <br/>מנחה"
 
 #: helpers/analyticsHelper.php:359
 msgid "Joined At"
-msgstr ""
+msgstr "הצטרף ב"
 
 #: admin/partials/form-parts/design.php:105
 msgid "Left"
@@ -506,7 +506,7 @@ msgstr "שמאל"
 
 #: helpers/analyticsHelper.php:360
 msgid "Left At"
-msgstr ""
+msgstr "שמאלה ב"
 
 #: admin/partials/form-parts/design.php:87
 msgid "Left Bar Color"
@@ -558,7 +558,7 @@ msgstr "לוגו"
 
 #: admin/class-plugnmeet-admin.php:179
 msgid "Manage artifacts"
-msgstr ""
+msgstr "ניהול ארטיפקטים"
 
 #: admin/class-plugnmeet-admin.php:169
 msgid "Manage recordings"
@@ -583,7 +583,7 @@ msgstr "מועד הפגישה"
 
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:91
 msgid "Meeting Summary"
-msgstr ""
+msgstr "סיכום הפגישה"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:32
 msgid "Merge Recordings"
@@ -591,19 +591,19 @@ msgstr "מיזוג הקלטות"
 
 #: helpers/analyticsHelper.php:363
 msgid "Mic Enabled Duration"
-msgstr ""
+msgstr "משך ההפעלה באמצעות מיקרופון"
 
 #: helpers/analyticsHelper.php:362
 msgid "Mic Muted Count"
-msgstr ""
+msgstr "מיקרופון מושתק"
 
 #: helpers/analyticsHelper.php:361
 msgid "Mic Status Changes"
-msgstr ""
+msgstr "שינויים במצב המיקרופון"
 
 #: admin/class-plugnmeet-room-page.php:122
 msgid "MIME Type"
-msgstr ""
+msgstr "סוג MIME"
 
 #: helpers/ajaxHelper.php:317
 msgid "Minimum two recordings & room id required"
@@ -723,11 +723,11 @@ msgstr "כתובת URL של שרת plugNmeet"
 
 #: helpers/analyticsHelper.php:206
 msgid "Polls"
-msgstr ""
+msgstr "סקרים"
 
 #: helpers/analyticsHelper.php:386
 msgid "Poor"
-msgstr ""
+msgstr "גרוע"
 
 #: public/partials/parts/recordings.php:36
 msgid "Pre"
@@ -744,11 +744,11 @@ msgstr "צבע יסוד"
 
 #: helpers/analyticsHelper.php:375
 msgid "Private Chat Messages"
-msgstr ""
+msgstr "הודעות צ'אט פרטיות"
 
 #: helpers/analyticsHelper.php:374
 msgid "Public Chat Messages"
-msgstr ""
+msgstr "הודעות צ'אט ציבוריות"
 
 #: admin/partials/plugnmeet-admin-display-rooms.php:67
 msgid "Published"
@@ -756,11 +756,11 @@ msgstr "פורסם"
 
 #: helpers/analyticsHelper.php:212
 msgid "Question"
-msgstr ""
+msgstr "שאלה"
 
 #: helpers/analyticsHelper.php:368
 msgid "Raise Hand Count"
-msgstr ""
+msgstr "העלאת ספירת היד"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:44
 msgid "Record Id"
@@ -773,7 +773,7 @@ msgstr "תאריך הקלטה"
 
 #: helpers/analyticsHelper.php:340
 msgid "Recording Status Count"
-msgstr ""
+msgstr "ספירת סטטוס הקלטה"
 
 #: helpers/ajaxHelper.php:298
 msgid "Recording was deleted successfully"
@@ -803,11 +803,11 @@ msgstr "תפקיד"
 
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:53
 msgid "Room Analytics"
-msgstr ""
+msgstr "ניתוח חדרים"
 
 #: helpers/analyticsHelper.php:335
 msgid "Room Creation Time"
-msgstr ""
+msgstr "זמן יצירת חדר"
 
 #: admin/partials/form-parts/basic.php:39
 msgid "Room description"
@@ -815,7 +815,7 @@ msgstr "תיאור החדר"
 
 #: helpers/analyticsHelper.php:337
 msgid "Room Duration"
-msgstr ""
+msgstr "משך החדר"
 
 #: helpers/helper.php:235
 msgid "Room duration (In minutes, 0 = unlimited)"
@@ -823,7 +823,7 @@ msgstr "משך החדר (בדקות, 0 = ללא הגבלה)"
 
 #: helpers/analyticsHelper.php:336
 msgid "Room Ended Time"
-msgstr ""
+msgstr "זמן סיום החדר"
 
 #: admin/partials/plugnmeet-admin-edit-room.php:41
 msgid "Room features"
@@ -831,7 +831,7 @@ msgstr "תכונות החדר"
 
 #: helpers/analyticsHelper.php:333 admin/class-plugnmeet-room-page.php:113
 msgid "Room ID"
-msgstr ""
+msgstr "מזהה חדר"
 
 #: admin/partials/form-parts/basic.php:23
 msgid "Room Id"
@@ -851,7 +851,7 @@ msgstr "נדרש מזהה חדר"
 
 #: helpers/analyticsHelper.php:152
 msgid "Room Info"
-msgstr ""
+msgstr "מידע על חדר"
 
 #: helpers/ajaxHelper.php:400 helpers/ajaxHelper.php:506
 msgid "room not active"
@@ -863,7 +863,7 @@ msgstr "סטטוס החדר"
 
 #: helpers/analyticsHelper.php:334
 msgid "Room Title"
-msgstr ""
+msgstr "כותרת החדר"
 
 #: admin/partials/plugnmeet-admin-display-rooms.php:43
 #: admin/partials/form-parts/basic.php:34
@@ -881,11 +881,11 @@ msgstr "חדרים"
 
 #: helpers/analyticsHelper.php:341
 msgid "RTMP Status Count"
-msgstr ""
+msgstr "ספירת סטטוס RTMP"
 
 #: helpers/analyticsHelper.php:372
 msgid "Screen Share Status Changes"
-msgstr ""
+msgstr "שינויים במצב שיתוף מסך"
 
 #: admin/class-plugnmeet-settings-page.php:281
 msgid "Screen Sharing Resolution"
@@ -903,7 +903,7 @@ msgstr "צבע משני"
 
 #: helpers/analyticsHelper.php:112
 msgid "See Excel Report"
-msgstr ""
+msgstr "ראו דוח אקסל"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:41
 msgid "Select All"
@@ -928,7 +928,7 @@ msgstr "הגדרות"
 
 #: admin/partials/plugnmeet-admin-display-artifacts.php:29
 msgid "Show artifacts"
-msgstr ""
+msgstr "חפצים להצגת ארטיפקטים"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:29
 msgid "Show recordings"
@@ -944,11 +944,11 @@ msgstr "קטן"
 
 #: helpers/analyticsHelper.php:342
 msgid "Speech Service Total Usage"
-msgstr ""
+msgstr "שימוש כולל בשירותי דיבור"
 
 #: helpers/analyticsHelper.php:373
 msgid "Speech Services Usage"
-msgstr ""
+msgstr "שימוש בשירותי דיבור"
 
 #: admin/partials/plugnmeet-admin-display-rooms.php:51
 msgid "Status"
@@ -972,11 +972,11 @@ msgstr "נתוני חדרים שעודכנו בהצלחה"
 
 #: helpers/analyticsHelper.php:364
 msgid "Talked Count"
-msgstr ""
+msgstr "הרוזן המדובר"
 
 #: helpers/analyticsHelper.php:365
 msgid "Talked Duration"
-msgstr ""
+msgstr "משך דיבור"
 
 #: helpers/ajaxHelper.php:436
 msgid "The meeting has not started yet, please come back later."
@@ -993,7 +993,7 @@ msgstr "אסימון לא תואם"
 
 #: admin/class-plugnmeet-room-page.php:126
 msgid "Token Usage"
-msgstr ""
+msgstr "שימוש באסימונים"
 
 #: admin/partials/form-parts/design.php:109
 msgid "Top"
@@ -1001,12 +1001,12 @@ msgstr "סביבון"
 
 #: helpers/analyticsHelper.php:338
 msgid "Total Participants"
-msgstr ""
+msgstr "סך כל המשתתפים"
 
 #: admin/class-plugnmeet-room-page.php:114
 #: admin/partials/plugnmeet-admin-display-artifacts.php:40
 msgid "Type"
-msgstr ""
+msgstr "סוג"
 
 #: admin/partials/plugnmeet-admin-display-rooms.php:67
 msgid "Unpublished"
@@ -1032,16 +1032,16 @@ msgstr "העלאה/בחירה של תמונה"
 
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:66
 msgid "User Analytics"
-msgstr ""
+msgstr "אנליטיקת משתמשים"
 
 #: helpers/analyticsHelper.php:354 helpers/analyticsHelper.php:355
 #: helpers/analyticsHelper.php:356
 msgid "User ID"
-msgstr ""
+msgstr "מזהה משתמש"
 
 #: helpers/analyticsHelper.php:173
 msgid "Users Info"
-msgstr ""
+msgstr "מידע משתמשים"
 
 #: admin/class-plugnmeet-settings-page.php:259
 msgid "Video Codec"
@@ -1049,11 +1049,11 @@ msgstr "Codec וידאו"
 
 #: admin/class-plugnmeet-admin.php:129
 msgid "View"
-msgstr ""
+msgstr "תצפית"
 
 #: helpers/analyticsHelper.php:369
 msgid "Voted Poll Count"
-msgstr ""
+msgstr "ספירת ההצבעה"
 
 #: helpers/helper.php:579
 msgid "Waiting room message"
@@ -1061,7 +1061,7 @@ msgstr "הודעה על חדר המתנה"
 
 #: helpers/analyticsHelper.php:367
 msgid "Webcam Enabled Duration"
-msgstr ""
+msgstr "משך ההפעלה באמצעות מצלמת רשת"
 
 #: admin/class-plugnmeet-settings-page.php:268
 msgid "Webcam Resolution"
@@ -1069,7 +1069,7 @@ msgstr "רזולוציית מצלמת אינטרנט"
 
 #: helpers/analyticsHelper.php:366
 msgid "Webcam Status Changes"
-msgstr ""
+msgstr "שינויים במצב מצלמת רשת"
 
 #: admin/partials/form-parts/basic.php:53
 msgid "Welcome Message"
@@ -1077,15 +1077,15 @@ msgstr "הודעת ברכה"
 
 #: helpers/analyticsHelper.php:370
 msgid "Whiteboard Annotated Count"
-msgstr ""
+msgstr "ספירה עם הערות על לוח לבן"
 
 #: helpers/analyticsHelper.php:238
 msgid "Whiteboard Files"
-msgstr ""
+msgstr "קבצי הלוח הלבן"
 
 #: helpers/analyticsHelper.php:371
 msgid "Whiteboard Files Count"
-msgstr ""
+msgstr "ספירת קבצי לוח לבן"
 
 #: helpers/analyticsHelper.php:82 helpers/analyticsHelper.php:98
 #: helpers/analyticsHelper.php:264 helpers/analyticsHelper.php:302
@@ -1116,11 +1116,11 @@ msgstr "אין לך הרשאה"
 #: helpers/ajaxHelper.php:87 helpers/ajaxHelper.php:141
 #: helpers/ajaxHelper.php:179
 msgid "You don't have permission to access this page"
-msgstr ""
+msgstr "אין לך הרשאה לגשת לעמוד זה"
 
 #: helpers/ajaxHelper.php:213
 msgid "You don't have permission to perform this action"
-msgstr ""
+msgstr "אין לך רשות לבצע את הפעולה הזו"
 
 #: public/partials/parts/login-form.php:29
 msgid "Your full name"
