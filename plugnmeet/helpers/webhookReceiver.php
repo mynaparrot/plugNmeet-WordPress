@@ -62,6 +62,15 @@ class WebhookReceiver {
 			$webhook = new CommonNotifyEvent();
 			$webhook->mergeFromJsonString( $body, true );
 
+			switch ( $webhook->getEvent() ) {
+				case 'recording_proceeded':
+					wp_cache_flush_group( 'pnm_recordings' );
+					break;
+				case 'artifact_created':
+					wp_cache_flush_group( 'pnm_artifacts' );
+					break;
+			}
+
 			do_action( 'plugnmeet_webhook_data', $webhook );
 		} catch ( Exception $e ) {
 			return new WP_REST_Response( [

@@ -27,9 +27,9 @@ class Plugnmeet_AnalyticsHelper {
 		if ( ! class_exists( "plugNmeetConnect" ) ) {
 			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/plugNmeetConnect.php';
 		}
-		
+
 		$key           = sprintf( "artifact-%s", $artifact_id );
-		$analyticsdata = wp_cache_get( $key, "pnm" );
+		$analyticsdata = wp_cache_get( $key, "pnm_artifact" );
 		if ( $analyticsdata === false ) {
 			$pnc = new plugNmeetConnect( $this->setting_params );
 			$res = $pnc->getArtifactDownloadToken( $this->artifact_id );
@@ -40,7 +40,7 @@ class Plugnmeet_AnalyticsHelper {
 					$data = json_decode( $analyticsdata, true );
 					if ( ! empty( $data ) ) {
 						$analyticsdata = $data;
-						wp_cache_set( $key, $analyticsdata, "pnm", 60 * 60 * 24 ); // 24 hours
+						wp_cache_set( $key, $analyticsdata, "pnm_artifact", 60 * 60 * 24 ); // 24 hours
 					}
 				}
 			} else {

@@ -51,6 +51,13 @@ class PlugNmeetAjaxHelper {
 			wp_send_json( $output );
 		}
 
+		$cache_key   = 'pnm_recordings_' . $roomId . '_' . $from . '_' . $limit . '_' . $orderBy;
+		$cached_data = wp_cache_get( $cache_key, 'pnm_recordings' );
+
+		if ( false !== $cached_data ) {
+			wp_send_json( $cached_data );
+		}
+
 		$options = $this->setting_params;
 		$connect = new plugNmeetConnect( $options );
 		$roomIds = array( $roomId );
@@ -60,7 +67,9 @@ class PlugNmeetAjaxHelper {
 		$output->msg    = $res->getMsg();
 		if ( $res->getStatus() ) {
 			$output->result = $res->getResult()->serializeToJsonString();
+			wp_cache_set( $cache_key, $output, 'pnm_recordings', 3600 );
 		}
+
 		wp_send_json( $output );
 	}
 
@@ -88,6 +97,13 @@ class PlugNmeetAjaxHelper {
 			wp_send_json( $output );
 		}
 
+		$cache_key   = 'pnm_artifacts_' . $roomId . '_' . $from . '_' . $limit . '_' . $orderBy;
+		$cached_data = wp_cache_get( $cache_key, 'pnm_artifacts' );
+
+		if ( false !== $cached_data ) {
+			wp_send_json( $cached_data );
+		}
+
 		$options = $this->setting_params;
 		$connect = new plugNmeetConnect( $options );
 		$roomIds = array( $roomId );
@@ -113,7 +129,9 @@ class PlugNmeetAjaxHelper {
 			$result_obj->totalArtifacts = $res->getResult()->getTotalArtifacts();
 
 			$output->result = json_encode( $result_obj );
+			wp_cache_set( $cache_key, $output, 'pnm_artifacts', 3600 );
 		}
+		
 		wp_send_json( $output );
 	}
 
@@ -219,6 +237,11 @@ class PlugNmeetAjaxHelper {
 
 		if ( $output->status ) {
 			$output->msg = __( "Artifact was deleted successfully", "plugnmeet" );
+			wp_cache_flush_group( 'pnm_artifacts' );
+
+			// delete single artifact cache as well
+			$key = sprintf( "artifact-%s", $artifact_id );
+			wp_cache_delete( $key, "pnm_artifact" );
 		}
 
 		wp_send_json( $output );
@@ -292,6 +315,7 @@ class PlugNmeetAjaxHelper {
 
 		if ( $output->status ) {
 			$output->msg = __( "Recording was deleted successfully", 'plugnmeet' );
+			wp_cache_flush_group( 'pnm_recordings' );
 		}
 
 		wp_send_json( $output );
@@ -402,7 +426,7 @@ class PlugNmeetAjaxHelper {
 			wp_send_json( $output );
 		}
 		$isAdmin = $roleDetermine->isAdmin;
-		
+
 		$connect       = new plugNmeetConnect( $this->setting_params );
 		$isRoomActive  = false;
 		$room_metadata = json_decode( $roomInfo->room_metadata, true );
@@ -444,8 +468,8 @@ class PlugNmeetAjaxHelper {
 					);
 				}
 
-				$webHookUrl = get_rest_url(null, 'plugnmeet/webhook');
-				$create = $connect->createRoom( $roomInfo->room_id, $roomInfo->room_title, $room_metadata, $roomInfo->welcome_message, $logoutUrl, $webHookUrl, $roomInfo->max_participants, 0, $extraData );
+				$webHookUrl = get_rest_url( null, 'plugnmeet/webhook' );
+				$create     = $connect->createRoom( $roomInfo->room_id, $roomInfo->room_title, $room_metadata, $roomInfo->welcome_message, $logoutUrl, $webHookUrl, $roomInfo->max_participants, 0, $extraData );
 
 				$isRoomActive = $create->getStatus();
 				$output->msg  = $create->getMsg();
