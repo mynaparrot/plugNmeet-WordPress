@@ -40,7 +40,7 @@ class Plugnmeet_AnalyticsHelper {
 					$data = json_decode( $analyticsdata, true );
 					if ( ! empty( $data ) ) {
 						$analyticsdata = $data;
-						wp_cache_set( $key, $analyticsdata, "pnm_artifact", 60 * 60 * 24 ); // 24 hours
+						wp_cache_set( $key, $analyticsdata, "pnm_artifact", DAY_IN_SECONDS ); // 24 hours
 					}
 				}
 			} else {

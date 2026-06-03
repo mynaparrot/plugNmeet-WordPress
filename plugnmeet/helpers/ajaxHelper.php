@@ -67,7 +67,7 @@ class PlugNmeetAjaxHelper {
 		$output->msg    = $res->getMsg();
 		if ( $res->getStatus() ) {
 			$output->result = $res->getResult()->serializeToJsonString();
-			wp_cache_set( $cache_key, $output, 'pnm_recordings', 3600 );
+			wp_cache_set( $cache_key, $output, 'pnm_recordings', HOUR_IN_SECONDS );
 		}
 
 		wp_send_json( $output );
@@ -130,7 +130,7 @@ class PlugNmeetAjaxHelper {
 			$result_obj->totalArtifacts = $res->getResult()->getTotalArtifacts();
 
 			$output->result = json_encode( $result_obj );
-			wp_cache_set( $cache_key, $output, 'pnm_artifacts', 3600 );
+			wp_cache_set( $cache_key, $output, 'pnm_artifacts', HOUR_IN_SECONDS );
 		}
 
 		wp_send_json( $output );
