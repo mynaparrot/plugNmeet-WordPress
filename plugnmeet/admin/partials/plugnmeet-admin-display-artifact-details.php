@@ -22,8 +22,8 @@ $roomId        = isset( $_GET['room_id'] ) ? sanitize_text_field( $_GET['room_id
                class="btn btn-secondary">
                 <?php echo __( 'Back to Artifacts', 'plugnmeet' ); ?>
             </a>
-            <?php if ( $is_file_based && ! $context['is_analytics'] ) : ?>
-                <a href="#" class="btn btn-success download-artifact"
+            <?php if ( $is_file_based ) : ?>
+                <a href="#" class="btn btn-primary download-artifact"
                    data-artifact-id="<?php echo esc_attr( $artifact_info->getArtifactId() ); ?>"><?php echo __( 'Download', 'plugnmeet' ); ?></a>
             <?php endif; ?>
             <?php if ( $context['is_analytics'] ) : ?>

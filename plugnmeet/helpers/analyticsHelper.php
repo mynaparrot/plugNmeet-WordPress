@@ -1,4 +1,10 @@
 <?php
+/**
+ *
+ * @package    Plugnmeet
+ * @subpackage Plugnmeet/helpers
+ * @author     Jibon Costa <jibon@mynaparrot.com>
+ */
 
 if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
 	die;
@@ -21,20 +27,25 @@ class Plugnmeet_AnalyticsHelper {
 		if ( ! class_exists( "plugNmeetConnect" ) ) {
 			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/plugNmeetConnect.php';
 		}
+		
+		$key           = sprintf( "artifact-%s", $artifact_id );
+		$analyticsdata = wp_cache_get( $key, "pnm" );
+		if ( $analyticsdata === false ) {
+			$pnc = new plugNmeetConnect( $this->setting_params );
+			$res = $pnc->getArtifactDownloadToken( $this->artifact_id );
 
-		$pnc = new plugNmeetConnect( $this->setting_params );
-		$res = $pnc->getArtifactDownloadToken( $this->artifact_id );
-
-		if ( $res->getStatus() ) {
-			$analyticsdata = $this->fetch_data( $res->getToken() );
-			if ( ! empty( $analyticsdata ) ) {
-				$data = json_decode( $analyticsdata, true );
-				if ( ! empty( $data ) ) {
-					$analyticsdata = $data;
+			if ( $res->getStatus() ) {
+				$analyticsdata = $this->fetch_data( $res->getToken() );
+				if ( ! empty( $analyticsdata ) ) {
+					$data = json_decode( $analyticsdata, true );
+					if ( ! empty( $data ) ) {
+						$analyticsdata = $data;
+						wp_cache_set( $key, $analyticsdata, "pnm", 60 * 60 * 24 ); // 24 hours
+					}
 				}
+			} else {
+				throw new Exception( $res->getMsg() );
 			}
-		} else {
-			throw new Exception( $res->getMsg() );
 		}
 
 		$this->analyticsformatter = plugNmeetConnect::getAnalyticsFormatter( $analyticsdata, wp_timezone()->getName() );
