@@ -166,11 +166,11 @@ jQuery(document).ready(function ($) {
                         new Date(recording.roomCreationTime * 1e3).toLocaleString() +
                         '</td>';
 
-                    html += '<td class="center filesize">' + parseFloat(recording.fileSize).toFixed(2);
-                    html += '<div class="alignright actions"><button class="button button-primary downloadRecording" id="' +
+                    html += '<td>' + parseFloat(recording.fileSize).toFixed(2) + '</td>';
+                    html += '<td><div class="alignright"><button class="button button-primary downloadRecording mx-2" id="' +
                         recording.recordId +
                         '">' + plugnmeet_recordings_data.i18n.download + '</button>';
-                    html += '<button class="button button-secondary deleteRecording" id="' +
+                    html += '<button class="button button-danger deleteRecording" id="' +
                         recording.recordId +
                         '">' + plugnmeet_recordings_data.i18n.delete + '</button></div>';
                     html += '</td>';

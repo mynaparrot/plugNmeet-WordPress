@@ -114,7 +114,7 @@ class PlugNmeetAjaxHelper {
 		if ( $res->getStatus() ) {
 			$artifacts        = $res->getResult()->getArtifactsList();
 			$result_artifacts = [];
-			$page = (int) ( $from / $limit ) + 1;
+			$page             = (int) ( $from / $limit ) + 1;
 
 			foreach ( $artifacts as $artifact ) {
 				$result_artifacts[] = [
@@ -132,7 +132,7 @@ class PlugNmeetAjaxHelper {
 			$output->result = json_encode( $result_obj );
 			wp_cache_set( $cache_key, $output, 'pnm_artifacts', 3600 );
 		}
-		
+
 		wp_send_json( $output );
 	}
 
@@ -491,7 +491,12 @@ class PlugNmeetAjaxHelper {
 			try {
 				$join = $connect->getJoinToken( $roomInfo->room_id, $name, $useId, $isAdmin );
 
-				$output->url    = get_site_url() . "/index.php?access_token=" . $join->getToken() . "&id=" . $id . "&Plug-N-Meet-Conference=1";
+				if ( $this->setting_params->client_load === "redirect" ) {
+					$output->url = rtrim( $this->setting_params->plugnmeet_server_url, "/" ) . "/?access_token=" . $join->getToken();
+				} else {
+					$output->url = get_site_url() . "/index.php?access_token=" . $join->getToken() . "&id=" . $id . "&Plug-N-Meet-Conference=1";
+				}
+
 				$output->status = $join->getStatus();
 				$output->msg    = $join->getMsg();
 			} catch ( Exception $e ) {

@@ -35,20 +35,20 @@ class WebhookReceiver {
 	 */
 	public function handle( WP_REST_Request $request ): WP_REST_Response {
 		try {
-			$authorizationHeader = $request->get_header( 'Authorization' );
+			$authorizationHeader = empty( $request->get_header( 'Authorization' ) ) ? $request->get_header( 'hash_token' ) : $request->get_header( 'Authorization' ); // plugNmeet will send both headers containing same token value.
 
 			if ( empty( $authorizationHeader ) ) {
 				return new WP_REST_Response( [
-					'status'  => 'error',
-					'message' => 'Authorization header missing'
+					'status' => false,
+					'msg'    => 'Authorization header missing'
 				], 401 );
 			}
-			
+
 			$connect = new \plugNmeetConnect( $this->setting_params );
 			$jwt     = $connect->getPlugnmeet()->decodeJWTData( $authorizationHeader );
 
 			if ( ! isset( $jwt->sha256 ) ) {
-				return new WP_REST_Response( [ 'status' => 'error', 'message' => 'Invalid JWT token' ], 401 );
+				return new WP_REST_Response( [ 'status' => false, 'msg' => 'Invalid JWT token' ], 401 );
 			}
 
 			$body            = $request->get_body();
@@ -56,7 +56,7 @@ class WebhookReceiver {
 			$decodedSentHash = base64_decode( $jwt->sha256 );
 
 			if ( $hash !== $decodedSentHash ) {
-				return new WP_REST_Response( [ 'status' => 'error', 'message' => 'Hash mismatch' ], 401 );
+				return new WP_REST_Response( [ 'status' => false, 'msg' => 'Hash mismatch' ], 401 );
 			}
 
 			$webhook = new CommonNotifyEvent();
@@ -74,11 +74,11 @@ class WebhookReceiver {
 			do_action( 'plugnmeet_webhook_data', $webhook );
 		} catch ( Exception $e ) {
 			return new WP_REST_Response( [
-				'status'  => 'error',
-				'message' => $e->getMessage()
+				'status' => false,
+				'msg'    => $e->getMessage()
 			], 500 );
 		}
 
-		return new WP_REST_Response( [ 'status' => 'success' ], 200 );
+		return new WP_REST_Response( [ 'status' => true, 'msg' => 'success' ], 200 );
 	}
 }

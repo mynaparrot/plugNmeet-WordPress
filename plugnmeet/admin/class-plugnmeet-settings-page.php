@@ -47,9 +47,10 @@ class Plugnmeet_SettingsPage {
 		$id        = isset( $args['id'] ) ? esc_attr( $args['id'] ) : '';
 		$required  = isset( $args['required'] ) ? esc_attr( $args['required'] ) : '';
 		$className = isset( $args['className'] ) ? esc_attr( $args['className'] ) : '';
+		$type      = isset( $args['type'] ) ? esc_attr( $args['type'] ) : 'text';
 		$value     = isset( $options[ $id ] ) ? esc_attr( $options[ $id ] ) : $args['default'];
 
-		$html = '<input id="' . $id . '" class="' . $className . '" ' . $required . ' name="plugnmeet_settings[' . $id . ']" type="text" size="40" value="' . $value . '">';
+		$html = '<input id="' . $id . '" class="' . $className . '" ' . $required . ' name="plugnmeet_settings[' . $id . ']" type="' . $type . '" size="40" value="' . $value . '">';
 		echo wp_kses( $html, $this->allowedHtml );
 	}
 
@@ -189,7 +190,7 @@ class Plugnmeet_SettingsPage {
 			[ $this, 'textCallBack' ],
 			'plugnmeet-settings',
 			'plugnmeet_settings_config_section',
-			[ 'id' => 'plugnmeet_api_key', 'required' => "required", 'default' => "plugnmeet" ]
+			[ 'id' => 'plugnmeet_api_key', 'required' => "required", 'default' => "plugnmeet", 'type' => 'password' ]
 		);
 
 		add_settings_field(
@@ -201,6 +202,7 @@ class Plugnmeet_SettingsPage {
 			[
 				'id'       => 'plugnmeet_secret',
 				'required' => "required",
+				'type'     => 'password',
 				'default'  => "zumyyYWqv7KR2kUqvYdq4z4sXg7XTBD2ljT6"
 			]
 		);
@@ -211,7 +213,7 @@ class Plugnmeet_SettingsPage {
 			[ $this, 'selectCallBack' ],
 			'plugnmeet-settings',
 			'plugnmeet_settings_config_section',
-			[ 'id' => 'client_load', 'options' => array( "remote", "local" ), 'default' => "automatic" ]
+			[ 'id' => 'client_load', 'options' => array( "remote", "local", "redirect" ), 'default' => "remote" ]
 		);
 
 		add_settings_field(

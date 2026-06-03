@@ -49,9 +49,10 @@ $selected_room = isset( $_GET['room_id'] ) ? sanitize_text_field( $_GET['room_id
             <th class="manage-column column-categories">
                 <?php echo __( "Meeting date", "plugnmeet" ); ?>
             </th>
-            <th class="manage-column" style="width: 22%">
+            <th class="manage-column column-categories">
                 <?php echo __( "File size (MB)", "plugnmeet" ); ?>
             </th>
+            <th class="manage-column" style="width: 15%"></th>
         </tr>
         </thead>
         <tbody id="recordingListsBody"></tbody>
@@ -66,7 +67,7 @@ $selected_room = isset( $_GET['room_id'] ) ? sanitize_text_field( $_GET['room_id
     <div class="plugnmeet-modal-content">
         <div class="plugnmeet-modal-header">
             <button type="button" class="plugnmeet-modal-close" id="plugnmeet-cancel-merge-top">&times;</button>
-            <h4 class="modal-title"><?php echo __( "Confirm Merge", "plugnmeet" ) ?></h4>
+            <h5 class="modal-title"><?php echo __( "Confirm Merge", "plugnmeet" ) ?></h5>
         </div>
         <div class="plugnmeet-modal-body">
             <p><?php echo __( "Are you sure you want to merge the following recordings in this order?", "plugnmeet" ) ?></p>

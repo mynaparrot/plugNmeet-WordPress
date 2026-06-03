@@ -136,10 +136,10 @@
     })
 
     $(document).on("change", "#client_load", (e) => {
-        if ($(e.target).val() === "remote") {
-            $("#client_download_url").parent().parent().hide();
-        } else {
+        if ($(e.target).val() === "local") {
             $("#client_download_url").parent().parent().show();
+        } else {
+            $("#client_download_url").parent().parent().hide();
         }
     })
 
