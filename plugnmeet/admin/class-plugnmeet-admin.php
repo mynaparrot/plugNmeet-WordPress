@@ -294,6 +294,7 @@ class Plugnmeet_Admin {
 		$output         = new stdClass();
 		$output->status = false;
 		$output->msg    = __( 'Token mismatched', 'plugnmeet' );
+        $output->url = '';
 
 		if ( ! wp_verify_nonce( $_REQUEST['nonce'], 'save_room_data' ) ) {
 			wp_send_json( $output );
@@ -371,6 +372,7 @@ class Plugnmeet_Admin {
 			if ( $wpdb->insert_id ) {
 				$output->status = true;
 				$output->msg    = __( 'Successfully saved room data', 'plugnmeet' );
+                $output->url = admin_url('admin.php?page=plugnmeet&task=edit&id=' . $wpdb->insert_id);
 			} else {
 				$output->msg = $wpdb->last_error;
 			}
@@ -401,6 +403,7 @@ class Plugnmeet_Admin {
 			} else {
 				$output->status = true;
 				$output->msg    = __( 'Successfully updated room data', 'plugnmeet' );
+                $output->url = admin_url('admin.php?page=plugnmeet&task=edit&id=' . $id);
 			}
 		}
 

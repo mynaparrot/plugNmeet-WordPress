@@ -95,35 +95,35 @@ if ( ! empty( $dbRoles ) ) {
                 <td style="text-align: center;">
                     <input type="radio" name="roles[<?php echo $key; ?>][join_as]"
                            value="moderator"
-                            <?php echo $role['join_as'] === "moderator" ? "checked='checked'" : ""; ?>>
+                            <?php checked( $role['join_as'], "moderator" ); ?>>
                 </td>
                 <td style="text-align: center;">
                     <input type="radio" name="roles[<?php echo $key; ?>][join_as]"
                            value="attendee"
-                            <?php echo $role['join_as'] === "attendee" ? "checked='checked'" : ""; ?>>
+                            <?php checked( $role['join_as'], "attendee" ); ?>>
                 </td>
                 <td style="text-align: center;">
                     <input type="checkbox" name="roles[<?php echo $key; ?>][require_password]"
-                            <?php echo $role['require_password'] === "on" ? "checked='checked'" : ""; ?>>
+                            <?php checked( $role['require_password'], "on" ); ?>>
                 </td>
                 <td style="text-align: center;">
                     <input type="checkbox" name="roles[<?php echo $key; ?>][can_view_recording]"
-                            <?php echo $role['can_view_recording'] === "on" ? "checked='checked'" : ""; ?>>
+                            <?php checked( $role['can_view_recording'], "on" ); ?>>
                 </td>
                 <td style="text-align: center;">
                     <input type="checkbox" name="roles[<?php echo $key; ?>][can_play]"
-                            <?php echo $role['can_play'] === "on" ? "checked='checked'" : ""; ?>>
+                            <?php checked( $role['can_play'], "on" ); ?>>
                 </td>
                 <td style="text-align: center;">
                     <input type="checkbox" name="roles[<?php echo $key; ?>][can_download]"
-                            <?php echo $role['can_download'] === "on" ? "checked='checked'" : ""; ?>>
+                            <?php checked( $role['can_download'], "on" ); ?>>
                 </td>
                 <td style="text-align: center;">
                     <?php if ( $key === "guest" ): ?>
                         <div>n/a</div>
                     <?php else: ?>
                         <input type="checkbox" name="roles[<?php echo $key; ?>][can_delete]"
-                                <?php echo $role['can_delete'] === "on" ? "checked='checked'" : ""; ?>>
+                                <?php checked( $role['can_delete'], "on" ); ?>>
                     <?php endif; ?>
                 </td>
             </tr>

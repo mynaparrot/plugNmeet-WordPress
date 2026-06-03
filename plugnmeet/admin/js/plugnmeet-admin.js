@@ -67,7 +67,11 @@
             success: function (data) {
                 if (data.status) {
                     alert(data.msg);
-                    window.location.href = "admin.php?page=plugnmeet";
+                    if (data.url) {
+                        window.location.href = data.url;
+                    } else {
+                        window.location.href = "admin.php?page=plugnmeet";
+                    }
                 } else {
                     alert(data.msg);
                 }
