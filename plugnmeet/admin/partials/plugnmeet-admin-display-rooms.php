@@ -17,7 +17,7 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
 
 ?>
 
-<div class="wrap">
+<div class="wrap rooms-list-table">
     <h1 class="wp-heading-inline"><?php echo __( 'Rooms', 'plugnmeet' ); ?></h1>
     <a href="<?php echo admin_url( 'admin.php?page=plugnmeet&task=add' ); ?>"
        class="page-title-action"><?php echo __( 'Add New', 'plugnmeet' ); ?></a>

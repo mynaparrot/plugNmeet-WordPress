@@ -66,6 +66,7 @@ class Plugnmeet_Rooms_List_Table extends WP_List_Table {
 
 	public function column_default( $item, $column_name ) {
 		switch ( $column_name ) {
+			case 'id':
 			case 'moderator_pass':
 			case 'attendee_pass':
 			case 'room_id':

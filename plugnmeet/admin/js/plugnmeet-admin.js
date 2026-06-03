@@ -1,6 +1,14 @@
 (function ($) {
     'use strict';
 
+    function showPlugnmeetAdminNotice(message, type) {
+        const notice = $('<div class="notice notice-' + type + ' is-dismissible"><p>' + message + '</p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>');
+        $('#wpbody-content > .wrap').before(notice);
+        setTimeout(function () {
+            notice.fadeOut();
+        }, 5000);
+    }
+
     $(document).on("click", ".upload_media_button", (e) => {
         e.preventDefault();
         const attachedTo = String($(e.currentTarget).data('attached-to'));
@@ -47,11 +55,11 @@
                 if (typeof msg === "object") {
                     msg = JSON.parse(msg);
                 }
-                alert(msg);
+                showPlugnmeetAdminNotice(msg, data.type);
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 $("#update_client_button").removeClass("disabled");
-                alert(textStatus + ": " + errorThrown);
+                showPlugnmeetAdminNotice(textStatus + ": " + errorThrown, 'error');
                 console.log(textStatus + ": " + errorThrown);
             }
         })
@@ -66,18 +74,18 @@
             method: 'POST',
             success: function (data) {
                 if (data.status) {
-                    alert(data.msg);
                     if (data.url) {
                         window.location.href = data.url;
                     } else {
                         window.location.href = "admin.php?page=plugnmeet";
                     }
                 } else {
-                    alert(data.msg);
+                    // The server will set a transient for the error notice
+                    window.location.reload();
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                alert(textStatus + ": " + errorThrown);
+                showPlugnmeetAdminNotice(textStatus + ": " + errorThrown, 'error');
                 console.log(textStatus + ": " + errorThrown);
             }
         })
@@ -103,14 +111,13 @@
             method: 'POST',
             success: function (data) {
                 if (data.status) {
-                    alert(data.msg);
                     window.location.reload();
                 } else {
-                    alert(data.msg);
+                    window.location.reload();
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                alert(textStatus + ": " + errorThrown);
+                showPlugnmeetAdminNotice(textStatus + ": " + errorThrown, 'error');
                 console.log(textStatus + ": " + errorThrown);
             }
         })
