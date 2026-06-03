@@ -80,6 +80,7 @@ class Plugnmeet_Rooms_List_Table extends WP_List_Table {
 
 	function get_columns() {
 		$columns = [
+			'id'             => __( 'ID', 'plugnmeet' ),
 			'room_title'     => __( 'Room Title', 'plugnmeet' ),
 			'room_id'        => __( 'Room Id', 'plugnmeet' ),
 			'moderator_pass' => __( 'Moderator Password', 'plugnmeet' ),
@@ -105,6 +106,7 @@ class Plugnmeet_Rooms_List_Table extends WP_List_Table {
 	public function get_sortable_columns() {
 		return [
 			'room_title' => array( 'room_title', true ),
+			'id'         => array( 'id', true ),
 		];
 	}
 

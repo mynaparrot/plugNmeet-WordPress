@@ -34,3 +34,7 @@
 #plugnmeet-recordings-info, #plugnmeet-artifacts-info {
     margin-top: 12px;
 }
+
+.column-id {
+    width: 50px;
+}
