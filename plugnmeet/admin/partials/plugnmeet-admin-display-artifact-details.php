@@ -13,12 +13,13 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
 $metadata      = $artifact_info->getMetadata();
 $is_file_based = ( $metadata && $metadata->hasFileInfo() );
 $roomId        = isset( $_GET['room_id'] ) ? sanitize_text_field( $_GET['room_id'] ) : '';
+$paged         = isset( $_GET['paged'] ) ? sanitize_text_field( $_GET['paged'] ) : '';
 ?>
 <div class="wrap plugnmeet-artifact-details">
     <div class="plugnmeet-details-header">
         <h1 class="wp-heading-inline"><?php echo __( 'Artifact Details', 'plugnmeet' ); ?></h1>
         <div class="plugnmeet-header-actions">
-            <a href="<?php echo admin_url( 'admin.php?page=plugnmeet-artifacts&room_id=' . $roomId ); ?>"
+            <a href="<?php echo admin_url( 'admin.php?page=plugnmeet-artifacts&room_id=' . $roomId . '&paged=' . $paged ); ?>"
                class="btn btn-secondary">
                 <?php echo __( 'Back to Artifacts', 'plugnmeet' ); ?>
             </a>

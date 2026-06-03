@@ -3,11 +3,17 @@ jQuery(document).ready(function ($) {
     let roomId = '', totalArtifacts = 0, currentPage = 1, limitPerPage = 20;
 
     if ($('#plugnmeet-selected-roomId').val()) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const paged = parseInt(urlParams.get('paged'));
+        if (paged > 1) {
+            currentPage = paged;
+        }
         initLoadArtifacts();
     }
 
     $(document).on('click', "#plugnmeet-show-artifacts", function (e) {
         e.preventDefault();
+        currentPage = 1;
         initLoadArtifacts();
     });
 
@@ -16,19 +22,17 @@ jQuery(document).ready(function ($) {
         if (!roomId) {
             return;
         }
+        const from = (currentPage - 1) * limitPerPage;
         const data = {
             nonce: plugnmeet_artifacts_data.nonce.get_artifacts,
             action: "plugnmeet_get_artifacts",
-            from: 0,
+            from: from,
             limit: limitPerPage,
             order_by: 'DESC',
             roomId,
         };
 
         fetchArtifacts(data);
-        isShowingPagination = false;
-        $('#artifactListsFooter').hide();
-        $('#plugnmeet-artifacts-info').hide();
     }
 
     function fetchArtifacts(data) {
@@ -56,14 +60,16 @@ jQuery(document).ready(function ($) {
                     return;
                 }
 
-                // check if pagination require
-                if (
-                    totalArtifacts > limitPerPage &&
-                    !isShowingPagination
-                ) {
-                    showPagination();
-                    isShowingPagination = true;
+                if (totalArtifacts > limitPerPage) {
+                    if (!isShowingPagination) {
+                        showPagination();
+                        isShowingPagination = true;
+                    }
+                    updatePaginationButtons();
+                } else {
+                    $('#artifactListsFooter').hide();
                 }
+
                 updateArtifactsInfo();
 
                 let html = '';
@@ -102,8 +108,6 @@ jQuery(document).ready(function ($) {
     }
 
     function showPagination() {
-        currentPage = 1;
-
         $('#artifactListsFooter').show();
 
         let html = '<div class="tablenav-pages">';
@@ -115,9 +119,7 @@ jQuery(document).ready(function ($) {
 
         html += '</div>';
 
-
         $('#artifactListsFooter').html(html);
-        updateArtifactsInfo();
     }
 
     function updateArtifactsInfo() {
@@ -129,46 +131,39 @@ jQuery(document).ready(function ($) {
         $('#plugnmeet-artifacts-info').html(infoText).show();
     }
 
-    let showPre = false,
-        showNext = true;
-
-    $(document).on('click', '#backward', function (e) {
-        e.preventDefault();
-        if (!showPre) {
-            return;
-        }
-        currentPage--;
-        paginate(currentPage);
-    });
-
-    $(document).on('click', '#forward', function (e) {
-        e.preventDefault();
-        if (!showNext) {
-            return;
-        }
-        currentPage++;
-        paginate(currentPage);
-    });
-
-    function paginate(currentPage) {
-        const from = (currentPage - 1) * limitPerPage;
-
+    function updatePaginationButtons() {
         if (currentPage === 1) {
-            showPre = false;
             $('#backward span').addClass('disabled');
         } else {
-            showPre = true;
             $('#backward span').removeClass('disabled');
         }
 
         if (currentPage >= totalArtifacts / limitPerPage) {
-            showNext = false;
             $('#forward span').addClass('disabled');
         } else {
-            showNext = true;
             $('#forward span').removeClass('disabled');
         }
+    }
 
+    $(document).on('click', '#backward', function (e) {
+        e.preventDefault();
+        if (currentPage > 1) {
+            currentPage--;
+            paginate(currentPage);
+        }
+    });
+
+    $(document).on('click', '#forward', function (e) {
+        e.preventDefault();
+        if (currentPage < totalArtifacts / limitPerPage) {
+            currentPage++;
+            paginate(currentPage);
+        }
+    });
+
+    function paginate(page) {
+        currentPage = page;
+        const from = (currentPage - 1) * limitPerPage;
         const data = {
             nonce: plugnmeet_artifacts_data.nonce.get_artifacts,
             action: "plugnmeet_get_artifacts",
@@ -178,7 +173,6 @@ jQuery(document).ready(function ($) {
             roomId,
         };
         fetchArtifacts(data);
-        updateArtifactsInfo();
     }
 
     $(document).on('click', '.download-artifact', function (e) {

@@ -114,13 +114,14 @@ class PlugNmeetAjaxHelper {
 		if ( $res->getStatus() ) {
 			$artifacts        = $res->getResult()->getArtifactsList();
 			$result_artifacts = [];
+			$page = (int) ( $from / $limit ) + 1;
 
 			foreach ( $artifacts as $artifact ) {
 				$result_artifacts[] = [
 					'artifact_id' => $artifact->getArtifactId(),
 					'type'        => $this->format_type_name( $artifact->getType() ),
 					'created'     => gmdate( "Y-m-d H:i:s", strtotime( $artifact->getCreated() ) ),
-					'view_url'    => admin_url( 'admin.php?page=plugnmeet-artifacts&artifact_id=' . $artifact->getArtifactId() . "&room_id=" . $roomId ),
+					'view_url'    => admin_url( 'admin.php?page=plugnmeet-artifacts&artifact_id=' . $artifact->getArtifactId() . "&room_id=" . $roomId . "&paged=" . $page ),
 				];
 			}
 
