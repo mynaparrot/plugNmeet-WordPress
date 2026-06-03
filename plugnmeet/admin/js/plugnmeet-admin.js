@@ -79,14 +79,14 @@
         })
     })
 
-    $(document).on("click", ".deleteRoom", (e) => {
+    $(document).on("click", ".pnm-delete-room", (e) => {
         e.preventDefault();
 
-        if (!confirm("Are you sure to delete?")) {
+        if (!confirm(ajax_admin.i18n.confirm_delete)) {
             return;
         }
 
-        const id = e.target.id;
+        const id = $(e.currentTarget).data('id');
         const data = {
             id,
             action: "plugnmeet_delete_room",
@@ -100,7 +100,7 @@
             success: function (data) {
                 if (data.status) {
                     alert(data.msg);
-                    window.location.href = "admin.php?page=plugnmeet";
+                    window.location.reload();
                 } else {
                     alert(data.msg);
                 }
@@ -110,22 +110,6 @@
                 console.log(textStatus + ": " + errorThrown);
             }
         })
-    })
-
-    $(document).on("submit", "#search-form", (e) => {
-        e.preventDefault();
-        const search_term = $("#search_term").val();
-        const paged = $("#page_num").val();
-        let url = "admin.php?page=plugnmeet";
-        if (search_term) {
-            url += "&search_term=" + search_term;
-            if (paged > 1) {
-                url += "&paged=" + paged;
-            }
-            window.location.href = url;
-        } else {
-            window.location.href = url;
-        }
     })
 
     $(document).ready(function () {

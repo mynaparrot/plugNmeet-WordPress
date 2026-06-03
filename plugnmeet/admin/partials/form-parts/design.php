@@ -12,7 +12,7 @@
  */
 
 if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
-	die;
+    die;
 }
 $custom_design = $fields_values['custom_design'];
 ?>
@@ -84,59 +84,11 @@ $custom_design = $fields_values['custom_design'];
         </td>
     </tr>
     <tr>
-        <th scope="row"><?php echo __( "Left Bar Color", "plugnmeet" ) ?></th>
-        <td><input name="custom_design[left_color]" class="colorPickerItem"
+        <th scope="row"><?php echo __( "Side Panel Color", "plugnmeet" ) ?></th>
+        <td><input name="custom_design[side_panel_bg_color]" class="colorPickerItem"
                    type="text" size="20"
-                   value="<?php echo isset( $custom_design['left_color'] ) ? esc_attr( $custom_design['left_color'] ) : ''; ?>">
+                   value="<?php echo isset( $custom_design['side_panel_bg_color'] ) ? esc_attr( $custom_design['side_panel_bg_color'] ) : ''; ?>">
         </td>
     </tr>
-    <tr>
-        <th scope="row"><?php echo __( "Right Bar Color", "plugnmeet" ) ?></th>
-        <td><input name="custom_design[right_color]" class="colorPickerItem"
-                   type="text" size="20"
-                   value="<?php echo isset( $custom_design['right_color'] ) ? esc_attr( $custom_design['right_color'] ) : ''; ?>">
-        </td>
-    </tr>
-	<?php
-	$title   = __( "Column camera position", "plugnmeet" );
-	$name    = "custom_design[column_camera_position]";
-	$options = array(
-		array(
-			"text"  => __( "Left", "plugnmeet" ),
-			"value" => "left"
-		),
-		array(
-			"text"  => __( "Top", "plugnmeet" ),
-			"value" => "top"
-		),
-		array(
-			"text"  => __( "Bottom", "plugnmeet" ),
-			"value" => "bottom"
-		)
-	);
-	$default = isset( $custom_design['column_camera_position'] ) ? $custom_design['column_camera_position'] : "left";
-
-	echo PlugnmeetHelper::formatSelectOptions( $title, $name, $options, $default )
-	?>
-	<?php
-	$title   = __( "Column camera width", "plugnmeet" );
-	$name    = "custom_design[column_camera_width]";
-	$options = array(
-		array(
-			"text"  => __( "Default", "plugnmeet" ),
-			"value" => "full"
-		),
-		array(
-			"text"  => __( "Medium", "plugnmeet" ),
-			"value" => "top"
-		),
-		array(
-			"text"  => __( "Small", "plugnmeet" ),
-			"value" => "small"
-		)
-	);
-	$default = isset( $custom_design['column_camera_width'] ) ? $custom_design['column_camera_width'] : "full";
-
-	echo PlugnmeetHelper::formatSelectOptions( $title, $name, $options, $default ) ?>
     </tbody>
 </table>

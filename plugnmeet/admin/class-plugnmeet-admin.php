@@ -138,7 +138,12 @@ class Plugnmeet_Admin {
 		}
 
 		$nonce  = wp_create_nonce( 'ajax_admin' );
-		$script = array( 'nonce' => $nonce );
+		$script = array(
+			'nonce' => $nonce,
+			'i18n'  => array(
+				'confirm_delete' => __( 'Are you sure to delete?', 'plugnmeet' ),
+			),
+		);
 		wp_localize_script( $this->plugin_name, 'ajax_admin', $script );
 	}
 
@@ -428,7 +433,7 @@ class Plugnmeet_Admin {
 			$output->msg = $wpdb->last_error;
 		} else {
 			$output->status = true;
-			$output->msg    = "success";
+			$output->msg    = __( "Room deleted successfully", 'plugnmeet' );
 		}
 
 		wp_send_json( $output );

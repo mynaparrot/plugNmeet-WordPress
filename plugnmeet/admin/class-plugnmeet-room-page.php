@@ -12,7 +12,6 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
 }
 
 class Plugnmeet_RoomPage {
-    private $limitPerPage = 20;
 
     public function roomsPage() {
         // check if user is allowed access
@@ -26,9 +25,10 @@ class Plugnmeet_RoomPage {
                 require plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/plugnmeet-admin-edit-room.php';
             }
         } else {
-            $limit         = $this->limitPerPage;
-            $rooms         = $this->getRooms( sanitize_text_field( $limit ) );
-            $totalNumRooms = $this->getTotalNumRooms();
+            require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-plugnmeet-rooms-list-table.php';
+
+            $rooms_list_table = new Plugnmeet_Rooms_List_Table();
+            $rooms_list_table->prepare_items();
             require plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/plugnmeet-admin-display-rooms.php';
         }
     }
@@ -260,39 +260,5 @@ class Plugnmeet_RoomPage {
                 "SELECT * FROM " . $wpdb->prefix . "plugnmeet_rooms WHERE id = %d",
                 $id
         ) );
-    }
-
-    private function getRooms( $limit ) {
-        global $wpdb;
-        $from  = 0;
-        $paged = isset( $_GET['paged'] ) ? sanitize_text_field( $_GET['paged'] ) : 0;
-        if ( $paged > 1 ) {
-            $from = ( $paged - 1 ) * $limit;
-        }
-
-        $search_term = isset( $_GET['search_term'] ) ? sanitize_text_field( $_GET['search_term'] ) : "";
-
-        if ( ! empty( $search_term ) ) {
-            return $wpdb->get_results( $wpdb->prepare(
-                    "SELECT * FROM " . $wpdb->prefix . "plugnmeet_rooms WHERE room_title LIKE %s ORDER BY `id` DESC LIMIT %d, %d", array(
-                            '%' . $wpdb->esc_like( $search_term ) . '%',
-                            $from,
-                            $limit
-                    )
-            ) );
-        }
-
-        return $wpdb->get_results( $wpdb->prepare(
-                "SELECT * FROM " . $wpdb->prefix . "plugnmeet_rooms ORDER BY `id` DESC LIMIT %d, %d", array(
-                        $from,
-                        $limit
-                )
-        ) );
-    }
-
-    private function getTotalNumRooms() {
-        global $wpdb;
-
-        return $wpdb->get_var( "SELECT COUNT(*) FROM " . $wpdb->prefix . "plugnmeet_rooms" );
     }
 }
