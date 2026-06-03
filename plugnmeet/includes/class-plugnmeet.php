@@ -86,6 +86,7 @@ class Plugnmeet {
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 		$this->define_ajax_hooks();
+		$this->define_webhook_route();
 		$this->version_update_checker();
 	}
 
@@ -231,6 +232,21 @@ class Plugnmeet {
 		$this->loader->add_action( 'wp_ajax_plugnmeet_download_artifact', $ajaxHelper, 'download_artifact' );
 		$this->loader->add_action( 'wp_ajax_plugnmeet_download_analytics', $ajaxHelper, 'download_analytics' );
 		$this->loader->add_action( 'wp_ajax_plugnmeet_delete_artifact', $ajaxHelper, 'delete_artifact' );
+	}
+
+	private function define_webhook_route() {
+		$this->loader->add_action( 'rest_api_init', $this, 'webhook_receiver' );
+	}
+
+	public function webhook_receiver() {
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/webhookReceiver.php';
+		$webhook = new \PlugNmeet\Helpers\WebhookReceiver();
+
+		register_rest_route( 'plugnmeet', '/webhook', array(
+			'methods'             => 'POST',
+			'callback'            => array( $webhook, 'handle' ),
+			'permission_callback' => '__return_true'
+		) );
 	}
 
 	/**

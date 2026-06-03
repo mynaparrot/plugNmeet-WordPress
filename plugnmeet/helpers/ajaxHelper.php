@@ -444,7 +444,8 @@ class PlugNmeetAjaxHelper {
 					);
 				}
 
-				$create = $connect->createRoom( $roomInfo->room_id, $roomInfo->room_title, $room_metadata, $roomInfo->welcome_message, $logoutUrl, "", $roomInfo->max_participants, 0, $extraData );
+				$webHookUrl = get_rest_url(null, 'plugnmeet/webhook');
+				$create = $connect->createRoom( $roomInfo->room_id, $roomInfo->room_title, $room_metadata, $roomInfo->welcome_message, $logoutUrl, $webHookUrl, $roomInfo->max_participants, 0, $extraData );
 
 				$isRoomActive = $create->getStatus();
 				$output->msg  = $create->getMsg();

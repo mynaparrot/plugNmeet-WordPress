@@ -30,6 +30,20 @@ This plugin connects your WordPress site to a plugNmeet server. As a free and op
 
 ---
 
+### Plugin Features
+
+*   **Seamless Integration:** Embed video conferences directly into your WordPress pages and posts using a simple shortcode.
+*   **Room Management:** Create and manage Plug-N-Meet rooms directly from the WordPress admin area.
+*   **Advanced Analytics:** Access detailed post-meeting analytics for each session, including participant engagement, talk time, connection quality, and more. Download comprehensive reports in Excel format.
+*   **Artifact Management:** Easily access and download all room artifacts, such as speech transcripts, AI-generated meeting summaries, AI token usage/cost etc.
+*   **Recording Management:** View, download, and merge recordings from the WordPress backend.
+*   **Role-Based Permissions:** Control who can join meetings and manage recordings based on their WordPress user role.
+*   **Frontend Join Form:** The shortcode automatically displays a customizable join form for users to enter their name and, if required, a password.
+*   **Display Recordings:** The shortcode can also be configured to display a list of recordings for a specific room, with download and playback options based on the user's role.
+*   **Developer Friendly:** Extend the plugin's functionality by hooking into webhook events to process real-time data from your meetings.
+
+---
+
 ### Powerful Features for Your Website
 
 #### Core Conferencing Tools
@@ -56,7 +70,6 @@ This plugin connects your WordPress site to a plugNmeet server. As a free and op
 *   **Live Broadcasting:** Stream your meetings live to platforms like YouTube via RTMP.
 *   **Telephone Dial-In (SIP Gateway):** Allow participants to join the audio of your meeting by dialing a standard phone number—no internet required.
 *   **Stable on Any Connection:** Adaptive streaming (Simulcast & Dynacast) ensures a smooth experience, even on slower internet.
-*   **Detailed Analytics:** Assess attendance and engagement with post-session reports.
 
 == Installation ==
 
@@ -105,6 +118,16 @@ This is the ideal solution for corporations, healthcare providers, government ag
 = My users can't connect their camera. What's wrong? =
 
 The most common reason for this is that your website is not running on **HTTPS**. Modern web browsers require a secure `https://` connection to allow access to a user's camera and microphone. Please ensure your WordPress site has a valid SSL certificate installed.
+
+= How can I use the new webhook feature? =
+
+The new webhook feature allows you to receive real-time notifications about events that happen in your Plug-N-Meet rooms. To use it, you can add an action to the `plugnmeet_webhook_data` hook in your own plugin or theme's `functions.php` file. For example:
+
+`add_action( 'plugnmeet_webhook_data', 'my_plugnmeet_webhook_handler', 10, 1 );`
+
+`function my_plugnmeet_webhook_handler( $data ) {`
+`  // Process the webhook data here`
+`}`
 
 == Screenshots ==
 
