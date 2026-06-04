@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-03 20:22+0000\n"
-"PO-Revision-Date: 2026-06-03 20:25\n"
+"POT-Creation-Date: 2026-06-04 10:03+0000\n"
+"PO-Revision-Date: 2026-06-04 10:04\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -21,6 +21,10 @@ msgstr ""
 #: admin/class-plugnmeet-settings-page.php:129
 msgid " can't be empty."
 msgstr " 不能为空。"
+
+#: public/partials/parts/recordings.php:28
+msgid "Action"
+msgstr ""
 
 #: helpers/helper.php:564
 msgid "Activate waiting room"
@@ -158,8 +162,8 @@ msgstr "允许网络摄像头"
 msgid "Allow whiteboard"
 msgstr "允许白板"
 
-#: admin/class-plugnmeet-admin.php:113 admin/class-plugnmeet-admin.php:145
-#: public/partials/parts/recordings.php:172
+#: public/class-plugnmeet-public.php:311 admin/class-plugnmeet-admin.php:113
+#: admin/class-plugnmeet-admin.php:145
 msgid "Are you sure to delete?"
 msgstr "您确定要删除吗？"
 
@@ -254,6 +258,10 @@ msgstr "字符数使用"
 msgid "Chat Files Shared"
 msgstr "聊天文件共享"
 
+#: public/class-plugnmeet-public.php:91
+msgid "Checking..."
+msgstr ""
+
 #: admin/class-plugnmeet-settings-page.php:212
 msgid "Client load"
 msgstr "客户端负载"
@@ -293,10 +301,9 @@ msgstr "自定义 logo"
 msgid "Default lock settings"
 msgstr "默认锁定设置"
 
-#: admin/class-plugnmeet-admin.php:115
+#: public/class-plugnmeet-public.php:314 admin/class-plugnmeet-admin.php:115
 #: admin/class-plugnmeet-rooms-list-table.php:100
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:36
-#: public/partials/parts/recordings.php:230
 msgid "Delete"
 msgstr "删除"
 
@@ -309,9 +316,8 @@ msgstr "设计定制"
 msgid "Display copyright text"
 msgstr "显示版权文本"
 
-#: admin/class-plugnmeet-admin.php:114
+#: public/class-plugnmeet-public.php:313 admin/class-plugnmeet-admin.php:114
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:28
-#: public/partials/parts/recordings.php:223
 msgid "Download"
 msgstr "下载"
 
@@ -410,7 +416,7 @@ msgid "File Size"
 msgstr "文件大小"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:53
-#: public/partials/parts/recordings.php:29
+#: public/partials/parts/recordings.php:27
 msgid "File size (MB)"
 msgstr "文件大小 （MB）"
 
@@ -464,7 +470,7 @@ msgstr "是管理员"
 msgid "Jibon L. Costa <jibon@mynaparrot.com>"
 msgstr "吉邦·科斯塔 <jibon@mynaparrot.com>"
 
-#: public/partials/parts/login-form.php:49
+#: public/partials/parts/login-form.php:47
 msgid "Join"
 msgstr "加入"
 
@@ -483,6 +489,11 @@ msgstr "加入地点"
 #: helpers/analyticsHelper.php:370
 msgid "Left At"
 msgstr "留在"
+
+#: public/class-plugnmeet-public.php:315
+#: public/partials/parts/recordings.php:33
+msgid "Loading..."
+msgstr ""
 
 #: admin/class-plugnmeet-settings-page.php:221
 msgid "Local client download url"
@@ -545,7 +556,7 @@ msgid "Maximum participants (0 = unlimited)"
 msgstr "最大参与者数（0 = 无限制）"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:50
-#: public/partials/parts/recordings.php:28
+#: public/partials/parts/recordings.php:26
 msgid "Meeting date"
 msgstr "会议日期"
 
@@ -590,7 +601,7 @@ msgstr "版主密码"
 msgid "Mute on start"
 msgstr "启动时静音"
 
-#: helpers/analyticsHelper.php:363 public/partials/parts/login-form.php:26
+#: helpers/analyticsHelper.php:363 public/partials/parts/login-form.php:24
 msgid "Name"
 msgstr "名字"
 
@@ -598,10 +609,12 @@ msgstr "名字"
 msgid "name is required"
 msgstr "name 为必填项"
 
-#: public/partials/parts/recordings.php:37
+#: public/partials/parts/recordings.php:40
 msgid "Next"
 msgstr "下一个"
 
+#: helpers/analyticsHelper.php:92 helpers/analyticsHelper.php:108
+#: helpers/analyticsHelper.php:274 helpers/analyticsHelper.php:312
 #: helpers/helper.php:152 helpers/helper.php:167 helpers/helper.php:182
 #: helpers/helper.php:197 helpers/helper.php:212 helpers/helper.php:227
 #: helpers/helper.php:247 helpers/helper.php:262 helpers/helper.php:277
@@ -619,8 +632,6 @@ msgstr "下一个"
 #: helpers/helper.php:987 helpers/helper.php:1002 helpers/helper.php:1017
 #: helpers/helper.php:1032 helpers/helper.php:1047 helpers/helper.php:1062
 #: helpers/helper.php:1077 helpers/helper.php:1092 helpers/helper.php:1107
-#: helpers/analyticsHelper.php:92 helpers/analyticsHelper.php:108
-#: helpers/analyticsHelper.php:274 helpers/analyticsHelper.php:312
 msgid "No"
 msgstr "不"
 
@@ -628,8 +639,12 @@ msgstr "不"
 msgid "No id was sent"
 msgstr "未发送 ID"
 
-#: helpers/ajaxHelper.php:417 helpers/ajaxHelper.php:524
-#: public/class-plugnmeet-public.php:268
+#: public/class-plugnmeet-public.php:310
+msgid "No recordings found"
+msgstr ""
+
+#: public/class-plugnmeet-public.php:273 helpers/ajaxHelper.php:417
+#: helpers/ajaxHelper.php:524
 msgid "no room found"
 msgstr "未找到房间"
 
@@ -653,7 +668,7 @@ msgstr "其他功能"
 msgid "Page"
 msgstr ""
 
-#: public/partials/parts/login-form.php:35
+#: public/partials/parts/login-form.php:33
 msgid "Password"
 msgstr "密码"
 
@@ -665,7 +680,7 @@ msgstr "密码不匹配"
 msgid "Permission"
 msgstr "许可"
 
-#: public/partials/parts/recordings.php:216
+#: public/class-plugnmeet-public.php:312
 msgid "Play"
 msgstr "玩"
 
@@ -701,7 +716,7 @@ msgstr "民调"
 msgid "Poor"
 msgstr "可怜"
 
-#: public/partials/parts/recordings.php:36
+#: public/partials/parts/recordings.php:39
 msgid "Pre"
 msgstr "前"
 
@@ -735,7 +750,7 @@ msgid "Record Id"
 msgstr "记录 ID"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:47
-#: public/partials/parts/recordings.php:27
+#: public/partials/parts/recordings.php:25
 msgid "Recording date"
 msgstr "录制日期"
 
@@ -756,6 +771,10 @@ msgstr "录音"
 #: helpers/ajaxHelper.php:362
 msgid "Recordings merge job was created successfully"
 msgstr "录音合并作业已成功创建"
+
+#: public/class-plugnmeet-public.php:92
+msgid "Redirecting..."
+msgstr ""
 
 #: admin/partials/form-parts/permission.php:84
 msgid "Require <br/> Password"
@@ -810,11 +829,11 @@ msgstr "房间编号"
 msgid "Room Id"
 msgstr "房间 ID"
 
-#: helpers/ajaxHelper.php:400 public/class-plugnmeet-public.php:125
+#: public/class-plugnmeet-public.php:130 helpers/ajaxHelper.php:400
 msgid "room Id is missing"
 msgstr "房间 ID 缺失"
 
-#: public/class-plugnmeet-public.php:251
+#: public/class-plugnmeet-public.php:256
 msgid "Room ID not provided for the shortcode."
 msgstr "短码未提供房间编号。"
 
@@ -843,7 +862,7 @@ msgstr "房间标题"
 msgid "Room title"
 msgstr "房间标题"
 
-#: public/partials/parts/login-form.php:38
+#: public/partials/parts/login-form.php:35
 msgid "Room's Password"
 msgstr "Room 的密码"
 
@@ -878,8 +897,8 @@ msgstr "参见Excel报告"
 msgid "Select All"
 msgstr "全选"
 
-#: admin/partials/plugnmeet-admin-display-recordings.php:23
 #: admin/partials/plugnmeet-admin-display-artifacts.php:23
+#: admin/partials/plugnmeet-admin-display-recordings.php:23
 msgid "Select room"
 msgstr "选择房间"
 
@@ -1057,6 +1076,8 @@ msgstr "白板文件"
 msgid "Whiteboard Files Count"
 msgstr "白板文件数量"
 
+#: helpers/analyticsHelper.php:92 helpers/analyticsHelper.php:108
+#: helpers/analyticsHelper.php:274 helpers/analyticsHelper.php:312
 #: helpers/helper.php:148 helpers/helper.php:163 helpers/helper.php:178
 #: helpers/helper.php:193 helpers/helper.php:208 helpers/helper.php:223
 #: helpers/helper.php:243 helpers/helper.php:258 helpers/helper.php:273
@@ -1074,8 +1095,6 @@ msgstr "白板文件数量"
 #: helpers/helper.php:983 helpers/helper.php:998 helpers/helper.php:1013
 #: helpers/helper.php:1028 helpers/helper.php:1043 helpers/helper.php:1058
 #: helpers/helper.php:1073 helpers/helper.php:1088 helpers/helper.php:1103
-#: helpers/analyticsHelper.php:92 helpers/analyticsHelper.php:108
-#: helpers/analyticsHelper.php:274 helpers/analyticsHelper.php:312
 msgid "Yes"
 msgstr "是的"
 
@@ -1092,7 +1111,7 @@ msgstr "您无权访问此页面"
 msgid "You don't have permission to perform this action"
 msgstr "你没有权限执行这个动作"
 
-#: public/partials/parts/login-form.php:29
+#: public/partials/parts/login-form.php:27
 msgid "Your full name"
 msgstr "您的全名"
 
