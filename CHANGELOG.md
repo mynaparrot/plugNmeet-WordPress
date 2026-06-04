@@ -1,5 +1,38 @@
 # Changelog
 
+## [2.2.0](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.1.1...v2.2.0) (2026-06-04)
+
+
+### Features
+
+* menu to display room artifacts ([6c41de2](https://github.com/mynaparrot/plugNmeet-WordPress/commit/6c41de28f293a620402ec32f7cdc8110e62711d1))
+* menu to display room artifacts ([268cad0](https://github.com/mynaparrot/plugNmeet-WordPress/commit/268cad02968128ea6bddf555cd061e96ade08178))
+* webhook receiver ([25993db](https://github.com/mynaparrot/plugNmeet-WordPress/commit/25993db87d4e4f5bd87899bcb1550e5ce8cad421))
+
+
+### Bug Fixes
+
+* add redirect method + fix webhook token ([56367a2](https://github.com/mynaparrot/plugNmeet-WordPress/commit/56367a20fd905f121c3467b55a010084c06d1aeb))
+* added cache support ([8f9b717](https://github.com/mynaparrot/plugNmeet-WordPress/commit/8f9b7173be31b36df84ac5221f1f33dbcf65994a))
+* added missing version number ([41199fc](https://github.com/mynaparrot/plugNmeet-WordPress/commit/41199fc0fc1dc30e808530865880c428c81af759))
+* adjusted some design ([8344a77](https://github.com/mynaparrot/plugNmeet-WordPress/commit/8344a77c67d2bc68159ae39c1323f85975ce5ed9))
+* after save display latest data ([d352261](https://github.com/mynaparrot/plugNmeet-WordPress/commit/d3522619f89527bcf3ef2db44fb4986209b35628))
+* bump language strings ([93f83aa](https://github.com/mynaparrot/plugNmeet-WordPress/commit/93f83aa8b3d6b8149d4bdc5724a624c820fc83af))
+* bump PHP requirement to `8.3.0` ([f24d98e](https://github.com/mynaparrot/plugNmeet-WordPress/commit/f24d98e15a79f6f62e9fcaf7a8000852428933df))
+* cache API results and clean from webhook ([ce498b6](https://github.com/mynaparrot/plugNmeet-WordPress/commit/ce498b68c79a91d28760c640633aa6721387e853))
+* display number of items + page info ([42a8a82](https://github.com/mynaparrot/plugNmeet-WordPress/commit/42a8a82d497d07ca640580c50c78fd25b4f2902d))
+* display number of items + page info ([b3b19e6](https://github.com/mynaparrot/plugNmeet-WordPress/commit/b3b19e6406f7f183ac5529817eb8c5533a7b2499))
+* display proper notification ([8707c7c](https://github.com/mynaparrot/plugNmeet-WordPress/commit/8707c7c2791c870c17c7d25edd6fcdb84de708b9))
+* display room table ID as well ([7dd47fa](https://github.com/mynaparrot/plugNmeet-WordPress/commit/7dd47fa88e3988db72b5f3b18bb14fbe91a47eba))
+* **feat:** SDK update + added merge recording feature ([a6de3eb](https://github.com/mynaparrot/plugNmeet-WordPress/commit/a6de3ebd24c6d89c3cf8c6ae0b6f4e015a95c49e))
+* new Crowdin updates ([ccef098](https://github.com/mynaparrot/plugNmeet-WordPress/commit/ccef0986de880ac2d7cbe49ebde2d4f4ffc1bdaf))
+* **refactor:** refactored the way public view and removed out custom CSS to use standard classes ([0f2a67f](https://github.com/mynaparrot/plugNmeet-WordPress/commit/0f2a67fc5ea6242e81fb367579a8f71b250a3c1a))
+* remember last working tab ([6a19627](https://github.com/mynaparrot/plugNmeet-WordPress/commit/6a196279533f63e9f5dea4471736c59fc57e7f0b))
+* replaced by wp color picker ([14089b0](https://github.com/mynaparrot/plugNmeet-WordPress/commit/14089b0661df82345f2ed765ba1cee7da56642fd))
+* restore last page data when back ([033a47a](https://github.com/mynaparrot/plugNmeet-WordPress/commit/033a47a673e77250e2196d20afa50124b55e792c))
+* use `wp_kses` like other methods ([aa76a36](https://github.com/mynaparrot/plugNmeet-WordPress/commit/aa76a36d4642c06094a6c75ef7b47d473a08d49a))
+* use wp constants ([c5c8d4f](https://github.com/mynaparrot/plugNmeet-WordPress/commit/c5c8d4fe2fe1ebcc0c0fb168e44d8dfd4a7827d2))
+
 ## [2.1.1](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.1.0...v2.1.1) (2026-02-02)
 
 
