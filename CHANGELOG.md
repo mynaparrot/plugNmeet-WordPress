@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.2.1](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.2.0...v2.2.1) (2026-06-04)
+
+
+### Bug Fixes
+
+* ensure multiple rooms data can display in same page + clean up ([b3b34d0](https://github.com/mynaparrot/plugNmeet-WordPress/commit/b3b34d078993e170c657b30a7828bdd80823683c))
+* pass `searchParams` to class ([245026d](https://github.com/mynaparrot/plugNmeet-WordPress/commit/245026d13da20138ece3e78ac839493e24e28adb))
+* popup player was using invalid size ([7608b85](https://github.com/mynaparrot/plugNmeet-WordPress/commit/7608b85d14a7458aa9288f10ac7c8795446e9960))
+
 ## [2.2.0](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.1.1...v2.2.0) (2026-06-04)
 
 
