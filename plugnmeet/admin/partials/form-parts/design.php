@@ -28,21 +28,21 @@ $custom_design = $fields_values['custom_design'];
     </tr>
     <tr>
         <th scope="row"><?php echo __( "Primary Color", "plugnmeet" ) ?></th>
-        <td><input name="custom_design[primary_color]" class="colorPickerItem"
+        <td><input name="custom_design[primary_color]" class="pnm-color-picker"
                    type="text" size="20"
                    value="<?php echo isset( $custom_design['primary_color'] ) ? esc_attr( $custom_design['primary_color'] ) : ''; ?>">
         </td>
     </tr>
     <tr>
         <th scope="row"><?php echo __( "Secondary Color", "plugnmeet" ) ?></th>
-        <td><input name="custom_design[secondary_color]" class="colorPickerItem"
+        <td><input name="custom_design[secondary_color]" class="pnm-color-picker"
                    type="text" size="20"
                    value="<?php echo isset( $custom_design['secondary_color'] ) ? esc_attr( $custom_design['secondary_color'] ) : ''; ?>">
         </td>
     </tr>
     <tr>
         <th scope="row"><?php echo __( "Background Color", "plugnmeet" ) ?></th>
-        <td><input name="custom_design[background_color]" class="colorPickerItem"
+        <td><input name="custom_design[background_color]" class="pnm-color-picker"
                    type="text" size="20"
                    value="<?php echo isset( $custom_design['background_color'] ) ? esc_attr( $custom_design['background_color'] ) : ''; ?>">
         </td>
@@ -71,21 +71,21 @@ $custom_design = $fields_values['custom_design'];
     </tr>
     <tr>
         <th scope="row"><?php echo __( "Header Color", "plugnmeet" ) ?></th>
-        <td><input name="custom_design[header_color]" class="colorPickerItem"
+        <td><input name="custom_design[header_color]" class="pnm-color-picker"
                    type="text" size="20"
                    value="<?php echo isset( $custom_design['header_color'] ) ? esc_attr( $custom_design['header_color'] ) : ''; ?>">
         </td>
     </tr>
     <tr>
         <th scope="row"><?php echo __( "Footer Color", "plugnmeet" ) ?></th>
-        <td><input name="custom_design[footer_color]" class="colorPickerItem"
+        <td><input name="custom_design[footer_color]" class="pnm-color-picker"
                    type="text" size="20"
                    value="<?php echo isset( $custom_design['footer_color'] ) ? esc_attr( $custom_design['footer_color'] ) : ''; ?>">
         </td>
     </tr>
     <tr>
         <th scope="row"><?php echo __( "Side Panel Color", "plugnmeet" ) ?></th>
-        <td><input name="custom_design[side_panel_bg_color]" class="colorPickerItem"
+        <td><input name="custom_design[side_panel_bg_color]" class="pnm-color-picker"
                    type="text" size="20"
                    value="<?php echo isset( $custom_design['side_panel_bg_color'] ) ? esc_attr( $custom_design['side_panel_bg_color'] ) : ''; ?>">
         </td>

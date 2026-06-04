@@ -374,7 +374,7 @@ class Plugnmeet_SettingsPage {
 			[ $this, 'textCallBack' ],
 			'plugnmeet-settings',
 			'plugnmeet_design_customization_section',
-			[ 'id' => 'primary_color', 'className' => 'colorPickerItem' ]
+			[ 'id' => 'primary_color', 'className' => 'pnm-color-picker' ]
 		);
 
 		add_settings_field(
@@ -383,7 +383,7 @@ class Plugnmeet_SettingsPage {
 			[ $this, 'textCallBack' ],
 			'plugnmeet-settings',
 			'plugnmeet_design_customization_section',
-			[ 'id' => 'secondary_color', 'className' => 'colorPickerItem' ]
+			[ 'id' => 'secondary_color', 'className' => 'pnm-color-picker' ]
 		);
 
 		add_settings_field(
@@ -392,7 +392,7 @@ class Plugnmeet_SettingsPage {
 			[ $this, 'textCallBack' ],
 			'plugnmeet-settings',
 			'plugnmeet_design_customization_section',
-			[ 'id' => 'background_color', 'className' => 'colorPickerItem' ]
+			[ 'id' => 'background_color', 'className' => 'pnm-color-picker' ]
 		);
 
 		add_settings_field(
@@ -410,7 +410,7 @@ class Plugnmeet_SettingsPage {
 			[ $this, 'textCallBack' ],
 			'plugnmeet-settings',
 			'plugnmeet_design_customization_section',
-			[ 'id' => 'header_color', 'className' => 'colorPickerItem' ]
+			[ 'id' => 'header_color', 'className' => 'pnm-color-picker' ]
 		);
 
 		add_settings_field(
@@ -419,7 +419,7 @@ class Plugnmeet_SettingsPage {
 			[ $this, 'textCallBack' ],
 			'plugnmeet-settings',
 			'plugnmeet_design_customization_section',
-			[ 'id' => 'footer_color', 'className' => 'colorPickerItem' ]
+			[ 'id' => 'footer_color', 'className' => 'pnm-color-picker' ]
 		);
 
 		add_settings_field(
@@ -428,7 +428,7 @@ class Plugnmeet_SettingsPage {
 			[ $this, 'textCallBack' ],
 			'plugnmeet-settings',
 			'plugnmeet_design_customization_section',
-			[ 'id' => 'side_panel_bg_color', 'className' => 'colorPickerItem' ]
+			[ 'id' => 'side_panel_bg_color', 'className' => 'pnm-color-picker' ]
 		);
 	}
 }

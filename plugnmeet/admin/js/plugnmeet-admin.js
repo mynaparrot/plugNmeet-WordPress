@@ -124,7 +124,7 @@
     })
 
     $(document).ready(function () {
-        $('.colorPickerItem').colorpicker();
+        $('.pnm-color-picker').wpColorPicker();
         if ($("#client_load").val() === "remote") {
             $("#client_download_url").parent().parent().hide();
         }

@@ -73,7 +73,7 @@ class Plugnmeet_Admin {
     public function enqueue_styles( $hook_suffix ) {
         if ( preg_match( "/plugnmeet/", $hook_suffix ) ) {
             wp_enqueue_style( 'bootstrap-min', plugin_dir_url( __FILE__ ) . 'css/bootstrap.min.css' );
-            wp_enqueue_style( 'bootstrap-colorpicker', plugin_dir_url( __FILE__ ) . 'css/bootstrap-colorpicker.min.css' );
+            wp_enqueue_style( 'wp-color-picker' );
             wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/plugnmeet-admin.css', array(), $this->version );
 
             if ( $hook_suffix === 'plug-n-meet_page_plugnmeet-recordings' ) {
@@ -97,7 +97,7 @@ class Plugnmeet_Admin {
         wp_enqueue_media();
         if ( preg_match( "/plugnmeet/", $hook_suffix ) ) {
             wp_enqueue_script( "bootstrap-bundle", plugin_dir_url( __FILE__ ) . 'js/bootstrap.bundle.js' );
-            wp_enqueue_script( "bootstrap-colorpicker", plugin_dir_url( __FILE__ ) . 'js/bootstrap-colorpicker.min.js' );
+            wp_enqueue_script( 'wp-color-picker' );
             wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugnmeet-admin.js', array( 'jquery' ), $this->version );
 
             if ( $hook_suffix === 'plug-n-meet_page_plugnmeet-recordings' ) {
