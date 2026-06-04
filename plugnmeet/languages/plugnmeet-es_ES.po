@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-04 10:03+0000\n"
-"PO-Revision-Date: 2026-06-04 10:04\n"
+"PO-Revision-Date: 2026-06-04 10:07\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -24,7 +24,7 @@ msgstr " no puede estar vacío."
 
 #: public/partials/parts/recordings.php:28
 msgid "Action"
-msgstr ""
+msgstr "Acción"
 
 #: helpers/helper.php:564
 msgid "Activate waiting room"
@@ -260,7 +260,7 @@ msgstr "Archivos de chat compartidos"
 
 #: public/class-plugnmeet-public.php:91
 msgid "Checking..."
-msgstr ""
+msgstr "Comprobando..."
 
 #: admin/class-plugnmeet-settings-page.php:212
 msgid "Client load"
@@ -339,7 +339,7 @@ msgstr "E2EE habilitado"
 
 #: admin/class-plugnmeet-rooms-list-table.php:97
 msgid "Edit"
-msgstr ""
+msgstr "Edición"
 
 #: helpers/helper.php:918
 msgid "Enable AI features"
@@ -448,7 +448,7 @@ msgstr "https://www.mynaparrot.com/"
 
 #: admin/class-plugnmeet-rooms-list-table.php:83
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: helpers/analyticsHelper.php:356
 msgid "Ingress Created Count"
@@ -493,7 +493,7 @@ msgstr "Izquierda en"
 #: public/class-plugnmeet-public.php:315
 #: public/partials/parts/recordings.php:33
 msgid "Loading..."
-msgstr ""
+msgstr "Cargando..."
 
 #: admin/class-plugnmeet-settings-page.php:221
 msgid "Local client download url"
@@ -641,7 +641,7 @@ msgstr "No se envió ningún id"
 
 #: public/class-plugnmeet-public.php:310
 msgid "No recordings found"
-msgstr ""
+msgstr "No se han encontrado grabaciones"
 
 #: public/class-plugnmeet-public.php:273 helpers/ajaxHelper.php:417
 #: helpers/ajaxHelper.php:524
@@ -650,7 +650,7 @@ msgstr "no se encontró sala"
 
 #: admin/class-plugnmeet-rooms-list-table.php:64
 msgid "No rooms found."
-msgstr ""
+msgstr "No se han encontrado habitaciones."
 
 #: helpers/helper.php:611
 msgid "Number of rooms"
@@ -666,7 +666,7 @@ msgstr "Otras características"
 
 #: admin/class-plugnmeet-admin.php:117 admin/class-plugnmeet-admin.php:135
 msgid "Page"
-msgstr ""
+msgstr "Página"
 
 #: public/partials/parts/login-form.php:33
 msgid "Password"
@@ -774,7 +774,7 @@ msgstr "El trabajo de fusión de grabaciones se creó correctamente."
 
 #: public/class-plugnmeet-public.php:92
 msgid "Redirecting..."
-msgstr ""
+msgstr "Redirigiendo..."
 
 #: admin/partials/form-parts/permission.php:84
 msgid "Require <br/> Password"
@@ -786,7 +786,7 @@ msgstr "Rol"
 
 #: admin/class-plugnmeet-rooms-list-table.php:23
 msgid "Room"
-msgstr ""
+msgstr "Habitación"
 
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:54
 msgid "Room Analytics"
@@ -798,7 +798,7 @@ msgstr "Tiempo de creación de la sala"
 
 #: admin/class-plugnmeet-admin.php:484
 msgid "Room deleted successfully"
-msgstr ""
+msgstr "Habitación eliminada con éxito"
 
 #: admin/partials/form-parts/basic.php:39
 msgid "Room description"
@@ -982,7 +982,7 @@ msgstr "Uso del token"
 
 #: admin/class-plugnmeet-admin.php:134
 msgid "Total artifacts"
-msgstr ""
+msgstr "Artefactos totales"
 
 #: helpers/analyticsHelper.php:348
 msgid "Total Participants"
@@ -990,7 +990,7 @@ msgstr "Total de participantes"
 
 #: admin/class-plugnmeet-admin.php:116
 msgid "Total recordings"
-msgstr ""
+msgstr "Total de grabaciones"
 
 #: admin/class-plugnmeet-room-page.php:114
 #: admin/partials/plugnmeet-admin-display-artifacts.php:40
