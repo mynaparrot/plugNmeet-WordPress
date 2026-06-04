@@ -82,7 +82,7 @@ class Plugnmeet_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugnmeet-public.js', array(), $this->version, true );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugnmeet-public.js', array(), $this->version );
 		add_thickbox();
 
 		$script = array(
@@ -295,7 +295,7 @@ class Plugnmeet_Public {
 		}
 
 		if ( isset( $role['can_view_recording'] ) && $role['can_view_recording'] === "on" ) {
-			wp_enqueue_script( $this->plugin_name . '-recordings', plugin_dir_url( __FILE__ ) . 'js/plugnmeet-public-recordings.js', array(), $this->version, true );
+			wp_enqueue_script( $this->plugin_name . '-recordings', plugin_dir_url( __FILE__ ) . 'js/plugnmeet-public-recordings.js', array(), $this->version );
 			wp_localize_script( $this->plugin_name . '-recordings', 'plugnmeet_recordings', array(
 				'room_id'      => $roomInfo->room_id,
 				'can_play'     => isset( $role['can_play'] ) && $role['can_play'] === "on",
