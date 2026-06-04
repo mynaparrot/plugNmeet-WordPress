@@ -41,7 +41,6 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
     </div>
 
     <div id="playbackModal" style="display:none">
-        <video id="modalPlayer" width="100%" height="400" controls controlsList="nodownload" src=""
-               oncontextmenu="return false"></video>
+        <video id="modalPlayer" controls controlsList="nodownload" src="" oncontextmenu="return false"></video>
     </div>
 </div>

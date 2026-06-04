@@ -111,12 +111,11 @@ class PlugNMeetPublicRecordings {
             modalPlayer.src = res.url;
             tb_show(title, `#TB_inline?height=450&amp;inlineId=playbackModal`);
             setTimeout(() => {
-                const player = this.rootContainer.querySelector('#modalPlayer');
-                if (player) {
-                    player.style.width = '100%';
-                    player.style.height = '400px';
+                if (modalPlayer) {
+                    modalPlayer.style.width = '100%';
+                    modalPlayer.style.height = '100%';
                 }
-            }, 100);
+            }, 500);
         } else if (res) {
             alert(res.msg);
         }
