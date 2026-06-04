@@ -1,50 +1,70 @@
-(function ($) {
-    'use strict';
-    $(document).on("submit", ".plugnmeet-login-form", (e) => {
-        e.preventDefault();
-        const formData = $(e.currentTarget).serialize();
-        const status = $(e.currentTarget).find(".roomStatus");
-
-        $.ajax({
-            url: plugnmeet_frontend.ajaxurl,
-            data: formData,
-            method: 'POST',
-            beforeSend: () => {
-                status.show();
-                status.removeClass("alert-success");
-                status.removeClass("alert-danger");
-
-                status.addClass("alert-primary");
-                status.html("Checking...");
-            },
-            success: function (data) {
-                status.removeClass("alert-primary");
-                if (data.status) {
-                    status.addClass("alert-success");
-                    status.html("Redirecting...");
-
-                    const windowOpen = window.open(data.url, "_blank");
-                    if (!windowOpen) {
-                        setTimeout(() => {
-                            // check, if still not opened
-                            if (!windowOpen) {
-                                window.location.href = url
-                            }
-                        }, 5000);
-                    }
-
-                    $("#room-password").val("")
-                    status.hide();
-                } else {
-                    status.addClass("alert-danger");
-                    status.html(data.msg);
-                }
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                status.removeClass("alert-primary");
-                status.addClass("alert-danger");
-                status.html(textStatus);
+class PlugNMeetPublicLogin {
+    constructor() {
+        document.addEventListener('submit', (e) => {
+            if (e.target.matches('.plugnmeet-login-form')) {
+                this.handleLogin(e);
             }
         });
-    });
-})(jQuery);
+    }
+
+    displayStatusMessage(statusEl, message, type) {
+        statusEl.style.display = 'block';
+        statusEl.classList.remove('notice-info', 'notice-success', 'notice-danger');
+        statusEl.classList.add(`notice-${type}`);
+        statusEl.innerHTML = `<p>${message}</p>`;
+    }
+
+    async handleLogin(e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const status = form.querySelector(".roomStatus");
+        const formData = new FormData(form);
+
+        this.displayStatusMessage(status, plugnmeet_frontend.i18n.checking, 'info');
+
+        try {
+            const res = await fetch(plugnmeet_frontend.ajaxurl, {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!res.ok) {
+                this.displayStatusMessage(status, res.statusText, 'danger');
+                return;
+            }
+
+            const data = await res.json();
+
+            if (data.status) {
+                this.displayStatusMessage(status, plugnmeet_frontend.i18n.redirecting, 'success');
+
+                const windowOpen = window.open(data.url, "_blank");
+                if (!windowOpen) {
+                    setTimeout(() => {
+                        if (!windowOpen) {
+                            window.location.href = data.url;
+                        }
+                    }, 5000);
+                }
+
+                const passwordField = form.querySelector("#room-password");
+                if (passwordField) {
+                    passwordField.value = "";
+                }
+                setTimeout(() => {
+                    status.style.display = 'none';
+                }, 2000);
+
+            } else {
+                this.displayStatusMessage(status, data.msg, 'danger');
+            }
+        } catch (error) {
+            this.displayStatusMessage(status, error.message, 'danger');
+        }
+    }
+}
+
+window.addEventListener('load', () => {
+    new PlugNMeetPublicLogin();
+});

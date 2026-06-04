@@ -82,11 +82,16 @@ class Plugnmeet_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugnmeet-public.js', array( 'jquery' ), $this->version, true );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugnmeet-public.js', array(), $this->version, true );
 		add_thickbox();
 
-		$nonce  = wp_create_nonce( 'plugnmeet_frontend' );
-		$script = array( 'nonce' => $nonce, 'ajaxurl' => admin_url( 'admin-ajax.php' ) );
+		$script = array(
+			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+			'i18n'    => array(
+				'checking'    => __( 'Checking...', 'plugnmeet' ),
+				'redirecting' => __( 'Redirecting...', 'plugnmeet' ),
+			)
+		);
 		wp_localize_script( $this->plugin_name, 'plugnmeet_frontend', $script );
 	}
 
@@ -268,10 +273,53 @@ class Plugnmeet_Public {
 			return __( 'no room found', 'plugnmeet' );
 		}
 
+		$user = wp_get_current_user();
+		$role = array(
+			'require_password' => "on",
+			'join_as'          => 'attendee',
+			'can_download'     => "off",
+			'can_delete'       => "off"
+		);
+
+		if ( ! empty( $roomInfo->roles ) ) {
+			$roles    = json_decode( $roomInfo->roles, true );
+			$userRole = 'guest';
+
+			if ( $user->ID ) {
+				$userRole = $user->roles[0]; // at present let's consider the first one only
+			}
+
+			if ( isset( $roles[ $userRole ] ) ) {
+				$role = $roles[ $userRole ];
+			}
+		}
+
+		if ( isset( $role['can_view_recording'] ) && $role['can_view_recording'] === "on" ) {
+			wp_enqueue_script( $this->plugin_name . '-recordings', plugin_dir_url( __FILE__ ) . 'js/plugnmeet-public-recordings.js', array(), $this->version, true );
+			wp_localize_script( $this->plugin_name . '-recordings', 'plugnmeet_recordings', array(
+				'room_id'      => $roomInfo->room_id,
+				'can_play'     => isset( $role['can_play'] ) && $role['can_play'] === "on",
+				'can_download' => isset( $role['can_download'] ) && $role['can_download'] === "on",
+				'can_delete'   => isset( $role['can_delete'] ) && $role['can_delete'] === "on",
+				'nonce'        => array(
+					'get_recordings'     => wp_create_nonce( 'plugnmeet_get_recordings' ),
+					'download_recording' => wp_create_nonce( 'plugnmeet_download_recording' ),
+					'delete_recording'   => wp_create_nonce( 'plugnmeet_delete_recording' ),
+				),
+				'i18n'         => array(
+					'no_recordings'  => __( 'No recordings found', 'plugnmeet' ),
+					'confirm_delete' => __( 'Are you sure to delete?', 'plugnmeet' ),
+					'play'           => __( 'Play', 'plugnmeet' ),
+					'download'       => __( 'Download', 'plugnmeet' ),
+					'delete'         => __( 'Delete', 'plugnmeet' ),
+					'loading'        => __( 'Loading...', 'plugnmeet' ),
+				),
+			) );
+		}
+
 		ob_start();
 		require plugin_dir_path( dirname( __FILE__ ) ) . 'public/partials/plugnmeet-public-display.php';
-		$return_html = ob_get_clean();
 
-		return $return_html;
+		return ob_get_clean();
 	}
 }
