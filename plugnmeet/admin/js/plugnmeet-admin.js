@@ -128,6 +128,24 @@
         if ($("#client_load").val() === "remote") {
             $("#client_download_url").parent().parent().hide();
         }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const roomId = urlParams.get('id');
+        const storageKey = 'pnm_room_last_tab_' + roomId;
+
+        $('button[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+            if (roomId) {
+                sessionStorage.setItem(storageKey, $(e.target).data('bs-target'));
+            }
+        });
+
+        if (roomId) {
+            const lastTab = sessionStorage.getItem(storageKey);
+            if (lastTab) {
+                const tab = new bootstrap.Tab($('button[data-bs-target="' + lastTab + '"]'));
+                tab.show();
+            }
+        }
     })
 
     $(document).on("change", "#client_load", (e) => {
