@@ -12,12 +12,12 @@
  */
 
 if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
-	die;
+    die;
 }
 $currentUrl = home_url( add_query_arg( null, null ) );
 ?>
 
-<form class="plugnmeet-login-form">
+<form class="plugnmeet-login-form" data-room-id="<?php echo esc_attr( $roomInfo->room_id ); ?>">
     <div class="notice notice-info roomStatus" role="alert" style="display: none"></div>
 
     <p class="form-row">

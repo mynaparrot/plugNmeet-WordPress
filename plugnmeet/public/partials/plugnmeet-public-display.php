@@ -16,7 +16,7 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
 }
 ?>
 
-<div class="pnm-container">
+<div class="pnm-container" id="pnm-room-view-<?php echo esc_attr( $roomInfo->room_id ); ?>">
     <div class="column column-full">
         <?php if ( ! empty( $roomInfo->description ) ): ?>
             <div class="description"><?php echo wp_kses_post( $roomInfo->description ) ?></div>

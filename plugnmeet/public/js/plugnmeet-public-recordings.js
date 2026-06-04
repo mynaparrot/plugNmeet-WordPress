@@ -1,9 +1,10 @@
 class PlugNMeetPublicRecordings {
-    constructor() {
+    constructor(rootContainer) {
+        this.rootContainer = rootContainer;
         this.CAN_PLAY = plugnmeet_recordings.can_play;
         this.CAN_DOWNLOAD = plugnmeet_recordings.can_download;
         this.CAN_DELETE = plugnmeet_recordings.can_delete;
-        this.roomId = plugnmeet_recordings.room_id;
+        this.roomId = rootContainer.dataset.roomId;
         this.isShowingPagination = false;
         this.totalRecordings = 0;
         this.currentPage = 1;
@@ -16,7 +17,7 @@ class PlugNMeetPublicRecordings {
     }
 
     addEventListeners() {
-        document.addEventListener('click', (e) => {
+        this.rootContainer.addEventListener('click', (e) => {
             if (e.target.id === 'backward') {
                 e.preventDefault();
                 if (!this.showPre) return;
@@ -37,7 +38,10 @@ class PlugNMeetPublicRecordings {
         });
 
         jQuery('body').on('thickbox:removed', () => {
-            document.getElementById("modalPlayer").src = "";
+            const modalPlayer = this.rootContainer.querySelector("#modalPlayer");
+            if (modalPlayer) {
+                modalPlayer.src = "";
+            }
         });
     }
 
@@ -103,11 +107,11 @@ class PlugNMeetPublicRecordings {
 
         const res = await this.sendRequest(formData);
         if (res && res.status) {
-            const modalPlayer = document.getElementById("modalPlayer");
+            const modalPlayer = this.rootContainer.querySelector("#modalPlayer");
             modalPlayer.src = res.url;
-            tb_show(title, '#TB_inline?height=450&amp;inlineId=playbackModal');
+            tb_show(title, `#TB_inline?height=450&amp;inlineId=playbackModal`);
             setTimeout(() => {
-                const player = document.getElementById('modalPlayer');
+                const player = this.rootContainer.querySelector('#modalPlayer');
                 if (player) {
                     player.style.width = '100%';
                     player.style.height = '400px';
@@ -132,7 +136,7 @@ class PlugNMeetPublicRecordings {
         const res = await this.sendRequest(formData);
         if (res && res.status) {
             alert(res.msg);
-            document.getElementById(recordId).remove();
+            this.rootContainer.querySelector(`#${recordId}`).remove();
         } else if (res) {
             alert(res.msg);
         }
@@ -159,31 +163,40 @@ class PlugNMeetPublicRecordings {
             }
             html += '</td></tr>';
         });
-        document.getElementById('recordingListsBody').innerHTML = html;
+        this.rootContainer.querySelector('#recordingListsBody').innerHTML = html;
     }
 
     showPagination() {
         this.currentPage = 1;
-        document.querySelector('.pagination-links').style.display = '';
+        const paginationLinks = this.rootContainer.querySelector('.pagination-links');
+        if (paginationLinks) {
+            paginationLinks.style.display = '';
+        }
         this.paginate(this.currentPage);
     }
 
     paginate(page) {
         this.currentPage = page;
-        document.getElementById('recordingListsBody').innerHTML = `<tr><td colspan="4">${plugnmeet_recordings.i18n.loading}</td></tr>`;
+        this.rootContainer.querySelector('#recordingListsBody').innerHTML = `<tr><td colspan="4">${plugnmeet_recordings.i18n.loading}</td></tr>`;
         const from = (this.currentPage - 1) * this.limitPerPage;
 
         this.showPre = this.currentPage > 1;
-        document.getElementById('backward').disabled = !this.showPre;
+        const backwardButton = this.rootContainer.querySelector('#backward');
+        if (backwardButton) {
+            backwardButton.disabled = !this.showPre;
+        }
 
         this.showNext = this.currentPage < this.totalRecordings / this.limitPerPage;
-        document.getElementById('forward').disabled = !this.showNext;
+        const forwardButton = this.rootContainer.querySelector('#forward');
+        if (forwardButton) {
+            forwardButton.disabled = !this.showNext;
+        }
 
         this.fetchRecordings(from, this.limitPerPage);
     }
 
     showMessage(msg) {
-        document.getElementById('recordingListsBody').innerHTML = `<tr><td colspan="4">${msg}</td></tr>`;
+        this.rootContainer.querySelector('#recordingListsBody').innerHTML = `<tr><td colspan="4">${msg}</td></tr>`;
     }
 
     async sendRequest(formData) {
@@ -207,5 +220,10 @@ class PlugNMeetPublicRecordings {
 }
 
 window.addEventListener('load', () => {
-    new PlugNMeetPublicRecordings();
+    const pnmRecordingWrappers = document.querySelectorAll('.pnm-recordings-wrapper');
+    pnmRecordingWrappers.forEach(wrapper => {
+        if (wrapper.dataset.roomId) {
+            new PlugNMeetPublicRecordings(wrapper);
+        }
+    });
 });

@@ -1,16 +1,12 @@
 class PlugNMeetPublicLogin {
-    constructor() {
-        document.addEventListener('submit', (e) => {
-            if (e.target.matches('.plugnmeet-login-form')) {
-                this.handleLogin(e);
-            }
+    constructor(formElement) {
+        this.formElement = formElement;
+        this.roomId = formElement.dataset.roomId;
+
+        this.formElement.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent default form submission
+            this.handleLogin(e);
         });
-        // check if returned from conference
-        const searchParams = new URLSearchParams(document.location.search);
-        if (searchParams.has("pnm-returned", "true")) {
-            // this will only work if link opened with window.open()
-            window.close();
-        }
     }
 
     displayStatusMessage(statusEl, message, type) {
@@ -21,10 +17,8 @@ class PlugNMeetPublicLogin {
     }
 
     async handleLogin(e) {
-        e.preventDefault();
-
         const form = e.target;
-        const status = form.querySelector(".roomStatus");
+        const status = this.formElement.querySelector(".roomStatus");
         const formData = new FormData(form);
 
         this.displayStatusMessage(status, plugnmeet_frontend.i18n.checking, 'info');
@@ -54,7 +48,7 @@ class PlugNMeetPublicLogin {
                     }, 5000);
                 }
 
-                const passwordField = form.querySelector("#room-password");
+                const passwordField = this.formElement.querySelector("#room-password");
                 if (passwordField) {
                     passwordField.value = "";
                 }
@@ -72,5 +66,15 @@ class PlugNMeetPublicLogin {
 }
 
 window.addEventListener('load', () => {
-    new PlugNMeetPublicLogin();
+    const loginForms = document.querySelectorAll('.plugnmeet-login-form');
+    loginForms.forEach(form => {
+        new PlugNMeetPublicLogin(form);
+    });
+
+    // check if returned from conference
+    const searchParams = new URLSearchParams(document.location.search);
+    if (searchParams.has("pnm-returned", "true")) {
+        // this will only work if link opened with window.open()
+        window.close();
+    }
 });

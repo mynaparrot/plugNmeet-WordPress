@@ -16,7 +16,7 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
 }
 ?>
 
-<div class="pnm-recordings-wrapper">
+<div class="pnm-recordings-wrapper" data-room-id="<?php echo esc_attr( $roomInfo->room_id ); ?>">
     <h4><?php echo __( "Recordings", "plugnmeet" ); ?></h4>
 
     <table class="widefat">
