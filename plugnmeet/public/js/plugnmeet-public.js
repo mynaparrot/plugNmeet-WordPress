@@ -5,6 +5,12 @@ class PlugNMeetPublicLogin {
                 this.handleLogin(e);
             }
         });
+        // check if returned from conference
+        const searchParams = new URLSearchParams(document.location.search);
+        if (searchParams.has("pnm-returned", "true")) {
+            // this will only work if link opened with window.open()
+            window.close();
+        }
     }
 
     displayStatusMessage(statusEl, message, type) {

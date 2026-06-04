@@ -28,12 +28,4 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
             <?php require plugin_dir_path( dirname( __FILE__ ) ) . '/partials/parts/recordings.php'; ?>
         <?php endif; ?>
     </div>
-    <script>
-        // check if returned from conference
-        const searchParams = new URLSearchParams(document.location.search);
-        if (searchParams.has("pnm-returned", "true")) {
-            // this will only work if link opened with window.open()
-            window.close();
-        }
-    </script>
 </div>
