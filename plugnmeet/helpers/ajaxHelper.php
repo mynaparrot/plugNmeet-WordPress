@@ -26,6 +26,29 @@ class PlugNmeetAjaxHelper {
 		$this->setting_params = (object) get_option( "plugnmeet_settings" );
 	}
 
+	/**
+	 * Helper to safely retrieve and sanitize POST parameters.
+	 *
+	 * @param string $key The key of the POST parameter.
+	 * @param mixed $default The default value if the parameter is not set.
+	 * @param callable|null $sanitizer A callable function for custom sanitization.
+	 *
+	 * @return mixed The sanitized POST parameter or the default value.
+	 */
+	private function get_post_param( string $key, $default = '', ?callable $sanitizer = null ) {
+		if ( ! isset( $_POST[ $key ] ) ) {
+			return $default;
+		}
+		$value = wp_unslash( $_POST[ $key ] ); // Always unslash first
+
+		if ( $sanitizer ) {
+			return call_user_func( $sanitizer, $value );
+		}
+
+		// Default sanitization for simple text fields
+		return sanitize_text_field( $value );
+	}
+
 	public function get_recordings() {
 		$output         = new stdClass();
 		$output->status = false;
@@ -35,10 +58,10 @@ class PlugNmeetAjaxHelper {
 			wp_send_json( $output );
 		}
 
-		$roomId  = isset( $_POST['roomId'] ) ? sanitize_text_field( $_POST['roomId'] ) : "";
-		$from    = isset( $_POST['from'] ) ? sanitize_text_field( $_POST['from'] ) : 0;
-		$limit   = isset( $_POST['limit'] ) ? sanitize_text_field( $_POST['limit'] ) : 20;
-		$orderBy = isset( $_POST['order_by'] ) ? sanitize_text_field( $_POST['order_by'] ) : "DESC";
+		$roomId  = $this->get_post_param( 'roomId' );
+		$from    = (int) $this->get_post_param( 'from', 0 );
+		$limit   = (int) $this->get_post_param( 'limit', 20 );
+		$orderBy = $this->get_post_param( 'order_by', 'DESC' );
 
 		if ( empty( $roomId ) ) {
 			$output->msg = __( "room id required", 'plugnmeet' );
@@ -82,10 +105,10 @@ class PlugNmeetAjaxHelper {
 			wp_send_json( $output );
 		}
 
-		$roomId  = isset( $_POST['roomId'] ) ? sanitize_text_field( $_POST['roomId'] ) : "";
-		$from    = isset( $_POST['from'] ) ? sanitize_text_field( $_POST['from'] ) : 0;
-		$limit   = isset( $_POST['limit'] ) ? sanitize_text_field( $_POST['limit'] ) : 20;
-		$orderBy = isset( $_POST['order_by'] ) ? sanitize_text_field( $_POST['order_by'] ) : "DESC";
+		$roomId  = $this->get_post_param( 'roomId' );
+		$from    = (int) $this->get_post_param( 'from', 0 );
+		$limit   = (int) $this->get_post_param( 'limit', 20 );
+		$orderBy = $this->get_post_param( 'order_by', 'DESC' );
 
 		if ( empty( $roomId ) ) {
 			$output->msg = __( "room id required", 'plugnmeet' );
@@ -145,9 +168,9 @@ class PlugNmeetAjaxHelper {
 			wp_send_json( $output );
 		}
 
-		$artifact_id = isset( $_POST['artifact_id'] ) ? sanitize_text_field( $_POST['artifact_id'] ) : null;
+		$artifact_id = $this->get_post_param( 'artifact_id' );
 
-		if ( ! $artifact_id ) {
+		if ( empty( $artifact_id ) ) {
 			$output->msg = __( "artifact id required", 'plugnmeet' );
 			wp_send_json( $output );
 		}
@@ -183,9 +206,9 @@ class PlugNmeetAjaxHelper {
 			require plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/analyticsHelper.php';
 		}
 
-		$artifact_id = isset( $_POST['artifact_id'] ) ? sanitize_text_field( $_POST['artifact_id'] ) : null;
+		$artifact_id = $this->get_post_param( 'artifact_id' );
 
-		if ( ! $artifact_id ) {
+		if ( empty( $artifact_id ) ) {
 			$output->msg = __( "artifact id required", 'plugnmeet' );
 			wp_send_json( $output );
 		}
@@ -217,9 +240,9 @@ class PlugNmeetAjaxHelper {
 			wp_send_json( $output );
 		}
 
-		$artifact_id = isset( $_POST['artifact_id'] ) ? sanitize_text_field( $_POST['artifact_id'] ) : null;
+		$artifact_id = $this->get_post_param( 'artifact_id' );
 
-		if ( ! $artifact_id ) {
+		if ( empty( $artifact_id ) ) {
 			$output->msg = __( "artifact id required", 'plugnmeet' );
 			wp_send_json( $output );
 		}
@@ -257,11 +280,11 @@ class PlugNmeetAjaxHelper {
 			wp_send_json( $output );
 		}
 
-		$recordingId = isset( $_POST['recordingId'] ) ? sanitize_text_field( $_POST['recordingId'] ) : null;
-		$roomId      = isset( $_POST['roomId'] ) ? sanitize_text_field( $_POST['roomId'] ) : null;
-		$role        = isset( $_POST['role'] ) ? sanitize_text_field( $_POST['role'] ) : 'can_download';
+		$recordingId = $this->get_post_param( 'recordingId' );
+		$roomId      = $this->get_post_param( 'roomId' );
+		$role        = $this->get_post_param( 'role', 'can_download' );
 
-		if ( ! $recordingId || ! $roomId ) {
+		if ( empty( $recordingId ) || empty( $roomId ) ) {
 			$output->msg = __( "both roomId & record id required", 'plugnmeet' );
 			wp_send_json( $output );
 		}
@@ -294,10 +317,10 @@ class PlugNmeetAjaxHelper {
 			wp_send_json( $output );
 		}
 
-		$recordingId = isset( $_POST['recordingId'] ) ? sanitize_text_field( $_POST['recordingId'] ) : null;
-		$roomId      = isset( $_POST['roomId'] ) ? sanitize_text_field( $_POST['roomId'] ) : null;
+		$recordingId = $this->get_post_param( 'recordingId' );
+		$roomId      = $this->get_post_param( 'roomId' );
 
-		if ( ! $recordingId || ! $roomId ) {
+		if ( empty( $recordingId ) || empty( $roomId ) ) {
 			$output->msg = __( "both roomId & record id required", 'plugnmeet' );
 			wp_send_json( $output );
 		}
@@ -331,10 +354,10 @@ class PlugNmeetAjaxHelper {
 			wp_send_json( $output );
 		}
 
-		$recordings = isset( $_POST['recordings'] ) ? $_POST['recordings'] : [];
-		$roomId     = isset( $_POST['roomId'] ) ? sanitize_text_field( $_POST['roomId'] ) : null;
+		$recordings = $this->get_post_param( 'recordings', [] );
+		$roomId     = $this->get_post_param( 'roomId' );
 
-		if ( count( $recordings ) < 2 || ! $roomId ) {
+		if ( count( $recordings ) < 2 || empty( $roomId ) ) {
 			$output->msg = __( "Minimum two recordings & room id required", 'plugnmeet' );
 			wp_send_json( $output );
 		}
@@ -368,16 +391,17 @@ class PlugNmeetAjaxHelper {
 	public function login_to_room() {
 		$output         = new stdClass();
 		$output->status = false;
-		$output->msg    = __( "Token mismatched", 'plugnmeet' );
+		$output->msg    = __( 'Token mismatched', 'plugnmeet' );
 
 		if ( ! wp_verify_nonce( $_REQUEST['nonce'], 'plugnmeet_login_to_room' ) ) {
 			wp_send_json( $output );
 		}
 
-		$id          = isset( $_POST['id'] ) ? sanitize_text_field( $_POST['id'] ) : 0;
-		$name        = isset( $_POST['name'] ) ? sanitize_text_field( $_POST['name'] ) : "";
-		$password    = isset( $_POST['password'] ) ? sanitize_text_field( $_POST['password'] ) : "";
-		$current_url = isset( $_POST['current_url'] ) ? sanitize_url( urldecode( $_POST['current_url'] ) ) : "";
+		$id          = (int) $this->get_post_param( 'id', 0 );
+		$name        = $this->get_post_param( 'name' );
+		$password    = $this->get_post_param( 'password' );
+		$current_url = $this->get_post_param( 'current_url', '', 'urldecode' );
+		$current_url = sanitize_url( $current_url );
 
 		// create logout url
 		$logoutUrl = "";

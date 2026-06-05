@@ -303,6 +303,24 @@ class Plugnmeet_Admin {
         rmdir( $dirPath );
     }
 
+    private function sanitize_value( $value, ?callable $sanitizer = null ) {
+        $value = wp_unslash( $value );
+
+        if ( $sanitizer ) {
+            return call_user_func( $sanitizer, $value );
+        }
+
+        return sanitize_text_field( $value );
+    }
+
+    private function get_post_param( string $key, $default = '', ?callable $sanitizer = null ) {
+        if ( ! isset( $_POST[ $key ] ) ) {
+            return $default;
+        }
+
+        return $this->sanitize_value( $_POST[ $key ], $sanitizer );
+    }
+
     public function save_room_data() {
         global $wpdb;
         $output         = new stdClass();
@@ -321,25 +339,22 @@ class Plugnmeet_Admin {
             require plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/helper.php';
         }
 
-        // for preventing display error. Room id should be always unique
-        $room_id = "";
-
-        $id               = isset( $_POST['id'] ) ? sanitize_text_field( $_POST['id'] ) : 0;
-        $room_title       = isset( $_POST['room_title'] ) ? sanitize_text_field( $_POST['room_title'] ) : "";
-        $description      = isset( $_POST['description'] ) ? wp_kses( $_POST['description'], wp_kses_allowed_html( "post" ) ) : "";
-        $moderator_pass   = isset( $_POST['moderator_pass'] ) ? sanitize_text_field( $_POST['moderator_pass'] ) : "";
-        $attendee_pass    = isset( $_POST['attendee_pass'] ) ? sanitize_text_field( $_POST['attendee_pass'] ) : "";
-        $welcome_message  = isset( $_POST['welcome_message'] ) ? sanitize_textarea_field( $_POST['welcome_message'] ) : "";
-        $max_participants = isset( $_POST['max_participants'] ) ? sanitize_text_field( $_POST['max_participants'] ) : 0;
-        $published        = isset( $_POST['published'] ) ? sanitize_text_field( $_POST['published'] ) : 1;
+        $id               = (int) $this->get_post_param( 'id', 0 );
+        $room_title       = $this->get_post_param( 'room_title' );
+        $description      = $this->get_post_param( 'description', '', 'wp_kses_post' );
+        $moderator_pass   = $this->get_post_param( 'moderator_pass' );
+        $attendee_pass    = $this->get_post_param( 'attendee_pass' );
+        $welcome_message  = $this->get_post_param( 'welcome_message', '', 'sanitize_textarea_field' );
+        $max_participants = (int) $this->get_post_param( 'max_participants', 0 );
+        $published        = (int) $this->get_post_param( 'published', 1 );
         $raw_roles        = $_POST['roles'] ?? array();
-        $roles            = is_array( $_POST['roles'] ) ? $this->sanitize_array_fields( $raw_roles ) : array();
+        $roles            = is_array( $raw_roles ) ? $this->sanitize_array_fields( $raw_roles ) : array();
 
         $room_metadata = [];
         foreach ( PlugnmeetHelper::$roomMetadataItems as $item ) {
             if ( isset( $_POST[ $item ] ) ) {
                 $raw_meta               = $_POST[ $item ];
-                $room_metadata[ $item ] = is_array( $raw_meta ) ? $this->sanitize_array_fields( $raw_meta ) : sanitize_text_field( $raw_meta );
+                $room_metadata[ $item ] = is_array( $raw_meta ) ? $this->sanitize_array_fields( $raw_meta ) : $this->sanitize_value( $raw_meta );
             } else {
                 $room_metadata[ $item ] = [];
             }
@@ -361,6 +376,8 @@ class Plugnmeet_Admin {
             wp_send_json( $output );
         }
 
+        // for preventing display error. Room id should be always unique
+        $room_id = "";
         if ( ! $id ) {
             if ( ! class_exists( 'plugNmeetConnect' ) ) {
                 require plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/plugNmeetConnect.php';
@@ -456,7 +473,7 @@ class Plugnmeet_Admin {
             ), 5 * MINUTE_IN_SECONDS );
             wp_send_json( $output );
         }
-        $id = isset( $_POST['id'] ) ? sanitize_text_field( $_POST['id'] ) : 0;
+        $id = (int) $this->get_post_param( 'id', 0 );
 
         if ( ! $id ) {
             set_transient( 'plugnmeet_admin_notice', array(
@@ -502,7 +519,7 @@ class Plugnmeet_Admin {
             if ( is_array( $value ) ) {
                 $sanitized_array[ $key ] = $this->sanitize_array_fields( $value );
             } else {
-                $sanitized_array[ $key ] = sanitize_text_field( wp_unslash( $value ) );
+                $sanitized_array[ $key ] = $this->sanitize_value( $value );
             }
         }
 
