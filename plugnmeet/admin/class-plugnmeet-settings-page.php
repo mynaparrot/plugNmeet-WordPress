@@ -41,6 +41,18 @@ class Plugnmeet_SettingsPage {
 	public function __construct() {
 	}
 
+	public function plugnmeet_register_settings() {
+		register_setting(
+			'plugnmeet_settings',
+			'plugnmeet_settings',
+			[ $this, 'validation' ]
+		);
+
+		$this->configSection();
+		$this->optionsSection();
+		$this->designCustomization();
+	}
+
 	public function textCallBack( $args ) {
 		$options = get_option( 'plugnmeet_settings' );
 
@@ -161,6 +173,7 @@ class Plugnmeet_SettingsPage {
 				__( 'Setting saved', 'plugnmeet' ),
 				'success'
 			);
+			flush_rewrite_rules();
 		}
 
 		return $input;
@@ -171,18 +184,6 @@ class Plugnmeet_SettingsPage {
 			$this->isRegister = true;
 			settings_errors( 'plugnmeet_settings' );
 		}
-	}
-
-	public function plugnmeet_register_settings() {
-		register_setting(
-			'plugnmeet_settings',
-			'plugnmeet_settings',
-			[ $this, 'validation' ]
-		);
-
-		$this->configSection();
-		$this->optionsSection();
-		$this->designCustomization();
 	}
 
 	private function configSection() {
@@ -375,6 +376,15 @@ class Plugnmeet_SettingsPage {
 			'plugnmeet-settings',
 			'plugnmeet_settings_options_section',
 			[ 'id' => 'room_host_page' ]
+		);
+
+		add_settings_field(
+			'room_slug_path',
+			__( 'Room Slug Path', 'plugnmeet' ),
+			[ $this, 'textCallBack' ],
+			'plugnmeet-settings',
+			'plugnmeet_settings_options_section',
+			[ 'id' => 'room_slug_path', 'required' => "required", 'default' => "plugnmeet/room/" ]
 		);
 	}
 

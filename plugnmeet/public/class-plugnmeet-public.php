@@ -125,7 +125,9 @@ class Plugnmeet_Public {
 
 	public function custom_add_rewrite_rule() {
 		add_rewrite_rule( '^Plug-N-Meet-conference$', 'index.php?Plug-N-Meet-Conference=1', 'top' );
-		add_rewrite_rule( 'plugnmeet/room/([^/]+)/?$', 'index.php?plugnmeet_room=$matches[1]', 'top' );
+
+		$slug = ! empty( $this->setting_params->room_slug_path ) ? rtrim( $this->setting_params->room_slug_path, "/" ) : "plugnmeet/room";
+		add_rewrite_rule( $slug . '/([^/]+)/?$', 'index.php?plugnmeet_room=$matches[1]', 'top' );
 	}
 
 	public function pre_get_posts( $query ) {

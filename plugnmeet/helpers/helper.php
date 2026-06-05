@@ -70,7 +70,10 @@ class PlugnmeetHelper {
 
 	public static function get_room_url( $room_id ) {
 		if ( get_option( 'permalink_structure' ) ) {
-			return home_url( '/plugnmeet/room/' . $room_id . '/' );
+			$setting_params = (object) get_option( "plugnmeet_settings" );
+			$slug           = ! empty( $setting_params->room_slug_path ) ? rtrim( $setting_params->room_slug_path, "/" ) : "plugnmeet/room";
+
+			return home_url( $slug . "/" . $room_id . '/' );
 		} else {
 			return add_query_arg( 'plugnmeet_room', $room_id, home_url( '/' ) );
 		}
