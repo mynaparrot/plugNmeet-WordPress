@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-04 10:03+0000\n"
-"PO-Revision-Date: 2026-06-04 10:07\n"
+"POT-Creation-Date: 2026-06-05 08:01+0000\n"
+"PO-Revision-Date: 2026-06-05 09:14\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -194,7 +194,7 @@ msgid "Artifact was deleted successfully"
 msgstr "تم حذف قطعة أثرية بنجاح"
 
 #: admin/class-plugnmeet-admin.php:201
-#: admin/class-plugnmeet-rooms-list-table.php:98
+#: admin/class-plugnmeet-rooms-list-table.php:101
 msgid "Artifacts"
 msgstr "القطع الأثرية"
 
@@ -202,7 +202,7 @@ msgstr "القطع الأثرية"
 msgid "attendee & moderator password can't be same"
 msgstr "لا يمكن أن تكون كلمة مرور الحضور والمشرف متطابقة"
 
-#: admin/class-plugnmeet-rooms-list-table.php:87
+#: admin/class-plugnmeet-rooms-list-table.php:89
 #: admin/partials/form-parts/basic.php:48
 msgid "Attendee Password"
 msgstr "كلمة مرور الحضور"
@@ -302,7 +302,7 @@ msgid "Default lock settings"
 msgstr "إعدادات القفل الافتراضية"
 
 #: public/class-plugnmeet-public.php:314 admin/class-plugnmeet-admin.php:115
-#: admin/class-plugnmeet-rooms-list-table.php:100
+#: admin/class-plugnmeet-rooms-list-table.php:103
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:36
 msgid "Delete"
 msgstr "حذف"
@@ -337,7 +337,7 @@ msgstr "الاستخدام لمدة"
 msgid "E2EE Enabled"
 msgstr "مفعل ب E2EE"
 
-#: admin/class-plugnmeet-rooms-list-table.php:97
+#: admin/class-plugnmeet-rooms-list-table.php:100
 msgid "Edit"
 msgstr "تعديل"
 
@@ -446,7 +446,7 @@ msgstr "https://github.com/mynaparrot/plugNmeet-WordPress"
 msgid "https://www.mynaparrot.com/"
 msgstr "https://www.mynaparrot.com/"
 
-#: admin/class-plugnmeet-rooms-list-table.php:83
+#: admin/class-plugnmeet-rooms-list-table.php:85
 msgid "ID"
 msgstr "ID"
 
@@ -592,7 +592,7 @@ msgstr "الحد الأدنى للتسجيلات هو تسجيلان ورقم ت
 msgid "Moderator join first"
 msgstr "انضم المنسق أولا"
 
-#: admin/class-plugnmeet-rooms-list-table.php:86
+#: admin/class-plugnmeet-rooms-list-table.php:88
 #: admin/partials/form-parts/basic.php:43
 msgid "Moderator Password"
 msgstr "كلمة مرور المشرف"
@@ -763,7 +763,7 @@ msgid "Recording was deleted successfully"
 msgstr "تم حذف التسجيل بنجاح"
 
 #: admin/class-plugnmeet-admin.php:191
-#: admin/class-plugnmeet-rooms-list-table.php:99
+#: admin/class-plugnmeet-rooms-list-table.php:102
 #: public/partials/parts/recordings.php:20
 msgid "Recordings"
 msgstr "التسجيلات"
@@ -824,7 +824,7 @@ msgstr "ميزات الغرفة"
 msgid "Room ID"
 msgstr "معرف الغرفة"
 
-#: admin/class-plugnmeet-rooms-list-table.php:85
+#: admin/class-plugnmeet-rooms-list-table.php:87
 #: admin/partials/form-parts/basic.php:23
 msgid "Room Id"
 msgstr "معرف الغرفة"
@@ -854,7 +854,7 @@ msgid "Room Status"
 msgstr "حالة الغرفة"
 
 #: helpers/analyticsHelper.php:344
-#: admin/class-plugnmeet-rooms-list-table.php:84
+#: admin/class-plugnmeet-rooms-list-table.php:86
 msgid "Room Title"
 msgstr "عنوان الغرفة"
 
@@ -883,6 +883,10 @@ msgstr "تغييرات حالة مشاركة الشاشة"
 #: admin/class-plugnmeet-settings-page.php:283
 msgid "Screen Sharing Resolution"
 msgstr "دقة مشاركة الشاشة"
+
+#: admin/partials/plugnmeet-admin-display-rooms.php:28
+msgid "Search"
+msgstr ""
 
 #: admin/class-plugnmeet-settings-page.php:382
 #: admin/partials/form-parts/design.php:37
@@ -914,6 +918,10 @@ msgstr "تم حفظ الإعداد"
 msgid "Settings"
 msgstr "اعدادات"
 
+#: admin/class-plugnmeet-rooms-list-table.php:91
+msgid "Shortcode"
+msgstr ""
+
 #: admin/partials/plugnmeet-admin-display-artifacts.php:29
 msgid "Show artifacts"
 msgstr "عرض القطع الأثرية"
@@ -935,7 +943,7 @@ msgstr "إجمالي استخدام خدمة الخطابة"
 msgid "Speech Services Usage"
 msgstr "استخدام خدمات الكلام"
 
-#: admin/class-plugnmeet-rooms-list-table.php:88
+#: admin/class-plugnmeet-rooms-list-table.php:90
 msgid "Status"
 msgstr "حالة"
 
