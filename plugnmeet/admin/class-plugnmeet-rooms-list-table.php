@@ -72,7 +72,9 @@ class Plugnmeet_Rooms_List_Table extends WP_List_Table {
 			case 'room_id':
 				return $item[ $column_name ];
 			case 'published':
-				return $item[ $column_name ] ? __( 'Published', 'plugnmeet' ) : __( 'Unpublished', 'plugnmeet' );
+				return $item[ $column_name ] ? __( 'Published', 'plugnmeet' ) : '<span style="color: red;">' . __( 'Unpublished', 'plugnmeet' ) . '</span>';
+			case 'shortcode':
+				return '[plugnmeet_room_view id="' . esc_attr( $item['id'] ) . '"]';
 			default:
 				return '';
 		}
@@ -86,6 +88,7 @@ class Plugnmeet_Rooms_List_Table extends WP_List_Table {
 			'moderator_pass' => __( 'Moderator Password', 'plugnmeet' ),
 			'attendee_pass'  => __( 'Attendee Password', 'plugnmeet' ),
 			'published'      => __( 'Status', 'plugnmeet' ),
+			'shortcode'      => __( 'Shortcode', 'plugnmeet' ),
 		];
 
 		return $columns;
