@@ -35,6 +35,18 @@
     margin-top: 12px;
 }
 
-.column-id {
+.rooms-list-table .wp-list-table .column-id {
     width: 50px;
+}
+
+.rooms-list-table .wp-list-table .column-room_title {
+    width: 25%;
+}
+
+.rooms-list-table .wp-list-table .column-room_id {
+    width: 18%;
+}
+
+.rooms-list-table .wp-list-table .column-shortcode {
+    width: 16%;
 }

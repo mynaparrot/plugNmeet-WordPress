@@ -25,7 +25,7 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
 
     <form method="post">
         <?php
-        $rooms_list_table->search_box( 'search', 'search_id' );
+        $rooms_list_table->search_box( __( 'Search', 'plugnmeet' ), 'search_id' );
         $rooms_list_table->display();
         ?>
     </form>
