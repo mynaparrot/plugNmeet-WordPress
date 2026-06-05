@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-04 10:03+0000\n"
-"PO-Revision-Date: 2026-06-04 10:07\n"
+"POT-Creation-Date: 2026-06-05 08:01+0000\n"
+"PO-Revision-Date: 2026-06-05 09:14\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -194,7 +194,7 @@ msgid "Artifact was deleted successfully"
 msgstr "El artefacto fue eliminado con éxito"
 
 #: admin/class-plugnmeet-admin.php:201
-#: admin/class-plugnmeet-rooms-list-table.php:98
+#: admin/class-plugnmeet-rooms-list-table.php:101
 msgid "Artifacts"
 msgstr "Artefactos"
 
@@ -202,7 +202,7 @@ msgstr "Artefactos"
 msgid "attendee & moderator password can't be same"
 msgstr "la contraseña de asistente y moderador no puede ser la misma"
 
-#: admin/class-plugnmeet-rooms-list-table.php:87
+#: admin/class-plugnmeet-rooms-list-table.php:89
 #: admin/partials/form-parts/basic.php:48
 msgid "Attendee Password"
 msgstr "Contraseña del asistente"
@@ -302,7 +302,7 @@ msgid "Default lock settings"
 msgstr "Configuración de bloqueo predeterminada"
 
 #: public/class-plugnmeet-public.php:314 admin/class-plugnmeet-admin.php:115
-#: admin/class-plugnmeet-rooms-list-table.php:100
+#: admin/class-plugnmeet-rooms-list-table.php:103
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:36
 msgid "Delete"
 msgstr "Eliminar"
@@ -337,7 +337,7 @@ msgstr "Duración de uso"
 msgid "E2EE Enabled"
 msgstr "E2EE habilitado"
 
-#: admin/class-plugnmeet-rooms-list-table.php:97
+#: admin/class-plugnmeet-rooms-list-table.php:100
 msgid "Edit"
 msgstr "Edición"
 
@@ -446,7 +446,7 @@ msgstr "https://github.com/mynaparrot/plugNmeet-WordPress"
 msgid "https://www.mynaparrot.com/"
 msgstr "https://www.mynaparrot.com/"
 
-#: admin/class-plugnmeet-rooms-list-table.php:83
+#: admin/class-plugnmeet-rooms-list-table.php:85
 msgid "ID"
 msgstr "ID"
 
@@ -592,7 +592,7 @@ msgstr "Se requieren al menos dos grabaciones y el ID de la sala."
 msgid "Moderator join first"
 msgstr "El moderador se une primero"
 
-#: admin/class-plugnmeet-rooms-list-table.php:86
+#: admin/class-plugnmeet-rooms-list-table.php:88
 #: admin/partials/form-parts/basic.php:43
 msgid "Moderator Password"
 msgstr "Contraseña del moderador"
@@ -763,7 +763,7 @@ msgid "Recording was deleted successfully"
 msgstr "Registro eliminado con éxito"
 
 #: admin/class-plugnmeet-admin.php:191
-#: admin/class-plugnmeet-rooms-list-table.php:99
+#: admin/class-plugnmeet-rooms-list-table.php:102
 #: public/partials/parts/recordings.php:20
 msgid "Recordings"
 msgstr "Grabaciones"
@@ -824,7 +824,7 @@ msgstr "Características de la sala"
 msgid "Room ID"
 msgstr "ID de la habitación"
 
-#: admin/class-plugnmeet-rooms-list-table.php:85
+#: admin/class-plugnmeet-rooms-list-table.php:87
 #: admin/partials/form-parts/basic.php:23
 msgid "Room Id"
 msgstr "ID de la sala"
@@ -854,7 +854,7 @@ msgid "Room Status"
 msgstr "Estado de la sala"
 
 #: helpers/analyticsHelper.php:344
-#: admin/class-plugnmeet-rooms-list-table.php:84
+#: admin/class-plugnmeet-rooms-list-table.php:86
 msgid "Room Title"
 msgstr "Título de la habitación"
 
@@ -883,6 +883,10 @@ msgstr "Cambios en el estado de la compartición de pantalla"
 #: admin/class-plugnmeet-settings-page.php:283
 msgid "Screen Sharing Resolution"
 msgstr "Resolución de pantalla compartida"
+
+#: admin/partials/plugnmeet-admin-display-rooms.php:28
+msgid "Search"
+msgstr ""
 
 #: admin/class-plugnmeet-settings-page.php:382
 #: admin/partials/form-parts/design.php:37
@@ -914,6 +918,10 @@ msgstr "Configuración guardada"
 msgid "Settings"
 msgstr "Configuración"
 
+#: admin/class-plugnmeet-rooms-list-table.php:91
+msgid "Shortcode"
+msgstr ""
+
 #: admin/partials/plugnmeet-admin-display-artifacts.php:29
 msgid "Show artifacts"
 msgstr "Artefactos de la exposición"
@@ -935,7 +943,7 @@ msgstr "Uso total del servicio de voz"
 msgid "Speech Services Usage"
 msgstr "Uso de los servicios de voz"
 
-#: admin/class-plugnmeet-rooms-list-table.php:88
+#: admin/class-plugnmeet-rooms-list-table.php:90
 msgid "Status"
 msgstr "Estado"
 
