@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-04 10:03+0000\n"
-"PO-Revision-Date: 2026-06-04 10:07\n"
+"POT-Creation-Date: 2026-06-05 08:01+0000\n"
+"PO-Revision-Date: 2026-06-05 09:14\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -194,7 +194,7 @@ msgid "Artifact was deleted successfully"
 msgstr "ארטיפקט נמחק בהצלחה"
 
 #: admin/class-plugnmeet-admin.php:201
-#: admin/class-plugnmeet-rooms-list-table.php:98
+#: admin/class-plugnmeet-rooms-list-table.php:101
 msgid "Artifacts"
 msgstr "חפצים"
 
@@ -202,7 +202,7 @@ msgstr "חפצים"
 msgid "attendee & moderator password can't be same"
 msgstr "סיסמת משתתף ומגשר אינה יכולה להיות זהה"
 
-#: admin/class-plugnmeet-rooms-list-table.php:87
+#: admin/class-plugnmeet-rooms-list-table.php:89
 #: admin/partials/form-parts/basic.php:48
 msgid "Attendee Password"
 msgstr "סיסמת משתתף"
@@ -302,7 +302,7 @@ msgid "Default lock settings"
 msgstr "הגדרות נעילה המוגדרות כברירת מחדל"
 
 #: public/class-plugnmeet-public.php:314 admin/class-plugnmeet-admin.php:115
-#: admin/class-plugnmeet-rooms-list-table.php:100
+#: admin/class-plugnmeet-rooms-list-table.php:103
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:36
 msgid "Delete"
 msgstr "למחוק"
@@ -337,7 +337,7 @@ msgstr "משך שימוש"
 msgid "E2EE Enabled"
 msgstr "E2EE מופעל"
 
-#: admin/class-plugnmeet-rooms-list-table.php:97
+#: admin/class-plugnmeet-rooms-list-table.php:100
 msgid "Edit"
 msgstr "עריכה"
 
@@ -446,7 +446,7 @@ msgstr "https://github.com/mynaparrot/plugNmeet-WordPress"
 msgid "https://www.mynaparrot.com/"
 msgstr "https://www.mynaparrot.com/"
 
-#: admin/class-plugnmeet-rooms-list-table.php:83
+#: admin/class-plugnmeet-rooms-list-table.php:85
 msgid "ID"
 msgstr "ID"
 
@@ -592,7 +592,7 @@ msgstr "נדרשות מינימום שתי הקלטות ותעודת זהות ש
 msgid "Moderator join first"
 msgstr "המנחה מצטרף ראשון"
 
-#: admin/class-plugnmeet-rooms-list-table.php:86
+#: admin/class-plugnmeet-rooms-list-table.php:88
 #: admin/partials/form-parts/basic.php:43
 msgid "Moderator Password"
 msgstr "סיסמת מנחה"
@@ -763,7 +763,7 @@ msgid "Recording was deleted successfully"
 msgstr "ההקלטה נמחקה בהצלחה"
 
 #: admin/class-plugnmeet-admin.php:191
-#: admin/class-plugnmeet-rooms-list-table.php:99
+#: admin/class-plugnmeet-rooms-list-table.php:102
 #: public/partials/parts/recordings.php:20
 msgid "Recordings"
 msgstr "הקלטות"
@@ -824,7 +824,7 @@ msgstr "תכונות החדר"
 msgid "Room ID"
 msgstr "מזהה חדר"
 
-#: admin/class-plugnmeet-rooms-list-table.php:85
+#: admin/class-plugnmeet-rooms-list-table.php:87
 #: admin/partials/form-parts/basic.php:23
 msgid "Room Id"
 msgstr "מזהה החדר"
@@ -854,7 +854,7 @@ msgid "Room Status"
 msgstr "סטטוס החדר"
 
 #: helpers/analyticsHelper.php:344
-#: admin/class-plugnmeet-rooms-list-table.php:84
+#: admin/class-plugnmeet-rooms-list-table.php:86
 msgid "Room Title"
 msgstr "כותרת החדר"
 
@@ -883,6 +883,10 @@ msgstr "שינויים במצב שיתוף מסך"
 #: admin/class-plugnmeet-settings-page.php:283
 msgid "Screen Sharing Resolution"
 msgstr "רזולוציית שיתוף מסך"
+
+#: admin/partials/plugnmeet-admin-display-rooms.php:28
+msgid "Search"
+msgstr ""
 
 #: admin/class-plugnmeet-settings-page.php:382
 #: admin/partials/form-parts/design.php:37
@@ -914,6 +918,10 @@ msgstr "הגדרה שנשמרה"
 msgid "Settings"
 msgstr "הגדרות"
 
+#: admin/class-plugnmeet-rooms-list-table.php:91
+msgid "Shortcode"
+msgstr ""
+
 #: admin/partials/plugnmeet-admin-display-artifacts.php:29
 msgid "Show artifacts"
 msgstr "חפצים להצגת ארטיפקטים"
@@ -935,7 +943,7 @@ msgstr "שימוש כולל בשירותי דיבור"
 msgid "Speech Services Usage"
 msgstr "שימוש בשירותי דיבור"
 
-#: admin/class-plugnmeet-rooms-list-table.php:88
+#: admin/class-plugnmeet-rooms-list-table.php:90
 msgid "Status"
 msgstr "מצב"
 
