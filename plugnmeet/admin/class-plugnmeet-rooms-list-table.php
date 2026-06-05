@@ -95,8 +95,13 @@ class Plugnmeet_Rooms_List_Table extends WP_List_Table {
 	}
 
 	function column_room_title( $item ) {
-		$title   = sprintf( '<strong><a class="row-title" href="admin.php?page=plugnmeet&task=edit&id=%s">%s</a></strong>', $item['id'], $item['room_title'] );
-		$actions = [
+		if ( ! class_exists( 'PlugnmeetHelper' ) ) {
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/helper.php';
+		}
+		$join_url = PlugnmeetHelper::get_room_url( $item['room_id'] );
+		$title    = sprintf( '<strong><a class="row-title" href="admin.php?page=plugnmeet&task=edit&id=%s">%s</a></strong>', $item['id'], $item['room_title'] );
+		$actions  = [
+			'join'       => sprintf( '<a href="%s" target="_blank">%s</a>', esc_url( $join_url ), __( 'Join', 'plugnmeet' ) ),
 			'edit'       => sprintf( '<a href="admin.php?page=plugnmeet&task=edit&id=%s">%s</a>', absint( $item['id'] ), __( 'Edit', 'plugnmeet' ) ),
 			'artifacts'  => sprintf( '<a href="admin.php?page=plugnmeet-artifacts&room_id=%s">%s</a>', esc_attr( $item['room_id'] ), __( 'Artifacts', 'plugnmeet' ) ),
 			'recordings' => sprintf( '<a href="admin.php?page=plugnmeet-recordings&room_id=%s">%s</a>', esc_attr( $item['room_id'] ), __( 'Recordings', 'plugnmeet' ) ),

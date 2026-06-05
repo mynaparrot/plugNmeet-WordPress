@@ -68,6 +68,14 @@ class PlugnmeetHelper {
 		'hr'       => array(),
 	);
 
+	public static function get_room_url( $room_id ) {
+		if ( get_option( 'permalink_structure' ) ) {
+			return home_url( '/plugnmeet/room/' . $room_id . '/' );
+		} else {
+			return add_query_arg( 'plugnmeet_room', $room_id, home_url( '/' ) );
+		}
+	}
+
 	public static function secureRandomKey( int $length = 36 ): string {
 		$keyspace = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		$pieces   = [];

@@ -49,6 +49,11 @@ class Plugnmeet_Public {
 	private $setting_params;
 
 	/**
+	 * @var object|null
+	 */
+	private $current_room_info = null;
+
+	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @param string $plugin_name The name of the plugin.
@@ -113,15 +118,69 @@ class Plugnmeet_Public {
 
 	public function setQueryVar( $vars ) {
 		$vars[] = 'Plug-N-Meet-Conference';
+		$vars[] = 'plugnmeet_room';
 
 		return $vars;
 	}
 
 	public function custom_add_rewrite_rule() {
 		add_rewrite_rule( '^Plug-N-Meet-conference$', 'index.php?Plug-N-Meet-Conference=1', 'top' );
+		add_rewrite_rule( 'plugnmeet/room/([^/]+)/?$', 'index.php?plugnmeet_room=$matches[1]', 'top' );
+	}
+
+	public function pre_get_posts( $query ) {
+		if ( ! $query->is_main_query() || is_admin() ) {
+			return;
+		}
+
+		$room_uuid = get_query_var( 'plugnmeet_room' );
+		if ( ! empty( $room_uuid ) ) {
+			$host_page_id = $this->setting_params->room_host_page ?? 0;
+			if ( ! empty( $host_page_id ) ) {
+				$query->set( 'page_id', $host_page_id );
+				$query->set( 'post_type', 'page' );
+				$query->is_page     = true;
+				$query->is_singular = true;
+				$query->is_home     = false;
+				$query->is_archive  = false;
+
+				// Fetch and store room info
+				global $wpdb;
+				$this->current_room_info = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "plugnmeet_rooms WHERE room_id = %s", $room_uuid ) );
+			}
+		}
+	}
+
+	public function filter_page_title( $title, $id = null ) {
+		$host_page_id = $this->setting_params->room_host_page ?? 0;
+		if ( $this->current_room_info && $id == $host_page_id ) {
+			return $this->current_room_info->room_title;
+		}
+
+		return $title;
+	}
+
+	public function filter_browser_title( $title_parts ) {
+		if ( $this->current_room_info ) {
+			$title_parts['title'] = $this->current_room_info->room_title;
+		}
+
+		return $title_parts;
+	}
+
+	public function filter_page_content( $content ) {
+		if ( in_the_loop() && $this->current_room_info ) {
+			return $this->formatRoomViewForShortCode( $this->current_room_info->id );
+		}
+
+		return $content;
 	}
 
 	public function on_display_plugnmeet_conference( $template ) {
+		if ( is_admin() || ! is_main_query() ) {
+			return $template;
+		}
+
 		if ( ! get_query_var( 'Plug-N-Meet-Conference' ) ) {
 			return $template;
 		}

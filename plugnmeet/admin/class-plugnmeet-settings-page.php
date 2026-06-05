@@ -76,6 +76,24 @@ class Plugnmeet_SettingsPage {
 		echo wp_kses( $html, $this->allowedHtml );
 	}
 
+	public function pageSelectCallBack( $args ) {
+		$options = get_option( 'plugnmeet_settings' );
+		$id      = isset( $args['id'] ) ? esc_attr( $args['id'] ) : '';
+		$value   = isset( $options[ $id ] ) ? esc_attr( $options[ $id ] ) : '';
+
+		$pages = get_pages();
+		$html  = '<select id="' . $id . '" name="plugnmeet_settings[' . $id . ']">';
+		$html  .= '<option value="">' . __( 'Select a page', 'plugnmeet' ) . '</option>';
+
+		foreach ( $pages as $page ) {
+			$selected = ( $value == $page->ID ) ? 'selected="selected"' : '';
+			$html     .= '<option value="' . $page->ID . '" ' . $selected . '>' . $page->post_title . '</option>';
+		}
+
+		$html .= '</select>';
+		echo $html;
+	}
+
 	public function numberCallBack( $args ) {
 		$options = get_option( 'plugnmeet_settings' );
 
@@ -348,6 +366,15 @@ class Plugnmeet_SettingsPage {
 				'id'      => 'copyright_text',
 				'default' => "Powered by plugNmeet"
 			]
+		);
+
+		add_settings_field(
+			'room_host_page',
+			__( 'Room Host Page', 'plugnmeet' ),
+			[ $this, 'pageSelectCallBack' ],
+			'plugnmeet-settings',
+			'plugnmeet_settings_options_section',
+			[ 'id' => 'room_host_page' ]
 		);
 	}
 

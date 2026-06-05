@@ -85,6 +85,16 @@ This plugin connects your WordPress site to a plugNmeet server. As a free and op
 
 When you create or edit a room in the plugNmeet admin menu, the plugin will provide a shortcode (e.g., `[plugnmeet_room_view id="your_room_id"]`). Simply copy this shortcode and paste it into any page, post, or widget. It works with the classic editor, Gutenberg blocks, and most page builders like Elementor or Divi.
 
+= How do I display a room on its own clean URL (e.g., `yoursite.com/room/room-name/`)? =
+
+While the shortcode method is great for embedding a room inside existing content, you can also give each room its own dedicated URL. This is perfect for a clean, professional look and for sharing direct links to a meeting.
+
+1.  **Create a "Host" Page:** First, go to your WordPress admin and create a new, empty page. You can name it "Meeting Room" or anything you like. You do not need to add any content to this page.
+2.  **Select the Host Page:** Go to the **Plug-N-Meet -> Settings** page. In the "Options" section, you will find a new setting called **"Room Host Page"**. Select the page you just created from the dropdown menu and save your settings.
+3.  **Save Permalinks:** Go to **Settings -> Permalinks** in your admin dashboard and simply click the "Save Changes" button. You don't need to change any settings; this just refreshes WordPress's URL rules.
+
+That's it! Now, when you go to the **Plug-N-Meet -> Rooms** list in your admin area, the "Join" and "Copy Link" actions for each room will point to a clean URL like `yoursite.com/plugnmeet/room/your-room-id/`. When a user visits this link, the plugin will use your "Host Page" as a template, ensuring the login form appears correctly within your theme's design but without any other post content.
+
 = Do I really need a separate server? =
 
 Yes. This plugin connects your WordPress site to a plugNmeet server, which handles all the heavy lifting for the video conference (like video streaming and recording). This ensures your website's performance is not affected, even during large meetings. You can either **self-host the server for free** or use our convenient **plugNmeet cloud service**.

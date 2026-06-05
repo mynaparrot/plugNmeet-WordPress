@@ -58,8 +58,14 @@ function pnm_final_asset_loader() {
         }
     } else {
         $clientPath = PLUGNMEET_ROOT_PATH . "/public/client/dist/assets";
-        $jsFiles    = array_values( preg_grep( '~\.(js)$~', scandir( $clientPath . "/js", SCANDIR_SORT_DESCENDING ) ) );
-        $cssFiles   = array_values( preg_grep( '~\.(css)$~', scandir( $clientPath . "/css", SCANDIR_SORT_DESCENDING ) ) );
+        $js_dir = $clientPath . "/js";
+        $css_dir = $clientPath . "/css";
+
+        $js_scan = is_dir($js_dir) ? scandir($js_dir, SCANDIR_SORT_DESCENDING) : [];
+        $css_scan = is_dir($css_dir) ? scandir($css_dir, SCANDIR_SORT_DESCENDING) : [];
+
+        $jsFiles  = $js_scan ? array_values( preg_grep( '~\.(js)$~', $js_scan ) ) : [];
+        $cssFiles = $css_scan ? array_values( preg_grep( '~\.(css)$~', $css_scan ) ) : [];
         $path       = plugins_url( 'public/client/dist/assets', PLUGNMEET_BASE_NAME );
     }
 

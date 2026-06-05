@@ -197,6 +197,12 @@ class Plugnmeet {
 		$this->loader->add_action( 'query_vars', $plugin_public, 'setQueryVar' );
 		$this->loader->add_action( 'template_include', $plugin_public, 'on_display_plugnmeet_conference' );
 
+		// for room page
+		$this->loader->add_action( 'pre_get_posts', $plugin_public, 'pre_get_posts' );
+		$this->loader->add_filter( 'the_content', $plugin_public, 'filter_page_content' );
+		$this->loader->add_filter( 'the_title', $plugin_public, 'filter_page_title', 10, 2 );
+		$this->loader->add_filter( 'document_title_parts', $plugin_public, 'filter_browser_title' );
+
 		// we need session to store user's info before login.
 		$this->loader->add_action( 'init', $plugin_public, 'start_session' );
 
