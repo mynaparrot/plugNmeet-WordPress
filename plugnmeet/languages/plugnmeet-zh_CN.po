@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-05 11:29+0000\n"
-"PO-Revision-Date: 2026-06-05 11:40\n"
+"POT-Creation-Date: 2026-06-05 18:17+0000\n"
+"PO-Revision-Date: 2026-06-05 18:22\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File: /main/plugnmeet/languages/plugnmeet.pot\n"
 "X-Crowdin-File-ID: 66\n"
 
-#: admin/class-plugnmeet-settings-page.php:147
+#: admin/class-plugnmeet-settings-page.php:159
 msgid " can't be empty."
 msgstr " 不能为空。"
 
@@ -26,7 +26,7 @@ msgstr " 不能为空。"
 msgid "Action"
 msgstr "行动"
 
-#: helpers/helper.php:572
+#: helpers/helper.php:575
 msgid "Activate waiting room"
 msgstr "激活等候室"
 
@@ -34,31 +34,31 @@ msgstr "激活等候室"
 msgid "Add New"
 msgstr "新增"
 
-#: helpers/helper.php:228
+#: helpers/helper.php:231
 msgid "Admin only webcams"
 msgstr "仅限管理员的网络摄像机"
 
-#: helpers/helper.php:942
+#: helpers/helper.php:945
 msgid "Allow AI text chat"
 msgstr "允许AI文本聊天"
 
-#: helpers/helper.php:604
+#: helpers/helper.php:607
 msgid "Allow breakout rooms"
 msgstr "允许分组会议"
 
-#: helpers/helper.php:449
+#: helpers/helper.php:452
 msgid "Allow chat"
 msgstr "允许聊天"
 
-#: helpers/helper.php:909
+#: helpers/helper.php:912
 msgid "Allow chat translation"
 msgstr "允许聊天翻译"
 
-#: helpers/helper.php:350
+#: helpers/helper.php:353
 msgid "Allow cloud recording"
 msgstr "允许云录制"
 
-#: helpers/helper.php:663
+#: helpers/helper.php:666
 msgid "Allow create ingress"
 msgstr "允许创建入口"
 
@@ -66,7 +66,7 @@ msgstr "允许创建入口"
 msgid "Allow Delete <br/>Recordings"
 msgstr "允许删除 <br/>录音"
 
-#: helpers/helper.php:636
+#: helpers/helper.php:639
 msgid "Allow Display External Link"
 msgstr "允许显示外部链接"
 
@@ -74,23 +74,23 @@ msgstr "允许显示外部链接"
 msgid "Allow Download <br/>Recordings"
 msgstr "允许下载 <br/>录音"
 
-#: helpers/helper.php:407
+#: helpers/helper.php:410
 msgid "Allow External Broadcasting Features"
 msgstr "允许外部广播功能"
 
-#: helpers/helper.php:545
+#: helpers/helper.php:548
 msgid "Allow external media player"
 msgstr "允许外部媒体播放器"
 
-#: helpers/helper.php:464
+#: helpers/helper.php:467
 msgid "Allow file upload"
 msgstr "允许文件上传"
 
-#: helpers/helper.php:380
+#: helpers/helper.php:383
 msgid "Allow local recording"
 msgstr "允许本地录制"
 
-#: helpers/helper.php:959
+#: helpers/helper.php:962
 msgid "Allow meeting summarization"
 msgstr "允许会议摘要"
 
@@ -98,43 +98,43 @@ msgstr "允许会议摘要"
 msgid "Allow Play <br/>Recordings"
 msgstr "允许播放 <br/>录音"
 
-#: helpers/helper.php:690
+#: helpers/helper.php:693
 msgid "Allow polls"
 msgstr "允许轮询"
 
-#: helpers/helper.php:293
+#: helpers/helper.php:296
 msgid "Allow raise hand"
 msgstr "允许举手"
 
-#: helpers/helper.php:335
+#: helpers/helper.php:338
 msgid "Allow recording"
 msgstr "允许录制"
 
-#: helpers/helper.php:422
+#: helpers/helper.php:425
 msgid "Allow RTMP broadcasting"
 msgstr "允许RTMP广播"
 
-#: helpers/helper.php:183
+#: helpers/helper.php:186
 msgid "Allow screen share"
 msgstr "允许屏幕共享"
 
-#: helpers/helper.php:491
+#: helpers/helper.php:494
 msgid "Allow shared notepad"
 msgstr "允许共享记事本"
 
-#: helpers/helper.php:789
+#: helpers/helper.php:792
 msgid "Allow SIP/VoIP dial in"
 msgstr "允许SIP/VoIP拨入"
 
-#: helpers/helper.php:892
+#: helpers/helper.php:895
 msgid "Allow speech synthesis"
 msgstr "允许语音合成"
 
-#: helpers/helper.php:862
+#: helpers/helper.php:865
 msgid "Allow transcription"
 msgstr "允许转录"
 
-#: helpers/helper.php:877
+#: helpers/helper.php:880
 msgid "Allow translation feature"
 msgstr "允许翻译功能"
 
@@ -142,28 +142,28 @@ msgstr "允许翻译功能"
 msgid "Allow View <br/>Recordings"
 msgstr "允许查看 <br/>录音"
 
-#: helpers/helper.php:213
+#: helpers/helper.php:216
 msgid "Allow view other users list"
 msgstr "允许查看其他用户列表"
 
-#: helpers/helper.php:198
+#: helpers/helper.php:201
 msgid "Allow view other webcams"
 msgstr "允许查看其他网络摄像头"
 
-#: helpers/helper.php:278
+#: helpers/helper.php:281
 msgid "Allow virtual background"
 msgstr "允许虚拟背景"
 
-#: helpers/helper.php:153
+#: helpers/helper.php:156
 msgid "Allow webcams"
 msgstr "允许网络摄像头"
 
-#: helpers/helper.php:518
+#: helpers/helper.php:521
 msgid "Allow whiteboard"
 msgstr "允许白板"
 
-#: public/class-plugnmeet-public.php:366 admin/class-plugnmeet-admin.php:113
-#: admin/class-plugnmeet-admin.php:145
+#: admin/class-plugnmeet-admin.php:113 admin/class-plugnmeet-admin.php:145
+#: public/class-plugnmeet-public.php:372
 msgid "Are you sure to delete?"
 msgstr "您确定要删除吗？"
 
@@ -207,11 +207,11 @@ msgstr "与会者和主持人的密码不能相同"
 msgid "Attendee Password"
 msgstr "与会者密码"
 
-#: admin/class-plugnmeet-settings-page.php:314
+#: admin/class-plugnmeet-settings-page.php:315
 msgid "Audio preset"
 msgstr "音频预设"
 
-#: helpers/helper.php:308
+#: helpers/helper.php:311
 msgid "Auto generate user ID"
 msgstr "自动生成 User ID"
 
@@ -219,12 +219,12 @@ msgstr "自动生成 User ID"
 msgid "Back to Artifacts"
 msgstr "回到文物"
 
-#: admin/class-plugnmeet-settings-page.php:418
+#: admin/class-plugnmeet-settings-page.php:428
 #: admin/partials/form-parts/design.php:44
 msgid "Background Color"
 msgstr "背景颜色"
 
-#: admin/class-plugnmeet-settings-page.php:427
+#: admin/class-plugnmeet-settings-page.php:437
 #: admin/partials/form-parts/design.php:51
 msgid "Background Image"
 msgstr "背景图像"
@@ -262,7 +262,7 @@ msgstr "聊天文件共享"
 msgid "Checking..."
 msgstr "检查中......"
 
-#: admin/class-plugnmeet-settings-page.php:230
+#: admin/class-plugnmeet-settings-page.php:231
 msgid "Client load"
 msgstr "客户端负载"
 
@@ -275,7 +275,7 @@ msgstr "确认合并"
 msgid "Connection Quality"
 msgstr "连接质量"
 
-#: admin/class-plugnmeet-settings-page.php:361
+#: admin/class-plugnmeet-settings-page.php:362
 msgid "Copyright text"
 msgstr "版权文本"
 
@@ -288,12 +288,12 @@ msgstr "创作"
 msgid "Created At"
 msgstr "诞生于"
 
-#: admin/class-plugnmeet-settings-page.php:391
+#: admin/class-plugnmeet-settings-page.php:401
 #: admin/partials/form-parts/design.php:23
 msgid "Custom CSS URL"
 msgstr "自定义 CSS URL"
 
-#: admin/class-plugnmeet-settings-page.php:343
+#: admin/class-plugnmeet-settings-page.php:344
 msgid "Custom logo"
 msgstr "自定义 logo"
 
@@ -301,22 +301,23 @@ msgstr "自定义 logo"
 msgid "Default lock settings"
 msgstr "默认锁定设置"
 
-#: public/class-plugnmeet-public.php:369 admin/class-plugnmeet-admin.php:115
+#: admin/class-plugnmeet-admin.php:115
 #: admin/class-plugnmeet-rooms-list-table.php:108
+#: public/class-plugnmeet-public.php:375
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:36
 msgid "Delete"
 msgstr "删除"
 
-#: admin/class-plugnmeet-settings-page.php:384
+#: admin/class-plugnmeet-settings-page.php:394
 #: admin/partials/plugnmeet-admin-edit-room.php:66
 msgid "Design Customization"
 msgstr "设计定制"
 
-#: admin/class-plugnmeet-settings-page.php:353
+#: admin/class-plugnmeet-settings-page.php:354
 msgid "Display copyright text"
 msgstr "显示版权文本"
 
-#: public/class-plugnmeet-public.php:368 admin/class-plugnmeet-admin.php:114
+#: admin/class-plugnmeet-admin.php:114 public/class-plugnmeet-public.php:374
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:28
 msgid "Download"
 msgstr "下载"
@@ -341,47 +342,47 @@ msgstr "支持端对端加密"
 msgid "Edit"
 msgstr "编辑"
 
-#: helpers/helper.php:926
+#: helpers/helper.php:929
 msgid "Enable AI features"
 msgstr "启用AI功能"
 
-#: helpers/helper.php:263
+#: helpers/helper.php:266
 msgid "Enable analytics"
 msgstr "启用分析"
 
-#: helpers/helper.php:365
+#: helpers/helper.php:368
 msgid "Enable auto cloud recording"
 msgstr "启用自动云录制"
 
-#: helpers/helper.php:804
+#: helpers/helper.php:807
 msgid "Enable dial in on create"
 msgstr "在创建时启用拨入"
 
-#: admin/class-plugnmeet-settings-page.php:261
+#: admin/class-plugnmeet-settings-page.php:262
 msgid "Enable Dynacast"
 msgstr "启用 Dynacast"
 
-#: helpers/helper.php:747
+#: helpers/helper.php:750
 msgid "Enable encryption for chat"
 msgstr "启用聊天加密"
 
-#: helpers/helper.php:762
+#: helpers/helper.php:765
 msgid "Enable encryption for whiteboard"
 msgstr "为白板启用加密"
 
-#: helpers/helper.php:717
+#: helpers/helper.php:720
 msgid "Enable End-To-End Encryption (E2EE)"
 msgstr "启用端到端加密 （E2EE）"
 
-#: helpers/helper.php:846
+#: helpers/helper.php:849
 msgid "Enable insights features"
 msgstr "启用洞察功能"
 
-#: helpers/helper.php:732
+#: helpers/helper.php:735
 msgid "Enable self insert key"
 msgstr "启用自插入密钥"
 
-#: admin/class-plugnmeet-settings-page.php:270
+#: admin/class-plugnmeet-settings-page.php:271
 msgid "Enable Simulcast"
 msgstr "启用联播"
 
@@ -420,7 +421,7 @@ msgstr "文件大小"
 msgid "File size (MB)"
 msgstr "文件大小 （MB）"
 
-#: admin/class-plugnmeet-settings-page.php:445
+#: admin/class-plugnmeet-settings-page.php:455
 #: admin/partials/form-parts/design.php:80
 msgid "Footer Color"
 msgstr "页脚颜色"
@@ -429,12 +430,12 @@ msgstr "页脚颜色"
 msgid "Good"
 msgstr "很好"
 
-#: admin/class-plugnmeet-settings-page.php:436
+#: admin/class-plugnmeet-settings-page.php:446
 #: admin/partials/form-parts/design.php:73
 msgid "Header Color"
 msgstr "标题颜色"
 
-#: helpers/helper.php:819
+#: helpers/helper.php:822
 msgid "Hide phone number"
 msgstr "隐藏电话号码"
 
@@ -491,48 +492,48 @@ msgstr "加入地点"
 msgid "Left At"
 msgstr "留在"
 
-#: public/class-plugnmeet-public.php:370
+#: public/class-plugnmeet-public.php:376
 #: public/partials/parts/recordings.php:33
 msgid "Loading..."
 msgstr "加载中......"
 
-#: admin/class-plugnmeet-settings-page.php:239
+#: admin/class-plugnmeet-settings-page.php:240
 msgid "Local client download url"
 msgstr "本地客户端下载 URL"
 
-#: helpers/helper.php:1063
+#: helpers/helper.php:1066
 msgid "Lock chat"
 msgstr "锁定聊天"
 
-#: helpers/helper.php:1093
+#: helpers/helper.php:1096
 msgid "Lock chat file share"
 msgstr "锁定聊天文件共享"
 
-#: helpers/helper.php:1078
+#: helpers/helper.php:1081
 msgid "Lock chat send message"
 msgstr "锁定聊天发送消息"
 
-#: helpers/helper.php:988
+#: helpers/helper.php:991
 msgid "Lock microphone"
 msgstr "锁定麦克风"
 
-#: helpers/helper.php:1108
+#: helpers/helper.php:1111
 msgid "Lock private chat"
 msgstr "锁定私人聊天"
 
-#: helpers/helper.php:1018
+#: helpers/helper.php:1021
 msgid "Lock screen sharing"
 msgstr "锁屏共享"
 
-#: helpers/helper.php:1048
+#: helpers/helper.php:1051
 msgid "Lock shared notepad"
 msgstr "锁定共享记事本"
 
-#: helpers/helper.php:1003
+#: helpers/helper.php:1006
 msgid "Lock webcam"
 msgstr "锁定网络摄像头"
 
-#: helpers/helper.php:1033
+#: helpers/helper.php:1036
 msgid "Lock whiteboard"
 msgstr "锁定白板"
 
@@ -589,7 +590,7 @@ msgstr "哑剧类型"
 msgid "Minimum two recordings & room id required"
 msgstr "至少需要两段录音和房间号"
 
-#: helpers/helper.php:248
+#: helpers/helper.php:251
 msgid "Moderator join first"
 msgstr "版主先加入"
 
@@ -598,7 +599,7 @@ msgstr "版主先加入"
 msgid "Moderator Password"
 msgstr "版主密码"
 
-#: helpers/helper.php:168
+#: helpers/helper.php:171
 msgid "Mute on start"
 msgstr "启动时静音"
 
@@ -614,25 +615,25 @@ msgstr "name 为必填项"
 msgid "Next"
 msgstr "下一个"
 
+#: helpers/helper.php:163 helpers/helper.php:178 helpers/helper.php:193
+#: helpers/helper.php:208 helpers/helper.php:223 helpers/helper.php:238
+#: helpers/helper.php:258 helpers/helper.php:273 helpers/helper.php:288
+#: helpers/helper.php:303 helpers/helper.php:318 helpers/helper.php:345
+#: helpers/helper.php:360 helpers/helper.php:375 helpers/helper.php:390
+#: helpers/helper.php:417 helpers/helper.php:432 helpers/helper.php:459
+#: helpers/helper.php:474 helpers/helper.php:501 helpers/helper.php:528
+#: helpers/helper.php:555 helpers/helper.php:582 helpers/helper.php:614
+#: helpers/helper.php:646 helpers/helper.php:673 helpers/helper.php:700
+#: helpers/helper.php:727 helpers/helper.php:742 helpers/helper.php:757
+#: helpers/helper.php:772 helpers/helper.php:799 helpers/helper.php:814
+#: helpers/helper.php:829 helpers/helper.php:856 helpers/helper.php:872
+#: helpers/helper.php:887 helpers/helper.php:902 helpers/helper.php:919
+#: helpers/helper.php:936 helpers/helper.php:952 helpers/helper.php:969
+#: helpers/helper.php:998 helpers/helper.php:1013 helpers/helper.php:1028
+#: helpers/helper.php:1043 helpers/helper.php:1058 helpers/helper.php:1073
+#: helpers/helper.php:1088 helpers/helper.php:1103 helpers/helper.php:1118
 #: helpers/analyticsHelper.php:92 helpers/analyticsHelper.php:108
 #: helpers/analyticsHelper.php:274 helpers/analyticsHelper.php:312
-#: helpers/helper.php:160 helpers/helper.php:175 helpers/helper.php:190
-#: helpers/helper.php:205 helpers/helper.php:220 helpers/helper.php:235
-#: helpers/helper.php:255 helpers/helper.php:270 helpers/helper.php:285
-#: helpers/helper.php:300 helpers/helper.php:315 helpers/helper.php:342
-#: helpers/helper.php:357 helpers/helper.php:372 helpers/helper.php:387
-#: helpers/helper.php:414 helpers/helper.php:429 helpers/helper.php:456
-#: helpers/helper.php:471 helpers/helper.php:498 helpers/helper.php:525
-#: helpers/helper.php:552 helpers/helper.php:579 helpers/helper.php:611
-#: helpers/helper.php:643 helpers/helper.php:670 helpers/helper.php:697
-#: helpers/helper.php:724 helpers/helper.php:739 helpers/helper.php:754
-#: helpers/helper.php:769 helpers/helper.php:796 helpers/helper.php:811
-#: helpers/helper.php:826 helpers/helper.php:853 helpers/helper.php:869
-#: helpers/helper.php:884 helpers/helper.php:899 helpers/helper.php:916
-#: helpers/helper.php:933 helpers/helper.php:949 helpers/helper.php:966
-#: helpers/helper.php:995 helpers/helper.php:1010 helpers/helper.php:1025
-#: helpers/helper.php:1040 helpers/helper.php:1055 helpers/helper.php:1070
-#: helpers/helper.php:1085 helpers/helper.php:1100 helpers/helper.php:1115
 msgid "No"
 msgstr "不"
 
@@ -640,12 +641,12 @@ msgstr "不"
 msgid "No id was sent"
 msgstr "未发送 ID"
 
-#: public/class-plugnmeet-public.php:365
+#: public/class-plugnmeet-public.php:371
 msgid "No recordings found"
 msgstr "未发现录音"
 
-#: public/class-plugnmeet-public.php:328 helpers/ajaxHelper.php:441
-#: helpers/ajaxHelper.php:548
+#: helpers/ajaxHelper.php:441 helpers/ajaxHelper.php:548
+#: public/class-plugnmeet-public.php:334
 msgid "no room found"
 msgstr "未找到房间"
 
@@ -653,11 +654,11 @@ msgstr "未找到房间"
 msgid "No rooms found."
 msgstr "找不到房间。"
 
-#: helpers/helper.php:619
+#: helpers/helper.php:622
 msgid "Number of rooms"
 msgstr "房间数"
 
-#: helpers/analyticsHelper.php:223 admin/class-plugnmeet-settings-page.php:254
+#: helpers/analyticsHelper.php:223 admin/class-plugnmeet-settings-page.php:255
 msgid "Options"
 msgstr "选项"
 
@@ -681,7 +682,7 @@ msgstr "密码不匹配"
 msgid "Permission"
 msgstr "许可"
 
-#: public/class-plugnmeet-public.php:367
+#: public/class-plugnmeet-public.php:373
 msgid "Play"
 msgstr "玩"
 
@@ -697,15 +698,15 @@ msgstr "Plug-N-Meet 网络会议集成"
 msgid "Plug-N-Meet web conference integration with WordPress"
 msgstr "Plug-N-Meet 网络会议与 WordPress 的集成"
 
-#: admin/class-plugnmeet-settings-page.php:207
+#: admin/class-plugnmeet-settings-page.php:208
 msgid "plugNmeet API Key"
 msgstr "plugNmeet API 密钥"
 
-#: admin/class-plugnmeet-settings-page.php:216
+#: admin/class-plugnmeet-settings-page.php:217
 msgid "plugNmeet Secret"
 msgstr "plugNmeet 秘密"
 
-#: admin/class-plugnmeet-settings-page.php:198
+#: admin/class-plugnmeet-settings-page.php:199
 msgid "plugNmeet Server URL"
 msgstr "plugNmeet 服务器 URL"
 
@@ -721,7 +722,7 @@ msgstr "可怜"
 msgid "Pre"
 msgstr "前"
 
-#: admin/class-plugnmeet-settings-page.php:400
+#: admin/class-plugnmeet-settings-page.php:410
 #: admin/partials/form-parts/design.php:30
 msgid "Primary Color"
 msgstr "原色"
@@ -809,7 +810,7 @@ msgstr "房间描述"
 msgid "Room Duration"
 msgstr "房间时长"
 
-#: helpers/helper.php:243
+#: helpers/helper.php:246
 msgid "Room duration (In minutes, 0 = unlimited)"
 msgstr "房间持续时间（以分钟为单位，0 = 无限制）"
 
@@ -821,7 +822,7 @@ msgstr "房间结束时间"
 msgid "Room features"
 msgstr "客房特色"
 
-#: admin/class-plugnmeet-settings-page.php:373
+#: admin/class-plugnmeet-settings-page.php:374
 msgid "Room Host Page"
 msgstr ""
 
@@ -834,11 +835,11 @@ msgstr "房间编号"
 msgid "Room Id"
 msgstr "房间 ID"
 
-#: public/class-plugnmeet-public.php:185 helpers/ajaxHelper.php:424
+#: helpers/ajaxHelper.php:424 public/class-plugnmeet-public.php:191
 msgid "room Id is missing"
 msgstr "房间 ID 缺失"
 
-#: public/class-plugnmeet-public.php:311
+#: public/class-plugnmeet-public.php:317
 msgid "Room ID not provided for the shortcode."
 msgstr "短码未提供房间编号。"
 
@@ -854,7 +855,11 @@ msgstr "房间信息"
 msgid "room not active"
 msgstr "会议室未激活"
 
-#: helpers/helper.php:1145
+#: admin/class-plugnmeet-settings-page.php:383
+msgid "Room Slug Path"
+msgstr ""
+
+#: helpers/helper.php:1148
 msgid "Room Status"
 msgstr "房间状态"
 
@@ -885,7 +890,7 @@ msgstr "RTMP状态计数"
 msgid "Screen Share Status Changes"
 msgstr "屏幕共享状态变更"
 
-#: admin/class-plugnmeet-settings-page.php:301
+#: admin/class-plugnmeet-settings-page.php:302
 msgid "Screen Sharing Resolution"
 msgstr "屏幕共享分辨率"
 
@@ -893,7 +898,7 @@ msgstr "屏幕共享分辨率"
 msgid "Search"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:409
+#: admin/class-plugnmeet-settings-page.php:419
 #: admin/partials/form-parts/design.php:37
 msgid "Secondary Color"
 msgstr "辅助颜色"
@@ -902,7 +907,7 @@ msgstr "辅助颜色"
 msgid "See Excel Report"
 msgstr "参见Excel报告"
 
-#: admin/class-plugnmeet-settings-page.php:86
+#: admin/class-plugnmeet-settings-page.php:98
 msgid "Select a page"
 msgstr ""
 
@@ -910,16 +915,16 @@ msgstr ""
 msgid "Select All"
 msgstr "全选"
 
-#: admin/partials/plugnmeet-admin-display-artifacts.php:23
 #: admin/partials/plugnmeet-admin-display-recordings.php:23
+#: admin/partials/plugnmeet-admin-display-artifacts.php:23
 msgid "Select room"
 msgstr "选择房间"
 
-#: admin/class-plugnmeet-settings-page.php:191
+#: admin/class-plugnmeet-settings-page.php:192
 msgid "Server Settings"
 msgstr "服务器设置"
 
-#: admin/class-plugnmeet-settings-page.php:161
+#: admin/class-plugnmeet-settings-page.php:173
 msgid "Setting saved"
 msgstr "设置已保存"
 
@@ -939,7 +944,7 @@ msgstr "展品"
 msgid "Show recordings"
 msgstr "显示录音"
 
-#: admin/class-plugnmeet-settings-page.php:454
+#: admin/class-plugnmeet-settings-page.php:464
 #: admin/partials/form-parts/design.php:87
 msgid "Side Panel Color"
 msgstr "侧面板颜色"
@@ -956,7 +961,7 @@ msgstr "语音服务的使用"
 msgid "Status"
 msgstr "地位"
 
-#: admin/class-plugnmeet-settings-page.php:334
+#: admin/class-plugnmeet-settings-page.php:335
 msgid "Stop mic track on mute"
 msgstr "静音时停止麦克风轨道"
 
@@ -1022,7 +1027,7 @@ msgstr "发表"
 msgid "Unzip failed"
 msgstr "解压缩失败"
 
-#: admin/class-plugnmeet-settings-page.php:127
+#: admin/class-plugnmeet-settings-page.php:139
 msgid "Update"
 msgstr "更新"
 
@@ -1030,7 +1035,7 @@ msgstr "更新"
 msgid "Updated client successfully"
 msgstr "已成功更新客户端"
 
-#: admin/class-plugnmeet-settings-page.php:114
+#: admin/class-plugnmeet-settings-page.php:126
 #: admin/partials/form-parts/design.php:58
 #: admin/partials/form-parts/design.php:69
 msgid "Upload/Select image"
@@ -1049,7 +1054,7 @@ msgstr "用户ID"
 msgid "Users Info"
 msgstr "用户信息"
 
-#: admin/class-plugnmeet-settings-page.php:279
+#: admin/class-plugnmeet-settings-page.php:280
 msgid "Video Codec"
 msgstr "视频编解码器"
 
@@ -1061,7 +1066,7 @@ msgstr "景观"
 msgid "Voted Poll Count"
 msgstr "投票计票数"
 
-#: helpers/helper.php:587
+#: helpers/helper.php:590
 msgid "Waiting room message"
 msgstr "等候室消息"
 
@@ -1069,7 +1074,7 @@ msgstr "等候室消息"
 msgid "Webcam Enabled Duration"
 msgstr "摄像头支持时长"
 
-#: admin/class-plugnmeet-settings-page.php:288
+#: admin/class-plugnmeet-settings-page.php:289
 msgid "Webcam Resolution"
 msgstr "网络摄像头分辨率"
 
@@ -1093,25 +1098,25 @@ msgstr "白板文件"
 msgid "Whiteboard Files Count"
 msgstr "白板文件数量"
 
+#: helpers/helper.php:159 helpers/helper.php:174 helpers/helper.php:189
+#: helpers/helper.php:204 helpers/helper.php:219 helpers/helper.php:234
+#: helpers/helper.php:254 helpers/helper.php:269 helpers/helper.php:284
+#: helpers/helper.php:299 helpers/helper.php:314 helpers/helper.php:341
+#: helpers/helper.php:356 helpers/helper.php:371 helpers/helper.php:386
+#: helpers/helper.php:413 helpers/helper.php:428 helpers/helper.php:455
+#: helpers/helper.php:470 helpers/helper.php:497 helpers/helper.php:524
+#: helpers/helper.php:551 helpers/helper.php:578 helpers/helper.php:610
+#: helpers/helper.php:642 helpers/helper.php:669 helpers/helper.php:696
+#: helpers/helper.php:723 helpers/helper.php:738 helpers/helper.php:753
+#: helpers/helper.php:768 helpers/helper.php:795 helpers/helper.php:810
+#: helpers/helper.php:825 helpers/helper.php:852 helpers/helper.php:868
+#: helpers/helper.php:883 helpers/helper.php:898 helpers/helper.php:915
+#: helpers/helper.php:932 helpers/helper.php:948 helpers/helper.php:965
+#: helpers/helper.php:994 helpers/helper.php:1009 helpers/helper.php:1024
+#: helpers/helper.php:1039 helpers/helper.php:1054 helpers/helper.php:1069
+#: helpers/helper.php:1084 helpers/helper.php:1099 helpers/helper.php:1114
 #: helpers/analyticsHelper.php:92 helpers/analyticsHelper.php:108
 #: helpers/analyticsHelper.php:274 helpers/analyticsHelper.php:312
-#: helpers/helper.php:156 helpers/helper.php:171 helpers/helper.php:186
-#: helpers/helper.php:201 helpers/helper.php:216 helpers/helper.php:231
-#: helpers/helper.php:251 helpers/helper.php:266 helpers/helper.php:281
-#: helpers/helper.php:296 helpers/helper.php:311 helpers/helper.php:338
-#: helpers/helper.php:353 helpers/helper.php:368 helpers/helper.php:383
-#: helpers/helper.php:410 helpers/helper.php:425 helpers/helper.php:452
-#: helpers/helper.php:467 helpers/helper.php:494 helpers/helper.php:521
-#: helpers/helper.php:548 helpers/helper.php:575 helpers/helper.php:607
-#: helpers/helper.php:639 helpers/helper.php:666 helpers/helper.php:693
-#: helpers/helper.php:720 helpers/helper.php:735 helpers/helper.php:750
-#: helpers/helper.php:765 helpers/helper.php:792 helpers/helper.php:807
-#: helpers/helper.php:822 helpers/helper.php:849 helpers/helper.php:865
-#: helpers/helper.php:880 helpers/helper.php:895 helpers/helper.php:912
-#: helpers/helper.php:929 helpers/helper.php:945 helpers/helper.php:962
-#: helpers/helper.php:991 helpers/helper.php:1006 helpers/helper.php:1021
-#: helpers/helper.php:1036 helpers/helper.php:1051 helpers/helper.php:1066
-#: helpers/helper.php:1081 helpers/helper.php:1096 helpers/helper.php:1111
 msgid "Yes"
 msgstr "是的"
 
