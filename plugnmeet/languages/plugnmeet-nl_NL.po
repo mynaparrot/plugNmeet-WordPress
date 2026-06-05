@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-04 10:03+0000\n"
-"PO-Revision-Date: 2026-06-04 10:07\n"
+"POT-Creation-Date: 2026-06-05 08:01+0000\n"
+"PO-Revision-Date: 2026-06-05 09:14\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -194,7 +194,7 @@ msgid "Artifact was deleted successfully"
 msgstr "Artifact werd succesvol verwijderd"
 
 #: admin/class-plugnmeet-admin.php:201
-#: admin/class-plugnmeet-rooms-list-table.php:98
+#: admin/class-plugnmeet-rooms-list-table.php:101
 msgid "Artifacts"
 msgstr "Artefacten"
 
@@ -202,7 +202,7 @@ msgstr "Artefacten"
 msgid "attendee & moderator password can't be same"
 msgstr "Het wachtwoord van de deelnemer en de moderator kan niet hetzelfde zijn"
 
-#: admin/class-plugnmeet-rooms-list-table.php:87
+#: admin/class-plugnmeet-rooms-list-table.php:89
 #: admin/partials/form-parts/basic.php:48
 msgid "Attendee Password"
 msgstr "Wachtwoord voor deelnemer"
@@ -302,7 +302,7 @@ msgid "Default lock settings"
 msgstr "Standaard vergrendelingsinstellingen"
 
 #: public/class-plugnmeet-public.php:314 admin/class-plugnmeet-admin.php:115
-#: admin/class-plugnmeet-rooms-list-table.php:100
+#: admin/class-plugnmeet-rooms-list-table.php:103
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:36
 msgid "Delete"
 msgstr "Verwijderen"
@@ -337,7 +337,7 @@ msgstr "Duur Gebruik"
 msgid "E2EE Enabled"
 msgstr "E2EE ingeschakeld"
 
-#: admin/class-plugnmeet-rooms-list-table.php:97
+#: admin/class-plugnmeet-rooms-list-table.php:100
 msgid "Edit"
 msgstr "Bewerking"
 
@@ -446,7 +446,7 @@ msgstr "https://github.com/mynaparrot/plugNmeet-WordPress"
 msgid "https://www.mynaparrot.com/"
 msgstr "https://www.mynaparrot.com/"
 
-#: admin/class-plugnmeet-rooms-list-table.php:83
+#: admin/class-plugnmeet-rooms-list-table.php:85
 msgid "ID"
 msgstr "ID"
 
@@ -592,7 +592,7 @@ msgstr "Minimaal twee opnames en een kamer-ID zijn vereist."
 msgid "Moderator join first"
 msgstr "Moderator doe eerst mee"
 
-#: admin/class-plugnmeet-rooms-list-table.php:86
+#: admin/class-plugnmeet-rooms-list-table.php:88
 #: admin/partials/form-parts/basic.php:43
 msgid "Moderator Password"
 msgstr "Moderator Wachtwoord"
@@ -763,7 +763,7 @@ msgid "Recording was deleted successfully"
 msgstr "Opname is succesvol verwijderd"
 
 #: admin/class-plugnmeet-admin.php:191
-#: admin/class-plugnmeet-rooms-list-table.php:99
+#: admin/class-plugnmeet-rooms-list-table.php:102
 #: public/partials/parts/recordings.php:20
 msgid "Recordings"
 msgstr "Opnamen"
@@ -824,7 +824,7 @@ msgstr "Kenmerken van de kamer"
 msgid "Room ID"
 msgstr "Kamer-ID"
 
-#: admin/class-plugnmeet-rooms-list-table.php:85
+#: admin/class-plugnmeet-rooms-list-table.php:87
 #: admin/partials/form-parts/basic.php:23
 msgid "Room Id"
 msgstr "Kamer-ID"
@@ -854,7 +854,7 @@ msgid "Room Status"
 msgstr "Status van de kamer"
 
 #: helpers/analyticsHelper.php:344
-#: admin/class-plugnmeet-rooms-list-table.php:84
+#: admin/class-plugnmeet-rooms-list-table.php:86
 msgid "Room Title"
 msgstr "Kamertitel"
 
@@ -883,6 +883,10 @@ msgstr "Wijzigingen in de status van schermdelen"
 #: admin/class-plugnmeet-settings-page.php:283
 msgid "Screen Sharing Resolution"
 msgstr "Resolutie voor schermdeling"
+
+#: admin/partials/plugnmeet-admin-display-rooms.php:28
+msgid "Search"
+msgstr ""
 
 #: admin/class-plugnmeet-settings-page.php:382
 #: admin/partials/form-parts/design.php:37
@@ -914,6 +918,10 @@ msgstr "Instelling opgeslagen"
 msgid "Settings"
 msgstr "Instellingen"
 
+#: admin/class-plugnmeet-rooms-list-table.php:91
+msgid "Shortcode"
+msgstr ""
+
 #: admin/partials/plugnmeet-admin-display-artifacts.php:29
 msgid "Show artifacts"
 msgstr "Showartefacten"
@@ -935,7 +943,7 @@ msgstr "Taaldienst Totaal Gebruik"
 msgid "Speech Services Usage"
 msgstr "Gebruik van spraakdiensten"
 
-#: admin/class-plugnmeet-rooms-list-table.php:88
+#: admin/class-plugnmeet-rooms-list-table.php:90
 msgid "Status"
 msgstr "Status"
 
