@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-04 10:03+0000\n"
-"PO-Revision-Date: 2026-06-04 10:07\n"
+"POT-Creation-Date: 2026-06-05 08:01+0000\n"
+"PO-Revision-Date: 2026-06-05 09:14\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese\n"
 "Language: pt_PT\n"
@@ -194,7 +194,7 @@ msgid "Artifact was deleted successfully"
 msgstr "O artefacto foi eliminado com sucesso"
 
 #: admin/class-plugnmeet-admin.php:201
-#: admin/class-plugnmeet-rooms-list-table.php:98
+#: admin/class-plugnmeet-rooms-list-table.php:101
 msgid "Artifacts"
 msgstr "Artefactos"
 
@@ -202,7 +202,7 @@ msgstr "Artefactos"
 msgid "attendee & moderator password can't be same"
 msgstr "A palavra-passe do participante e do moderador não pode ser a mesma"
 
-#: admin/class-plugnmeet-rooms-list-table.php:87
+#: admin/class-plugnmeet-rooms-list-table.php:89
 #: admin/partials/form-parts/basic.php:48
 msgid "Attendee Password"
 msgstr "Senha do participante"
@@ -302,7 +302,7 @@ msgid "Default lock settings"
 msgstr "Configurações de bloqueio padrão"
 
 #: public/class-plugnmeet-public.php:314 admin/class-plugnmeet-admin.php:115
-#: admin/class-plugnmeet-rooms-list-table.php:100
+#: admin/class-plugnmeet-rooms-list-table.php:103
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:36
 msgid "Delete"
 msgstr "Suprimir"
@@ -337,7 +337,7 @@ msgstr "Duração de Utilização"
 msgid "E2EE Enabled"
 msgstr "E2EE Ativado"
 
-#: admin/class-plugnmeet-rooms-list-table.php:97
+#: admin/class-plugnmeet-rooms-list-table.php:100
 msgid "Edit"
 msgstr "Editar"
 
@@ -446,7 +446,7 @@ msgstr "https://github.com/mynaparrot/plugNmeet-WordPress"
 msgid "https://www.mynaparrot.com/"
 msgstr "https://www.mynaparrot.com/"
 
-#: admin/class-plugnmeet-rooms-list-table.php:83
+#: admin/class-plugnmeet-rooms-list-table.php:85
 msgid "ID"
 msgstr "ID"
 
@@ -592,7 +592,7 @@ msgstr "São necessárias, no mínimo, duas gravações e a identificação da s
 msgid "Moderator join first"
 msgstr "Moderador junte-se primeiro"
 
-#: admin/class-plugnmeet-rooms-list-table.php:86
+#: admin/class-plugnmeet-rooms-list-table.php:88
 #: admin/partials/form-parts/basic.php:43
 msgid "Moderator Password"
 msgstr "Palavra-passe do moderador"
@@ -763,7 +763,7 @@ msgid "Recording was deleted successfully"
 msgstr "A gravação foi excluída com sucesso"
 
 #: admin/class-plugnmeet-admin.php:191
-#: admin/class-plugnmeet-rooms-list-table.php:99
+#: admin/class-plugnmeet-rooms-list-table.php:102
 #: public/partials/parts/recordings.php:20
 msgid "Recordings"
 msgstr "Gravações"
@@ -824,7 +824,7 @@ msgstr "Características do quarto"
 msgid "Room ID"
 msgstr "ID do quarto"
 
-#: admin/class-plugnmeet-rooms-list-table.php:85
+#: admin/class-plugnmeet-rooms-list-table.php:87
 #: admin/partials/form-parts/basic.php:23
 msgid "Room Id"
 msgstr "Id do quarto"
@@ -854,7 +854,7 @@ msgid "Room Status"
 msgstr "Estado do quarto"
 
 #: helpers/analyticsHelper.php:344
-#: admin/class-plugnmeet-rooms-list-table.php:84
+#: admin/class-plugnmeet-rooms-list-table.php:86
 msgid "Room Title"
 msgstr "Título da Sala"
 
@@ -883,6 +883,10 @@ msgstr "Alterações ao Estado da Partilha de Ecrã"
 #: admin/class-plugnmeet-settings-page.php:283
 msgid "Screen Sharing Resolution"
 msgstr "Resolução de compartilhamento de tela"
+
+#: admin/partials/plugnmeet-admin-display-rooms.php:28
+msgid "Search"
+msgstr ""
 
 #: admin/class-plugnmeet-settings-page.php:382
 #: admin/partials/form-parts/design.php:37
@@ -914,6 +918,10 @@ msgstr "Configuração salva"
 msgid "Settings"
 msgstr "Configurações"
 
+#: admin/class-plugnmeet-rooms-list-table.php:91
+msgid "Shortcode"
+msgstr ""
+
 #: admin/partials/plugnmeet-admin-display-artifacts.php:29
 msgid "Show artifacts"
 msgstr "Mostrar artefactos"
@@ -935,7 +943,7 @@ msgstr "Utilização Total do Serviço de Voz"
 msgid "Speech Services Usage"
 msgstr "Utilização dos Serviços de Fala"
 
-#: admin/class-plugnmeet-rooms-list-table.php:88
+#: admin/class-plugnmeet-rooms-list-table.php:90
 msgid "Status"
 msgstr "Situação"
 
