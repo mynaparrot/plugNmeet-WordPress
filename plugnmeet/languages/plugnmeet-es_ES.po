@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-06 09:18+0000\n"
-"PO-Revision-Date: 2026-06-06 09:43\n"
+"PO-Revision-Date: 2026-06-06 10:13\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -379,7 +379,7 @@ msgstr "Activar Simulcast"
 
 #: public/partials/parts/login-form.php:35
 msgid "Enter room password"
-msgstr "Introduce la contraseña de la habitación"
+msgstr "Introduzca la contraseña de la sala"
 
 #: public/partials/parts/login-form.php:27
 msgid "Enter your name"
@@ -642,7 +642,7 @@ msgstr "no se encontró sala"
 
 #: admin/class-plugnmeet-rooms-list-table.php:64
 msgid "No rooms found."
-msgstr "No se han encontrado habitaciones."
+msgstr "No se ha encontrado ninguna sala."
 
 #: helpers/helper.php:622
 msgid "Number of rooms"
@@ -774,11 +774,11 @@ msgstr "Rol"
 
 #: admin/class-plugnmeet-rooms-list-table.php:23
 msgid "Room"
-msgstr "Habitación"
+msgstr "Sala"
 
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:54
 msgid "Room Analytics"
-msgstr "Análisis de Habitaciones"
+msgstr "Análisis de la sala"
 
 #: helpers/analyticsHelper.php:345
 msgid "Room Creation Time"
@@ -786,7 +786,7 @@ msgstr "Tiempo de creación de la sala"
 
 #: admin/class-plugnmeet-admin.php:501
 msgid "Room deleted successfully"
-msgstr "Habitación eliminada con éxito"
+msgstr "Sala eliminada correctamente"
 
 #: admin/partials/form-parts/basic.php:39
 msgid "Room description"
@@ -802,7 +802,7 @@ msgstr "Duración de la sala (En minutos, 0 = ilimitado)"
 
 #: helpers/analyticsHelper.php:346
 msgid "Room Ended Time"
-msgstr "Tiempo Terminado en la Habitación"
+msgstr "Hora de finalización de la sala"
 
 #: admin/partials/plugnmeet-admin-edit-room.php:41
 msgid "Room features"
@@ -814,7 +814,7 @@ msgstr "Página de anfitrión de la sala"
 
 #: helpers/analyticsHelper.php:343 admin/class-plugnmeet-room-page.php:113
 msgid "Room ID"
-msgstr "ID de la habitación"
+msgstr "ID de sala"
 
 #: admin/class-plugnmeet-rooms-list-table.php:87
 #: admin/partials/form-parts/basic.php:23
@@ -823,19 +823,19 @@ msgstr "ID de la sala"
 
 #: public/class-plugnmeet-public.php:191
 msgid "room Id is missing"
-msgstr "falta el Id de la sala"
+msgstr "Falta el Id de la sala"
 
 #: public/class-plugnmeet-public.php:317
 msgid "Room ID not provided for the shortcode."
-msgstr "No se proporciona el ID de la habitación para el código corto."
+msgstr "ID de la sala no se proporciona para el shortcode."
 
 #: helpers/analyticsHelper.php:162
 msgid "Room Info"
-msgstr "Información de la habitación"
+msgstr "Información de la sala"
 
 #: admin/class-plugnmeet-settings-page.php:383
 msgid "Room Slug Path"
-msgstr "Camino de Babosas de la Habitación"
+msgstr "Ruta del Slug"
 
 #: helpers/helper.php:1148
 msgid "Room Status"
@@ -844,7 +844,7 @@ msgstr "Estado de la sala"
 #: helpers/analyticsHelper.php:344
 #: admin/class-plugnmeet-rooms-list-table.php:86
 msgid "Room Title"
-msgstr "Título de la habitación"
+msgstr "Título de la sala"
 
 #: admin/partials/form-parts/basic.php:34
 msgid "Room title"
@@ -1082,7 +1082,7 @@ msgstr "No hemos encontrado la grabación que intentas descargar. Por favor, int
 
 #: helpers/ajaxHelper.php:67 helpers/ajaxHelper.php:114
 msgid "We couldn't find the room you're looking for. Please check the link and try again."
-msgstr "No hemos encontrado la habitación que buscas. Por favor, revisa el enlace e inténtalo de nuevo."
+msgstr "No hemos encontrado la sala que buscas. Por favor, revisa el enlace e inténtalo de nuevo."
 
 #: helpers/ajaxHelper.php:411
 msgid "We couldn't find the room you're trying to join. Please check the link and try again."
