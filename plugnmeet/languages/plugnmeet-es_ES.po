@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-06 09:18+0000\n"
-"PO-Revision-Date: 2026-06-06 09:40\n"
+"PO-Revision-Date: 2026-06-06 09:43\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -24,7 +24,7 @@ msgstr " no puede estar vacío."
 
 #: helpers/ajaxHelper.php:598
 msgid "A password is required to join this room."
-msgstr ""
+msgstr "Se requiere una contraseña para entrar en esta sala."
 
 #: public/partials/parts/recordings.php:28
 msgid "Action"
@@ -379,11 +379,11 @@ msgstr "Activar Simulcast"
 
 #: public/partials/parts/login-form.php:35
 msgid "Enter room password"
-msgstr ""
+msgstr "Introduce la contraseña de la habitación"
 
 #: public/partials/parts/login-form.php:27
 msgid "Enter your name"
-msgstr ""
+msgstr "Introduce tu nombre"
 
 #: admin/class-plugnmeet-room-page.php:127
 #: admin/class-plugnmeet-room-page.php:132
@@ -674,7 +674,7 @@ msgstr "Reproducir"
 
 #: helpers/ajaxHelper.php:416
 msgid "Please enter your name to join the meeting."
-msgstr ""
+msgstr "Por favor, introduzca su nombre para unirse a la reunión."
 
 #: admin/class-plugnmeet-admin.php:169 admin/class-plugnmeet-admin.php:170
 msgid "Plug-N-Meet"
@@ -758,7 +758,7 @@ msgstr "Grabaciones"
 
 #: helpers/ajaxHelper.php:524
 msgid "Redirecting you to the meeting..."
-msgstr ""
+msgstr "Redirigiéndote a la reunión..."
 
 #: public/class-plugnmeet-public.php:97
 msgid "Redirecting..."
@@ -810,7 +810,7 @@ msgstr "Características de la sala"
 
 #: admin/class-plugnmeet-settings-page.php:374
 msgid "Room Host Page"
-msgstr ""
+msgstr "Página de anfitrión de la sala"
 
 #: helpers/analyticsHelper.php:343 admin/class-plugnmeet-room-page.php:113
 msgid "Room ID"
@@ -835,7 +835,7 @@ msgstr "Información de la habitación"
 
 #: admin/class-plugnmeet-settings-page.php:383
 msgid "Room Slug Path"
-msgstr ""
+msgstr "Camino de Babosas de la Habitación"
 
 #: helpers/helper.php:1148
 msgid "Room Status"
@@ -870,7 +870,7 @@ msgstr "Resolución de pantalla compartida"
 
 #: admin/partials/plugnmeet-admin-display-rooms.php:28
 msgid "Search"
-msgstr ""
+msgstr "Búsqueda"
 
 #: admin/class-plugnmeet-settings-page.php:419
 #: admin/partials/form-parts/design.php:37
@@ -883,7 +883,7 @@ msgstr "Ver informe de Excel"
 
 #: admin/class-plugnmeet-settings-page.php:98
 msgid "Select a page"
-msgstr ""
+msgstr "Seleccionar una página"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:41
 msgid "Select All"
@@ -908,7 +908,7 @@ msgstr "Configuración"
 
 #: admin/class-plugnmeet-rooms-list-table.php:91
 msgid "Shortcode"
-msgstr ""
+msgstr "Código corto"
 
 #: admin/partials/plugnmeet-admin-display-artifacts.php:29
 msgid "Show artifacts"
@@ -961,31 +961,31 @@ msgstr "Duración de la charla"
 
 #: helpers/ajaxHelper.php:263
 msgid "The item was deleted successfully."
-msgstr ""
+msgstr "El elemento fue eliminado con éxito."
 
 #: helpers/ajaxHelper.php:463
 msgid "The meeting has not started yet. Please wait for a moderator to begin the session."
-msgstr ""
+msgstr "La reunión aún no ha comenzado. Por favor, esperad a que un moderador comience la sesión."
 
 #: helpers/ajaxHelper.php:585
 msgid "The password you entered is incorrect. Please try again."
-msgstr ""
+msgstr "La contraseña que has introducido es incorrecta. Por favor, inténtalo de nuevo."
 
 #: helpers/ajaxHelper.php:341
 msgid "The recording was deleted successfully."
-msgstr ""
+msgstr "La grabación fue eliminada con éxito."
 
 #: helpers/ajaxHelper.php:389
 msgid "The recordings are being merged. This may take a few moments."
-msgstr ""
+msgstr "Las grabaciones se están fusionando. Esto puede llevar unos momentos."
 
 #: helpers/ajaxHelper.php:428 helpers/ajaxHelper.php:548
 msgid "The room you are trying to join does not exist."
-msgstr ""
+msgstr "La sala a la que intentas unirte no existe."
 
 #: helpers/ajaxHelper.php:431 helpers/ajaxHelper.php:552
 msgid "This room is not currently active. Please contact the administrator."
-msgstr ""
+msgstr "Esta sala no está activa en este momento. Por favor, contacte con el administrador."
 
 #: admin/class-plugnmeet-admin.php:231 admin/class-plugnmeet-admin.php:333
 #: admin/class-plugnmeet-admin.php:472
@@ -1066,27 +1066,27 @@ msgstr "Mensaje de la sala de espera"
 
 #: helpers/ajaxHelper.php:246
 msgid "We couldn't find the item you're trying to delete. Please try again."
-msgstr ""
+msgstr "No pudimos encontrar el elemento que intentas eliminar. Por favor, inténtalo de nuevo."
 
 #: helpers/ajaxHelper.php:174 helpers/ajaxHelper.php:212
 msgid "We couldn't find the item you're trying to download. Please try again."
-msgstr ""
+msgstr "No hemos encontrado el artículo que intentas descargar. Por favor, inténtalo de nuevo."
 
 #: helpers/ajaxHelper.php:324
 msgid "We couldn't find the recording you're trying to delete. Please try again."
-msgstr ""
+msgstr "No pudimos encontrar la grabación que intentas borrar. Por favor, inténtalo de nuevo."
 
 #: helpers/ajaxHelper.php:288
 msgid "We couldn't find the recording you're trying to download. Please try again."
-msgstr ""
+msgstr "No hemos encontrado la grabación que intentas descargar. Por favor, inténtalo de nuevo."
 
 #: helpers/ajaxHelper.php:67 helpers/ajaxHelper.php:114
 msgid "We couldn't find the room you're looking for. Please check the link and try again."
-msgstr ""
+msgstr "No hemos encontrado la habitación que buscas. Por favor, revisa el enlace e inténtalo de nuevo."
 
 #: helpers/ajaxHelper.php:411
 msgid "We couldn't find the room you're trying to join. Please check the link and try again."
-msgstr ""
+msgstr "No hemos encontrado la sala a la que intentas unirte. Por favor, revisa el enlace e inténtalo de nuevo."
 
 #: helpers/analyticsHelper.php:377
 msgid "Webcam Enabled Duration"
@@ -1140,20 +1140,20 @@ msgstr "Sí"
 
 #: helpers/ajaxHelper.php:540 helpers/ajaxHelper.php:575
 msgid "You do not have permission to join this room."
-msgstr ""
+msgstr "No tienes permiso para entrar en esta sala."
 
 #: helpers/ajaxHelper.php:179 helpers/ajaxHelper.php:217
 #: helpers/ajaxHelper.php:251 helpers/ajaxHelper.php:366
 msgid "You do not have permission to perform this action."
-msgstr ""
+msgstr "No tienes permiso para realizar esta acción."
 
 #: helpers/ajaxHelper.php:119
 msgid "You do not have permission to view this page."
-msgstr ""
+msgstr "No tienes permiso para ver esta página."
 
 #: helpers/ajaxHelper.php:361
 msgid "You must select at least two recordings to merge."
-msgstr ""
+msgstr "Debes seleccionar al menos dos grabaciones para fusionar."
 
 #: helpers/ajaxHelper.php:55 helpers/ajaxHelper.php:102
 #: helpers/ajaxHelper.php:165 helpers/ajaxHelper.php:199
@@ -1161,5 +1161,5 @@ msgstr ""
 #: helpers/ajaxHelper.php:314 helpers/ajaxHelper.php:351
 #: helpers/ajaxHelper.php:398
 msgid "Your session has expired. Please refresh the page and try again."
-msgstr ""
+msgstr "Tu sesión ha expirado. Por favor, actualiza la página e inténtalo de nuevo."
 
