@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.2.2](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.2.1...v2.2.2) (2026-06-06)
+
+
+### Bug Fixes
+
+* added helper method `get_post_param` for easy sanitize POST parameters ([e11c66a](https://github.com/mynaparrot/plugNmeet-WordPress/commit/e11c66a7f91bd4fbeff3b326b8568aea64f70071))
+* added more clear messages ([5079e9d](https://github.com/mynaparrot/plugNmeet-WordPress/commit/5079e9d0aa47be14e087492dc29c79bfa5ba855e))
+* added setting to assign custom `room_slug_path` value ([ac8f80d](https://github.com/mynaparrot/plugNmeet-WordPress/commit/ac8f80d65e68c37a9e4eb7d6d37e4eb12d94046d))
+* adjusted few styling ([a654d13](https://github.com/mynaparrot/plugNmeet-WordPress/commit/a654d13626edf3f871af3d5669e67dacde1389c5))
+* allow theme dev to easy override ([b86c506](https://github.com/mynaparrot/plugNmeet-WordPress/commit/b86c506b245965fd15e3436fbdd545de827bdaf2))
+* cleanup code and remove confusing method name ([b799d9b](https://github.com/mynaparrot/plugNmeet-WordPress/commit/b799d9b790b6f7b79488842c781b618a214933c5))
+* display `shortcode` as well ([badacba](https://github.com/mynaparrot/plugNmeet-WordPress/commit/badacba0e31b0d38d793221e2d96a4404bcef638))
+* **feat:** Implement robust frontend room access via clean URLs ([ba6aec5](https://github.com/mynaparrot/plugNmeet-WordPress/commit/ba6aec55631accfc871520a00a5488f52801c2c9))
+* new Crowdin updates ([d75a862](https://github.com/mynaparrot/plugNmeet-WordPress/commit/d75a86276c065224ccaaf400758054b57c659bde))
+* remove 'v' prefix ([8175c3f](https://github.com/mynaparrot/plugNmeet-WordPress/commit/8175c3f89e44e95c89a8ac191fca45b7098a97d8))
+* remove custom design ([5db86e8](https://github.com/mynaparrot/plugNmeet-WordPress/commit/5db86e829bfa833a2f7c726e4b3472b7256c5af5))
+* replaced `<p>` tags with `<div>` ([cef7092](https://github.com/mynaparrot/plugNmeet-WordPress/commit/cef7092dc3be91919ac4eb8e466b913e5adfcfb0))
+* use html `code` tag ([ba8e4cc](https://github.com/mynaparrot/plugNmeet-WordPress/commit/ba8e4cc01d5bac96569650db7b6ec6d71d9a0412))
+
 ## [2.2.1](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.2.0...v2.2.1) (2026-06-04)
 
 
