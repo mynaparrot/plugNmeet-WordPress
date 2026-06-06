@@ -44,7 +44,7 @@ This plugin connects your WordPress site to a plugNmeet server. As a free and op
 
 ---
 
-### Powerful Features for Your Website
+### Powerful Meeting Features
 
 #### Core Conferencing Tools
 *   **HD Audio & Video:** Crystal-clear communication, screen sharing, and virtual backgrounds.
