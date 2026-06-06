@@ -379,8 +379,48 @@ class Plugnmeet_Public {
 		}
 
 		ob_start();
-		require plugin_dir_path( dirname( __FILE__ ) ) . 'public/partials/plugnmeet-public-display.php';
+		$template_file = $this->locate_template( 'plugnmeet-public-display.php' );
+		extract( array(
+			'roomInfo' => $roomInfo,
+			'user'     => $user,
+			'role'     => $role,
+		) );
+		require $template_file;
 
 		return ob_get_clean();
+	}
+
+	/**
+	 * Locate a template file.
+	 *
+	 * Checks for the file in the theme (and child theme) first,
+	 * then falls back to the plugin's template directory.
+	 *
+	 * @param string $template_name The name of the template file (e.g., 'my-template.php').
+	 * @param string $template_path Optional. The path to the template directory within the theme.
+	 * @param string $default_path Optional. The default path to the template directory within the plugin.
+	 *
+	 * @return string The path to the template file.
+	 */
+	public function locate_template( $template_name, $template_path = '', $default_path = '' ) {
+		if ( ! $template_path ) {
+			$template_path = 'plugnmeet/';
+		}
+		if ( ! $default_path ) {
+			$default_path = plugin_dir_path( __FILE__ ) . 'partials/';
+		}
+
+		// Look for the template in the theme's directory: /wp-content/themes/your-theme/plugnmeet/
+		$template = locate_template( array(
+			trailingslashit( $template_path ) . $template_name,
+			$template_name,
+		) );
+
+		// If the template is not in the theme, use the plugin's default.
+		if ( ! $template ) {
+			$template = $default_path . $template_name;
+		}
+
+		return $template;
 	}
 }

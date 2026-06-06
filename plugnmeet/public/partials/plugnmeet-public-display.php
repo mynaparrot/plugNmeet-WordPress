@@ -22,10 +22,16 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
             <div class="description"><?php echo wp_kses_post( $roomInfo->description ) ?></div>
             <hr/>
         <?php endif; ?>
-        <?php require plugin_dir_path( dirname( __FILE__ ) ) . '/partials/parts/login-form.php'; ?>
+        <?php
+        $login_form_template = $this->locate_template( 'parts/login-form.php' );
+        require $login_form_template;
+        ?>
 
         <?php if ( isset( $role['can_view_recording'] ) && $role['can_view_recording'] === "on" ): ?>
-            <?php require plugin_dir_path( dirname( __FILE__ ) ) . '/partials/parts/recordings.php'; ?>
+            <?php
+            $recordings_template = $this->locate_template( 'parts/recordings.php' );
+            require $recordings_template;
+            ?>
         <?php endif; ?>
     </div>
 </div>
