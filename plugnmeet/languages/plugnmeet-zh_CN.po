@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-06 09:18+0000\n"
-"PO-Revision-Date: 2026-06-06 09:41\n"
+"PO-Revision-Date: 2026-06-06 09:43\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -24,7 +24,7 @@ msgstr " 不能为空。"
 
 #: helpers/ajaxHelper.php:598
 msgid "A password is required to join this room."
-msgstr ""
+msgstr "加入该房间需要密码。"
 
 #: public/partials/parts/recordings.php:28
 msgid "Action"
@@ -379,11 +379,11 @@ msgstr "启用联播"
 
 #: public/partials/parts/login-form.php:35
 msgid "Enter room password"
-msgstr ""
+msgstr "输入房间密码"
 
 #: public/partials/parts/login-form.php:27
 msgid "Enter your name"
-msgstr ""
+msgstr "请输入你的名字"
 
 #: admin/class-plugnmeet-room-page.php:127
 #: admin/class-plugnmeet-room-page.php:132
@@ -674,7 +674,7 @@ msgstr "玩"
 
 #: helpers/ajaxHelper.php:416
 msgid "Please enter your name to join the meeting."
-msgstr ""
+msgstr "请输入您的名字以加入会议。"
 
 #: admin/class-plugnmeet-admin.php:169 admin/class-plugnmeet-admin.php:170
 msgid "Plug-N-Meet"
@@ -758,7 +758,7 @@ msgstr "录音"
 
 #: helpers/ajaxHelper.php:524
 msgid "Redirecting you to the meeting..."
-msgstr ""
+msgstr "把你引导到会议上......"
 
 #: public/class-plugnmeet-public.php:97
 msgid "Redirecting..."
@@ -810,7 +810,7 @@ msgstr "客房特色"
 
 #: admin/class-plugnmeet-settings-page.php:374
 msgid "Room Host Page"
-msgstr ""
+msgstr "房间主持页面"
 
 #: helpers/analyticsHelper.php:343 admin/class-plugnmeet-room-page.php:113
 msgid "Room ID"
@@ -835,7 +835,7 @@ msgstr "房间信息"
 
 #: admin/class-plugnmeet-settings-page.php:383
 msgid "Room Slug Path"
-msgstr ""
+msgstr "房间蛞蝓之路"
 
 #: helpers/helper.php:1148
 msgid "Room Status"
@@ -870,7 +870,7 @@ msgstr "屏幕共享分辨率"
 
 #: admin/partials/plugnmeet-admin-display-rooms.php:28
 msgid "Search"
-msgstr ""
+msgstr "搜索"
 
 #: admin/class-plugnmeet-settings-page.php:419
 #: admin/partials/form-parts/design.php:37
@@ -883,7 +883,7 @@ msgstr "参见Excel报告"
 
 #: admin/class-plugnmeet-settings-page.php:98
 msgid "Select a page"
-msgstr ""
+msgstr "选择页面"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:41
 msgid "Select All"
@@ -908,7 +908,7 @@ msgstr "设置"
 
 #: admin/class-plugnmeet-rooms-list-table.php:91
 msgid "Shortcode"
-msgstr ""
+msgstr "短代码"
 
 #: admin/partials/plugnmeet-admin-display-artifacts.php:29
 msgid "Show artifacts"
@@ -961,31 +961,31 @@ msgstr "通话时长"
 
 #: helpers/ajaxHelper.php:263
 msgid "The item was deleted successfully."
-msgstr ""
+msgstr "该项目已成功删除。"
 
 #: helpers/ajaxHelper.php:463
 msgid "The meeting has not started yet. Please wait for a moderator to begin the session."
-msgstr ""
+msgstr "会议还没开始。请等待主持人开始本场。"
 
 #: helpers/ajaxHelper.php:585
 msgid "The password you entered is incorrect. Please try again."
-msgstr ""
+msgstr "你输入的密码是错误的。请再试一次。"
 
 #: helpers/ajaxHelper.php:341
 msgid "The recording was deleted successfully."
-msgstr ""
+msgstr "该录音被成功删除。"
 
 #: helpers/ajaxHelper.php:389
 msgid "The recordings are being merged. This may take a few moments."
-msgstr ""
+msgstr "录音正在合并。这可能需要几分钟。"
 
 #: helpers/ajaxHelper.php:428 helpers/ajaxHelper.php:548
 msgid "The room you are trying to join does not exist."
-msgstr ""
+msgstr "你想加入的房间不存在。"
 
 #: helpers/ajaxHelper.php:431 helpers/ajaxHelper.php:552
 msgid "This room is not currently active. Please contact the administrator."
-msgstr ""
+msgstr "该房间目前不活跃。请联系管理员。"
 
 #: admin/class-plugnmeet-admin.php:231 admin/class-plugnmeet-admin.php:333
 #: admin/class-plugnmeet-admin.php:472
@@ -1066,27 +1066,27 @@ msgstr "等候室消息"
 
 #: helpers/ajaxHelper.php:246
 msgid "We couldn't find the item you're trying to delete. Please try again."
-msgstr ""
+msgstr "我们找不到你想删除的那个物品。请再试一次。"
 
 #: helpers/ajaxHelper.php:174 helpers/ajaxHelper.php:212
 msgid "We couldn't find the item you're trying to download. Please try again."
-msgstr ""
+msgstr "我们找不到你想下载的那个物品。请再试一次。"
 
 #: helpers/ajaxHelper.php:324
 msgid "We couldn't find the recording you're trying to delete. Please try again."
-msgstr ""
+msgstr "我们找不到你想删除的录音。请再试一次。"
 
 #: helpers/ajaxHelper.php:288
 msgid "We couldn't find the recording you're trying to download. Please try again."
-msgstr ""
+msgstr "我们找不到你想下载的录音。请再试一次。"
 
 #: helpers/ajaxHelper.php:67 helpers/ajaxHelper.php:114
 msgid "We couldn't find the room you're looking for. Please check the link and try again."
-msgstr ""
+msgstr "我们找不到你要找的房间。请查看链接并重新尝试。"
 
 #: helpers/ajaxHelper.php:411
 msgid "We couldn't find the room you're trying to join. Please check the link and try again."
-msgstr ""
+msgstr "我们找不到你想加入的那个房间。请查看链接并重新尝试。"
 
 #: helpers/analyticsHelper.php:377
 msgid "Webcam Enabled Duration"
@@ -1140,20 +1140,20 @@ msgstr "是的"
 
 #: helpers/ajaxHelper.php:540 helpers/ajaxHelper.php:575
 msgid "You do not have permission to join this room."
-msgstr ""
+msgstr "你没有进入这个房间的许可。"
 
 #: helpers/ajaxHelper.php:179 helpers/ajaxHelper.php:217
 #: helpers/ajaxHelper.php:251 helpers/ajaxHelper.php:366
 msgid "You do not have permission to perform this action."
-msgstr ""
+msgstr "你没有权限执行此操作。"
 
 #: helpers/ajaxHelper.php:119
 msgid "You do not have permission to view this page."
-msgstr ""
+msgstr "您无权查看本页面。"
 
 #: helpers/ajaxHelper.php:361
 msgid "You must select at least two recordings to merge."
-msgstr ""
+msgstr "你必须至少选择两个录音进行合并。"
 
 #: helpers/ajaxHelper.php:55 helpers/ajaxHelper.php:102
 #: helpers/ajaxHelper.php:165 helpers/ajaxHelper.php:199
@@ -1161,5 +1161,5 @@ msgstr ""
 #: helpers/ajaxHelper.php:314 helpers/ajaxHelper.php:351
 #: helpers/ajaxHelper.php:398
 msgid "Your session has expired. Please refresh the page and try again."
-msgstr ""
+msgstr "你的会话已结束。请刷新页面并重新尝试。"
 
