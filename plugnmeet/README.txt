@@ -1,7 +1,7 @@
 === plugnmeet ===
-Contributors: mynaparrot
+Contributors: bobteng
 Donate link: https://www.plugnmeet.org/
-Tags: video conference, webinar, online meeting, virtual classroom, video chat, zoom alternative, live streaming, webrtc, self-hosted, meeting, video
+Tags: video conference, webinar, zoom, live streaming, virtual classroom
 Requires at least: 6.6
 Tested up to: 7.0
 # x-release-please-start-version
@@ -11,7 +11,7 @@ Requires PHP: 8.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Host secure, open-source video meetings and webinars directly on your WordPress site. Keep your users engaged without sending them to a third-party service.
+Host secure, open-source meetings, webinars & classrooms directly on your WordPress site, keeping users engaged on your platform.
 
 == Description ==
 
@@ -93,7 +93,7 @@ While the shortcode method is great for embedding a room inside existing content
 2.  **Select the Host Page:** Go to the **Plug-N-Meet -> Settings** page. In the "Options" section, you will find a new setting called **"Room Host Page"**. Select the page you just created from the dropdown menu and save your settings.
 3.  **Save Permalinks:** Go to **Settings -> Permalinks** in your admin dashboard and simply click the "Save Changes" button. You don't need to change any settings; this just refreshes WordPress's URL rules.
 
-That's it! Now, when you go to the **Plug-N-Meet -> Rooms** list in your admin area, the "Join" and "Copy Link" actions for each room will point to a clean URL like `yoursite.com/plugnmeet/room/your-room-id/`. When a user visits this link, the plugin will use your "Host Page" as a template, ensuring the login form appears correctly within your theme's design but without any other post content.
+That's it! Now, when you go to the **Plug-N-Meet -> Rooms** list in your admin area, the "Join" actions for each room will point to a clean URL like `yoursite.com/plugnmeet/room/your-room-id/`. When a user visits this link, the plugin will use your "Host Page" as a template, ensuring the login form appears correctly within your theme's design but without any other post content.
 
 = Do I really need a separate server? =
 
@@ -135,7 +135,8 @@ The new webhook feature allows you to receive real-time notifications about even
 
 `add_action( 'plugnmeet_webhook_data', 'my_plugnmeet_webhook_handler', 10, 1 );`
 
-`function my_plugnmeet_webhook_handler( $data ) {`
+`function my_plugnmeet_webhook_handler(
+ $data ) {`
 `  // Process the webhook data here`
 `}`
 
