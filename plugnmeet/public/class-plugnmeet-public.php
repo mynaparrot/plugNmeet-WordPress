@@ -379,7 +379,7 @@ class Plugnmeet_Public {
 		}
 
 		ob_start();
-		$template_file = $this->locate_template( 'plugnmeet-public-display.php' );
+		$template_file = $this->pnm_locate_template( 'plugnmeet-public-display.php' );
 		extract( array(
 			'roomInfo' => $roomInfo,
 			'user'     => $user,
@@ -393,34 +393,28 @@ class Plugnmeet_Public {
 	/**
 	 * Locate a template file.
 	 *
-	 * Checks for the file in the theme (and child theme) first,
-	 * then falls back to the plugin's template directory.
+	 * This is a custom template locator for this plugin.
+	 * It will check for the file in the child theme, then the parent theme,
+	 * and finally fall back to the plugin's default template directory.
 	 *
 	 * @param string $template_name The name of the template file (e.g., 'my-template.php').
-	 * @param string $template_path Optional. The path to the template directory within the theme.
-	 * @param string $default_path Optional. The default path to the template directory within the plugin.
 	 *
 	 * @return string The path to the template file.
 	 */
-	public function locate_template( $template_name, $template_path = '', $default_path = '' ) {
-		if ( ! $template_path ) {
-			$template_path = 'plugnmeet/';
-		}
-		if ( ! $default_path ) {
-			$default_path = plugin_dir_path( __FILE__ ) . 'partials/';
-		}
-
-		// Look for the template in the theme's directory: /wp-content/themes/your-theme/plugnmeet/
-		$template = locate_template( array(
-			trailingslashit( $template_path ) . $template_name,
-			$template_name,
-		) );
-
-		// If the template is not in the theme, use the plugin's default.
-		if ( ! $template ) {
-			$template = $default_path . $template_name;
+	public function pnm_locate_template( $template_name ) {
+		// Check the child theme for an override.
+		$template_path = get_stylesheet_directory() . '/plugnmeet/' . $template_name;
+		if ( file_exists( $template_path ) ) {
+			return $template_path;
 		}
 
-		return $template;
+		// Check the parent theme for an override.
+		$template_path = get_template_directory() . '/plugnmeet/' . $template_name;
+		if ( file_exists( $template_path ) ) {
+			return $template_path;
+		}
+
+		// If no override is found, return the default plugin template.
+		return plugin_dir_path( __FILE__ ) . 'partials/' . $template_name;
 	}
 }

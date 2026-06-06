@@ -23,13 +23,13 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
             <hr/>
         <?php endif; ?>
         <?php
-        $login_form_template = $this->locate_template( 'parts/login-form.php' );
+        $login_form_template = $this->pnm_locate_template( 'parts/login-form.php' );
         require $login_form_template;
         ?>
 
         <?php if ( isset( $role['can_view_recording'] ) && $role['can_view_recording'] === "on" ): ?>
             <?php
-            $recordings_template = $this->locate_template( 'parts/recordings.php' );
+            $recordings_template = $this->pnm_locate_template( 'parts/recordings.php' );
             require $recordings_template;
             ?>
         <?php endif; ?>
