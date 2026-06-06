@@ -21,18 +21,18 @@ $currentUrl = home_url( add_query_arg( null, null ) );
     <div class="notice notice-info roomStatus" role="alert" style="display: none"></div>
 
     <div class="form-row">
-        <label for="name"><?php echo __( "Name", "plugnmeet" ) ?></label>
-        <input type="text" name="name" id="name" required
+        <label for="pnm-name"><?php echo __( "Name", "plugnmeet" ) ?></label>
+        <input type="text" name="name" id="pnm-name" required
                value="<?php echo esc_attr( $user->display_name ) ?>"
-               placeholder="<?php echo __( "Your full name", "plugnmeet" ) ?>"
+               placeholder="<?php echo __( "Enter your name", "plugnmeet" ) ?>"
         >
     </div>
 
     <?php if ( isset( $role['require_password'] ) && $role['require_password'] === "on" ): ?>
         <div class="form-row">
-            <label for="room-password"><?php echo __( "Password", "plugnmeet" ) ?></label>
-            <input type="password" name="password" id="room-password" required
-                   placeholder="<?php echo __( "Room's Password", "plugnmeet" ) ?>"
+            <label for="pnm-room-password"><?php echo __( "Password", "plugnmeet" ) ?></label>
+            <input type="password" name="password" id="pnm-room-password" required
+                   placeholder="<?php echo __( "Enter room password", "plugnmeet" ) ?>"
             >
         </div>
     <?php endif; ?>
