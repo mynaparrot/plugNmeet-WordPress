@@ -53,6 +53,7 @@ $custom_design = $fields_values['custom_design'];
             <input style="margin-right: 20px;" size="36"
                    id="background_image"
                    name="custom_design[background_image]"
+                   type="text"
                    value="<?php echo isset( $custom_design['background_image'] ) ? esc_attr( $custom_design['background_image'] ) : ''; ?>"/>
             <input class="button upload_media_button" data-attached-to="background_image" type="button"
                    value="<?php echo __( 'Upload/Select image', 'plugnmeet' ); ?>"/>
@@ -64,6 +65,7 @@ $custom_design = $fields_values['custom_design'];
             <input style="margin-right: 20px;" size="36"
                    id="logo"
                    name="custom_design[logo]"
+                   type="text"
                    value="<?php echo isset( $custom_design['logo'] ) ? esc_attr( $custom_design['logo'] ) : ''; ?>"/>
             <input class="button upload_media_button" data-attached-to="logo" type="button"
                    value="<?php echo __( 'Upload/Select image', 'plugnmeet' ); ?>"/>
