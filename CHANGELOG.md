@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.2.3](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.2.2...v2.2.3) (2026-06-08)
+
+
+### Bug Fixes
+
+* critical bug when sanitizing array type using `sanitize_text_field` ([d0a3cfd](https://github.com/mynaparrot/plugNmeet-WordPress/commit/d0a3cfdc51160399f05012def1e696b81c090e57))
+* replaced bootstrap with native wp style ([32447b6](https://github.com/mynaparrot/plugNmeet-WordPress/commit/32447b6f43d82b58603b9ed846155ea3c9903945))
+
 ## [2.2.2](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.2.1...v2.2.2) (2026-06-06)
 
 
