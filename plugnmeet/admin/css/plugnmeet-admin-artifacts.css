@@ -26,3 +26,15 @@
     border-color: #d43f3a !important;
     color: #fff !important;
 }
+
+.plugnmeet-artifact-details .details {
+    margin-bottom: 24px;
+}
+
+.plugnmeet-artifact-details .user-analytics-header {
+    margin-top: 24px;
+}
+
+.plugnmeet-artifact-details .meeting-summary-header {
+    margin-top: 24px;
+}

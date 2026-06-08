@@ -39,7 +39,7 @@ $paged         = isset( $_GET['paged'] ) ? sanitize_text_field( $_GET['paged'] )
     </div>
     <hr/>
 
-    <table class="form-table mb-4">
+    <table class="form-table details">
         <tbody>
         <?php foreach ( $context['details'] as $detail ) : ?>
             <tr>
@@ -51,7 +51,7 @@ $paged         = isset( $_GET['paged'] ) ? sanitize_text_field( $_GET['paged'] )
     </table>
 
     <?php if ( $context['is_analytics'] ) : ?>
-        <h2><?php echo __( 'Room Analytics', 'plugnmeet' ); ?></h2>
+        <h2 class="room-analytics-header"><?php echo __( 'Room Analytics', 'plugnmeet' ); ?></h2>
         <table class="form-table">
             <tbody>
             <?php foreach ( $context['room_details'] as $detail ) : ?>
@@ -64,7 +64,7 @@ $paged         = isset( $_GET['paged'] ) ? sanitize_text_field( $_GET['paged'] )
         </table>
 
         <?php if ( $context['has_users'] ) : ?>
-            <h2 class="mt-4"><?php echo __( 'User Analytics', 'plugnmeet' ); ?></h2>
+            <h2 class="user-analytics-header"><?php echo __( 'User Analytics', 'plugnmeet' ); ?></h2>
             <div class="plugnmeet-analytics-table-wrapper">
                 <table class="wp-list-table widefat striped">
                     <thead>
@@ -89,7 +89,7 @@ $paged         = isset( $_GET['paged'] ) ? sanitize_text_field( $_GET['paged'] )
     <?php endif; ?>
 
     <?php if ( $context['is_meeting_summary'] ) : ?>
-        <h2 class="mb-4"><?php echo __( 'Meeting Summary', 'plugnmeet' ); ?></h2>
+        <h2 class="meeting-summary-header"><?php echo __( 'Meeting Summary', 'plugnmeet' ); ?></h2>
         <div>
             <?php echo wp_kses_post( $context['meeting_summary_content'] ); ?>
         </div>
