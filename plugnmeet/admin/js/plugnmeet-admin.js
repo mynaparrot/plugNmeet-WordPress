@@ -9,6 +9,14 @@
         }, 5000);
     }
 
+    function toggleDisplayClientDownloadUrl(client_load) {
+        if (client_load === "local") {
+            $("#client_download_url").parent().parent().show();
+        } else {
+            $("#client_download_url").parent().parent().hide();
+        }
+    }
+
     $(document).on("click", ".upload_media_button", (e) => {
         e.preventDefault();
         const attachedTo = String($(e.currentTarget).data('attached-to'));
@@ -125,9 +133,7 @@
 
     $(document).ready(function () {
         $('.pnm-color-picker').wpColorPicker();
-        if ($("#client_load").val() === "remote") {
-            $("#client_download_url").parent().parent().hide();
-        }
+        toggleDisplayClientDownloadUrl($("#client_load").val())
 
         const urlParams = new URLSearchParams(window.location.search);
         const roomId = urlParams.get('id');
@@ -157,11 +163,7 @@
     })
 
     $(document).on("change", "#client_load", (e) => {
-        if ($(e.target).val() === "local") {
-            $("#client_download_url").parent().parent().show();
-        } else {
-            $("#client_download_url").parent().parent().hide();
-        }
+        toggleDisplayClientDownloadUrl($(e.target).val())
     })
 
 })(jQuery);
