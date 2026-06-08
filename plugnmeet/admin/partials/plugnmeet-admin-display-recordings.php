@@ -67,7 +67,7 @@ $selected_room = isset( $_GET['room_id'] ) ? sanitize_text_field( $_GET['room_id
     <div class="plugnmeet-modal-content">
         <div class="plugnmeet-modal-header">
             <button type="button" class="plugnmeet-modal-close" id="plugnmeet-cancel-merge-top">&times;</button>
-            <h5 class="modal-title"><?php echo __( "Confirm Merge", "plugnmeet" ) ?></h5>
+            <h2 class="modal-title"><?php echo __( "Confirm Merge", "plugnmeet" ) ?></h2>
         </div>
         <div class="plugnmeet-modal-body">
             <p><?php echo __( "Are you sure you want to merge the following recordings in this order?", "plugnmeet" ) ?></p>

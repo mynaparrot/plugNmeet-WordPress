@@ -14,21 +14,18 @@
  * @author     Jibon Costa <jibon@mynaparrot.com>
  */
 
-if (!defined('PLUGNMEET_BASE_NAME')) {
-    die;
+if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
+	die;
 }
 
 class Plugnmeet_I18n {
 
-    /**
-     * Load the plugin text domain for translation.
-     *
-     * @since    1.0.0
-     */
-    public function load_plugin_textdomain() {
-
-        load_plugin_textdomain('plugnmeet', false, dirname(dirname(plugin_basename(__FILE__))) . '/languages/');
-
-    }
-
+	/**
+	 * Load the plugin text domain for translation.
+	 *
+	 * @since    1.0.0
+	 */
+	public function load_plugin_textdomain() {
+		load_plugin_textdomain( 'plugnmeet', false, dirname( plugin_basename( __FILE__ ), 2 ) . '/languages/' );
+	}
 }

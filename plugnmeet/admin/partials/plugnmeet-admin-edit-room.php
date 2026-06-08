@@ -16,71 +16,49 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
 }
 ?>
 
-<div class="wrap">
-    <h1 class="mb-6"><?php echo $_GET['task'] === "add" ? "Add room" : "Edit room" ?></h1>
-    <hr/>
-    <form name="plugnmeet-form" id="plugnmeet-form">
-        <div class="d-flex justify-content-end mb-3">
-            <button class="button button-primary me-3" type="submit"><?php echo __( "Submit", "plugnmeet" ) ?></button>
+<div class="wrap plugnmeet-room-edit">
+    <div class="plugnmeet-details-header">
+        <h1 class="wp-heading-inline"><?php echo $_GET['task'] === "add" ? "Add room" : "Edit room" ?></h1>
+        <div class="plugnmeet-header-actions">
+            <button class="button button-primary" type="submit"
+                    form="plugnmeet-form"><?php echo __( "Submit", "plugnmeet" ) ?></button>
             <a class="button button-secondary"
                href="admin.php?page=plugnmeet"><?php echo __( "Cancel", "plugnmeet" ) ?></a>
         </div>
+    </div>
+    <hr/>
 
-        <ul class="nav nav-tabs" id="plugnmeet-room-tab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="basic-tab" data-bs-toggle="tab" data-bs-target="#basic"
-                        type="button"
-                        role="tab" aria-controls="basic" aria-selected="true">
-                    <?php echo __( "Basic", "plugnmeet" ) ?>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="room-features-tab" data-bs-toggle="tab" data-bs-target="#room-features"
-                        type="button"
-                        role="tab" aria-controls="room-features" aria-selected="false">
-                    <?php echo __( "Room features", "plugnmeet" ) ?>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="other-features-tab" data-bs-toggle="tab" data-bs-target="#other-features"
-                        type="button"
-                        role="tab" aria-controls="other-features" aria-selected="false">
-                    <?php echo __( "Other features", "plugnmeet" ) ?>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="insights-tab" data-bs-toggle="tab" data-bs-target="#insights" type="button"
-                        role="tab" aria-controls="lock" aria-selected="false">
-                    <?php echo __( "Insights AI", "plugnmeet" ) ?>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="lock-tab" data-bs-toggle="tab" data-bs-target="#lock" type="button"
-                        role="tab" aria-controls="lock" aria-selected="false">
-                    <?php echo __( "Default lock settings", "plugnmeet" ) ?>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="design-tab" data-bs-toggle="tab" data-bs-target="#design" type="button"
-                        role="tab" aria-controls="design" aria-selected="false">
-                    <?php echo __( "Design Customization", "plugnmeet" ) ?>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="permission-tab" data-bs-toggle="tab" data-bs-target="#permission"
-                        type="button"
-                        role="tab" aria-controls="permission" aria-selected="false">
-                    <?php echo __( "Permission", "plugnmeet" ) ?>
-                </button>
-            </li>
-        </ul>
+    <form name="plugnmeet-form" id="plugnmeet-form" class="plugnmeet-form">
+        <div class="nav-tab-wrapper">
+            <a href="#basic" class="nav-tab nav-tab-active">
+                <?php echo __( "Basic", "plugnmeet" ) ?>
+            </a>
+            <a href="#room-features" class="nav-tab">
+                <?php echo __( "Room features", "plugnmeet" ) ?>
+            </a>
+            <a href="#other-features" class="nav-tab">
+                <?php echo __( "Other features", "plugnmeet" ) ?>
+            </a>
+            <a href="#insights" class="nav-tab">
+                <?php echo __( "Insights AI", "plugnmeet" ) ?>
+            </a>
+            <a href="#lock" class="nav-tab">
+                <?php echo __( "Default lock settings", "plugnmeet" ) ?>
+            </a>
+            <a href="#design" class="nav-tab">
+                <?php echo __( "Design Customization", "plugnmeet" ) ?>
+            </a>
+            <a href="#permission" class="nav-tab">
+                <?php echo __( "Permission", "plugnmeet" ) ?>
+            </a>
+        </div>
 
-        <div class="tab-content" id="plugnmeet-room-tab-contents">
-            <div class="tab-pane fade show active" id="basic" role="tabpanel" aria-labelledby="basic-tab">
+        <div id="plugnmeet-room-tab-contents">
+            <div id="basic" class="plugnmeet-tab-content">
                 <?php require plugin_dir_path( dirname( __FILE__ ) ) . '/partials/form-parts/basic.php'; ?>
             </div>
 
-            <div class="tab-pane fade" id="room-features" role="tabpanel" aria-labelledby="room-features">
+            <div id="room-features" class="plugnmeet-tab-content" style="display: none;">
                 <table class="form-table" role="presentation">
                     <tbody>
                     <?php echo PlugnmeetHelper::getRoomFeatures( $fields_values['room_features'] ); ?>
@@ -88,7 +66,7 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
                 </table>
             </div>
 
-            <div class="tab-pane fade" id="other-features" role="tabpanel" aria-labelledby="other-features">
+            <div id="other-features" class="plugnmeet-tab-content" style="display: none;">
                 <table class="form-table" role="presentation">
                     <tbody>
                     <?php echo PlugnmeetHelper::getRecordingFeatures( $fields_values['recording_features'] ); ?>
@@ -168,7 +146,7 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
                 </table>
             </div>
 
-            <div class="tab-pane fade" id="insights" role="tabpanel" aria-labelledby="insights-tab">
+            <div id="insights" class="plugnmeet-tab-content" style="display: none;">
                 <table class="form-table" role="presentation">
                     <tbody>
                     <?php echo PlugnmeetHelper::getInsightsFeatures( $fields_values['insights_features'] ); ?>
@@ -176,7 +154,7 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
                 </table>
             </div>
 
-            <div class="tab-pane fade" id="lock" role="tabpanel" aria-labelledby="lock-tab">
+            <div id="lock" class="plugnmeet-tab-content" style="display: none;">
                 <table class="form-table" role="presentation">
                     <tbody>
                     <?php echo PlugnmeetHelper::getDefaultLockSettings( $fields_values['default_lock_settings'] ); ?>
@@ -184,7 +162,7 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
                 </table>
             </div>
 
-            <div class="tab-pane fade" id="design" role="tabpanel" aria-labelledby="design-tab">
+            <div id="design" class="plugnmeet-tab-content" style="display: none;">
                 <table class="form-table" role="presentation">
                     <tbody>
                     <?php require plugin_dir_path( dirname( __FILE__ ) ) . '/partials/form-parts/design.php'; ?>
@@ -192,7 +170,7 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
                 </table>
             </div>
 
-            <div class="tab-pane fade" id="permission" role="tabpanel" aria-labelledby="permission-tab">
+            <div id="permission" class="plugnmeet-tab-content" style="display: none;">
                 <?php require plugin_dir_path( dirname( __FILE__ ) ) . '/partials/form-parts/permission.php'; ?>
             </div>
 

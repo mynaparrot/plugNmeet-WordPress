@@ -167,7 +167,7 @@ jQuery(document).ready(function ($) {
                         '</td>';
 
                     html += '<td>' + parseFloat(recording.fileSize).toFixed(2) + '</td>';
-                    html += '<td><div class="alignright"><button class="button button-primary downloadRecording mx-2" id="' +
+                    html += '<td><div class="alignright action-buttons"><button class="button button-primary downloadRecording plugnmeet-action-button" id="' +
                         recording.recordId +
                         '">' + plugnmeet_recordings_data.i18n.download + '</button>';
                     html += '<button class="button button-danger deleteRecording" id="' +

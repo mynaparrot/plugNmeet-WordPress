@@ -133,17 +133,25 @@
         const roomId = urlParams.get('id');
         const storageKey = 'pnm_room_last_tab_' + roomId;
 
-        $('button[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+        $('.nav-tab').on('click', function (e) {
+            e.preventDefault();
+            const target = $(this).attr('href');
+
+            $('.nav-tab').removeClass('nav-tab-active');
+            $(this).addClass('nav-tab-active');
+
+            $('.plugnmeet-tab-content').hide();
+            $(target).show();
+
             if (roomId) {
-                sessionStorage.setItem(storageKey, $(e.target).data('bs-target'));
+                sessionStorage.setItem(storageKey, target);
             }
         });
 
         if (roomId) {
             const lastTab = sessionStorage.getItem(storageKey);
             if (lastTab) {
-                const tab = new bootstrap.Tab($('button[data-bs-target="' + lastTab + '"]'));
-                tab.show();
+                $('.nav-tab[href="' + lastTab + '"]').click();
             }
         }
     })

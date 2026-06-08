@@ -50,3 +50,22 @@
 .rooms-list-table .wp-list-table .column-shortcode {
     width: 16%;
 }
+
+.plugnmeet-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.plugnmeet-header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.plugnmeet-form {
+    margin-top: 10px;
+}
+
+.permission-table {
+    margin-top: 10px;
+}

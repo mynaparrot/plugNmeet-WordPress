@@ -1,15 +1,28 @@
-.plugnmeet-details-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.plugnmeet-header-actions {
-    display: flex;
-    gap: 10px;
-}
-
 .plugnmeet-analytics-table-wrapper {
     max-width: 100%;
     overflow-x: auto;
+}
+
+.plugnmeet-button-secondary {
+    background-color: #f0f0f0 !important;
+    border-color: #ccc !important;
+    color: #333 !important;
+}
+
+.plugnmeet-button-primary {
+    background-color: #0073aa !important;
+    border-color: #0073aa !important;
+    color: #fff !important;
+}
+
+.plugnmeet-button-success {
+    background-color: #4CAF50 !important;
+    border-color: #4CAF50 !important;
+    color: #fff !important;
+}
+
+.plugnmeet-button-danger {
+    background-color: #d9534f !important;
+    border-color: #d43f3a !important;
+    color: #fff !important;
 }

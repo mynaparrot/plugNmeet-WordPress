@@ -20,24 +20,24 @@ $paged         = isset( $_GET['paged'] ) ? sanitize_text_field( $_GET['paged'] )
         <h1 class="wp-heading-inline"><?php echo __( 'Artifact Details', 'plugnmeet' ); ?></h1>
         <div class="plugnmeet-header-actions">
             <a href="<?php echo admin_url( 'admin.php?page=plugnmeet-artifacts&room_id=' . $roomId . '&paged=' . $paged ); ?>"
-               class="btn btn-secondary">
+               class="button plugnmeet-button-secondary">
                 <?php echo __( 'Back to Artifacts', 'plugnmeet' ); ?>
             </a>
             <?php if ( $is_file_based ) : ?>
-                <a href="#" class="btn btn-primary download-artifact"
+                <a href="#" class="button plugnmeet-button-primary download-artifact"
                    data-artifact-id="<?php echo esc_attr( $artifact_info->getArtifactId() ); ?>"><?php echo __( 'Download', 'plugnmeet' ); ?></a>
             <?php endif; ?>
             <?php if ( $context['is_analytics'] ) : ?>
-                <a href="#" class="btn btn-success download-analytics-excel"
+                <a href="#" class="button plugnmeet-button-success download-analytics-excel"
                    data-artifact-id="<?php echo esc_attr( $artifact_info->getArtifactId() ); ?>"><?php echo __( 'Download Excel', 'plugnmeet' ); ?></a>
             <?php endif; ?>
             <?php if ( $is_file_based ) : ?>
-                <a href="#" class="btn btn-danger delete-artifact"
+                <a href="#" class="button plugnmeet-button-danger delete-artifact"
                    data-artifact-id="<?php echo esc_attr( $artifact_info->getArtifactId() ); ?>"><?php echo __( 'Delete', 'plugnmeet' ); ?></a>
             <?php endif; ?>
         </div>
     </div>
-    <hr class="wp-header-end">
+    <hr/>
 
     <table class="form-table mb-4">
         <tbody>
@@ -51,7 +51,7 @@ $paged         = isset( $_GET['paged'] ) ? sanitize_text_field( $_GET['paged'] )
     </table>
 
     <?php if ( $context['is_analytics'] ) : ?>
-        <h4><?php echo __( 'Room Analytics', 'plugnmeet' ); ?></h4>
+        <h2><?php echo __( 'Room Analytics', 'plugnmeet' ); ?></h2>
         <table class="form-table">
             <tbody>
             <?php foreach ( $context['room_details'] as $detail ) : ?>
@@ -64,7 +64,7 @@ $paged         = isset( $_GET['paged'] ) ? sanitize_text_field( $_GET['paged'] )
         </table>
 
         <?php if ( $context['has_users'] ) : ?>
-            <h4 class="mt-4"><?php echo __( 'User Analytics', 'plugnmeet' ); ?></h4>
+            <h2 class="mt-4"><?php echo __( 'User Analytics', 'plugnmeet' ); ?></h2>
             <div class="plugnmeet-analytics-table-wrapper">
                 <table class="wp-list-table widefat striped">
                     <thead>
@@ -89,7 +89,7 @@ $paged         = isset( $_GET['paged'] ) ? sanitize_text_field( $_GET['paged'] )
     <?php endif; ?>
 
     <?php if ( $context['is_meeting_summary'] ) : ?>
-        <h4 class="mb-4"><?php echo __( 'Meeting Summary', 'plugnmeet' ); ?></h4>
+        <h2 class="mb-4"><?php echo __( 'Meeting Summary', 'plugnmeet' ); ?></h2>
         <div>
             <?php echo wp_kses_post( $context['meeting_summary_content'] ); ?>
         </div>
