@@ -49,6 +49,33 @@ class PlugNmeetAjaxHelper {
 		return sanitize_text_field( $value );
 	}
 
+    /**
+     * Helper to safely retrieve and sanitize an array from POST parameters.
+     *
+     * @param string $key The key of the POST parameter.
+     * @param callable|null $sanitizer A callable function for custom sanitization of each array element.
+     *
+     * @return array The sanitized array.
+     */
+    private function get_post_param_array( string $key, ?callable $sanitizer = null ): array {
+        if ( ! isset( $_POST[ $key ] ) || ! is_array( $_POST[ $key ] ) ) {
+            return [];
+        }
+
+        $values = wp_unslash( $_POST[ $key ] );
+        $sanitized_array = [];
+
+        foreach ( $values as $value ) {
+            if ( $sanitizer ) {
+                $sanitized_array[] = call_user_func( $sanitizer, $value );
+            } else {
+                $sanitized_array[] = sanitize_text_field( $value );
+            }
+        }
+
+        return $sanitized_array;
+    }
+
 	public function get_recordings() {
 		$output         = new stdClass();
 		$output->status = false;
@@ -354,7 +381,7 @@ class PlugNmeetAjaxHelper {
 			wp_send_json( $output );
 		}
 
-		$recordings = $this->get_post_param( 'recordings', [] );
+		$recordings = $this->get_post_param_array( 'recordings' );
 		$roomId     = $this->get_post_param( 'roomId' );
 
 		if ( count( $recordings ) < 2 || empty( $roomId ) ) {
