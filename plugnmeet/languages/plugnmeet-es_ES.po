@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-06 09:18+0000\n"
-"PO-Revision-Date: 2026-06-06 10:13\n"
+"PO-Revision-Date: 2026-06-09 15:28\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -48,7 +48,7 @@ msgstr "Permitir chat de texto con IA"
 
 #: helpers/helper.php:607
 msgid "Allow breakout rooms"
-msgstr "Permitir salir de la sala"
+msgstr "Permitir salas de ruptura"
 
 #: helpers/helper.php:452
 msgid "Allow chat"
@@ -64,7 +64,7 @@ msgstr "Permitir grabación en la nube"
 
 #: helpers/helper.php:666
 msgid "Allow create ingress"
-msgstr "Permitir crear entrada"
+msgstr "Permitir crear Ingress"
 
 #: admin/partials/form-parts/permission.php:88
 msgid "Allow Delete <br/>Recordings"
@@ -371,7 +371,7 @@ msgstr "Habilitar funciones de insights"
 
 #: helpers/helper.php:735
 msgid "Enable self insert key"
-msgstr "Activar la tecla de autoinserción"
+msgstr "Habilitar la clave de autoinserción"
 
 #: admin/class-plugnmeet-settings-page.php:271
 msgid "Enable Simulcast"
