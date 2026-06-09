@@ -135,7 +135,7 @@ class PlugNMeetPublicRecordings {
         const res = await this.sendRequest(formData);
         if (res && res.status) {
             alert(res.msg);
-            this.rootContainer.querySelector(`#${recordId}`).remove();
+            e.target.closest('tr').remove();
         } else if (res) {
             alert(res.msg);
         }

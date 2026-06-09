@@ -65,7 +65,7 @@ jQuery(document).ready(function ($) {
             success: function (data) {
                 if (data.status) {
                     alert(data.msg);
-                    document.getElementById(recordingId).parentElement.parentElement.parentElement.remove();
+                    $(e.target).closest('tr').remove();
                 } else {
                     alert(data.msg);
                 }
