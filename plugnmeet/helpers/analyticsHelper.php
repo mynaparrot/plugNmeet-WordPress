@@ -48,6 +48,10 @@ class Plugnmeet_AnalyticsHelper {
 			}
 		}
 
+		if ( empty( $analyticsdata ) ) {
+			throw new Exception( "Invalid Analytics Data" );
+		}
+
 		$this->analyticsformatter = plugNmeetConnect::getAnalyticsFormatter( $analyticsdata, wp_timezone()->getName() );
 		$formatteddata            = $this->analyticsformatter->getFormattedEventData();
 		$this->roomdata           = $formatteddata['room'];
@@ -62,6 +66,16 @@ class Plugnmeet_AnalyticsHelper {
 
 		if ( is_wp_error( $response ) ) {
 			throw new Exception( $response->get_error_message() );
+		}
+
+		// Retrieve the HTTP status code from the response array
+		$status_code = wp_remote_retrieve_response_code( $response );
+
+		// Check if the status code is not 200 (OK)
+		if ( $status_code !== 200 ) {
+			// You can also get the status message (e.g., "Not Found") for a better error
+			$status_message = wp_remote_retrieve_response_message( $response );
+			throw new Exception( sprintf( 'HTTP Error: %d %s', $status_code, $status_message ) );
 		}
 
 		return wp_remote_retrieve_body( $response );
