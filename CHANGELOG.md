@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.2.4](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.2.3...v2.2.4) (2026-06-15)
+
+
+### Bug Fixes
+
+* `client_download_url` was displaying in invalid case ([5e4265e](https://github.com/mynaparrot/plugNmeet-WordPress/commit/5e4265e467e29940699791ccc3796c93b24e96ba))
+* after delete view wasn't updating ([dc27b46](https://github.com/mynaparrot/plugNmeet-WordPress/commit/dc27b46dda7d5859db3574ed2cff268af0dc7d38))
+* new Crowdin updates ([f9e5132](https://github.com/mynaparrot/plugNmeet-WordPress/commit/f9e51326f409c760881a9cb39887d7f3ee46417a))
+* update deps ([1d5e2e4](https://github.com/mynaparrot/plugNmeet-WordPress/commit/1d5e2e417e875b961929d41f3b99c48bfd63d69c))
+* update lang ([cdfea5f](https://github.com/mynaparrot/plugNmeet-WordPress/commit/cdfea5f8b3b074938b956b748b4e9253c9e04d6c))
+* use text type ([91bd8a5](https://github.com/mynaparrot/plugNmeet-WordPress/commit/91bd8a59217b68fe7913c90945bb2601b46a2f2b))
+* verify response + data ([0ecec5b](https://github.com/mynaparrot/plugNmeet-WordPress/commit/0ecec5b90f9bbaf04b21e2fcfcc5cc4e649c201d))
+
 ## [2.2.3](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.2.2...v2.2.3) (2026-06-08)
 
 
