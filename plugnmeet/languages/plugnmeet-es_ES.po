@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-06 09:18+0000\n"
-"PO-Revision-Date: 2026-06-09 15:28\n"
+"PO-Revision-Date: 2026-06-23 16:30\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -48,7 +48,7 @@ msgstr "Permitir chat de texto con IA"
 
 #: helpers/helper.php:607
 msgid "Allow breakout rooms"
-msgstr "Permitir salas de ruptura"
+msgstr "Permitir salas de grupos"
 
 #: helpers/helper.php:452
 msgid "Allow chat"
@@ -64,7 +64,7 @@ msgstr "Permitir grabación en la nube"
 
 #: helpers/helper.php:666
 msgid "Allow create ingress"
-msgstr "Permitir crear Ingress"
+msgstr "Permitir crear ingress"
 
 #: admin/partials/form-parts/permission.php:88
 msgid "Allow Delete <br/>Recordings"
@@ -128,7 +128,7 @@ msgstr "Permitir bloc de notas compartido"
 
 #: helpers/helper.php:792
 msgid "Allow SIP/VoIP dial in"
-msgstr "Permitir el ajuste SIP/VoIP"
+msgstr "Permitir llamadas SIP/VoIP"
 
 #: helpers/helper.php:895
 msgid "Allow speech synthesis"
@@ -204,11 +204,11 @@ msgstr "Contraseña del asistente"
 
 #: admin/class-plugnmeet-settings-page.php:315
 msgid "Audio preset"
-msgstr "Preajuste de audio"
+msgstr "Ajuste preestablecido de audio"
 
 #: helpers/helper.php:311
 msgid "Auto generate user ID"
-msgstr "Generación automática de ID de usuario"
+msgstr "Generar ID de usuario automáticamente"
 
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:24
 msgid "Back to Artifacts"
@@ -230,7 +230,7 @@ msgstr "Básico"
 
 #: helpers/analyticsHelper.php:357
 msgid "Breakout Room Count"
-msgstr "Recuento de salas de escape"
+msgstr "Cantidad de salas de grupo"
 
 #: admin/class-plugnmeet-admin.php:257
 msgid "Can't write file"
@@ -255,7 +255,7 @@ msgstr "Comprobando..."
 
 #: admin/class-plugnmeet-settings-page.php:231
 msgid "Client load"
-msgstr "Carga de clientes"
+msgstr "Carga del cliente"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:70
 #: admin/partials/plugnmeet-admin-display-recordings.php:80
@@ -272,7 +272,7 @@ msgstr "Texto protegido por derechos de autor"
 
 #: admin/partials/plugnmeet-admin-display-artifacts.php:43
 msgid "Created"
-msgstr "Creación"
+msgstr "Creado"
 
 #: helpers/analyticsHelper.php:224 helpers/analyticsHelper.php:254
 #: admin/class-plugnmeet-room-page.php:115
@@ -282,7 +282,7 @@ msgstr "Creado en"
 #: admin/class-plugnmeet-settings-page.php:401
 #: admin/partials/form-parts/design.php:23
 msgid "Custom CSS URL"
-msgstr "URL CSS personalizado "
+msgstr "URL de CSS personalizado"
 
 #: admin/class-plugnmeet-settings-page.php:344
 msgid "Custom logo"
@@ -343,11 +343,11 @@ msgstr "Habilitación de análisis"
 
 #: helpers/helper.php:368
 msgid "Enable auto cloud recording"
-msgstr "Activar respaldo automático a la nube"
+msgstr "Activar la auto grabación en la nube"
 
 #: helpers/helper.php:807
 msgid "Enable dial in on create"
-msgstr "Activar el marcador al crear"
+msgstr "Habilitar llamadas telefónicas al crear"
 
 #: admin/class-plugnmeet-settings-page.php:262
 msgid "Enable Dynacast"
@@ -506,7 +506,7 @@ msgstr "Bloquear chat"
 
 #: helpers/helper.php:1096
 msgid "Lock chat file share"
-msgstr "Bloquear el uso compartido de archivos de chat"
+msgstr "Bloquear el intercambio de archivos por chat"
 
 #: helpers/helper.php:1081
 msgid "Lock chat send message"
@@ -575,7 +575,7 @@ msgstr "Duración habilitada por micrófono"
 
 #: helpers/analyticsHelper.php:372
 msgid "Mic Muted Count"
-msgstr "Recuento silenciado de micrófono"
+msgstr "Conteo de micrófono silenciado"
 
 #: helpers/analyticsHelper.php:371
 msgid "Mic Status Changes"
@@ -654,7 +654,7 @@ msgstr "Opciones"
 
 #: admin/partials/plugnmeet-admin-edit-room.php:48
 msgid "Other features"
-msgstr "Otras características"
+msgstr "Otras funciones"
 
 #: admin/class-plugnmeet-admin.php:117 admin/class-plugnmeet-admin.php:135
 msgid "Page"
@@ -827,7 +827,7 @@ msgstr "Falta el Id de la sala"
 
 #: public/class-plugnmeet-public.php:317
 msgid "Room ID not provided for the shortcode."
-msgstr "ID de la sala no se proporciona para el shortcode."
+msgstr "No se proporcionó el ID de la sala para el shortcode"
 
 #: helpers/analyticsHelper.php:162
 msgid "Room Info"
@@ -835,7 +835,7 @@ msgstr "Información de la sala"
 
 #: admin/class-plugnmeet-settings-page.php:383
 msgid "Room Slug Path"
-msgstr "Ruta del Slug"
+msgstr "Ruta del slug de la sala"
 
 #: helpers/helper.php:1148
 msgid "Room Status"
@@ -908,11 +908,11 @@ msgstr "Configuración"
 
 #: admin/class-plugnmeet-rooms-list-table.php:91
 msgid "Shortcode"
-msgstr "Código corto"
+msgstr "Shortcode"
 
 #: admin/partials/plugnmeet-admin-display-artifacts.php:29
 msgid "Show artifacts"
-msgstr "Artefactos de la exposición"
+msgstr "Mostrar artefactos"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:29
 msgid "Show recordings"
@@ -953,11 +953,11 @@ msgstr "Datos actualizados con éxito"
 
 #: helpers/analyticsHelper.php:374
 msgid "Talked Count"
-msgstr "Cuenta hablada"
+msgstr "Conteo de intervenciones"
 
 #: helpers/analyticsHelper.php:375
 msgid "Talked Duration"
-msgstr "Duración de la charla"
+msgstr "Tiempo de habla"
 
 #: helpers/ajaxHelper.php:263
 msgid "The item was deleted successfully."
@@ -965,11 +965,11 @@ msgstr "El elemento fue eliminado con éxito."
 
 #: helpers/ajaxHelper.php:463
 msgid "The meeting has not started yet. Please wait for a moderator to begin the session."
-msgstr "La reunión aún no ha comenzado. Por favor, esperad a que un moderador comience la sesión."
+msgstr "La reunión aún no ha comenzado. Por favor, espere a que un moderador comience la sesión."
 
 #: helpers/ajaxHelper.php:585
 msgid "The password you entered is incorrect. Please try again."
-msgstr "La contraseña que has introducido es incorrecta. Por favor, inténtalo de nuevo."
+msgstr "La contraseña es incorrecta. Por favor, inténtelo de nuevo."
 
 #: helpers/ajaxHelper.php:341
 msgid "The recording was deleted successfully."
@@ -977,7 +977,7 @@ msgstr "La grabación fue eliminada con éxito."
 
 #: helpers/ajaxHelper.php:389
 msgid "The recordings are being merged. This may take a few moments."
-msgstr "Las grabaciones se están fusionando. Esto puede llevar unos momentos."
+msgstr "Las grabaciones se están fusionando. Esto puede tardar unos momentos."
 
 #: helpers/ajaxHelper.php:428 helpers/ajaxHelper.php:548
 msgid "The room you are trying to join does not exist."
@@ -985,7 +985,7 @@ msgstr "La sala a la que intentas unirte no existe."
 
 #: helpers/ajaxHelper.php:431 helpers/ajaxHelper.php:552
 msgid "This room is not currently active. Please contact the administrator."
-msgstr "Esta sala no está activa en este momento. Por favor, contacte con el administrador."
+msgstr "Esta sala no está activa en este momento. Por favor, contacte al administrador."
 
 #: admin/class-plugnmeet-admin.php:231 admin/class-plugnmeet-admin.php:333
 #: admin/class-plugnmeet-admin.php:472
@@ -1090,7 +1090,7 @@ msgstr "No hemos encontrado la sala a la que intentas unirte. Por favor, revisa 
 
 #: helpers/analyticsHelper.php:377
 msgid "Webcam Enabled Duration"
-msgstr "Duración habilitada por la cámara web"
+msgstr "Duración de la cámara web activada"
 
 #: admin/class-plugnmeet-settings-page.php:289
 msgid "Webcam Resolution"
@@ -1106,7 +1106,7 @@ msgstr "Mensaje de bienvenida"
 
 #: helpers/analyticsHelper.php:380
 msgid "Whiteboard Annotated Count"
-msgstr "Cuenta anotado en pizarra blanca"
+msgstr "Veces que se anotó la pizarra blanca"
 
 #: helpers/analyticsHelper.php:248
 msgid "Whiteboard Files"
