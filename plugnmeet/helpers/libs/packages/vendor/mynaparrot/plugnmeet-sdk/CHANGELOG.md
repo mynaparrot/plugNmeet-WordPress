@@ -1,5 +1,49 @@
 # Changelog
 
+## [2.2.2](https://github.com/mynaparrot/plugNmeet-sdk-php/compare/v2.2.1...v2.2.2) (2026-07-08)
+
+
+### Bug Fixes
+
+* bump proto ([bc6654d](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/bc6654d109f62a95df40e4a01b652bf17ec913e7))
+* **deps:** update dependency firebase/php-jwt to v7.1.0 ([fe121df](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/fe121df79199927aed857a83e8947094e94c445e))
+* **deps:** update dependency firebase/php-jwt to v7.1.0 ([898e89e](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/898e89e49435cc6c41637f3f47194f61d3cfe95c))
+* **deps:** update dependency google/protobuf to v5.35.1 ([af1f6a1](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/af1f6a18ab16676a55379b078c686e825e208b2e))
+* **deps:** update dependency google/protobuf to v5.35.1 ([44ded62](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/44ded62f8ffc1a4336af016e641615ba4da0dcc6))
+* **deps:** update dependency guzzlehttp/guzzle to v7.12.1 [security] ([45db074](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/45db074899c8c1545c6f7c5726c5b7a3c8bd2621))
+* **deps:** update dependency guzzlehttp/guzzle to v7.12.1 [security] ([6fa0d2f](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/6fa0d2f86f2085349db08253586cd94889e3ee38))
+* **deps:** update dependency guzzlehttp/guzzle to v7.12.3 ([eb12a61](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/eb12a61293ecb6eb33839bb097b6f974a3a690d9))
+* **deps:** update dependency guzzlehttp/guzzle to v7.12.3 ([193c48b](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/193c48bf42d8f8225c55a2218609920e5afc6b91))
+* **deps:** update dependency guzzlehttp/guzzle to v7.13.2 ([1b5e320](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/1b5e32003e2e200faba7b639127db511210f380a))
+* **deps:** update dependency guzzlehttp/guzzle to v7.13.2 ([984c7fa](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/984c7fa20b3d77ca7196fda5e125a7fad6c81d43))
+* **deps:** update dependency guzzlehttp/guzzle to v7.13.3 ([4803fc1](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/4803fc10c4d98f19ebcf64848fedacf820df1d6c))
+* **deps:** update dependency guzzlehttp/guzzle to v7.13.3 ([0e63e3d](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/0e63e3d198e20b72c0d6c202f001bd9e2971eb0c))
+* **deps:** update dependency ramsey/uuid to v4.9.3 ([652194d](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/652194d78027e9e1204f137ef3babad0080f0a83))
+* **deps:** update dependency ramsey/uuid to v4.9.3 ([8e702fd](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/8e702fd391db56e5d3a4719c5a287deab8b4c89c))
+* exclude `composer.lock` from archive ([f139ec3](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/f139ec3e8a526678b1899103f05dedb0f8d1a9cc))
+
+
+### Miscellaneous Chores
+
+* **deps:** update actions/checkout action to v7 ([993ce9a](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/993ce9ad6e4e3e9a14001af49d29ad6979475a81))
+* **deps:** update actions/checkout action to v7 ([61f2e3b](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/61f2e3bd10f482d3554ff26deb13e6aedf8f6ff8))
+
+## [2.2.1](https://github.com/mynaparrot/plugNmeet-sdk-php/compare/v2.2.0...v2.2.1) (2026-06-04)
+
+
+### Bug Fixes
+
+* added `.gitattributes` file ([25bac4c](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/25bac4c7b43a54c4bf05e4fa42362be1cfc385da))
+* **deps:** update dependency guzzlehttp/guzzle to v7.11.0 ([66ec0be](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/66ec0be43d0b0af938c5cef8cc92394aaa1a62c2))
+* **deps:** update dependency guzzlehttp/guzzle to v7.11.0 ([20a2fdd](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/20a2fdd56032bf570fe6a5655cd3586714df20f8))
+* don't include other files ([df10626](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/df1062691a9fb787986057b7c5313fb455d1ab0c))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency overtrue/phplint to v9.7.2 ([17092b1](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/17092b1a1747380845bf2ff7461c6bb1fb955334))
+* **deps:** update dependency overtrue/phplint to v9.7.2 ([8a6263a](https://github.com/mynaparrot/plugNmeet-sdk-php/commit/8a6263a11703947397ede8b771af919b9677436b))
+
 ## [2.2.0](https://github.com/mynaparrot/plugNmeet-sdk-php/compare/v2.1.4...v2.2.0) (2026-05-30)
 
 
