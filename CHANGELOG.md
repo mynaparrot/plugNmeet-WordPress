@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.2.5](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.2.4...v2.2.5) (2026-07-10)
+
+
+### Bug Fixes
+
+* added new reactions option ([af2a8cd](https://github.com/mynaparrot/plugNmeet-WordPress/commit/af2a8cda022b19dc09d8dfbdbfeb64c0e2196827))
+* default to `vp9` codec as fallback to `vp8` in firefox ([4a895ab](https://github.com/mynaparrot/plugNmeet-WordPress/commit/4a895ab763aba9194fa44009ae5053ef52d9068f))
+* new Crowdin updates ([#74](https://github.com/mynaparrot/plugNmeet-WordPress/issues/74)) ([782be08](https://github.com/mynaparrot/plugNmeet-WordPress/commit/782be08cccc0f5c0825d858517b91fa887c30a05))
+
 ## [2.2.4](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.2.3...v2.2.4) (2026-06-15)
 
 
