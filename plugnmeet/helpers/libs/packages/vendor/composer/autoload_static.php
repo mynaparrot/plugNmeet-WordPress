@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitb345ebed25f4efd0a2660be212f4fb90
+class ComposerStaticInit9a9798f375c368ba8a0eedc1d3f1ddfd
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -263,6 +263,7 @@ class ComposerStaticInitb345ebed25f4efd0a2660be212f4fb90
         'GPBMetadata\\PlugnmeetIngress' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/GPBMetadata/PlugnmeetIngress.php',
         'GPBMetadata\\PlugnmeetInsights' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/GPBMetadata/PlugnmeetInsights.php',
         'GPBMetadata\\PlugnmeetLtiV1' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/GPBMetadata/PlugnmeetLtiV1.php',
+        'GPBMetadata\\PlugnmeetNativeBridge' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/GPBMetadata/PlugnmeetNativeBridge.php',
         'GPBMetadata\\PlugnmeetNatsMsg' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/GPBMetadata/PlugnmeetNatsMsg.php',
         'GPBMetadata\\PlugnmeetPolls' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/GPBMetadata/PlugnmeetPolls.php',
         'GPBMetadata\\PlugnmeetRecorder' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/GPBMetadata/PlugnmeetRecorder.php',
@@ -416,6 +417,7 @@ class ComposerStaticInitb345ebed25f4efd0a2660be212f4fb90
         'GuzzleHttp\\Handler\\CurlVersion' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/CurlVersion.php',
         'GuzzleHttp\\Handler\\EasyHandle' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/EasyHandle.php',
         'GuzzleHttp\\Handler\\HeaderProcessor' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/HeaderProcessor.php',
+        'GuzzleHttp\\Handler\\HostValidator' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/HostValidator.php',
         'GuzzleHttp\\Handler\\MockHandler' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/MockHandler.php',
         'GuzzleHttp\\Handler\\Proxy' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/Proxy.php',
         'GuzzleHttp\\Handler\\ProxyEnvironment' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/ProxyEnvironment.php',
@@ -861,19 +863,11 @@ class ComposerStaticInitb345ebed25f4efd0a2660be212f4fb90
         'Livekit\\SimulationRun\\Get\\Request' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Livekit/SimulationRun/Get/Request.php',
         'Livekit\\SimulationRun\\Get\\Response' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Livekit/SimulationRun/Get/Response.php',
         'Livekit\\SimulationRun\\Job' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Livekit/SimulationRun/Job.php',
-        'Livekit\\SimulationRun\\JobMetrics' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Livekit/SimulationRun/JobMetrics.php',
-        'Livekit\\SimulationRun\\JobMetrics\\Conversation' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Livekit/SimulationRun/JobMetrics/Conversation.php',
-        'Livekit\\SimulationRun\\JobMetrics\\LLM' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Livekit/SimulationRun/JobMetrics/LLM.php',
-        'Livekit\\SimulationRun\\JobMetrics\\STT' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Livekit/SimulationRun/JobMetrics/STT.php',
-        'Livekit\\SimulationRun\\JobMetrics\\Simulator' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Livekit/SimulationRun/JobMetrics/Simulator.php',
-        'Livekit\\SimulationRun\\JobMetrics\\TTS' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Livekit/SimulationRun/JobMetrics/TTS.php',
-        'Livekit\\SimulationRun\\JobMetrics\\Turn' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Livekit/SimulationRun/JobMetrics/Turn.php',
         'Livekit\\SimulationRun\\Job\\Status' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Livekit/SimulationRun/Job/Status.php',
         'Livekit\\SimulationRun\\Job\\Usage' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Livekit/SimulationRun/Job/Usage.php',
         'Livekit\\SimulationRun\\PBList' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Livekit/SimulationRun/PBList.php',
         'Livekit\\SimulationRun\\PBList\\Request' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Livekit/SimulationRun/PBList/Request.php',
         'Livekit\\SimulationRun\\PBList\\Response' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Livekit/SimulationRun/PBList/Response.php',
-        'Livekit\\SimulationRun\\RunMetrics' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Livekit/SimulationRun/RunMetrics.php',
         'Livekit\\SimulationRun\\Status' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Livekit/SimulationRun/Status.php',
         'Livekit\\SimulationRun\\Usage' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Livekit/SimulationRun/Usage.php',
         'Livekit\\SimulcastCodec' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Livekit/SimulcastCodec.php',
@@ -1024,6 +1018,7 @@ class ComposerStaticInitb345ebed25f4efd0a2660be212f4fb90
         'Mynaparrot\\PlugnmeetProto\\ChatFeatures' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/ChatFeatures.php',
         'Mynaparrot\\PlugnmeetProto\\ChatMessage' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/ChatMessage.php',
         'Mynaparrot\\PlugnmeetProto\\CleanEtherpadReq' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/CleanEtherpadReq.php',
+        'Mynaparrot\\PlugnmeetProto\\ClientType' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/ClientType.php',
         'Mynaparrot\\PlugnmeetProto\\ClosePollReq' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/ClosePollReq.php',
         'Mynaparrot\\PlugnmeetProto\\CloudRecordingVariants' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/CloudRecordingVariants.php',
         'Mynaparrot\\PlugnmeetProto\\CommonNotifyEvent' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/CommonNotifyEvent.php',
@@ -1123,6 +1118,18 @@ class ComposerStaticInitb345ebed25f4efd0a2660be212f4fb90
         'Mynaparrot\\PlugnmeetProto\\MergeRecordingsByRoomSession' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/MergeRecordingsByRoomSession.php',
         'Mynaparrot\\PlugnmeetProto\\MergeRecordingsReq' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/MergeRecordingsReq.php',
         'Mynaparrot\\PlugnmeetProto\\MuteUnMuteTrackReq' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/MuteUnMuteTrackReq.php',
+        'Mynaparrot\\PlugnmeetProto\\NativeBridgeActions' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/NativeBridgeActions.php',
+        'Mynaparrot\\PlugnmeetProto\\NativeBridgeE2EE' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/NativeBridgeE2EE.php',
+        'Mynaparrot\\PlugnmeetProto\\NativeBridgeError' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/NativeBridgeError.php',
+        'Mynaparrot\\PlugnmeetProto\\NativeBridgeHeartbeat' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/NativeBridgeHeartbeat.php',
+        'Mynaparrot\\PlugnmeetProto\\NativeBridgeInitializePublisher' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/NativeBridgeInitializePublisher.php',
+        'Mynaparrot\\PlugnmeetProto\\NativeBridgeMediaMuted' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/NativeBridgeMediaMuted.php',
+        'Mynaparrot\\PlugnmeetProto\\NativeBridgeMediaSource' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/NativeBridgeMediaSource.php',
+        'Mynaparrot\\PlugnmeetProto\\NativeBridgeMediaStatus' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/NativeBridgeMediaStatus.php',
+        'Mynaparrot\\PlugnmeetProto\\NativeBridgeMsg' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/NativeBridgeMsg.php',
+        'Mynaparrot\\PlugnmeetProto\\NativeBridgeTrackState' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/NativeBridgeTrackState.php',
+        'Mynaparrot\\PlugnmeetProto\\NativeMediaSource' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/NativeMediaSource.php',
+        'Mynaparrot\\PlugnmeetProto\\NativeTrackKind' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/NativeTrackKind.php',
         'Mynaparrot\\PlugnmeetProto\\NatsInitialData' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/NatsInitialData.php',
         'Mynaparrot\\PlugnmeetProto\\NatsKvRoomInfo' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/NatsKvRoomInfo.php',
         'Mynaparrot\\PlugnmeetProto\\NatsKvUserInfo' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/NatsKvUserInfo.php',
@@ -1437,6 +1444,7 @@ class ComposerStaticInitb345ebed25f4efd0a2660be212f4fb90
         'PhpOffice\\PhpSpreadsheet\\Chart\\ChartColor' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Chart/ChartColor.php',
         'PhpOffice\\PhpSpreadsheet\\Chart\\DataSeries' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Chart/DataSeries.php',
         'PhpOffice\\PhpSpreadsheet\\Chart\\DataSeriesValues' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Chart/DataSeriesValues.php',
+        'PhpOffice\\PhpSpreadsheet\\Chart\\DataTable' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Chart/DataTable.php',
         'PhpOffice\\PhpSpreadsheet\\Chart\\Exception' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Chart/Exception.php',
         'PhpOffice\\PhpSpreadsheet\\Chart\\GridLines' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Chart/GridLines.php',
         'PhpOffice\\PhpSpreadsheet\\Chart\\Layout' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Chart/Layout.php',
@@ -1476,6 +1484,7 @@ class ComposerStaticInitb345ebed25f4efd0a2660be212f4fb90
         'PhpOffice\\PhpSpreadsheet\\Reader\\CsvNoEscape' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/CsvNoEscape.php',
         'PhpOffice\\PhpSpreadsheet\\Reader\\Csv\\Delimiter' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Csv/Delimiter.php',
         'PhpOffice\\PhpSpreadsheet\\Reader\\DefaultReadFilter' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/DefaultReadFilter.php',
+        'PhpOffice\\PhpSpreadsheet\\Reader\\EmptyWorksheetInfo' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/EmptyWorksheetInfo.php',
         'PhpOffice\\PhpSpreadsheet\\Reader\\Exception' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Exception.php',
         'PhpOffice\\PhpSpreadsheet\\Reader\\Gnumeric' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Gnumeric.php',
         'PhpOffice\\PhpSpreadsheet\\Reader\\Gnumeric\\PageSetup' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Gnumeric/PageSetup.php',
@@ -1484,6 +1493,7 @@ class ComposerStaticInitb345ebed25f4efd0a2660be212f4fb90
         'PhpOffice\\PhpSpreadsheet\\Reader\\Html' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Html.php',
         'PhpOffice\\PhpSpreadsheet\\Reader\\IReadFilter' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/IReadFilter.php',
         'PhpOffice\\PhpSpreadsheet\\Reader\\IReader' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/IReader.php',
+        'PhpOffice\\PhpSpreadsheet\\Reader\\IReader2' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/IReader2.php',
         'PhpOffice\\PhpSpreadsheet\\Reader\\Ods' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Ods.php',
         'PhpOffice\\PhpSpreadsheet\\Reader\\Ods\\AutoFilter' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Ods/AutoFilter.php',
         'PhpOffice\\PhpSpreadsheet\\Reader\\Ods\\BaseLoader' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Ods/BaseLoader.php',
@@ -1936,9 +1946,9 @@ class ComposerStaticInitb345ebed25f4efd0a2660be212f4fb90
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitb345ebed25f4efd0a2660be212f4fb90::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitb345ebed25f4efd0a2660be212f4fb90::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitb345ebed25f4efd0a2660be212f4fb90::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit9a9798f375c368ba8a0eedc1d3f1ddfd::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit9a9798f375c368ba8a0eedc1d3f1ddfd::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit9a9798f375c368ba8a0eedc1d3f1ddfd::$classMap;
 
         }, null, ClassLoader::class);
     }
