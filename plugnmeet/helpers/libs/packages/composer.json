@@ -4,7 +4,7 @@
   },
   "require": {
     "php": "^8.1",
-    "mynaparrot/plugnmeet-sdk": "2.2.3",
+    "mynaparrot/plugnmeet-sdk": "2.2.4",
     "phpoffice/phpspreadsheet": "5.8.1"
   }
 }
