@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.2.6](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.2.5...v2.2.6) (2026-08-12)
+
+
+### Bug Fixes
+
+* bump SDK ([1576c74](https://github.com/mynaparrot/plugNmeet-WordPress/commit/1576c74279a60fd133d574efdf257199b481ebaf))
+* bump SDK for proper duration calculation bug fix ([cba2d8e](https://github.com/mynaparrot/plugNmeet-WordPress/commit/cba2d8e9a93dbd29da8702c64aa29d3b5c6719d7))
+
 ## [2.2.5](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.2.4...v2.2.5) (2026-07-10)
 
 
