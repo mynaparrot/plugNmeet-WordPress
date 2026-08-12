@@ -110,9 +110,9 @@
             'dev_requirement' => false,
         ),
         'mynaparrot/plugnmeet-sdk' => array(
-            'pretty_version' => '2.2.4',
-            'version' => '2.2.4.0',
-            'reference' => '86181a1b310447fb4a30f4e8040e24c2980f9830',
+            'pretty_version' => '2.2.5',
+            'version' => '2.2.5.0',
+            'reference' => 'e81e2d567dc176c377932bd51384a74f9142f050',
             'type' => 'library',
             'install_path' => __DIR__ . '/../mynaparrot/plugnmeet-sdk',
             'aliases' => array(),

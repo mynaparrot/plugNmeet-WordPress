@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec899c34a3f967e8d2df40c320bd506c",
+    "content-hash": "079739bfdfc0988429a19acb274d1b8d",
     "packages": [
         {
             "name": "brick/math",
@@ -769,16 +769,16 @@
         },
         {
             "name": "mynaparrot/plugnmeet-sdk",
-            "version": "2.2.4",
+            "version": "2.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mynaparrot/plugNmeet-sdk-php.git",
-                "reference": "86181a1b310447fb4a30f4e8040e24c2980f9830"
+                "reference": "e81e2d567dc176c377932bd51384a74f9142f050"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mynaparrot/plugNmeet-sdk-php/zipball/86181a1b310447fb4a30f4e8040e24c2980f9830",
-                "reference": "86181a1b310447fb4a30f4e8040e24c2980f9830",
+                "url": "https://api.github.com/repos/mynaparrot/plugNmeet-sdk-php/zipball/e81e2d567dc176c377932bd51384a74f9142f050",
+                "reference": "e81e2d567dc176c377932bd51384a74f9142f050",
                 "shasum": ""
             },
             "require": {
@@ -793,6 +793,7 @@
             },
             "require-dev": {
                 "overtrue/phplint": "9.7.2",
+                "phpunit/phpunit": "13.3.0",
                 "squizlabs/php_codesniffer": "4.0.4"
             },
             "type": "library",
@@ -817,9 +818,9 @@
             "description": "plugNmeet PHP SDK",
             "support": {
                 "issues": "https://github.com/mynaparrot/plugNmeet-sdk-php/issues",
-                "source": "https://github.com/mynaparrot/plugNmeet-sdk-php/tree/v2.2.4"
+                "source": "https://github.com/mynaparrot/plugNmeet-sdk-php/tree/v2.2.5"
             },
-            "time": "2026-08-11T12:08:22+00:00"
+            "time": "2026-08-12T04:57:53+00:00"
         },
         {
             "name": "phpoffice/phpspreadsheet",
