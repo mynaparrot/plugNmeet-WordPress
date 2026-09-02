@@ -2,12 +2,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-09 09:58+0000\n"
-"PO-Revision-Date: 2026-07-09 10:03\n"
+"POT-Creation-Date: 2026-09-02 01:49+0000\n"
+"PO-Revision-Date: 2026-09-02 02:28\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==2 ? 1 : 2);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -170,8 +170,8 @@ msgstr "אפשר מצלמות אינטרנט"
 msgid "Allow whiteboard"
 msgstr "אפשר לוח ציור"
 
-#: public/class-plugnmeet-public.php:372 admin/class-plugnmeet-admin.php:111
-#: admin/class-plugnmeet-admin.php:143
+#: admin/class-plugnmeet-admin.php:111 admin/class-plugnmeet-admin.php:143
+#: public/class-plugnmeet-public.php:372
 msgid "Are you sure to delete?"
 msgstr "האם אתה בטוח למחוק?"
 
@@ -296,8 +296,9 @@ msgstr "לוגו מותאם אישית"
 msgid "Default lock settings"
 msgstr "הגדרות נעילה המוגדרות כברירת מחדל"
 
-#: public/class-plugnmeet-public.php:375 admin/class-plugnmeet-admin.php:113
+#: admin/class-plugnmeet-admin.php:113
 #: admin/class-plugnmeet-rooms-list-table.php:108
+#: public/class-plugnmeet-public.php:375
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:36
 msgid "Delete"
 msgstr "למחוק"
@@ -311,7 +312,7 @@ msgstr "התאמה אישית של העיצוב"
 msgid "Display copyright text"
 msgstr "הצגת טקסט המוגן בזכויות יוצרים"
 
-#: public/class-plugnmeet-public.php:374 admin/class-plugnmeet-admin.php:112
+#: admin/class-plugnmeet-admin.php:112 public/class-plugnmeet-public.php:374
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:28
 msgid "Download"
 msgstr "הורדה"
@@ -393,10 +394,6 @@ msgstr "הזן את שמך"
 #: admin/class-plugnmeet-room-page.php:137
 msgid "Estimated Cost"
 msgstr "עלות משוערת"
-
-#: helpers/analyticsHelper.php:368
-msgid "Etherpad Status Count"
-msgstr "ספירת סטטוס של Etherpad"
 
 #: helpers/analyticsHelper.php:408
 msgid "Excellent"
@@ -613,8 +610,6 @@ msgstr "שם"
 msgid "Next"
 msgstr "הבא"
 
-#: helpers/analyticsHelper.php:106 helpers/analyticsHelper.php:122
-#: helpers/analyticsHelper.php:288 helpers/analyticsHelper.php:326
 #: helpers/helper.php:163 helpers/helper.php:178 helpers/helper.php:193
 #: helpers/helper.php:208 helpers/helper.php:223 helpers/helper.php:238
 #: helpers/helper.php:258 helpers/helper.php:273 helpers/helper.php:288
@@ -633,6 +628,8 @@ msgstr "הבא"
 #: helpers/helper.php:1043 helpers/helper.php:1058 helpers/helper.php:1073
 #: helpers/helper.php:1088 helpers/helper.php:1103 helpers/helper.php:1118
 #: helpers/helper.php:1133 helpers/helper.php:1148
+#: helpers/analyticsHelper.php:106 helpers/analyticsHelper.php:122
+#: helpers/analyticsHelper.php:288 helpers/analyticsHelper.php:326
 msgid "No"
 msgstr "לא"
 
@@ -651,6 +648,10 @@ msgstr "לא נמצא חדר"
 #: admin/class-plugnmeet-rooms-list-table.php:64
 msgid "No rooms found."
 msgstr "לא נמצאו חדרים."
+
+#: helpers/analyticsHelper.php:368
+msgid "Notepad Status Count"
+msgstr ""
 
 #: helpers/helper.php:637
 msgid "Number of rooms"
@@ -897,8 +898,8 @@ msgstr "בחר עמוד"
 msgid "Select All"
 msgstr "בחר הכל"
 
-#: admin/partials/plugnmeet-admin-display-artifacts.php:23
 #: admin/partials/plugnmeet-admin-display-recordings.php:23
+#: admin/partials/plugnmeet-admin-display-artifacts.php:23
 msgid "Select room"
 msgstr "בחר חדר"
 
@@ -1124,8 +1125,6 @@ msgstr "קבצי הלוח הלבן"
 msgid "Whiteboard Files Count"
 msgstr "ספירת קבצי לוח לבן"
 
-#: helpers/analyticsHelper.php:106 helpers/analyticsHelper.php:122
-#: helpers/analyticsHelper.php:288 helpers/analyticsHelper.php:326
 #: helpers/helper.php:159 helpers/helper.php:174 helpers/helper.php:189
 #: helpers/helper.php:204 helpers/helper.php:219 helpers/helper.php:234
 #: helpers/helper.php:254 helpers/helper.php:269 helpers/helper.php:284
@@ -1144,6 +1143,8 @@ msgstr "ספירת קבצי לוח לבן"
 #: helpers/helper.php:1039 helpers/helper.php:1054 helpers/helper.php:1069
 #: helpers/helper.php:1084 helpers/helper.php:1099 helpers/helper.php:1114
 #: helpers/helper.php:1129 helpers/helper.php:1144
+#: helpers/analyticsHelper.php:106 helpers/analyticsHelper.php:122
+#: helpers/analyticsHelper.php:288 helpers/analyticsHelper.php:326
 msgid "Yes"
 msgstr "כן"
 
