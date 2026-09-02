@@ -3,7 +3,7 @@ Contributors: bobteng
 Donate link: https://www.plugnmeet.org/
 Tags: video conference, webinar, zoom, live streaming, virtual classroom
 Requires at least: 6.6
-Tested up to: 7.0
+Tested up to: 7.1
 # x-release-please-start-version
 Stable tag: 2.2.6
 # x-release-please-end

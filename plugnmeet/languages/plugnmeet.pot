@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-09 09:58+0000\n"
+"POT-Creation-Date: 2026-09-02 01:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -166,8 +166,8 @@ msgstr ""
 msgid "Allow whiteboard"
 msgstr ""
 
-#: public/class-plugnmeet-public.php:372 admin/class-plugnmeet-admin.php:111
-#: admin/class-plugnmeet-admin.php:143
+#: admin/class-plugnmeet-admin.php:111 admin/class-plugnmeet-admin.php:143
+#: public/class-plugnmeet-public.php:372
 msgid "Are you sure to delete?"
 msgstr ""
 
@@ -292,8 +292,9 @@ msgstr ""
 msgid "Default lock settings"
 msgstr ""
 
-#: public/class-plugnmeet-public.php:375 admin/class-plugnmeet-admin.php:113
+#: admin/class-plugnmeet-admin.php:113
 #: admin/class-plugnmeet-rooms-list-table.php:108
+#: public/class-plugnmeet-public.php:375
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:36
 msgid "Delete"
 msgstr ""
@@ -307,7 +308,7 @@ msgstr ""
 msgid "Display copyright text"
 msgstr ""
 
-#: public/class-plugnmeet-public.php:374 admin/class-plugnmeet-admin.php:112
+#: admin/class-plugnmeet-admin.php:112 public/class-plugnmeet-public.php:374
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:28
 msgid "Download"
 msgstr ""
@@ -388,10 +389,6 @@ msgstr ""
 #: admin/class-plugnmeet-room-page.php:132
 #: admin/class-plugnmeet-room-page.php:137
 msgid "Estimated Cost"
-msgstr ""
-
-#: helpers/analyticsHelper.php:368
-msgid "Etherpad Status Count"
 msgstr ""
 
 #: helpers/analyticsHelper.php:408
@@ -609,8 +606,6 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: helpers/analyticsHelper.php:106 helpers/analyticsHelper.php:122
-#: helpers/analyticsHelper.php:288 helpers/analyticsHelper.php:326
 #: helpers/helper.php:163 helpers/helper.php:178 helpers/helper.php:193
 #: helpers/helper.php:208 helpers/helper.php:223 helpers/helper.php:238
 #: helpers/helper.php:258 helpers/helper.php:273 helpers/helper.php:288
@@ -629,6 +624,8 @@ msgstr ""
 #: helpers/helper.php:1043 helpers/helper.php:1058 helpers/helper.php:1073
 #: helpers/helper.php:1088 helpers/helper.php:1103 helpers/helper.php:1118
 #: helpers/helper.php:1133 helpers/helper.php:1148
+#: helpers/analyticsHelper.php:106 helpers/analyticsHelper.php:122
+#: helpers/analyticsHelper.php:288 helpers/analyticsHelper.php:326
 msgid "No"
 msgstr ""
 
@@ -646,6 +643,10 @@ msgstr ""
 
 #: admin/class-plugnmeet-rooms-list-table.php:64
 msgid "No rooms found."
+msgstr ""
+
+#: helpers/analyticsHelper.php:368
+msgid "Notepad Status Count"
 msgstr ""
 
 #: helpers/helper.php:637
@@ -893,8 +894,8 @@ msgstr ""
 msgid "Select All"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifacts.php:23
 #: admin/partials/plugnmeet-admin-display-recordings.php:23
+#: admin/partials/plugnmeet-admin-display-artifacts.php:23
 msgid "Select room"
 msgstr ""
 
@@ -1128,8 +1129,6 @@ msgstr ""
 msgid "Whiteboard Files Count"
 msgstr ""
 
-#: helpers/analyticsHelper.php:106 helpers/analyticsHelper.php:122
-#: helpers/analyticsHelper.php:288 helpers/analyticsHelper.php:326
 #: helpers/helper.php:159 helpers/helper.php:174 helpers/helper.php:189
 #: helpers/helper.php:204 helpers/helper.php:219 helpers/helper.php:234
 #: helpers/helper.php:254 helpers/helper.php:269 helpers/helper.php:284
@@ -1148,6 +1147,8 @@ msgstr ""
 #: helpers/helper.php:1039 helpers/helper.php:1054 helpers/helper.php:1069
 #: helpers/helper.php:1084 helpers/helper.php:1099 helpers/helper.php:1114
 #: helpers/helper.php:1129 helpers/helper.php:1144
+#: helpers/analyticsHelper.php:106 helpers/analyticsHelper.php:122
+#: helpers/analyticsHelper.php:288 helpers/analyticsHelper.php:326
 msgid "Yes"
 msgstr ""
 
