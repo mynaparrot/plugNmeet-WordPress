@@ -365,7 +365,7 @@ class Plugnmeet_AnalyticsHelper {
 			'rtmp_status'                  => __( 'RTMP Status Count', 'plugnmeet' ),
 			'speech_service_total_usage'   => __( 'Speech Service Total Usage', 'plugnmeet' ),
 			'external_media_player_status' => __( 'External Media Player Status Count', 'plugnmeet' ),
-			'shared_notepad_status'        => __( 'Notepad Status Count', 'plugnmeet' ),
+			'etherpad_status'              => __( 'Etherpad Status Count', 'plugnmeet' ),
 			'external_display_link_status' => __( 'External Display Link Status Count', 'plugnmeet' ),
 			'ingress_created'              => __( 'Ingress Created Count', 'plugnmeet' ),
 			'breakout_room'                => __( 'Breakout Room Count', 'plugnmeet' ),
