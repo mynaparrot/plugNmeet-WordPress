@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-09 09:58+0000\n"
-"PO-Revision-Date: 2026-07-09 10:03\n"
+"POT-Creation-Date: 2026-09-02 01:49+0000\n"
+"PO-Revision-Date: 2026-09-02 02:28\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -170,8 +170,8 @@ msgstr "Разрешить использование веб-камер"
 msgid "Allow whiteboard"
 msgstr "Разрешить использование доски"
 
-#: public/class-plugnmeet-public.php:372 admin/class-plugnmeet-admin.php:111
-#: admin/class-plugnmeet-admin.php:143
+#: admin/class-plugnmeet-admin.php:111 admin/class-plugnmeet-admin.php:143
+#: public/class-plugnmeet-public.php:372
 msgid "Are you sure to delete?"
 msgstr "Вы уверены, что удалите?"
 
@@ -296,8 +296,9 @@ msgstr "Пользовательский логотип"
 msgid "Default lock settings"
 msgstr "Настройки блокировки по умолчанию"
 
-#: public/class-plugnmeet-public.php:375 admin/class-plugnmeet-admin.php:113
+#: admin/class-plugnmeet-admin.php:113
 #: admin/class-plugnmeet-rooms-list-table.php:108
+#: public/class-plugnmeet-public.php:375
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:36
 msgid "Delete"
 msgstr "Удалить"
@@ -311,7 +312,7 @@ msgstr "Кастомизация дизайна"
 msgid "Display copyright text"
 msgstr "Отображение текста об авторских правах"
 
-#: public/class-plugnmeet-public.php:374 admin/class-plugnmeet-admin.php:112
+#: admin/class-plugnmeet-admin.php:112 public/class-plugnmeet-public.php:374
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:28
 msgid "Download"
 msgstr "Загружать"
@@ -393,10 +394,6 @@ msgstr "Введите своё имя"
 #: admin/class-plugnmeet-room-page.php:137
 msgid "Estimated Cost"
 msgstr "Ориентировочная стоимость"
-
-#: helpers/analyticsHelper.php:368
-msgid "Etherpad Status Count"
-msgstr "Количество состояний Etherpad"
 
 #: helpers/analyticsHelper.php:408
 msgid "Excellent"
@@ -613,8 +610,6 @@ msgstr "Имя"
 msgid "Next"
 msgstr "Следующий"
 
-#: helpers/analyticsHelper.php:106 helpers/analyticsHelper.php:122
-#: helpers/analyticsHelper.php:288 helpers/analyticsHelper.php:326
 #: helpers/helper.php:163 helpers/helper.php:178 helpers/helper.php:193
 #: helpers/helper.php:208 helpers/helper.php:223 helpers/helper.php:238
 #: helpers/helper.php:258 helpers/helper.php:273 helpers/helper.php:288
@@ -633,6 +628,8 @@ msgstr "Следующий"
 #: helpers/helper.php:1043 helpers/helper.php:1058 helpers/helper.php:1073
 #: helpers/helper.php:1088 helpers/helper.php:1103 helpers/helper.php:1118
 #: helpers/helper.php:1133 helpers/helper.php:1148
+#: helpers/analyticsHelper.php:106 helpers/analyticsHelper.php:122
+#: helpers/analyticsHelper.php:288 helpers/analyticsHelper.php:326
 msgid "No"
 msgstr "Нет"
 
@@ -651,6 +648,10 @@ msgstr "Номер не найден"
 #: admin/class-plugnmeet-rooms-list-table.php:64
 msgid "No rooms found."
 msgstr "Комнат не нашли."
+
+#: helpers/analyticsHelper.php:368
+msgid "Notepad Status Count"
+msgstr ""
 
 #: helpers/helper.php:637
 msgid "Number of rooms"
@@ -897,8 +898,8 @@ msgstr "Выберите страницу"
 msgid "Select All"
 msgstr "Выбрать все"
 
-#: admin/partials/plugnmeet-admin-display-artifacts.php:23
 #: admin/partials/plugnmeet-admin-display-recordings.php:23
+#: admin/partials/plugnmeet-admin-display-artifacts.php:23
 msgid "Select room"
 msgstr "Выбрать номер"
 
@@ -1124,8 +1125,6 @@ msgstr "Файлы белой доски"
 msgid "Whiteboard Files Count"
 msgstr "Количество файлов на доске"
 
-#: helpers/analyticsHelper.php:106 helpers/analyticsHelper.php:122
-#: helpers/analyticsHelper.php:288 helpers/analyticsHelper.php:326
 #: helpers/helper.php:159 helpers/helper.php:174 helpers/helper.php:189
 #: helpers/helper.php:204 helpers/helper.php:219 helpers/helper.php:234
 #: helpers/helper.php:254 helpers/helper.php:269 helpers/helper.php:284
@@ -1144,6 +1143,8 @@ msgstr "Количество файлов на доске"
 #: helpers/helper.php:1039 helpers/helper.php:1054 helpers/helper.php:1069
 #: helpers/helper.php:1084 helpers/helper.php:1099 helpers/helper.php:1114
 #: helpers/helper.php:1129 helpers/helper.php:1144
+#: helpers/analyticsHelper.php:106 helpers/analyticsHelper.php:122
+#: helpers/analyticsHelper.php:288 helpers/analyticsHelper.php:326
 msgid "Yes"
 msgstr "Да"
 
