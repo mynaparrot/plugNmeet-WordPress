@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-02 01:49+0000\n"
-"PO-Revision-Date: 2026-09-02 02:27\n"
+"PO-Revision-Date: 2026-09-02 03:27\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -651,7 +651,7 @@ msgstr "Aucune chambre trouvée."
 
 #: helpers/analyticsHelper.php:368
 msgid "Notepad Status Count"
-msgstr ""
+msgstr "Nombre de statuts du bloc-notes"
 
 #: helpers/helper.php:637
 msgid "Number of rooms"
