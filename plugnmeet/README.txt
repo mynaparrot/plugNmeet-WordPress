@@ -5,7 +5,7 @@ Tags: video conference, webinar, zoom, live streaming, virtual classroom
 Requires at least: 6.6
 Tested up to: 7.1
 # x-release-please-start-version
-Stable tag: 2.2.6
+Stable tag: 2.2.7
 # x-release-please-end
 Requires PHP: 8.3.0
 License: GPLv2 or later
