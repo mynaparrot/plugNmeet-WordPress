@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1b6c473cc6d632a3eed9ed606e275230",
+    "content-hash": "2782e20af967755647eabd13cf744ca9",
     "packages": [
         {
             "name": "brick/math",
@@ -209,16 +209,16 @@
         },
         {
             "name": "google/protobuf",
-            "version": "v5.36.0",
+            "version": "v5.36.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/protocolbuffers/protobuf-php.git",
-                "reference": "9c105104b54709ecd902494ab340ed2122789b2d"
+                "reference": "d64d16befba8632967f604b9644c0bb8f64cfbc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/9c105104b54709ecd902494ab340ed2122789b2d",
-                "reference": "9c105104b54709ecd902494ab340ed2122789b2d",
+                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/d64d16befba8632967f604b9644c0bb8f64cfbc3",
+                "reference": "d64d16befba8632967f604b9644c0bb8f64cfbc3",
                 "shasum": ""
             },
             "require": {
@@ -247,9 +247,9 @@
                 "proto"
             ],
             "support": {
-                "source": "https://github.com/protocolbuffers/protobuf-php/tree/v5.36.0"
+                "source": "https://github.com/protocolbuffers/protobuf-php/tree/v5.36.1"
             },
-            "time": "2026-08-20T13:06:50+00:00"
+            "time": "2026-08-31T22:07:31+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -769,16 +769,16 @@
         },
         {
             "name": "mynaparrot/plugnmeet-sdk",
-            "version": "2.2.6",
+            "version": "2.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mynaparrot/plugNmeet-sdk-php.git",
-                "reference": "b9227edf951a290903e0e506ce38bc79cd8fd30e"
+                "reference": "c03e3cc322c29f9626abeea963ba7f5baf766958"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mynaparrot/plugNmeet-sdk-php/zipball/b9227edf951a290903e0e506ce38bc79cd8fd30e",
-                "reference": "b9227edf951a290903e0e506ce38bc79cd8fd30e",
+                "url": "https://api.github.com/repos/mynaparrot/plugNmeet-sdk-php/zipball/c03e3cc322c29f9626abeea963ba7f5baf766958",
+                "reference": "c03e3cc322c29f9626abeea963ba7f5baf766958",
                 "shasum": ""
             },
             "require": {
@@ -786,14 +786,14 @@
                 "ext-curl": "*",
                 "ext-json": "*",
                 "firebase/php-jwt": "7.1.0",
-                "google/protobuf": "5.36.0",
+                "google/protobuf": "5.36.1",
                 "guzzlehttp/guzzle": "7.15.5",
                 "php": "^8.0",
                 "ramsey/uuid": "4.9.3"
             },
             "require-dev": {
                 "overtrue/phplint": "9.7.2",
-                "phpunit/phpunit": "13.3.2",
+                "phpunit/phpunit": "13.3.3",
                 "squizlabs/php_codesniffer": "4.0.4"
             },
             "type": "library",
@@ -818,9 +818,9 @@
             "description": "plugNmeet PHP SDK",
             "support": {
                 "issues": "https://github.com/mynaparrot/plugNmeet-sdk-php/issues",
-                "source": "https://github.com/mynaparrot/plugNmeet-sdk-php/tree/v2.2.6"
+                "source": "https://github.com/mynaparrot/plugNmeet-sdk-php/tree/v2.2.7"
             },
-            "time": "2026-08-31T02:05:37+00:00"
+            "time": "2026-09-09T15:59:40+00:00"
         },
         {
             "name": "phpoffice/phpspreadsheet",
@@ -1499,12 +1499,12 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.1"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
 }
