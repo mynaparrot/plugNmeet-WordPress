@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.2.7](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.2.6...v2.2.7) (2026-09-10)
+
+* bump SDK
+
 ## [2.2.6](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.2.5...v2.2.6) (2026-08-12)
 
 
