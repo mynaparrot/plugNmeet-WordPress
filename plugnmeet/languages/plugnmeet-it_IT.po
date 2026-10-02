@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-02 01:49+0000\n"
-"PO-Revision-Date: 2026-10-02 08:14\n"
+"PO-Revision-Date: 2026-10-02 08:19\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -259,7 +259,7 @@ msgstr "Controlla..."
 
 #: admin/class-plugnmeet-settings-page.php:455
 msgid "Clean"
-msgstr ""
+msgstr "Pulito"
 
 #: admin/class-plugnmeet-settings-page.php:231
 msgid "Client load"
@@ -431,11 +431,11 @@ msgstr "Colore piè di pagina"
 
 #: admin/class-plugnmeet-settings-page.php:440
 msgid "Frontend design"
-msgstr ""
+msgstr "Progettazione del frontend"
 
 #: admin/class-plugnmeet-settings-page.php:447
 msgid "Frontend theme"
-msgstr ""
+msgstr "Tema frontend"
 
 #: helpers/analyticsHelper.php:409
 msgid "Good"
@@ -570,7 +570,7 @@ msgstr "Gestisci stanze"
 
 #: admin/partials/form-parts/basic.php:58
 msgid "Maximum participants"
-msgstr ""
+msgstr "Numero massimo di partecipanti"
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:50
 #: public/partials/parts/recordings.php:26
@@ -612,7 +612,7 @@ msgstr "Password del moderatore"
 
 #: admin/class-plugnmeet-settings-page.php:456
 msgid "Modern"
-msgstr ""
+msgstr "Moderno"
 
 #: helpers/helper.php:171
 msgid "Mute on start"
@@ -719,7 +719,7 @@ msgstr "Chiave API di plugNmeet"
 
 #: admin/class-plugnmeet-settings-page.php:484
 msgid "plugNmeet Client design"
-msgstr ""
+msgstr "plugNmeet Progettazione del cliente"
 
 #: admin/class-plugnmeet-settings-page.php:217
 msgid "plugNmeet Secret"
@@ -827,7 +827,7 @@ msgstr "Durata della stanza"
 
 #: helpers/helper.php:246
 msgid "Room duration"
-msgstr ""
+msgstr "Durata della stanza"
 
 #: helpers/analyticsHelper.php:360
 msgid "Room Ended Time"
@@ -970,7 +970,7 @@ msgstr "Interrompi la traccia del microfono in modalità silenziosa"
 
 #: admin/class-plugnmeet-room-page.php:75
 msgid "Styling for the room page on your site."
-msgstr ""
+msgstr "Pagina dello styling per la stanza sul tuo sito."
 
 #: admin/partials/plugnmeet-admin-edit-room.php:24
 msgid "Submit"
@@ -1018,7 +1018,7 @@ msgstr "La stanza a cui stai cercando di entrare non esiste."
 
 #: admin/class-plugnmeet-settings-page.php:454
 msgid "Theme default (no plugin CSS)"
-msgstr ""
+msgstr "Tema predefinito (senza plugin CSS)"
 
 #: helpers/ajaxHelper.php:458 helpers/ajaxHelper.php:579
 msgid "This room is not currently active. Please contact the administrator."
@@ -1203,485 +1203,485 @@ msgstr "La tua sessione è scaduta. Per favore, aggiorna la pagina e riprova."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Allow participants to use their webcams."
-msgstr ""
+msgstr "Permette ai partecipanti di usare le loro webcam."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Automatically mute all participants when they join the session."
-msgstr ""
+msgstr "Mettere in silenzio automaticamente tutti i partecipanti quando entrano nella sessione."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Allow participants to share their screen."
-msgstr ""
+msgstr "Permette ai partecipanti di condividere il proprio schermo."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Allow participants to see the list of other participants."
-msgstr ""
+msgstr "Permette ai partecipanti di vedere la lista degli altri partecipanti."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Only allow moderators to use their webcams."
-msgstr ""
+msgstr "Permette solo ai moderatori di usare le webcam."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Defines how long the room can stay open, in minutes, before it closes automatically. Enter 0 for no time limit. This value cannot be changed after the session has started — the new duration will apply from the next session, or you can end the current session to apply it immediately."
-msgstr ""
+msgstr "Definisce quanto a lungo la stanza può rimanere aperta, in pochi minuti, prima di chiudersi automaticamente. Inserisci 0 senza limite di tempo. Questo valore non può essere cambiato dopo l'inizio della sessione — la nuova durata si applicherà dalla sessione successiva, oppure puoi terminare la sessione corrente per applicarlo immediatamente."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "When enabled, the session will not start and no one can join until a moderator joins first. Participants will remain on the page and will not enter the room or a waiting area. This is different from the Waiting Room option, where users can still join and wait."
-msgstr ""
+msgstr "Quando attivata, la sessione non inizierà e nessuno potrà unirsi finché un moderatore non si unirà per primo. I partecipanti rimarranno sulla pagina e non entreranno nella sala o nell'area d'attesa. Questo è diverso dall'opzione Sala d'Attesa, dove gli utenti possono comunque unirsi e aspettare."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Tracks participation and engagement data for the session."
-msgstr ""
+msgstr "Monitora i dati di partecipazione e coinvolgimento della sessione."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Enables participants to blur their background or use a virtual image. Great for maintaining privacy and ensuring a professional appearance."
-msgstr ""
+msgstr "Permette ai partecipanti di sfocare lo sfondo o utilizzare un'immagine virtuale. Ottimo per mantenere la privacy e garantire un aspetto professionale."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Allow participants to raise their hand."
-msgstr ""
+msgstr "Permette ai partecipanti di alzare la mano."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Allow participants to send floating reactions (e.g., thumbs up, clap) during the session."
-msgstr ""
+msgstr "Permette ai partecipanti di inviare reazioni fluttuanti (ad esempio, pollice in su, applausi) durante la sessione."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "When enabled, the system creates a new ID for each join so the same user can join from multiple devices, for example from a tablet to draw on the whiteboard while using a PC for the camera and microphone. When disabled, the system uses the WordPress user ID for logged-in users and auto-generates an ID based on the session ID for users who are not logged in. It is recommended to keep this off so duplicate joins are prevented."
-msgstr ""
+msgstr "Quando abilitato, il sistema crea un nuovo ID per ogni join in modo che lo stesso utente possa unirsi da più dispositivi, ad esempio da un tablet per disegnare sulla lavagna mentre usa un PC per la fotocamera e il microfono. Quando disabilitato, il sistema utilizza l'ID utente di WordPress per gli utenti logjati e genera automaticamente un ID basato sull'ID della sessione per gli utenti non loggati. Si consiglia di tenere questa opzione disattivata per evitare duplicati di join."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The primary master switch for all recording features. If disabled, both cloud and local recording options will be hidden from moderators."
-msgstr ""
+msgstr "Il principale interruttore master per tutte le funzioni di registrazione. Se disabilitato, sia le opzioni di registrazione cloud che locali saranno nascoste ai moderatori."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Enables recording on the PlugNmeet server. The final video is processed and stored in the cloud, making it easy to share via a link once the session ends."
-msgstr ""
+msgstr "Abilita la registrazione sul server PlugNmeet. Il video finale viene elaborato e memorizzato nel cloud, facilitando la condivisione tramite un link una volta terminata la sessione."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Automatically triggers the cloud recording the moment the first moderator joins the session. Ideal for ensuring no session is forgotten."
-msgstr ""
+msgstr "Attiva automaticamente la registrazione cloud nel momento in cui il primo moderatore entra nella sessione. Ideale per assicurarsi che nessuna sessione venga dimenticata."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Allows recording directly to the computer. <strong>Note:</strong> Requires Google Chrome. To capture all session audio, the user must share their \"Chrome Tab\" and check the \"Also share tab audio\" box. The file is saved locally to the device once finished."
-msgstr ""
+msgstr "Permette di registrare direttamente al computer. <strong>Nota:</strong> Richiede Google Chrome. Per catturare tutto l'audio della sessione, l'utente deve condividere la propria \"scheda Chrome\" e selezionare la casella \"Condividi anche audio nella scheda audio\". Il file viene salvato localmente sul dispositivo una volta terminato."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The primary master switch for all broadcasting features. If disabled, all other broadcasting options will be disabled."
-msgstr ""
+msgstr "Il commutatore principale principale per tutte le funzionalità di trasmissione. Se disabilitato, tutte le altre opzioni di trasmissione saranno disabilitate."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Enables moderators to broadcast the live session to external platforms like YouTube, Facebook, or Twitch. Perfect for public webinars or guest lectures."
-msgstr ""
+msgstr "Permette ai moderatori di trasmettere la sessione in diretta su piattaforme esterne come YouTube, Facebook o Twitch. Perfetto per webinar pubblici o conferenze con ospiti."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The absolute master switch for all chat functions. If disabled, the entire chat area is removed for everyone, including moderators. No public or private chat will be possible."
-msgstr ""
+msgstr "Il vero interruttore master per tutte le funzioni di chat. Se disabilitato, l'intera area chat viene rimossa per tutti, inclusi i moderatori. Non sarà possibile nessuna chat pubblica o privata."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Enables the ability to share files within the chat. This requires the chat feature to be active."
-msgstr ""
+msgstr "Permette di condividere file all'interno della chat. Questo richiede che la funzione chat sia attiva."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Enables a collaborative text editor where participants and moderators can take real-time notes together. This is perfect for brainstorming, co-writing, or building a shared summary."
-msgstr ""
+msgstr "Consente un editor di testo collaborativo dove partecipanti e moderatori possono prendere appunti in tempo reale insieme. Questo è perfetto per brainstorming, co-writing o costruzione di un riassunto condiviso."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Unlocks an interactive drawing space for the session. Use it for sketching diagrams, solving math problems visually, or letting participants annotate shared content."
-msgstr ""
+msgstr "Sblocca uno spazio di disegno interattivo per la sessione. Usalo per schizzare diagrammi, risolvere problemi di matematica in modo visivo o permettere ai partecipanti di annotare contenuti condivisi."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Allows moderators to sync and play videos from sources like YouTube or Vimeo for everyone. Ideal for analyzing clips or watching videos together without bandwidth lag."
-msgstr ""
+msgstr "Permette ai moderatori di sincronizzare e riprodurre video da fonti come YouTube o Vimeo per tutti. Ideale per analizzare clip o guardare video insieme senza lag di banda."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Enable the waiting room for this session."
-msgstr ""
+msgstr "Attiva la sala d'attesa per questa sessione."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "This message is shown to users while they are waiting to be admitted to the room. Use it to share instructions, expectations, or helpful information before the session starts."
-msgstr ""
+msgstr "Questo messaggio viene mostrato agli utenti mentre aspettano di essere ammessi nella sala. Usalo per condividere istruzioni, aspettative o informazioni utili prima dell'inizio della sessione."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Enables moderators to split participants into smaller groups for focused discussions, collaborative projects, or private group activities."
-msgstr ""
+msgstr "Permette ai moderatori di dividere i partecipanti in gruppi più piccoli per discussioni mirate, progetti collaborativi o attività private di gruppo."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The maximum number of sub-rooms a moderator can create within a single session."
-msgstr ""
+msgstr "Il numero massimo di sottostanze che un moderatore può creare in una singola sessione."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Allows moderators to display external content, such as H5P activities, SCORM packages, or quiz systems (e.g., Kahoot), directly to all participants during the session."
-msgstr ""
+msgstr "Permette ai moderatori di mostrare contenuti esterni, come attività H5P, pacchetti SCORM o sistemi quiz (ad esempio, Kahoot), direttamente a tutti i partecipanti durante la sessione."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Allows moderators to broadcast high-quality video into the session using external software like OBS via RTMP or WHIP protocols. This is ideal for sharing high-resolution video content, pre-recorded sessions, or bypassing browser upload limitations."
-msgstr ""
+msgstr "Permette ai moderatori di trasmettere video di alta qualità nella sessione utilizzando software esterni come OBS tramite protocolli RTMP o WHIP. Questo è ideale per condividere contenuti video ad alta risoluzione, sessioni preregistrate o aggirare le limitazioni di upload del browser."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Enables moderators to create interactive polls and quick quizzes during the session. This is a great way to check participant understanding and increase engagement."
-msgstr ""
+msgstr "Permette ai moderatori di creare sondaggi interattivi e quiz rapidi durante la sessione. Questo è un ottimo modo per verificare la comprensione dei partecipanti e aumentare il coinvolgimento."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Allows participants to join the audio session via a traditional phone call. This is essential for participants with poor internet connections or those who need to join while on the go."
-msgstr ""
+msgstr "Permette ai partecipanti di partecipare alla sessione audio tramite una telefonata tradizionale. Questo è essenziale per i partecipanti con connessioni internet scarse o per chi ha bisogno di unirsi in mobilità."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Automatically activate SIP dial-in when the room is created, so participants can join by phone immediately without a moderator enabling it during the session."
-msgstr ""
+msgstr "Attiva automaticamente il dial-in SIP quando la stanza viene creata, così i partecipanti possono unirsi immediatamente telefonicamente senza che un moderatore lo attivi durante la sessione."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Hide the phone numbers of participants who joined via SIP dial-in from the participants list and chat."
-msgstr ""
+msgstr "Nascondere i numeri di telefono dei partecipanti che si sono iscritti tramite SIP dial-in dalla lista dei partecipanti e dalla chat."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Provides strong security by encrypting video and audio streams between participants. In this mode, the server generates and securely distributes a unique encryption key for the session."
-msgstr ""
+msgstr "Fornisce una forte sicurezza criptando i flussi video e audio tra i partecipanti. In questa modalità, il server genera e distribuisce in modo sicuro una chiave di crittografia unica per la sessione."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Extends end-to-end encryption to text chat, ensuring messages are only readable by participants in the room."
-msgstr ""
+msgstr "Estende la crittografia end-to-end alla chat testuale, assicurando che i messaggi siano leggibili solo dai partecipanti presenti nella stanza."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Includes all whiteboard drawings and annotations in the end-to-end encryption layer for total data privacy."
-msgstr ""
+msgstr "Include tutti i disegni e annotazioni della lavagna nel livello di crittografia end-to-end per la totale privacy dei dati."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The primary master switch for all data-driven features. If disabled, all sub-options, including Transcription, AI Assistant, and Meeting Reports, will be completely unavailable."
-msgstr ""
+msgstr "Il principale interruttore principale per tutte le funzionalità basate sui dati. Se disabilitato, tutte le sotto-opzioni, inclusi Trascrizione, Assistente AI e Rapporti di Riunione, saranno completamente non disponibili."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Enables real-time speech-to-text during the session. This must be enabled for transcription translation or speech synthesis (TTS) to work."
-msgstr ""
+msgstr "Consente la trasformazione vocale in tempo reale durante la sessione. Questo deve essere abilitato affinché la traduzione della trascrizione o la sintesi vocale (TTS) funzionino."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Allows the live transcript to be translated into different languages, supporting multilingual sessions."
-msgstr ""
+msgstr "Permette di tradurre la trascrizione dal vivo in diverse lingue, supportando sessioni multilingue."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Enables Text-to-Speech, allowing the live transcript to be read aloud for better accessibility and for visually impaired participants."
-msgstr ""
+msgstr "Abilita il Text-to-Speech, consentendo la lettura ad alta voce della trascrizione in diretta per una migliore accessibilità e per i partecipanti ipovedenti."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Enables real-time translation of chat messages, allowing participants to communicate instantly across different languages."
-msgstr ""
+msgstr "Consente la traduzione in tempo reale dei messaggi in chat, consentendo ai partecipanti di comunicare istantaneamente tra diverse lingue."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The master switch for all AI-powered capabilities. If disabled, specific features like AI Chat and Meeting Summarization will be hidden, even if Insights is active."
-msgstr ""
+msgstr "Il master switch per tutte le funzionalità basate sull'IA. Se disabilitate, funzionalità specifiche come AI Chat e Meeting Summarization resteranno nascoste, anche se Insights è attivo."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Integrates an AI assistant directly into the chat to help answer questions, explain complex concepts, and facilitate discussion."
-msgstr ""
+msgstr "Integra direttamente un assistente AI nella chat per aiutare a rispondere alle domande, spiegare concetti complessi e facilitare la discussione."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Automatically generates a concise AI summary after the session ends, highlighting key points, decisions, and follow-up tasks."
-msgstr ""
+msgstr "Genera automaticamente un riassunto AI conciso dopo la fine della sessione, evidenziando punti chiave, decisioni e compiti di follow-up."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Lock the microphone for participants. They cannot turn on or use their microphone until a moderator unlocks it."
-msgstr ""
+msgstr "Blocca il microfono per i partecipanti. Non possono accendere o usare il microfono finché un moderatore non lo sblocca."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Lock the webcam for participants. They cannot share their camera until a moderator unlocks it."
-msgstr ""
+msgstr "Blocca la webcam per i partecipanti. Non possono condividere la loro telecamera finché un moderatore non la sblocca."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Lock screen sharing for participants. They cannot share their screen until a moderator unlocks it."
-msgstr ""
+msgstr "Condivisione della schermata di blocco per i partecipanti. Non possono condividere lo schermo finché un moderatore non lo sblocca."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Lock the whiteboard for participants. They cannot draw or annotate on the whiteboard until a moderator unlocks it."
-msgstr ""
+msgstr "Blocca la lavagna per i partecipanti. Non possono disegnare o annotare sulla lavagna finché un moderatore non la sblocca."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Lock the shared notepad for participants. They cannot write in the shared notepad until a moderator unlocks it."
-msgstr ""
+msgstr "Blocca il blocco note condiviso per i partecipanti. Non possono scrivere nel blocco note condiviso finché un moderatore non lo sblocca."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Lock the chat for participants. They cannot use the chat until a moderator unlocks it."
-msgstr ""
+msgstr "Blocca la chat per i partecipanti. Non possono usare la chat finché un moderatore non la sblocca."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Lock message sending for participants. They can still read the chat but cannot send messages until a moderator unlocks it."
-msgstr ""
+msgstr "Blocca l'invio di messaggi per i partecipanti. Possono comunque leggere la chat ma non possono inviare messaggi finché un moderatore non la sblocca."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Lock file sharing in chat for participants. They cannot share files in the chat until a moderator unlocks it."
-msgstr ""
+msgstr "Blocca la condivisione file nella chat per i partecipanti. Non possono condividere file nella chat finché un moderatore non lo sblocca."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Lock private chat for participants. They cannot send private messages to other participants until a moderator unlocks it. They can still send private messages to moderators."
-msgstr ""
+msgstr "Blocca la chat privata per i partecipanti. Non possono inviare messaggi privati ad altri partecipanti finché un moderatore non lo sblocca. Possono comunque inviare messaggi privati ai moderatori."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Lock reactions for participants. They cannot send reactions until a moderator unlocks it."
-msgstr ""
+msgstr "Blocca le reazioni per i partecipanti. Non possono inviare reazioni finché un moderatore non le sblocca."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The unique ID of this room and everything tied to it. The SDK uses this ID to create the room, and recordings, artifacts and other room data will always be linked to it. It is generated automatically and cannot be changed. The second field shows the WordPress shortcode you can paste into any post or page to embed this room."
-msgstr ""
+msgstr "L'ID unico di questa stanza e tutto ciò che vi è collegato. L'SDK usa questo ID per creare la stanza, e registrazioni, artefatti e altri dati della stanza saranno sempre collegati ad essa. Viene generato automaticamente e non può essere modificato. Il secondo campo mostra lo shortcode WordPress che puoi incollare in qualsiasi post o pagina per incorporare questa stanza."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The name used for the meeting header. It helps participants identify the session."
-msgstr ""
+msgstr "Il nome usato per l'intestazione della riunione. Aiuta i partecipanti a identificare la sessione."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "A short description of the room. Useful for internal notes and for identifying the session."
-msgstr ""
+msgstr "Una breve descrizione della stanza. Utile per appunti interni e per identificare la sessione."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The password required to join this room as a moderator. It is auto-generated when the room is created and can be replaced."
-msgstr ""
+msgstr "La password necessaria per entrare in questa stanza come moderatore. Viene generata automaticamente quando la stanza viene creata e può essere sostituita."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The password required to join this room as an attendee. It is auto-generated when the room is created and can be replaced."
-msgstr ""
+msgstr "La password necessaria per entrare in questa sala come partecipante. Viene generata automaticamente quando la sala viene creata e può essere sostituita."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Any text entered here will appear as the first message in the public chat when users join the room. This is useful for sharing instructions, links, or important information with participants as they enter."
-msgstr ""
+msgstr "Qualsiasi testo inserito qui apparirà come il primo messaggio nella chat pubblica quando gli utenti entreranno nella stanza. Questo è utile per condividere istruzioni, link o informazioni importanti con i partecipanti all'ingresso."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Set this value to limit how many users can join the session at the same time. Set it to 0 to allow unlimited participants. This value cannot be changed after the session has started — the new limit will apply from the next session, or you can end the current session to apply it immediately."
-msgstr ""
+msgstr "Imposta questo valore per limitare quanti utenti possono partecipare contemporaneamente alla sessione. Impostalo a 0 per consentire un numero illimitato di partecipanti. Questo valore non può essere cambiato dopo l'inizio della sessione — il nuovo limite si applicherà dalla sessione successiva, oppure puoi terminare la sessione corrente per applicarlo immediatamente."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Published rooms are available to users on the room page. Unpublished rooms stay hidden until you publish them again."
-msgstr ""
+msgstr "Le stanze pubblicate sono disponibili per gli utenti nella pagina delle stanze. Le stanze non pubblicate rimangono nascoste finché non le pubblichi nuovamente."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Link an external .css file to overwrite or customize the interface styles."
-msgstr ""
+msgstr "Collega un file .css esterno per sovrascrivere o personalizzare gli stili dell'interfaccia."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Main accent color used for buttons, active states, and highlights."
-msgstr ""
+msgstr "Colore principale usato per pulsanti, stati attivi e evidenze."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The accent color used for secondary UI elements."
-msgstr ""
+msgstr "Il colore d'accento usato per gli elementi secondari dell'interfaccia utente."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The primary background color of the interface."
-msgstr ""
+msgstr "Il colore di sfondo principale dell'interfaccia."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Background wallpaper. For best results, use a 1920x1080 image."
-msgstr ""
+msgstr "Sfondo da sfondo. Per ottenere i migliori risultati, usa un'immagine 1920x1080."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Upload your logo to the meeting room. If left blank, the default PlugNmeet logo will be used."
-msgstr ""
+msgstr "Carica il tuo logo nella sala riunioni. Se lasciato vuoto, verrà utilizzato il logo predefinito di PlugNmeet."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Background color for the top navigation bar."
-msgstr ""
+msgstr "Colore di sfondo per la barra di navigazione in alto."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Background color for the bottom toolbar."
-msgstr ""
+msgstr "Colore di sfondo per la barra degli strumenti in basso."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Background color for the right-side panels (Chat and Participants list)."
-msgstr ""
+msgstr "Colore di sfondo per i pannelli di destra (Chat e elenco dei partecipanti)."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Users with this role join as moderators and can manage the session: mute or lock participants, control recordings, polls and breakout rooms."
-msgstr ""
+msgstr "Gli utenti con questo ruolo si uniscono come moderatori e possono gestire la sessione: silenziare o bloccare i partecipanti, controllare registrazioni, sondaggi e sale di gruppo."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Users with this role join as attendees: regular participants whose permissions are limited by the room features and default lock settings."
-msgstr ""
+msgstr "Gli utenti con questo ruolo si uniscono come partecipanti: partecipanti abituali i cui permessi sono limitati dalle funzionalità della stanza e dalle impostazioni predefinite della serratura."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Require users with this role to enter a password before joining, depending on their join mode."
-msgstr ""
+msgstr "Richiedere agli utenti con questo ruolo di inserire una password prima di unirsi, a seconda della modalità di iscrizione."
 
 #: helpers/helper.php
 msgid "Transcription"
-msgstr ""
+msgstr "Trascrizione"
 
 #: helpers/helper.php
 msgid "Chat translation"
-msgstr ""
+msgstr "Traduzione della chat"
 
 #: helpers/helper.php
 msgid "AI features"
-msgstr ""
+msgstr "Funzionalità dell'IA"
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Basic information"
-msgstr ""
+msgstr "Informazioni di base"
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Room identity, passwords and welcome message."
-msgstr ""
+msgstr "Identità della stanza, password e messaggio di benvenuto."
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Webcams, screen sharing and more."
-msgstr ""
+msgstr "Webcam, condivisione dello schermo e altro ancora."
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Record on the server or locally."
-msgstr ""
+msgstr "Registra sul server o localmente."
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Stream the session to external platforms."
-msgstr ""
+msgstr "Trasmetti la sessione su piattaforme esterne."
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Public chat and file sharing."
-msgstr ""
+msgstr "Chat pubbliche e condivisione file."
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Collaborative text editor."
-msgstr ""
+msgstr "Editor di testo collaborativo."
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Interactive drawing and annotation space."
-msgstr ""
+msgstr "Spazio interattivo per disegno e annotazione."
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Play external videos in sync for everyone."
-msgstr ""
+msgstr "Riproduci video esterni sincronizzati per tutti."
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Hold participants until admitted."
-msgstr ""
+msgstr "Trattenere i partecipanti fino all'ammissione."
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Split participants into sub-rooms."
-msgstr ""
+msgstr "Dividere i partecipanti in sottostanze."
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Show external content inside the session."
-msgstr ""
+msgstr "Mostra contenuti esterni all'interno della sessione."
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Push high-quality streams via OBS/RTMP/WHIP."
-msgstr ""
+msgstr "Invia stream di alta qualità tramite OBS/RTMP/WHIP."
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Interactive polls and quizzes."
-msgstr ""
+msgstr "Sondaggi e quiz interattivi."
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Join the audio by phone call."
-msgstr ""
+msgstr "Unisciti all'audio tramite telefonata."
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Encrypt media streams between participants."
-msgstr ""
+msgstr "Cripta i flussi multimediali tra i partecipanti."
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Transcription, chat translation and AI tools."
-msgstr ""
+msgstr "Trascrizione, traduzione di chat e strumenti di intelligenza artificiale."
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "What participants can do when they join."
-msgstr ""
+msgstr "Cosa possono fare i partecipanti quando si iscrivono."
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Colors, logo and background."
-msgstr ""
+msgstr "Colori, logo e sfondo."
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Room access per WordPress role."
-msgstr ""
+msgstr "Accesso alle stanze per ruolo WordPress."
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Expand all"
-msgstr ""
+msgstr "Espandi tutto"
 
 #: admin/partials/plugnmeet-admin-edit-room.php
 msgid "Collapse all"
-msgstr ""
+msgstr "Collasso tutto"
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The base URL of your PlugNmeet server (e.g., https://pnm.example.com)."
-msgstr ""
+msgstr "L'URL base del tuo server PlugNmeet (ad esempio, https://pnm.example.com)."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The unique API key provided by your PlugNmeet server."
-msgstr ""
+msgstr "La chiave API unica fornita dal tuo server PlugNetet."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The API secret provided by your PlugNmeet server used for secure authentication."
-msgstr ""
+msgstr "Il segreto API fornito dal tuo server PlugNmeet è usato per l'autenticazione sicura."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Choose how the meeting client is delivered. Remote (default): the meeting opens on a standalone page served by this plugin, with the client files loaded from your plugNmeet server. Local: the client files are served from this plugin — use the Update button to download them first; useful for serving your own customized client. Redirect: users are taken directly to your plugNmeet server's interface and leave your site."
-msgstr ""
+msgstr "Scegli come viene consegnato il client della riunione. Remoto (predefinito): la riunione si apre su una pagina standalone servita da questo plugin, con i file client caricati dal tuo server plugNmeet. Locale: i file client vengono serviti da questo plugin — usa prima il pulsante Aggiorna per scaricarli; utile per servire il tuo client personalizzato. Reindirizzamento: gli utenti vengono portati direttamente all'interfaccia del server plugNmeet e lasciano il sito."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Advanced option for using your own customized plugNmeet client. The Update button downloads the client zip from this URL to your server. Only used when client load is set to Local."
-msgstr ""
+msgstr "Opzione avanzata per utilizzare il proprio client plugNmeet personalizzato. Il pulsante Update scarica il client zip da questo URL al tuo server. Usato solo quando il carico client è impostato su Locale."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Optimizes performance by dynamically pausing video layers that are not being viewed by participants. This significantly reduces server-side CPU and bandwidth usage. <strong>Note:</strong> This will be automatically enabled if using SVC codecs (VP9/AV1) and is required for multi-codec simulcast."
-msgstr ""
+msgstr "Ottimizza le prestazioni mettendo in pausa dinamica i livelli video che non vengono visualizzati dai partecipanti. Questo riduce significativamente l'uso di CPU e banda lato server. <strong>Nota:</strong> Questo sarà abilitato automaticamente se si utilizzano codec SVC (VP9/AV1) ed è richiesto per il simulcast multi-codec."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Delivers multiple video quality layers to ensure a smooth experience for users on weak connections."
-msgstr ""
+msgstr "Fornisce più livelli di qualità video per garantire un'esperienza fluida agli utenti con connessioni deboli."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The encoding standard for video transmission. VP8 is the default and offers the widest browser compatibility. VP9 offers a superior balance of video quality, CPU efficiency and low latency, and automatically falls back to VP8 on older browsers. <strong>Warning:</strong> Advanced codecs like AV1 require modern browser support; ensure your users are on compatible setups if you deviate from the default."
-msgstr ""
+msgstr "Lo standard di codifica per la trasmissione video. VP8 è il predefinito e offre la più ampia compatibilità con i browser. VP9 offre un equilibrio superiore tra qualità video, efficienza CPU e bassa latenza, e torna automaticamente a VP8 sui browser più vecchi. <strong>Attenzione:</strong> Codec avanzati come AV1 richiedono il supporto moderno per browser; assicurati che i tuoi utenti siano su configurazioni compatibili se devi dal valore predefinito."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The initial resolution setting for participant cameras."
-msgstr ""
+msgstr "L'impostazione iniziale di risoluzione per le fotocamere dei partecipanti."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The initial resolution setting for screen sharing."
-msgstr ""
+msgstr "L'impostazione iniziale di risoluzione per la condivisione dello schermo."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The audio quality profile optimized for the session."
-msgstr ""
+msgstr "Il profilo di qualità audio ottimizzato per la sessione."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "When enabled, the microphone track is fully stopped while muted instead of just being silenced, so no audio data is sent while muted."
-msgstr ""
+msgstr "Quando attivato, la traccia del microfono viene completamente ferma mentre è silenziata invece di essere semplicemente silenziata, quindi nessun dato audio viene inviato mentre è silenziato."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Display the copyright text in the client footer."
-msgstr ""
+msgstr "Visualizza il testo del copyright nel piè di pagina del client."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Branding text displayed in the client footer. HTML is supported for links or custom styling."
-msgstr ""
+msgstr "Testo di branding visualizzato nel piè di pagina del client. HTML è supportato per link o stili personalizzati."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The page a room link opens on. By default the room opens inside your theme's normal layout; for a clean, distraction-free meeting view, create an empty page (Pages > Add New) and select it here. After changing, go to Settings > Permalinks and simply click \"Save Changes\"."
-msgstr ""
+msgstr "La pagina su cui si apre il link di una stanza. Di default la stanza si apre all'interno del layout normale del tuo tema; per una vista riunione pulita e senza distrazioni, crea una pagina vuota (Pagine > aggiungi nuovi) e selezionala qui. Dopo aver cambiato, vai su Impostazioni > Permalinks e clicca semplicemente su \"Salva modifiche\"."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The first part of every room link. The default plugnmeet/room gives links like yoursite.com/plugnmeet/room/room-id; you can change it to any word you prefer, e.g. meetings. After changing it, go to Settings > Permalinks and simply click \"Save Changes\"."
-msgstr ""
+msgstr "La prima parte di ogni collegamento di stanza. Il plugnmeet/room predefinito fornisce link come yoursite.com/plugnmeet/room/room-id; puoi cambiarlo con qualsiasi parola preferisci, ad esempio meetings. Dopo averlo cambiato, vai su Impostazioni > Permalinks e clicca semplicemente su \"Salva modifiche\"."
 
 #: admin/class-plugnmeet-room-page.php
 msgid "Connection details for your plugNmeet server and client delivery."
-msgstr ""
+msgstr "Dettagli di connessione per il server plugNmeet e la consegna del client."
 
 #: admin/class-plugnmeet-room-page.php
 msgid "Default technical configurations applied to every new session."
-msgstr ""
+msgstr "Le configurazioni tecniche predefinite si applicavano a ogni nuova sessione."
 
 #: admin/class-plugnmeet-room-page.php
 msgid "Global defaults for the meeting client. Rooms can override the design and logo from their Design tab; copyright is always global."
-msgstr ""
+msgstr "Impostazioni predefinite globali per il client della riunione. Le stanze possono sovrascrivere il design e il logo dalla loro scheda Design; il copyright è sempre globale."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "Choose how the room page (login form and recordings) looks. Theme default (no plugin CSS): your theme's own styling, which is how the room page works today. Clean: a minimal, light design with an inline login form (name, password and Join button in one line). Modern: a bolder design using your primary color. The color fields below apply to the selected design."
-msgstr ""
+msgstr "Scegli come appare la pagina della stanza (modulo di accesso e registrazioni). Tema predefinito (senza plugin CSS): lo stile personale del tuo tema, che è come funziona oggi la pagina della stanza. Pulito: un design minimalista e leggero con un modulo di login inline (nome, password e pulsante Join in una riga). Moderno: un design più audace usando il tuo colore primario. I campi colore qui sotto si applicano al design selezionato."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The main color of the selected frontend design: the Join button, accents and focus rings on the room page. Leave blank to use the design's default."
-msgstr ""
+msgstr "Il colore principale del design frontend selezionato: il pulsante Join, gli accenti e gli anelli di messa a fuoco nella pagina della stanza. Lascia vuoto per usare il design predefinito."
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The secondary color of the selected frontend design: soft backgrounds and the recordings table header. Leave blank to use the design's default."
-msgstr ""
+msgstr "Il colore secondario del design frontend selezionato: sfondi morbidi e l'intestazione della tabella delle registrazioni. Lascia vuoto per usare il design predefinito."
 
