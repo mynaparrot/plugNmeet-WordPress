@@ -50,7 +50,8 @@ class Plugnmeet_SettingsPage {
 
 		$this->configSection();
 		$this->optionsSection();
-		$this->designCustomization();
+		$this->frontendDesignSection();
+		$this->clientDesignSection();
 	}
 
 	public function textCallBack( $args ) {
@@ -83,6 +84,27 @@ class Plugnmeet_SettingsPage {
 			} else {
 				$html .= '<option value="' . $option . '" >' . $option . '</option>';
 			}
+		}
+
+		$html .= '</select>';
+
+		echo wp_kses( $html, $this->allowedHtml );
+
+		echo plugnmeet_help_text_html( 'settings.' . $args['id'] );
+	}
+
+	public function labeledSelectCallBack( $args ) {
+		$options = get_option( 'plugnmeet_settings' );
+
+		$id            = isset( $args['id'] ) ? esc_attr( $args['id'] ) : '';
+		$value         = isset( $options[ $id ] ) ? esc_attr( $options[ $id ] ) : $args['default'];
+		$selectOptions = $args['options'];
+
+		$html = '<select id="' . $id . '" name="plugnmeet_settings[' . $id . ']">';
+
+		foreach ( $selectOptions as $optionValue => $optionLabel ) {
+			$selected = ( $value === $optionValue ) ? ' selected' : '';
+			$html     .= '<option value="' . esc_attr( $optionValue ) . '"' . $selected . '>' . $optionLabel . '</option>';
 		}
 
 		$html .= '</select>';
@@ -186,6 +208,18 @@ class Plugnmeet_SettingsPage {
 				'success'
 			);
 			flush_rewrite_rules();
+		}
+
+		// Frontend design fields: sanitize only these new keys.
+		if ( isset( $input['frontend_theme'] ) ) {
+			$input['frontend_theme'] = in_array( $input['frontend_theme'], array( 'theme', 'clean', 'modern' ), true ) ? $input['frontend_theme'] : 'theme';
+		} else {
+			$input['frontend_theme'] = 'theme';
+		}
+		foreach ( array( 'frontend_primary_color', 'frontend_secondary_color' ) as $color_key ) {
+			if ( isset( $input[ $color_key ] ) && ! preg_match( '/^#([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})$/', $input[ $color_key ] ) ) {
+				$input[ $color_key ] = '';
+			}
 		}
 
 		return $input;
@@ -352,36 +386,6 @@ class Plugnmeet_SettingsPage {
 		);
 
 		add_settings_field(
-			'logo',
-			__( 'Custom logo', 'plugnmeet' ),
-			[ $this, 'mediaCallBack' ],
-			'plugnmeet-settings',
-			'plugnmeet_settings_options_section',
-			[ 'id' => 'logo' ]
-		);
-
-		// copyright
-		add_settings_field(
-			'copyright_display',
-			__( 'Display copyright text', 'plugnmeet' ),
-			[ $this, 'selectCallBack' ],
-			'plugnmeet-settings',
-			'plugnmeet_settings_options_section',
-			[ 'id' => 'copyright_display', 'options' => array( "true", "false" ), 'default' => "false" ]
-		);
-		add_settings_field(
-			'copyright_text',
-			__( 'Copyright text', 'plugnmeet' ),
-			[ $this, 'textCallBack' ],
-			'plugnmeet-settings',
-			'plugnmeet_settings_options_section',
-			[
-				'id'      => 'copyright_text',
-				'default' => "Powered by plugNmeet"
-			]
-		);
-
-		add_settings_field(
 			'room_host_page',
 			__( 'Room Host Page', 'plugnmeet' ),
 			[ $this, 'pageSelectCallBack' ],
@@ -400,10 +404,54 @@ class Plugnmeet_SettingsPage {
 		);
 	}
 
-	private function designCustomization() {
+	private function frontendDesignSection() {
 		add_settings_section(
-			'plugnmeet_design_customization_section',
-			__( 'Design Customization', 'plugnmeet' ),
+			'plugnmeet_settings_frontend_design_section',
+			__( 'Frontend design', 'plugnmeet' ),
+			[ $this, 'checkError' ],
+			'plugnmeet-settings'
+		);
+
+		add_settings_field(
+			'frontend_theme',
+			__( 'Frontend theme', 'plugnmeet' ),
+			[ $this, 'labeledSelectCallBack' ],
+			'plugnmeet-settings',
+			'plugnmeet_settings_frontend_design_section',
+			[
+				'id'      => 'frontend_theme',
+				'options' => array(
+					'theme'  => __( 'Theme default (no plugin CSS)', 'plugnmeet' ),
+					'clean'  => __( 'Clean', 'plugnmeet' ),
+					'modern' => __( 'Modern', 'plugnmeet' ),
+				),
+				'default' => 'theme'
+			]
+		);
+
+		add_settings_field(
+			'frontend_primary_color',
+			__( 'Primary Color', 'plugnmeet' ),
+			[ $this, 'textCallBack' ],
+			'plugnmeet-settings',
+			'plugnmeet_settings_frontend_design_section',
+			[ 'id' => 'frontend_primary_color', 'className' => 'pnm-color-picker' ]
+		);
+
+		add_settings_field(
+			'frontend_secondary_color',
+			__( 'Secondary Color', 'plugnmeet' ),
+			[ $this, 'textCallBack' ],
+			'plugnmeet-settings',
+			'plugnmeet_settings_frontend_design_section',
+			[ 'id' => 'frontend_secondary_color', 'className' => 'pnm-color-picker' ]
+		);
+	}
+
+	private function clientDesignSection() {
+		add_settings_section(
+			'plugnmeet_settings_client_design_section',
+			__( 'plugNmeet Client design', 'plugnmeet' ),
 			[ $this, 'checkError' ],
 			'plugnmeet-settings'
 		);
@@ -413,7 +461,7 @@ class Plugnmeet_SettingsPage {
 			__( 'Custom CSS URL', 'plugnmeet' ),
 			[ $this, 'textCallBack' ],
 			'plugnmeet-settings',
-			'plugnmeet_design_customization_section',
+			'plugnmeet_settings_client_design_section',
 			[ 'id' => 'custom_css_url' ]
 		);
 
@@ -422,7 +470,7 @@ class Plugnmeet_SettingsPage {
 			__( 'Primary Color', 'plugnmeet' ),
 			[ $this, 'textCallBack' ],
 			'plugnmeet-settings',
-			'plugnmeet_design_customization_section',
+			'plugnmeet_settings_client_design_section',
 			[ 'id' => 'primary_color', 'className' => 'pnm-color-picker' ]
 		);
 
@@ -431,7 +479,7 @@ class Plugnmeet_SettingsPage {
 			__( 'Secondary Color', 'plugnmeet' ),
 			[ $this, 'textCallBack' ],
 			'plugnmeet-settings',
-			'plugnmeet_design_customization_section',
+			'plugnmeet_settings_client_design_section',
 			[ 'id' => 'secondary_color', 'className' => 'pnm-color-picker' ]
 		);
 
@@ -440,7 +488,7 @@ class Plugnmeet_SettingsPage {
 			__( 'Background Color', 'plugnmeet' ),
 			[ $this, 'textCallBack' ],
 			'plugnmeet-settings',
-			'plugnmeet_design_customization_section',
+			'plugnmeet_settings_client_design_section',
 			[ 'id' => 'background_color', 'className' => 'pnm-color-picker' ]
 		);
 
@@ -449,8 +497,17 @@ class Plugnmeet_SettingsPage {
 			__( 'Background Image', 'plugnmeet' ),
 			[ $this, 'mediaCallBack' ],
 			'plugnmeet-settings',
-			'plugnmeet_design_customization_section',
+			'plugnmeet_settings_client_design_section',
 			[ 'id' => 'background_image' ]
+		);
+
+		add_settings_field(
+			'logo',
+			__( 'Custom logo', 'plugnmeet' ),
+			[ $this, 'mediaCallBack' ],
+			'plugnmeet-settings',
+			'plugnmeet_settings_client_design_section',
+			[ 'id' => 'logo' ]
 		);
 
 		add_settings_field(
@@ -458,7 +515,7 @@ class Plugnmeet_SettingsPage {
 			__( 'Header Color', 'plugnmeet' ),
 			[ $this, 'textCallBack' ],
 			'plugnmeet-settings',
-			'plugnmeet_design_customization_section',
+			'plugnmeet_settings_client_design_section',
 			[ 'id' => 'header_color', 'className' => 'pnm-color-picker' ]
 		);
 
@@ -467,7 +524,7 @@ class Plugnmeet_SettingsPage {
 			__( 'Footer Color', 'plugnmeet' ),
 			[ $this, 'textCallBack' ],
 			'plugnmeet-settings',
-			'plugnmeet_design_customization_section',
+			'plugnmeet_settings_client_design_section',
 			[ 'id' => 'footer_color', 'className' => 'pnm-color-picker' ]
 		);
 
@@ -476,8 +533,29 @@ class Plugnmeet_SettingsPage {
 			__( 'Side Panel Color', 'plugnmeet' ),
 			[ $this, 'textCallBack' ],
 			'plugnmeet-settings',
-			'plugnmeet_design_customization_section',
+			'plugnmeet_settings_client_design_section',
 			[ 'id' => 'side_panel_bg_color', 'className' => 'pnm-color-picker' ]
+		);
+
+		// copyright
+		add_settings_field(
+			'copyright_display',
+			__( 'Display copyright text', 'plugnmeet' ),
+			[ $this, 'selectCallBack' ],
+			'plugnmeet-settings',
+			'plugnmeet_settings_client_design_section',
+			[ 'id' => 'copyright_display', 'options' => array( "true", "false" ), 'default' => "false" ]
+		);
+		add_settings_field(
+			'copyright_text',
+			__( 'Copyright text', 'plugnmeet' ),
+			[ $this, 'textCallBack' ],
+			'plugnmeet-settings',
+			'plugnmeet_settings_client_design_section',
+			[
+				'id'      => 'copyright_text',
+				'default' => "Powered by plugNmeet"
+			]
 		);
 	}
 }

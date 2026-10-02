@@ -131,9 +131,20 @@
         })
     })
 
+    function toggleFrontendColorFields(val) {
+        if (val === "clean" || val === "modern") {
+            $("#frontend_primary_color").parent().parent().show();
+            $("#frontend_secondary_color").parent().parent().show();
+        } else {
+            $("#frontend_primary_color").parent().parent().hide();
+            $("#frontend_secondary_color").parent().parent().hide();
+        }
+    }
+
     $(document).ready(function () {
         $('.pnm-color-picker').wpColorPicker();
         toggleDisplayClientDownloadUrl($("#client_load").val())
+        toggleFrontendColorFields($("#frontend_theme").val())
 
         const urlParams = new URLSearchParams(window.location.search);
         const roomId = urlParams.get('id');
@@ -164,6 +175,10 @@
 
     $(document).on("change", "#client_load", (e) => {
         toggleDisplayClientDownloadUrl($(e.target).val())
+    })
+
+    $(document).on("change", "#frontend_theme", (e) => {
+        toggleFrontendColorFields($(e.target).val())
     })
 
     // Collapsible card logic. Toggling is data-attribute/CSS based only,

@@ -72,7 +72,8 @@ class Plugnmeet_RoomPage {
 		$subtitles = array(
 			'plugnmeet_settings_config_section'        => __( 'Connection details for your plugNmeet server and client delivery.', 'plugnmeet' ),
 			'plugnmeet_settings_options_section'       => __( 'Default technical configurations applied to every new session.', 'plugnmeet' ),
-			'plugnmeet_settings_design_customization_section' => __( 'Colors, logo and background.', 'plugnmeet' ),
+			'plugnmeet_settings_frontend_design_section' => __( 'Styling for the room page on your site.', 'plugnmeet' ),
+			'plugnmeet_settings_client_design_section'  => __( 'Global defaults for the meeting client. Rooms can override the design and logo from their Design tab; copyright is always global.', 'plugnmeet' ),
 		);
 
 		foreach ( (array) $GLOBALS['wp_settings_sections'][ $page ] as $section ) {

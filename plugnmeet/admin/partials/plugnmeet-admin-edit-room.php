@@ -90,8 +90,10 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
 
             <div id="other-features" class="plugnmeet-tab-content" style="display: none;">
                 <div class="pnm-cards-toolbar">
-                    <button type="button" class="button button-secondary pnm-expand-all"><?php echo __( "Expand all", "plugnmeet" ) ?></button>
-                    <button type="button" class="button button-secondary pnm-collapse-all"><?php echo __( "Collapse all", "plugnmeet" ) ?></button>
+                    <button type="button"
+                            class="button button-secondary pnm-expand-all"><?php echo __( "Expand all", "plugnmeet" ) ?></button>
+                    <button type="button"
+                            class="button button-secondary pnm-collapse-all"><?php echo __( "Collapse all", "plugnmeet" ) ?></button>
                 </div>
 
                 <div class="pnm-card pnm-collapsible" data-collapsed="false">
@@ -114,23 +116,6 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
                 <div class="pnm-card pnm-collapsible" data-collapsed="false">
                     <div class="pnm-card-header">
                         <button type="button" class="pnm-card-toggle" aria-expanded="true">
-                            <span class="pnm-card-title"><?php echo __( "External broadcasting", "plugnmeet" ) ?></span>
-                            <span class="pnm-card-subtitle"><?php echo __( "Stream the session to external platforms.", "plugnmeet" ) ?></span>
-                            <span class="pnm-toggle-indicator" aria-hidden="true"></span>
-                        </button>
-                    </div>
-                    <div class="pnm-card-body">
-                        <table class="form-table" role="presentation">
-                            <tbody>
-                            <?php echo PlugnmeetHelper::getExternalBroadcastingFeatures( $fields_values['external_broadcasting_features'] ); ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="pnm-card pnm-collapsible" data-collapsed="false">
-                    <div class="pnm-card-header">
-                        <button type="button" class="pnm-card-toggle" aria-expanded="true">
                             <span class="pnm-card-title"><?php echo __( "Chat", "plugnmeet" ) ?></span>
                             <span class="pnm-card-subtitle"><?php echo __( "Public chat and file sharing.", "plugnmeet" ) ?></span>
                             <span class="pnm-toggle-indicator" aria-hidden="true"></span>
@@ -140,6 +125,40 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
                         <table class="form-table" role="presentation">
                             <tbody>
                             <?php echo PlugnmeetHelper::getChatFeatures( $fields_values['chat_features'] ); ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="pnm-card pnm-collapsible" data-collapsed="false">
+                    <div class="pnm-card-header">
+                        <button type="button" class="pnm-card-toggle" aria-expanded="true">
+                            <span class="pnm-card-title"><?php echo __( "Waiting room", "plugnmeet" ) ?></span>
+                            <span class="pnm-card-subtitle"><?php echo __( "Hold participants until admitted.", "plugnmeet" ) ?></span>
+                            <span class="pnm-toggle-indicator" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="pnm-card-body">
+                        <table class="form-table" role="presentation">
+                            <tbody>
+                            <?php echo PlugnmeetHelper::getWaitingRoomFeatures( $fields_values['waiting_room_features'] ); ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="pnm-card pnm-collapsible" data-collapsed="false">
+                    <div class="pnm-card-header">
+                        <button type="button" class="pnm-card-toggle" aria-expanded="true">
+                            <span class="pnm-card-title"><?php echo __( "Polls", "plugnmeet" ) ?></span>
+                            <span class="pnm-card-subtitle"><?php echo __( "Interactive polls and quizzes.", "plugnmeet" ) ?></span>
+                            <span class="pnm-toggle-indicator" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="pnm-card-body">
+                        <table class="form-table" role="presentation">
+                            <tbody>
+                            <?php echo PlugnmeetHelper::getPollsFeatures( $fields_values['polls_features'] ); ?>
                             </tbody>
                         </table>
                     </div>
@@ -182,40 +201,6 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
                 <div class="pnm-card pnm-collapsible" data-collapsed="false">
                     <div class="pnm-card-header">
                         <button type="button" class="pnm-card-toggle" aria-expanded="true">
-                            <span class="pnm-card-title"><?php echo __( "External media player", "plugnmeet" ) ?></span>
-                            <span class="pnm-card-subtitle"><?php echo __( "Play external videos in sync for everyone.", "plugnmeet" ) ?></span>
-                            <span class="pnm-toggle-indicator" aria-hidden="true"></span>
-                        </button>
-                    </div>
-                    <div class="pnm-card-body">
-                        <table class="form-table" role="presentation">
-                            <tbody>
-                            <?php echo PlugnmeetHelper::getExternalMediaPlayerFeatures( $fields_values['external_media_player_features'] ); ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="pnm-card pnm-collapsible" data-collapsed="false">
-                    <div class="pnm-card-header">
-                        <button type="button" class="pnm-card-toggle" aria-expanded="true">
-                            <span class="pnm-card-title"><?php echo __( "Waiting room", "plugnmeet" ) ?></span>
-                            <span class="pnm-card-subtitle"><?php echo __( "Hold participants until admitted.", "plugnmeet" ) ?></span>
-                            <span class="pnm-toggle-indicator" aria-hidden="true"></span>
-                        </button>
-                    </div>
-                    <div class="pnm-card-body">
-                        <table class="form-table" role="presentation">
-                            <tbody>
-                            <?php echo PlugnmeetHelper::getWaitingRoomFeatures( $fields_values['waiting_room_features'] ); ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="pnm-card pnm-collapsible" data-collapsed="false">
-                    <div class="pnm-card-header">
-                        <button type="button" class="pnm-card-toggle" aria-expanded="true">
                             <span class="pnm-card-title"><?php echo __( "Breakout rooms", "plugnmeet" ) ?></span>
                             <span class="pnm-card-subtitle"><?php echo __( "Split participants into sub-rooms.", "plugnmeet" ) ?></span>
                             <span class="pnm-toggle-indicator" aria-hidden="true"></span>
@@ -225,6 +210,23 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
                         <table class="form-table" role="presentation">
                             <tbody>
                             <?php echo PlugnmeetHelper::getBreakoutRoomFeatures( $fields_values['breakout_room_features'] ); ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="pnm-card pnm-collapsible" data-collapsed="false">
+                    <div class="pnm-card-header">
+                        <button type="button" class="pnm-card-toggle" aria-expanded="true">
+                            <span class="pnm-card-title"><?php echo __( "External media player", "plugnmeet" ) ?></span>
+                            <span class="pnm-card-subtitle"><?php echo __( "Play external videos in sync for everyone.", "plugnmeet" ) ?></span>
+                            <span class="pnm-toggle-indicator" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="pnm-card-body">
+                        <table class="form-table" role="presentation">
+                            <tbody>
+                            <?php echo PlugnmeetHelper::getExternalMediaPlayerFeatures( $fields_values['external_media_player_features'] ); ?>
                             </tbody>
                         </table>
                     </div>
@@ -250,6 +252,23 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
                 <div class="pnm-card pnm-collapsible" data-collapsed="false">
                     <div class="pnm-card-header">
                         <button type="button" class="pnm-card-toggle" aria-expanded="true">
+                            <span class="pnm-card-title"><?php echo __( "External broadcasting", "plugnmeet" ) ?></span>
+                            <span class="pnm-card-subtitle"><?php echo __( "Stream the session to external platforms.", "plugnmeet" ) ?></span>
+                            <span class="pnm-toggle-indicator" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="pnm-card-body">
+                        <table class="form-table" role="presentation">
+                            <tbody>
+                            <?php echo PlugnmeetHelper::getExternalBroadcastingFeatures( $fields_values['external_broadcasting_features'] ); ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="pnm-card pnm-collapsible" data-collapsed="false">
+                    <div class="pnm-card-header">
+                        <button type="button" class="pnm-card-toggle" aria-expanded="true">
                             <span class="pnm-card-title"><?php echo __( "Ingress", "plugnmeet" ) ?></span>
                             <span class="pnm-card-subtitle"><?php echo __( "Push high-quality streams via OBS/RTMP/WHIP.", "plugnmeet" ) ?></span>
                             <span class="pnm-toggle-indicator" aria-hidden="true"></span>
@@ -259,23 +278,6 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
                         <table class="form-table" role="presentation">
                             <tbody>
                             <?php echo PlugnmeetHelper::getIngressFeatures( $fields_values['ingress_features'] ); ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="pnm-card pnm-collapsible" data-collapsed="false">
-                    <div class="pnm-card-header">
-                        <button type="button" class="pnm-card-toggle" aria-expanded="true">
-                            <span class="pnm-card-title"><?php echo __( "Polls", "plugnmeet" ) ?></span>
-                            <span class="pnm-card-subtitle"><?php echo __( "Interactive polls and quizzes.", "plugnmeet" ) ?></span>
-                            <span class="pnm-toggle-indicator" aria-hidden="true"></span>
-                        </button>
-                    </div>
-                    <div class="pnm-card-body">
-                        <table class="form-table" role="presentation">
-                            <tbody>
-                            <?php echo PlugnmeetHelper::getPollsFeatures( $fields_values['polls_features'] ); ?>
                             </tbody>
                         </table>
                     </div>

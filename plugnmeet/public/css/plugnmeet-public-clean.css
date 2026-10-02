@@ -1,0 +1,308 @@
+/**
+ * plugnmeet-public-clean.css — "Clean" room page preset.
+ *
+ * Light, minimal styling for the room page (login form + recordings),
+ * fully scoped under .pnm-container so it never leaks into the theme.
+ * Colors are driven by CSS variables that can be overridden inline
+ * from the plugin settings (see public/class-plugnmeet-public.php).
+ */
+
+.pnm-container {
+	--pnm-primary: #2271b1;
+	--pnm-secondary: #f0f0f1;
+	--pnm-text: #1d2327;
+	--pnm-border: #c3c4c7;
+	--pnm-radius: 4px;
+}
+
+/* --- Login form: inline layout (fields + Join button in one line) --- */
+
+.pnm-container .plugnmeet-login-form {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	gap: 0.75em;
+	background: #fff;
+	border: 1px solid var(--pnm-border);
+	border-radius: var(--pnm-radius);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	padding: 1.5em;
+	max-width: 640px;
+	color: var(--pnm-text);
+}
+
+/* INLINE form: each field is a flexible column, Join button bottom-aligned */
+.pnm-container .plugnmeet-login-form .form-row {
+	flex: 1 1 220px;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+}
+
+.pnm-container .plugnmeet-login-form .form-row label {
+	margin-bottom: 0.25em;
+	font-weight: 600;
+}
+
+/* When JS reveals the room status notice it takes a full row */
+.pnm-container .plugnmeet-login-form .roomStatus,
+.pnm-container .plugnmeet-login-form .notice {
+	flex-basis: 100%;
+}
+
+.pnm-container .plugnmeet-login-form .form-row input {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+	font: inherit;
+	line-height: 1.5;
+	padding: 0.45em 0.6em;
+	border: 1px solid var(--pnm-border);
+	border-radius: var(--pnm-radius);
+	background: #fff;
+	color: inherit;
+}
+
+.pnm-container .plugnmeet-login-form .form-row input:focus {
+	border-color: var(--pnm-primary);
+	outline: 2px solid var(--pnm-primary);
+	outline-offset: -1px;
+}
+
+/* --- Join button --- */
+
+.pnm-container .plugnmeet-login-form .button.button-primary {
+	display: inline-block;
+	flex: 0 0 auto;
+	box-sizing: border-box;
+	width: auto;
+	min-height: 0;
+	height: auto;
+	white-space: nowrap;
+	background: var(--pnm-primary);
+	border: 1px solid var(--pnm-primary);
+	border-radius: var(--pnm-radius);
+	color: #fff;
+	cursor: pointer;
+	padding: 0.5em 1em;
+	margin: 0;
+	font: inherit;
+	font-weight: 600;
+}
+
+.pnm-container .plugnmeet-login-form .button.button-primary:hover {
+	background: var(--pnm-primary);
+	filter: brightness(0.9);
+}
+
+.pnm-container .plugnmeet-login-form .button.button-primary:focus-visible {
+	outline: 2px solid var(--pnm-primary);
+	outline-offset: 2px;
+}
+
+/* --- Room status notices --- */
+
+.pnm-container .roomStatus.notice {
+	margin: 0 0 1em 0;
+	padding: 0.7em 1em;
+	border-left-width: 4px;
+	border-radius: var(--pnm-radius);
+	font: inherit;
+}
+
+.pnm-container .roomStatus.notice-info {
+	border-left-color: var(--pnm-primary);
+	background: #f0f6fc;
+	color: var(--pnm-text);
+}
+
+.pnm-container .roomStatus.notice-success {
+	border-left-color: #00a32a;
+	background: #edfaef;
+	color: var(--pnm-text);
+}
+
+.pnm-container .roomStatus.notice-danger {
+	border-left-color: #d63638;
+	background: #fcf0f1;
+	color: var(--pnm-text);
+}
+
+/* --- Recordings list --- */
+
+.pnm-container .pnm-recordings-wrapper {
+	margin-top: 1em;
+	color: var(--pnm-text);
+}
+
+.pnm-container .pnm-recordings-wrapper table.widefat {
+	border-spacing: 0;
+	box-sizing: border-box;
+}
+
+.pnm-container .pnm-recordings-wrapper table.widefat th {
+	background: var(--pnm-secondary);
+	text-align: left;
+	padding: 0.6em 0.8em;
+	border: 1px solid var(--pnm-border);
+	font-weight: 600;
+}
+
+.pnm-container .pnm-recordings-wrapper table.widefat td {
+	padding: 0.6em 0.8em;
+	border: 1px solid var(--pnm-border);
+	vertical-align: middle;
+}
+
+.pnm-container .pnm-recordings-wrapper table.widefat tbody tr:nth-child(even) {
+	background: #f6f7f7;
+}
+
+.pnm-container .pnm-recordings-wrapper table.widefat td:last-child {
+	white-space: nowrap;
+}
+
+/* --- Recordings buttons: explicit compact design ---
+ *
+ * Themes style .button unpredictably (background, color, min-height,
+ * height, padding, font-size). Every property a theme might set is
+ * declared explicitly here and both bg + color are always set together,
+ * so the button text can never disappear (e.g., under Twenty Twenty).
+ */
+
+.pnm-container .pnm-recordings-wrapper .button {
+	cursor: pointer;
+	border-radius: var(--pnm-radius);
+	margin-right: 0.4em;
+}
+
+/* Pagination Pre/Next container: aligned to the right below the table.
+   The JS clears the inline display (style.display = ''), so flex is safe
+   and the inline margin-top remnant matches the stylesheet value. */
+.pnm-container .pnm-recordings-wrapper .pagination-links {
+	display: flex;
+	justify-content: flex-end;
+	gap: 0.5em;
+	margin-top: 1em;
+}
+
+/* Pagination Pre/Next <button>s: light pill with dark text on both
+   themes and light backgrounds — explicit background AND color. */
+.pnm-container .pnm-recordings-wrapper .pagination-links .button {
+	display: inline-block;
+	padding: 6px 14px;
+	font-size: 14px;
+	line-height: 1.4;
+	min-height: 0;
+	height: auto;
+	background: #fff;
+	color: #1d2327;
+	border: 1px solid var(--pnm-border);
+	border-radius: var(--pnm-radius);
+	text-decoration: none;
+	cursor: pointer;
+	margin: 0;
+}
+
+.pnm-container .pnm-recordings-wrapper .pagination-links .button:hover {
+	background: #f6f7f7;
+	color: #1d2327;
+	border-color: var(--pnm-primary);
+}
+
+.pnm-container .pnm-recordings-wrapper .pagination-links .button:focus-visible {
+	outline: 2px solid var(--pnm-primary);
+	outline-offset: 2px;
+}
+
+/* Play/Download/Delete links (<a class="button button-small" ...>) inside
+   the table rows: compact inline anchors with explicit bg + color so
+   theme-wide .button rules can't blow them up. */
+.pnm-container .pnm-recordings-wrapper .widefat a.button {
+	display: inline-block;
+	padding: 4px 10px;
+	font-size: 13px;
+	line-height: 1.4;
+	min-height: 0;
+	height: auto;
+	background: color-mix(in srgb, var(--pnm-primary) 12%, #fff);
+	color: var(--pnm-primary);
+	border: 1px solid color-mix(in srgb, var(--pnm-primary) 35%, #fff);
+	border-radius: var(--pnm-radius);
+	text-decoration: none;
+	cursor: pointer;
+	margin: 0;
+}
+
+.pnm-container .pnm-recordings-wrapper .widefat a.button.button-small {
+	padding: 3px 8px;
+	font-size: 12px;
+	min-height: 0;
+	height: auto;
+}
+
+.pnm-container .pnm-recordings-wrapper .widefat a.button:hover,
+.pnm-container .pnm-recordings-wrapper .widefat a.button:focus {
+	background: color-mix(in srgb, var(--pnm-primary) 18%, #fff);
+	color: var(--pnm-primary);
+	border-color: color-mix(in srgb, var(--pnm-primary) 45%, #fff);
+	text-decoration: none;
+}
+
+.pnm-container .pnm-recordings-wrapper .widefat a.button.delete-recording {
+	background: color-mix(in srgb, #d63638 10%, #fff);
+	color: #d63638;
+	border-color: color-mix(in srgb, #d63638 35%, #fff);
+}
+
+.pnm-container .pnm-recordings-wrapper .widefat a.button.delete-recording:hover,
+.pnm-container .pnm-recordings-wrapper .widefat a.button.delete-recording:focus {
+	background: color-mix(in srgb, #d63638 16%, #fff);
+	color: #d63638;
+	border-color: color-mix(in srgb, #d63638 45%, #fff);
+}
+
+.pnm-container .pnm-recordings-wrapper .widefat a.button:focus-visible {
+	outline: 2px solid var(--pnm-primary);
+	outline-offset: 2px;
+}
+
+/* --- Playback modal (hidden by default; styled for when JS shows it) --- */
+
+/* #playbackModal stays hidden until the recordings script shows it in a
+   thickbox window; only restyle the video sizing responsively. */
+.pnm-container #playbackModal #modalPlayer {
+	display: block;
+	width: 100%;
+	max-width: 960px;
+	height: auto;
+	margin: auto;
+	border-radius: var(--pnm-radius);
+	background: #000;
+}
+
+/* Keep description text spacing sane */
+.pnm-container .description {
+	margin-top: 0.2em;
+}
+
+/* --- Small screens --- */
+
+@media (max-width: 782px) {
+	/* Inline login form stacks vertically on small screens */
+	.pnm-container .plugnmeet-login-form {
+		flex-direction: column;
+		align-items: stretch;
+		padding: 1em;
+	}
+
+	.pnm-container .plugnmeet-login-form .button-primary {
+		width: 100%;
+		white-space: normal;
+	}
+
+	.pnm-container .pnm-recordings-wrapper table.widefat td:last-child {
+		white-space: normal;
+	}
+}

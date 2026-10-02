@@ -110,9 +110,9 @@ class PlugnmeetHelper {
 	}
 
 	private static $sectionTitles = array(
-		"insights_features.transcription_features" => "Transcription",
+		"insights_features.transcription_features"    => "Transcription",
 		"insights_features.chat_translation_features" => "Chat translation",
-		"insights_features.ai_features" => "AI features",
+		"insights_features.ai_features"               => "AI features",
 	);
 
 	private static function buildFieldId( $dottedPath ) {
@@ -197,8 +197,8 @@ class PlugnmeetHelper {
 				"default" => 0,
 				"type"    => "number"
 			),
-			"allow_webcams"               => array(
-				"label"    => __( "Allow webcams", "plugnmeet" ),
+			"moderator_join_first"        => array(
+				"label"    => __( "Moderator join first", "plugnmeet" ),
 				"options"  => array(
 					array(
 						"label" => __( "Yes", "plugnmeet" ),
@@ -209,7 +209,7 @@ class PlugnmeetHelper {
 						"value" => 0
 					)
 				),
-				"selected" => 1,
+				"selected" => 0,
 				"type"     => "select"
 			),
 			"mute_on_start"               => array(
@@ -227,8 +227,8 @@ class PlugnmeetHelper {
 				"selected" => 0,
 				"type"     => "select"
 			),
-			"allow_screen_share"          => array(
-				"label"    => __( "Allow screen share", "plugnmeet" ),
+			"allow_webcams"               => array(
+				"label"    => __( "Allow webcams", "plugnmeet" ),
 				"options"  => array(
 					array(
 						"label" => __( "Yes", "plugnmeet" ),
@@ -257,21 +257,6 @@ class PlugnmeetHelper {
 				"selected" => 1,
 				"type"     => "select"
 			),
-			"allow_view_other_users_list" => array(
-				"label"    => __( "Allow view other users list", "plugnmeet" ),
-				"options"  => array(
-					array(
-						"label" => __( "Yes", "plugnmeet" ),
-						"value" => 1
-					),
-					array(
-						"label" => __( "No", "plugnmeet" ),
-						"value" => 0
-					)
-				),
-				"selected" => 1,
-				"type"     => "select"
-			),
 			"admin_only_webcams"          => array(
 				"label"    => __( "Admin only webcams", "plugnmeet" ),
 				"options"  => array(
@@ -287,8 +272,8 @@ class PlugnmeetHelper {
 				"selected" => 0,
 				"type"     => "select"
 			),
-			"moderator_join_first"        => array(
-				"label"    => __( "Moderator join first", "plugnmeet" ),
+			"allow_screen_share"          => array(
+				"label"    => __( "Allow screen share", "plugnmeet" ),
 				"options"  => array(
 					array(
 						"label" => __( "Yes", "plugnmeet" ),
@@ -299,11 +284,11 @@ class PlugnmeetHelper {
 						"value" => 0
 					)
 				),
-				"selected" => 0,
+				"selected" => 1,
 				"type"     => "select"
 			),
-			"enable_analytics"            => array(
-				"label"    => __( "Enable analytics", "plugnmeet" ),
+			"allow_view_other_users_list" => array(
+				"label"    => __( "Allow view other users list", "plugnmeet" ),
 				"options"  => array(
 					array(
 						"label" => __( "Yes", "plugnmeet" ),
@@ -349,6 +334,21 @@ class PlugnmeetHelper {
 			),
 			"allow_reactions"             => array(
 				"label"    => __( "Allow reactions", "plugnmeet" ),
+				"options"  => array(
+					array(
+						"label" => __( "Yes", "plugnmeet" ),
+						"value" => 1
+					),
+					array(
+						"label" => __( "No", "plugnmeet" ),
+						"value" => 0
+					)
+				),
+				"selected" => 1,
+				"type"     => "select"
+			),
+			"enable_analytics"            => array(
+				"label"    => __( "Enable analytics", "plugnmeet" ),
 				"options"  => array(
 					array(
 						"label" => __( "Yes", "plugnmeet" ),
@@ -1214,7 +1214,7 @@ class PlugnmeetHelper {
 			)
 		);
 
-		$html  = '<tr>';
+		$html = '<tr>';
 		$html .= '<th scope="row"><label for="published">' . __( "Room Status", "plugnmeet" ) . '</label></th>';
 		$html .= '<td>';
 		$html .= '<select id="published" name="published" >';

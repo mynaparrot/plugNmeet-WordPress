@@ -355,6 +355,30 @@ class Plugnmeet_Public {
 			}
 		}
 
+		// Room page frontend design preset (Clean/Modern). "Theme default" adds no plugin CSS.
+		$frontend_theme = isset( $this->setting_params->frontend_theme ) ? $this->setting_params->frontend_theme : 'theme';
+		if ( $frontend_theme === 'clean' || $frontend_theme === 'modern' ) {
+			$css_file = 'plugnmeet-public-' . $frontend_theme . '.css';
+			$handle   = $this->plugin_name . '-frontend-' . $frontend_theme;
+			$css_path = plugin_dir_path( __FILE__ ) . 'css/' . $css_file;
+			wp_enqueue_style( $handle, plugin_dir_url( __FILE__ ) . 'css/' . $css_file, array(), (string) ( @filemtime( $css_path ) ?: $this->version ) );
+
+			// Color overrides (only when set; values are validated #hex at save — re-check defensively).
+			$primary   = isset( $this->setting_params->frontend_primary_color ) && preg_match( '/^#([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})$/', $this->setting_params->frontend_primary_color ) ? $this->setting_params->frontend_primary_color : '';
+			$secondary = isset( $this->setting_params->frontend_secondary_color ) && preg_match( '/^#([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})$/', $this->setting_params->frontend_secondary_color ) ? $this->setting_params->frontend_secondary_color : '';
+
+			if ( $primary || $secondary ) {
+				$vars = array();
+				if ( $primary ) {
+					$vars[] = '--pnm-primary: ' . $primary . ';';
+				}
+				if ( $secondary ) {
+					$vars[] = '--pnm-secondary: ' . $secondary . ';';
+				}
+				wp_add_inline_style( $handle, '.pnm-container{ ' . implode( ' ', $vars ) . ' }' );
+			}
+		}
+
 		if ( isset( $role['can_view_recording'] ) && $role['can_view_recording'] === "on" ) {
 			wp_enqueue_script( $this->plugin_name . '-recordings', plugin_dir_url( __FILE__ ) . 'js/plugnmeet-public-recordings.js', array(), $this->version );
 			wp_localize_script( $this->plugin_name . '-recordings', 'plugnmeet_recordings', array(
