@@ -24,6 +24,7 @@ $custom_design = $fields_values['custom_design'];
         <td><input name="custom_design[custom_css_url]"
                    type="text" size="40"
                    value="<?php echo isset( $custom_design['custom_css_url'] ) ? esc_attr( $custom_design['custom_css_url'] ) : ''; ?>">
+            <?php echo plugnmeet_help_text_html( 'design.custom_css_url' ); ?>
         </td>
     </tr>
     <tr>
@@ -31,6 +32,7 @@ $custom_design = $fields_values['custom_design'];
         <td><input name="custom_design[primary_color]" class="pnm-color-picker"
                    type="text" size="20"
                    value="<?php echo isset( $custom_design['primary_color'] ) ? esc_attr( $custom_design['primary_color'] ) : ''; ?>">
+            <?php echo plugnmeet_help_text_html( 'design.primary_color' ); ?>
         </td>
     </tr>
     <tr>
@@ -38,6 +40,7 @@ $custom_design = $fields_values['custom_design'];
         <td><input name="custom_design[secondary_color]" class="pnm-color-picker"
                    type="text" size="20"
                    value="<?php echo isset( $custom_design['secondary_color'] ) ? esc_attr( $custom_design['secondary_color'] ) : ''; ?>">
+            <?php echo plugnmeet_help_text_html( 'design.secondary_color' ); ?>
         </td>
     </tr>
     <tr>
@@ -45,6 +48,7 @@ $custom_design = $fields_values['custom_design'];
         <td><input name="custom_design[background_color]" class="pnm-color-picker"
                    type="text" size="20"
                    value="<?php echo isset( $custom_design['background_color'] ) ? esc_attr( $custom_design['background_color'] ) : ''; ?>">
+            <?php echo plugnmeet_help_text_html( 'design.background_color' ); ?>
         </td>
     </tr>
     <tr>
@@ -55,6 +59,7 @@ $custom_design = $fields_values['custom_design'];
                    name="custom_design[background_image]"
                    type="text"
                    value="<?php echo isset( $custom_design['background_image'] ) ? esc_attr( $custom_design['background_image'] ) : ''; ?>"/>
+            <?php echo plugnmeet_help_text_html( 'design.background_image' ); ?>
             <input class="button upload_media_button" data-attached-to="background_image" type="button"
                    value="<?php echo __( 'Upload/Select image', 'plugnmeet' ); ?>"/>
         </td>
@@ -67,6 +72,7 @@ $custom_design = $fields_values['custom_design'];
                    name="custom_design[logo]"
                    type="text"
                    value="<?php echo isset( $custom_design['logo'] ) ? esc_attr( $custom_design['logo'] ) : ''; ?>"/>
+            <?php echo plugnmeet_help_text_html( 'design.logo' ); ?>
             <input class="button upload_media_button" data-attached-to="logo" type="button"
                    value="<?php echo __( 'Upload/Select image', 'plugnmeet' ); ?>"/>
         </td>
@@ -76,6 +82,7 @@ $custom_design = $fields_values['custom_design'];
         <td><input name="custom_design[header_color]" class="pnm-color-picker"
                    type="text" size="20"
                    value="<?php echo isset( $custom_design['header_color'] ) ? esc_attr( $custom_design['header_color'] ) : ''; ?>">
+            <?php echo plugnmeet_help_text_html( 'design.header_color' ); ?>
         </td>
     </tr>
     <tr>
@@ -83,6 +90,7 @@ $custom_design = $fields_values['custom_design'];
         <td><input name="custom_design[footer_color]" class="pnm-color-picker"
                    type="text" size="20"
                    value="<?php echo isset( $custom_design['footer_color'] ) ? esc_attr( $custom_design['footer_color'] ) : ''; ?>">
+            <?php echo plugnmeet_help_text_html( 'design.footer_color' ); ?>
         </td>
     </tr>
     <tr>
@@ -90,6 +98,7 @@ $custom_design = $fields_values['custom_design'];
         <td><input name="custom_design[side_panel_bg_color]" class="pnm-color-picker"
                    type="text" size="20"
                    value="<?php echo isset( $custom_design['side_panel_bg_color'] ) ? esc_attr( $custom_design['side_panel_bg_color'] ) : ''; ?>">
+            <?php echo plugnmeet_help_text_html( 'design.side_panel_bg_color' ); ?>
         </td>
     </tr>
     </tbody>

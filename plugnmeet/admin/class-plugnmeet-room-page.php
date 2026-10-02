@@ -46,8 +46,8 @@ class Plugnmeet_RoomPage {
                 <?php
                 // output security fields
                 settings_fields( 'plugnmeet_settings' );
-                // output setting sections
-                do_settings_sections( 'plugnmeet-settings' );
+                // output setting sections as collapsible cards
+                $this->renderSettingsCards( 'plugnmeet-settings' );
                 // submit button
                 submit_button();
                 ?>
@@ -55,6 +55,74 @@ class Plugnmeet_RoomPage {
         </div>
         <?php
     }
+
+	/**
+	 * Renders registered settings sections as collapsible pnm-cards.
+	 *
+	 * Mirrors core do_settings_sections()/do_settings_fields() but wraps each
+	 * section in a card. All sections are expanded by default.
+	 *
+	 * @param string $page Settings page slug.
+	 */
+	public function renderSettingsCards( $page ) {
+		if ( ! isset( $GLOBALS['wp_settings_sections'][ $page ] ) ) {
+			return;
+		}
+
+		$subtitles = array(
+			'plugnmeet_settings_config_section'        => __( 'Connection details for your plugNmeet server and client delivery.', 'plugnmeet' ),
+			'plugnmeet_settings_options_section'       => __( 'Default technical configurations applied to every new session.', 'plugnmeet' ),
+			'plugnmeet_settings_design_customization_section' => __( 'Colors, logo and background.', 'plugnmeet' ),
+		);
+
+		foreach ( (array) $GLOBALS['wp_settings_sections'][ $page ] as $section ) {
+			if ( ! isset( $section['id'] ) ) {
+				continue;
+			}
+			$section_id = $section['id'];
+
+			echo '<div class="pnm-card pnm-collapsible" data-collapsed="false">';
+			echo '<div class="pnm-card-header">';
+			echo '<button type="button" class="pnm-card-toggle" aria-expanded="true">';
+			echo '<span class="pnm-card-title">' . esc_html( $section['title'] ) . '</span>';
+			echo '<span class="pnm-card-subtitle">' . esc_html( isset( $subtitles[ $section_id ] ) ? $subtitles[ $section_id ] : '' ) . '</span>';
+			echo '<span class="pnm-toggle-indicator" aria-hidden="true"></span>';
+			echo '</button>';
+			echo '</div>';
+			echo '<div class="pnm-card-body">';
+
+			if ( isset( $section['callback'] ) && is_callable( $section['callback'] ) ) {
+				call_user_func( $section['callback'], $section );
+			}
+
+			if ( isset( $GLOBALS['wp_settings_fields'][ $page ][ $section_id ] ) ) {
+				echo '<table class="form-table" role="presentation">';
+				foreach ( (array) $GLOBALS['wp_settings_fields'][ $page ][ $section_id ] as $field ) {
+					if ( ! isset( $field['id'], $field['callback'] ) ) {
+						continue;
+					}
+					echo '<tr>';
+					echo '<th scope="row">';
+					if ( isset( $field['args']['label_for'] ) ) {
+						echo '<label for="' . esc_attr( $field['args']['label_for'] ) . '">' . esc_html( $field['title'] ) . '</label>';
+					} else {
+						echo esc_html( $field['title'] );
+					}
+					echo '</th>';
+					echo '<td>';
+					if ( is_callable( $field['callback'] ) ) {
+						call_user_func( $field['callback'], $field['args'] );
+					}
+					echo '</td>';
+					echo '</tr>';
+				}
+				echo '</table>';
+			}
+
+			echo '</div>';
+			echo '</div>';
+		}
+	}
 
     public function recordingsPage() {
         global $wpdb;

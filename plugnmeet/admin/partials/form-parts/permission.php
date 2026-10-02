@@ -79,13 +79,13 @@ if ( ! empty( $dbRoles ) ) {
         <thead>
         <tr>
             <th style="text-align: center;"><?php echo __( "Role", "plugnmeet" ); ?></th>
-            <th style="text-align: center;"><?php echo __( "Join as <br/>Moderator", "plugnmeet" ); ?></th>
-            <th style="text-align: center;"><?php echo __( "Join as <br/>Attendee", "plugnmeet" ); ?></th>
-            <th style="text-align: center;"><?php echo __( "Require <br/> Password", "plugnmeet" ); ?></th>
-            <th style="text-align: center;"><?php echo __( "Allow View <br/>Recordings", "plugnmeet" ); ?></th>
-            <th style="text-align: center;"><?php echo __( "Allow Play <br/>Recordings", "plugnmeet" ); ?></th>
-            <th style="text-align: center;"><?php echo __( "Allow Download <br/>Recordings", "plugnmeet" ); ?></th>
-            <th style="text-align: center;"><?php echo __( "Allow Delete <br/>Recordings", "plugnmeet" ); ?></th>
+            <th style="text-align: center;"><?php echo __( "Join as <br/>Moderator", "plugnmeet" ); ?><?php echo plugnmeet_help_text_html( 'permission.join_as_moderator' ); ?></th>
+            <th style="text-align: center;"><?php echo __( "Join as <br/>Attendee", "plugnmeet" ); ?><?php echo plugnmeet_help_text_html( 'permission.join_as_attendee' ); ?></th>
+            <th style="text-align: center;"><?php echo __( "Require <br/> Password", "plugnmeet" ); ?><?php echo plugnmeet_help_text_html( 'permission.require_password' ); ?></th>
+            <th style="text-align: center;"><?php echo __( "Allow View <br/>Recordings", "plugnmeet" ); ?><?php echo plugnmeet_help_text_html( 'permission.can_view_recording' ); ?></th>
+            <th style="text-align: center;"><?php echo __( "Allow Play <br/>Recordings", "plugnmeet" ); ?><?php echo plugnmeet_help_text_html( 'permission.can_play' ); ?></th>
+            <th style="text-align: center;"><?php echo __( "Allow Download <br/>Recordings", "plugnmeet" ); ?><?php echo plugnmeet_help_text_html( 'permission.can_download' ); ?></th>
+            <th style="text-align: center;"><?php echo __( "Allow Delete <br/>Recordings", "plugnmeet" ); ?><?php echo plugnmeet_help_text_html( 'permission.can_delete' ); ?></th>
         </tr>
         </thead>
         <tbody>

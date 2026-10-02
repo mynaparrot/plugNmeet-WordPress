@@ -64,6 +64,8 @@ class Plugnmeet_SettingsPage {
 
 		$html = '<input id="' . $id . '" class="' . $className . '" ' . $required . ' name="plugnmeet_settings[' . $id . ']" type="' . $type . '" size="40" value="' . $value . '">';
 		echo wp_kses( $html, $this->allowedHtml );
+
+		echo plugnmeet_help_text_html( 'settings.' . $args['id'] );
 	}
 
 	public function selectCallBack( $args ) {
@@ -86,6 +88,8 @@ class Plugnmeet_SettingsPage {
 		$html .= '</select>';
 
 		echo wp_kses( $html, $this->allowedHtml );
+
+		echo plugnmeet_help_text_html( 'settings.' . $args['id'] );
 	}
 
 	public function pageSelectCallBack( $args ) {
@@ -104,6 +108,8 @@ class Plugnmeet_SettingsPage {
 
 		$html .= '</select>';
 		echo $html;
+
+		echo plugnmeet_help_text_html( 'settings.' . $args['id'] );
 	}
 
 	public function numberCallBack( $args ) {
@@ -115,6 +121,8 @@ class Plugnmeet_SettingsPage {
 
 		$html = '<input id="' . $id . '" required="' . $required . '" name="plugnmeet_settings[' . $id . ']" type="number" size="10" value="' . $value . '">';
 		echo wp_kses( $html, $this->allowedHtml );
+
+		echo plugnmeet_help_text_html( 'settings.' . $args['id'] );
 	}
 
 	public function mediaCallBack( $args ) {
@@ -126,6 +134,8 @@ class Plugnmeet_SettingsPage {
 		$html .= '<input data-attached-to="' . $id . '" class="button upload_media_button" type="button" value="' . __( 'Upload/Select image', 'plugnmeet' ) . '" />';
 
 		echo wp_kses( $html, $this->allowedHtml );
+
+		echo plugnmeet_help_text_html( 'settings.' . $args['id'] );
 	}
 
 	public function clientUpdateCallBack( $args ) {
@@ -139,6 +149,8 @@ class Plugnmeet_SettingsPage {
 		$html .= '<input id="update_client_button" class="button" type="button" value="' . __( 'Update', 'plugnmeet' ) . '" />';
 
 		echo wp_kses( $html, $this->allowedHtml );
+
+		echo plugnmeet_help_text_html( 'settings.' . $args['id'] );
 	}
 
 	public function validation( $input ) {

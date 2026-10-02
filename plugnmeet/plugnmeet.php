@@ -50,6 +50,13 @@ define( 'PLUGNMEET_BASE_NAME', plugin_basename( __FILE__ ) );
 define( 'PLUGNMEET_ROOT_PATH', dirname( __FILE__ ) );
 
 /**
+ * Load the central help-texts functions for every request.
+ * The settings page calls plugnmeet_help_text_html() without
+ * loading helpers/helper.php, so it must be required in the bootstrap.
+ */
+require_once plugin_dir_path( __FILE__ ) . 'helpers/plugnmeet-help-texts.php';
+
+/**
  * The code that runs during plugin activation.
  *
  * This action is documented in includes/class-plugnmeet-activator.php

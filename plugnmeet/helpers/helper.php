@@ -11,6 +11,8 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
 	die;
 }
 
+require_once plugin_dir_path( __FILE__ ) . 'plugnmeet-help-texts.php';
+
 class PlugnmeetHelper {
 
 	public static $roomMetadataItems = [
@@ -56,14 +58,31 @@ class PlugnmeetHelper {
 		'textarea' => array(
 			'name' => array(),
 			'cols' => array(),
-			'rows' => array()
+			'rows' => array(),
+			'id'   => array()
 		),
-		'tr'       => array(),
+		'tr'       => array(
+			'class' => array()
+		),
 		'th'       => array(
-			'scope' => array()
+			'scope'   => array(),
+			'colspan' => array()
 		),
 		'td'       => array(
-			'scope' => array()
+			'scope'   => array(),
+			'colspan' => array()
+		),
+		'p'        => array(
+			'class' => array()
+		),
+		'strong'   => array(),
+		'b'        => array(),
+		'em'       => array(),
+		'i'        => array(),
+		'code'     => array(),
+		'br'       => array(),
+		'label'    => array(
+			'for' => array()
 		),
 		'hr'       => array(),
 	);
@@ -90,20 +109,39 @@ class PlugnmeetHelper {
 		return implode( '', $pieces );
 	}
 
-	private static function formatHtml( $items, $fieldName, $data, $isRecursiveCall = false ) {
+	private static $sectionTitles = array(
+		"insights_features.transcription_features" => "Transcription",
+		"insights_features.chat_translation_features" => "Chat translation",
+		"insights_features.ai_features" => "AI features",
+	);
+
+	private static function buildFieldId( $dottedPath ) {
+		return 'pnm-' . str_replace( array( '.', '[', ']' ), '-', $dottedPath );
+	}
+
+	private static function formatHtml( $items, $fieldName, $data, $isRecursiveCall = false, $dottedPath = '' ) {
 		$html = "";
 		foreach ( $items as $key => $item ) {
 			if ( is_array( $item ) && ! isset( $item['type'] ) ) {
-				$newFieldName = $fieldName . '[' . $key . ']';
-				$newData      = isset( $data[ $key ] ) ? $data[ $key ] : [];
-				$html         .= "<tr><td><hr/></td></tr>";
-				$html         .= self::formatHtml( $item, $newFieldName, $newData, true );
+				$newFieldName  = $fieldName . '[' . $key . ']';
+				$newDottedPath = ( '' === $dottedPath ? $fieldName : $dottedPath ) . '.' . $key;
+				$newData       = isset( $data[ $key ] ) ? $data[ $key ] : [];
+				if ( isset( self::$sectionTitles[ $newDottedPath ] ) ) {
+					$html .= '<tr class="pnm-subsection-title"><th scope="row" colspan="2">' . __( self::$sectionTitles[ $newDottedPath ], "plugnmeet" ) . '</th></tr>';
+				} else {
+					$html .= '<tr class="pnm-subsection-divider"><th scope="row" colspan="2"></th></tr>';
+				}
+				$html .= self::formatHtml( $item, $newFieldName, $newData, true, $newDottedPath );
 			} elseif ( isset( $item['type'] ) ) {
+				$composedPath = ( '' === $dottedPath ? $fieldName : $dottedPath ) . '.' . $key;
+				$fieldId      = self::buildFieldId( $composedPath );
+				$helpText     = plugnmeet_help_text_html( $composedPath );
+
 				if ( $item["type"] === "select" ) {
 					$html .= '<tr>';
-					$html .= '<th scope="row">' . $item['label'] . '</th>';
+					$html .= '<th scope="row"><label for="' . esc_attr( $fieldId ) . '">' . $item['label'] . '</label></th>';
 					$html .= '<td>';
-					$html .= "<select name=\"{$fieldName}[{$key}]\" class=\"list_class\">";
+					$html .= "<select id=\"{$fieldId}\" name=\"{$fieldName}[{$key}]\" class=\"list_class\">";
 
 					$value = $item["selected"];
 					if ( isset( $data[ $key ] ) ) {
@@ -118,16 +156,17 @@ class PlugnmeetHelper {
 						$html .= '<option value="' . esc_attr( $option['value'] ) . '" ' . $selected . '>' . esc_attr( $option['label'] ) . '</option>';
 					}
 
-					$html .= '</select></td></tr>';
+					$html .= '</select>' . $helpText . '</td></tr>';
 				} elseif ( $item["type"] === "text" || $item["type"] === "number" ) {
 					$value = $item["default"];
 					if ( isset( $data[ $key ] ) ) {
 						$value = $data[ $key ];
 					}
 					$html .= '<tr>';
-					$html .= '<th scope="row">' . esc_attr( $item['label'] ) . '</th>';
+					$html .= '<th scope="row"><label for="' . esc_attr( $fieldId ) . '">' . esc_attr( $item['label'] ) . '</label></th>';
 					$html .= '<td>';
-					$html .= '<input type="' . esc_attr( $item["type"] ) . '" name="' . $fieldName . '[' . esc_attr( $key ) . ']" value="' . esc_attr( $value ) . '"   autocomplete="off">';
+					$html .= '<input id="' . esc_attr( $fieldId ) . '" type="' . esc_attr( $item["type"] ) . '" name="' . $fieldName . '[' . esc_attr( $key ) . ']" value="' . esc_attr( $value ) . '"   autocomplete="off">';
+					$html .= $helpText;
 					$html .= '</td></tr>';
 				} elseif ( $item["type"] === "textarea" ) {
 					$value = $item["default"];
@@ -135,9 +174,10 @@ class PlugnmeetHelper {
 						$value = $data[ $key ];
 					}
 					$html .= '<tr>';
-					$html .= '<th scope="row">' . esc_attr( $item['label'] ) . '</th>';
+					$html .= '<th scope="row"><label for="' . esc_attr( $fieldId ) . '">' . esc_attr( $item['label'] ) . '</label></th>';
 					$html .= '<td>';
-					$html .= '<textarea name="' . esc_attr( $fieldName ) . '[' . esc_attr( $key ) . ']">' . esc_attr( $value ) . '</textarea>';
+					$html .= '<textarea id="' . esc_attr( $fieldId ) . '" name="' . esc_attr( $fieldName ) . '[' . esc_attr( $key ) . ']">' . esc_attr( $value ) . '</textarea>';
+					$html .= $helpText;
 					$html .= '</td></tr>';
 				}
 			}
@@ -152,6 +192,11 @@ class PlugnmeetHelper {
 
 	public static function getRoomFeatures( $room_features ) {
 		$roomFeatures = array(
+			"room_duration"               => array(
+				"label"   => __( "Room duration", "plugnmeet" ),
+				"default" => 0,
+				"type"    => "number"
+			),
 			"allow_webcams"               => array(
 				"label"    => __( "Allow webcams", "plugnmeet" ),
 				"options"  => array(
@@ -241,11 +286,6 @@ class PlugnmeetHelper {
 				),
 				"selected" => 0,
 				"type"     => "select"
-			),
-			"room_duration"               => array(
-				"label"   => __( "Room duration (In minutes, 0 = unlimited)", "plugnmeet" ),
-				"default" => 0,
-				"type"    => "number"
 			),
 			"moderator_join_first"        => array(
 				"label"    => __( "Moderator join first", "plugnmeet" ),
@@ -1166,16 +1206,16 @@ class PlugnmeetHelper {
 		$options = array(
 			array(
 				"value" => 1,
-				"text"  => "Published"
+				"text"  => __( "Published", "plugnmeet" )
 			),
 			array(
 				"value" => 0,
-				"text"  => "Unpublished"
+				"text"  => __( "Unpublished", "plugnmeet" )
 			)
 		);
 
-		$html = '<tr>';
-		$html .= '<th scope="row">' . __( "Room Status", "plugnmeet" ) . '</th>';
+		$html  = '<tr>';
+		$html .= '<th scope="row"><label for="published">' . __( "Room Status", "plugnmeet" ) . '</label></th>';
 		$html .= '<td>';
 		$html .= '<select id="published" name="published" >';
 
@@ -1187,7 +1227,9 @@ class PlugnmeetHelper {
 			}
 		}
 
-		$html .= '</select></td></tr>';
+		$html .= '</select>';
+		$html .= plugnmeet_help_text_html( 'basic.published' );
+		$html .= '</td></tr>';
 
 		return wp_kses( $html, self::$allowedHtml );
 	}

@@ -69,3 +69,121 @@
 .permission-table {
     margin-top: 10px;
 }
+
+/*
+ * Collapsible cards on the room edit screen.
+ * Collapse is driven purely by data-collapsed + CSS (display: none),
+ * so hidden inputs still serialize with the form.
+ */
+.pnm-card {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    margin: 0 0 16px;
+}
+
+.pnm-card-header .pnm-card-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    text-align: left;
+    padding: 12px 16px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.pnm-card-header .pnm-card-toggle:hover {
+    background: #f6f7f7;
+}
+
+.pnm-card-header .pnm-card-toggle:focus-visible {
+    outline: 2px solid #2271b1;
+    outline-offset: -2px;
+}
+
+.pnm-card-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1d2327;
+}
+
+.pnm-card-subtitle {
+    color: #646970;
+    font-size: 12px;
+    flex: 1 1 auto;
+}
+
+.pnm-toggle-indicator {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 auto;
+    font-family: dashicons;
+    font-size: 20px;
+    line-height: 20px;
+    color: #646970;
+    transition: transform 0.2s ease;
+}
+
+.pnm-toggle-indicator::before {
+    content: "\f142";
+    display: block;
+}
+
+.pnm-card[data-collapsed="true"] .pnm-toggle-indicator {
+    transform: rotate(180deg);
+}
+
+.pnm-card[data-collapsed="true"] .pnm-card-body {
+    display: none;
+}
+
+.pnm-card-body {
+    padding: 4px 16px 12px;
+}
+
+.pnm-card-body .form-table {
+    margin-top: 0;
+}
+
+.pnm-card-body .form-table th,
+.pnm-card-body .form-table td {
+    padding: 12px 10px 15px;
+}
+
+.pnm-card-body .description {
+    margin: 0.5em 0 0;
+}
+
+.pnm-subsection-title th {
+    font-weight: 600;
+}
+
+.pnm-subsection-title th {
+    background: #f6f7f7;
+    border-top: 1px solid #f0f0f1;
+}
+
+.pnm-subsection-divider th {
+    background: #f6f7f7;
+    border-top: 1px solid #f0f0f1;
+}
+
+.pnm-cards-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+@media (max-width: 782px) {
+    .pnm-card-header .pnm-card-toggle {
+        flex-wrap: wrap;
+    }
+
+    .pnm-card-subtitle {
+        flex-basis: 100%;
+    }
+}

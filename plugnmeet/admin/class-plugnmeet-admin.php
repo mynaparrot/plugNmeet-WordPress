@@ -73,7 +73,11 @@ class Plugnmeet_Admin {
     public function enqueue_styles( $hook_suffix ) {
         if ( preg_match( "/plugnmeet/", $hook_suffix ) ) {
             wp_enqueue_style( 'wp-color-picker' );
-            wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/plugnmeet-admin.css', array(), $this->version );
+            $css_ver = (string) @filemtime( plugin_dir_path( __FILE__ ) . 'css/plugnmeet-admin.css' );
+            if ( false === $css_ver || '' === $css_ver ) {
+                $css_ver = $this->version;
+            }
+            wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/plugnmeet-admin.css', array(), $css_ver );
 
             if ( $hook_suffix === 'plug-n-meet_page_plugnmeet-recordings' ) {
                 wp_enqueue_style( $this->plugin_name . '-recordings', plugin_dir_url( __FILE__ ) . 'css/plugnmeet-admin-recordings.css', array(), $this->version );
@@ -96,7 +100,11 @@ class Plugnmeet_Admin {
         wp_enqueue_media();
         if ( preg_match( "/plugnmeet/", $hook_suffix ) ) {
             wp_enqueue_script( 'wp-color-picker' );
-            wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugnmeet-admin.js', array( 'jquery' ), $this->version );
+            $js_ver = (string) @filemtime( plugin_dir_path( __FILE__ ) . 'js/plugnmeet-admin.js' );
+            if ( false === $js_ver || '' === $js_ver ) {
+                $js_ver = $this->version;
+            }
+            wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugnmeet-admin.js', array( 'jquery' ), $js_ver );
 
             if ( $hook_suffix === 'plug-n-meet_page_plugnmeet-recordings' ) {
                 wp_enqueue_script( $this->plugin_name . '-recordings', plugin_dir_url( __FILE__ ) . 'js/plugnmeet-admin-recordings.js', array( 'jquery' ), $this->version );

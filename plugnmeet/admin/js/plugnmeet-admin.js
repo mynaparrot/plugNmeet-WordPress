@@ -166,4 +166,33 @@
         toggleDisplayClientDownloadUrl($(e.target).val())
     })
 
+    // Collapsible card logic. Toggling is data-attribute/CSS based only,
+    // so collapsed (display: none) inputs still serialize with the form.
+    $(document).on("click", ".pnm-card-toggle", (e) => {
+        e.preventDefault();
+        const $toggle = $(e.currentTarget);
+        const $card = $toggle.closest(".pnm-card");
+        const collapsed = $card.attr("data-collapsed") === "true";
+
+        $card.attr("data-collapsed", collapsed ? "false" : "true");
+        $toggle.attr("aria-expanded", collapsed ? "true" : "false");
+    })
+
+    $(document).on("click", ".pnm-expand-all", (e) => {
+        e.preventDefault();
+        $(e.currentTarget).closest(".plugnmeet-tab-content")
+            .find('.pnm-card[data-collapsed="true"]')
+            .attr("data-collapsed", "false")
+            .find(".pnm-card-toggle")
+            .attr("aria-expanded", "true");
+    })
+
+    $(document).on("click", ".pnm-collapse-all", (e) => {
+        e.preventDefault();
+        $(e.currentTarget).closest(".plugnmeet-tab-content")
+            .find('.pnm-card[data-collapsed="false"]')
+            .attr("data-collapsed", "true")
+            .find(".pnm-card-toggle")
+            .attr("aria-expanded", "false");
+    })
 })(jQuery);
