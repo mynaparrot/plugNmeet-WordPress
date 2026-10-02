@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: plugnmeet-wordpress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-02 01:49+0000\n"
-"PO-Revision-Date: 2026-10-02 07:08\n"
+"PO-Revision-Date: 2026-10-02 08:14\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -257,6 +257,10 @@ msgstr "Fichiers de chat partagés"
 msgid "Checking..."
 msgstr "Vérification..."
 
+#: admin/class-plugnmeet-settings-page.php:455
+msgid "Clean"
+msgstr ""
+
 #: admin/class-plugnmeet-settings-page.php:231
 msgid "Client load"
 msgstr "Charge du client"
@@ -424,6 +428,14 @@ msgstr "Taille du fichier (Mo)"
 #: admin/partials/form-parts/design.php:82
 msgid "Footer Color"
 msgstr "Couleur du pied de page"
+
+#: admin/class-plugnmeet-settings-page.php:440
+msgid "Frontend design"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:447
+msgid "Frontend theme"
+msgstr ""
 
 #: helpers/analyticsHelper.php:409
 msgid "Good"
@@ -598,6 +610,10 @@ msgstr "Modérateur : rejoignez en premier"
 msgid "Moderator Password"
 msgstr "Mot de passe du modérateur"
 
+#: admin/class-plugnmeet-settings-page.php:456
+msgid "Modern"
+msgstr ""
+
 #: helpers/helper.php:171
 msgid "Mute on start"
 msgstr "Muet au démarrage"
@@ -700,6 +716,10 @@ msgstr "Intégration de la conférence Web Plug-N-Meet avec WordPress"
 #: admin/class-plugnmeet-settings-page.php:208
 msgid "plugNmeet API Key"
 msgstr "Clé API plugNmeet"
+
+#: admin/class-plugnmeet-settings-page.php:484
+msgid "plugNmeet Client design"
+msgstr ""
 
 #: admin/class-plugnmeet-settings-page.php:217
 msgid "plugNmeet Secret"
@@ -948,6 +968,10 @@ msgstr "Statut"
 msgid "Stop mic track on mute"
 msgstr "Arrêter la piste du micro en sourdine"
 
+#: admin/class-plugnmeet-room-page.php:75
+msgid "Styling for the room page on your site."
+msgstr ""
+
 #: admin/partials/plugnmeet-admin-edit-room.php:24
 msgid "Submit"
 msgstr "Envoyer"
@@ -991,6 +1015,10 @@ msgstr "Les enregistrements sont fusionnés. Cela peut prendre quelques instants
 #: helpers/ajaxHelper.php:455 helpers/ajaxHelper.php:575
 msgid "The room you are trying to join does not exist."
 msgstr "La salle que vous essayez d’intégrer n’existe pas."
+
+#: admin/class-plugnmeet-settings-page.php:454
+msgid "Theme default (no plugin CSS)"
+msgstr ""
 
 #: helpers/ajaxHelper.php:458 helpers/ajaxHelper.php:579
 msgid "This room is not currently active. Please contact the administrator."
@@ -1639,5 +1667,21 @@ msgstr ""
 
 #: admin/class-plugnmeet-room-page.php
 msgid "Default technical configurations applied to every new session."
+msgstr ""
+
+#: admin/class-plugnmeet-room-page.php
+msgid "Global defaults for the meeting client. Rooms can override the design and logo from their Design tab; copyright is always global."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php
+msgid "Choose how the room page (login form and recordings) looks. Theme default (no plugin CSS): your theme's own styling, which is how the room page works today. Clean: a minimal, light design with an inline login form (name, password and Join button in one line). Modern: a bolder design using your primary color. The color fields below apply to the selected design."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php
+msgid "The main color of the selected frontend design: the Join button, accents and focus rings on the room page. Leave blank to use the design's default."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php
+msgid "The secondary color of the selected frontend design: soft backgrounds and the recordings table header. Leave blank to use the design's default."
 msgstr ""
 
