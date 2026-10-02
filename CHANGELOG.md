@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.2.8](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.2.7...v2.2.8) (2026-10-02)
+
+
+### Bug Fixes
+
+* added 2 predefined design for easy use ([2865924](https://github.com/mynaparrot/plugNmeet-WordPress/commit/2865924c289dc49692267c45be2d96361c36da3c))
+* improved UI/UX for room create/edit and setting page ([f184788](https://github.com/mynaparrot/plugNmeet-WordPress/commit/f1847887e286b1266af456877746ae1918abb562))
+* new Crowdin updates ([#88](https://github.com/mynaparrot/plugNmeet-WordPress/issues/88)) ([87e6c76](https://github.com/mynaparrot/plugNmeet-WordPress/commit/87e6c762bcc61858f3171f54d78bd050eebabf47))
+
 ## [2.2.7](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.2.6...v2.2.7) (2026-09-10)
 
 * bump SDK
