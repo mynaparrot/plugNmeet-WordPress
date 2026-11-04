@@ -198,22 +198,49 @@ class Plugnmeet_Public {
 		$class         = new Plugnmeet_RoomPage();
 		$roomInfo      = $class->getRoomById( $id );
 		$room_metadata = json_decode( $roomInfo->room_metadata, true );
+		[ $jsFiles, $cssFiles, $assetsPath ] = $this->getClientFiles();
 
 		$custom_design_params = isset( $room_metadata['custom_design'] ) ? $room_metadata['custom_design'] : [];
-		$jsOptions            = $this->getJsOptions( $custom_design_params );
+		$jsOptions            = $this->getJsOptions( $custom_design_params, $assetsPath );
 
 		require plugin_dir_path( dirname( __FILE__ ) ) . 'public/partials/plugnmeet-public-display-client.php';
 
 		exit();
 	}
 
-	private function getJsOptions( $custom_design_params ) {
-		$config = $this->setting_params;
-		if ( ! isset( $config->client_load ) || $config->client_load === "remote" ) {
-			$assetsPath = $config->plugnmeet_server_url . "/assets";
+	private function getClientFiles() {
+		$setting_params = $this->setting_params;
+		// 1. Define the assets your app needs.
+		if ( ! isset( $setting_params->client_load ) || $setting_params->client_load === "remote" ) {
+			if ( ! class_exists( "plugNmeetConnect" ) ) {
+				require PLUGNMEET_ROOT_PATH . '/helpers/plugNmeetConnect.php';
+			}
+			$connect    = new plugNmeetConnect( $setting_params );
+			$files      = $connect->getClientFiles();
+			$jsFiles    = $files->getJSFiles() ?? [];
+			$cssFiles   = $files->getCSSFiles() ?? [];
+			$assetsPath = $setting_params->plugnmeet_server_url . "/assets";
+			if ( ! empty( $files->getStaticAssetsPath() ) ) {
+				$assetsPath = $files->getStaticAssetsPath();
+			}
 		} else {
+			$clientPath = PLUGNMEET_ROOT_PATH . "/public/client/dist/assets";
+			$js_dir     = $clientPath . "/js";
+			$css_dir    = $clientPath . "/css";
+
+			$js_scan  = is_dir( $js_dir ) ? scandir( $js_dir, SCANDIR_SORT_DESCENDING ) : [];
+			$css_scan = is_dir( $css_dir ) ? scandir( $css_dir, SCANDIR_SORT_DESCENDING ) : [];
+
+			$jsFiles    = $js_scan ? array_values( preg_grep( '~\.(js)$~', $js_scan ) ) : [];
+			$cssFiles   = $css_scan ? array_values( preg_grep( '~\.(css)$~', $css_scan ) ) : [];
 			$assetsPath = plugins_url( 'public/client/dist/assets', PLUGNMEET_BASE_NAME );
 		}
+
+		return [ $jsFiles, $cssFiles, $assetsPath ];
+	}
+
+	private function getJsOptions( $custom_design_params, $assetsPath ) {
+		$config = $this->setting_params;
 
 		$plugNmeetConfig = [
 			'serverUrl'                    => esc_url_raw( $config->plugnmeet_server_url ),

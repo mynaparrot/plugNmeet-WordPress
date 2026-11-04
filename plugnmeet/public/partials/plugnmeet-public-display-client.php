@@ -39,40 +39,17 @@ $pnm_main_module_handle = '';
  * It runs late, enqueues the app's assets, and then overwrites the global script/style queues
  * to ensure nothing else is loaded.
  */
-function pnm_final_asset_loader() {
+function pnm_final_asset_loader( $jsFiles = null, $cssFiles = null, $assetsPath = null ) {
     global $wp_styles, $wp_scripts, $pnm_main_module_handle;
 
-    // 1. Define the assets your app needs.
-    $setting_params = (object) get_option( "plugnmeet_settings" );
-    if ( ! isset( $setting_params->client_load ) || $setting_params->client_load === "remote" ) {
-        if ( ! class_exists( "plugNmeetConnect" ) ) {
-            require PLUGNMEET_ROOT_PATH . '/helpers/plugNmeetConnect.php';
-        }
-        $connect  = new plugNmeetConnect( $setting_params );
-        $files    = $connect->getClientFiles();
-        $jsFiles  = $files->getJSFiles() ?? [];
-        $cssFiles = $files->getCSSFiles() ?? [];
-        $path     = $setting_params->plugnmeet_server_url . "/assets";
-        if ( ! empty( $files->getStaticAssetsPath() ) ) {
-            $path = $files->getStaticAssetsPath();
-        }
-    } else {
-        $clientPath = PLUGNMEET_ROOT_PATH . "/public/client/dist/assets";
-        $js_dir = $clientPath . "/js";
-        $css_dir = $clientPath . "/css";
-
-        $js_scan = is_dir($js_dir) ? scandir($js_dir, SCANDIR_SORT_DESCENDING) : [];
-        $css_scan = is_dir($css_dir) ? scandir($css_dir, SCANDIR_SORT_DESCENDING) : [];
-
-        $jsFiles  = $js_scan ? array_values( preg_grep( '~\.(js)$~', $js_scan ) ) : [];
-        $cssFiles = $css_scan ? array_values( preg_grep( '~\.(css)$~', $css_scan ) ) : [];
-        $path       = plugins_url( 'public/client/dist/assets', PLUGNMEET_BASE_NAME );
+    if ( $jsFiles === null || $cssFiles === null || $assetsPath === null ) {
+        return;
     }
 
     $allowed_js_handles = [];
     foreach ( $jsFiles as $file ) {
         $handle = $file; // Use the filename as the handle.
-        $url    = $path . '/js/' . $file;
+        $url    = $assetsPath . '/js/' . $file;
         $args   = [ 'strategy' => 'defer' ]; // Default to defer for all scripts.
 
         if ( str_starts_with( $handle, 'main-module.' ) ) {
@@ -88,7 +65,7 @@ function pnm_final_asset_loader() {
     foreach ( $cssFiles as $file ) {
         $handle                = $file;
         $allowed_css_handles[] = $handle;
-        wp_enqueue_style( $handle, $path . '/css/' . $file, [], null );
+        wp_enqueue_style( $handle, $assetsPath . '/css/' . $file, [], null );
     }
 
     // 2. Aggressively overwrite the queues.
@@ -97,7 +74,9 @@ function pnm_final_asset_loader() {
     $wp_styles->queue  = $allowed_css_handles;
 }
 
-add_action( 'wp_print_styles', 'pnm_final_asset_loader', 9999 );
+add_action( 'wp_print_styles', function () use ( $jsFiles, $cssFiles, $assetsPath ) {
+    pnm_final_asset_loader( $jsFiles, $cssFiles, $assetsPath );
+}, 9999 );
 
 
 /**
