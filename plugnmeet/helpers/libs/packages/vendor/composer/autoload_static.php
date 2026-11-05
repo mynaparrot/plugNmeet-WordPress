@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit58cf23959cfc7cb3f67b7babf948daa8
+class ComposerStaticInit32a6749e7a86509090a30283025081a8
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -174,9 +174,9 @@ class ComposerStaticInit58cf23959cfc7cb3f67b7babf948daa8
         'Brick\\Math\\Exception\\NegativeNumberException' => __DIR__ . '/..' . '/brick/math/src/Exception/NegativeNumberException.php',
         'Brick\\Math\\Exception\\NoInverseException' => __DIR__ . '/..' . '/brick/math/src/Exception/NoInverseException.php',
         'Brick\\Math\\Exception\\NumberFormatException' => __DIR__ . '/..' . '/brick/math/src/Exception/NumberFormatException.php',
+        'Brick\\Math\\Exception\\PlatformException' => __DIR__ . '/..' . '/brick/math/src/Exception/PlatformException.php',
         'Brick\\Math\\Exception\\RandomSourceException' => __DIR__ . '/..' . '/brick/math/src/Exception/RandomSourceException.php',
         'Brick\\Math\\Exception\\RoundingNecessaryException' => __DIR__ . '/..' . '/brick/math/src/Exception/RoundingNecessaryException.php',
-        'Brick\\Math\\Exception\\UnsupportedPlatformException' => __DIR__ . '/..' . '/brick/math/src/Exception/UnsupportedPlatformException.php',
         'Brick\\Math\\Internal\\Calculator' => __DIR__ . '/..' . '/brick/math/src/Internal/Calculator.php',
         'Brick\\Math\\Internal\\CalculatorRegistry' => __DIR__ . '/..' . '/brick/math/src/Internal/CalculatorRegistry.php',
         'Brick\\Math\\Internal\\Calculator\\BcMathCalculator' => __DIR__ . '/..' . '/brick/math/src/Internal/Calculator/BcMathCalculator.php',
@@ -184,6 +184,7 @@ class ComposerStaticInit58cf23959cfc7cb3f67b7babf948daa8
         'Brick\\Math\\Internal\\Calculator\\NativeCalculator' => __DIR__ . '/..' . '/brick/math/src/Internal/Calculator/NativeCalculator.php',
         'Brick\\Math\\Internal\\DecimalHelper' => __DIR__ . '/..' . '/brick/math/src/Internal/DecimalHelper.php',
         'Brick\\Math\\Internal\\Safe' => __DIR__ . '/..' . '/brick/math/src/Internal/Safe.php',
+        'Brick\\Math\\NumberSyntax' => __DIR__ . '/..' . '/brick/math/src/NumberSyntax.php',
         'Brick\\Math\\RoundingMode' => __DIR__ . '/..' . '/brick/math/src/RoundingMode.php',
         'Complex\\Complex' => __DIR__ . '/..' . '/markbaker/complex/classes/src/Complex.php',
         'Complex\\Exception' => __DIR__ . '/..' . '/markbaker/complex/classes/src/Exception.php',
@@ -426,6 +427,7 @@ class ComposerStaticInit58cf23959cfc7cb3f67b7babf948daa8
         'GuzzleHttp\\Promise\\PromisorInterface' => __DIR__ . '/..' . '/guzzlehttp/promises/src/PromisorInterface.php',
         'GuzzleHttp\\Promise\\RejectedPromise' => __DIR__ . '/..' . '/guzzlehttp/promises/src/RejectedPromise.php',
         'GuzzleHttp\\Promise\\RejectionException' => __DIR__ . '/..' . '/guzzlehttp/promises/src/RejectionException.php',
+        'GuzzleHttp\\Promise\\State' => __DIR__ . '/..' . '/guzzlehttp/promises/src/State.php',
         'GuzzleHttp\\Promise\\TaskQueue' => __DIR__ . '/..' . '/guzzlehttp/promises/src/TaskQueue.php',
         'GuzzleHttp\\Promise\\TaskQueueInterface' => __DIR__ . '/..' . '/guzzlehttp/promises/src/TaskQueueInterface.php',
         'GuzzleHttp\\Promise\\Utils' => __DIR__ . '/..' . '/guzzlehttp/promises/src/Utils.php',
@@ -606,6 +608,7 @@ class ComposerStaticInit58cf23959cfc7cb3f67b7babf948daa8
         'Mynaparrot\\PlugnmeetProto\\ChangeVisibilityRes' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/ChangeVisibilityRes.php',
         'Mynaparrot\\PlugnmeetProto\\ChatFeatures' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/ChatFeatures.php',
         'Mynaparrot\\PlugnmeetProto\\ChatMessage' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/ChatMessage.php',
+        'Mynaparrot\\PlugnmeetProto\\ChatMeta' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/ChatMeta.php',
         'Mynaparrot\\PlugnmeetProto\\ClientType' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/ClientType.php',
         'Mynaparrot\\PlugnmeetProto\\ClosePollReq' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/ClosePollReq.php',
         'Mynaparrot\\PlugnmeetProto\\CloudRecordingVariants' => __DIR__ . '/..' . '/mynaparrot/plugnmeet-sdk/src/gen/Mynaparrot/PlugnmeetProto/CloudRecordingVariants.php',
@@ -1131,10 +1134,12 @@ class ComposerStaticInit58cf23959cfc7cb3f67b7babf948daa8
         'PhpOffice\\PhpSpreadsheet\\Reader\\Xlsx\\Hyperlinks' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx/Hyperlinks.php',
         'PhpOffice\\PhpSpreadsheet\\Reader\\Xlsx\\Namespaces' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx/Namespaces.php',
         'PhpOffice\\PhpSpreadsheet\\Reader\\Xlsx\\PageSetup' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx/PageSetup.php',
+        'PhpOffice\\PhpSpreadsheet\\Reader\\Xlsx\\PivotTableReader' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx/PivotTableReader.php',
         'PhpOffice\\PhpSpreadsheet\\Reader\\Xlsx\\Properties' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx/Properties.php',
         'PhpOffice\\PhpSpreadsheet\\Reader\\Xlsx\\SharedFormula' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx/SharedFormula.php',
         'PhpOffice\\PhpSpreadsheet\\Reader\\Xlsx\\SheetViewOptions' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx/SheetViewOptions.php',
         'PhpOffice\\PhpSpreadsheet\\Reader\\Xlsx\\SheetViews' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx/SheetViews.php',
+        'PhpOffice\\PhpSpreadsheet\\Reader\\Xlsx\\Sparklines' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx/Sparklines.php',
         'PhpOffice\\PhpSpreadsheet\\Reader\\Xlsx\\Styles' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx/Styles.php',
         'PhpOffice\\PhpSpreadsheet\\Reader\\Xlsx\\TableReader' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx/TableReader.php',
         'PhpOffice\\PhpSpreadsheet\\Reader\\Xlsx\\Theme' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx/Theme.php',
@@ -1188,6 +1193,7 @@ class ComposerStaticInit58cf23959cfc7cb3f67b7babf948daa8
         'PhpOffice\\PhpSpreadsheet\\Shared\\Trend\\Trend' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Shared/Trend/Trend.php',
         'PhpOffice\\PhpSpreadsheet\\Shared\\XMLWriter' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Shared/XMLWriter.php',
         'PhpOffice\\PhpSpreadsheet\\Shared\\Xls' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Shared/Xls.php',
+        'PhpOffice\\PhpSpreadsheet\\Shared\\Xlsx\\AgileEncryption' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Shared/Xlsx/AgileEncryption.php',
         'PhpOffice\\PhpSpreadsheet\\Spreadsheet' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Spreadsheet.php',
         'PhpOffice\\PhpSpreadsheet\\Style\\Alignment' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Style/Alignment.php',
         'PhpOffice\\PhpSpreadsheet\\Style\\Border' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Style/Border.php',
@@ -1265,6 +1271,11 @@ class ComposerStaticInit58cf23959cfc7cb3f67b7babf948daa8
         'PhpOffice\\PhpSpreadsheet\\Worksheet\\PageMargins' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/PageMargins.php',
         'PhpOffice\\PhpSpreadsheet\\Worksheet\\PageSetup' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/PageSetup.php',
         'PhpOffice\\PhpSpreadsheet\\Worksheet\\Pane' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/Pane.php',
+        'PhpOffice\\PhpSpreadsheet\\Worksheet\\PivotTable\\PivotCacheDefinition' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/PivotTable/PivotCacheDefinition.php',
+        'PhpOffice\\PhpSpreadsheet\\Worksheet\\PivotTable\\PivotField' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/PivotTable/PivotField.php',
+        'PhpOffice\\PhpSpreadsheet\\Worksheet\\PivotTable\\PivotFieldGroup' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/PivotTable/PivotFieldGroup.php',
+        'PhpOffice\\PhpSpreadsheet\\Worksheet\\PivotTable\\PivotTable' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/PivotTable/PivotTable.php',
+        'PhpOffice\\PhpSpreadsheet\\Worksheet\\PivotTable\\PivotTableBuilder' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/PivotTable/PivotTableBuilder.php',
         'PhpOffice\\PhpSpreadsheet\\Worksheet\\ProtectedRange' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/ProtectedRange.php',
         'PhpOffice\\PhpSpreadsheet\\Worksheet\\Protection' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/Protection.php',
         'PhpOffice\\PhpSpreadsheet\\Worksheet\\Row' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/Row.php',
@@ -1272,6 +1283,9 @@ class ComposerStaticInit58cf23959cfc7cb3f67b7babf948daa8
         'PhpOffice\\PhpSpreadsheet\\Worksheet\\RowDimension' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/RowDimension.php',
         'PhpOffice\\PhpSpreadsheet\\Worksheet\\RowIterator' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/RowIterator.php',
         'PhpOffice\\PhpSpreadsheet\\Worksheet\\SheetView' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/SheetView.php',
+        'PhpOffice\\PhpSpreadsheet\\Worksheet\\Sparkline\\Sparkline' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/Sparkline/Sparkline.php',
+        'PhpOffice\\PhpSpreadsheet\\Worksheet\\Sparkline\\SparklineGroup' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/Sparkline/SparklineGroup.php',
+        'PhpOffice\\PhpSpreadsheet\\Worksheet\\Sparkline\\SparklineType' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/Sparkline/SparklineType.php',
         'PhpOffice\\PhpSpreadsheet\\Worksheet\\Table' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/Table.php',
         'PhpOffice\\PhpSpreadsheet\\Worksheet\\Table\\Column' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/Table/Column.php',
         'PhpOffice\\PhpSpreadsheet\\Worksheet\\Table\\TableDxfsStyle' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/Table/TableDxfsStyle.php',
@@ -1288,6 +1302,7 @@ class ComposerStaticInit58cf23959cfc7cb3f67b7babf948daa8
         'PhpOffice\\PhpSpreadsheet\\Writer\\Ods\\Cell\\Comment' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Writer/Ods/Cell/Comment.php',
         'PhpOffice\\PhpSpreadsheet\\Writer\\Ods\\Cell\\Style' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Writer/Ods/Cell/Style.php',
         'PhpOffice\\PhpSpreadsheet\\Writer\\Ods\\Content' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Writer/Ods/Content.php',
+        'PhpOffice\\PhpSpreadsheet\\Writer\\Ods\\Drawing' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Writer/Ods/Drawing.php',
         'PhpOffice\\PhpSpreadsheet\\Writer\\Ods\\Formula' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Writer/Ods/Formula.php',
         'PhpOffice\\PhpSpreadsheet\\Writer\\Ods\\Meta' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Writer/Ods/Meta.php',
         'PhpOffice\\PhpSpreadsheet\\Writer\\Ods\\MetaInf' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Writer/Ods/MetaInf.php',
@@ -1327,6 +1342,7 @@ class ComposerStaticInit58cf23959cfc7cb3f67b7babf948daa8
         'PhpOffice\\PhpSpreadsheet\\Writer\\Xlsx\\FeaturePropertyBag' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Writer/Xlsx/FeaturePropertyBag.php',
         'PhpOffice\\PhpSpreadsheet\\Writer\\Xlsx\\FunctionPrefix' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Writer/Xlsx/FunctionPrefix.php',
         'PhpOffice\\PhpSpreadsheet\\Writer\\Xlsx\\Metadata' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Writer/Xlsx/Metadata.php',
+        'PhpOffice\\PhpSpreadsheet\\Writer\\Xlsx\\PivotTable' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Writer/Xlsx/PivotTable.php',
         'PhpOffice\\PhpSpreadsheet\\Writer\\Xlsx\\Rels' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Writer/Xlsx/Rels.php',
         'PhpOffice\\PhpSpreadsheet\\Writer\\Xlsx\\RelsRibbon' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Writer/Xlsx/RelsRibbon.php',
         'PhpOffice\\PhpSpreadsheet\\Writer\\Xlsx\\RelsVBA' => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Writer/Xlsx/RelsVBA.php',
@@ -1543,9 +1559,9 @@ class ComposerStaticInit58cf23959cfc7cb3f67b7babf948daa8
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit58cf23959cfc7cb3f67b7babf948daa8::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit58cf23959cfc7cb3f67b7babf948daa8::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit58cf23959cfc7cb3f67b7babf948daa8::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit32a6749e7a86509090a30283025081a8::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit32a6749e7a86509090a30283025081a8::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit32a6749e7a86509090a30283025081a8::$classMap;
 
         }, null, ClassLoader::class);
     }
