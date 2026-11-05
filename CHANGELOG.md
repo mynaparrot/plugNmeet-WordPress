@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.2.9](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.2.8...v2.2.9) (2026-11-05)
+
+
+### Bug Fixes
+
+* bump SDK ([8716f0d](https://github.com/mynaparrot/plugNmeet-WordPress/commit/8716f0d3b0aa21ec41a9be3889aa3424ad12dae2))
+* use remote asset path if provided ([d721f94](https://github.com/mynaparrot/plugNmeet-WordPress/commit/d721f94508136915e15c9bc7d660de4e434da4b3))
+
 ## [2.2.8](https://github.com/mynaparrot/plugNmeet-WordPress/compare/v2.2.7...v2.2.8) (2026-10-02)
 
 
