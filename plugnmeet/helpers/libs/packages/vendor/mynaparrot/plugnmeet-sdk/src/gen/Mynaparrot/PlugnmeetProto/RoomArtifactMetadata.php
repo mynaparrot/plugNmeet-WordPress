@@ -36,6 +36,17 @@ class RoomArtifactMetadata extends \Google\Protobuf\Internal\Message
      */
     protected $file_info = null;
     /**
+     * to identify if artificial belongs to any breakout room
+     * which usually we merge into the main room
+     *
+     * Generated from protobuf field <code>optional bool occurred_in_breakout_room = 7;</code>
+     */
+    protected $occurred_in_breakout_room = null;
+    /**
+     * Generated from protobuf field <code>uint64 source_room_table_id = 8;</code>
+     */
+    protected $source_room_table_id = 0;
+    /**
      * A field to link a file artifact back to its usage artifact.
      *
      * Generated from protobuf field <code>optional string reference_artifact_id = 10;</code>
@@ -58,6 +69,10 @@ class RoomArtifactMetadata extends \Google\Protobuf\Internal\Message
      *     @type \Mynaparrot\PlugnmeetProto\RoomArtifactTokenUsage $token_usage
      *     @type \Mynaparrot\PlugnmeetProto\RoomArtifactDurationUsage $duration_usage
      *     @type \Mynaparrot\PlugnmeetProto\RoomArtifactCharacterCountUsage $character_count_usage
+     *     @type bool $occurred_in_breakout_room
+     *           to identify if artificial belongs to any breakout room
+     *           which usually we merge into the main room
+     *     @type int|string $source_room_table_id
      *     @type string $reference_artifact_id
      *           A field to link a file artifact back to its usage artifact.
      * }
@@ -246,6 +261,65 @@ class RoomArtifactMetadata extends \Google\Protobuf\Internal\Message
     public function setCharacterCountUsage(\Mynaparrot\PlugnmeetProto\RoomArtifactCharacterCountUsage|null $var)
     {
         $this->writeOneof(6, $var);
+
+        return $this;
+    }
+
+    /**
+     * to identify if artificial belongs to any breakout room
+     * which usually we merge into the main room
+     *
+     * Generated from protobuf field <code>optional bool occurred_in_breakout_room = 7;</code>
+     * @return bool
+     */
+    public function getOccurredInBreakoutRoom()
+    {
+        return isset($this->occurred_in_breakout_room) ? $this->occurred_in_breakout_room : false;
+    }
+
+    public function hasOccurredInBreakoutRoom()
+    {
+        return isset($this->occurred_in_breakout_room);
+    }
+
+    public function clearOccurredInBreakoutRoom()
+    {
+        unset($this->occurred_in_breakout_room);
+    }
+
+    /**
+     * to identify if artificial belongs to any breakout room
+     * which usually we merge into the main room
+     *
+     * Generated from protobuf field <code>optional bool occurred_in_breakout_room = 7;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setOccurredInBreakoutRoom(bool $var)
+    {
+        $this->occurred_in_breakout_room = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 source_room_table_id = 8;</code>
+     * @return int|string
+     */
+    public function getSourceRoomTableId()
+    {
+        return $this->source_room_table_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 source_room_table_id = 8;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setSourceRoomTableId(int|string $var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->source_room_table_id = $var;
 
         return $this;
     }

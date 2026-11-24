@@ -44,6 +44,18 @@ class MetricsRecordingHeader extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string job_id = 8;</code>
      */
     protected $job_id = '';
+    /**
+     * session is a simulation; the collector skips PII redaction for it unless redaction_enabled is set
+     *
+     * Generated from protobuf field <code>bool simulated = 9;</code>
+     */
+    protected $simulated = false;
+    /**
+     * force PII redaction on for this session (only ever enables, never disables)
+     *
+     * Generated from protobuf field <code>bool redaction_enabled = 10;</code>
+     */
+    protected $redaction_enabled = false;
 
     /**
      * Constructor.
@@ -59,6 +71,10 @@ class MetricsRecordingHeader extends \Google\Protobuf\Internal\Message
      *     @type string $room_name
      *     @type \Google\Protobuf\Timestamp $room_start_time
      *     @type string $job_id
+     *     @type bool $simulated
+     *           session is a simulation; the collector skips PII redaction for it unless redaction_enabled is set
+     *     @type bool $redaction_enabled
+     *           force PII redaction on for this session (only ever enables, never disables)
      * }
      */
     public function __construct($data = NULL) {
@@ -238,6 +254,56 @@ class MetricsRecordingHeader extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, true);
         $this->job_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * session is a simulation; the collector skips PII redaction for it unless redaction_enabled is set
+     *
+     * Generated from protobuf field <code>bool simulated = 9;</code>
+     * @return bool
+     */
+    public function getSimulated()
+    {
+        return $this->simulated;
+    }
+
+    /**
+     * session is a simulation; the collector skips PII redaction for it unless redaction_enabled is set
+     *
+     * Generated from protobuf field <code>bool simulated = 9;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setSimulated(bool $var)
+    {
+        $this->simulated = $var;
+
+        return $this;
+    }
+
+    /**
+     * force PII redaction on for this session (only ever enables, never disables)
+     *
+     * Generated from protobuf field <code>bool redaction_enabled = 10;</code>
+     * @return bool
+     */
+    public function getRedactionEnabled()
+    {
+        return $this->redaction_enabled;
+    }
+
+    /**
+     * force PII redaction on for this session (only ever enables, never disables)
+     *
+     * Generated from protobuf field <code>bool redaction_enabled = 10;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setRedactionEnabled(bool $var)
+    {
+        $this->redaction_enabled = $var;
 
         return $this;
     }

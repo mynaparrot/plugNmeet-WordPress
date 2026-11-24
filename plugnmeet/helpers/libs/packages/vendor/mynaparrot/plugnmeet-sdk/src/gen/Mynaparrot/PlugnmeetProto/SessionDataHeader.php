@@ -36,6 +36,18 @@ class SessionDataHeader extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>optional string target_room_id = 4;</code>
      */
     protected $target_room_id = null;
+    /**
+     * save only: when set, the server acks with SESSION_DATA_SAVE_RESPONSE
+     *
+     * Generated from protobuf field <code>optional string request_id = 5;</code>
+     */
+    protected $request_id = null;
+    /**
+     * save response only: true when the data was stored
+     *
+     * Generated from protobuf field <code>optional bool success = 6;</code>
+     */
+    protected $success = null;
 
     /**
      * Constructor.
@@ -50,6 +62,10 @@ class SessionDataHeader extends \Google\Protobuf\Internal\Message
      *           response only: true on the final streamed entry
      *     @type string $target_room_id
      *           save only: empty/absent => save to own room; set => seed into target breakout child room
+     *     @type string $request_id
+     *           save only: when set, the server acks with SESSION_DATA_SAVE_RESPONSE
+     *     @type bool $success
+     *           save response only: true when the data was stored
      * }
      */
     public function __construct($data = NULL) {
@@ -172,6 +188,77 @@ class SessionDataHeader extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, true);
         $this->target_room_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * save only: when set, the server acks with SESSION_DATA_SAVE_RESPONSE
+     *
+     * Generated from protobuf field <code>optional string request_id = 5;</code>
+     * @return string
+     */
+    public function getRequestId()
+    {
+        return isset($this->request_id) ? $this->request_id : '';
+    }
+
+    public function hasRequestId()
+    {
+        return isset($this->request_id);
+    }
+
+    public function clearRequestId()
+    {
+        unset($this->request_id);
+    }
+
+    /**
+     * save only: when set, the server acks with SESSION_DATA_SAVE_RESPONSE
+     *
+     * Generated from protobuf field <code>optional string request_id = 5;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setRequestId(string $var)
+    {
+        GPBUtil::checkString($var, true);
+        $this->request_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * save response only: true when the data was stored
+     *
+     * Generated from protobuf field <code>optional bool success = 6;</code>
+     * @return bool
+     */
+    public function getSuccess()
+    {
+        return isset($this->success) ? $this->success : false;
+    }
+
+    public function hasSuccess()
+    {
+        return isset($this->success);
+    }
+
+    public function clearSuccess()
+    {
+        unset($this->success);
+    }
+
+    /**
+     * save response only: true when the data was stored
+     *
+     * Generated from protobuf field <code>optional bool success = 6;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setSuccess(bool $var)
+    {
+        $this->success = $var;
 
         return $this;
     }

@@ -14,7 +14,13 @@
 if (!defined('PLUGNMEET_BASE_NAME')) {
     die;
 }
+
+$enable_ai_agent = PlugnmeetHelper::isAiAgentEnabled();
 ?>
+
+<?php if (!$enable_ai_agent): ?>
+    <input type="hidden" name="room_mode" value="<?php echo esc_attr($fields_values['room_mode']); ?>">
+<?php endif; ?>
 
 <table class="form-table" role="presentation">
     <tbody>
@@ -60,7 +66,7 @@ if (!defined('PLUGNMEET_BASE_NAME')) {
     </tr>
     <tr>
         <th scope="row"><?php echo __("Welcome Message", "plugnmeet") ?></th>
-        <td><textarea name="welcome_message"><?php echo esc_textarea($fields_values['welcome_message']); ?></textarea>
+        <td><textarea name="welcome_message" class="large-text" rows="4"><?php echo esc_textarea($fields_values['welcome_message']); ?></textarea>
             <?php echo plugnmeet_help_text_html('basic.welcome_message'); ?>
         </td>
     </tr>

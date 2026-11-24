@@ -38,3 +38,16 @@
 .plugnmeet-artifact-details .meeting-summary-header {
     margin-top: 24px;
 }
+
+#artifactListsBody .pnm-artifact-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    text-align: center;
+}
+
+#artifactListsBody .pnm-artifact-user {
+    font-size: 11px;
+    color: #646970;
+}

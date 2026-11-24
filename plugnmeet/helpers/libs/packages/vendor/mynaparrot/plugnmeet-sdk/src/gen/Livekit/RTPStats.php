@@ -191,11 +191,27 @@ class RTPStats extends \Google\Protobuf\Internal\Message
      */
     protected $rebased_report_drift = null;
     /**
-     * NEXT_ID: 48
-     *
      * Generated from protobuf field <code>.livekit.RTPDrift received_report_drift = 47;</code>
      */
     protected $received_report_drift = null;
+    /**
+     * Generated from protobuf field <code>uint32 fec_packets = 48;</code>
+     */
+    protected $fec_packets = 0;
+    /**
+     * Generated from protobuf field <code>uint64 fec_bytes = 49;</code>
+     */
+    protected $fec_bytes = 0;
+    /**
+     * Generated from protobuf field <code>uint32 fec_packets_discarded = 50;</code>
+     */
+    protected $fec_packets_discarded = 0;
+    /**
+     * NEXT_ID: 52
+     *
+     * Generated from protobuf field <code>uint32 fec_packets_recovered = 51;</code>
+     */
+    protected $fec_packets_recovered = 0;
 
     /**
      * Constructor.
@@ -248,7 +264,11 @@ class RTPStats extends \Google\Protobuf\Internal\Message
      *     @type \Livekit\RTPDrift $ntp_report_drift
      *     @type \Livekit\RTPDrift $rebased_report_drift
      *     @type \Livekit\RTPDrift $received_report_drift
-     *           NEXT_ID: 48
+     *     @type int $fec_packets
+     *     @type int|string $fec_bytes
+     *     @type int $fec_packets_discarded
+     *     @type int $fec_packets_recovered
+     *           NEXT_ID: 52
      * }
      */
     public function __construct($data = NULL) {
@@ -1294,8 +1314,6 @@ class RTPStats extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * NEXT_ID: 48
-     *
      * Generated from protobuf field <code>.livekit.RTPDrift received_report_drift = 47;</code>
      * @return \Livekit\RTPDrift|null
      */
@@ -1315,8 +1333,6 @@ class RTPStats extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * NEXT_ID: 48
-     *
      * Generated from protobuf field <code>.livekit.RTPDrift received_report_drift = 47;</code>
      * @param \Livekit\RTPDrift $var
      * @return $this
@@ -1324,6 +1340,98 @@ class RTPStats extends \Google\Protobuf\Internal\Message
     public function setReceivedReportDrift(\Livekit\RTPDrift|null $var)
     {
         $this->received_report_drift = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 fec_packets = 48;</code>
+     * @return int
+     */
+    public function getFecPackets()
+    {
+        return $this->fec_packets;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 fec_packets = 48;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setFecPackets(int $var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->fec_packets = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 fec_bytes = 49;</code>
+     * @return int|string
+     */
+    public function getFecBytes()
+    {
+        return $this->fec_bytes;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 fec_bytes = 49;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setFecBytes(int|string $var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->fec_bytes = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 fec_packets_discarded = 50;</code>
+     * @return int
+     */
+    public function getFecPacketsDiscarded()
+    {
+        return $this->fec_packets_discarded;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 fec_packets_discarded = 50;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setFecPacketsDiscarded(int $var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->fec_packets_discarded = $var;
+
+        return $this;
+    }
+
+    /**
+     * NEXT_ID: 52
+     *
+     * Generated from protobuf field <code>uint32 fec_packets_recovered = 51;</code>
+     * @return int
+     */
+    public function getFecPacketsRecovered()
+    {
+        return $this->fec_packets_recovered;
+    }
+
+    /**
+     * NEXT_ID: 52
+     *
+     * Generated from protobuf field <code>uint32 fec_packets_recovered = 51;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setFecPacketsRecovered(int $var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->fec_packets_recovered = $var;
 
         return $this;
     }

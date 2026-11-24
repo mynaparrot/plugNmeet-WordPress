@@ -22,6 +22,10 @@ class ActiveRoomWithParticipant extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .livekit.ParticipantInfo participants_info = 4;</code>
      */
     private $participants_info;
+    /**
+     * Generated from protobuf field <code>repeated .plugnmeet.ActiveRoomWithParticipant breakout_rooms = 5;</code>
+     */
+    private $breakout_rooms;
 
     /**
      * Constructor.
@@ -31,6 +35,7 @@ class ActiveRoomWithParticipant extends \Google\Protobuf\Internal\Message
      *
      *     @type \Mynaparrot\PlugnmeetProto\ActiveRoomInfo $room_info
      *     @type \Livekit\ParticipantInfo[] $participants_info
+     *     @type \Mynaparrot\PlugnmeetProto\ActiveRoomWithParticipant[] $breakout_rooms
      * }
      */
     public function __construct($data = NULL) {
@@ -87,6 +92,28 @@ class ActiveRoomWithParticipant extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Livekit\ParticipantInfo::class);
         $this->participants_info = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .plugnmeet.ActiveRoomWithParticipant breakout_rooms = 5;</code>
+     * @return RepeatedField<\Mynaparrot\PlugnmeetProto\ActiveRoomWithParticipant>
+     */
+    public function getBreakoutRooms()
+    {
+        return $this->breakout_rooms;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .plugnmeet.ActiveRoomWithParticipant breakout_rooms = 5;</code>
+     * @param \Mynaparrot\PlugnmeetProto\ActiveRoomWithParticipant[] $var
+     * @return $this
+     */
+    public function setBreakoutRooms(array|RepeatedField $var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Mynaparrot\PlugnmeetProto\ActiveRoomWithParticipant::class);
+        $this->breakout_rooms = $arr;
 
         return $this;
     }

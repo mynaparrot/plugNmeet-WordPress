@@ -112,6 +112,12 @@ class DataMsgBodyType
      * Generated from protobuf enum <code>NOTEPAD_AWARENESS = 24;</code>
      */
     const NOTEPAD_AWARENESS = 24;
+    /**
+     * AI AGENT type
+     *
+     * Generated from protobuf enum <code>AI_AGENT_REMOTE_POINTER = 25;</code>
+     */
+    const AI_AGENT_REMOTE_POINTER = 25;
 
     private static $valueToName = [
         self::UNKNOWN => 'UNKNOWN',
@@ -138,6 +144,7 @@ class DataMsgBodyType
         self::NOTEPAD_SYNC_RESPONSE => 'NOTEPAD_SYNC_RESPONSE',
         self::NOTEPAD_UPDATE => 'NOTEPAD_UPDATE',
         self::NOTEPAD_AWARENESS => 'NOTEPAD_AWARENESS',
+        self::AI_AGENT_REMOTE_POINTER => 'AI_AGENT_REMOTE_POINTER',
     ];
 
     public static function name($value)

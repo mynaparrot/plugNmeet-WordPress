@@ -219,7 +219,7 @@ class Plugnmeet_Public {
 			$files      = $connect->getClientFiles();
 			$jsFiles    = $files->getJSFiles() ?? [];
 			$cssFiles   = $files->getCSSFiles() ?? [];
-			$assetsPath = $setting_params->plugnmeet_server_url . "/assets";
+			$assetsPath = rtrim( trim( (string) $setting_params->plugnmeet_server_url ), "/" ) . "/assets";
 			if ( ! empty( $files->getStaticAssetsPath() ) ) {
 				$assetsPath = $files->getStaticAssetsPath();
 			}
@@ -243,7 +243,7 @@ class Plugnmeet_Public {
 		$config = $this->setting_params;
 
 		$plugNmeetConfig = [
-			'serverUrl'                    => esc_url_raw( $config->plugnmeet_server_url ),
+			'serverUrl'                    => esc_url_raw( trim( (string) $config->plugnmeet_server_url ) ),
 			'staticAssetsPath'             => esc_url_raw( $assetsPath ),
 			'enableDynacast'               => filter_var( $config->enable_dynacast, FILTER_VALIDATE_BOOLEAN ),
 			'enableSimulcast'              => filter_var( $config->enable_simulcast, FILTER_VALIDATE_BOOLEAN ),

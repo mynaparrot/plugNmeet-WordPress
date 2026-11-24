@@ -32,9 +32,17 @@ class Plugnmeet_SettingsPage {
 			'value' => array(),
 			'class' => array(),
 		),
-		'option' => array(
+		'option'   => array(
 			'value'    => array(),
 			'selected' => array(),
+		),
+		'textarea' => array(
+			'id'          => array(),
+			'name'        => array(),
+			'class'       => array(),
+			'rows'        => array(),
+			'cols'        => array(),
+			'placeholder' => array(),
 		),
 	);
 
@@ -52,6 +60,9 @@ class Plugnmeet_SettingsPage {
 		$this->optionsSection();
 		$this->frontendDesignSection();
 		$this->clientDesignSection();
+		$this->aiAgentSection();
+		$this->aiByokSection();
+		$this->aiMcpSection();
 	}
 
 	public function textCallBack( $args ) {
@@ -64,6 +75,22 @@ class Plugnmeet_SettingsPage {
 		$value     = isset( $options[ $id ] ) ? esc_attr( $options[ $id ] ) : $args['default'];
 
 		$html = '<input id="' . $id . '" class="' . $className . '" ' . $required . ' name="plugnmeet_settings[' . $id . ']" type="' . $type . '" size="40" value="' . $value . '">';
+		echo wp_kses( $html, $this->allowedHtml );
+
+		echo plugnmeet_help_text_html( 'settings.' . $args['id'] );
+	}
+
+	public function textareaCallBack( $args ) {
+		$options = get_option( 'plugnmeet_settings' );
+
+		$id          = isset( $args['id'] ) ? esc_attr( $args['id'] ) : '';
+		$className   = isset( $args['className'] ) ? esc_attr( $args['className'] ) : '';
+		$rows        = isset( $args['rows'] ) ? (int) $args['rows'] : 5;
+		$cols        = isset( $args['cols'] ) ? (int) $args['cols'] : 60;
+		$placeholder = isset( $args['placeholder'] ) ? esc_attr( $args['placeholder'] ) : '';
+		$value       = isset( $options[ $id ] ) ? $options[ $id ] : $args['default'];
+
+		$html = '<textarea id="' . $id . '" class="' . $className . '" name="plugnmeet_settings[' . $id . ']" rows="' . $rows . '" cols="' . $cols . '" placeholder="' . $placeholder . '">' . esc_textarea( $value ) . '</textarea>';
 		echo wp_kses( $html, $this->allowedHtml );
 
 		echo plugnmeet_help_text_html( 'settings.' . $args['id'] );
@@ -185,6 +212,11 @@ class Plugnmeet_SettingsPage {
 			"client_download_url"
 		);
 		foreach ( $input as $key => $val ) {
+			if ( is_string( $val ) ) {
+				$val           = trim( $val );
+				$input[ $key ] = $val;
+			}
+
 			if ( ! $val && in_array( $key, $requiredFields ) ) {
 				if ( ! $this->hasError ) {
 					add_settings_error(
@@ -199,6 +231,10 @@ class Plugnmeet_SettingsPage {
 				return $options;
 			}
 		}
+		if ( isset( $input['plugnmeet_server_url'] ) ) {
+			$input['plugnmeet_server_url'] = rtrim( $input['plugnmeet_server_url'], '/' );
+		}
+
 		if ( ! $this->hasError && ! $this->show ) {
 			$this->show = true;
 			add_settings_error(
@@ -557,5 +593,186 @@ class Plugnmeet_SettingsPage {
 				'default' => "Powered by plugNmeet"
 			]
 		);
+	}
+
+	private function aiAgentSection() {
+		add_settings_section(
+			'plugnmeet_settings_ai_agent_section',
+			__( 'AI Agent & Autonomous Session Settings', 'plugnmeet' ),
+			[ $this, 'checkError' ],
+			'plugnmeet-settings'
+		);
+
+		$yesNo = array( '1' => __( 'Yes', 'plugnmeet' ), '0' => __( 'No', 'plugnmeet' ) );
+
+		add_settings_field(
+			'enable_ai_agent',
+			__( 'Enable AI Agent', 'plugnmeet' ),
+			[ $this, 'labeledSelectCallBack' ],
+			'plugnmeet-settings',
+			'plugnmeet_settings_ai_agent_section',
+			[ 'id' => 'enable_ai_agent', 'options' => $yesNo, 'default' => '1' ]
+		);
+
+		$numberFields = array(
+			'ai_max_concurrent_sessions_limit' => [ __( 'Maximum concurrent AI sessions', 'plugnmeet' ), 10 ],
+			'ai_default_max_session_seconds'   => [ __( 'Default AI session duration (seconds)', 'plugnmeet' ), 1800 ],
+			'ai_max_session_seconds_limit'     => [ __( 'Maximum AI session duration (seconds)', 'plugnmeet' ), 3600 ],
+			'ai_default_max_audio_minutes'     => [ __( 'Default AI audio minutes', 'plugnmeet' ), 25 ],
+			'ai_max_audio_minutes_limit'       => [ __( 'Maximum AI audio minutes', 'plugnmeet' ), 60 ],
+		);
+
+		foreach ( $numberFields as $id => $field ) {
+			add_settings_field(
+				$id,
+				$field[0],
+				[ $this, 'numberCallBack' ],
+				'plugnmeet-settings',
+				'plugnmeet_settings_ai_agent_section',
+				[ 'id' => $id, 'default' => $field[1] ]
+			);
+		}
+
+		add_settings_field(
+			'ai_allow_web_fetch_global',
+			__( 'Allow web fetch globally', 'plugnmeet' ),
+			[ $this, 'labeledSelectCallBack' ],
+			'plugnmeet-settings',
+			'plugnmeet_settings_ai_agent_section',
+			[ 'id' => 'ai_allow_web_fetch_global', 'options' => $yesNo, 'default' => '0' ]
+		);
+	}
+
+	private function aiByokSection() {
+		add_settings_section(
+			'plugnmeet_settings_ai_byok_section',
+			__( 'Custom AI Provider (BYOK)', 'plugnmeet' ),
+			[ $this, 'checkError' ],
+			'plugnmeet-settings'
+		);
+
+		$yesNo = array( '1' => __( 'Yes', 'plugnmeet' ), '0' => __( 'No', 'plugnmeet' ) );
+
+		add_settings_field(
+			'ai_custom_provider_enabled',
+			__( 'Enable custom AI provider', 'plugnmeet' ),
+			[ $this, 'labeledSelectCallBack' ],
+			'plugnmeet-settings',
+			'plugnmeet_settings_ai_byok_section',
+			[ 'id' => 'ai_custom_provider_enabled', 'options' => $yesNo, 'default' => '0' ]
+		);
+
+		add_settings_field(
+			'ai_custom_provider',
+			__( 'Custom AI provider', 'plugnmeet' ),
+			[ $this, 'labeledSelectCallBack' ],
+			'plugnmeet-settings',
+			'plugnmeet_settings_ai_byok_section',
+			[
+				'id'      => 'ai_custom_provider',
+				'options' => array(
+					'google' => __( 'Google Gemini', 'plugnmeet' ),
+					'openai' => __( 'OpenAI / Compatible', 'plugnmeet' ),
+				),
+				'default' => 'google'
+			]
+		);
+
+		$textFields = array(
+			'ai_custom_api_key'         => [ __( 'Custom API key', 'plugnmeet' ), array( 'type' => 'password' ) ],
+			'ai_custom_endpoint'        => [ __( 'Custom API endpoint', 'plugnmeet' ), array() ],
+			'ai_custom_auth_header'     => [ __( 'Custom authorization header', 'plugnmeet' ), array() ],
+			'ai_custom_realtime_model'  => [ __( 'Realtime model', 'plugnmeet' ), array() ],
+			'ai_custom_delegation_model' => [ __( 'Delegation model', 'plugnmeet' ), array() ],
+			'ai_custom_summarize_model' => [ __( 'Summarize model', 'plugnmeet' ), array() ],
+		);
+
+		foreach ( $textFields as $id => $field ) {
+			add_settings_field(
+				$id,
+				$field[0],
+				[ $this, 'textCallBack' ],
+				'plugnmeet-settings',
+				'plugnmeet_settings_ai_byok_section',
+				array_merge( array( 'id' => $id, 'default' => '' ), $field[1] )
+			);
+		}
+	}
+
+	private function aiMcpSection() {
+		add_settings_section(
+			'plugnmeet_settings_ai_mcp_section',
+			__( 'MCP Servers', 'plugnmeet' ),
+			[ $this, 'checkError' ],
+			'plugnmeet-settings'
+		);
+
+		$yesNo  = array( '1' => __( 'Yes', 'plugnmeet' ), '0' => __( 'No', 'plugnmeet' ) );
+		$scopes = array(
+			'ai_agent'  => __( 'AI agent only', 'plugnmeet' ),
+			'text_chat' => __( 'AI text chat only', 'plugnmeet' ),
+			'shared'    => __( 'Shared (AI agent and text chat)', 'plugnmeet' ),
+		);
+
+		for ( $i = 1; $i <= 3; $i++ ) {
+			add_settings_field(
+				"ai_mcp_{$i}_enabled",
+				sprintf( __( 'MCP server %d enabled', 'plugnmeet' ), $i ),
+				[ $this, 'labeledSelectCallBack' ],
+				'plugnmeet-settings',
+				'plugnmeet_settings_ai_mcp_section',
+				[ 'id' => "ai_mcp_{$i}_enabled", 'options' => $yesNo, 'default' => '0' ]
+			);
+
+			add_settings_field(
+				"ai_mcp_{$i}_name",
+				sprintf( __( 'MCP server %d name', 'plugnmeet' ), $i ),
+				[ $this, 'textCallBack' ],
+				'plugnmeet-settings',
+				'plugnmeet_settings_ai_mcp_section',
+				[ 'id' => "ai_mcp_{$i}_name", 'default' => '' ]
+			);
+
+			add_settings_field(
+				"ai_mcp_{$i}_url",
+				sprintf( __( 'MCP server %d URL', 'plugnmeet' ), $i ),
+				[ $this, 'textCallBack' ],
+				'plugnmeet-settings',
+				'plugnmeet_settings_ai_mcp_section',
+				[ 'id' => "ai_mcp_{$i}_url", 'default' => '' ]
+			);
+
+			add_settings_field(
+				"ai_mcp_{$i}_headers",
+				sprintf( __( 'MCP server %d headers', 'plugnmeet' ), $i ),
+				[ $this, 'textareaCallBack' ],
+				'plugnmeet-settings',
+				'plugnmeet_settings_ai_mcp_section',
+				[
+					'id'          => "ai_mcp_{$i}_headers",
+					'default'     => '',
+					'rows'        => 3,
+					'placeholder' => '{"Authorization": "Bearer ..."}'
+				]
+			);
+
+			add_settings_field(
+				"ai_mcp_{$i}_allowed_tools",
+				sprintf( __( 'MCP server %d allowed tools', 'plugnmeet' ), $i ),
+				[ $this, 'textCallBack' ],
+				'plugnmeet-settings',
+				'plugnmeet_settings_ai_mcp_section',
+				[ 'id' => "ai_mcp_{$i}_allowed_tools", 'default' => '' ]
+			);
+
+			add_settings_field(
+				"ai_mcp_{$i}_scope",
+				sprintf( __( 'MCP server %d scope', 'plugnmeet' ), $i ),
+				[ $this, 'labeledSelectCallBack' ],
+				'plugnmeet-settings',
+				'plugnmeet_settings_ai_mcp_section',
+				[ 'id' => "ai_mcp_{$i}_scope", 'options' => $scopes, 'default' => 'ai_agent' ]
+			);
+		}
 	}
 }

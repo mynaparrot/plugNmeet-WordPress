@@ -14,11 +14,31 @@
 if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
     die;
 }
+
+$enable_ai_agent = PlugnmeetHelper::isAiAgentEnabled();
 ?>
 
 <div class="wrap plugnmeet-room-edit">
     <div class="plugnmeet-details-header">
         <h1 class="wp-heading-inline"><?php echo $_GET['task'] === "add" ? "Add room" : "Edit room" ?></h1>
+        <?php if ( $enable_ai_agent ) : ?>
+            <div id="pnm-mode-switcher" class="pnm-mode-switcher" role="radiogroup"
+                 aria-label="<?php echo esc_attr__( "Room mode", "plugnmeet" ) ?>"
+                 aria-describedby="pnm-mode-switcher-help"
+                 title="<?php echo esc_attr( plugnmeet_get_help_text( 'basic.room_mode' ) ) ?>">
+                <label class="pnm-mode-option<?php echo 'conference' === $fields_values['room_mode'] ? ' is-active' : '' ?>">
+                    <input type="radio" name="room_mode" value="conference" form="plugnmeet-form"
+                        <?php checked( $fields_values['room_mode'], 'conference' ); ?>>
+                    <span class="pnm-mode-label"><?php echo __( "Live Web Conference", "plugnmeet" ) ?></span>
+                </label>
+                <label class="pnm-mode-option<?php echo 'ai_agent' === $fields_values['room_mode'] ? ' is-active' : '' ?>">
+                    <input type="radio" name="room_mode" value="ai_agent" form="plugnmeet-form"
+                        <?php checked( $fields_values['room_mode'], 'ai_agent' ); ?>>
+                    <span class="pnm-mode-label"><?php echo __( "Autonomous AI Agent (1-on-1)", "plugnmeet" ) ?></span>
+                </label>
+            </div>
+            <span id="pnm-mode-switcher-help" class="screen-reader-text"><?php echo esc_html( plugnmeet_get_help_text( 'basic.room_mode' ) ) ?></span>
+        <?php endif; ?>
         <div class="plugnmeet-header-actions">
             <button class="button button-primary" type="submit"
                     form="plugnmeet-form"><?php echo __( "Submit", "plugnmeet" ) ?></button>
@@ -319,10 +339,10 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
             </div>
 
             <div id="insights" class="plugnmeet-tab-content" style="display: none;">
-                <div class="pnm-card pnm-collapsible" data-collapsed="false">
+                <div id="pnm-insights-standard-card" class="pnm-card pnm-collapsible" data-collapsed="false">
                     <div class="pnm-card-header">
                         <button type="button" class="pnm-card-toggle" aria-expanded="true">
-                            <span class="pnm-card-title"><?php echo __( "Insights AI", "plugnmeet" ) ?></span>
+                            <span class="pnm-card-title"><?php echo __( "Insights & AI meeting tools", "plugnmeet" ) ?></span>
                             <span class="pnm-card-subtitle"><?php echo __( "Transcription, chat translation and AI tools.", "plugnmeet" ) ?></span>
                             <span class="pnm-toggle-indicator" aria-hidden="true"></span>
                         </button>
@@ -335,6 +355,25 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
                         </table>
                     </div>
                 </div>
+
+                <?php if ( $enable_ai_agent ) : ?>
+                    <div id="pnm-ai-agent-card" class="pnm-card pnm-collapsible" data-collapsed="false">
+                        <div class="pnm-card-header">
+                            <button type="button" class="pnm-card-toggle" aria-expanded="true">
+                                <span class="pnm-card-title"><?php echo __( "AI Agent & 1-on-1 autonomous session", "plugnmeet" ) ?></span>
+                                <span class="pnm-card-subtitle"><?php echo __( "Instructions, guardrails and limits for the AI agent.", "plugnmeet" ) ?></span>
+                                <span class="pnm-toggle-indicator" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        <div class="pnm-card-body">
+                            <table class="form-table" role="presentation">
+                                <tbody>
+                                <?php echo PlugnmeetHelper::getAiAgentFeatures( $fields_values['insights_features'] ); ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                <?php endif; ?>
             </div>
 
             <div id="lock" class="plugnmeet-tab-content" style="display: none;">
@@ -396,4 +435,36 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
         <input type="hidden" name="action" value="plugnmeet_save_room_data">
         <input type="hidden" name="nonce" value="<?php echo wp_create_nonce( 'save_room_data' ) ?>">
     </form>
+
+    <?php if ( $enable_ai_agent ) : ?>
+        <div id="pnm-user-search-modal" class="pnm-modal" style="display: none;">
+            <div class="pnm-modal-backdrop"></div>
+            <div class="pnm-modal-content" role="dialog" aria-modal="true" aria-labelledby="pnm-user-search-title">
+                <div class="pnm-modal-header">
+                    <h2 id="pnm-user-search-title"><?php echo __( "Select users", "plugnmeet" ) ?></h2>
+                    <button type="button" class="pnm-modal-close" id="pnm-user-search-close"
+                            aria-label="<?php echo esc_attr__( "Close", "plugnmeet" ) ?>">&times;</button>
+                </div>
+                <div class="pnm-modal-toolbar">
+                    <input type="search" id="pnm-user-search-input"
+                           placeholder="<?php echo esc_attr__( "Search by name or email", "plugnmeet" ) ?>">
+                    <select id="pnm-user-role-filter">
+                        <option value=""><?php echo __( "All roles", "plugnmeet" ) ?></option>
+                        <?php foreach ( wp_roles()->get_names() as $role_key => $role_name ) : ?>
+                            <option value="<?php echo esc_attr( $role_key ); ?>"><?php echo esc_html( $role_name ); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <p class="pnm-modal-counter">
+                    <?php echo __( "Selected", "plugnmeet" ) ?>:
+                    <span class="pnm-selected-count">0</span> / 32
+                </p>
+                <ul id="pnm-user-search-results" class="pnm-user-search-results"></ul>
+                <div class="pnm-modal-footer">
+                    <button type="button" class="button button-primary"
+                            id="pnm-user-search-done"><?php echo __( "Done", "plugnmeet" ) ?></button>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
 </div>

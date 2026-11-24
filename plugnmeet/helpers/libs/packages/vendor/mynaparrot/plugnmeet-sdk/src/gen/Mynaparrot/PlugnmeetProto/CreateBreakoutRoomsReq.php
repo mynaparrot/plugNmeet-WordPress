@@ -54,6 +54,14 @@ class CreateBreakoutRoomsReq extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool allow_self_select = 11;</code>
      */
     protected $allow_self_select = false;
+    /**
+     * Generated from protobuf field <code>bool enable_ai_agent = 12;</code>
+     */
+    protected $enable_ai_agent = false;
+    /**
+     * Generated from protobuf field <code>optional string ai_agent_context = 13 [(.buf.validate.field) = {</code>
+     */
+    protected $ai_agent_context = null;
 
     /**
      * Constructor.
@@ -71,6 +79,8 @@ class CreateBreakoutRoomsReq extends \Google\Protobuf\Internal\Message
      *     @type bool $share_notepad
      *     @type bool $allow_return_to_main_room
      *     @type bool $allow_self_select
+     *     @type bool $enable_ai_agent
+     *     @type string $ai_agent_context
      * }
      */
     public function __construct($data = NULL) {
@@ -319,6 +329,59 @@ class CreateBreakoutRoomsReq extends \Google\Protobuf\Internal\Message
     public function setAllowSelfSelect(bool $var)
     {
         $this->allow_self_select = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool enable_ai_agent = 12;</code>
+     * @return bool
+     */
+    public function getEnableAiAgent()
+    {
+        return $this->enable_ai_agent;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool enable_ai_agent = 12;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setEnableAiAgent(bool $var)
+    {
+        $this->enable_ai_agent = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string ai_agent_context = 13 [(.buf.validate.field) = {</code>
+     * @return string
+     */
+    public function getAiAgentContext()
+    {
+        return isset($this->ai_agent_context) ? $this->ai_agent_context : '';
+    }
+
+    public function hasAiAgentContext()
+    {
+        return isset($this->ai_agent_context);
+    }
+
+    public function clearAiAgentContext()
+    {
+        unset($this->ai_agent_context);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string ai_agent_context = 13 [(.buf.validate.field) = {</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setAiAgentContext(string $var)
+    {
+        GPBUtil::checkString($var, true);
+        $this->ai_agent_context = $var;
 
         return $this;
     }

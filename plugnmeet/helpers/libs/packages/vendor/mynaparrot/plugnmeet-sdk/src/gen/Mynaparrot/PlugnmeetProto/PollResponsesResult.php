@@ -30,6 +30,10 @@ class PollResponsesResult extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .plugnmeet.PollResponsesResultOptions options = 4;</code>
      */
     private $options;
+    /**
+     * Generated from protobuf field <code>repeated .plugnmeet.PollTextAnswerResult text_answers = 5;</code>
+     */
+    private $text_answers;
 
     /**
      * Constructor.
@@ -41,6 +45,7 @@ class PollResponsesResult extends \Google\Protobuf\Internal\Message
      *     @type int|string $total_responses
      *     @type int|string $total_votes
      *     @type \Mynaparrot\PlugnmeetProto\PollResponsesResultOptions[] $options
+     *     @type \Mynaparrot\PlugnmeetProto\PollTextAnswerResult[] $text_answers
      * }
      */
     public function __construct($data = NULL) {
@@ -132,6 +137,28 @@ class PollResponsesResult extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Mynaparrot\PlugnmeetProto\PollResponsesResultOptions::class);
         $this->options = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .plugnmeet.PollTextAnswerResult text_answers = 5;</code>
+     * @return RepeatedField<\Mynaparrot\PlugnmeetProto\PollTextAnswerResult>
+     */
+    public function getTextAnswers()
+    {
+        return $this->text_answers;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .plugnmeet.PollTextAnswerResult text_answers = 5;</code>
+     * @param \Mynaparrot\PlugnmeetProto\PollTextAnswerResult[] $var
+     * @return $this
+     */
+    public function setTextAnswers(array|RepeatedField $var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Mynaparrot\PlugnmeetProto\PollTextAnswerResult::class);
+        $this->text_answers = $arr;
 
         return $this;
     }

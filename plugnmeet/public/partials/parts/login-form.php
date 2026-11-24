@@ -14,11 +14,20 @@
 if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
     die;
 }
-$currentUrl = home_url( add_query_arg( null, null ) );
+$currentUrl       = home_url( add_query_arg( null, null ) );
+$ai_agent         = isset( $ai_agent ) && is_array( $ai_agent ) ? $ai_agent : array();
+$is_ai_agent_mode = ! empty( $is_ai_agent_mode );
+$is_ai_restricted = $is_ai_agent_mode && 1 === (int) ( $ai_agent['session_mode'] ?? 2 ) && ! is_user_logged_in();
 ?>
 
 <form class="plugnmeet-login-form" data-room-id="<?php echo esc_attr( $roomInfo->room_id ); ?>">
     <div class="notice notice-info roomStatus" role="alert" style="display: none"></div>
+
+    <?php if ( $is_ai_restricted ): ?>
+        <div class="notice notice-warning inline">
+            <p><?php echo __( 'This AI session is restricted to selected registered users. Please log in to your account to start the session.', 'plugnmeet' ); ?></p>
+        </div>
+    <?php endif; ?>
 
     <div class="form-row">
         <label for="pnm-name"><?php echo __( "Name", "plugnmeet" ) ?></label>
@@ -43,6 +52,6 @@ $currentUrl = home_url( add_query_arg( null, null ) );
     <input type="hidden" name="nonce" value="<?php echo wp_create_nonce( 'plugnmeet_login_to_room' ) ?>">
 
     <div class="form-submit">
-        <button type="submit" class="button button-primary"><?php echo __( "Join", "plugnmeet" ) ?></button>
+        <button type="submit" class="button button-primary"><?php echo $is_ai_agent_mode ? __( 'Start AI Session', 'plugnmeet' ) : __( 'Join', 'plugnmeet' ) ?></button>
     </div>
 </form>

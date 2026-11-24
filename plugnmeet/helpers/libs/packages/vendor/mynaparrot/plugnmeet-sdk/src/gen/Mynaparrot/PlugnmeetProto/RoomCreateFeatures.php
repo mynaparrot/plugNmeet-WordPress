@@ -27,13 +27,6 @@ class RoomCreateFeatures extends \Google\Protobuf\Internal\Message
      */
     protected $allow_screen_share = false;
     /**
-     * deprecated use external_broadcasting_features
-     *
-     * Generated from protobuf field <code>optional bool allow_rtmp = 4 [deprecated = true];</code>
-     * @deprecated
-     */
-    protected $allow_rtmp = null;
-    /**
      * Generated from protobuf field <code>bool allow_view_other_webcams = 5;</code>
      */
     protected $allow_view_other_webcams = false;
@@ -122,11 +115,15 @@ class RoomCreateFeatures extends \Google\Protobuf\Internal\Message
      */
     protected $sip_dial_in_features = null;
     /**
-     * next ID: 28
-     *
      * Generated from protobuf field <code>.plugnmeet.ExternalBroadcastingFeatures external_broadcasting_features = 26;</code>
      */
     protected $external_broadcasting_features = null;
+    /**
+     * next ID: 29
+     *
+     * Generated from protobuf field <code>.plugnmeet.CountdownTimerFeatures countdown_timer_features = 28;</code>
+     */
+    protected $countdown_timer_features = null;
 
     /**
      * Constructor.
@@ -137,8 +134,6 @@ class RoomCreateFeatures extends \Google\Protobuf\Internal\Message
      *     @type bool $allow_webcams
      *     @type bool $mute_on_start
      *     @type bool $allow_screen_share
-     *     @type bool $allow_rtmp
-     *           deprecated use external_broadcasting_features
      *     @type bool $allow_view_other_webcams
      *     @type bool $allow_view_other_users_list
      *     @type bool $admin_only_webcams
@@ -162,7 +157,8 @@ class RoomCreateFeatures extends \Google\Protobuf\Internal\Message
      *     @type \Mynaparrot\PlugnmeetProto\InsightsFeatures $insights_features
      *     @type \Mynaparrot\PlugnmeetProto\SipDialInFeatures $sip_dial_in_features
      *     @type \Mynaparrot\PlugnmeetProto\ExternalBroadcastingFeatures $external_broadcasting_features
-     *           next ID: 28
+     *     @type \Mynaparrot\PlugnmeetProto\CountdownTimerFeatures $countdown_timer_features
+     *           next ID: 29
      * }
      */
     public function __construct($data = NULL) {
@@ -229,51 +225,6 @@ class RoomCreateFeatures extends \Google\Protobuf\Internal\Message
     public function setAllowScreenShare(bool $var)
     {
         $this->allow_screen_share = $var;
-
-        return $this;
-    }
-
-    /**
-     * deprecated use external_broadcasting_features
-     *
-     * Generated from protobuf field <code>optional bool allow_rtmp = 4 [deprecated = true];</code>
-     * @return bool
-     * @deprecated
-     */
-    public function getAllowRtmp()
-    {
-        if (isset($this->allow_rtmp)) {
-            @trigger_error('allow_rtmp is deprecated.', E_USER_DEPRECATED);
-        }
-        return isset($this->allow_rtmp) ? $this->allow_rtmp : false;
-    }
-
-    public function hasAllowRtmp()
-    {
-        if (isset($this->allow_rtmp)) {
-            @trigger_error('allow_rtmp is deprecated.', E_USER_DEPRECATED);
-        }
-        return isset($this->allow_rtmp);
-    }
-
-    public function clearAllowRtmp()
-    {
-        @trigger_error('allow_rtmp is deprecated.', E_USER_DEPRECATED);
-        unset($this->allow_rtmp);
-    }
-
-    /**
-     * deprecated use external_broadcasting_features
-     *
-     * Generated from protobuf field <code>optional bool allow_rtmp = 4 [deprecated = true];</code>
-     * @param bool $var
-     * @return $this
-     * @deprecated
-     */
-    public function setAllowRtmp(bool $var)
-    {
-        @trigger_error('allow_rtmp is deprecated.', E_USER_DEPRECATED);
-        $this->allow_rtmp = $var;
 
         return $this;
     }
@@ -922,8 +873,6 @@ class RoomCreateFeatures extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * next ID: 28
-     *
      * Generated from protobuf field <code>.plugnmeet.ExternalBroadcastingFeatures external_broadcasting_features = 26;</code>
      * @return \Mynaparrot\PlugnmeetProto\ExternalBroadcastingFeatures|null
      */
@@ -943,8 +892,6 @@ class RoomCreateFeatures extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * next ID: 28
-     *
      * Generated from protobuf field <code>.plugnmeet.ExternalBroadcastingFeatures external_broadcasting_features = 26;</code>
      * @param \Mynaparrot\PlugnmeetProto\ExternalBroadcastingFeatures $var
      * @return $this
@@ -952,6 +899,41 @@ class RoomCreateFeatures extends \Google\Protobuf\Internal\Message
     public function setExternalBroadcastingFeatures(\Mynaparrot\PlugnmeetProto\ExternalBroadcastingFeatures|null $var)
     {
         $this->external_broadcasting_features = $var;
+
+        return $this;
+    }
+
+    /**
+     * next ID: 29
+     *
+     * Generated from protobuf field <code>.plugnmeet.CountdownTimerFeatures countdown_timer_features = 28;</code>
+     * @return \Mynaparrot\PlugnmeetProto\CountdownTimerFeatures|null
+     */
+    public function getCountdownTimerFeatures()
+    {
+        return $this->countdown_timer_features;
+    }
+
+    public function hasCountdownTimerFeatures()
+    {
+        return isset($this->countdown_timer_features);
+    }
+
+    public function clearCountdownTimerFeatures()
+    {
+        unset($this->countdown_timer_features);
+    }
+
+    /**
+     * next ID: 29
+     *
+     * Generated from protobuf field <code>.plugnmeet.CountdownTimerFeatures countdown_timer_features = 28;</code>
+     * @param \Mynaparrot\PlugnmeetProto\CountdownTimerFeatures $var
+     * @return $this
+     */
+    public function setCountdownTimerFeatures(\Mynaparrot\PlugnmeetProto\CountdownTimerFeatures|null $var)
+    {
+        $this->countdown_timer_features = $var;
 
         return $this;
     }

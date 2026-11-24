@@ -50,6 +50,10 @@ class CreatePollReq extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint32 duration = 9;</code>
      */
     protected $duration = 0;
+    /**
+     * Generated from protobuf field <code>bool is_text_answer = 10;</code>
+     */
+    protected $is_text_answer = false;
 
     /**
      * Constructor.
@@ -66,6 +70,7 @@ class CreatePollReq extends \Google\Protobuf\Internal\Message
      *     @type bool $is_multiple
      *     @type bool $is_quiz
      *     @type int $duration
+     *     @type bool $is_text_answer
      * }
      */
     public function __construct($data = NULL) {
@@ -264,6 +269,27 @@ class CreatePollReq extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint32($var);
         $this->duration = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool is_text_answer = 10;</code>
+     * @return bool
+     */
+    public function getIsTextAnswer()
+    {
+        return $this->is_text_answer;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool is_text_answer = 10;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setIsTextAnswer(bool $var)
+    {
+        $this->is_text_answer = $var;
 
         return $this;
     }

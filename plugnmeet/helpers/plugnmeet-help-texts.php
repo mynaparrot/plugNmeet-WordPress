@@ -14,7 +14,7 @@ if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
 
 if ( ! function_exists( 'plugnmeet_get_help_texts' ) ) {
 	function plugnmeet_get_help_texts() {
-		return array(
+		$texts = array(
 			// room_features
 			'room_features.allow_webcams'                                           => __( 'Allow participants to use their webcams.', 'plugnmeet' ),
 			'room_features.mute_on_start'                                           => __( 'Automatically mute all participants when they join the session.', 'plugnmeet' ),
@@ -90,6 +90,36 @@ if ( ! function_exists( 'plugnmeet_get_help_texts' ) ) {
 			'insights_features.ai_features.is_allow'                                => __( 'The master switch for all AI-powered capabilities. If disabled, specific features like AI Chat and Meeting Summarization will be hidden, even if Insights is active.', 'plugnmeet' ),
 			'insights_features.ai_features.ai_text_chat_features.is_allow'          => __( 'Integrates an AI assistant directly into the chat to help answer questions, explain complex concepts, and facilitate discussion.', 'plugnmeet' ),
 			'insights_features.ai_features.meeting_summarization_features.is_allow' => __( 'Automatically generates a concise AI summary after the session ends, highlighting key points, decisions, and follow-up tasks.', 'plugnmeet' ),
+			'insights_features.ai_features.meeting_summarization_features.summarization_prompt' => __( 'Extra instructions for the AI that writes the meeting summary. Leave empty to use the default summary.', 'plugnmeet' ),
+
+			// insights_features.ai_agent_features
+			'insights_features.ai_agent_features.is_allow'                          => __( 'Runs an AI agent in this room. The agent takes part in the conversation and follows the limits and instructions set below. In AI agent room mode the agent always runs, so this option is not shown.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.session_mode'                      => __( 'Open session gives every participant their own AI session, up to the concurrent session limit. Controlled session runs one AI session and only the users you select below can start it.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.auto_session_config.max_concurrent_sessions'    => __( 'How many AI sessions may run at the same time in this room. Cannot be higher than the site-wide maximum concurrent AI sessions.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.auto_session_config.allowed_participant_ids'    => __( 'The WordPress users who may start the AI session in a controlled session. Use "Select users" to search by name, email or role. Up to 32 users can be selected.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.preset_template'                   => __( 'Fills in the agent instructions with a ready-made prompt for common scenarios. Choose Custom instructions to write your own. Changing the preset replaces the instructions that are currently written.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.agent_display_name'                 => __( 'The name participants see for the AI agent.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.topic'                              => __( 'What this AI session is about, in 200 characters or less. The agent uses it to keep the conversation on topic and to remind participants what the session is for.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.system_prompt'                      => __( 'How the AI agent should behave, what it covers and how it should guide participants. This is the main instruction the agent follows during the session.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.enable_mcp_servers'                 => __( 'Lets the AI agent use the MCP tool servers that are enabled in the plugin settings. Disable this to keep the agent limited to the built-in workspace tools.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.allowed_subtopics'                  => __( 'Subtopics the AI agent may discuss, one per line. Leave empty to allow any subtopic of the session topic.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.forbidden_topics'                   => __( 'Topics the AI agent must not discuss, one per line. When a participant brings one of them up, the agent politely redirects the conversation back to the session topic.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.strict_topic_enforcement'           => __( 'When enabled, the AI agent only answers within the allowed subtopics and declines requests that fall outside them. When disabled, it can follow the participant but reminds them of the session topic.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.topic_anchor_interval_turns'        => __( 'How often, in conversation turns, the AI agent restates the session topic to keep the conversation focused. Lower values keep the session tighter, higher values feel less repetitive.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.spoken_lang'                        => __( 'Language the AI agent listens to, as a code such as en-US. Leave empty to let the agent follow the participant.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.target_lang'                        => __( 'Language the AI agent replies and speaks in, for example es-ES. Leave empty to reply in the participant\'s language.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.instruction_lang'                   => __( 'Language the instructions in this form are written in, for example en-US. Leave empty to detect it automatically.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.voice'                              => __( 'Voice the AI agent speaks with. Must be a voice available on your plugNmeet server. Leave empty to use the server default voice.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.speaking_rate'                      => __( 'How fast the AI agent speaks, from 0.5 (slow) to 2.0 (fast). 1.0 is the normal speed.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.max_session_seconds'                => __( 'Ends the AI session automatically after this many seconds. Cannot be higher than the site-wide maximum AI session duration.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.max_audio_minutes'                  => __( 'Maximum audio minutes an AI session can use in this room. Cannot be higher than the site-wide maximum AI audio minutes.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.allow_whiteboard_write'             => __( 'Lets the AI agent draw and write on the shared whiteboard.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.allow_vision_capture'               => __( 'Lets the AI agent see the whiteboard so it can read and comment on what participants draw.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.allow_polls'                        => __( 'Lets the AI agent create polls during the session.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.allow_notepad_write'                => __( 'Lets the AI agent write in the shared notepad.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.allow_chat_message'                 => __( 'Lets the AI agent post messages in the chat.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.allow_web_fetch'                    => __( 'Lets the AI agent fetch content from the web. Only available when web fetch is allowed site-wide.', 'plugnmeet' ),
+			'insights_features.ai_agent_features.allowed_knowledge_urls'             => __( 'Web pages the AI agent may read for this session, one https:// URL per line. Only used when web fetch is allowed.', 'plugnmeet' ),
 
 			// default_lock_settings
 			'default_lock_settings.lock_microphone'                                 => __( 'Lock the microphone for participants. They cannot turn on or use their microphone until a moderator unlocks it.', 'plugnmeet' ),
@@ -112,6 +142,7 @@ if ( ! function_exists( 'plugnmeet_get_help_texts' ) ) {
 			'basic.welcome_message'                                                 => __( 'Any text entered here will appear as the first message in the public chat when users join the room. This is useful for sharing instructions, links, or important information with participants as they enter.', 'plugnmeet' ),
 			'basic.max_participants'                                                => __( 'Set this value to limit how many users can join the session at the same time. Set it to 0 to allow unlimited participants. This value cannot be changed after the session has started — the new limit will apply from the next session, or you can end the current session to apply it immediately.', 'plugnmeet' ),
 			'basic.published'                                                       => __( 'Published rooms are available to users on the room page. Unpublished rooms stay hidden until you publish them again.', 'plugnmeet' ),
+			'basic.room_mode'                                                       => __( 'How this room runs. Live web conference is a standard room where participants join and an AI agent can take part once it is enabled under the AI agent card. Autonomous AI agent turns the room into a 1-on-1 session between the AI agent and one participant at a time, so the meeting features and lock settings of a conference are not used. With AI agent mode, the participant limit does not apply either.', 'plugnmeet' ),
 
 			// design tab
 			'design.custom_css_url'                                                 => __( 'Link an external .css file to overwrite or customize the interface styles.', 'plugnmeet' ),
@@ -161,7 +192,44 @@ if ( ! function_exists( 'plugnmeet_get_help_texts' ) ) {
 			'settings.frontend_theme'                                               => __( 'Choose how the room page (login form and recordings) looks. Theme default (no plugin CSS): your theme\'s own styling. Clean: a minimal, light design with an inline login form (name, password and Join button in one line). Modern: a bolder design using your primary color. The color fields below apply to the selected design.', 'plugnmeet' ),
 			'settings.frontend_primary_color'                                       => __( 'The main color of the selected frontend design: the Join button, accents and focus rings on the room page. Leave blank to use the design\'s default.', 'plugnmeet' ),
 			'settings.frontend_secondary_color'                                     => __( 'The secondary color of the selected frontend design: soft backgrounds and the recordings table header. Leave blank to use the design\'s default.', 'plugnmeet' ),
+
+			// settings page: AI agent
+			'settings.enable_ai_agent'                                              => __( 'Allow AI agents in rooms and in 1-on-1 autonomous sessions. When disabled, no room can start an AI agent session.', 'plugnmeet' ),
+			'settings.ai_max_concurrent_sessions_limit'                             => __( 'The highest number of AI sessions a room can allow to run at the same time.', 'plugnmeet' ),
+			'settings.ai_default_max_session_seconds'                               => __( 'Pre-filled maximum AI session duration, in seconds, for new rooms.', 'plugnmeet' ),
+			'settings.ai_max_session_seconds_limit'                                 => __( 'The highest AI session duration, in seconds, that a room can set.', 'plugnmeet' ),
+			'settings.ai_default_max_audio_minutes'                                 => __( 'Pre-filled maximum audio minutes for AI sessions in new rooms.', 'plugnmeet' ),
+			'settings.ai_max_audio_minutes_limit'                                   => __( 'The highest audio minutes a room can set for an AI session.', 'plugnmeet' ),
+			'settings.ai_allow_web_fetch_global'                                    => __( 'Master switch for letting the AI agent fetch content from the web. When disabled, rooms cannot enable it.', 'plugnmeet' ),
+
+			// settings page: custom AI provider (BYOK)
+			'settings.ai_custom_provider_enabled'                                   => __( 'Use your own AI provider credentials and models instead of the plugNmeet defaults.', 'plugnmeet' ),
+			'settings.ai_custom_provider'                                           => __( 'The provider used for bring-your-own-key requests.', 'plugnmeet' ),
+			'settings.ai_custom_api_key'                                            => __( 'The API key used to authenticate against the custom AI provider. It is stored unencrypted in the WordPress options table.', 'plugnmeet' ),
+			'settings.ai_custom_endpoint'                                           => __( 'Base endpoint of the custom AI provider. Leave empty to use the provider default.', 'plugnmeet' ),
+			'settings.ai_custom_auth_header'                                        => __( 'Optional header format used to send the API key, for example Bearer {key}. Leave empty to use the provider default.', 'plugnmeet' ),
+			'settings.ai_custom_realtime_model'                                     => __( 'The model used for realtime voice sessions. Leave empty to use the provider default.', 'plugnmeet' ),
+			'settings.ai_custom_delegation_model'                                   => __( 'The model used for tool delegation tasks. Leave empty to use the provider default.', 'plugnmeet' ),
+			'settings.ai_custom_summarize_model'                                    => __( 'The model used to summarize AI sessions. Leave empty to use the provider default.', 'plugnmeet' ),
 		);
+
+		// MCP server slots 1-3 share the same help texts.
+		$mcp_help_texts = array(
+			'enabled'       => __( 'Connect MCP server %d so AI agents and AI text chat can use its tools.', 'plugnmeet' ),
+			'name'          => __( 'Short identifier used to reference MCP server %d.', 'plugnmeet' ),
+			'url'           => __( 'The endpoint URL of MCP server %d.', 'plugnmeet' ),
+			'headers'       => __( 'Optional request headers for MCP server %d as a JSON object, for example {"Authorization": "Bearer YOUR_TOKEN"}.', 'plugnmeet' ),
+			'allowed_tools' => __( 'Comma separated tool names exposed from MCP server %d. Leave empty to expose all tools.', 'plugnmeet' ),
+			'scope'         => __( 'Where the tools of MCP server %d are available: AI agent only, AI text chat only, or shared between both.', 'plugnmeet' ),
+		);
+
+		for ( $i = 1; $i <= 3; $i++ ) {
+			foreach ( $mcp_help_texts as $field => $text ) {
+				$texts[ "settings.ai_mcp_{$i}_{$field}" ] = sprintf( $text, $i );
+			}
+		}
+
+		return $texts;
 	}
 }
 

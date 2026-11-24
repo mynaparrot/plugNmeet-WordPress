@@ -1,7 +1,7 @@
 === plugnmeet ===
 Contributors: bobteng
 Donate link: https://www.plugnmeet.org/
-Tags: video conference, webinar, zoom, live streaming, virtual classroom
+Tags: video conference, ai agent, webinar, virtual classroom, live streaming
 Requires at least: 6.6
 Tested up to: 7.1
 # x-release-please-start-version
@@ -11,65 +11,75 @@ Requires PHP: 8.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Host secure, open-source meetings, webinars & classrooms directly on your WordPress site, keeping users engaged on your platform.
+Open-source real-time communication and multimodal AI platform for WordPress. Host live web conferences on your own site, or run autonomous 1-on-1 AI agent sessions with your visitors.
 
 == Description ==
 
-Bring a powerful, open-source video conferencing solution directly into your WordPress site. With plugNmeet, you can host live classes, webinars, and meetings without sending your users to a third-party website, keeping them engaged and on your platform.
+plugNmeet is an open-source real-time communication and multimodal AI platform for WordPress. Rooms and AI sessions load directly on your pages -- no redirect to a third-party site -- and the interface can be styled to match your brand.
 
-The meeting interface is loaded directly on your page for a seamless, native experience. Best of all, the interface is fully customizable to match your brand.
+You can use it in two ways:
+
+### 1. Live Web Conference
+
+Multi-participant HD audio/video meetings, webinars, and virtual classrooms, with an optional live AI Co-Host & Meeting Insights layer.
+
+*   **Conferencing:** HD audio/video, screen sharing, virtual backgrounds, adaptive streaming (Simulcast & Dynacast), and cross-device support in modern browsers.
+*   **Collaboration:** Interactive whiteboard (draw on PDFs, documents, presentations, and images), shared notepad, breakout rooms, polls, raise hand, and public/private chat with file sharing.
+*   **Controls & security:** Lock settings, customizable waiting room, role-based permissions, WebRTC encryption, and optional End-to-End Encryption (E2EE).
+*   **Reach:** MP4 recording, live streaming to platforms like YouTube via RTMP, and telephone dial-in through a SIP gateway.
+*   **Optional AI Co-Host & Meeting Insights:** Live transcription, spoken translation, AI chat assistant, and automated meeting summaries. Transcripts, summaries, and AI token usage arrive as room artifacts you can review and download.
+
+### 2. Autonomous AI Agent (1-on-1 Session)
+
+Private 1-on-1 rooms where each visitor gets their own dedicated real-time voice & visual AI agent that can see the session and act inside it.
+
+*   Draws on the shared whiteboard and writes in the shared notepad.
+*   Launches polls and quizzes to check understanding.
+*   Sees shared screens and camera feeds (vision capture).
+*   Talks and listens in real time, with configurable language, voice, and speaking rate.
+
+### Built-in WordPress AI Presets
+
+Pick a ready-made instruction set when you create a room, or write your own:
+
+*   **Customer Support & Product Specialist**
+*   **Interactive Product Demo & Onboarding Guide**
+*   **1-on-1 Tutor & Concept Explainer**
+*   **Language & Communication Coach**
+*   **Candidate Interview & Skill Assessment**
+*   **Custom instructions** -- your own agent prompt.
+
+### Flexible Access & AI Control
+
+*   **Session access:** open a 1-on-1 session per visitor (with configurable concurrency limits), or restrict controlled 1-on-1 sessions to selected WordPress users.
+*   **Topic boundaries:** session topic, allowed subtopics, forbidden topics, strict topic enforcement, and a topic reminder interval.
+*   **Language & voice:** spoken language, reply language, instructions language, voice, and speaking rate.
+*   **Session limits:** maximum session duration and maximum audio minutes.
+*   **Workspace tools:** toggle whiteboard writing, whiteboard vision, notepad writing, polls, and chat; optionally allow web fetch with a curated list of knowledge URLs.
+*   **Bring Your Own Key (BYOK):** connect Google Gemini or any OpenAI-compatible provider using your own API key.
+*   **Model Context Protocol (MCP):** connect MCP servers to give the agent custom tools, with an allowed-tools list per server.
+*   **AI Session Reports in WordPress Admin:** overall score, mastery level, narrative summary, concept badges, quiz accuracy breakdown, progress log, workspace activity, and token usage.
 
 ### How It Works
 
-This plugin connects your WordPress site to a plugNmeet server. As a free and open-source project, you have two great options for the server:
+This plugin connects your WordPress site to a plugNmeet server. As a free and open-source project, you have two good options for the server:
 
-1.  **Self-Host:** Create your own server for maximum control and privacy by following the [official installation instructions](https://www.plugnmeet.org/docs/installation).
+1.  **Self-Host:** Run your own server for maximum control and privacy by following the [official installation instructions](https://www.plugnmeet.org/docs/installation).
 2.  **Use the Cloud:** Get started in minutes with a ready-to-use [plugNmeet cloud subscription](https://www.plugnmeet.cloud).
 
-**Note:** The plugin includes pre-configured demo credentials to help you test its features immediately. This demo server is a shared resource and is **not intended for production use** as it can be unreliable. For any important meetings, we strongly recommend using one of the options above to ensure a stable and professional experience for you and your users.
+**Note:** The plugin ships with pre-configured demo credentials so you can test features immediately. That demo server is a shared resource and is **not intended for production use**, since it can be unreliable. For important meetings, use one of the options above.
 
----
+### WordPress Plugin Features
 
-### Plugin Features
-
-*   **Seamless Integration:** Embed video conferences directly into your WordPress pages and posts using a simple shortcode.
-*   **Room Management:** Create and manage Plug-N-Meet rooms directly from the WordPress admin area.
-*   **Advanced Analytics:** Access detailed post-meeting analytics for each session, including participant engagement, talk time, connection quality, and more. Download comprehensive reports in Excel format.
-*   **Artifact Management:** Easily access and download all room artifacts, such as speech transcripts, AI-generated meeting summaries, AI token usage/cost etc.
-*   **Recording Management:** View, download, and merge recordings from the WordPress backend.
-*   **Role-Based Permissions:** Control who can join meetings and manage recordings based on their WordPress user role.
-*   **Frontend Join Form:** The shortcode automatically displays a customizable join form for users to enter their name and, if required, a password.
-*   **Display Recordings:** The shortcode can also be configured to display a list of recordings for a specific room, with download and playback options based on the user's role.
-*   **Developer Friendly:** Extend the plugin's functionality by hooking into webhook events to process real-time data from your meetings.
-
----
-
-### Powerful Meeting Features
-
-#### Core Conferencing Tools
-*   **HD Audio & Video:** Crystal-clear communication, screen sharing, and virtual backgrounds.
-*   **Interactive Whiteboard:** Collaborate in real-time. Upload and draw on PDFs, documents, presentations, and images.
-*   **Shared Notepad:** Work together on shared notes during the session.
-*   **Cross-Device Compatible:** Works on all modern browsers, including Chrome, Firefox, and Safari for iOS.
-
-#### Engagement & Collaboration
-*   **Breakout Rooms:** Split participants into smaller groups for focused discussions.
-*   **Polls & Voting:** Easily create polls to engage your audience and gather feedback.
-*   **Raise Hand:** A simple way for participants to get your attention.
-*   **Public & Private Chat:** Allow for group and one-on-one conversations with file sharing.
-
-#### Moderator Controls & Security
-*   **Advanced Lock Settings:** Fine-grained control over participant permissions (e.g., lock webcams, microphones, chat).
-*   **Customizable Waiting Room:** Manage who enters your meeting and when.
-*   **End-to-End Encryption (E2EE):** Secure your meetings with the highest level of privacy (on supported browsers).
-*   **Secure & Encrypted:** All communication is secured using WebRTC standards.
-
-#### Advanced Capabilities
-*   **AI Meeting Agent:** Turn your meetings into actionable intelligence. Our powerful AI agent provides live spoken translations, generates automated summaries, creates full transcriptions, **and many more...**
-*   **MP4 Recording:** Record your sessions to share or review later.
-*   **Live Broadcasting:** Stream your meetings live to platforms like YouTube via RTMP.
-*   **Telephone Dial-In (SIP Gateway):** Allow participants to join the audio of your meeting by dialing a standard phone number—no internet required.
-*   **Stable on Any Connection:** Adaptive streaming (Simulcast & Dynacast) ensures a smooth experience, even on slower internet.
+*   **Seamless integration:** Embed a room in any page or post with a single shortcode.
+*   **Room management:** Create and manage plugNmeet rooms from the WordPress admin.
+*   **Advanced analytics:** Post-meeting analytics per session, including participant engagement, talk time, and connection quality, with Excel export.
+*   **Artifact management:** Access and download room artifacts such as speech transcripts, AI meeting summaries, and AI token usage/cost.
+*   **Recording management:** View, download, and merge recordings from the WordPress backend.
+*   **Role-based permissions:** Control who can join meetings and manage recordings based on WordPress user roles.
+*   **Frontend join form:** The shortcode shows a customizable join form for name and, when required, a password.
+*   **Display recordings:** Configure the shortcode to list recordings for a room, with playback and download based on the user's role.
+*   **Developer friendly:** Hook into webhook events to process real-time data from your rooms.
 
 == Installation ==
 
@@ -80,6 +90,20 @@ This plugin connects your WordPress site to a plugNmeet server. As a free and op
 5.  **Create a room:** Go to the plugNmeet menu, create a new conference room, and use the provided shortcode to embed it on any page or post.
 
 == Frequently Asked Questions ==
+
+= What is the difference between Live Web Conference and Autonomous AI Agent (1-on-1) mode? =
+
+**Live Web Conference** is a multi-participant room: many people join at once for a meeting, webinar, or virtual classroom, and AI is optional (transcription, spoken translation, summaries, AI chat assistant).
+
+**Autonomous AI Agent** is a private 1-on-1 room between one visitor and a dedicated AI agent. There is no human moderator in the session, so the agent runs the conversation itself: it speaks, draws on the whiteboard, writes in the shared notepad, launches polls and quizzes, and can see shared screens or camera feeds. You control it with a preset or custom instructions, topic guardrails, language/voice settings, and session limits.
+
+Both modes use the same rooms and shortcodes, and you can enable either one depending on what you want to offer.
+
+= Can I use my own AI provider API key (BYOK) or connect custom MCP tools? =
+
+Yes. In **Plug-N-Meet -> Settings** you can add your own API key for **Google Gemini** or any **OpenAI-compatible** provider, instead of relying on the server's default AI configuration.
+
+You can also register up to three **Model Context Protocol (MCP)** servers (name, URL, headers) and choose which tools each server may expose to the agent. Note that your plugNmeet server must have the matching AI and MCP features enabled for these settings to take effect.
 
 = How do I display a meeting room on a page? =
 

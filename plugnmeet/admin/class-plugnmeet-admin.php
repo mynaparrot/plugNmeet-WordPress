@@ -84,7 +84,11 @@ class Plugnmeet_Admin {
             }
 
             if ( $hook_suffix === 'plug-n-meet_page_plugnmeet-artifacts' ) {
-                wp_enqueue_style( $this->plugin_name . '-artifacts', plugin_dir_url( __FILE__ ) . 'css/plugnmeet-admin-artifacts.css', array(), $this->version );
+                $artifacts_css_ver = (string) @filemtime( plugin_dir_path( __FILE__ ) . 'css/plugnmeet-admin-artifacts.css' );
+                if ( '' === $artifacts_css_ver ) {
+                    $artifacts_css_ver = $this->version;
+                }
+                wp_enqueue_style( $this->plugin_name . '-artifacts', plugin_dir_url( __FILE__ ) . 'css/plugnmeet-admin-artifacts.css', array(), $artifacts_css_ver );
             }
         }
     }
@@ -144,11 +148,30 @@ class Plugnmeet_Admin {
             }
         }
 
+        $ai_presets = array();
+        if ( preg_match( "/plugnmeet/", $hook_suffix ) ) {
+            if ( ! class_exists( 'PlugnmeetHelper' ) ) {
+                require_once plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/helper.php';
+            }
+            foreach ( PlugnmeetHelper::getAiAgentPresets() as $preset_key => $preset ) {
+                $ai_presets[ $preset_key ] = $preset['prompt'];
+            }
+        }
+
         $nonce  = wp_create_nonce( 'ajax_admin' );
         $script = array(
-                'nonce' => $nonce,
-                'i18n'  => array(
-                        'confirm_delete' => __( 'Are you sure to delete?', 'plugnmeet' ),
+                'nonce'              => $nonce,
+                'nonce_search_users' => wp_create_nonce( 'plugnmeet_search_users' ),
+                'ai_presets'         => $ai_presets,
+                'i18n'               => array(
+                        'confirm_delete'  => __( 'Are you sure to delete?', 'plugnmeet' ),
+                        'insights_tab'    => __( 'Insights AI', 'plugnmeet' ),
+                        'ai_agent_tab'    => __( 'AI Agent', 'plugnmeet' ),
+                        'replace_prompt'  => __( 'Replace the current agent instructions with the selected preset?', 'plugnmeet' ),
+                        'max_users'       => __( 'You can select up to 32 users.', 'plugnmeet' ),
+                        'searching'       => __( 'Searching…', 'plugnmeet' ),
+                        'no_users'        => __( 'No users found.', 'plugnmeet' ),
+                        'remove_user'     => __( 'Remove user', 'plugnmeet' ),
                 ),
         );
         wp_localize_script( $this->plugin_name, 'ajax_admin', $script );
@@ -366,6 +389,16 @@ class Plugnmeet_Admin {
             }
         }
 
+        // Multi-line field: keep its line breaks, which sanitize_text_field would strip.
+        $summarization_prompt = $_POST['insights_features']['ai_features']['meeting_summarization_features']['summarization_prompt'] ?? null;
+        if ( is_string( $summarization_prompt ) ) {
+            $room_metadata['insights_features']['ai_features']['meeting_summarization_features']['summarization_prompt'] = sanitize_textarea_field( wp_unslash( $summarization_prompt ) );
+        }
+
+        $room_mode                  = 'ai_agent' === $this->get_post_param( 'room_mode' ) ? 'ai_agent' : 'conference';
+        $room_metadata['room_mode'] = $room_mode;
+        $this->validate_ai_agent_metadata( $room_metadata, $room_mode );
+
         if ( empty( $moderator_pass ) ) {
             $moderator_pass = PlugnmeetHelper::secureRandomKey( 10 );
         }
@@ -465,6 +498,99 @@ class Plugnmeet_Admin {
         }
 
         wp_send_json( $output );
+    }
+
+    private function send_error( string $message ) {
+        $output         = new stdClass();
+        $output->status = false;
+        $output->url    = '';
+        $output->msg    = $message;
+
+        wp_send_json( $output );
+    }
+
+    private function clamp_number( $value, $min, $max ) {
+        return min( $max, max( $min, (float) $value ) );
+    }
+
+    private function int_setting( array $settings, string $key, int $fallback ) {
+        return isset( $settings[ $key ] ) && (int) $settings[ $key ] > 0 ? (int) $settings[ $key ] : $fallback;
+    }
+
+    private function validate_ai_agent_metadata( array &$room_metadata, string $room_mode ) {
+        $insights = isset( $room_metadata['insights_features'] ) && is_array( $room_metadata['insights_features'] ) ? $room_metadata['insights_features'] : [];
+        $ai_agent = isset( $insights['ai_agent_features'] ) && is_array( $insights['ai_agent_features'] ) ? $insights['ai_agent_features'] : [];
+
+        if ( 'ai_agent' !== $room_mode && empty( $ai_agent['is_allow'] ) ) {
+            return;
+        }
+
+        $settings = (array) $this->setting_params;
+
+        // multi-line fields keep their line breaks
+        foreach ( [ 'system_prompt', 'allowed_subtopics', 'forbidden_topics', 'allowed_knowledge_urls' ] as $field ) {
+            if ( isset( $_POST['insights_features']['ai_agent_features'][ $field ] ) ) {
+                $ai_agent[ $field ] = sanitize_textarea_field( wp_unslash( $_POST['insights_features']['ai_agent_features'][ $field ] ) );
+            }
+        }
+
+        $topic  = isset( $ai_agent['topic'] ) ? trim( $ai_agent['topic'] ) : '';
+        $prompt = isset( $ai_agent['system_prompt'] ) ? trim( $ai_agent['system_prompt'] ) : '';
+
+        if ( '' === $topic ) {
+            $this->send_error( __( 'The AI agent needs a topic. Please fill in the session topic.', 'plugnmeet' ) );
+        }
+        if ( mb_strlen( $topic ) > 200 ) {
+            $this->send_error( __( 'The AI agent session topic must be 200 characters or shorter.', 'plugnmeet' ) );
+        }
+        if ( '' === $prompt ) {
+            $this->send_error( __( 'The AI agent needs instructions. Please fill in the agent instructions.', 'plugnmeet' ) );
+        }
+
+        $ai_agent['topic']         = $topic;
+        $ai_agent['system_prompt'] = $prompt;
+
+        $auto_config     = isset( $ai_agent['auto_session_config'] ) && is_array( $ai_agent['auto_session_config'] ) ? $ai_agent['auto_session_config'] : [];
+        $participant_ids = isset( $auto_config['allowed_participant_ids'] ) ? PlugnmeetHelper::sanitizeUserIds( $auto_config['allowed_participant_ids'] ) : [];
+
+        $session_mode = isset( $ai_agent['session_mode'] ) ? (int) $ai_agent['session_mode'] : 2;
+        if ( 'ai_agent' === $room_mode && 1 === $session_mode && ( count( $participant_ids ) < 1 || count( $participant_ids ) > 32 ) ) {
+            $this->send_error( __( 'A controlled AI session needs between 1 and 32 selected users.', 'plugnmeet' ) );
+        }
+
+        $auto_config['max_concurrent_sessions'] = (int) $this->clamp_number(
+                $auto_config['max_concurrent_sessions'] ?? 10,
+                1,
+                $this->int_setting( $settings, 'ai_max_concurrent_sessions_limit', 10 )
+        );
+        $auto_config['allowed_participant_ids'] = $participant_ids;
+
+        $ai_agent['session_mode']                = $session_mode;
+        $ai_agent['auto_session_config']         = $auto_config;
+        $ai_agent['max_session_seconds']         = (int) $this->clamp_number(
+                $ai_agent['max_session_seconds'] ?? $this->int_setting( $settings, 'ai_default_max_session_seconds', 1800 ),
+                60,
+                $this->int_setting( $settings, 'ai_max_session_seconds_limit', 3600 )
+        );
+        $ai_agent['max_audio_minutes']           = (int) $this->clamp_number(
+                $ai_agent['max_audio_minutes'] ?? $this->int_setting( $settings, 'ai_default_max_audio_minutes', 25 ),
+                1,
+                min( 240, $this->int_setting( $settings, 'ai_max_audio_minutes_limit', 60 ) )
+        );
+        $ai_agent['topic_anchor_interval_turns'] = (int) $this->clamp_number( $ai_agent['topic_anchor_interval_turns'] ?? 5, 3, 12 );
+        $ai_agent['speaking_rate']               = round( $this->clamp_number( $ai_agent['speaking_rate'] ?? 1.0, 0.5, 2.0 ), 1 );
+
+        if ( empty( $settings['ai_allow_web_fetch_global'] ) ) {
+            $ai_agent['allow_web_fetch'] = 0;
+        }
+        // The AI agent card lives in the Insights tab, so keep both flags consistent.
+        if ( 'ai_agent' === $room_mode || ! empty( $ai_agent['is_allow'] ) ) {
+            $ai_agent['is_allow'] = 1;
+            $insights['is_allow'] = 1;
+        }
+
+        $insights['ai_agent_features']      = $ai_agent;
+        $room_metadata['insights_features'] = $insights;
     }
 
     public function delete_room() {

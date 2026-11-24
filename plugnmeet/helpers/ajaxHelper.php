@@ -10,6 +10,7 @@
 use Mynaparrot\PlugnmeetProto\MergeRecordingsByIds;
 use Mynaparrot\PlugnmeetProto\MergeRecordingsReq;
 use Mynaparrot\PlugnmeetProto\RoomArtifactType;
+use Mynaparrot\PlugnmeetProto\UserMetadata;
 
 if ( ! defined( 'PLUGNMEET_BASE_NAME' ) ) {
 	die;
@@ -49,32 +50,32 @@ class PlugNmeetAjaxHelper {
 		return sanitize_text_field( $value );
 	}
 
-    /**
-     * Helper to safely retrieve and sanitize an array from POST parameters.
-     *
-     * @param string $key The key of the POST parameter.
-     * @param callable|null $sanitizer A callable function for custom sanitization of each array element.
-     *
-     * @return array The sanitized array.
-     */
-    private function get_post_param_array( string $key, ?callable $sanitizer = null ): array {
-        if ( ! isset( $_POST[ $key ] ) || ! is_array( $_POST[ $key ] ) ) {
-            return [];
-        }
+	/**
+	 * Helper to safely retrieve and sanitize an array from POST parameters.
+	 *
+	 * @param string $key The key of the POST parameter.
+	 * @param callable|null $sanitizer A callable function for custom sanitization of each array element.
+	 *
+	 * @return array The sanitized array.
+	 */
+	private function get_post_param_array( string $key, ?callable $sanitizer = null ): array {
+		if ( ! isset( $_POST[ $key ] ) || ! is_array( $_POST[ $key ] ) ) {
+			return [];
+		}
 
-        $values = wp_unslash( $_POST[ $key ] );
-        $sanitized_array = [];
+		$values          = wp_unslash( $_POST[ $key ] );
+		$sanitized_array = [];
 
-        foreach ( $values as $value ) {
-            if ( $sanitizer ) {
-                $sanitized_array[] = call_user_func( $sanitizer, $value );
-            } else {
-                $sanitized_array[] = sanitize_text_field( $value );
-            }
-        }
+		foreach ( $values as $value ) {
+			if ( $sanitizer ) {
+				$sanitized_array[] = call_user_func( $sanitizer, $value );
+			} else {
+				$sanitized_array[] = sanitize_text_field( $value );
+			}
+		}
 
-        return $sanitized_array;
-    }
+		return $sanitized_array;
+	}
 
 	public function get_recordings() {
 		$output         = new stdClass();
@@ -167,9 +168,16 @@ class PlugNmeetAjaxHelper {
 			$page             = (int) ( $from / $limit ) + 1;
 
 			foreach ( $artifacts as $artifact ) {
+				$user_name = $artifact->getMetadata()?->getUserInfo()?->getName();
+				$type      = '<div class="pnm-artifact-type">';
+				$type      .= '<span>' . esc_html( $this->format_type_name( $artifact->getType() ) ) . '</span>';
+				if ( $user_name ) {
+					$type .= '<span class="pnm-artifact-user">' . esc_html( $user_name ) . '</span>';
+				}
+				$type               .= '</div>';
 				$result_artifacts[] = [
 					'artifact_id' => $artifact->getArtifactId(),
-					'type'        => $this->format_type_name( $artifact->getType() ),
+					'type'        => wp_kses_post( $type ),
 					'created'     => gmdate( "Y-m-d H:i:s", strtotime( $artifact->getCreated() ) ),
 					'view_url'    => admin_url( 'admin.php?page=plugnmeet-artifacts&artifact_id=' . $artifact->getArtifactId() . "&room_id=" . $roomId . "&paged=" . $page ),
 				];
@@ -214,7 +222,7 @@ class PlugNmeetAjaxHelper {
 		$output->msg    = $res->getMsg();
 
 		if ( $res->getStatus() && $res->getToken() ) {
-			$output->url = $params->plugnmeet_server_url . "/download/artifact/" . $res->getToken();
+			$output->url = rtrim( trim( (string) $params->plugnmeet_server_url ), "/" ) . "/download/artifact/" . $res->getToken();
 		}
 
 		wp_send_json( $output );
@@ -329,7 +337,7 @@ class PlugNmeetAjaxHelper {
 		$output->msg    = $res->getMsg();
 
 		if ( $res->getStatus() && $res->getToken() ) {
-			$output->url = $params->plugnmeet_server_url . "/download/recording/" . $res->getToken();
+			$output->url = rtrim( trim( (string) $params->plugnmeet_server_url ), "/" ) . "/download/recording/" . $res->getToken();
 		}
 
 		wp_send_json( $output );
@@ -447,6 +455,9 @@ class PlugNmeetAjaxHelper {
 		if ( ! class_exists( 'Plugnmeet_RoomPage' ) ) {
 			require PLUGNMEET_ROOT_PATH . "/admin/class-plugnmeet-room-page.php";
 		}
+		if ( ! class_exists( 'PlugnmeetHelper' ) ) {
+			require PLUGNMEET_ROOT_PATH . "/helpers/helper.php";
+		}
 
 		$class    = new Plugnmeet_RoomPage();
 		$roomInfo = $class->getRoomById( $id );
@@ -468,9 +479,31 @@ class PlugNmeetAjaxHelper {
 
 		$logoutUrl = ! empty( $current_url ) ? add_query_arg( 'pnm-returned', 'true', $current_url ) : '';
 
-		$connect       = new plugNmeetConnect( $this->setting_params );
-		$isRoomActive  = false;
-		$room_metadata = json_decode( $roomInfo->room_metadata, true );
+		$connect          = new plugNmeetConnect( $this->setting_params );
+		$isRoomActive     = false;
+		$room_metadata    = json_decode( $roomInfo->room_metadata, true ) ?: [];
+		$room_mode        = PlugnmeetHelper::getRoomMode( $room_metadata );
+		$enable_ai_agent  = PlugnmeetHelper::isAiAgentEnabled();
+		$is_ai_agent_mode = $enable_ai_agent && 'ai_agent' === $room_mode;
+		$wp_user_id       = get_current_user_id();
+
+		if ( $is_ai_agent_mode ) {
+			$ai_agent = isset( $room_metadata['insights_features']['ai_agent_features'] ) && is_array( $room_metadata['insights_features']['ai_agent_features'] ) ? $room_metadata['insights_features']['ai_agent_features'] : [];
+
+			// A controlled AI session is reserved for the selected WordPress users only.
+			if ( 1 === (int) ( $ai_agent['session_mode'] ?? 2 ) ) {
+				if ( $wp_user_id <= 0 ) {
+					$output->msg = __( 'This AI session is restricted to selected users. Guest access is not available; please log in with an authorized account.', 'plugnmeet' );
+					wp_send_json( $output );
+				}
+
+				$allowed_ids = array_map( 'strval', PlugnmeetHelper::sanitizeUserIds( $ai_agent['auto_session_config']['allowed_participant_ids'] ?? [] ) );
+				if ( ! $isAdmin && ! in_array( (string) $wp_user_id, $allowed_ids, true ) ) {
+					$output->msg = __( 'Your account is not on the allowed participant list for this AI session.', 'plugnmeet' );
+					wp_send_json( $output );
+				}
+			}
+		}
 
 		try {
 			$res = $connect->isRoomActive( $roomInfo->room_id );
@@ -484,8 +517,10 @@ class PlugNmeetAjaxHelper {
 			wp_send_json( $output );
 		}
 
+		// An autonomous AI session starts with the first allowed user, no human moderator needed.
 		if ( ! $isRoomActive
 		     && ! $isAdmin
+		     && ! $is_ai_agent_mode
 		     && ! empty( $room_metadata["room_features"]["moderator_join_first"] ) ) {
 			$output->msg = __( "The meeting has not started yet. Please wait for a moderator to begin the session.", "plugnmeet" );
 			wp_send_json( $output );
@@ -506,6 +541,8 @@ class PlugNmeetAjaxHelper {
 					];
 				}
 
+				PlugnmeetHelper::prepareAiAgentFeatures( $room_metadata, (array) $this->setting_params );
+
 				$webHookUrl = get_rest_url( null, 'plugnmeet/webhook' );
 				$create     = $connect->createRoom( $roomInfo->room_id, $roomInfo->room_title, $room_metadata, $roomInfo->welcome_message, $logoutUrl, $webHookUrl, $roomInfo->max_participants, 0, $extraData );
 
@@ -520,17 +557,22 @@ class PlugNmeetAjaxHelper {
 			}
 		}
 
-		$userId = get_current_user_id();
-		if ( ! $userId ) {
+		$userMetadata = null;
+		if ( $wp_user_id > 0 ) {
+			$userMetadata = new UserMetadata();
+			$userMetadata->setExUserId( (string) $wp_user_id );
+			$userId = $wp_user_id;
+		} else {
 			if ( ! isset( $_SESSION['PLUG_N_MEET_USER_ID'] ) ) {
 				$_SESSION['PLUG_N_MEET_USER_ID'] = $connect->getUUID();
 			}
 			$userId = esc_attr( $_SESSION['PLUG_N_MEET_USER_ID'] );
 		}
+		$userId = (string) $userId;
 
 		if ( $isRoomActive ) {
 			try {
-				$join = $connect->getJoinToken( $roomInfo->room_id, $name, $userId, $isAdmin );
+				$join = $connect->getJoinToken( $roomInfo->room_id, $name, $userId, $isAdmin, false, $userMetadata );
 
 				if ( ! $join->getStatus() ) {
 					$output->msg = $join->getMsg();
@@ -538,7 +580,7 @@ class PlugNmeetAjaxHelper {
 				}
 
 				if ( $this->setting_params->client_load === "redirect" ) {
-					$output->url = rtrim( $this->setting_params->plugnmeet_server_url, "/" ) . "/?access_token=" . $join->getToken();
+					$output->url = rtrim( trim( (string) $this->setting_params->plugnmeet_server_url ), "/" ) . "/?access_token=" . $join->getToken();
 				} else {
 					$output->url = add_query_arg( [
 						'access_token'           => $join->getToken(),
@@ -647,8 +689,68 @@ class PlugNmeetAjaxHelper {
 	}
 
 	private function format_type_name( $type ) {
+		if ( RoomArtifactType::AI_AGENT_SESSION_SUMMARY === $type ) {
+			return __( 'AI Session Summary', 'plugnmeet' );
+		}
+		if ( RoomArtifactType::AI_AGENT_USAGE === $type ) {
+			return __( 'AI Agent Usage', 'plugnmeet' );
+		}
+		if ( RoomArtifactType::AI_AGENT_TRANSCRIPT === $type ) {
+			return __( 'AI Session Transcript', 'plugnmeet' );
+		}
+
 		$name = RoomArtifactType::name( $type );
 
 		return ucwords( strtolower( str_replace( '_', ' ', $name ) ) );
+	}
+
+	public function search_users() {
+		$output         = new stdClass();
+		$output->status = false;
+		$output->msg    = __( 'You are not allowed to search users.', 'plugnmeet' );
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json( $output );
+		}
+
+		if ( ! check_ajax_referer( 'plugnmeet_search_users', 'nonce', false ) ) {
+			$output->msg = __( 'Your session has expired. Please refresh the page and try again.', 'plugnmeet' );
+			wp_send_json( $output );
+		}
+
+		$search = $this->get_post_param( 'search' );
+		$role   = $this->get_post_param( 'role' );
+
+		$args = array(
+			'number'  => 50,
+			'orderby' => 'display_name',
+			'order'   => 'ASC',
+		);
+
+		if ( '' !== $search ) {
+			$args['search']         = '*' . $search . '*';
+			$args['search_columns'] = array( 'user_login', 'user_nicename', 'user_email', 'display_name' );
+		}
+
+		if ( '' !== $role ) {
+			$args['role'] = $role;
+		}
+
+		$query = new WP_User_Query( $args );
+		$users = array();
+
+		foreach ( $query->get_results() as $user ) {
+			$users[] = array(
+				'id'           => (int) $user->ID,
+				'display_name' => $user->display_name,
+				'user_email'   => $user->user_email,
+				'roles'        => array_values( (array) $user->roles ),
+			);
+		}
+
+		$output->status = true;
+		$output->msg    = '';
+		$output->users  = $users;
+		wp_send_json( $output );
 	}
 }

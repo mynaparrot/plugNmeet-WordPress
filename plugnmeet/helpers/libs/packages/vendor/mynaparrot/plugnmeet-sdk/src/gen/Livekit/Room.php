@@ -43,7 +43,7 @@ class Room extends \Google\Protobuf\Internal\Message
      */
     protected $creation_time_ms = 0;
     /**
-     * Generated from protobuf field <code>string turn_password = 6;</code>
+     * Generated from protobuf field <code>string turn_password = 6 [(.logger.sensitivity) = SENSITIVITY_SECRET];</code>
      */
     protected $turn_password = '';
     /**
@@ -253,7 +253,7 @@ class Room extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string turn_password = 6;</code>
+     * Generated from protobuf field <code>string turn_password = 6 [(.logger.sensitivity) = SENSITIVITY_SECRET];</code>
      * @return string
      */
     public function getTurnPassword()
@@ -262,7 +262,7 @@ class Room extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string turn_password = 6;</code>
+     * Generated from protobuf field <code>string turn_password = 6 [(.logger.sensitivity) = SENSITIVITY_SECRET];</code>
      * @param string $var
      * @return $this
      */

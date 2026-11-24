@@ -50,6 +50,10 @@ class PlugNmeetToRecorder extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>optional string rtmp_url = 9;</code>
      */
     protected $rtmp_url = null;
+    /**
+     * Generated from protobuf field <code>optional .plugnmeet.CloudRecordingVariants recording_variant = 11;</code>
+     */
+    protected $recording_variant = null;
 
     /**
      * Constructor.
@@ -66,6 +70,7 @@ class PlugNmeetToRecorder extends \Google\Protobuf\Internal\Message
      *     @type string $recorder_id
      *     @type string $access_token
      *     @type string $rtmp_url
+     *     @type int $recording_variant
      * }
      */
     public function __construct($data = NULL) {
@@ -277,6 +282,38 @@ class PlugNmeetToRecorder extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, true);
         $this->rtmp_url = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .plugnmeet.CloudRecordingVariants recording_variant = 11;</code>
+     * @return int one of the values in {@see \Mynaparrot\PlugnmeetProto\CloudRecordingVariants}
+     */
+    public function getRecordingVariant()
+    {
+        return isset($this->recording_variant) ? $this->recording_variant : 0;
+    }
+
+    public function hasRecordingVariant()
+    {
+        return isset($this->recording_variant);
+    }
+
+    public function clearRecordingVariant()
+    {
+        unset($this->recording_variant);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .plugnmeet.CloudRecordingVariants recording_variant = 11;</code>
+     * @param int $var one of the values in {@see \Mynaparrot\PlugnmeetProto\CloudRecordingVariants}
+     * @return $this
+     */
+    public function setRecordingVariant(int $var)
+    {
+        GPBUtil::checkEnum($var, \Mynaparrot\PlugnmeetProto\CloudRecordingVariants::class);
+        $this->recording_variant = $var;
 
         return $this;
     }

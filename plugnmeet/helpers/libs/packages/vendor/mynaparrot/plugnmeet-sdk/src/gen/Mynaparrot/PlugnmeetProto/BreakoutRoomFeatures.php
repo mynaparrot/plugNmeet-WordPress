@@ -19,27 +19,31 @@ class BreakoutRoomFeatures extends \Google\Protobuf\Internal\Message
      */
     protected $is_allow = false;
     /**
-     * internal usage field
-     *
-     * Generated from protobuf field <code>bool is_active = 2 [(.buf.validate.field) = {</code>
-     */
-    protected $is_active = false;
-    /**
-     * Generated from protobuf field <code>uint32 allowed_number_rooms = 3;</code>
+     * Generated from protobuf field <code>uint32 allowed_number_rooms = 2;</code>
      */
     protected $allowed_number_rooms = 0;
     /**
-     * Generated from protobuf field <code>bool allow_return_to_main_room = 4;</code>
+     * Generated from protobuf field <code>bool allow_return_to_main_room = 3;</code>
      */
     protected $allow_return_to_main_room = false;
     /**
-     * Generated from protobuf field <code>bool allow_self_select = 5;</code>
+     * Generated from protobuf field <code>bool allow_self_select = 4;</code>
      */
     protected $allow_self_select = false;
     /**
-     * Generated from protobuf field <code>repeated .plugnmeet.PreassignedBreakoutRoom preassigned_rooms = 6;</code>
+     * Generated from protobuf field <code>repeated .plugnmeet.PreassignedBreakoutRoom preassigned_rooms = 5;</code>
      */
     private $preassigned_rooms;
+    /**
+     * internal usage field
+     *
+     * Generated from protobuf field <code>bool is_active = 6 [(.buf.validate.field) = {</code>
+     */
+    protected $is_active = false;
+    /**
+     * Generated from protobuf field <code>bool is_per_user_ai_session = 7 [(.buf.validate.field) = {</code>
+     */
+    protected $is_per_user_ai_session = false;
 
     /**
      * Constructor.
@@ -48,12 +52,13 @@ class BreakoutRoomFeatures extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type bool $is_allow
-     *     @type bool $is_active
-     *           internal usage field
      *     @type int $allowed_number_rooms
      *     @type bool $allow_return_to_main_room
      *     @type bool $allow_self_select
      *     @type \Mynaparrot\PlugnmeetProto\PreassignedBreakoutRoom[] $preassigned_rooms
+     *     @type bool $is_active
+     *           internal usage field
+     *     @type bool $is_per_user_ai_session
      * }
      */
     public function __construct($data = NULL) {
@@ -83,32 +88,7 @@ class BreakoutRoomFeatures extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * internal usage field
-     *
-     * Generated from protobuf field <code>bool is_active = 2 [(.buf.validate.field) = {</code>
-     * @return bool
-     */
-    public function getIsActive()
-    {
-        return $this->is_active;
-    }
-
-    /**
-     * internal usage field
-     *
-     * Generated from protobuf field <code>bool is_active = 2 [(.buf.validate.field) = {</code>
-     * @param bool $var
-     * @return $this
-     */
-    public function setIsActive(bool $var)
-    {
-        $this->is_active = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 allowed_number_rooms = 3;</code>
+     * Generated from protobuf field <code>uint32 allowed_number_rooms = 2;</code>
      * @return int
      */
     public function getAllowedNumberRooms()
@@ -117,7 +97,7 @@ class BreakoutRoomFeatures extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint32 allowed_number_rooms = 3;</code>
+     * Generated from protobuf field <code>uint32 allowed_number_rooms = 2;</code>
      * @param int $var
      * @return $this
      */
@@ -130,7 +110,7 @@ class BreakoutRoomFeatures extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>bool allow_return_to_main_room = 4;</code>
+     * Generated from protobuf field <code>bool allow_return_to_main_room = 3;</code>
      * @return bool
      */
     public function getAllowReturnToMainRoom()
@@ -139,7 +119,7 @@ class BreakoutRoomFeatures extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>bool allow_return_to_main_room = 4;</code>
+     * Generated from protobuf field <code>bool allow_return_to_main_room = 3;</code>
      * @param bool $var
      * @return $this
      */
@@ -151,7 +131,7 @@ class BreakoutRoomFeatures extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>bool allow_self_select = 5;</code>
+     * Generated from protobuf field <code>bool allow_self_select = 4;</code>
      * @return bool
      */
     public function getAllowSelfSelect()
@@ -160,7 +140,7 @@ class BreakoutRoomFeatures extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>bool allow_self_select = 5;</code>
+     * Generated from protobuf field <code>bool allow_self_select = 4;</code>
      * @param bool $var
      * @return $this
      */
@@ -172,7 +152,7 @@ class BreakoutRoomFeatures extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .plugnmeet.PreassignedBreakoutRoom preassigned_rooms = 6;</code>
+     * Generated from protobuf field <code>repeated .plugnmeet.PreassignedBreakoutRoom preassigned_rooms = 5;</code>
      * @return RepeatedField<\Mynaparrot\PlugnmeetProto\PreassignedBreakoutRoom>
      */
     public function getPreassignedRooms()
@@ -181,7 +161,7 @@ class BreakoutRoomFeatures extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .plugnmeet.PreassignedBreakoutRoom preassigned_rooms = 6;</code>
+     * Generated from protobuf field <code>repeated .plugnmeet.PreassignedBreakoutRoom preassigned_rooms = 5;</code>
      * @param \Mynaparrot\PlugnmeetProto\PreassignedBreakoutRoom[] $var
      * @return $this
      */
@@ -189,6 +169,52 @@ class BreakoutRoomFeatures extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Mynaparrot\PlugnmeetProto\PreassignedBreakoutRoom::class);
         $this->preassigned_rooms = $arr;
+
+        return $this;
+    }
+
+    /**
+     * internal usage field
+     *
+     * Generated from protobuf field <code>bool is_active = 6 [(.buf.validate.field) = {</code>
+     * @return bool
+     */
+    public function getIsActive()
+    {
+        return $this->is_active;
+    }
+
+    /**
+     * internal usage field
+     *
+     * Generated from protobuf field <code>bool is_active = 6 [(.buf.validate.field) = {</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setIsActive(bool $var)
+    {
+        $this->is_active = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool is_per_user_ai_session = 7 [(.buf.validate.field) = {</code>
+     * @return bool
+     */
+    public function getIsPerUserAiSession()
+    {
+        return $this->is_per_user_ai_session;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool is_per_user_ai_session = 7 [(.buf.validate.field) = {</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setIsPerUserAiSession(bool $var)
+    {
+        $this->is_per_user_ai_session = $var;
 
         return $this;
     }

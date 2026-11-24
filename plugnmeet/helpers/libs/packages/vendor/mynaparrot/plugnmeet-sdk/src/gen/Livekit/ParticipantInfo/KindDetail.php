@@ -29,11 +29,15 @@ class KindDetail
      */
     const CONNECTOR_TWILIO = 3;
     /**
-     * NEXT_ID: 5
-     *
      * Generated from protobuf enum <code>BRIDGE_RTSP = 4;</code>
      */
     const BRIDGE_RTSP = 4;
+    /**
+     * NEXT_ID: 6
+     *
+     * Generated from protobuf enum <code>SIMULATION = 5;</code>
+     */
+    const SIMULATION = 5;
 
     private static $valueToName = [
         self::CLOUD_AGENT => 'CLOUD_AGENT',
@@ -41,6 +45,7 @@ class KindDetail
         self::CONNECTOR_WHATSAPP => 'CONNECTOR_WHATSAPP',
         self::CONNECTOR_TWILIO => 'CONNECTOR_TWILIO',
         self::BRIDGE_RTSP => 'BRIDGE_RTSP',
+        self::SIMULATION => 'SIMULATION',
     ];
 
     public static function name($value)

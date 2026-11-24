@@ -42,6 +42,10 @@ class RTPForwarderState extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .livekit.RTCPSenderReportState sender_report_state = 8;</code>
      */
     private $sender_report_state;
+    /**
+     * Generated from protobuf field <code>.livekit.DependencyDescriptorForwarderState dependency_descriptor_forwarder = 9;</code>
+     */
+    protected $dependency_descriptor_forwarder = null;
     protected $codec_munger;
 
     /**
@@ -58,6 +62,7 @@ class RTPForwarderState extends \Google\Protobuf\Internal\Message
      *     @type \Livekit\RTPMungerState $rtp_munger
      *     @type \Livekit\VP8MungerState $vp8_munger
      *     @type \Livekit\RTCPSenderReportState[] $sender_report_state
+     *     @type \Livekit\DependencyDescriptorForwarderState $dependency_descriptor_forwarder
      * }
      */
     public function __construct($data = NULL) {
@@ -249,6 +254,37 @@ class RTPForwarderState extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Livekit\RTCPSenderReportState::class);
         $this->sender_report_state = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.livekit.DependencyDescriptorForwarderState dependency_descriptor_forwarder = 9;</code>
+     * @return \Livekit\DependencyDescriptorForwarderState|null
+     */
+    public function getDependencyDescriptorForwarder()
+    {
+        return $this->dependency_descriptor_forwarder;
+    }
+
+    public function hasDependencyDescriptorForwarder()
+    {
+        return isset($this->dependency_descriptor_forwarder);
+    }
+
+    public function clearDependencyDescriptorForwarder()
+    {
+        unset($this->dependency_descriptor_forwarder);
+    }
+
+    /**
+     * Generated from protobuf field <code>.livekit.DependencyDescriptorForwarderState dependency_descriptor_forwarder = 9;</code>
+     * @param \Livekit\DependencyDescriptorForwarderState $var
+     * @return $this
+     */
+    public function setDependencyDescriptorForwarder(\Livekit\DependencyDescriptorForwarderState|null $var)
+    {
+        $this->dependency_descriptor_forwarder = $var;
 
         return $this;
     }

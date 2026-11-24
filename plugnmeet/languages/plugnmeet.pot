@@ -18,6 +18,10 @@ msgstr ""
 msgid " can't be empty."
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:106
+msgid "%d min"
+msgstr ""
+
 #: helpers/ajaxHelper.php:625
 msgid "A password is required to join this room."
 msgstr ""
@@ -36,6 +40,26 @@ msgstr ""
 
 #: helpers/helper.php:231
 msgid "Admin only webcams"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:102
+msgid "Agent"
+msgstr ""
+
+#: admin/class-plugnmeet-room-page.php:450
+msgid "AI Agent Usage"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:118
+msgid "AI Session Report"
+msgstr ""
+
+#: admin/class-plugnmeet-room-page.php:447
+msgid "AI Session Summary"
+msgstr ""
+
+#: admin/class-plugnmeet-room-page.php:453
+msgid "AI Session Transcript"
 msgstr ""
 
 #: helpers/helper.php:960
@@ -261,6 +285,18 @@ msgstr ""
 msgid "Client load"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:223
+msgid "Concept"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:112
+msgid "Concepts mastered"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:113
+msgid "Concepts practiced"
+msgstr ""
+
 #: admin/partials/plugnmeet-admin-display-recordings.php:70
 #: admin/partials/plugnmeet-admin-display-recordings.php:80
 msgid "Confirm Merge"
@@ -272,6 +308,14 @@ msgstr ""
 
 #: admin/class-plugnmeet-settings-page.php:362
 msgid "Copyright text"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:191
+msgid "Correct option"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:193
+msgid "Correct votes"
 msgstr ""
 
 #: admin/partials/plugnmeet-admin-display-artifacts.php:43
@@ -381,6 +425,14 @@ msgstr ""
 msgid "Enable Simulcast"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:108
+msgid "End reason"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:105
+msgid "Ended at"
+msgstr ""
+
 #: public/partials/parts/login-form.php:35
 msgid "Enter room password"
 msgstr ""
@@ -418,6 +470,10 @@ msgstr ""
 #: admin/partials/plugnmeet-admin-display-recordings.php:53
 #: public/partials/parts/recordings.php:27
 msgid "File size (MB)"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:262
+msgid "Focus"
 msgstr ""
 
 #: admin/class-plugnmeet-settings-page.php:455
@@ -493,6 +549,10 @@ msgstr ""
 
 #: helpers/analyticsHelper.php:383
 msgid "Joined At"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:115
+msgid "Key terms"
 msgstr ""
 
 #: helpers/analyticsHelper.php:384
@@ -618,8 +678,16 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:154
+msgid "Narrative summary"
+msgstr ""
+
 #: public/partials/parts/recordings.php:40
 msgid "Next"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:260
+msgid "Next session plan"
 msgstr ""
 
 #: helpers/helper.php:163 helpers/helper.php:178 helpers/helper.php:193
@@ -661,12 +729,24 @@ msgstr ""
 msgid "No rooms found."
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:245
+msgid "Not used"
+msgstr ""
+
 #: helpers/analyticsHelper.php:368
 msgid "Notepad Status Count"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:225
+msgid "Notes"
+msgstr ""
+
 #: helpers/helper.php:637
 msgid "Number of rooms"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:109
+msgid "Off-topic redirects"
 msgstr ""
 
 #: helpers/analyticsHelper.php:237 admin/class-plugnmeet-settings-page.php:255
@@ -677,8 +757,20 @@ msgstr ""
 msgid "Other features"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:133
+msgid "Overall score"
+msgstr ""
+
 #: admin/class-plugnmeet-admin.php:115 admin/class-plugnmeet-admin.php:133
 msgid "Page"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:128
+msgid "Participation: %s"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:194
+msgid "Passed"
 msgstr ""
 
 #: public/partials/parts/login-form.php:33
@@ -737,6 +829,10 @@ msgstr ""
 msgid "Pre"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:279
+msgid "Previous session context"
+msgstr ""
+
 #: admin/class-plugnmeet-settings-page.php:410
 #: admin/partials/form-parts/design.php:30
 msgid "Primary Color"
@@ -744,6 +840,10 @@ msgstr ""
 
 #: helpers/analyticsHelper.php:399
 msgid "Private Chat Messages"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:219
+msgid "Progress log"
 msgstr ""
 
 #: helpers/analyticsHelper.php:398
@@ -756,6 +856,14 @@ msgstr ""
 
 #: helpers/analyticsHelper.php:236
 msgid "Question"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:175
+msgid "Quiz evaluation"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:179
+msgid "Quizzes: %1$d · Correct answers: %2$d · Accuracy: %3$d%%"
 msgstr ""
 
 #: helpers/analyticsHelper.php:392
@@ -885,6 +993,10 @@ msgstr ""
 msgid "RTMP Status Count"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:159
+msgid "Rubric notes"
+msgstr ""
+
 #: helpers/analyticsHelper.php:396
 msgid "Screen Share Status Changes"
 msgstr ""
@@ -956,12 +1068,20 @@ msgstr ""
 msgid "Speech Services Usage"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:104
+msgid "Started at"
+msgstr ""
+
 #: admin/class-plugnmeet-rooms-list-table.php:90
 msgid "Status"
 msgstr ""
 
 #: admin/class-plugnmeet-settings-page.php:335
 msgid "Stop mic track on mute"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:114
+msgid "Struggled with"
 msgstr ""
 
 #: admin/class-plugnmeet-room-page.php:75
@@ -986,6 +1106,10 @@ msgstr ""
 
 #: helpers/analyticsHelper.php:389
 msgid "Talked Duration"
+msgstr ""
+
+#: admin/class-plugnmeet-room-page.php:308
+msgid "The AI session summary could not be read."
 msgstr ""
 
 #: helpers/ajaxHelper.php:290
@@ -1031,6 +1155,10 @@ msgstr ""
 msgid "Token Usage"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:103
+msgid "Topic"
+msgstr ""
+
 #: admin/class-plugnmeet-admin.php:132
 msgid "Total artifacts"
 msgstr ""
@@ -1043,9 +1171,21 @@ msgstr ""
 msgid "Total recordings"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:288
+msgid "Total tokens: %1$s · Estimated cost: %2$s"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:107
+msgid "Turns"
+msgstr ""
+
 #: admin/class-plugnmeet-room-page.php:114
 #: admin/partials/plugnmeet-admin-display-artifacts.php:40
 msgid "Type"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:269
+msgid "Unfinished subtopics"
 msgstr ""
 
 #: admin/class-plugnmeet-rooms-list-table.php:75
@@ -1070,6 +1210,10 @@ msgstr ""
 msgid "Upload/Select image"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:245
+msgid "Used"
+msgstr ""
+
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:67
 msgid "User Analytics"
 msgstr ""
@@ -1077,6 +1221,10 @@ msgstr ""
 #: helpers/analyticsHelper.php:378 helpers/analyticsHelper.php:379
 #: helpers/analyticsHelper.php:380
 msgid "User ID"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:125
+msgid "User ID: %s"
 msgstr ""
 
 #: helpers/analyticsHelper.php:197
@@ -1095,8 +1243,16 @@ msgstr ""
 msgid "Voted Poll Count"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:192
+msgid "Votes"
+msgstr ""
+
 #: helpers/helper.php:605
 msgid "Waiting room message"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:265
+msgid "Warm up"
 msgstr ""
 
 #: helpers/ajaxHelper.php:273
@@ -1145,6 +1301,10 @@ msgstr ""
 msgid "Welcome Message"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:243
+msgid "Whiteboard"
+msgstr ""
+
 #: helpers/analyticsHelper.php:394
 msgid "Whiteboard Annotated Count"
 msgstr ""
@@ -1155,6 +1315,10 @@ msgstr ""
 
 #: helpers/analyticsHelper.php:395
 msgid "Whiteboard Files Count"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:241
+msgid "Workspace activity"
 msgstr ""
 
 #: helpers/helper.php:159 helpers/helper.php:174 helpers/helper.php:189
@@ -1687,4 +1851,28 @@ msgstr ""
 
 #: helpers/plugnmeet-help-texts.php
 msgid "The secondary color of the selected frontend design: soft backgrounds and the recordings table header. Leave blank to use the design's default."
+msgstr ""
+
+#: helpers/helper.php
+msgid "AI Assistant"
+msgstr ""
+
+#: helpers/helper.php
+msgid "1-on-1 Autonomous AI Session"
+msgstr ""
+
+#: public/partials/parts/login-form.php
+msgid "Start AI Session"
+msgstr ""
+
+#: public/partials/parts/login-form.php
+msgid "This AI session is restricted to selected registered users. Please log in to your account to start the session."
+msgstr ""
+
+#: helpers/ajaxHelper.php
+msgid "This AI session is restricted to selected users. Guest access is not available; please log in with an authorized account."
+msgstr ""
+
+#: helpers/ajaxHelper.php
+msgid "Your account is not on the allowed participant list for this AI session."
 msgstr ""

@@ -64,6 +64,12 @@ class UserMetadata extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>optional string ex_user_id = 11;</code>
      */
     protected $ex_user_id = null;
+    /**
+     * Next ID: 13
+     *
+     * Generated from protobuf field <code>optional string previous_session_context = 12 [(.buf.validate.field) = {</code>
+     */
+    protected $previous_session_context = null;
 
     /**
      * Constructor.
@@ -85,6 +91,8 @@ class UserMetadata extends \Google\Protobuf\Internal\Message
      *     @type array|\Google\Protobuf\Internal\MapField $extra_data
      *     @type string $ex_user_id
      *           if remain empty then will use value from user_id
+     *     @type string $previous_session_context
+     *           Next ID: 13
      * }
      */
     public function __construct($data = NULL) {
@@ -406,6 +414,42 @@ class UserMetadata extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, true);
         $this->ex_user_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Next ID: 13
+     *
+     * Generated from protobuf field <code>optional string previous_session_context = 12 [(.buf.validate.field) = {</code>
+     * @return string
+     */
+    public function getPreviousSessionContext()
+    {
+        return isset($this->previous_session_context) ? $this->previous_session_context : '';
+    }
+
+    public function hasPreviousSessionContext()
+    {
+        return isset($this->previous_session_context);
+    }
+
+    public function clearPreviousSessionContext()
+    {
+        unset($this->previous_session_context);
+    }
+
+    /**
+     * Next ID: 13
+     *
+     * Generated from protobuf field <code>optional string previous_session_context = 12 [(.buf.validate.field) = {</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setPreviousSessionContext(string $var)
+    {
+        GPBUtil::checkString($var, true);
+        $this->previous_session_context = $var;
 
         return $this;
     }

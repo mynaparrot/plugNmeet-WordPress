@@ -42,6 +42,18 @@ class BreakoutRoom extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string room_sid = 7;</code>
      */
     protected $room_sid = '';
+    /**
+     * Generated from protobuf field <code>optional string ai_agent_context = 8 [(.buf.validate.field) = {</code>
+     */
+    protected $ai_agent_context = null;
+    /**
+     * Generated from protobuf field <code>bool enable_ai_agent = 9;</code>
+     */
+    protected $enable_ai_agent = false;
+    /**
+     * Generated from protobuf field <code>bool ai_agent_joined = 10;</code>
+     */
+    protected $ai_agent_joined = false;
 
     /**
      * Constructor.
@@ -56,6 +68,9 @@ class BreakoutRoom extends \Google\Protobuf\Internal\Message
      *     @type int|string $created
      *     @type \Mynaparrot\PlugnmeetProto\BreakoutRoomUser[] $users
      *     @type string $room_sid
+     *     @type string $ai_agent_context
+     *     @type bool $enable_ai_agent
+     *     @type bool $ai_agent_joined
      * }
      */
     public function __construct($data = NULL) {
@@ -212,6 +227,80 @@ class BreakoutRoom extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, true);
         $this->room_sid = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string ai_agent_context = 8 [(.buf.validate.field) = {</code>
+     * @return string
+     */
+    public function getAiAgentContext()
+    {
+        return isset($this->ai_agent_context) ? $this->ai_agent_context : '';
+    }
+
+    public function hasAiAgentContext()
+    {
+        return isset($this->ai_agent_context);
+    }
+
+    public function clearAiAgentContext()
+    {
+        unset($this->ai_agent_context);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string ai_agent_context = 8 [(.buf.validate.field) = {</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setAiAgentContext(string $var)
+    {
+        GPBUtil::checkString($var, true);
+        $this->ai_agent_context = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool enable_ai_agent = 9;</code>
+     * @return bool
+     */
+    public function getEnableAiAgent()
+    {
+        return $this->enable_ai_agent;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool enable_ai_agent = 9;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setEnableAiAgent(bool $var)
+    {
+        $this->enable_ai_agent = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool ai_agent_joined = 10;</code>
+     * @return bool
+     */
+    public function getAiAgentJoined()
+    {
+        return $this->ai_agent_joined;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool ai_agent_joined = 10;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setAiAgentJoined(bool $var)
+    {
+        $this->ai_agent_joined = $var;
 
         return $this;
     }

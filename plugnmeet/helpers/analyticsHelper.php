@@ -59,7 +59,7 @@ class Plugnmeet_AnalyticsHelper {
 	}
 
 	private function fetch_data( $token ) {
-		$server_url = rtrim( $this->setting_params->plugnmeet_server_url, '/' );
+		$server_url = rtrim( trim( (string) $this->setting_params->plugnmeet_server_url ), '/' );
 		$host       = $server_url . "/download/artifact/" . $token;
 
 		$response = wp_remote_get( $host, array( 'timeout' => 60 ) );

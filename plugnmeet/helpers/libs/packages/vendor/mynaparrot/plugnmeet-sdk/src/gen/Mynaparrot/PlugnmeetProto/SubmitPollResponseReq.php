@@ -34,6 +34,10 @@ class SubmitPollResponseReq extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated uint64 selected_options = 5;</code>
      */
     private $selected_options;
+    /**
+     * Generated from protobuf field <code>string text_answer = 6;</code>
+     */
+    protected $text_answer = '';
 
     /**
      * Constructor.
@@ -46,6 +50,7 @@ class SubmitPollResponseReq extends \Google\Protobuf\Internal\Message
      *     @type string $name
      *     @type string $poll_id
      *     @type int[]|string[] $selected_options
+     *     @type string $text_answer
      * }
      */
     public function __construct($data = NULL) {
@@ -159,6 +164,28 @@ class SubmitPollResponseReq extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::UINT64);
         $this->selected_options = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string text_answer = 6;</code>
+     * @return string
+     */
+    public function getTextAnswer()
+    {
+        return $this->text_answer;
+    }
+
+    /**
+     * Generated from protobuf field <code>string text_answer = 6;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setTextAnswer(string $var)
+    {
+        GPBUtil::checkString($var, true);
+        $this->text_answer = $var;
 
         return $this;
     }

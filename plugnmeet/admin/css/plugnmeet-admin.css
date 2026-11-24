@@ -43,6 +43,10 @@
     width: 25%;
 }
 
+.rooms-list-table .wp-list-table .column-room_mode {
+    width: 170px;
+}
+
 .rooms-list-table .wp-list-table .column-room_id {
     width: 18%;
 }
@@ -53,13 +57,58 @@
 
 .plugnmeet-details-header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
 }
 
 .plugnmeet-header-actions {
     display: flex;
     gap: 10px;
+}
+
+.pnm-mode-switcher {
+    display: inline-flex;
+    padding: 4px;
+    background: #f0f0f1;
+    border: 1px solid #c3c4c7;
+    border-radius: 999px;
+}
+
+.pnm-mode-option {
+    position: relative;
+    padding: 6px 16px;
+    border-radius: 999px;
+    color: #50575e;
+    font-size: 13px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.pnm-mode-option input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    opacity: 0;
+}
+
+.pnm-mode-option:hover {
+    color: #1d2327;
+}
+
+.pnm-mode-option:has(input:checked),
+.pnm-mode-option.is-active {
+    background: #fff;
+    color: #1d2327;
+    font-weight: 600;
+    box-shadow: 0 0 0 1px #2271b1, 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.pnm-mode-option:focus-within {
+    outline: 2px solid #2271b1;
+    outline-offset: 1px;
 }
 
 .plugnmeet-form {
@@ -148,6 +197,11 @@
     margin-top: 0;
 }
 
+.pnm-card-body .form-table textarea {
+    width: 100%;
+    max-width: 680px;
+}
+
 .pnm-card-body .form-table th,
 .pnm-card-body .form-table td {
     padding: 12px 10px 15px;
@@ -178,6 +232,165 @@
     margin: 12px 0;
 }
 
+/*
+ * Room mode badge in the rooms list table.
+ */
+.pnm-mode-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    line-height: 18px;
+    background: #f0f0f1;
+    color: #1d2327;
+    white-space: nowrap;
+}
+
+.pnm-mode-badge.pnm-mode-ai_agent {
+    background: #e7f5ea;
+    color: #1a7f37;
+}
+
+.pnm-mode-badge.pnm-mode-conference_ai {
+    background: #e9f1fb;
+    color: #1a4f8f;
+}
+
+/*
+ * Selected user chips in the AI agent card.
+ */
+.pnm-selected-users {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.pnm-user-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    max-width: 100%;
+    padding: 2px 4px 2px 10px;
+    border: 1px solid #c3c4c7;
+    border-radius: 14px;
+    background: #f6f7f7;
+    font-size: 12px;
+}
+
+.pnm-user-chip-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.pnm-user-chip-remove {
+    padding: 0 4px;
+    border: 0;
+    background: transparent;
+    color: #646970;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.pnm-user-chip-remove:hover {
+    color: #d63638;
+}
+
+.pnm-selected-users-meta {
+    margin: 0 0 8px;
+}
+
+/*
+ * User search modal.
+ */
+.pnm-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+}
+
+.pnm-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.pnm-modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 560px;
+    max-width: 90vw;
+    max-height: 80vh;
+    margin: 6vh auto 0;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+.pnm-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid #dcdcde;
+}
+
+.pnm-modal-header h2 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.pnm-modal-close {
+    border: 0;
+    background: transparent;
+    color: #646970;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.pnm-modal-toolbar {
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px 0;
+}
+
+.pnm-modal-toolbar input[type="search"] {
+    flex: 1 1 auto;
+}
+
+.pnm-modal-counter {
+    margin: 8px 16px 0;
+    color: #646970;
+}
+
+.pnm-user-search-results {
+    flex: 1 1 auto;
+    margin: 8px 0;
+    padding: 0 16px;
+    overflow-y: auto;
+    list-style: none;
+}
+
+.pnm-user-search-results li {
+    padding: 4px 0;
+    margin: 0;
+}
+
+.pnm-user-search-empty {
+    color: #646970;
+}
+
+.pnm-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 12px 16px;
+    border-top: 1px solid #dcdcde;
+}
+
 @media (max-width: 782px) {
     .pnm-card-header .pnm-card-toggle {
         flex-wrap: wrap;
@@ -185,5 +398,149 @@
 
     .pnm-card-subtitle {
         flex-basis: 100%;
+    }
+}
+
+/*
+ * AI agent session summary (artifact details screen).
+ * Badges reuse the WordPress admin palette so they read as status markers.
+ */
+.pnm-badge {
+    display: inline-block;
+    padding: 1px 8px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.8;
+    white-space: nowrap;
+}
+
+.pnm-badge-success {
+    background: #edfaef;
+    border-color: #68de7c;
+    color: #007017;
+}
+
+.pnm-badge-info {
+    background: #f0f6fc;
+    border-color: #8cbbe8;
+    color: #0a4b78;
+}
+
+.pnm-badge-warning {
+    background: #fcf9e8;
+    border-color: #dba617;
+    color: #7a5c00;
+}
+
+.pnm-badge-danger {
+    background: #fcf0f1;
+    border-color: #f0a9ab;
+    color: #b32d2e;
+}
+
+.pnm-badge-neutral {
+    background: #f0f0f1;
+    border-color: #c3c4c7;
+    color: #50575e;
+}
+
+.pnm-ai-report-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.pnm-ai-report-name {
+    margin: 0 0 6px;
+    font-size: 16px;
+    color: #1d2327;
+}
+
+.pnm-ai-report-meta {
+    margin: 0 0 2px;
+    color: #646970;
+    font-size: 12px;
+}
+
+.pnm-ai-report-score {
+    flex: 0 0 auto;
+    text-align: right;
+}
+
+.pnm-ai-report-score-value {
+    display: block;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: #1d2327;
+}
+
+.pnm-ai-report-score-label {
+    display: block;
+    margin-bottom: 6px;
+    color: #646970;
+    font-size: 12px;
+}
+
+.pnm-ai-report-details {
+    margin-top: 16px;
+}
+
+.pnm-ai-report-heading {
+    margin: 24px 0 8px;
+    font-size: 14px;
+    color: #1d2327;
+}
+
+.pnm-ai-report-text {
+    margin: 0 0 12px;
+}
+
+.pnm-ai-report-badges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 12px;
+}
+
+.pnm-ai-report-badges-label {
+    color: #646970;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.pnm-ai-report-table {
+    margin: 0 0 8px;
+}
+
+.pnm-ai-report-center {
+    text-align: center;
+}
+
+.pnm-ai-report-context {
+    margin: 0 0 12px;
+}
+
+.pnm-ai-report-context summary {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+@media (max-width: 782px) {
+    .pnm-ai-report-summary {
+        flex-direction: column;
+    }
+
+    .pnm-ai-report-score {
+        text-align: left;
     }
 }

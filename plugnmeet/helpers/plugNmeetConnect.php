@@ -83,9 +83,9 @@ class plugNmeetConnect {
 
 	function __construct( $config ) {
 		$this->plugnmeet = new PlugNmeet(
-			$config->plugnmeet_server_url,
-			$config->plugnmeet_api_key,
-			$config->plugnmeet_secret
+			rtrim( trim( (string) $config->plugnmeet_server_url ), "/" ),
+			trim( (string) $config->plugnmeet_api_key ),
+			trim( (string) $config->plugnmeet_secret )
 		);
 	}
 

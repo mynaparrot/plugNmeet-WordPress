@@ -35,9 +35,9 @@ class PollResponse extends \Google\Protobuf\Internal\Message
      */
     private $voted;
     /**
-     * Generated from protobuf field <code>map<string, string> responses = 6;</code>
+     * Generated from protobuf field <code>optional .plugnmeet.PollResponsesDetails responses_details = 6;</code>
      */
-    private $responses;
+    protected $responses_details = null;
     /**
      * Generated from protobuf field <code>repeated .plugnmeet.PollInfo polls = 7;</code>
      */
@@ -62,6 +62,10 @@ class PollResponse extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>optional bool has_voted = 12;</code>
      */
     protected $has_voted = null;
+    /**
+     * Generated from protobuf field <code>optional string voted_text = 13;</code>
+     */
+    protected $voted_text = null;
 
     /**
      * Constructor.
@@ -74,13 +78,14 @@ class PollResponse extends \Google\Protobuf\Internal\Message
      *     @type string $poll_id
      *     @type int|string $total_responses
      *     @type int[]|string[] $voted
-     *     @type array|\Google\Protobuf\Internal\MapField $responses
+     *     @type \Mynaparrot\PlugnmeetProto\PollResponsesDetails $responses_details
      *     @type \Mynaparrot\PlugnmeetProto\PollInfo[] $polls
      *     @type \Mynaparrot\PlugnmeetProto\PollsStats $stats
      *     @type int|string $total_polls
      *     @type int|string $total_running
      *     @type \Mynaparrot\PlugnmeetProto\PollResponsesResult $poll_responses_result
      *     @type bool $has_voted
+     *     @type string $voted_text
      * }
      */
     public function __construct($data = NULL) {
@@ -218,23 +223,32 @@ class PollResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> responses = 6;</code>
-     * @return \Google\Protobuf\Internal\MapField
+     * Generated from protobuf field <code>optional .plugnmeet.PollResponsesDetails responses_details = 6;</code>
+     * @return \Mynaparrot\PlugnmeetProto\PollResponsesDetails|null
      */
-    public function getResponses()
+    public function getResponsesDetails()
     {
-        return $this->responses;
+        return $this->responses_details;
+    }
+
+    public function hasResponsesDetails()
+    {
+        return isset($this->responses_details);
+    }
+
+    public function clearResponsesDetails()
+    {
+        unset($this->responses_details);
     }
 
     /**
-     * Generated from protobuf field <code>map<string, string> responses = 6;</code>
-     * @param array|\Google\Protobuf\Internal\MapField $var
+     * Generated from protobuf field <code>optional .plugnmeet.PollResponsesDetails responses_details = 6;</code>
+     * @param \Mynaparrot\PlugnmeetProto\PollResponsesDetails $var
      * @return $this
      */
-    public function setResponses(array|\Google\Protobuf\Internal\MapField $var)
+    public function setResponsesDetails(\Mynaparrot\PlugnmeetProto\PollResponsesDetails|null $var)
     {
-        $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->responses = $arr;
+        $this->responses_details = $var;
 
         return $this;
     }
@@ -414,6 +428,38 @@ class PollResponse extends \Google\Protobuf\Internal\Message
     public function setHasVoted(bool $var)
     {
         $this->has_voted = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string voted_text = 13;</code>
+     * @return string
+     */
+    public function getVotedText()
+    {
+        return isset($this->voted_text) ? $this->voted_text : '';
+    }
+
+    public function hasVotedText()
+    {
+        return isset($this->voted_text);
+    }
+
+    public function clearVotedText()
+    {
+        unset($this->voted_text);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string voted_text = 13;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setVotedText(string $var)
+    {
+        GPBUtil::checkString($var, true);
+        $this->voted_text = $var;
 
         return $this;
     }

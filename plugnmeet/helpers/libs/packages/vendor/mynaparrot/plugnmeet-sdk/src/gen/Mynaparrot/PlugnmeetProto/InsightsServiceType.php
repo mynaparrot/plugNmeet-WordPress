@@ -40,6 +40,10 @@ class InsightsServiceType
      * Generated from protobuf enum <code>INSIGHTS_SERVICE_TYPE_MEETING_SUMMARIZING = 6;</code>
      */
     const INSIGHTS_SERVICE_TYPE_MEETING_SUMMARIZING = 6;
+    /**
+     * Generated from protobuf enum <code>INSIGHTS_SERVICE_TYPE_AI_AGENT = 7;</code>
+     */
+    const INSIGHTS_SERVICE_TYPE_AI_AGENT = 7;
 
     private static $valueToName = [
         self::INSIGHTS_SERVICE_TYPE_UNSPECIFIED => 'INSIGHTS_SERVICE_TYPE_UNSPECIFIED',
@@ -49,6 +53,7 @@ class InsightsServiceType
         self::INSIGHTS_SERVICE_TYPE_AI_TEXT_CHAT => 'INSIGHTS_SERVICE_TYPE_AI_TEXT_CHAT',
         self::INSIGHTS_SERVICE_TYPE_CHAT_TRANSLATION => 'INSIGHTS_SERVICE_TYPE_CHAT_TRANSLATION',
         self::INSIGHTS_SERVICE_TYPE_MEETING_SUMMARIZING => 'INSIGHTS_SERVICE_TYPE_MEETING_SUMMARIZING',
+        self::INSIGHTS_SERVICE_TYPE_AI_AGENT => 'INSIGHTS_SERVICE_TYPE_AI_AGENT',
     ];
 
     public static function name($value)

@@ -24,6 +24,16 @@ class RoomArtifactUserInfo extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>optional string name = 2;</code>
      */
     protected $name = null;
+    /**
+     * Generated from protobuf field <code>optional string ex_user_id = 3;</code>
+     */
+    protected $ex_user_id = null;
+    /**
+     * extra_data carries the user's custom metadata as a JSON object.
+     *
+     * Generated from protobuf field <code>optional string extra_data = 4;</code>
+     */
+    protected $extra_data = null;
 
     /**
      * Constructor.
@@ -33,6 +43,9 @@ class RoomArtifactUserInfo extends \Google\Protobuf\Internal\Message
      *
      *     @type string $user_id
      *     @type string $name
+     *     @type string $ex_user_id
+     *     @type string $extra_data
+     *           extra_data carries the user's custom metadata as a JSON object.
      * }
      */
     public function __construct($data = NULL) {
@@ -90,6 +103,74 @@ class RoomArtifactUserInfo extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, true);
         $this->name = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string ex_user_id = 3;</code>
+     * @return string
+     */
+    public function getExUserId()
+    {
+        return isset($this->ex_user_id) ? $this->ex_user_id : '';
+    }
+
+    public function hasExUserId()
+    {
+        return isset($this->ex_user_id);
+    }
+
+    public function clearExUserId()
+    {
+        unset($this->ex_user_id);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string ex_user_id = 3;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setExUserId(string $var)
+    {
+        GPBUtil::checkString($var, true);
+        $this->ex_user_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * extra_data carries the user's custom metadata as a JSON object.
+     *
+     * Generated from protobuf field <code>optional string extra_data = 4;</code>
+     * @return string
+     */
+    public function getExtraData()
+    {
+        return isset($this->extra_data) ? $this->extra_data : '';
+    }
+
+    public function hasExtraData()
+    {
+        return isset($this->extra_data);
+    }
+
+    public function clearExtraData()
+    {
+        unset($this->extra_data);
+    }
+
+    /**
+     * extra_data carries the user's custom metadata as a JSON object.
+     *
+     * Generated from protobuf field <code>optional string extra_data = 4;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setExtraData(string $var)
+    {
+        GPBUtil::checkString($var, true);
+        $this->extra_data = $var;
 
         return $this;
     }

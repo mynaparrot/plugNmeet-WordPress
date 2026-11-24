@@ -71,6 +71,8 @@ class Plugnmeet_Rooms_List_Table extends WP_List_Table {
 			case 'attendee_pass':
 			case 'room_id':
 				return $item[ $column_name ];
+			case 'room_mode':
+				return $this->get_mode_label( $item );
 			case 'published':
 				return $item[ $column_name ] ? __( 'Published', 'plugnmeet' ) : '<span style="color: red;">' . __( 'Unpublished', 'plugnmeet' ) . '</span>';
 			case 'shortcode':
@@ -84,6 +86,7 @@ class Plugnmeet_Rooms_List_Table extends WP_List_Table {
 		$columns = [
 			'id'             => __( 'ID', 'plugnmeet' ),
 			'room_title'     => __( 'Room Title', 'plugnmeet' ),
+			'room_mode'      => __( 'Mode', 'plugnmeet' ),
 			'room_id'        => __( 'Room Id', 'plugnmeet' ),
 			'moderator_pass' => __( 'Moderator Password', 'plugnmeet' ),
 			'attendee_pass'  => __( 'Attendee Password', 'plugnmeet' ),
@@ -109,6 +112,25 @@ class Plugnmeet_Rooms_List_Table extends WP_List_Table {
 		];
 
 		return $title . $this->row_actions( $actions );
+	}
+
+	private function get_mode_label( $item ) {
+		if ( ! class_exists( 'PlugnmeetHelper' ) ) {
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/helper.php';
+		}
+
+		$metadata = ! empty( $item['room_metadata'] ) ? (array) json_decode( $item['room_metadata'], true ) : [];
+
+		if ( 'ai_agent' === PlugnmeetHelper::getRoomMode( $metadata ) ) {
+			return '<span class="pnm-mode-badge pnm-mode-ai_agent">' . __( 'Autonomous AI Agent (1-on-1)', 'plugnmeet' ) . '</span>';
+		}
+
+		$ai_agent = isset( $metadata['insights_features']['ai_agent_features'] ) ? $metadata['insights_features']['ai_agent_features'] : [];
+		if ( ! empty( $ai_agent['is_allow'] ) ) {
+			return '<span class="pnm-mode-badge pnm-mode-conference_ai">' . __( 'Web Conference + AI', 'plugnmeet' ) . '</span>';
+		}
+
+		return '<span class="pnm-mode-badge pnm-mode-conference">' . __( 'Web Conference', 'plugnmeet' ) . '</span>';
 	}
 
 	public function get_sortable_columns() {
