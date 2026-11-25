@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-02 01:49+0000\n"
+"POT-Creation-Date: 2026-11-25 08:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,23 +14,50 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/"
 
-#: admin/class-plugnmeet-settings-page.php:159
+#: admin/class-plugnmeet-settings-page.php:225
 msgid " can't be empty."
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:106
+#: helpers/aiSummaryHelper.php:229
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:25
 msgid "%d min"
 msgstr ""
 
-#: helpers/ajaxHelper.php:625
+#: helpers/helper.php:1426
+msgid "+ Select users"
+msgstr ""
+
+#: public/partials/plugnmeet-public-display.php:57
+msgid "1-on-1 Autonomous AI Session"
+msgstr ""
+
+#: helpers/helper.php:1122
+msgid "1-on-1 Tutor & Concept Explainer"
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:563
+msgid "A controlled AI session needs between 1 and 32 selected users."
+msgstr ""
+
+#: helpers/ajaxHelper.php:705
 msgid "A password is required to join this room."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:139
+msgid ""
+"A short description of the room. Useful for internal notes and for "
+"identifying the session."
+msgstr ""
+
+#: helpers/aiSummaryHelper.php:252
+msgid "Accuracy"
 msgstr ""
 
 #: public/partials/parts/recordings.php:28
 msgid "Action"
 msgstr ""
 
-#: helpers/helper.php:590
+#: helpers/helper.php:672
 msgid "Activate waiting room"
 msgstr ""
 
@@ -38,51 +65,106 @@ msgstr ""
 msgid "Add New"
 msgstr ""
 
-#: helpers/helper.php:231
+#: helpers/helper.php:303
 msgid "Admin only webcams"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:102
+#: helpers/plugnmeet-help-texts.php:171
+msgid ""
+"Advanced option for using your own customized plugNmeet client. The Update "
+"button downloads the client zip from this URL to your server. Only used when "
+"client load is set to Local."
+msgstr ""
+
+#: helpers/aiSummaryHelper.php:225
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:15
 msgid "Agent"
 msgstr ""
 
-#: admin/class-plugnmeet-room-page.php:450
+#: helpers/helper.php:1188
+msgid "Agent display name"
+msgstr ""
+
+#: helpers/helper.php:1201
+msgid "Agent instructions"
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:174
+msgid "AI Agent"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:363
+msgid "AI Agent & 1-on-1 autonomous session"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:601
+msgid "AI Agent & Autonomous Session Settings"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:712
+msgid "AI agent only"
+msgstr ""
+
+#: helpers/ajaxHelper.php:734 admin/class-plugnmeet-room-page.php:293
 msgid "AI Agent Usage"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:118
+#: helpers/helper.php:1189 helpers/helper.php:1519
+#: public/partials/plugnmeet-public-display.php:51
+msgid "AI Assistant"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:38
 msgid "AI Session Report"
 msgstr ""
 
-#: admin/class-plugnmeet-room-page.php:447
+#: helpers/ajaxHelper.php:731 admin/class-plugnmeet-room-page.php:290
 msgid "AI Session Summary"
 msgstr ""
 
-#: admin/class-plugnmeet-room-page.php:453
+#: helpers/ajaxHelper.php:737 admin/class-plugnmeet-room-page.php:296
 msgid "AI Session Transcript"
 msgstr ""
 
-#: helpers/helper.php:960
+#: admin/class-plugnmeet-settings-page.php:713
+msgid "AI text chat only"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:452
+msgid "All roles"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:197
+msgid ""
+"Allow AI agents in rooms and in 1-on-1 autonomous sessions. When disabled, "
+"no room can start an AI agent session."
+msgstr ""
+
+#: helpers/helper.php:1042
 msgid "Allow AI text chat"
 msgstr ""
 
-#: helpers/helper.php:622
+#: helpers/helper.php:704
 msgid "Allow breakout rooms"
 msgstr ""
 
-#: helpers/helper.php:467
+#: helpers/helper.php:549
 msgid "Allow chat"
 msgstr ""
 
-#: helpers/helper.php:927
+#: helpers/helper.php:1332
+msgid "Allow chat messages"
+msgstr ""
+
+#: helpers/helper.php:1009
 msgid "Allow chat translation"
 msgstr ""
 
-#: helpers/helper.php:368
+#: helpers/helper.php:450
 msgid "Allow cloud recording"
 msgstr ""
 
-#: helpers/helper.php:681
+#: helpers/helper.php:763
 msgid "Allow create ingress"
 msgstr ""
 
@@ -90,7 +172,7 @@ msgstr ""
 msgid "Allow Delete <br/>Recordings"
 msgstr ""
 
-#: helpers/helper.php:654
+#: helpers/helper.php:736
 msgid "Allow Display External Link"
 msgstr ""
 
@@ -98,104 +180,240 @@ msgstr ""
 msgid "Allow Download <br/>Recordings"
 msgstr ""
 
-#: helpers/helper.php:425
+#: helpers/helper.php:507
 msgid "Allow External Broadcasting Features"
 msgstr ""
 
-#: helpers/helper.php:563
+#: helpers/helper.php:645
 msgid "Allow external media player"
 msgstr ""
 
-#: helpers/helper.php:482
+#: helpers/helper.php:564
 msgid "Allow file upload"
 msgstr ""
 
-#: helpers/helper.php:398
+#: helpers/helper.php:480
 msgid "Allow local recording"
 msgstr ""
 
-#: helpers/helper.php:977
+#: helpers/helper.php:1059
 msgid "Allow meeting summarization"
+msgstr ""
+
+#: helpers/helper.php:1325
+msgid "Allow notepad writing"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:29
+msgid "Allow participants to raise their hand."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:23
+msgid "Allow participants to see the list of other participants."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:30
+msgid ""
+"Allow participants to send floating reactions (e.g., thumbs up, clap) during "
+"the session."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:21
+msgid "Allow participants to share their screen."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:19
+msgid "Allow participants to use their webcams."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:22
+msgid ""
+"Allow participants to view other participants' webcams. If disabled, they "
+"will only see moderators' webcams."
 msgstr ""
 
 #: admin/partials/form-parts/permission.php:86
 msgid "Allow Play <br/>Recordings"
 msgstr ""
 
-#: helpers/helper.php:708
+#: helpers/helper.php:790 helpers/helper.php:1318
 msgid "Allow polls"
 msgstr ""
 
-#: helpers/helper.php:296
+#: helpers/helper.php:363
 msgid "Allow raise hand"
 msgstr ""
 
-#: helpers/helper.php:311
+#: helpers/helper.php:378
 msgid "Allow reactions"
 msgstr ""
 
-#: helpers/helper.php:353
+#: helpers/helper.php:435
 msgid "Allow recording"
 msgstr ""
 
-#: helpers/helper.php:440
+#: helpers/helper.php:522
 msgid "Allow RTMP broadcasting"
 msgstr ""
 
-#: helpers/helper.php:186
+#: helpers/helper.php:318
 msgid "Allow screen share"
 msgstr ""
 
-#: helpers/helper.php:509
+#: helpers/helper.php:591
 msgid "Allow shared notepad"
 msgstr ""
 
-#: helpers/helper.php:807
+#: helpers/helper.php:889
 msgid "Allow SIP/VoIP dial in"
 msgstr ""
 
-#: helpers/helper.php:910
+#: helpers/helper.php:992
 msgid "Allow speech synthesis"
 msgstr ""
 
-#: helpers/helper.php:880
+#: helpers/helper.php:962
 msgid "Allow transcription"
 msgstr ""
 
-#: helpers/helper.php:895
+#: helpers/helper.php:977
 msgid "Allow translation feature"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:165
+msgid ""
+"Allow users with this role to delete this room's recordings. Not applicable "
+"for guests."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:164
+msgid "Allow users with this role to download this room's recordings."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:163
+msgid "Allow users with this role to play this room's recordings."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:162
+msgid "Allow users with this role to view this room's recordings."
 msgstr ""
 
 #: admin/partials/form-parts/permission.php:85
 msgid "Allow View <br/>Recordings"
 msgstr ""
 
-#: helpers/helper.php:216
+#: helpers/helper.php:333
 msgid "Allow view other users list"
 msgstr ""
 
-#: helpers/helper.php:201
+#: helpers/helper.php:288
 msgid "Allow view other webcams"
 msgstr ""
 
-#: helpers/helper.php:281
+#: helpers/helper.php:348
 msgid "Allow virtual background"
 msgstr ""
 
-#: helpers/helper.php:156
+#: helpers/helper.php:1342
+msgid "Allow web fetch"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:638
+msgid "Allow web fetch globally"
+msgstr ""
+
+#: helpers/helper.php:273
 msgid "Allow webcams"
 msgstr ""
 
-#: helpers/helper.php:536
+#: helpers/helper.php:618
 msgid "Allow whiteboard"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:111 admin/class-plugnmeet-admin.php:143
-#: public/class-plugnmeet-public.php:372
+#: helpers/helper.php:1311
+msgid "Allow whiteboard vision"
+msgstr ""
+
+#: helpers/helper.php:1304
+msgid "Allow whiteboard writing"
+msgstr ""
+
+#: helpers/helper.php:1422
+msgid "Allowed participants"
+msgstr ""
+
+#: helpers/helper.php:1226
+msgid "Allowed subtopics"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:68
+msgid ""
+"Allows moderators to broadcast high-quality video into the session using "
+"external software like OBS via RTMP or WHIP protocols. This is ideal for "
+"sharing high-resolution video content, pre-recorded sessions, or bypassing "
+"browser upload limitations."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:65
+msgid ""
+"Allows moderators to display external content, such as H5P activities, SCORM "
+"packages, or quiz systems (e.g., Kahoot), directly to all participants "
+"during the session."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:54
+msgid ""
+"Allows moderators to sync and play videos from sources like YouTube or Vimeo "
+"for everyone. Ideal for analyzing clips or watching videos together without "
+"bandwidth lag."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:74
+msgid ""
+"Allows participants to join the audio session via a traditional phone call. "
+"This is essential for participants with poor internet connections or those "
+"who need to join while on the go."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:80
+msgid ""
+"Allows participants to manually enter a shared secret key, offering the "
+"highest level of privacy as the server never has access to the encryption "
+"keys. It is the host's responsibility to share the same secret with all "
+"participants; if different keys are used, users will not be able to "
+"communicate with each other. <strong>Note:</strong> When this option is "
+"enabled, features that require server-side media processing (like cloud "
+"recording, transcription, and AI summarization) will be automatically "
+"disabled."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:37
+msgid ""
+"Allows recording directly to the computer. <strong>Note:</strong> Requires "
+"Google Chrome. To capture all session audio, the user must share their "
+"\"Chrome Tab\" and check the \"Also share tab audio\" box. The file is saved "
+"locally to the device once finished."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:87
+msgid ""
+"Allows the live transcript to be translated into different languages, "
+"supporting multilingual sessions."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:142
+msgid ""
+"Any text entered here will appear as the first message in the public chat "
+"when users join the room. This is useful for sharing instructions, links, or "
+"important information with participants as they enter."
+msgstr ""
+
+#: public/class-plugnmeet-public.php:423 admin/class-plugnmeet-admin.php:123
+#: admin/class-plugnmeet-admin.php:172
 msgid "Are you sure to delete?"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:131
+#: admin/class-plugnmeet-admin.php:148
 msgid "Are you sure you want to delete this artifact?"
 msgstr ""
 
@@ -207,66 +425,139 @@ msgstr ""
 msgid "Artifact Details"
 msgstr ""
 
-#: admin/class-plugnmeet-room-page.php:112
+#: admin/class-plugnmeet-room-page.php:193
 #: admin/partials/plugnmeet-admin-display-artifacts.php:37
 msgid "Artifact ID"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:199
-#: admin/class-plugnmeet-rooms-list-table.php:106
+#: admin/class-plugnmeet-admin.php:235
+#: admin/class-plugnmeet-rooms-list-table.php:109
 msgid "Artifacts"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:372
+#: admin/class-plugnmeet-admin.php:418
 msgid "attendee & moderator password can't be same"
 msgstr ""
 
-#: admin/class-plugnmeet-rooms-list-table.php:89
-#: admin/partials/form-parts/basic.php:48
+#: admin/class-plugnmeet-rooms-list-table.php:92
+#: admin/partials/form-parts/basic.php:61
 msgid "Attendee Password"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:315
+#: admin/class-plugnmeet-settings-page.php:397
 msgid "Audio preset"
 msgstr ""
 
-#: helpers/helper.php:326
+#: helpers/helper.php:408
 msgid "Auto generate user ID"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:75
+msgid ""
+"Automatically activate SIP dial-in when the room is created, so participants "
+"can join by phone immediately without a moderator enabling it during the "
+"session."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:92
+msgid ""
+"Automatically generates a concise AI summary after the session ends, "
+"highlighting key points, decisions, and follow-up tasks."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:20
+msgid "Automatically mute all participants when they join the session."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:36
+msgid ""
+"Automatically triggers the cloud recording the moment the first moderator "
+"joins the session. Ideal for ensuring no session is forgotten."
+msgstr ""
+
+#: admin/class-plugnmeet-rooms-list-table.php:125
+#: admin/partials/plugnmeet-admin-edit-room.php:37
+msgid "Autonomous AI Agent (1-on-1)"
 msgstr ""
 
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:24
 msgid "Back to Artifacts"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:428
-#: admin/partials/form-parts/design.php:44
+#: admin/class-plugnmeet-settings-page.php:524
+#: admin/partials/form-parts/design.php:47
 msgid "Background Color"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:437
-#: admin/partials/form-parts/design.php:51
+#: helpers/plugnmeet-help-texts.php:155 helpers/plugnmeet-help-texts.php:190
+msgid "Background color for the bottom toolbar."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:156 helpers/plugnmeet-help-texts.php:191
+msgid ""
+"Background color for the right-side panels (Chat and Participants list)."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:154 helpers/plugnmeet-help-texts.php:189
+msgid "Background color for the top navigation bar."
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:533
+#: admin/partials/form-parts/design.php:55
 msgid "Background Image"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-edit-room.php:34
+#: helpers/plugnmeet-help-texts.php:152 helpers/plugnmeet-help-texts.php:188
+msgid "Background wallpaper. For best results, use a 1920x1080 image."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:209
+msgid ""
+"Base endpoint of the custom AI provider. Leave empty to use the provider "
+"default."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:54
 msgid "Basic"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:81
+msgid "Basic information"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:181
+msgid ""
+"Branding text displayed in the client footer. HTML is supported for links or "
+"custom styling."
 msgstr ""
 
 #: helpers/analyticsHelper.php:371
 msgid "Breakout Room Count"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:255
+#: admin/partials/plugnmeet-admin-edit-room.php:224
+msgid "Breakout rooms"
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:291
 msgid "Can't write file"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-edit-room.php:26
+#: admin/partials/plugnmeet-admin-edit-room.php:46
 #: admin/partials/plugnmeet-admin-display-recordings.php:78
 msgid "Cancel"
 msgstr ""
 
-#: admin/class-plugnmeet-room-page.php:136
+#: helpers/helper.php:1130
+msgid "Candidate Interview & Skill Assessment"
+msgstr ""
+
+#: admin/class-plugnmeet-room-page.php:217
 msgid "Character Count Usage"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:139
+msgid "Chat"
 msgstr ""
 
 #: helpers/analyticsHelper.php:400
@@ -277,23 +568,76 @@ msgstr ""
 msgid "Checking..."
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:455
+#: helpers/plugnmeet-help-texts.php:170
+msgid ""
+"Choose how the meeting client is delivered. Remote (default): the meeting "
+"opens on a standalone page served by this plugin, with the client files "
+"loaded from your plugNmeet server. Local: the client files are served from "
+"this plugin — use the Update button to download them first; useful for "
+"serving your own customized client. Redirect: users are taken directly to "
+"your plugNmeet server's interface and leave your site."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:192
+msgid ""
+"Choose how the room page (login form and recordings) looks. Theme default "
+"(no plugin CSS): your theme's own styling. Clean: a minimal, light design "
+"with an inline login form (name, password and Join button in one line). "
+"Modern: a bolder design using your primary color. The color fields below "
+"apply to the selected design."
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:461
 msgid "Clean"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:231
+#: helpers/helper.php:1427
+msgid "Clear all"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:313
 msgid "Client load"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:223
+#: admin/partials/plugnmeet-admin-edit-room.php:446
+msgid "Close"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:191
+msgid "Collaborative text editor."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:116
+msgid "Collapse all"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:403
+msgid "Colors, logo and background."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:222
+msgid ""
+"Comma separated tool names exposed from MCP server %d. Leave empty to expose "
+"all tools."
+msgstr ""
+
+#: helpers/aiSummaryHelper.php:279
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:220
+msgid "Completion tokens"
+msgstr ""
+
+#: helpers/aiSummaryHelper.php:353
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:152
 msgid "Concept"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:112
+#: helpers/aiSummaryHelper.php:236
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:32
 msgid "Concepts mastered"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:113
+#: helpers/aiSummaryHelper.php:237
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:33
 msgid "Concepts practiced"
 msgstr ""
 
@@ -302,19 +646,37 @@ msgstr ""
 msgid "Confirm Merge"
 msgstr ""
 
+#: helpers/plugnmeet-help-texts.php:218
+msgid "Connect MCP server %d so AI agents and AI text chat can use its tools."
+msgstr ""
+
+#: admin/class-plugnmeet-room-page.php:73
+msgid "Connection details for your plugNmeet server and client delivery."
+msgstr ""
+
 #: helpers/analyticsHelper.php:402
 msgid "Connection Quality"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:362
+#: helpers/helper.php:1160
+msgid "Controlled session for selected users"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:587
 msgid "Copyright text"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:191
+#: helpers/aiSummaryHelper.php:251
+msgid "Correct answers"
+msgstr ""
+
+#: helpers/aiSummaryHelper.php:321
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:120
 msgid "Correct option"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:193
+#: helpers/aiSummaryHelper.php:323
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:122
 msgid "Correct votes"
 msgstr ""
 
@@ -323,53 +685,130 @@ msgid "Created"
 msgstr ""
 
 #: helpers/analyticsHelper.php:238 helpers/analyticsHelper.php:268
-#: admin/class-plugnmeet-room-page.php:115
+#: admin/class-plugnmeet-room-page.php:196
 msgid "Created At"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:401
+#: admin/class-plugnmeet-settings-page.php:667
+msgid "Custom AI provider"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:649
+msgid "Custom AI Provider (BYOK)"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:683
+msgid "Custom API endpoint"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:682
+msgid "Custom API key"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:684
+msgid "Custom authorization header"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:497
 #: admin/partials/form-parts/design.php:23
 msgid "Custom CSS URL"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:344
+#: helpers/helper.php:1110
+msgid "Custom instructions"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:542
 msgid "Custom logo"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-edit-room.php:46
+#: helpers/helper.php:1114
+msgid "Customer Support & Product Specialist"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:621
+msgid "Default AI audio minutes"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:619
+msgid "Default AI session duration (seconds)"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:66
+#: admin/partials/plugnmeet-admin-edit-room.php:383
 msgid "Default lock settings"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:113
-#: admin/class-plugnmeet-rooms-list-table.php:108
-#: public/class-plugnmeet-public.php:375
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:36
+#: admin/class-plugnmeet-room-page.php:74
+msgid "Default technical configurations applied to every new session."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:25
+msgid ""
+"Defines how long the room can stay open, in minutes, before it closes "
+"automatically. Enter 0 for no time limit. This value cannot be changed after "
+"the session has started — the new duration will apply from the next session, "
+"or you can end the current session to apply it immediately."
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:686
+msgid "Delegation model"
+msgstr ""
+
+#: public/class-plugnmeet-public.php:426 admin/class-plugnmeet-admin.php:125
+#: admin/class-plugnmeet-rooms-list-table.php:111
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:40
 msgid "Delete"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:394
-#: admin/partials/plugnmeet-admin-edit-room.php:49
+#: helpers/plugnmeet-help-texts.php:173
+msgid ""
+"Delivers multiple video quality layers to ensure a smooth experience for "
+"users on weak connections. <strong>Note:</strong> Simulcast will be "
+"automatically enabled if using SVC codecs (VP9/AV1) and is required for "
+"multi-codec simulcast."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:69
 msgid "Design Customization"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:354
+#: admin/partials/plugnmeet-admin-edit-room.php:402
+msgid "Design customization"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:579
 msgid "Display copyright text"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:112 public/class-plugnmeet-public.php:374
+#: admin/partials/plugnmeet-admin-edit-room.php:258
+msgid "Display external link"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:180
+msgid "Display the copyright text in the client footer."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:465
+msgid "Done"
+msgstr ""
+
+#: public/class-plugnmeet-public.php:425 admin/class-plugnmeet-admin.php:124
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:28
 msgid "Download"
 msgstr ""
 
 #: admin/partials/plugnmeet-admin-display-artifact-details.php:32
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:36
 msgid "Download Excel"
 msgstr ""
 
-#: helpers/analyticsHelper.php:382
+#: helpers/analyticsHelper.php:382 helpers/aiSummaryHelper.php:229
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:24
 msgid "Duration"
 msgstr ""
 
-#: admin/class-plugnmeet-room-page.php:131
+#: admin/class-plugnmeet-room-page.php:212
 msgid "Duration Usage"
 msgstr ""
 
@@ -377,93 +816,217 @@ msgstr ""
 msgid "E2EE Enabled"
 msgstr ""
 
-#: admin/class-plugnmeet-rooms-list-table.php:105
+#: admin/class-plugnmeet-rooms-list-table.php:108
 msgid "Edit"
 msgstr ""
 
-#: helpers/helper.php:944
+#: admin/class-plugnmeet-settings-page.php:610
+msgid "Enable AI Agent"
+msgstr ""
+
+#: helpers/helper.php:1026
 msgid "Enable AI features"
 msgstr ""
 
-#: helpers/helper.php:266
+#: helpers/helper.php:393
 msgid "Enable analytics"
 msgstr ""
 
-#: helpers/helper.php:383
+#: helpers/helper.php:465
 msgid "Enable auto cloud recording"
 msgstr ""
 
-#: helpers/helper.php:822
+#: admin/class-plugnmeet-settings-page.php:658
+msgid "Enable custom AI provider"
+msgstr ""
+
+#: helpers/helper.php:904
 msgid "Enable dial in on create"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:262
+#: admin/class-plugnmeet-settings-page.php:344
 msgid "Enable Dynacast"
 msgstr ""
 
-#: helpers/helper.php:765
+#: helpers/helper.php:847
 msgid "Enable encryption for chat"
 msgstr ""
 
-#: helpers/helper.php:780
+#: helpers/helper.php:862
 msgid "Enable encryption for whiteboard"
 msgstr ""
 
-#: helpers/helper.php:735
+#: helpers/helper.php:817
 msgid "Enable End-To-End Encryption (E2EE)"
 msgstr ""
 
-#: helpers/helper.php:864
+#: helpers/helper.php:946
 msgid "Enable insights features"
 msgstr ""
 
-#: helpers/helper.php:750
+#: helpers/helper.php:1211
+msgid "Enable MCP servers"
+msgstr ""
+
+#: helpers/helper.php:832
 msgid "Enable self insert key"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:271
+#: admin/class-plugnmeet-settings-page.php:353
 msgid "Enable Simulcast"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:108
+#: helpers/plugnmeet-help-texts.php:57
+msgid "Enable the waiting room for this session."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:48
+msgid ""
+"Enables a collaborative text editor where participants and moderators can "
+"take real-time notes together. This is perfect for brainstorming, co-writing,"
+" or building a shared summary."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:41
+msgid ""
+"Enables moderators to broadcast the live session to external platforms like "
+"YouTube, Facebook, or Twitch. Perfect for public webinars or guest lectures."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:71
+msgid ""
+"Enables moderators to create interactive polls and quick quizzes during the "
+"session. This is a great way to check participant understanding and increase "
+"engagement."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:61
+msgid ""
+"Enables moderators to split participants into smaller groups for focused "
+"discussions, collaborative projects, or private group activities."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:28
+msgid ""
+"Enables participants to blur their background or use a virtual image. Great "
+"for maintaining privacy and ensuring a professional appearance."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:86
+msgid ""
+"Enables real-time speech-to-text during the session. This must be enabled "
+"for transcription translation or speech synthesis (TTS) to work."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:89
+msgid ""
+"Enables real-time translation of chat messages, allowing participants to "
+"communicate instantly across different languages."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:35
+msgid ""
+"Enables recording on the PlugNmeet server. The final video is processed and "
+"stored in the cloud, making it easy to share via a link once the session "
+"ends."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:88
+msgid ""
+"Enables Text-to-Speech, allowing the live transcript to be read aloud for "
+"better accessibility and for visually impaired participants."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:45
+msgid ""
+"Enables the ability to share files within the chat. This requires the chat "
+"feature to be active."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:327
+msgid "Encrypt media streams between participants."
+msgstr ""
+
+#: helpers/aiSummaryHelper.php:231
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:19
 msgid "End reason"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:105
+#: admin/partials/plugnmeet-admin-edit-room.php:326
+msgid "End-to-end encryption"
+msgstr ""
+
+#: helpers/aiSummaryHelper.php:228
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:18
 msgid "Ended at"
 msgstr ""
 
-#: public/partials/parts/login-form.php:35
+#: helpers/plugnmeet-help-texts.php:114
+msgid ""
+"Ends the AI session automatically after this many seconds. Cannot be higher "
+"than the site-wide maximum AI session duration."
+msgstr ""
+
+#: public/partials/parts/login-form.php:44
 msgid "Enter room password"
 msgstr ""
 
-#: public/partials/parts/login-form.php:27
+#: public/partials/parts/login-form.php:36
 msgid "Enter your name"
 msgstr ""
 
-#: admin/class-plugnmeet-room-page.php:127
-#: admin/class-plugnmeet-room-page.php:132
-#: admin/class-plugnmeet-room-page.php:137
+#: admin/class-plugnmeet-room-page.php:208
+#: admin/class-plugnmeet-room-page.php:213
+#: admin/class-plugnmeet-room-page.php:218
 msgid "Estimated Cost"
+msgstr ""
+
+#: helpers/aiSummaryHelper.php:281
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:222
+msgid "Estimated cost"
 msgstr ""
 
 #: helpers/analyticsHelper.php:408
 msgid "Excellent"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-edit-room.php:114
+msgid "Expand all"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:81
+msgid ""
+"Extends end-to-end encryption to text chat, ensuring messages are only "
+"readable by participants in the room."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:275
+msgid "External broadcasting"
+msgstr ""
+
 #: helpers/analyticsHelper.php:369
 msgid "External Display Link Status Count"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:241
+msgid "External media player"
 msgstr ""
 
 #: helpers/analyticsHelper.php:367
 msgid "External Media Player Status Count"
 msgstr ""
 
+#: helpers/plugnmeet-help-texts.php:93
+msgid ""
+"Extra instructions for the AI that writes the meeting summary. Leave empty "
+"to use the default summary."
+msgstr ""
+
 #: helpers/analyticsHelper.php:267
 msgid "File Name"
 msgstr ""
 
-#: admin/class-plugnmeet-room-page.php:121
+#: admin/class-plugnmeet-room-page.php:202
 msgid "File Size"
 msgstr ""
 
@@ -472,34 +1035,107 @@ msgstr ""
 msgid "File size (MB)"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:262
+#: helpers/plugnmeet-help-texts.php:100
+msgid ""
+"Fills in the agent instructions with a ready-made prompt for common "
+"scenarios. Choose Custom instructions to write your own. Changing the preset "
+"replaces the instructions that are currently written."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:191
 msgid "Focus"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:455
-#: admin/partials/form-parts/design.php:82
+#: admin/class-plugnmeet-settings-page.php:560
+#: admin/partials/form-parts/design.php:89
 msgid "Footer Color"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:440
+#: helpers/helper.php:1233
+msgid "Forbidden topics"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:446
 msgid "Frontend design"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:447
+#: admin/class-plugnmeet-settings-page.php:453
 msgid "Frontend theme"
+msgstr ""
+
+#: admin/class-plugnmeet-room-page.php:76
+msgid ""
+"Global defaults for the meeting client. Rooms can override the design and "
+"logo from their Design tab; copyright is always global."
+msgstr ""
+
+#: admin/class-plugnmeet-room-page.php:77
+msgid ""
+"Global limits and defaults for AI agents in web conferences and 1-on-1 "
+"autonomous sessions."
 msgstr ""
 
 #: helpers/analyticsHelper.php:409
 msgid "Good"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:446
-#: admin/partials/form-parts/design.php:75
+#: admin/class-plugnmeet-settings-page.php:674
+msgid "Google Gemini"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:551
+#: admin/partials/form-parts/design.php:81
 msgid "Header Color"
 msgstr ""
 
-#: helpers/helper.php:837
+#: helpers/helper.php:919
 msgid "Hide phone number"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:76
+msgid ""
+"Hide the phone numbers of participants who joined via SIP dial-in from the "
+"participants list and chat."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:157
+msgid "Hold participants until admitted."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:113
+msgid ""
+"How fast the AI agent speaks, from 0.5 (slow) to 2.0 (fast). 1.0 is the "
+"normal speed."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:98
+msgid ""
+"How many AI sessions may run at the same time in this room. Cannot be higher "
+"than the site-wide maximum concurrent AI sessions."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:108
+msgid ""
+"How often, in conversation turns, the AI agent restates the session topic to "
+"keep the conversation focused. Lower values keep the session tighter, higher "
+"values feel less repetitive."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:103
+msgid ""
+"How the AI agent should behave, what it covers and how it should guide "
+"participants. This is the main instruction the agent follows during the "
+"session."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:145
+msgid ""
+"How this room runs. Live web conference is a standard room where "
+"participants join and an AI agent can take part once it is enabled under the "
+"AI agent card. Autonomous AI agent turns the room into a 1-on-1 session "
+"between the AI agent and one participant at a time, so the meeting features "
+"and lock settings of a conference are not used. With AI agent mode, the "
+"participant limit does not apply either."
 msgstr ""
 
 #. URI of the plugin
@@ -510,16 +1146,57 @@ msgstr ""
 msgid "https://www.mynaparrot.com/"
 msgstr ""
 
-#: admin/class-plugnmeet-rooms-list-table.php:85
+#: admin/class-plugnmeet-rooms-list-table.php:87
 msgid "ID"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:82
+msgid ""
+"Includes all whiteboard drawings and annotations in the end-to-end "
+"encryption layer for total data privacy."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:292
+msgid "Ingress"
 msgstr ""
 
 #: helpers/analyticsHelper.php:370
 msgid "Ingress Created Count"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-edit-room.php:43
+#: admin/partials/plugnmeet-admin-edit-room.php:345
+msgid "Insights & AI meeting tools"
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:173
+#: admin/partials/plugnmeet-admin-edit-room.php:63
 msgid "Insights AI"
+msgstr ""
+
+#: helpers/helper.php:1274
+msgid "Instructions language"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:364
+msgid "Instructions, guardrails and limits for the AI agent."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:91
+msgid ""
+"Integrates an AI assistant directly into the chat to help answer questions, "
+"explain complex concepts, and facilitate discussion."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:208
+msgid "Interactive drawing and annotation space."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:174
+msgid "Interactive polls and quizzes."
+msgstr ""
+
+#: helpers/helper.php:1118
+msgid "Interactive Product Demo & Onboarding Guide"
 msgstr ""
 
 #: helpers/analyticsHelper.php:401
@@ -534,8 +1211,8 @@ msgstr ""
 msgid "Jibon L. Costa <jibon@mynaparrot.com>"
 msgstr ""
 
-#: admin/class-plugnmeet-rooms-list-table.php:104
-#: public/partials/parts/login-form.php:46
+#: admin/class-plugnmeet-rooms-list-table.php:107
+#: public/partials/parts/login-form.php:55
 msgid "Join"
 msgstr ""
 
@@ -547,85 +1224,297 @@ msgstr ""
 msgid "Join as <br/>Moderator"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-edit-room.php:310
+msgid "Join the audio by phone call."
+msgstr ""
+
 #: helpers/analyticsHelper.php:383
 msgid "Joined At"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:115
+#: helpers/aiSummaryHelper.php:239
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:35
 msgid "Key terms"
+msgstr ""
+
+#: helpers/helper.php:1349
+msgid "Knowledge URLs"
+msgstr ""
+
+#: helpers/helper.php:1126
+msgid "Language & Communication Coach"
+msgstr ""
+
+#: helpers/helper.php:1257
+msgid "Language & voice"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:109
+msgid ""
+"Language the AI agent listens to, as a code such as en-US. Leave empty to "
+"let the agent follow the participant."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:110
+msgid ""
+"Language the AI agent replies and speaks in, for example es-ES. Leave empty "
+"to reply in the participant's language."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:111
+msgid ""
+"Language the instructions in this form are written in, for example en-US. "
+"Leave empty to detect it automatically."
 msgstr ""
 
 #: helpers/analyticsHelper.php:384
 msgid "Left At"
 msgstr ""
 
-#: public/class-plugnmeet-public.php:376
+#: helpers/plugnmeet-help-texts.php:118
+msgid "Lets the AI agent create polls during the session."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:116
+msgid "Lets the AI agent draw and write on the shared whiteboard."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:121
+msgid ""
+"Lets the AI agent fetch content from the web. Only available when web fetch "
+"is allowed site-wide."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:120
+msgid "Lets the AI agent post messages in the chat."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:117
+msgid ""
+"Lets the AI agent see the whiteboard so it can read and comment on what "
+"participants draw."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:104
+msgid ""
+"Lets the AI agent use the MCP tool servers that are enabled in the plugin "
+"settings. Disable this to keep the agent limited to the built-in workspace "
+"tools."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:119
+msgid "Lets the AI agent write in the shared notepad."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:148 helpers/plugnmeet-help-texts.php:184
+msgid ""
+"Link an external .css file to overwrite or customize the interface styles."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:32
+msgid "Live Web Conference"
+msgstr ""
+
+#: public/class-plugnmeet-public.php:427
 #: public/partials/parts/recordings.php:33
 msgid "Loading..."
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:240
+#: admin/class-plugnmeet-settings-page.php:322
 msgid "Local client download url"
 msgstr ""
 
-#: helpers/helper.php:1081
+#: helpers/helper.php:1800
 msgid "Lock chat"
 msgstr ""
 
-#: helpers/helper.php:1111
+#: helpers/helper.php:1830
 msgid "Lock chat file share"
 msgstr ""
 
-#: helpers/helper.php:1096
+#: helpers/helper.php:1815
 msgid "Lock chat send message"
 msgstr ""
 
-#: helpers/helper.php:1006
+#: helpers/plugnmeet-help-texts.php:132
+msgid ""
+"Lock file sharing in chat for participants. They cannot share files in the "
+"chat until a moderator unlocks it."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:131
+msgid ""
+"Lock message sending for participants. They can still read the chat but "
+"cannot send messages until a moderator unlocks it."
+msgstr ""
+
+#: helpers/helper.php:1725
 msgid "Lock microphone"
 msgstr ""
 
-#: helpers/helper.php:1126
+#: helpers/helper.php:1845
 msgid "Lock private chat"
 msgstr ""
 
-#: helpers/helper.php:1141
+#: helpers/plugnmeet-help-texts.php:133
+msgid ""
+"Lock private chat for participants. They cannot send private messages to "
+"other participants until a moderator unlocks it. They can still send private "
+"messages to moderators."
+msgstr ""
+
+#: helpers/helper.php:1860
 msgid "Lock reactions"
 msgstr ""
 
-#: helpers/helper.php:1036
+#: helpers/plugnmeet-help-texts.php:134
+msgid ""
+"Lock reactions for participants. They cannot send reactions until a "
+"moderator unlocks it."
+msgstr ""
+
+#: helpers/helper.php:1755
 msgid "Lock screen sharing"
 msgstr ""
 
-#: helpers/helper.php:1066
+#: helpers/plugnmeet-help-texts.php:127
+msgid ""
+"Lock screen sharing for participants. They cannot share their screen until a "
+"moderator unlocks it."
+msgstr ""
+
+#: helpers/helper.php:1785
 msgid "Lock shared notepad"
 msgstr ""
 
-#: helpers/helper.php:1021
+#: helpers/plugnmeet-help-texts.php:130
+msgid ""
+"Lock the chat for participants. They cannot use the chat until a moderator "
+"unlocks it."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:125
+msgid ""
+"Lock the microphone for participants. They cannot turn on or use their "
+"microphone until a moderator unlocks it."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:129
+msgid ""
+"Lock the shared notepad for participants. They cannot write in the shared "
+"notepad until a moderator unlocks it."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:126
+msgid ""
+"Lock the webcam for participants. They cannot share their camera until a "
+"moderator unlocks it."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:128
+msgid ""
+"Lock the whiteboard for participants. They cannot draw or annotate on the "
+"whiteboard until a moderator unlocks it."
+msgstr ""
+
+#: helpers/helper.php:1740
 msgid "Lock webcam"
 msgstr ""
 
-#: helpers/helper.php:1051
+#: helpers/helper.php:1770
 msgid "Lock whiteboard"
 msgstr ""
 
-#: admin/partials/form-parts/design.php:63
+#: admin/partials/form-parts/design.php:68
 msgid "Logo"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:198
+#: helpers/plugnmeet-help-texts.php:149 helpers/plugnmeet-help-texts.php:185
+msgid "Main accent color used for buttons, active states, and highlights."
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:234
 msgid "Manage artifacts"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:188
+#: admin/class-plugnmeet-admin.php:224
 msgid "Manage recordings"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:178
+#: admin/class-plugnmeet-admin.php:214
 msgid "Manage Rooms"
 msgstr ""
 
-#: admin/partials/form-parts/basic.php:58
+#: helpers/plugnmeet-help-texts.php:203
+msgid ""
+"Master switch for letting the AI agent fetch content from the web. When "
+"disabled, rooms cannot enable it."
+msgstr ""
+
+#: helpers/aiSummaryHelper.php:234
+msgid "Mastery level"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:622
+msgid "Maximum AI audio minutes"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:620
+msgid "Maximum AI session duration (seconds)"
+msgstr ""
+
+#: helpers/helper.php:1372
+msgid "Maximum audio minutes"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:115
+msgid ""
+"Maximum audio minutes an AI session can use in this room. Cannot be higher "
+"than the site-wide maximum AI audio minutes."
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:618
+msgid "Maximum concurrent AI sessions"
+msgstr ""
+
+#: helpers/helper.php:1168
+msgid "Maximum concurrent sessions"
+msgstr ""
+
+#: admin/partials/form-parts/basic.php:74
 msgid "Maximum participants"
+msgstr ""
+
+#: helpers/helper.php:1364
+msgid "Maximum session duration (seconds)"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:761
+msgid "MCP server %d allowed tools"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:720
+msgid "MCP server %d enabled"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:747
+msgid "MCP server %d headers"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:729
+msgid "MCP server %d name"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:770
+msgid "MCP server %d scope"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:738
+msgid "MCP server %d URL"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:705
+msgid "MCP Servers"
 msgstr ""
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:50
@@ -633,7 +1522,7 @@ msgstr ""
 msgid "Meeting date"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:92
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:96
 msgid "Meeting Summary"
 msgstr ""
 
@@ -653,32 +1542,37 @@ msgstr ""
 msgid "Mic Status Changes"
 msgstr ""
 
-#: admin/class-plugnmeet-room-page.php:122
+#: admin/class-plugnmeet-room-page.php:203
 msgid "MIME Type"
 msgstr ""
 
-#: helpers/helper.php:251
+#: admin/class-plugnmeet-rooms-list-table.php:89
+msgid "Mode"
+msgstr ""
+
+#: helpers/helper.php:243
 msgid "Moderator join first"
 msgstr ""
 
-#: admin/class-plugnmeet-rooms-list-table.php:88
-#: admin/partials/form-parts/basic.php:43
+#: admin/class-plugnmeet-rooms-list-table.php:91
+#: admin/partials/form-parts/basic.php:54
 msgid "Moderator Password"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:456
+#: admin/class-plugnmeet-settings-page.php:462
 msgid "Modern"
 msgstr ""
 
-#: helpers/helper.php:171
+#: helpers/helper.php:258
 msgid "Mute on start"
 msgstr ""
 
-#: helpers/analyticsHelper.php:377 public/partials/parts/login-form.php:24
+#: helpers/analyticsHelper.php:377 public/partials/parts/login-form.php:33
 msgid "Name"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:154
+#: helpers/aiSummaryHelper.php:240
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:83
 msgid "Narrative summary"
 msgstr ""
 
@@ -686,42 +1580,50 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:260
+#: helpers/aiSummaryHelper.php:242
+msgid "Next session focus"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:189
 msgid "Next session plan"
 msgstr ""
 
-#: helpers/helper.php:163 helpers/helper.php:178 helpers/helper.php:193
-#: helpers/helper.php:208 helpers/helper.php:223 helpers/helper.php:238
-#: helpers/helper.php:258 helpers/helper.php:273 helpers/helper.php:288
-#: helpers/helper.php:303 helpers/helper.php:318 helpers/helper.php:333
-#: helpers/helper.php:360 helpers/helper.php:375 helpers/helper.php:390
-#: helpers/helper.php:405 helpers/helper.php:432 helpers/helper.php:447
-#: helpers/helper.php:474 helpers/helper.php:489 helpers/helper.php:516
-#: helpers/helper.php:543 helpers/helper.php:570 helpers/helper.php:597
-#: helpers/helper.php:629 helpers/helper.php:661 helpers/helper.php:688
-#: helpers/helper.php:715 helpers/helper.php:742 helpers/helper.php:757
-#: helpers/helper.php:772 helpers/helper.php:787 helpers/helper.php:814
-#: helpers/helper.php:829 helpers/helper.php:844 helpers/helper.php:871
-#: helpers/helper.php:887 helpers/helper.php:902 helpers/helper.php:917
-#: helpers/helper.php:934 helpers/helper.php:951 helpers/helper.php:967
-#: helpers/helper.php:984 helpers/helper.php:1013 helpers/helper.php:1028
-#: helpers/helper.php:1043 helpers/helper.php:1058 helpers/helper.php:1073
-#: helpers/helper.php:1088 helpers/helper.php:1103 helpers/helper.php:1118
-#: helpers/helper.php:1133 helpers/helper.php:1148
 #: helpers/analyticsHelper.php:106 helpers/analyticsHelper.php:122
 #: helpers/analyticsHelper.php:288 helpers/analyticsHelper.php:326
+#: helpers/helper.php:250 helpers/helper.php:265 helpers/helper.php:280
+#: helpers/helper.php:295 helpers/helper.php:310 helpers/helper.php:325
+#: helpers/helper.php:340 helpers/helper.php:355 helpers/helper.php:370
+#: helpers/helper.php:385 helpers/helper.php:400 helpers/helper.php:415
+#: helpers/helper.php:442 helpers/helper.php:457 helpers/helper.php:472
+#: helpers/helper.php:487 helpers/helper.php:514 helpers/helper.php:529
+#: helpers/helper.php:556 helpers/helper.php:571 helpers/helper.php:598
+#: helpers/helper.php:625 helpers/helper.php:652 helpers/helper.php:679
+#: helpers/helper.php:711 helpers/helper.php:743 helpers/helper.php:770
+#: helpers/helper.php:797 helpers/helper.php:824 helpers/helper.php:839
+#: helpers/helper.php:854 helpers/helper.php:869 helpers/helper.php:896
+#: helpers/helper.php:911 helpers/helper.php:926 helpers/helper.php:953
+#: helpers/helper.php:969 helpers/helper.php:984 helpers/helper.php:999
+#: helpers/helper.php:1016 helpers/helper.php:1033 helpers/helper.php:1049
+#: helpers/helper.php:1066 helpers/helper.php:1387 helpers/helper.php:1732
+#: helpers/helper.php:1747 helpers/helper.php:1762 helpers/helper.php:1777
+#: helpers/helper.php:1792 helpers/helper.php:1807 helpers/helper.php:1822
+#: helpers/helper.php:1837 helpers/helper.php:1852 helpers/helper.php:1867
+#: helpers/aiSummaryHelper.php:337 admin/class-plugnmeet-settings-page.php:606
+#: admin/class-plugnmeet-settings-page.php:654
+#: admin/class-plugnmeet-settings-page.php:710
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:137
 msgid "No"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:479
+#: admin/class-plugnmeet-admin.php:618
 msgid "No id was sent"
 msgstr ""
 
-#: public/class-plugnmeet-public.php:371
+#: public/class-plugnmeet-public.php:422
 msgid "No recordings found"
 msgstr ""
 
-#: public/class-plugnmeet-public.php:334
+#: public/class-plugnmeet-public.php:361
 msgid "no room found"
 msgstr ""
 
@@ -729,67 +1631,143 @@ msgstr ""
 msgid "No rooms found."
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:245
+#: admin/class-plugnmeet-admin.php:178
+msgid "No users found."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:174
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:178
 msgid "Not used"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:176
+msgid "Notepad"
 msgstr ""
 
 #: helpers/analyticsHelper.php:368
 msgid "Notepad Status Count"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:225
+#: helpers/aiSummaryHelper.php:353
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:154
 msgid "Notes"
 msgstr ""
 
-#: helpers/helper.php:637
+#: helpers/helper.php:719
 msgid "Number of rooms"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:109
+#: helpers/aiSummaryHelper.php:232
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:20
 msgid "Off-topic redirects"
 msgstr ""
 
-#: helpers/analyticsHelper.php:237 admin/class-plugnmeet-settings-page.php:255
+#: helpers/plugnmeet-help-texts.php:24
+msgid "Only allow moderators to use their webcams."
+msgstr ""
+
+#: helpers/helper.php:1159
+msgid "Open session for each user"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:97
+msgid ""
+"Open session gives every participant their own AI session, up to the "
+"concurrent session limit. Controlled session runs one AI session and only "
+"the users you select below can start it."
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:675
+msgid "OpenAI / Compatible"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:172
+msgid ""
+"Optimizes performance by dynamically pausing video layers that are not being "
+"viewed by participants. This significantly reduces server-side CPU and "
+"bandwidth usage."
+msgstr ""
+
+#: admin/class-plugnmeet-room-page.php:78
+msgid ""
+"Optional custom API credentials and model overrides for AI agent sessions."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:210
+msgid ""
+"Optional header format used to send the API key, for example Bearer {key}. "
+"Leave empty to use the provider default."
+msgstr ""
+
+#: admin/class-plugnmeet-room-page.php:79
+msgid ""
+"Optional Model Context Protocol (MCP) tool servers available to AI agents "
+"and AI text chat."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:221
+msgid ""
+"Optional request headers for MCP server %d as a JSON object, for example "
+"{\"Authorization\": \"Bearer YOUR_TOKEN\"}."
+msgstr ""
+
+#: helpers/analyticsHelper.php:237 admin/class-plugnmeet-settings-page.php:337
 msgid "Options"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-edit-room.php:40
+#: admin/partials/plugnmeet-admin-edit-room.php:60
 msgid "Other features"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:133
+#: helpers/aiSummaryHelper.php:233
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:53
 msgid "Overall score"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:115 admin/class-plugnmeet-admin.php:133
+#: helpers/aiSummaryHelper.php:218
+msgid "Overview"
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:127 admin/class-plugnmeet-admin.php:150
 msgid "Page"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:128
+#: helpers/aiSummaryHelper.php:235
+msgid "Participation"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:48
+#, php-format
 msgid "Participation: %s"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:194
+#: helpers/aiSummaryHelper.php:324
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:123
 msgid "Passed"
 msgstr ""
 
-#: public/partials/parts/login-form.php:33
+#: public/partials/parts/login-form.php:42
 msgid "Password"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-edit-room.php:52
+#: admin/partials/plugnmeet-admin-edit-room.php:72
+#: admin/partials/plugnmeet-admin-edit-room.php:421
 msgid "Permission"
 msgstr ""
 
-#: public/class-plugnmeet-public.php:373
+#: public/class-plugnmeet-public.php:424
 msgid "Play"
 msgstr ""
 
-#: helpers/ajaxHelper.php:443
+#: admin/partials/plugnmeet-admin-edit-room.php:242
+msgid "Play external videos in sync for everyone."
+msgstr ""
+
+#: helpers/ajaxHelper.php:489
 msgid "Please enter your name to join the meeting."
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:167 admin/class-plugnmeet-admin.php:168
+#: admin/class-plugnmeet-admin.php:203 admin/class-plugnmeet-admin.php:204
 msgid "Plug-N-Meet"
 msgstr ""
 
@@ -801,23 +1779,24 @@ msgstr ""
 msgid "Plug-N-Meet web conference integration with WordPress"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:208
+#: admin/class-plugnmeet-settings-page.php:290
 msgid "plugNmeet API Key"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:484
+#: admin/class-plugnmeet-settings-page.php:490
 msgid "plugNmeet Client design"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:217
+#: admin/class-plugnmeet-settings-page.php:299
 msgid "plugNmeet Secret"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:199
+#: admin/class-plugnmeet-settings-page.php:281
 msgid "plugNmeet Server URL"
 msgstr ""
 
 #: helpers/analyticsHelper.php:230
+#: admin/partials/plugnmeet-admin-edit-room.php:173
 msgid "Polls"
 msgstr ""
 
@@ -829,12 +1808,25 @@ msgstr ""
 msgid "Pre"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:279
+#: helpers/plugnmeet-help-texts.php:199
+msgid "Pre-filled maximum AI session duration, in seconds, for new rooms."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:201
+msgid "Pre-filled maximum audio minutes for AI sessions in new rooms."
+msgstr ""
+
+#: helpers/helper.php:1181
+msgid "Preset instructions"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:208
 msgid "Previous session context"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:410
-#: admin/partials/form-parts/design.php:30
+#: admin/class-plugnmeet-settings-page.php:470
+#: admin/class-plugnmeet-settings-page.php:506
+#: admin/partials/form-parts/design.php:31
 msgid "Primary Color"
 msgstr ""
 
@@ -842,27 +1834,67 @@ msgstr ""
 msgid "Private Chat Messages"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:219
+#: helpers/aiSummaryHelper.php:348
+msgid "Progress Log"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:148
 msgid "Progress log"
+msgstr ""
+
+#: helpers/aiSummaryHelper.php:278
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:219
+msgid "Prompt tokens"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:79
+msgid ""
+"Provides strong security by encrypting video and audio streams between "
+"participants. In this mode, the server generates and securely distributes a "
+"unique encryption key for the session."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:140
+msgid "Public chat and file sharing."
 msgstr ""
 
 #: helpers/analyticsHelper.php:398
 msgid "Public Chat Messages"
 msgstr ""
 
-#: admin/class-plugnmeet-rooms-list-table.php:75
+#: helpers/helper.php:1888 admin/class-plugnmeet-rooms-list-table.php:77
 msgid "Published"
 msgstr ""
 
-#: helpers/analyticsHelper.php:236
+#: helpers/plugnmeet-help-texts.php:144
+msgid ""
+"Published rooms are available to users on the room page. Unpublished rooms "
+"stay hidden until you publish them again."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:293
+msgid "Push high-quality streams via OBS/RTMP/WHIP."
+msgstr ""
+
+#: helpers/analyticsHelper.php:236 helpers/aiSummaryHelper.php:320
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:119
 msgid "Question"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:175
+#: helpers/aiSummaryHelper.php:312
+msgid "Quiz"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:104
 msgid "Quiz evaluation"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:179
+#: helpers/aiSummaryHelper.php:250
+msgid "Quizzes"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:108
+#, php-format
 msgid "Quizzes: %1$d · Correct answers: %2$d · Accuracy: %3$d%%"
 msgstr ""
 
@@ -870,8 +1902,20 @@ msgstr ""
 msgid "Raise Hand Count"
 msgstr ""
 
+#: admin/class-plugnmeet-settings-page.php:685
+msgid "Realtime model"
+msgstr ""
+
 #: admin/partials/plugnmeet-admin-display-recordings.php:44
 msgid "Record Id"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:123
+msgid "Record on the server or locally."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:122
+msgid "Recording"
 msgstr ""
 
 #: admin/partials/plugnmeet-admin-display-recordings.php:47
@@ -883,13 +1927,13 @@ msgstr ""
 msgid "Recording Status Count"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:189
-#: admin/class-plugnmeet-rooms-list-table.php:107
+#: admin/class-plugnmeet-admin.php:225
+#: admin/class-plugnmeet-rooms-list-table.php:110
 #: public/partials/parts/recordings.php:20
 msgid "Recordings"
 msgstr ""
 
-#: helpers/ajaxHelper.php:551
+#: helpers/ajaxHelper.php:631
 msgid "Redirecting you to the meeting..."
 msgstr ""
 
@@ -897,10 +1941,30 @@ msgstr ""
 msgid "Redirecting..."
 msgstr ""
 
+#: helpers/helper.php:1414 admin/class-plugnmeet-admin.php:179
+msgid "Remove user"
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:175
+msgid "Replace the current agent instructions with the selected preset?"
+msgstr ""
+
+#: helpers/helper.php:1267
+msgid "Reply language"
+msgstr ""
+
 #: admin/partials/form-parts/permission.php:84
 msgid "Require <br/> Password"
 msgstr ""
 
+#: helpers/plugnmeet-help-texts.php:161
+msgid ""
+"Require users with this role to enter a password before joining, depending "
+"on their join mode."
+msgstr ""
+
+#: helpers/aiSummaryHelper.php:277
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:218
 #: admin/partials/form-parts/permission.php:81
 msgid "Role"
 msgstr ""
@@ -909,7 +1973,11 @@ msgstr ""
 msgid "Room"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:54
+#: admin/partials/plugnmeet-admin-edit-room.php:422
+msgid "Room access per WordPress role."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:58
 msgid "Room Analytics"
 msgstr ""
 
@@ -917,11 +1985,11 @@ msgstr ""
 msgid "Room Creation Time"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:499
+#: admin/class-plugnmeet-admin.php:638
 msgid "Room deleted successfully"
 msgstr ""
 
-#: admin/partials/form-parts/basic.php:39
+#: admin/partials/form-parts/basic.php:48
 msgid "Room description"
 msgstr ""
 
@@ -929,7 +1997,7 @@ msgstr ""
 msgid "Room Duration"
 msgstr ""
 
-#: helpers/helper.php:246
+#: helpers/helper.php:238
 msgid "Room duration"
 msgstr ""
 
@@ -937,20 +2005,21 @@ msgstr ""
 msgid "Room Ended Time"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-edit-room.php:37
+#: admin/partials/plugnmeet-admin-edit-room.php:57
+#: admin/partials/plugnmeet-admin-edit-room.php:96
 msgid "Room features"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:374
+#: admin/class-plugnmeet-settings-page.php:426
 msgid "Room Host Page"
 msgstr ""
 
-#: helpers/analyticsHelper.php:357 admin/class-plugnmeet-room-page.php:113
+#: helpers/analyticsHelper.php:357 admin/class-plugnmeet-room-page.php:194
 msgid "Room ID"
 msgstr ""
 
-#: admin/class-plugnmeet-rooms-list-table.php:87
-#: admin/partials/form-parts/basic.php:23
+#: admin/class-plugnmeet-rooms-list-table.php:90
+#: admin/partials/form-parts/basic.php:29
 msgid "Room Id"
 msgstr ""
 
@@ -958,32 +2027,40 @@ msgstr ""
 msgid "room Id is missing"
 msgstr ""
 
-#: public/class-plugnmeet-public.php:317
+#: public/class-plugnmeet-public.php:344
 msgid "Room ID not provided for the shortcode."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:82
+msgid "Room identity, passwords and welcome message."
 msgstr ""
 
 #: helpers/analyticsHelper.php:176
 msgid "Room Info"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:383
+#: admin/partials/plugnmeet-admin-edit-room.php:26
+msgid "Room mode"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:435
 msgid "Room Slug Path"
 msgstr ""
 
-#: helpers/helper.php:1178
+#: helpers/helper.php:1897
 msgid "Room Status"
 msgstr ""
 
 #: helpers/analyticsHelper.php:358
-#: admin/class-plugnmeet-rooms-list-table.php:86
+#: admin/class-plugnmeet-rooms-list-table.php:88
 msgid "Room Title"
 msgstr ""
 
-#: admin/partials/form-parts/basic.php:34
+#: admin/partials/form-parts/basic.php:41
 msgid "Room title"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:179
+#: admin/class-plugnmeet-admin.php:215
 #: admin/class-plugnmeet-rooms-list-table.php:24
 #: admin/partials/plugnmeet-admin-display-rooms.php:21
 msgid "Rooms"
@@ -993,15 +2070,27 @@ msgstr ""
 msgid "RTMP Status Count"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:159
+#: helpers/aiSummaryHelper.php:241
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:88
 msgid "Rubric notes"
+msgstr ""
+
+#: helpers/helper.php:1150
+msgid "Run AI agent in this room"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:96
+msgid ""
+"Runs an AI agent in this room. The agent takes part in the conversation and "
+"follows the limits and instructions set below. In AI agent room mode the "
+"agent always runs, so this option is not shown."
 msgstr ""
 
 #: helpers/analyticsHelper.php:396
 msgid "Screen Share Status Changes"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:302
+#: admin/class-plugnmeet-settings-page.php:384
 msgid "Screen Sharing Resolution"
 msgstr ""
 
@@ -1009,8 +2098,17 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:419
-#: admin/partials/form-parts/design.php:37
+#: admin/partials/plugnmeet-admin-edit-room.php:450
+msgid "Search by name or email"
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:177
+msgid "Searching…"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:479
+#: admin/class-plugnmeet-settings-page.php:515
+#: admin/partials/form-parts/design.php:39
 msgid "Secondary Color"
 msgstr ""
 
@@ -1018,7 +2116,7 @@ msgstr ""
 msgid "See Excel Report"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:98
+#: admin/class-plugnmeet-settings-page.php:151
 msgid "Select a page"
 msgstr ""
 
@@ -1026,24 +2124,68 @@ msgstr ""
 msgid "Select All"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-recordings.php:23
 #: admin/partials/plugnmeet-admin-display-artifacts.php:23
+#: admin/partials/plugnmeet-admin-display-recordings.php:23
 msgid "Select room"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:192
+#: admin/partials/plugnmeet-admin-edit-room.php:444
+msgid "Select users"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:459
+msgid "Selected"
+msgstr ""
+
+#: helpers/helper.php:1425
+msgid "Selected users"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:274
 msgid "Server Settings"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:173
+#: helpers/helper.php:1361
+msgid "Session limits"
+msgstr ""
+
+#: helpers/helper.php:1157
+msgid "Session mode"
+msgstr ""
+
+#: helpers/helper.php:1194
+msgid "Session topic"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:143
+msgid ""
+"Set this value to limit how many users can join the session at the same time."
+" Set it to 0 to allow unlimited participants. This value cannot be changed "
+"after the session has started — the new limit will apply from the next "
+"session, or you can end the current session to apply it immediately."
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:243
 msgid "Setting saved"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:208 admin/class-plugnmeet-admin.php:209
+#: admin/class-plugnmeet-admin.php:244 admin/class-plugnmeet-admin.php:245
 msgid "Settings"
 msgstr ""
 
-#: admin/class-plugnmeet-rooms-list-table.php:91
+#: admin/class-plugnmeet-settings-page.php:714
+msgid "Shared (AI agent and text chat)"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:190
+msgid "Shared notepad"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:219
+msgid "Short identifier used to reference MCP server %d."
+msgstr ""
+
+#: admin/class-plugnmeet-rooms-list-table.php:94
 msgid "Shortcode"
 msgstr ""
 
@@ -1051,13 +2193,25 @@ msgstr ""
 msgid "Show artifacts"
 msgstr ""
 
+#: admin/partials/plugnmeet-admin-edit-room.php:259
+msgid "Show external content inside the session."
+msgstr ""
+
 #: admin/partials/plugnmeet-admin-display-recordings.php:29
 msgid "Show recordings"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:464
-#: admin/partials/form-parts/design.php:89
+#: admin/class-plugnmeet-settings-page.php:569
+#: admin/partials/form-parts/design.php:97
 msgid "Side Panel Color"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:309
+msgid "SIP dial-in"
+msgstr ""
+
+#: helpers/helper.php:1287
+msgid "Speaking rate"
 msgstr ""
 
 #: helpers/analyticsHelper.php:366
@@ -1068,36 +2222,78 @@ msgstr ""
 msgid "Speech Services Usage"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:104
+#: admin/partials/plugnmeet-admin-edit-room.php:225
+msgid "Split participants into sub-rooms."
+msgstr ""
+
+#: helpers/helper.php:1260
+msgid "Spoken language"
+msgstr ""
+
+#: public/partials/parts/login-form.php:55
+msgid "Start AI Session"
+msgstr ""
+
+#: helpers/aiSummaryHelper.php:227
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:17
 msgid "Started at"
 msgstr ""
 
-#: admin/class-plugnmeet-rooms-list-table.php:90
+#: helpers/aiSummaryHelper.php:353
+#: admin/class-plugnmeet-rooms-list-table.php:93
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:153
 msgid "Status"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:335
+#: admin/class-plugnmeet-settings-page.php:417
 msgid "Stop mic track on mute"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:114
+#: admin/partials/plugnmeet-admin-edit-room.php:276
+msgid "Stream the session to external platforms."
+msgstr ""
+
+#: helpers/helper.php:1240
+msgid "Strict topic enforcement"
+msgstr ""
+
+#: helpers/aiSummaryHelper.php:238
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:34
 msgid "Struggled with"
+msgstr ""
+
+#: helpers/aiSummaryHelper.php:223
+msgid "Student"
 msgstr ""
 
 #: admin/class-plugnmeet-room-page.php:75
 msgid "Styling for the room page on your site."
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-edit-room.php:24
+#: admin/partials/plugnmeet-admin-edit-room.php:44
 msgid "Submit"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:413
+#: helpers/plugnmeet-help-texts.php:105
+msgid ""
+"Subtopics the AI agent may discuss, one per line. Leave empty to allow any "
+"subtopic of the session topic."
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:459
 msgid "Successfully saved room data"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:453
+#: admin/class-plugnmeet-admin.php:499
 msgid "Successfully updated room data"
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:687
+msgid "Summarize model"
+msgstr ""
+
+#: helpers/helper.php:1074
+msgid "Summary instructions"
 msgstr ""
 
 #: helpers/analyticsHelper.php:388
@@ -1108,122 +2304,410 @@ msgstr ""
 msgid "Talked Duration"
 msgstr ""
 
-#: admin/class-plugnmeet-room-page.php:308
-msgid "The AI session summary could not be read."
+#: helpers/plugnmeet-help-texts.php:44
+msgid ""
+"The absolute master switch for all chat functions. If disabled, the entire "
+"chat area is removed for everyone, including moderators. No public or "
+"private chat will be possible."
 msgstr ""
 
-#: helpers/ajaxHelper.php:290
+#: helpers/plugnmeet-help-texts.php:150 helpers/plugnmeet-help-texts.php:186
+msgid "The accent color used for secondary UI elements."
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:546
+msgid "The AI agent needs a topic. Please fill in the session topic."
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:552
+msgid "The AI agent needs instructions. Please fill in the agent instructions."
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:549
+msgid "The AI agent session topic must be 200 characters or shorter."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:208
+msgid ""
+"The API key used to authenticate against the custom AI provider. It is "
+"stored unencrypted in the WordPress options table."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:169
+msgid ""
+"The API secret provided by your PlugNmeet server used for secure "
+"authentication."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:177
+msgid "The audio quality profile optimized for the session."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:167
+msgid "The base URL of your PlugNmeet server (e.g., https://pnm.example.com)."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:174
+msgid ""
+"The encoding standard for video transmission. VP8 is the default and offers "
+"the widest browser compatibility. VP9 offers a superior balance of video "
+"quality, CPU efficiency and low latency, and automatically falls back to VP8 "
+"on older browsers. <strong>Warning:</strong> Advanced codecs like AV1 "
+"require modern browser support; ensure your users are on compatible setups "
+"if you deviate from the default."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:220
+msgid "The endpoint URL of MCP server %d."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:183
+msgid ""
+"The first part of every room link. The default plugnmeet/room gives links "
+"like yoursite.com/plugnmeet/room/room-id; you can change it to any word you "
+"prefer, e.g. meetings. After changing it, go to Settings > Permalinks and "
+"simply click \"Save Changes\"."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:200
+msgid "The highest AI session duration, in seconds, that a room can set."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:202
+msgid "The highest audio minutes a room can set for an AI session."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:198
+msgid ""
+"The highest number of AI sessions a room can allow to run at the same time."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:175
+msgid "The initial resolution setting for participant cameras."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:176
+msgid "The initial resolution setting for screen sharing."
+msgstr ""
+
+#: helpers/ajaxHelper.php:336
 msgid "The item was deleted successfully."
 msgstr ""
 
-#: helpers/ajaxHelper.php:490
+#: helpers/plugnmeet-help-texts.php:193
+msgid ""
+"The main color of the selected frontend design: the Join button, accents and "
+"focus rings on the room page. Leave blank to use the design's default."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:90
+msgid ""
+"The master switch for all AI-powered capabilities. If disabled, specific "
+"features like AI Chat and Meeting Summarization will be hidden, even if "
+"Insights is active."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:62
+msgid ""
+"The maximum number of sub-rooms a moderator can create within a single "
+"session."
+msgstr ""
+
+#: helpers/ajaxHelper.php:563
 msgid ""
 "The meeting has not started yet. Please wait for a moderator to begin the "
 "session."
 msgstr ""
 
-#: helpers/ajaxHelper.php:612
+#: helpers/plugnmeet-help-texts.php:211
+msgid ""
+"The model used for realtime voice sessions. Leave empty to use the provider "
+"default."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:212
+msgid ""
+"The model used for tool delegation tasks. Leave empty to use the provider "
+"default."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:213
+msgid ""
+"The model used to summarize AI sessions. Leave empty to use the provider "
+"default."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:101
+msgid "The name participants see for the AI agent."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:138
+msgid ""
+"The name used for the meeting header. It helps participants identify the "
+"session."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:182
+msgid ""
+"The page a room link opens on. By default the room opens inside your theme's "
+"normal layout; for a clean, distraction-free meeting view, create an empty "
+"page (Pages > Add New) and select it here. After changing, go to Settings > "
+"Permalinks and simply click \"Save Changes\"."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:140
+msgid ""
+"The password required to join this room as a moderator. It is auto-generated "
+"when the room is created and can be replaced."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:141
+msgid ""
+"The password required to join this room as an attendee. It is auto-generated "
+"when the room is created and can be replaced."
+msgstr ""
+
+#: helpers/ajaxHelper.php:692
 msgid "The password you entered is incorrect. Please try again."
 msgstr ""
 
-#: helpers/ajaxHelper.php:368
+#: helpers/plugnmeet-help-texts.php:151 helpers/plugnmeet-help-texts.php:187
+msgid "The primary background color of the interface."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:40
+msgid ""
+"The primary master switch for all broadcasting features. If disabled, all "
+"other broadcasting options will be disabled."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:85
+msgid ""
+"The primary master switch for all data-driven features. If disabled, all sub-"
+"options, including Transcription, AI Assistant, and Meeting Reports, will be "
+"completely unavailable."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:34
+msgid ""
+"The primary master switch for all recording features. If disabled, both "
+"cloud and local recording options will be hidden from moderators."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:207
+msgid "The provider used for bring-your-own-key requests."
+msgstr ""
+
+#: helpers/ajaxHelper.php:414
 msgid "The recording was deleted successfully."
 msgstr ""
 
-#: helpers/ajaxHelper.php:416
+#: helpers/ajaxHelper.php:462
 msgid "The recordings are being merged. This may take a few moments."
 msgstr ""
 
-#: helpers/ajaxHelper.php:455 helpers/ajaxHelper.php:575
+#: helpers/ajaxHelper.php:504 helpers/ajaxHelper.php:655
 msgid "The room you are trying to join does not exist."
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:454
+#: helpers/plugnmeet-help-texts.php:194
+msgid ""
+"The secondary color of the selected frontend design: soft backgrounds and "
+"the recordings table header. Leave blank to use the design's default."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:168
+msgid "The unique API key provided by your PlugNmeet server."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:137
+msgid ""
+"The unique ID of this room and everything tied to it. The SDK uses this ID "
+"to create the room, and recordings, artifacts and other room data will "
+"always be linked to it. It is generated automatically and cannot be changed. "
+"The second field shows the WordPress shortcode you can paste into any post "
+"or page to embed this room."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:99
+msgid ""
+"The WordPress users who may start the AI session in a controlled session. "
+"Use \"Select users\" to search by name, email or role. Up to 32 users can be "
+"selected."
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:460
 msgid "Theme default (no plugin CSS)"
 msgstr ""
 
-#: helpers/ajaxHelper.php:458 helpers/ajaxHelper.php:579
+#: public/partials/parts/login-form.php:28
+msgid ""
+"This AI session is restricted to selected registered users. Please log in to "
+"your account to start the session."
+msgstr ""
+
+#: helpers/ajaxHelper.php:534
+msgid ""
+"This AI session is restricted to selected users. Guest access is not "
+"available; please log in with an authorized account."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:58
+msgid ""
+"This message is shown to users while they are waiting to be admitted to the "
+"room. Use it to share instructions, expectations, or helpful information "
+"before the session starts."
+msgstr ""
+
+#: helpers/ajaxHelper.php:507 helpers/ajaxHelper.php:659
 msgid "This room is not currently active. Please contact the administrator."
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:229 admin/class-plugnmeet-admin.php:331
-#: admin/class-plugnmeet-admin.php:470
+#: admin/class-plugnmeet-admin.php:265 admin/class-plugnmeet-admin.php:367
+#: admin/class-plugnmeet-admin.php:609
 msgid "Token mismatched"
 msgstr ""
 
-#: admin/class-plugnmeet-room-page.php:126
+#: admin/class-plugnmeet-room-page.php:207
 msgid "Token Usage"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:103
+#: helpers/aiSummaryHelper.php:226
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:16
 msgid "Topic"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:132
+#: helpers/helper.php:1223
+msgid "Topic boundaries & guardrails"
+msgstr ""
+
+#: helpers/helper.php:1247
+msgid "Topic reminder interval (turns)"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:106
+msgid ""
+"Topics the AI agent must not discuss, one per line. When a participant "
+"brings one of them up, the agent politely redirects the conversation back to "
+"the session topic."
+msgstr ""
+
+#: helpers/aiSummaryHelper.php:298
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:238
+msgid "Total"
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:149
 msgid "Total artifacts"
+msgstr ""
+
+#: helpers/aiSummaryHelper.php:246
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:29
+msgid "Total cost"
 msgstr ""
 
 #: helpers/analyticsHelper.php:362
 msgid "Total Participants"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:114
+#: admin/class-plugnmeet-admin.php:126
 msgid "Total recordings"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:288
-msgid "Total tokens: %1$s · Estimated cost: %2$s"
+#: helpers/aiSummaryHelper.php:245 helpers/aiSummaryHelper.php:280
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:28
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:221
+msgid "Total tokens"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:107
+#: helpers/plugnmeet-help-texts.php:27
+msgid "Tracks participation and engagement data for the session."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:346
+msgid "Transcription, chat translation and AI tools."
+msgstr ""
+
+#: helpers/aiSummaryHelper.php:230
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:27
 msgid "Turns"
 msgstr ""
 
-#: admin/class-plugnmeet-room-page.php:114
+#: admin/class-plugnmeet-room-page.php:195
 #: admin/partials/plugnmeet-admin-display-artifacts.php:40
 msgid "Type"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:269
+#: helpers/aiSummaryHelper.php:244
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:198
 msgid "Unfinished subtopics"
 msgstr ""
 
-#: admin/class-plugnmeet-rooms-list-table.php:75
+#: helpers/plugnmeet-help-texts.php:51
+msgid ""
+"Unlocks an interactive drawing space for the session. Use it for sketching "
+"diagrams, solving math problems visually, or letting participants annotate "
+"shared content."
+msgstr ""
+
+#: helpers/helper.php:1892 admin/class-plugnmeet-rooms-list-table.php:77
 msgid "Unpublished"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:276
+#: admin/class-plugnmeet-admin.php:312
 msgid "Unzip failed"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:139
+#: admin/class-plugnmeet-settings-page.php:198
 msgid "Update"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:273
+#: admin/class-plugnmeet-admin.php:309
 msgid "Updated client successfully"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:126
-#: admin/partials/form-parts/design.php:59
-#: admin/partials/form-parts/design.php:71
+#: helpers/plugnmeet-help-texts.php:153 helpers/plugnmeet-help-texts.php:179
+msgid ""
+"Upload your logo to the meeting room. If left blank, the default PlugNmeet "
+"logo will be used."
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:183
+#: admin/partials/form-parts/design.php:64
+#: admin/partials/form-parts/design.php:77
 msgid "Upload/Select image"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:245
+#: helpers/aiSummaryHelper.php:270
+msgid "Usage"
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:214
+msgid "Usage breakdown"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:206
+msgid ""
+"Use your own AI provider credentials and models instead of the plugNmeet "
+"defaults."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:174
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:178
 msgid "Used"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:67
+#: admin/partials/plugnmeet-admin-display-artifact-details.php:71
 msgid "User Analytics"
 msgstr ""
 
 #: helpers/analyticsHelper.php:378 helpers/analyticsHelper.php:379
-#: helpers/analyticsHelper.php:380
+#: helpers/analyticsHelper.php:380 helpers/aiSummaryHelper.php:224
 msgid "User ID"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:125
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:45
+#, php-format
 msgid "User ID: %s"
 msgstr ""
 
@@ -1231,65 +2715,108 @@ msgstr ""
 msgid "Users Info"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:280
+#: helpers/plugnmeet-help-texts.php:160
+msgid ""
+"Users with this role join as attendees: regular participants whose "
+"permissions are limited by the room features and default lock settings."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:159
+msgid ""
+"Users with this role join as moderators and can manage the session: mute or "
+"lock participants, control recordings, polls and breakout rooms."
+msgstr ""
+
+#: admin/class-plugnmeet-settings-page.php:362
 msgid "Video Codec"
 msgstr ""
 
-#: admin/class-plugnmeet-admin.php:130
+#: admin/class-plugnmeet-admin.php:147
 msgid "View"
+msgstr ""
+
+#: helpers/helper.php:1281
+msgid "Voice"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:112
+msgid ""
+"Voice the AI agent speaks with. Must be a voice available on your plugNmeet "
+"server. Leave empty to use the server default voice."
 msgstr ""
 
 #: helpers/analyticsHelper.php:393
 msgid "Voted Poll Count"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:192
+#: helpers/aiSummaryHelper.php:322
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:121
 msgid "Votes"
 msgstr ""
 
-#: helpers/helper.php:605
+#: admin/partials/plugnmeet-admin-edit-room.php:156
+msgid "Waiting room"
+msgstr ""
+
+#: helpers/helper.php:687
 msgid "Waiting room message"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:265
+#: helpers/aiSummaryHelper.php:243
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:194
 msgid "Warm up"
 msgstr ""
 
-#: helpers/ajaxHelper.php:273
+#: helpers/ajaxHelper.php:319
 msgid "We couldn't find the item you're trying to delete. Please try again."
 msgstr ""
 
-#: helpers/ajaxHelper.php:201 helpers/ajaxHelper.php:239
+#: helpers/ajaxHelper.php:209 helpers/ajaxHelper.php:247
+#: helpers/ajaxHelper.php:285
 msgid "We couldn't find the item you're trying to download. Please try again."
 msgstr ""
 
-#: helpers/ajaxHelper.php:351
+#: helpers/ajaxHelper.php:397
 msgid ""
 "We couldn't find the recording you're trying to delete. Please try again."
 msgstr ""
 
-#: helpers/ajaxHelper.php:315
+#: helpers/ajaxHelper.php:361
 msgid ""
 "We couldn't find the recording you're trying to download. Please try again."
 msgstr ""
 
-#: helpers/ajaxHelper.php:94 helpers/ajaxHelper.php:141
+#: helpers/ajaxHelper.php:95 helpers/ajaxHelper.php:142
 msgid ""
 "We couldn't find the room you're looking for. Please check the link and try "
 "again."
 msgstr ""
 
-#: helpers/ajaxHelper.php:438
+#: helpers/ajaxHelper.php:484
 msgid ""
 "We couldn't find the room you're trying to join. Please check the link and "
 "try again."
+msgstr ""
+
+#: admin/class-plugnmeet-rooms-list-table.php:133
+msgid "Web Conference"
+msgstr ""
+
+#: admin/class-plugnmeet-rooms-list-table.php:130
+msgid "Web Conference + AI"
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:122
+msgid ""
+"Web pages the AI agent may read for this session, one https:// URL per line. "
+"Only used when web fetch is allowed."
 msgstr ""
 
 #: helpers/analyticsHelper.php:391
 msgid "Webcam Enabled Duration"
 msgstr ""
 
-#: admin/class-plugnmeet-settings-page.php:289
+#: admin/class-plugnmeet-settings-page.php:371
 msgid "Webcam Resolution"
 msgstr ""
 
@@ -1297,11 +2824,64 @@ msgstr ""
 msgid "Webcam Status Changes"
 msgstr ""
 
-#: admin/partials/form-parts/basic.php:53
+#: admin/partials/plugnmeet-admin-edit-room.php:97
+msgid "Webcams, screen sharing and more."
+msgstr ""
+
+#: admin/partials/form-parts/basic.php:68
 msgid "Welcome Message"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:243
+#: admin/partials/plugnmeet-admin-edit-room.php:384
+msgid "What participants can do when they join."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:102
+msgid ""
+"What this AI session is about, in 200 characters or less. The agent uses it "
+"to keep the conversation on topic and to remind participants what the "
+"session is for."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:107
+msgid ""
+"When enabled, the AI agent only answers within the allowed subtopics and "
+"declines requests that fall outside them. When disabled, it can follow the "
+"participant but reminds them of the session topic."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:178
+msgid ""
+"When enabled, the microphone track is fully stopped while muted instead of "
+"just being silenced, so no audio data is sent while muted."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:26
+msgid ""
+"When enabled, the session will not start and no one can join until a "
+"moderator joins first. Participants will remain on the page and will not "
+"enter the room or a waiting area. This is different from the Waiting Room "
+"option, where users can still join and wait."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:31
+msgid ""
+"When enabled, the system creates a new ID for each join so the same user can "
+"join from multiple devices, for example from a tablet to draw on the "
+"whiteboard while using a PC for the camera and microphone. When disabled, "
+"the system uses the WordPress user ID for logged-in users and auto-generates "
+"an ID based on the session ID for users who are not logged in. It is "
+"recommended to keep this off so duplicate joins are prevented."
+msgstr ""
+
+#: helpers/plugnmeet-help-texts.php:223
+msgid ""
+"Where the tools of MCP server %d are available: AI agent only, AI text chat "
+"only, or shared between both."
+msgstr ""
+
+#: admin/partials/plugnmeet-admin-edit-room.php:207
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:172
 msgid "Whiteboard"
 msgstr ""
 
@@ -1317,562 +2897,81 @@ msgstr ""
 msgid "Whiteboard Files Count"
 msgstr ""
 
-#: admin/partials/plugnmeet-admin-display-artifact-details.php:241
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:170
 msgid "Workspace activity"
 msgstr ""
 
-#: helpers/helper.php:159 helpers/helper.php:174 helpers/helper.php:189
-#: helpers/helper.php:204 helpers/helper.php:219 helpers/helper.php:234
-#: helpers/helper.php:254 helpers/helper.php:269 helpers/helper.php:284
-#: helpers/helper.php:299 helpers/helper.php:314 helpers/helper.php:329
-#: helpers/helper.php:356 helpers/helper.php:371 helpers/helper.php:386
-#: helpers/helper.php:401 helpers/helper.php:428 helpers/helper.php:443
-#: helpers/helper.php:470 helpers/helper.php:485 helpers/helper.php:512
-#: helpers/helper.php:539 helpers/helper.php:566 helpers/helper.php:593
-#: helpers/helper.php:625 helpers/helper.php:657 helpers/helper.php:684
-#: helpers/helper.php:711 helpers/helper.php:738 helpers/helper.php:753
-#: helpers/helper.php:768 helpers/helper.php:783 helpers/helper.php:810
-#: helpers/helper.php:825 helpers/helper.php:840 helpers/helper.php:867
-#: helpers/helper.php:883 helpers/helper.php:898 helpers/helper.php:913
-#: helpers/helper.php:930 helpers/helper.php:947 helpers/helper.php:963
-#: helpers/helper.php:980 helpers/helper.php:1009 helpers/helper.php:1024
-#: helpers/helper.php:1039 helpers/helper.php:1054 helpers/helper.php:1069
-#: helpers/helper.php:1084 helpers/helper.php:1099 helpers/helper.php:1114
-#: helpers/helper.php:1129 helpers/helper.php:1144
+#: helpers/helper.php:1301
+msgid "Workspace tools"
+msgstr ""
+
 #: helpers/analyticsHelper.php:106 helpers/analyticsHelper.php:122
 #: helpers/analyticsHelper.php:288 helpers/analyticsHelper.php:326
+#: helpers/helper.php:246 helpers/helper.php:261 helpers/helper.php:276
+#: helpers/helper.php:291 helpers/helper.php:306 helpers/helper.php:321
+#: helpers/helper.php:336 helpers/helper.php:351 helpers/helper.php:366
+#: helpers/helper.php:381 helpers/helper.php:396 helpers/helper.php:411
+#: helpers/helper.php:438 helpers/helper.php:453 helpers/helper.php:468
+#: helpers/helper.php:483 helpers/helper.php:510 helpers/helper.php:525
+#: helpers/helper.php:552 helpers/helper.php:567 helpers/helper.php:594
+#: helpers/helper.php:621 helpers/helper.php:648 helpers/helper.php:675
+#: helpers/helper.php:707 helpers/helper.php:739 helpers/helper.php:766
+#: helpers/helper.php:793 helpers/helper.php:820 helpers/helper.php:835
+#: helpers/helper.php:850 helpers/helper.php:865 helpers/helper.php:892
+#: helpers/helper.php:907 helpers/helper.php:922 helpers/helper.php:949
+#: helpers/helper.php:965 helpers/helper.php:980 helpers/helper.php:995
+#: helpers/helper.php:1012 helpers/helper.php:1029 helpers/helper.php:1045
+#: helpers/helper.php:1062 helpers/helper.php:1386 helpers/helper.php:1728
+#: helpers/helper.php:1743 helpers/helper.php:1758 helpers/helper.php:1773
+#: helpers/helper.php:1788 helpers/helper.php:1803 helpers/helper.php:1818
+#: helpers/helper.php:1833 helpers/helper.php:1848 helpers/helper.php:1863
+#: helpers/aiSummaryHelper.php:337 admin/class-plugnmeet-settings-page.php:606
+#: admin/class-plugnmeet-settings-page.php:654
+#: admin/class-plugnmeet-settings-page.php:710
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:135
 msgid "Yes"
 msgstr ""
 
-#: helpers/ajaxHelper.php:567 helpers/ajaxHelper.php:602
+#: helpers/ajaxHelper.php:748
+msgid "You are not allowed to search users."
+msgstr ""
+
+#: admin/class-plugnmeet-admin.php:176
+msgid "You can select up to 32 users."
+msgstr ""
+
+#: helpers/ajaxHelper.php:647 helpers/ajaxHelper.php:682
 msgid "You do not have permission to join this room."
 msgstr ""
 
-#: helpers/ajaxHelper.php:206 helpers/ajaxHelper.php:244
-#: helpers/ajaxHelper.php:278 helpers/ajaxHelper.php:393
+#: helpers/ajaxHelper.php:214 helpers/ajaxHelper.php:252
+#: helpers/ajaxHelper.php:290 helpers/ajaxHelper.php:324
+#: helpers/ajaxHelper.php:439
 msgid "You do not have permission to perform this action."
 msgstr ""
 
-#: helpers/ajaxHelper.php:146
+#: helpers/ajaxHelper.php:147
 msgid "You do not have permission to view this page."
 msgstr ""
 
-#: helpers/ajaxHelper.php:388
+#: helpers/ajaxHelper.php:434
 msgid "You must select at least two recordings to merge."
 msgstr ""
 
-#: helpers/ajaxHelper.php:82 helpers/ajaxHelper.php:129
-#: helpers/ajaxHelper.php:192 helpers/ajaxHelper.php:226
-#: helpers/ajaxHelper.php:264 helpers/ajaxHelper.php:304
-#: helpers/ajaxHelper.php:341 helpers/ajaxHelper.php:378
-#: helpers/ajaxHelper.php:425
+#: helpers/ajaxHelper.php:540
+msgid ""
+"Your account is not on the allowed participant list for this AI session."
+msgstr ""
+
+#: helpers/ajaxHelper.php:83 helpers/ajaxHelper.php:130
+#: helpers/ajaxHelper.php:200 helpers/ajaxHelper.php:234
+#: helpers/ajaxHelper.php:272 helpers/ajaxHelper.php:310
+#: helpers/ajaxHelper.php:350 helpers/ajaxHelper.php:387
+#: helpers/ajaxHelper.php:424 helpers/ajaxHelper.php:471
+#: helpers/ajaxHelper.php:755
 msgid "Your session has expired. Please refresh the page and try again."
 msgstr ""
 
-#: helpers/plugnmeet-help-texts.php
-msgid "Allow participants to use their webcams."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Automatically mute all participants when they join the session."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Allow participants to share their screen."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Allow participants to see the list of other participants."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Only allow moderators to use their webcams."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Defines how long the room can stay open, in minutes, before it closes automatically. Enter 0 for no time limit. This value cannot be changed after the session has started — the new duration will apply from the next session, or you can end the current session to apply it immediately."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "When enabled, the session will not start and no one can join until a moderator joins first. Participants will remain on the page and will not enter the room or a waiting area. This is different from the Waiting Room option, where users can still join and wait."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Tracks participation and engagement data for the session."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Enables participants to blur their background or use a virtual image. Great for maintaining privacy and ensuring a professional appearance."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Allow participants to raise their hand."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Allow participants to send floating reactions (e.g., thumbs up, clap) during the session."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "When enabled, the system creates a new ID for each join so the same user can join from multiple devices, for example from a tablet to draw on the whiteboard while using a PC for the camera and microphone. When disabled, the system uses the WordPress user ID for logged-in users and auto-generates an ID based on the session ID for users who are not logged in. It is recommended to keep this off so duplicate joins are prevented."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The primary master switch for all recording features. If disabled, both cloud and local recording options will be hidden from moderators."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Enables recording on the PlugNmeet server. The final video is processed and stored in the cloud, making it easy to share via a link once the session ends."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Automatically triggers the cloud recording the moment the first moderator joins the session. Ideal for ensuring no session is forgotten."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Allows recording directly to the computer. <strong>Note:</strong> Requires Google Chrome. To capture all session audio, the user must share their \"Chrome Tab\" and check the \"Also share tab audio\" box. The file is saved locally to the device once finished."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The primary master switch for all broadcasting features. If disabled, all other broadcasting options will be disabled."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Enables moderators to broadcast the live session to external platforms like YouTube, Facebook, or Twitch. Perfect for public webinars or guest lectures."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The absolute master switch for all chat functions. If disabled, the entire chat area is removed for everyone, including moderators. No public or private chat will be possible."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Enables the ability to share files within the chat. This requires the chat feature to be active."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Enables a collaborative text editor where participants and moderators can take real-time notes together. This is perfect for brainstorming, co-writing, or building a shared summary."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Unlocks an interactive drawing space for the session. Use it for sketching diagrams, solving math problems visually, or letting participants annotate shared content."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Allows moderators to sync and play videos from sources like YouTube or Vimeo for everyone. Ideal for analyzing clips or watching videos together without bandwidth lag."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Enable the waiting room for this session."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "This message is shown to users while they are waiting to be admitted to the room. Use it to share instructions, expectations, or helpful information before the session starts."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Enables moderators to split participants into smaller groups for focused discussions, collaborative projects, or private group activities."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The maximum number of sub-rooms a moderator can create within a single session."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Allows moderators to display external content, such as H5P activities, SCORM packages, or quiz systems (e.g., Kahoot), directly to all participants during the session."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Allows moderators to broadcast high-quality video into the session using external software like OBS via RTMP or WHIP protocols. This is ideal for sharing high-resolution video content, pre-recorded sessions, or bypassing browser upload limitations."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Enables moderators to create interactive polls and quick quizzes during the session. This is a great way to check participant understanding and increase engagement."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Allows participants to join the audio session via a traditional phone call. This is essential for participants with poor internet connections or those who need to join while on the go."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Automatically activate SIP dial-in when the room is created, so participants can join by phone immediately without a moderator enabling it during the session."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Hide the phone numbers of participants who joined via SIP dial-in from the participants list and chat."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Provides strong security by encrypting video and audio streams between participants. In this mode, the server generates and securely distributes a unique encryption key for the session."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Extends end-to-end encryption to text chat, ensuring messages are only readable by participants in the room."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Includes all whiteboard drawings and annotations in the end-to-end encryption layer for total data privacy."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The primary master switch for all data-driven features. If disabled, all sub-options, including Transcription, AI Assistant, and Meeting Reports, will be completely unavailable."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Enables real-time speech-to-text during the session. This must be enabled for transcription translation or speech synthesis (TTS) to work."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Allows the live transcript to be translated into different languages, supporting multilingual sessions."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Enables Text-to-Speech, allowing the live transcript to be read aloud for better accessibility and for visually impaired participants."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Enables real-time translation of chat messages, allowing participants to communicate instantly across different languages."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The master switch for all AI-powered capabilities. If disabled, specific features like AI Chat and Meeting Summarization will be hidden, even if Insights is active."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Integrates an AI assistant directly into the chat to help answer questions, explain complex concepts, and facilitate discussion."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Automatically generates a concise AI summary after the session ends, highlighting key points, decisions, and follow-up tasks."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Lock the microphone for participants. They cannot turn on or use their microphone until a moderator unlocks it."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Lock the webcam for participants. They cannot share their camera until a moderator unlocks it."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Lock screen sharing for participants. They cannot share their screen until a moderator unlocks it."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Lock the whiteboard for participants. They cannot draw or annotate on the whiteboard until a moderator unlocks it."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Lock the shared notepad for participants. They cannot write in the shared notepad until a moderator unlocks it."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Lock the chat for participants. They cannot use the chat until a moderator unlocks it."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Lock message sending for participants. They can still read the chat but cannot send messages until a moderator unlocks it."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Lock file sharing in chat for participants. They cannot share files in the chat until a moderator unlocks it."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Lock private chat for participants. They cannot send private messages to other participants until a moderator unlocks it. They can still send private messages to moderators."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Lock reactions for participants. They cannot send reactions until a moderator unlocks it."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The unique ID of this room and everything tied to it. The SDK uses this ID to create the room, and recordings, artifacts and other room data will always be linked to it. It is generated automatically and cannot be changed. The second field shows the WordPress shortcode you can paste into any post or page to embed this room."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The name used for the meeting header. It helps participants identify the session."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "A short description of the room. Useful for internal notes and for identifying the session."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The password required to join this room as a moderator. It is auto-generated when the room is created and can be replaced."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The password required to join this room as an attendee. It is auto-generated when the room is created and can be replaced."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Any text entered here will appear as the first message in the public chat when users join the room. This is useful for sharing instructions, links, or important information with participants as they enter."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Set this value to limit how many users can join the session at the same time. Set it to 0 to allow unlimited participants. This value cannot be changed after the session has started — the new limit will apply from the next session, or you can end the current session to apply it immediately."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Published rooms are available to users on the room page. Unpublished rooms stay hidden until you publish them again."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Link an external .css file to overwrite or customize the interface styles."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Main accent color used for buttons, active states, and highlights."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The accent color used for secondary UI elements."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The primary background color of the interface."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Background wallpaper. For best results, use a 1920x1080 image."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Upload your logo to the meeting room. If left blank, the default PlugNmeet logo will be used."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Background color for the top navigation bar."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Background color for the bottom toolbar."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Background color for the right-side panels (Chat and Participants list)."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Users with this role join as moderators and can manage the session: mute or lock participants, control recordings, polls and breakout rooms."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Users with this role join as attendees: regular participants whose permissions are limited by the room features and default lock settings."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Require users with this role to enter a password before joining, depending on their join mode."
-msgstr ""
-
-#: helpers/helper.php
-msgid "Transcription"
-msgstr ""
-
-#: helpers/helper.php
-msgid "Chat translation"
-msgstr ""
-
-#: helpers/helper.php
-msgid "AI features"
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Basic information"
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Room identity, passwords and welcome message."
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Webcams, screen sharing and more."
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Record on the server or locally."
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Stream the session to external platforms."
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Public chat and file sharing."
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Collaborative text editor."
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Interactive drawing and annotation space."
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Play external videos in sync for everyone."
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Hold participants until admitted."
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Split participants into sub-rooms."
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Show external content inside the session."
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Push high-quality streams via OBS/RTMP/WHIP."
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Interactive polls and quizzes."
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Join the audio by phone call."
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Encrypt media streams between participants."
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Transcription, chat translation and AI tools."
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "What participants can do when they join."
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Colors, logo and background."
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Room access per WordPress role."
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Expand all"
-msgstr ""
-
-#: admin/partials/plugnmeet-admin-edit-room.php
-msgid "Collapse all"
-msgstr ""
-#: helpers/plugnmeet-help-texts.php
-msgid "The base URL of your PlugNmeet server (e.g., https://pnm.example.com)."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The unique API key provided by your PlugNmeet server."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The API secret provided by your PlugNmeet server used for secure authentication."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Choose how the meeting client is delivered. Remote (default): the meeting opens on a standalone page served by this plugin, with the client files loaded from your plugNmeet server. Local: the client files are served from this plugin — use the Update button to download them first; useful for serving your own customized client. Redirect: users are taken directly to your plugNmeet server's interface and leave your site."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Advanced option for using your own customized plugNmeet client. The Update button downloads the client zip from this URL to your server. Only used when client load is set to Local."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Optimizes performance by dynamically pausing video layers that are not being viewed by participants. This significantly reduces server-side CPU and bandwidth usage. <strong>Note:</strong> This will be automatically enabled if using SVC codecs (VP9/AV1) and is required for multi-codec simulcast."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Delivers multiple video quality layers to ensure a smooth experience for users on weak connections."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The encoding standard for video transmission. VP8 is the default and offers the widest browser compatibility. VP9 offers a superior balance of video quality, CPU efficiency and low latency, and automatically falls back to VP8 on older browsers. <strong>Warning:</strong> Advanced codecs like AV1 require modern browser support; ensure your users are on compatible setups if you deviate from the default."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The initial resolution setting for participant cameras."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The initial resolution setting for screen sharing."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The audio quality profile optimized for the session."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "When enabled, the microphone track is fully stopped while muted instead of just being silenced, so no audio data is sent while muted."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Display the copyright text in the client footer."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Branding text displayed in the client footer. HTML is supported for links or custom styling."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The page a room link opens on. By default the room opens inside your theme's normal layout; for a clean, distraction-free meeting view, create an empty page (Pages > Add New) and select it here. After changing, go to Settings > Permalinks and simply click \"Save Changes\"."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The first part of every room link. The default plugnmeet/room gives links like yoursite.com/plugnmeet/room/room-id; you can change it to any word you prefer, e.g. meetings. After changing it, go to Settings > Permalinks and simply click \"Save Changes\"."
-msgstr ""
-
-#: admin/class-plugnmeet-room-page.php
-msgid "Connection details for your plugNmeet server and client delivery."
-msgstr ""
-
-#: admin/class-plugnmeet-room-page.php
-msgid "Default technical configurations applied to every new session."
-msgstr ""
-
-#: admin/class-plugnmeet-room-page.php
-msgid "Global defaults for the meeting client. Rooms can override the design and logo from their Design tab; copyright is always global."
-msgstr ""
-
-
-#: helpers/plugnmeet-help-texts.php
-msgid "Choose how the room page (login form and recordings) looks. Theme default (no plugin CSS): your theme's own styling, which is how the room page works today. Clean: a minimal, light design with an inline login form (name, password and Join button in one line). Modern: a bolder design using your primary color. The color fields below apply to the selected design."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The main color of the selected frontend design: the Join button, accents and focus rings on the room page. Leave blank to use the design's default."
-msgstr ""
-
-#: helpers/plugnmeet-help-texts.php
-msgid "The secondary color of the selected frontend design: soft backgrounds and the recordings table header. Leave blank to use the design's default."
-msgstr ""
-
-#: helpers/helper.php
-msgid "AI Assistant"
-msgstr ""
-
-#: helpers/helper.php
-msgid "1-on-1 Autonomous AI Session"
-msgstr ""
-
-#: public/partials/parts/login-form.php
-msgid "Start AI Session"
-msgstr ""
-
-#: public/partials/parts/login-form.php
-msgid "This AI session is restricted to selected registered users. Please log in to your account to start the session."
-msgstr ""
-
-#: helpers/ajaxHelper.php
-msgid "This AI session is restricted to selected users. Guest access is not available; please log in with an authorized account."
-msgstr ""
-
-#: helpers/ajaxHelper.php
-msgid "Your account is not on the allowed participant list for this AI session."
+#: admin/partials/plugnmeet-admin-display-artifact-ai-summary.php:25
+msgid "—"
 msgstr ""

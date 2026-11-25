@@ -229,6 +229,33 @@ jQuery(document).ready(function ($) {
         });
     });
 
+    $(document).on('click', '.download-ai-summary-excel', function (e) {
+        e.preventDefault();
+
+        const artifact_id = $(this).data('artifact-id');
+        const data = {
+            nonce: plugnmeet_artifacts_data.nonce.download_ai_summary,
+            action: 'plugnmeet_download_ai_summary',
+            artifact_id: artifact_id,
+        };
+
+        $.ajax({
+            url: ajaxurl,
+            method: 'POST',
+            data,
+            success: (data) => {
+                if (data.status) {
+                    window.location.href = data.url;
+                } else {
+                    alert(data.msg);
+                }
+            },
+            error: (jqXHR, textStatus, errorThrown) => {
+                alert(errorThrown);
+            },
+        });
+    });
+
     $(document).on('click', '.delete-artifact', function (e) {
         e.preventDefault();
 

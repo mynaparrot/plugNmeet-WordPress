@@ -130,13 +130,18 @@ class Plugnmeet_Admin {
             }
 
             if ( $hook_suffix === 'plug-n-meet_page_plugnmeet-artifacts' ) {
-                wp_enqueue_script( $this->plugin_name . '-artifacts', plugin_dir_url( __FILE__ ) . 'js/plugnmeet-admin-artifacts.js', array( 'jquery' ), $this->version );
+                $artifacts_js_ver = (string) @filemtime( plugin_dir_path( __FILE__ ) . 'js/plugnmeet-admin-artifacts.js' );
+                if ( '' === $artifacts_js_ver ) {
+                    $artifacts_js_ver = $this->version;
+                }
+                wp_enqueue_script( $this->plugin_name . '-artifacts', plugin_dir_url( __FILE__ ) . 'js/plugnmeet-admin-artifacts.js', array( 'jquery' ), $artifacts_js_ver );
                 wp_localize_script( $this->plugin_name . '-artifacts', 'plugnmeet_artifacts_data', array(
                         'nonce' => array(
-                                'get_artifacts'      => wp_create_nonce( 'plugnmeet_get_artifacts' ),
-                                'download_artifact'  => wp_create_nonce( 'plugnmeet_download_artifact' ),
-                                'download_analytics' => wp_create_nonce( 'plugnmeet_download_analytics' ),
-                                'delete_artifact'    => wp_create_nonce( 'plugnmeet_delete_artifact' ),
+                                'get_artifacts'       => wp_create_nonce( 'plugnmeet_get_artifacts' ),
+                                'download_artifact'   => wp_create_nonce( 'plugnmeet_download_artifact' ),
+                                'download_analytics'  => wp_create_nonce( 'plugnmeet_download_analytics' ),
+                                'download_ai_summary' => wp_create_nonce( 'plugnmeet_download_ai_summary' ),
+                                'delete_artifact'     => wp_create_nonce( 'plugnmeet_delete_artifact' ),
                         ),
                         'i18n'  => array(
                                 'view'            => __( 'View', 'plugnmeet' ),

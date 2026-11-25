@@ -266,6 +266,44 @@ class PlugNmeetAjaxHelper {
 		wp_send_json( $output );
 	}
 
+	public function download_ai_summary() {
+		$output         = new stdClass();
+		$output->status = false;
+		$output->msg    = __( 'Your session has expired. Please refresh the page and try again.', 'plugnmeet' );
+
+		if ( ! wp_verify_nonce( $_REQUEST['nonce'], 'plugnmeet_download_ai_summary' ) ) {
+			wp_send_json( $output );
+		}
+
+		if ( ! class_exists( "Plugnmeet_AiSummaryHelper" ) ) {
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/aiSummaryHelper.php';
+		}
+
+		$artifact_id = $this->get_post_param( 'artifact_id' );
+
+		if ( empty( $artifact_id ) ) {
+			$output->msg = __( "We couldn't find the item you're trying to download. Please try again.", 'plugnmeet' );
+			wp_send_json( $output );
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			$output->msg = __( "You do not have permission to perform this action.", 'plugnmeet' );
+			wp_send_json( $output );
+		}
+
+		try {
+			$ai_helper      = new Plugnmeet_AiSummaryHelper( $artifact_id );
+			$file           = $ai_helper->generate_xlsx_file();
+			$output->status = true;
+			$output->msg    = 'Success! Your download will begin shortly.';
+			$output->url    = $file['url'];
+		} catch ( Exception $e ) {
+			$output->msg = $e->getMessage();
+		}
+
+		wp_send_json( $output );
+	}
+
 	public function delete_artifact() {
 		$output         = new stdClass();
 		$output->status = false;
