@@ -406,7 +406,14 @@ class Plugnmeet_Public {
 			}
 		}
 
-		if ( isset( $role['can_view_recording'] ) && $role['can_view_recording'] === "on" ) {
+		if ( ! class_exists( 'PlugnmeetHelper' ) ) {
+			require_once PLUGNMEET_ROOT_PATH . '/helpers/helper.php';
+		}
+		$room_metadata    = json_decode( $roomInfo->room_metadata, true );
+		$room_metadata    = is_array( $room_metadata ) ? $room_metadata : array();
+		$is_ai_agent_mode = PlugnmeetHelper::isAiAgentEnabled() && 'ai_agent' === PlugnmeetHelper::getRoomMode( $room_metadata );
+
+		if ( ! $is_ai_agent_mode && isset( $role['can_view_recording'] ) && $role['can_view_recording'] === "on" ) {
 			wp_enqueue_script( $this->plugin_name . '-recordings', plugin_dir_url( __FILE__ ) . 'js/plugnmeet-public-recordings.js', array(), $this->version );
 			wp_localize_script( $this->plugin_name . '-recordings', 'plugnmeet_recordings', array(
 				'room_id'      => $roomInfo->room_id,

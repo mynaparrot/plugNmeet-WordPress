@@ -29,8 +29,8 @@ $is_ai_enabled    = $is_ai_agent_mode || ( $enable_ai_agent && ! empty( $ai_agen
 
 $show_recordings = isset( $role['can_view_recording'] ) && 'on' === $role['can_view_recording'];
 if ( $is_ai_agent_mode ) {
-    // Personal 1-on-1 sessions have no shared recording list, moderators keep it.
-    $show_recordings = $show_recordings && ( ( isset( $role['join_as'] ) && 'moderator' === $role['join_as'] ) || current_user_can( 'manage_options' ) );
+    // Personal 1-on-1 sessions no recording to display.
+    $show_recordings = false;
 }
 ?>
 
