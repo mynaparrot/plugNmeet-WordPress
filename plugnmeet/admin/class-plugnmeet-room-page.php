@@ -75,12 +75,14 @@ class Plugnmeet_RoomPage {
 			'plugnmeet_settings_frontend_design_section' => __( 'Styling for the room page on your site.', 'plugnmeet' ),
 			'plugnmeet_settings_client_design_section'  => __( 'Global defaults for the meeting client. Rooms can override the design and logo from their Design tab; copyright is always global.', 'plugnmeet' ),
 			'plugnmeet_settings_ai_agent_section'       => __( 'Global limits and defaults for AI agents in web conferences and 1-on-1 autonomous sessions.', 'plugnmeet' ),
+			'plugnmeet_settings_ai_avatar_section'      => __( 'Configure the realtime talking avatar for the AI agent. Avatar video minutes are billed separately from AI audio and token usage.', 'plugnmeet' ),
 			'plugnmeet_settings_ai_byok_section'        => __( 'Optional custom API credentials and model overrides for AI agent sessions.', 'plugnmeet' ),
 			'plugnmeet_settings_ai_mcp_section'         => __( 'Optional Model Context Protocol (MCP) tool servers available to AI agents and AI text chat.', 'plugnmeet' ),
 		);
 
 		// Advanced sections start collapsed to keep the page compact.
 		$collapsed_sections = array(
+			'plugnmeet_settings_ai_avatar_section',
 			'plugnmeet_settings_ai_byok_section',
 			'plugnmeet_settings_ai_mcp_section',
 		);
@@ -291,6 +293,9 @@ class Plugnmeet_RoomPage {
         }
         if ( \Mynaparrot\PlugnmeetProto\RoomArtifactType::AI_AGENT_USAGE === $type ) {
             return __( 'AI Agent Usage', 'plugnmeet' );
+        }
+        if ( \Mynaparrot\PlugnmeetProto\RoomArtifactType::AI_AGENT_AVATAR_USAGE === $type ) {
+            return __( 'AI Agent Avatar Usage', 'plugnmeet' );
         }
         if ( \Mynaparrot\PlugnmeetProto\RoomArtifactType::AI_AGENT_TRANSCRIPT === $type ) {
             return __( 'AI Session Transcript', 'plugnmeet' );

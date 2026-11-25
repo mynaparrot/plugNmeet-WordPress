@@ -539,6 +539,13 @@ class Plugnmeet_Admin {
             }
         }
 
+        if ( isset( $_POST['insights_features']['ai_agent_features']['activity_rules']['required_milestones'] ) ) {
+            if ( ! isset( $ai_agent['activity_rules'] ) || ! is_array( $ai_agent['activity_rules'] ) ) {
+                $ai_agent['activity_rules'] = [];
+            }
+            $ai_agent['activity_rules']['required_milestones'] = sanitize_textarea_field( wp_unslash( $_POST['insights_features']['ai_agent_features']['activity_rules']['required_milestones'] ) );
+        }
+
         $topic  = isset( $ai_agent['topic'] ) ? trim( $ai_agent['topic'] ) : '';
         $prompt = isset( $ai_agent['system_prompt'] ) ? trim( $ai_agent['system_prompt'] ) : '';
 
@@ -572,21 +579,55 @@ class Plugnmeet_Admin {
 
         $ai_agent['session_mode']                = $session_mode;
         $ai_agent['auto_session_config']         = $auto_config;
-        $ai_agent['max_session_seconds']         = (int) $this->clamp_number(
-                $ai_agent['max_session_seconds'] ?? $this->int_setting( $settings, 'ai_default_max_session_seconds', 1800 ),
-                60,
-                $this->int_setting( $settings, 'ai_max_session_seconds_limit', 3600 )
-        );
-        $ai_agent['max_audio_minutes']           = (int) $this->clamp_number(
-                $ai_agent['max_audio_minutes'] ?? $this->int_setting( $settings, 'ai_default_max_audio_minutes', 25 ),
+        $max_minutes_limit               = min( 120, $this->int_setting( $settings, 'ai_max_session_minutes_limit', 60 ) );
+        $default_minutes                 = min( $max_minutes_limit, $this->int_setting( $settings, 'ai_default_max_session_minutes', 30 ) );
+        $ai_agent['max_session_minutes'] = (int) $this->clamp_number(
+                $ai_agent['max_session_minutes'] ?? $default_minutes,
                 1,
-                min( 240, $this->int_setting( $settings, 'ai_max_audio_minutes_limit', 60 ) )
+                $max_minutes_limit
         );
+        unset( $ai_agent['max_session_seconds'], $ai_agent['max_audio_minutes'] );
+
         $ai_agent['topic_anchor_interval_turns'] = (int) $this->clamp_number( $ai_agent['topic_anchor_interval_turns'] ?? 5, 3, 12 );
         $ai_agent['speaking_rate']               = round( $this->clamp_number( $ai_agent['speaking_rate'] ?? 1.0, 0.5, 2.0 ), 1 );
 
+        $rules = isset( $ai_agent['activity_rules'] ) && is_array( $ai_agent['activity_rules'] ) ? $ai_agent['activity_rules'] : [];
+        foreach ( [ 'min_whiteboard_drawings', 'min_quizzes', 'min_notepad_entries', 'min_participant_exercises' ] as $rule_field ) {
+            $quota_val = isset( $rules[ $rule_field ] ) ? (int) $rules[ $rule_field ] : 0;
+            if ( $quota_val < 0 || $quota_val > 20 ) {
+                $this->send_error( __( 'The required activity count must be between 0 and 20.', 'plugnmeet' ) );
+            }
+            $rules[ $rule_field ] = $quota_val;
+        }
+
+        $raw_milestones  = isset( $rules['required_milestones'] ) ? (string) $rules['required_milestones'] : '';
+        $milestone_items = preg_split( '/[\r\n,]+/', $raw_milestones );
+        $milestone_items = array_values( array_filter( array_map( 'trim', $milestone_items ), static function ( $item ) {
+            return '' !== $item;
+        } ) );
+
+        $milestone_error = count( $milestone_items ) > 16;
+        foreach ( $milestone_items as $milestone ) {
+            if ( mb_strlen( $milestone ) > 240 ) {
+                $milestone_error = true;
+                break;
+            }
+        }
+        if ( $milestone_error ) {
+            $this->send_error( __( 'Enter at most 16 milestones of 240 characters or fewer, one per line.', 'plugnmeet' ) );
+        }
+        $ai_agent['activity_rules'] = $rules;
+
         if ( empty( $settings['ai_allow_web_fetch_global'] ) ) {
             $ai_agent['allow_web_fetch'] = 0;
+        }
+
+        if ( empty( $settings['ai_avatar_enabled_global'] ) ) {
+            unset( $ai_agent['avatar'] );
+        } elseif ( isset( $ai_agent['avatar'] ) && is_array( $ai_agent['avatar'] ) ) {
+            $ai_agent['avatar'] = [
+                'is_enabled' => ! empty( $ai_agent['avatar']['is_enabled'] ) ? 1 : 0,
+            ];
         }
         // The AI agent card lives in the Insights tab, so keep both flags consistent.
         if ( 'ai_agent' === $room_mode || ! empty( $ai_agent['is_allow'] ) ) {

@@ -61,6 +61,7 @@ class Plugnmeet_SettingsPage {
 		$this->frontendDesignSection();
 		$this->clientDesignSection();
 		$this->aiAgentSection();
+		$this->aiAvatarSection();
 		$this->aiByokSection();
 		$this->aiMcpSection();
 	}
@@ -616,10 +617,8 @@ class Plugnmeet_SettingsPage {
 
 		$numberFields = array(
 			'ai_max_concurrent_sessions_limit' => [ __( 'Maximum concurrent AI sessions', 'plugnmeet' ), 10 ],
-			'ai_default_max_session_seconds'   => [ __( 'Default AI session duration (seconds)', 'plugnmeet' ), 1800 ],
-			'ai_max_session_seconds_limit'     => [ __( 'Maximum AI session duration (seconds)', 'plugnmeet' ), 3600 ],
-			'ai_default_max_audio_minutes'     => [ __( 'Default AI audio minutes', 'plugnmeet' ), 25 ],
-			'ai_max_audio_minutes_limit'       => [ __( 'Maximum AI audio minutes', 'plugnmeet' ), 60 ],
+			'ai_default_max_session_minutes'   => [ __( 'Default AI session duration (minutes)', 'plugnmeet' ), 30 ],
+			'ai_max_session_minutes_limit'     => [ __( 'Maximum AI session duration (minutes)', 'plugnmeet' ), 60 ],
 		);
 
 		foreach ( $numberFields as $id => $field ) {
@@ -641,6 +640,70 @@ class Plugnmeet_SettingsPage {
 			'plugnmeet_settings_ai_agent_section',
 			[ 'id' => 'ai_allow_web_fetch_global', 'options' => $yesNo, 'default' => '0' ]
 		);
+
+		add_settings_field(
+			'ai_avatar_enabled_global',
+			__( 'Allow AI avatar', 'plugnmeet' ),
+			[ $this, 'labeledSelectCallBack' ],
+			'plugnmeet-settings',
+			'plugnmeet_settings_ai_agent_section',
+			[ 'id' => 'ai_avatar_enabled_global', 'options' => $yesNo, 'default' => '0' ]
+		);
+	}
+
+	private function aiAvatarSection() {
+		add_settings_section(
+			'plugnmeet_settings_ai_avatar_section',
+			__( 'AI Avatar (BYOK)', 'plugnmeet' ),
+			[ $this, 'checkError' ],
+			'plugnmeet-settings'
+		);
+
+		$yesNo = array( '1' => __( 'Yes', 'plugnmeet' ), '0' => __( 'No', 'plugnmeet' ) );
+
+		add_settings_field(
+			'ai_avatar_custom_enabled',
+			__( 'Enable custom avatar provider (BYOK)', 'plugnmeet' ),
+			[ $this, 'labeledSelectCallBack' ],
+			'plugnmeet-settings',
+			'plugnmeet_settings_ai_avatar_section',
+			[ 'id' => 'ai_avatar_custom_enabled', 'options' => $yesNo, 'default' => '0' ]
+		);
+
+		add_settings_field(
+			'ai_avatar_provider',
+			__( 'Avatar provider', 'plugnmeet' ),
+			[ $this, 'labeledSelectCallBack' ],
+			'plugnmeet-settings',
+			'plugnmeet_settings_ai_avatar_section',
+			[
+				'id'      => 'ai_avatar_provider',
+				'options' => array(
+					'beyond_presence' => __( 'Beyond Presence', 'plugnmeet' ),
+					'anam'            => __( 'Anam', 'plugnmeet' ),
+					'simli'           => __( 'Simli', 'plugnmeet' ),
+				),
+				'default' => 'beyond_presence'
+			]
+		);
+
+		$textFields = array(
+			'ai_avatar_id'          => [ __( 'Default avatar ID', 'plugnmeet' ), array() ],
+			'ai_avatar_api_key'     => [ __( 'Avatar API key', 'plugnmeet' ), array( 'type' => 'password' ) ],
+			'ai_avatar_endpoint'    => [ __( 'Avatar API endpoint', 'plugnmeet' ), array() ],
+			'ai_avatar_auth_header' => [ __( 'Avatar authorization header', 'plugnmeet' ), array() ],
+		);
+
+		foreach ( $textFields as $id => $field ) {
+			add_settings_field(
+				$id,
+				$field[0],
+				[ $this, 'textCallBack' ],
+				'plugnmeet-settings',
+				'plugnmeet_settings_ai_avatar_section',
+				array_merge( array( 'id' => $id, 'default' => '' ), $field[1] )
+			);
+		}
 	}
 
 	private function aiByokSection() {

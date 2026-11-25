@@ -244,4 +244,22 @@ $ai_groups = array(
             </tfoot>
         </table>
     <?php endif; ?>
+
+    <?php if ( ! empty( $ai['has_avatar_usage'] ) ) : ?>
+        <h3 class="pnm-ai-report-heading"><?php echo __( 'Avatar usage', 'plugnmeet' ); ?></h3>
+        <table class="wp-list-table widefat striped pnm-ai-report-table">
+            <thead>
+            <tr>
+                <th><?php echo __( 'Avatar duration', 'plugnmeet' ); ?></th>
+                <th class="pnm-ai-report-center"><?php echo __( 'Avatar estimated cost', 'plugnmeet' ); ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><?php echo esc_html( $ai['avatar_duration_formatted'] ); ?></td>
+                <td class="pnm-ai-report-center"><?php echo ! empty( $ai['has_avatar_cost'] ) ? esc_html( $ai['avatar_estimated_cost'] ) : '—'; ?></td>
+            </tr>
+            </tbody>
+        </table>
+    <?php endif; ?>
 </div>

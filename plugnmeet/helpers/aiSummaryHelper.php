@@ -131,6 +131,11 @@ class Plugnmeet_AiSummaryHelper {
 			$estimated_cost   += $row['cost'];
 		}
 
+		$avatar_usage        = (array) ( $summary['avatar_usage'] ?? [] );
+		$avatar_duration_sec = (int) ( $avatar_usage['duration_sec'] ?? 0 );
+		$avatar_cost         = isset( $avatar_usage['duration_sec_estimated_cost'] )
+				? (float) $avatar_usage['duration_sec_estimated_cost'] : null;
+
 		$unfinished_subtopics = array_values( (array) ( $continuation['unfinished_subtopics'] ?? [] ) );
 		$whiteboard_used      = ! empty( $workspace['whiteboard_used'] );
 		$notepad_used         = ! empty( $workspace['notepad_used'] );
@@ -185,6 +190,12 @@ class Plugnmeet_AiSummaryHelper {
 				'total_completion_tokens'          => $total_completion,
 				'total_tokens'                     => $total_tokens,
 				'estimated_cost'                   => number_format( $estimated_cost, 4 ),
+
+				'has_avatar_usage'                 => $avatar_duration_sec > 0,
+				'avatar_duration_sec'              => $avatar_duration_sec,
+				'avatar_duration_formatted'        => $this->format_duration( $avatar_duration_sec ),
+				'has_avatar_cost'                  => null !== $avatar_cost,
+				'avatar_estimated_cost'            => number_format( (float) $avatar_cost, 4 ),
 		];
 	}
 
@@ -252,6 +263,11 @@ class Plugnmeet_AiSummaryHelper {
 			$rows[ __( 'Accuracy', 'plugnmeet' ) ]        = $data['quiz_accuracy'] . '%';
 		}
 
+		if ( ! empty( $data['has_avatar_usage'] ) ) {
+			$rows[ __( 'Avatar duration', 'plugnmeet' ) ]       = $data['avatar_duration_formatted'];
+			$rows[ __( 'Avatar estimated cost', 'plugnmeet' ) ] = $data['avatar_estimated_cost'];
+		}
+
 		$row_index = 1;
 		foreach ( $rows as $label => $value ) {
 			$sheet->getCell( 'A' . $row_index )->setValue( $label );
@@ -262,7 +278,7 @@ class Plugnmeet_AiSummaryHelper {
 	}
 
 	private function format_usage_xlsx( $spreadsheet, $header_style, $data ) {
-		if ( empty( $data['usage_rows'] ) ) {
+		if ( empty( $data['usage_rows'] ) && empty( $data['has_avatar_usage'] ) ) {
 			return;
 		}
 
@@ -273,34 +289,55 @@ class Plugnmeet_AiSummaryHelper {
 			$sheet->getColumnDimension( $col )->setWidth( 18 );
 		}
 
-		$headers = array(
-				__( 'Role', 'plugnmeet' ),
-				__( 'Prompt tokens', 'plugnmeet' ),
-				__( 'Completion tokens', 'plugnmeet' ),
-				__( 'Total tokens', 'plugnmeet' ),
-				__( 'Estimated cost', 'plugnmeet' ),
-		);
-		foreach ( $headers as $i => $title ) {
-			$sheet->getCell( chr( 65 + $i ) . '1' )->setValue( $title );
-		}
-		$sheet->getStyle( 'A1:E1' )->applyFromArray( $header_style );
+		$row_index = 1;
+		if ( ! empty( $data['usage_rows'] ) ) {
+			$headers = array(
+					__( 'Role', 'plugnmeet' ),
+					__( 'Prompt tokens', 'plugnmeet' ),
+					__( 'Completion tokens', 'plugnmeet' ),
+					__( 'Total tokens', 'plugnmeet' ),
+					__( 'Estimated cost', 'plugnmeet' ),
+			);
+			foreach ( $headers as $i => $title ) {
+				$sheet->getCell( chr( 65 + $i ) . '1' )->setValue( $title );
+			}
+			$sheet->getStyle( 'A1:E1' )->applyFromArray( $header_style );
 
-		$row_index = 2;
-		foreach ( $data['usage_rows'] as $row ) {
-			$sheet->getCell( 'A' . $row_index )->setValue( $row['role'] );
-			$sheet->getCell( 'B' . $row_index )->setValue( $row['prompt_tokens'] );
-			$sheet->getCell( 'C' . $row_index )->setValue( $row['completion_tokens'] );
-			$sheet->getCell( 'D' . $row_index )->setValue( $row['total_tokens'] );
-			$sheet->getCell( 'E' . $row_index )->setValue( $row['cost'] );
+			$row_index = 2;
+			foreach ( $data['usage_rows'] as $row ) {
+				$sheet->getCell( 'A' . $row_index )->setValue( $row['role'] );
+				$sheet->getCell( 'B' . $row_index )->setValue( $row['prompt_tokens'] );
+				$sheet->getCell( 'C' . $row_index )->setValue( $row['completion_tokens'] );
+				$sheet->getCell( 'D' . $row_index )->setValue( $row['total_tokens'] );
+				$sheet->getCell( 'E' . $row_index )->setValue( $row['cost'] );
+				$row_index ++;
+			}
+
+			$sheet->getCell( 'A' . $row_index )->setValue( __( 'Total', 'plugnmeet' ) );
+			$sheet->getCell( 'B' . $row_index )->setValue( $data['total_prompt_tokens'] );
+			$sheet->getCell( 'C' . $row_index )->setValue( $data['total_completion_tokens'] );
+			$sheet->getCell( 'D' . $row_index )->setValue( $data['total_tokens'] );
+			$sheet->getCell( 'E' . $row_index )->setValue( (float) $data['estimated_cost'] );
+			$sheet->getStyle( 'A' . $row_index . ':E' . $row_index )->getFont()->setBold( true );
+			$row_index += 2;
+		}
+
+		if ( ! empty( $data['has_avatar_usage'] ) ) {
+			$sheet->getCell( 'A' . $row_index )->setValue( __( 'Avatar usage', 'plugnmeet' ) );
+			$sheet->getStyle( 'A' . $row_index . ':B' . $row_index )->getFont()->setBold( true );
 			$row_index ++;
-		}
 
-		$sheet->getCell( 'A' . $row_index )->setValue( __( 'Total', 'plugnmeet' ) );
-		$sheet->getCell( 'B' . $row_index )->setValue( $data['total_prompt_tokens'] );
-		$sheet->getCell( 'C' . $row_index )->setValue( $data['total_completion_tokens'] );
-		$sheet->getCell( 'D' . $row_index )->setValue( $data['total_tokens'] );
-		$sheet->getCell( 'E' . $row_index )->setValue( (float) $data['estimated_cost'] );
-		$sheet->getStyle( 'A' . $row_index . ':E' . $row_index )->getFont()->setBold( true );
+			$avatar_rows = array( __( 'Avatar duration', 'plugnmeet' ) => $data['avatar_duration_formatted'] );
+			if ( ! empty( $data['has_avatar_cost'] ) ) {
+				$avatar_rows[ __( 'Avatar estimated cost', 'plugnmeet' ) ] = (float) $data['avatar_estimated_cost'];
+			}
+
+			foreach ( $avatar_rows as $label => $value ) {
+				$sheet->getCell( 'A' . $row_index )->setValue( $label );
+				$sheet->getCell( 'B' . $row_index )->setValue( $value );
+				$row_index ++;
+			}
+		}
 	}
 
 	private function format_quiz_xlsx( $spreadsheet, $header_style, $data ) {
@@ -372,6 +409,22 @@ class Plugnmeet_AiSummaryHelper {
 		}
 
 		return wp_date( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ), (int) floor( $milliseconds / 1000 ) );
+	}
+
+	private function format_duration( int $seconds ): string {
+		$seconds = max( 0, $seconds );
+		$hours   = (int) floor( $seconds / 3600 );
+		$minutes = (int) floor( ( $seconds % 3600 ) / 60 );
+		$rest    = $seconds % 60;
+
+		if ( $hours > 0 ) {
+			return sprintf( '%dh %dm %ds', $hours, $minutes, $rest );
+		}
+		if ( $minutes > 0 ) {
+			return sprintf( '%dm %ds', $minutes, $rest );
+		}
+
+		return sprintf( '%ds', $rest );
 	}
 
 	private function mastery_badge_class( $level ) {

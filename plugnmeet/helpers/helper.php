@@ -137,6 +137,8 @@ class PlugnmeetHelper {
 		"insights_features.ai_features"               => "AI features",
 		// empty title means: render the nested fields without a header row
 		"insights_features.ai_agent_features.auto_session_config" => "",
+		"insights_features.ai_agent_features.avatar"          => "",
+		"insights_features.ai_agent_features.activity_rules"  => "",
 	);
 
 	private static function buildFieldId( $dottedPath ) {
@@ -1140,6 +1142,14 @@ class PlugnmeetHelper {
 			$data = $insights_features['ai_agent_features'];
 		}
 
+		// Rooms saved before the switch to minutes only stored seconds.
+		if ( ! isset( $data['max_session_minutes'] ) && ! empty( $data['max_session_seconds'] ) ) {
+			$data['max_session_minutes'] = max( 1, (int) round( ( (int) $data['max_session_seconds'] ) / 60 ) );
+		}
+
+		$max_minutes_limit = isset( $settings['ai_max_session_minutes_limit'] ) ? min( 120, max( 1, (int) $settings['ai_max_session_minutes_limit'] ) ) : 60;
+		$default_minutes   = isset( $settings['ai_default_max_session_minutes'] ) ? max( 1, min( $max_minutes_limit, (int) $settings['ai_default_max_session_minutes'] ) ) : min( 30, $max_minutes_limit );
+
 		$presets = array();
 		foreach ( self::getAiAgentPresets() as $value => $preset ) {
 			$presets[] = array( 'label' => $preset['label'], 'value' => $value );
@@ -1177,6 +1187,21 @@ class PlugnmeetHelper {
 					'html' => self::allowedParticipantsRow( $data ),
 				),
 			),
+		);
+
+		if ( ! empty( $settings['ai_avatar_enabled_global'] ) ) {
+			$fields['avatar'] = array(
+				'is_enabled' => array(
+					'label'     => __( 'Enable a talking avatar', 'plugnmeet' ),
+					'options'   => self::yesNoOptions(),
+					'selected'  => 0,
+					'type'      => 'select',
+					'row_class' => 'pnm-ai-agent-detail',
+				),
+			);
+		}
+
+		$fields = array_merge( $fields, array(
 			'preset_template'     => array(
 				'label'     => __( 'Preset instructions', 'plugnmeet' ),
 				'options'   => $presets,
@@ -1204,53 +1229,17 @@ class PlugnmeetHelper {
 				'type'      => 'textarea',
 				'row_class' => 'pnm-ai-agent-detail',
 			),
-		);
-
-		if ( self::hasEnabledMcpServer( $settings ) ) {
-			$fields['enable_mcp_servers'] = array(
-				'label'     => __( 'Enable MCP servers', 'plugnmeet' ),
-				'options'   => self::yesNoOptions(),
-				'selected'  => 1,
-				'type'      => 'select',
-				'row_class' => 'pnm-ai-agent-detail',
-			);
-		}
-
-		$fields = array_merge( $fields, array(
-			'guardrails_section'         => array(
-				'type'      => 'section',
-				'row_class' => 'pnm-ai-agent-detail',
-				'label'     => __( 'Topic boundaries & guardrails', 'plugnmeet' ),
-			),
-			'allowed_subtopics'          => array(
-				'label'     => __( 'Allowed subtopics', 'plugnmeet' ),
-				'default'   => '',
-				'rows'      => 3,
-				'type'      => 'textarea',
-				'row_class' => 'pnm-ai-agent-detail',
-			),
-			'forbidden_topics'           => array(
-				'label'     => __( 'Forbidden topics', 'plugnmeet' ),
-				'default'   => '',
-				'rows'      => 3,
-				'type'      => 'textarea',
-				'row_class' => 'pnm-ai-agent-detail',
-			),
-			'strict_topic_enforcement'   => array(
-				'label'     => __( 'Strict topic enforcement', 'plugnmeet' ),
-				'options'   => self::yesNoOptions(),
-				'selected'  => 1,
-				'type'      => 'select',
-				'row_class' => 'pnm-ai-agent-detail',
-			),
-			'topic_anchor_interval_turns' => array(
-				'label'     => __( 'Topic reminder interval (turns)', 'plugnmeet' ),
-				'default'   => 5,
-				'min'       => 3,
-				'max'       => 12,
+			'max_session_minutes' => array(
+				'label'     => __( 'Maximum session duration (minutes)', 'plugnmeet' ),
+				'default'   => $default_minutes,
+				'min'       => 1,
+				'max'       => $max_minutes_limit,
 				'type'      => 'number',
 				'row_class' => 'pnm-ai-agent-detail',
 			),
+		) );
+
+		$fields = array_merge( $fields, array(
 			'language_section'           => array(
 				'type'      => 'section',
 				'row_class' => 'pnm-ai-agent-detail',
@@ -1354,27 +1343,97 @@ class PlugnmeetHelper {
 			);
 		}
 
+		if ( self::hasEnabledMcpServer( $settings ) ) {
+			$workspace['enable_mcp_servers'] = array(
+				'label'     => __( 'Enable MCP servers', 'plugnmeet' ),
+				'options'   => self::yesNoOptions(),
+				'selected'  => 1,
+				'type'      => 'select',
+				'row_class' => 'pnm-ai-agent-detail',
+			);
+		}
+
 		$fields = array_merge( $fields, $workspace, array(
-			'session_limits_section' => array(
+			'guardrails_section'          => array(
 				'type'      => 'section',
 				'row_class' => 'pnm-ai-agent-detail',
-				'label'     => __( 'Session limits', 'plugnmeet' ),
+				'label'     => __( 'Topic boundaries & guardrails', 'plugnmeet' ),
 			),
-			'max_session_seconds'    => array(
-				'label'     => __( 'Maximum session duration (seconds)', 'plugnmeet' ),
-				'default'   => isset( $settings['ai_default_max_session_seconds'] ) ? (int) $settings['ai_default_max_session_seconds'] : 1800,
-				'min'       => 60,
-				'max'       => isset( $settings['ai_max_session_seconds_limit'] ) ? (int) $settings['ai_max_session_seconds_limit'] : 3600,
+			'allowed_subtopics'           => array(
+				'label'     => __( 'Allowed subtopics', 'plugnmeet' ),
+				'default'   => '',
+				'rows'      => 3,
+				'type'      => 'textarea',
+				'row_class' => 'pnm-ai-agent-detail',
+			),
+			'forbidden_topics'            => array(
+				'label'     => __( 'Forbidden topics', 'plugnmeet' ),
+				'default'   => '',
+				'rows'      => 3,
+				'type'      => 'textarea',
+				'row_class' => 'pnm-ai-agent-detail',
+			),
+			'strict_topic_enforcement'    => array(
+				'label'     => __( 'Strict topic enforcement', 'plugnmeet' ),
+				'options'   => self::yesNoOptions(),
+				'selected'  => 1,
+				'type'      => 'select',
+				'row_class' => 'pnm-ai-agent-detail',
+			),
+			'topic_anchor_interval_turns' => array(
+				'label'     => __( 'Topic reminder interval (turns)', 'plugnmeet' ),
+				'default'   => 5,
+				'min'       => 3,
+				'max'       => 12,
 				'type'      => 'number',
 				'row_class' => 'pnm-ai-agent-detail',
 			),
-			'max_audio_minutes'      => array(
-				'label'     => __( 'Maximum audio minutes', 'plugnmeet' ),
-				'default'   => isset( $settings['ai_default_max_audio_minutes'] ) ? (int) $settings['ai_default_max_audio_minutes'] : 25,
-				'min'       => 1,
-				'max'       => isset( $settings['ai_max_audio_minutes_limit'] ) ? (int) $settings['ai_max_audio_minutes_limit'] : 60,
-				'type'      => 'number',
+			'activity_rules_section'      => array(
+				'label'     => __( 'Mandatory agent actions & milestones', 'plugnmeet' ),
+				'type'      => 'section',
 				'row_class' => 'pnm-ai-agent-detail',
+			),
+			'activity_rules'              => array(
+				'min_whiteboard_drawings'   => array(
+					'label'     => __( 'Minimum whiteboard drawings', 'plugnmeet' ),
+					'default'   => 0,
+					'min'       => 0,
+					'max'       => 20,
+					'type'      => 'number',
+					'row_class' => 'pnm-ai-agent-detail',
+				),
+				'min_quizzes'               => array(
+					'label'     => __( 'Minimum quizzes', 'plugnmeet' ),
+					'default'   => 0,
+					'min'       => 0,
+					'max'       => 20,
+					'type'      => 'number',
+					'row_class' => 'pnm-ai-agent-detail',
+				),
+				'min_notepad_entries'       => array(
+					'label'     => __( 'Minimum notepad entries', 'plugnmeet' ),
+					'default'   => 0,
+					'min'       => 0,
+					'max'       => 20,
+					'type'      => 'number',
+					'row_class' => 'pnm-ai-agent-detail',
+				),
+				'min_participant_exercises' => array(
+					'label'     => __( 'Minimum participant exercises', 'plugnmeet' ),
+					'default'   => 0,
+					'min'       => 0,
+					'max'       => 20,
+					'type'      => 'number',
+					'row_class' => 'pnm-ai-agent-detail',
+				),
+				'required_milestones'       => array(
+					'label'       => __( 'Required milestones (one per line)', 'plugnmeet' ),
+					'default'     => '',
+					'rows'        => 3,
+					'placeholder' => __( "Understand the problem statement\nComplete a practice example", 'plugnmeet' ),
+					'type'        => 'textarea',
+					'row_class'   => 'pnm-ai-agent-detail',
+				),
 			),
 		) );
 
@@ -1474,6 +1533,7 @@ class PlugnmeetHelper {
 		$room_metadata['room_features'] = isset( $room_metadata['room_features'] ) && is_array( $room_metadata['room_features'] ) ? $room_metadata['room_features'] : array();
 		$room_metadata['room_features']['auto_gen_user_id'] = false;
 		$room_metadata['room_features']['breakout_room_features']['is_allow'] = true;
+		$room_metadata['room_features']['end_to_end_encryption_features']['is_enabled'] = false;
 		$room_metadata['room_features']['end_to_end_encryption_features']['enabled_self_insert_encryption_key'] = false;
 		$room_metadata['breakout_room_features']['is_allow'] = true;
 		$room_metadata['end_to_end_encryption_features']['enabled_self_insert_encryption_key'] = false;
@@ -1539,13 +1599,78 @@ class PlugnmeetHelper {
 		$speaking_rate                     = (float) ( $ai['speaking_rate'] ?? 1.0 );
 		$ai['speaking_rate']               = max( 0.5, min( 2.0, $speaking_rate > 0 ? $speaking_rate : 1.0 ) );
 
-		$seconds_limit   = max( 60, (int) ( $settings['ai_max_session_seconds_limit'] ?? 3600 ) );
-		$default_seconds = min( $seconds_limit, (int) ( $settings['ai_default_max_session_seconds'] ?? 1800 ) );
-		$ai['max_session_seconds'] = (int) max( 60, min( $seconds_limit, (int) ( $ai['max_session_seconds'] ?? $default_seconds ) ) );
+		// One duration in minutes drives the session, the AI audio budget and the avatar budget.
+		$minutes_limit   = min( 120, max( 1, (int) ( $settings['ai_max_session_minutes_limit'] ?? 60 ) ) );
+		$default_minutes = max( 1, min( $minutes_limit, (int) ( $settings['ai_default_max_session_minutes'] ?? 30 ) ) );
+		if ( isset( $ai['max_session_minutes'] ) ) {
+			$session_minutes = (int) $ai['max_session_minutes'];
+		} elseif ( isset( $ai['max_session_seconds'] ) ) {
+			$session_minutes = (int) round( ( (int) $ai['max_session_seconds'] ) / 60 );
+		} else {
+			$session_minutes = $default_minutes;
+		}
+		$session_minutes = max( 1, min( $minutes_limit, $session_minutes ) );
+		unset( $ai['max_session_minutes'] );
+		$ai['max_session_seconds'] = $session_minutes * 60;
+		$ai['max_audio_minutes']   = $session_minutes;
 
-		$audio_limit   = min( 240, max( 1, (int) ( $settings['ai_max_audio_minutes_limit'] ?? 60 ) ) );
-		$default_audio = min( $audio_limit, (int) ( $settings['ai_default_max_audio_minutes'] ?? 25 ) );
-		$ai['max_audio_minutes'] = (int) max( 1, min( $audio_limit, (int) ( $ai['max_audio_minutes'] ?? $default_audio ) ) );
+		if ( ! empty( $settings['ai_avatar_enabled_global'] ) && is_array( $ai['avatar'] ?? null ) && ! empty( $ai['avatar']['is_enabled'] ) ) {
+			$avatar    = array(
+				'is_enabled'         => true,
+				'max_avatar_minutes' => $session_minutes,
+			);
+			$providers = array( 'beyond_presence', 'anam', 'simli' );
+
+			$avatar_provider = ! empty( $settings['ai_avatar_custom_enabled'] )
+				? (string) ( $settings['ai_avatar_provider'] ?? '' ) : '';
+			if ( in_array( $avatar_provider, $providers, true ) ) {
+				$avatar['provider'] = $avatar_provider;
+			}
+
+			if ( ! empty( $settings['ai_avatar_custom_enabled'] ) ) {
+				$avatar_id = mb_substr( trim( (string) ( $settings['ai_avatar_id'] ?? '' ) ), 0, 256 );
+				if ( '' !== $avatar_id ) {
+					$avatar['avatar_id'] = $avatar_id;
+				}
+			}
+
+			if ( ! empty( $settings['ai_avatar_custom_enabled'] ) && '' !== trim( (string) ( $settings['ai_avatar_api_key'] ?? '' ) ) ) {
+				$avatar['api_key'] = trim( (string) $settings['ai_avatar_api_key'] );
+				foreach ( array(
+					'endpoint'    => 'ai_avatar_endpoint',
+					'auth_header' => 'ai_avatar_auth_header',
+				) as $key => $setting_key ) {
+					$val = trim( (string) ( $settings[ $setting_key ] ?? '' ) );
+					if ( '' !== $val ) {
+						$avatar[ $key ] = $val;
+					}
+				}
+			}
+
+			$ai['avatar'] = $avatar;
+		} else {
+			unset( $ai['avatar'] );
+		}
+
+		// Activity quotas are meaningless without the matching tool.
+		$rules         = isset( $ai['activity_rules'] ) && is_array( $ai['activity_rules'] ) ? $ai['activity_rules'] : array();
+		$min_wb        = $ai['allow_whiteboard_write'] ? max( 0, min( 20, (int) ( $rules['min_whiteboard_drawings'] ?? 0 ) ) ) : 0;
+		$min_quizzes   = $ai['allow_polls'] ? max( 0, min( 20, (int) ( $rules['min_quizzes'] ?? 0 ) ) ) : 0;
+		$min_notepad   = $ai['allow_notepad_write'] ? max( 0, min( 20, (int) ( $rules['min_notepad_entries'] ?? 0 ) ) ) : 0;
+		$min_exercises = max( 0, min( 20, (int) ( $rules['min_participant_exercises'] ?? 0 ) ) );
+		$milestones    = self::parseStringList( $rules['required_milestones'] ?? '', 16, 240 );
+
+		if ( $min_wb > 0 || $min_quizzes > 0 || $min_notepad > 0 || $min_exercises > 0 || ! empty( $milestones ) ) {
+			$ai['activity_rules'] = array(
+				'min_whiteboard_drawings'   => $min_wb,
+				'min_quizzes'               => $min_quizzes,
+				'min_notepad_entries'       => $min_notepad,
+				'min_participant_exercises' => $min_exercises,
+				'required_milestones'       => $milestones,
+			);
+		} else {
+			unset( $ai['activity_rules'] );
+		}
 
 		$custom_provider = self::buildCustomProviderConfig( $settings );
 		if ( $custom_provider ) {

@@ -204,6 +204,24 @@
         $card.find('tr.pnm-ai-agent-multi').toggle(aiMode && !controlled);
         $card.find('tr.pnm-ai-agent-participants').toggle(controlled);
         $card.find('tr.pnm-ai-agent-detail').toggle(agentOn);
+        updateAiActivityRuleQuotas();
+    }
+
+    function updateAiActivityRuleQuotas() {
+        const toolQuotaMap = {
+            'allow_whiteboard_write': 'activity_rules][min_whiteboard_drawings',
+            'allow_polls': 'activity_rules][min_quizzes',
+            'allow_notepad_write': 'activity_rules][min_notepad_entries',
+        };
+
+        $.each(toolQuotaMap, function (toolField, quotaField) {
+            const $tool = aiAgentField(toolField);
+            const $quota = aiAgentField(quotaField);
+
+            if ($tool.length && $quota.length) {
+                $quota.prop('disabled', $tool.val() === '0');
+            }
+        });
     }
 
     function selectedUserIds() {
@@ -305,10 +323,27 @@
         }
     }
 
+    // Hides the BYOK credential/model rows while the matching toggle is set to "No".
+    function toggleByokFields(toggleId, dependentIds) {
+        const $toggle = $(toggleId);
+        if (!$toggle.length) {
+            return;
+        }
+        const enabled = $toggle.val() === '1';
+        dependentIds.forEach(function (id) {
+            $(id).closest('tr').toggle(enabled);
+        });
+    }
+
+    const avatarByokFields = ['#ai_avatar_provider', '#ai_avatar_id', '#ai_avatar_api_key', '#ai_avatar_endpoint', '#ai_avatar_auth_header'];
+    const customProviderByokFields = ['#ai_custom_provider', '#ai_custom_api_key', '#ai_custom_endpoint', '#ai_custom_auth_header', '#ai_custom_realtime_model', '#ai_custom_delegation_model', '#ai_custom_summarize_model'];
+
     $(document).ready(function () {
         $('.pnm-color-picker').wpColorPicker();
         toggleDisplayClientDownloadUrl($("#client_load").val())
         toggleFrontendColorFields($("#frontend_theme").val())
+        toggleByokFields("#ai_avatar_custom_enabled", avatarByokFields)
+        toggleByokFields("#ai_custom_provider_enabled", customProviderByokFields)
 
         const urlParams = new URLSearchParams(window.location.search);
         const roomId = urlParams.get('id');
@@ -363,7 +398,17 @@
             .forEach(function (field) {
                 aiAgentField(field).val('1');
             });
+
+        updateAiActivityRuleQuotas();
     })
+
+    $(document).on(
+        "change",
+        [ '[name="' + AI_AGENT_PREFIX + '[allow_whiteboard_write]"]',
+          '[name="' + AI_AGENT_PREFIX + '[allow_polls]"]',
+          '[name="' + AI_AGENT_PREFIX + '[allow_notepad_write]"]' ].join(', '),
+        updateAiActivityRuleQuotas
+    )
 
     $(document).on("click", "#pnm-select-users", function (e) {
         e.preventDefault();
@@ -404,6 +449,14 @@
 
     $(document).on("change", "#frontend_theme", (e) => {
         toggleFrontendColorFields($(e.target).val())
+    })
+
+    $(document).on("change", "#ai_avatar_custom_enabled", () => {
+        toggleByokFields("#ai_avatar_custom_enabled", avatarByokFields)
+    })
+
+    $(document).on("change", "#ai_custom_provider_enabled", () => {
+        toggleByokFields("#ai_custom_provider_enabled", customProviderByokFields)
     })
 
     // Collapsible card logic. Toggling is data-attribute/CSS based only,
